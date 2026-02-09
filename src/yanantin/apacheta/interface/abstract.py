@@ -85,6 +85,9 @@ class ApachetaInterface(ABC):
     def get_strand(self, tensor_id: UUID, strand_index: int) -> TensorRecord: ...
 
     @abstractmethod
+    def get_entity(self, entity_id: UUID) -> EntityResolution: ...
+
+    @abstractmethod
     def list_tensors(self) -> list[TensorRecord]: ...
 
     # ── Query Operations ─────────────────────────────────────────
@@ -196,6 +199,10 @@ class ApachetaInterface(ABC):
     def query_loss_patterns(self) -> list[dict]:
         """Q20: Loss patterns across tensors."""
         ...
+
+    # Entity queries
+    @abstractmethod
+    def query_entities_by_uuid(self, entity_uuid: UUID) -> list[EntityResolution]: ...
 
     # ── Record Counts (for monotonicity verification) ────────────
 

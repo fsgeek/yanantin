@@ -151,6 +151,13 @@ class InMemoryBackend(ApachetaInterface):
                 open_questions=tensor.open_questions,
             )
 
+    def get_entity(self, entity_id: UUID) -> EntityResolution:
+        with self._lock:
+            self._enforce_access("system", "get_entity", entity_id)
+            if entity_id not in self._entities:
+                raise NotFoundError(f"EntityResolution {entity_id} not found.")
+            return self._deep_copy(self._entities[entity_id])
+
     def list_tensors(self) -> list[TensorRecord]:
         with self._lock:
             return list(self._tensors.values())
@@ -314,7 +321,18 @@ class InMemoryBackend(ApachetaInterface):
 
     def query_anti_patterns(self) -> list[dict]:
         with self._lock:
-            return self.query_error_classes()
+            # Anti-patterns are a strict subset of error classes
+            results = []
+            for tensor in self._tensors.values():
+                for strand in tensor.strands:
+                    for topic in strand.topics:
+                        if "anti-pattern" in topic.lower():
+                            results.append({
+                                "tensor_id": tensor.id,
+                                "strand": strand.title,
+                                "topic": topic,
+                            })
+            return results
 
     def query_authorship(self, tensor_id: UUID) -> dict:
         with self._lock:
@@ -378,6 +396,15 @@ class InMemoryBackend(ApachetaInterface):
             return [
                 {"category": cat, "count": count}
                 for cat, count in sorted(by_category.items())
+            ]
+
+    def query_entities_by_uuid(self, entity_uuid: UUID) -> list[EntityResolution]:
+        with self._lock:
+            self._enforce_access("system", "query_entities_by_uuid", entity_uuid)
+            return [
+                self._deep_copy(entity)
+                for entity in self._entities.values()
+                if entity.entity_uuid == entity_uuid
             ]
 
     # ── Record Counts ────────────────────────────────────────────

@@ -195,6 +195,48 @@ class TestEntityResolutionStorage:
         counts = backend.count_records()
         assert counts["entities"] == 1
 
+    def test_get_entity_roundtrip(self, backend):
+        entity = EntityResolution(
+            entity_uuid=uuid4(),
+            identity_type="ai_instance",
+            identity_data={"model": "claude-3-opus"},
+        )
+        backend.store_entity(entity)
+
+        retrieved = backend.get_entity(entity.id)
+
+        assert retrieved.id == entity.id
+        assert retrieved.entity_uuid == entity.entity_uuid
+        assert retrieved.identity_data["model"] == "claude-3-opus"
+
+    def test_get_entity_not_found(self, backend):
+        with pytest.raises(NotFoundError):
+            backend.get_entity(uuid4())
+
+    def test_query_entities_by_uuid(self, backend):
+        shared_uuid = uuid4()
+        entity_a = EntityResolution(
+            entity_uuid=shared_uuid,
+            identity_type="ai_instance",
+            identity_data={"label": "first"},
+        )
+        entity_b = EntityResolution(
+            entity_uuid=shared_uuid,
+            identity_type="ai_instance",
+            identity_data={"label": "second"},
+        )
+        backend.store_entity(entity_a)
+        backend.store_entity(entity_b)
+
+        matches = backend.query_entities_by_uuid(shared_uuid)
+
+        assert {match.id for match in matches} == {entity_a.id, entity_b.id}
+
+    def test_query_entities_by_uuid_empty(self, backend):
+        matches = backend.query_entities_by_uuid(uuid4())
+
+        assert matches == []
+
 
 class TestQueryOperations:
     def test_query_claims_about(self, backend, sample_tensor):
@@ -356,11 +398,19 @@ class TestUntestedQueries:
 
         assert any(match["topic"] == "error: indexing" for match in matches)
 
-    def test_query_anti_patterns_delegates_to_error_classes(self, backend):
+    def test_query_anti_patterns_is_subset_of_error_classes(self, backend):
         tensor = TensorRecord(
             strands=[
                 StrandRecord(
                     strand_index=0,
+                    title="Indexing Failures",
+                    topics=["error: indexing"],
+                    key_claims=[
+                        KeyClaim(text="Index carefully", epistemic=EpistemicMetadata(truth=0.6)),
+                    ],
+                ),
+                StrandRecord(
+                    strand_index=1,
                     title="Failure Taxonomy",
                     topics=["anti-pattern: coupling"],
                     key_claims=[
@@ -374,7 +424,13 @@ class TestUntestedQueries:
         errors = backend.query_error_classes()
         anti_patterns = backend.query_anti_patterns()
 
-        assert anti_patterns == errors
+        error_topics = {match["topic"] for match in errors}
+        anti_topics = {match["topic"] for match in anti_patterns}
+
+        assert "error: indexing" in error_topics
+        assert "anti-pattern: coupling" in error_topics
+        assert anti_topics == {"anti-pattern: coupling"}
+        assert anti_topics <= error_topics
 
     def test_query_lineage_empty_tags(self, backend):
         tensor = TensorRecord(lineage_tags=())

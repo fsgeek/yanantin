@@ -127,7 +127,13 @@ class InMemoryBackend(ApachetaInterface):
             return self._deep_copy(self._tensors[tensor_id])
 
     def get_strand(self, tensor_id: UUID, strand_index: int) -> TensorRecord:
-        """Returns the tensor containing only the requested strand."""
+        """Returns a projection of the tensor containing only the requested strand.
+
+        The returned TensorRecord shares the source tensor's UUID — it is a
+        view, not a new entity. This is intentional: a strand carries its
+        tensor's provenance. Storing the result would raise ImmutabilityError
+        (duplicate UUID), which is the correct guard.
+        """
         with self._lock:
             tensor = self.get_tensor(tensor_id)
             matching = [s for s in tensor.strands if s.strand_index == strand_index]

@@ -77,6 +77,35 @@ class TestStoreAndRetrieve:
         assert len(result.strands) == 1
         assert result.strands[0].title == "Test Strand"
 
+    def test_get_strand_shares_source_uuid(self, backend, sample_tensor):
+        source_tensor = sample_tensor.model_copy(
+            update={
+                "strands": sample_tensor.strands
+                + (
+                    StrandRecord(
+                        strand_index=1,
+                        title="Second Strand",
+                        topics=["testing"],
+                        key_claims=[
+                            KeyClaim(
+                                text="Views keep provenance intact",
+                                epistemic=EpistemicMetadata(truth=0.9),
+                            ),
+                        ],
+                    ),
+                )
+            }
+        )
+        backend.store_tensor(source_tensor)
+        strand_tensor = backend.get_strand(source_tensor.id, 0)
+
+        assert strand_tensor.id == source_tensor.id
+        assert len(source_tensor.strands) == 2
+        assert len(strand_tensor.strands) == 1
+
+        with pytest.raises(ImmutabilityError):
+            backend.store_tensor(strand_tensor)
+
     def test_get_nonexistent_tensor(self, backend):
         with pytest.raises(NotFoundError):
             backend.get_tensor(uuid4())

@@ -23,6 +23,10 @@ All currently stored in:
 | T₅ | `conversation_tensor_20260208_chatgpt_t5.md` | Feb 8 | ChatGPT, authorship/projection theory |
 | T₆ | `conversation_tensor_20260207_session2_t6.md` | Feb 8 | T₁ instance receiving T₄-T₅; bridge tensor |
 | T₇ | `conversation_tensor_20260208_session2_t7.md` | Feb 8 | Finishing school, dissertation+code scouring, tensor database |
+| T₈ | `conversation_tensor_20260208_t8.md` | Feb 8 | First Yanantin instance, foundation laying, role swap, scout deployment |
+
+T₈ is stored in the Yanantin memory directory:
+`/home/tony/.claude/projects/-home-tony-projects-yanantin/memory/`
 
 ## Lineages
 
@@ -33,6 +37,7 @@ Tensors are not a single sequence. They belong to lineages:
 - **Mallku/Observability**: T₃ (field metaphor, fermentation, reframe)
 - **Cross-model**: T₄, T₅ (ChatGPT instances reading Claude tensors)
 - **Composite**: T₇ (first instance to hold all prior tensors)
+- **Yanantin**: T₈ (first instance in the new project, Master Builder)
 
 T₆ is a bridge: it connects the architectural lineage (T₁) with the
 theoretical framework (T₄, T₅).

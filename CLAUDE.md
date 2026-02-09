@@ -47,6 +47,45 @@ These aren't orders. They're how we keep the campsite livable.
 - Commits are signed. AI commits use the project's AI signing key
   (see `docs/signing.md`). This isn't ceremony — it's provenance.
 
+## Operational Principles
+
+These emerged from failures across predecessor projects. They are
+structural, not aspirational — each one exists because something
+broke without it.
+
+### No Theater
+Don't fake functionality. Don't paper over failures. Don't perform
+progress. If something isn't working, say so. Graceful degradation
+that hides critical failures is worse than crashing.
+
+### Fail-Stop
+When infrastructure fails, stop. Don't build mock services to
+simulate a working database. Don't catch exceptions and continue
+with bad state. The correct response to a broken dependency is to
+halt and say what broke.
+
+### Provenance Is Structural
+Every artifact answers "who made this, when, from what context."
+Commits are signed. Tests are authored separately from code.
+Data carries lineage. This isn't documentation — it's architecture.
+
+### Builders Don't Modify Tests
+Code authors and test authors are different roles. A builder who
+can change tests to match broken code will do so. Separation is
+enforced by signed commits and CI, not by instruction alone.
+
+### Log Before You Parse
+When processing external data (API responses, database queries,
+tensor reads), log the raw input before attempting to parse it.
+If parsing fails, the raw data survives for debugging. Three
+experiments died in PromptGuard because this wasn't done.
+
+### Test the Boundaries, Not Just the Code
+Red-bar tests verify structural invariants: database ports aren't
+exposed, the gateway is the only entry point, test files weren't
+modified by builders. These are Pukara's domain — defense by
+architecture, verified continuously.
+
 ## Setup
 
 ```bash

@@ -1,7 +1,19 @@
 [project]
 name = "yanantin"
 version = "0.1.0"
-description = "Add your description here"
+description = "Complementary duality between human and AI — composable tensor infrastructure"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "opentimestamps>=0.4.5",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.backends"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/yanantin"]

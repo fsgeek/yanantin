@@ -166,7 +166,7 @@ class InMemoryBackend(ApachetaInterface):
 
     def list_tensors(self) -> list[TensorRecord]:
         with self._lock:
-            return list(self._tensors.values())
+            return [self._deep_copy(t) for t in self._tensors.values()]
 
     # ── Query Operations ─────────────────────────────────────────
     # Initial implementations: simple filtering. Sophistication comes
@@ -175,7 +175,7 @@ class InMemoryBackend(ApachetaInterface):
     def query_tensors_for_budget(self, budget: float) -> list[TensorRecord]:
         with self._lock:
             # Simple: return all tensors. Budget optimization is future work.
-            return list(self._tensors.values())
+            return [self._deep_copy(t) for t in self._tensors.values()]
 
     def query_operational_principles(self) -> list[str]:
         with self._lock:
@@ -226,7 +226,7 @@ class InMemoryBackend(ApachetaInterface):
     def query_correction_chain(self, claim_id: UUID) -> list[CorrectionRecord]:
         with self._lock:
             return [
-                c for c in self._corrections.values()
+                self._deep_copy(c) for c in self._corrections.values()
                 if c.target_claim_id == claim_id
             ]
 
@@ -269,7 +269,7 @@ class InMemoryBackend(ApachetaInterface):
 
     def query_composition_graph(self) -> list[CompositionEdge]:
         with self._lock:
-            return list(self._edges.values())
+            return [self._deep_copy(e) for e in self._edges.values()]
 
     def query_lineage(self, tensor_id: UUID) -> list[TensorRecord]:
         with self._lock:
@@ -278,14 +278,14 @@ class InMemoryBackend(ApachetaInterface):
             tensor = self._tensors[tensor_id]
             lineage_tags = set(tensor.lineage_tags)
             return [
-                t for t in self._tensors.values()
+                self._deep_copy(t) for t in self._tensors.values()
                 if set(t.lineage_tags) & lineage_tags
             ]
 
     def query_bridges(self) -> list[CompositionEdge]:
         with self._lock:
             return [
-                e for e in self._edges.values()
+                self._deep_copy(e) for e in self._edges.values()
                 if e.authored_mapping is not None
             ]
 
@@ -360,12 +360,12 @@ class InMemoryBackend(ApachetaInterface):
                     families.setdefault(family, []).append(tensor)
             if len(families) <= 1:
                 return []
-            return list(self._tensors.values())
+            return [self._deep_copy(t) for t in self._tensors.values()]
 
     def query_reading_order(self, lineage_tag: str) -> list[TensorRecord]:
         with self._lock:
             matching = [
-                t for t in self._tensors.values()
+                self._deep_copy(t) for t in self._tensors.values()
                 if lineage_tag in t.lineage_tags
             ]
             return sorted(matching, key=lambda t: t.provenance.timestamp)

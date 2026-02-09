@@ -57,6 +57,38 @@ def sample_tensor():
     )
 
 
+def _make_tensor():
+    return TensorRecord(
+        provenance=ProvenanceEnvelope(
+            author_model_family="claude",
+            timestamp=datetime(2026, 2, 7),
+        ),
+        preamble="Copy check tensor",
+        strands=[
+            StrandRecord(
+                strand_index=0,
+                title="Copy Strand",
+                topics=["copying"],
+                key_claims=[
+                    KeyClaim(
+                        text="Copies should be isolated",
+                        epistemic=EpistemicMetadata(truth=0.9),
+                    ),
+                ],
+            ),
+        ],
+        lineage_tags=["copy-tests"],
+    )
+
+
+def _make_edge():
+    return CompositionEdge(
+        from_tensor=uuid4(),
+        to_tensor=uuid4(),
+        relation_type=RelationType.COMPOSES_WITH,
+    )
+
+
 class TestStoreAndRetrieve:
     def test_store_and_get_tensor(self, backend, sample_tensor):
         backend.store_tensor(sample_tensor)
@@ -521,3 +553,35 @@ class TestUntestedQueries:
         assert results["current_claim"] == "Updated claim"
         assert results["unlearn_claims"] >= 1
         assert results["writer_done"] is True
+
+
+class TestDeepCopyIsolation:
+    """Verify list/query methods return deep copies, not internal references."""
+
+    def test_list_tensors_returns_copies(self):
+        backend = InMemoryBackend()
+        tensor = _make_tensor()
+        backend.store_tensor(tensor)
+        result = backend.list_tensors()
+        # The returned list should contain a copy, not the internal object
+        internal = backend._tensors[tensor.id]
+        assert result[0] is not internal
+        assert result[0].id == internal.id
+
+    def test_query_tensors_for_budget_returns_copies(self):
+        backend = InMemoryBackend()
+        tensor = _make_tensor()
+        backend.store_tensor(tensor)
+        result = backend.query_tensors_for_budget(1.0)
+        internal = backend._tensors[tensor.id]
+        assert result[0] is not internal
+        assert result[0].id == internal.id
+
+    def test_query_composition_graph_returns_copies(self):
+        backend = InMemoryBackend()
+        edge = _make_edge()
+        backend.store_composition_edge(edge)
+        result = backend.query_composition_graph()
+        internal = backend._edges[edge.id]
+        assert result[0] is not internal
+        assert result[0].id == internal.id

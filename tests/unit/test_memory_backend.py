@@ -1,6 +1,7 @@
 """Unit tests for the in-memory backend."""
 
 from datetime import datetime
+import threading
 from uuid import uuid4
 
 import pytest
@@ -313,3 +314,125 @@ class TestQueryOperations:
 
     def test_check_access_always_true(self, backend):
         assert backend.check_access("anyone", "anything") is True
+
+
+class TestUntestedQueries:
+    def test_query_operational_principles(self, backend):
+        tensor = TensorRecord(
+            strands=[
+                StrandRecord(
+                    strand_index=0,
+                    title="Principles",
+                    topics=["operations"],
+                    key_claims=[
+                        KeyClaim(text="Maintain open logs", epistemic=EpistemicMetadata(truth=0.8)),
+                        KeyClaim(text="Prefer simple invariants", epistemic=EpistemicMetadata(truth=0.7)),
+                    ],
+                ),
+            ],
+        )
+        backend.store_tensor(tensor)
+
+        principles = backend.query_operational_principles()
+
+        assert principles == ["Maintain open logs", "Prefer simple invariants"]
+
+    def test_query_error_classes(self, backend):
+        tensor = TensorRecord(
+            strands=[
+                StrandRecord(
+                    strand_index=0,
+                    title="Observability",
+                    topics=["error: indexing", "resilience"],
+                    key_claims=[
+                        KeyClaim(text="Index carefully", epistemic=EpistemicMetadata(truth=0.6)),
+                    ],
+                ),
+            ],
+        )
+        backend.store_tensor(tensor)
+
+        matches = backend.query_error_classes()
+
+        assert any(match["topic"] == "error: indexing" for match in matches)
+
+    def test_query_anti_patterns_delegates_to_error_classes(self, backend):
+        tensor = TensorRecord(
+            strands=[
+                StrandRecord(
+                    strand_index=0,
+                    title="Failure Taxonomy",
+                    topics=["anti-pattern: coupling"],
+                    key_claims=[
+                        KeyClaim(text="Avoid tight coupling", epistemic=EpistemicMetadata(truth=0.9)),
+                    ],
+                ),
+            ],
+        )
+        backend.store_tensor(tensor)
+
+        errors = backend.query_error_classes()
+        anti_patterns = backend.query_anti_patterns()
+
+        assert anti_patterns == errors
+
+    def test_query_lineage_empty_tags(self, backend):
+        tensor = TensorRecord(lineage_tags=())
+        backend.store_tensor(tensor)
+
+        lineage = backend.query_lineage(tensor.id)
+
+        # Currently, empty lineage tags mean no tensor (even itself) is returned.
+        assert lineage == []
+
+    def test_epistemic_accepts_extreme_values(self):
+        metadata = EpistemicMetadata(truth=-5.0, falsity=999.0)
+
+        assert metadata.truth == -5.0
+        assert metadata.falsity == 999.0
+
+    def test_concurrent_reads_with_reentrant_lock(self, backend, sample_tensor):
+        backend.store_tensor(sample_tensor)
+        claim_id = uuid4()
+        correction = CorrectionRecord(
+            target_tensor=sample_tensor.id,
+            target_claim_id=claim_id,
+            original_claim="Original claim",
+            corrected_claim="Updated claim",
+        )
+        backend.store_correction(correction)
+        results = {}
+
+        def read_strand():
+            strand_tensor = backend.get_strand(sample_tensor.id, 0)
+            results["strand_title"] = strand_tensor.strands[0].title
+
+        def read_epistemic_status():
+            status = backend.query_epistemic_status(claim_id)
+            results["current_claim"] = status["current_claim"]
+
+        def read_unlearn():
+            unlearn = backend.query_unlearn("testing")
+            results["unlearn_claims"] = unlearn["affected_claims"]
+
+        def write_tensor():
+            backend.store_tensor(TensorRecord(lineage_tags=["concurrent"]))
+            results["writer_done"] = True
+
+        threads = [
+            threading.Thread(target=read_strand),
+            threading.Thread(target=read_epistemic_status),
+            threading.Thread(target=read_unlearn),
+            threading.Thread(target=write_tensor),
+        ]
+
+        for thread in threads:
+            thread.start()
+        for thread in threads:
+            thread.join(timeout=2)
+
+        assert all(not thread.is_alive() for thread in threads)
+        assert results["strand_title"] == "Test Strand"
+        assert results["current_claim"] == "Updated claim"
+        assert results["unlearn_claims"] >= 1
+        assert results["writer_done"] is True

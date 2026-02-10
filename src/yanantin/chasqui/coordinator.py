@@ -23,6 +23,7 @@ from __future__ import annotations
 import asyncio
 import re
 from datetime import datetime, timezone
+from itertools import count
 from pathlib import Path
 from typing import Any
 
@@ -41,18 +42,29 @@ DEFAULT_EXCLUDE = [
     "openrouter/auto",  # Meta-router, not a real model
 ]
 
+# Atomic counter for parallel dispatches — survives across calls within a process.
+_run_counter: count | None = None
+
 
 # ── Cairn writer ─────────────────────────────────────────────────────
 
 def _next_scout_number(cairn_dir: Path) -> int:
-    """Find the next scout run number from existing cairn files."""
-    existing = list(cairn_dir.glob("scout_*.md"))
-    numbers = []
-    for f in existing:
-        match = re.search(r"scout_(\d+)", f.name)
-        if match:
-            numbers.append(int(match.group(1)))
-    return max(numbers, default=0) + 1
+    """Get the next scout run number, safe for parallel dispatches.
+
+    On first call, scans the cairn directory to find the high-water mark.
+    Subsequent calls increment atomically within the process.
+    """
+    global _run_counter
+    if _run_counter is None:
+        existing = list(cairn_dir.glob("scout_*.md"))
+        numbers = []
+        for f in existing:
+            match = re.search(r"scout_(\d+)", f.name)
+            if match:
+                numbers.append(int(match.group(1)))
+        start = max(numbers, default=0) + 1
+        _run_counter = count(start)
+    return next(_run_counter)
 
 
 def write_to_cairn(

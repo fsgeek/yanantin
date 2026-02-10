@@ -29,7 +29,12 @@ from typing import Any
 
 from yanantin.apacheta.clients.openrouter import OpenRouterClient
 from yanantin.chasqui.model_selector import ModelInfo, ModelSelector
-from yanantin.chasqui.scout import format_respond_prompt, format_scout_prompt, scout_metadata
+from yanantin.chasqui.scout import (
+    format_respond_prompt,
+    format_scout_prompt,
+    format_verify_prompt,
+    scout_metadata,
+)
 
 
 # ── Configuration ────────────────────────────────────────────────────
@@ -267,6 +272,138 @@ async def dispatch_respond(
             "usage": response.usage,
             "pool_size": loaded_count,
         }
+
+
+async def dispatch_verify(
+    claim_text: str,
+    file_path: str,
+    source_model: str,
+    source_tensor: str,
+    project_root: Path = PROJECT_ROOT,
+    cairn_dir: Path = CAIRN_DIR,
+    exclude_patterns: list[str] | None = None,
+    seed: int | None = None,
+    max_tokens: int = 2000,
+    temperature: float = 0.3,
+) -> dict[str, Any]:
+    """Dispatch a verification scout to check a specific claim.
+
+    The judge gets the exact file referenced in the claim, not random files.
+    Temperature is lower (0.3) because verification is precise work.
+
+    Returns a summary dict with verdict, model info, and cairn path.
+    """
+    file_full_path = project_root / file_path
+    if not file_full_path.exists():
+        return {"error": f"File not found: {file_path}"}
+
+    try:
+        file_content = file_full_path.read_text(encoding="utf-8")
+    except (UnicodeDecodeError, OSError) as e:
+        return {"error": f"Cannot read {file_path}: {e}"}
+
+    exclude = exclude_patterns or DEFAULT_EXCLUDE
+
+    async with OpenRouterClient() as client:
+        models_data = await client.list_models()
+
+        selector = ModelSelector(
+            min_context_length=8_000,
+            exclude_patterns=exclude,
+        )
+        if seed is not None:
+            selector.seed(seed)
+        loaded_count = selector.load_from_openrouter_response(models_data)
+
+        if loaded_count == 0:
+            return {"error": "No models available after filtering"}
+
+        model = selector.select()
+
+        system_prompt, messages = format_verify_prompt(
+            model=model,
+            claim_text=claim_text,
+            file_path=file_path,
+            file_content=file_content,
+            source_model=source_model,
+        )
+
+        metadata = scout_metadata(model, 0, mode="verify")
+        response = await client.complete(
+            model=model.id,
+            messages=[{"role": "system", "content": system_prompt}] + messages,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            metadata=metadata,
+        )
+
+        # Write verification to cairn
+        run_number, path = write_to_cairn(
+            content=response.content,
+            model=model,
+            usage=response.usage,
+            cairn_dir=cairn_dir,
+        )
+
+        # Parse verdict from response
+        verdict = "INDETERMINATE"
+        content_upper = response.content.upper()
+        if "**CONFIRMED**" in content_upper or "### VERDICT\nCONFIRMED" in content_upper:
+            verdict = "CONFIRMED"
+        elif "**DENIED**" in content_upper or "### VERDICT\nDENIED" in content_upper:
+            verdict = "DENIED"
+
+        return {
+            "mode": "verify",
+            "verdict": verdict,
+            "claim": claim_text,
+            "file_path": file_path,
+            "source_model": source_model,
+            "source_tensor": source_tensor,
+            "model": model.id,
+            "model_name": model.name,
+            "cost_per_million": model.total_cost_per_million,
+            "run_number": run_number,
+            "cairn_path": str(path),
+            "content_length": len(response.content),
+            "usage": response.usage,
+            "pool_size": loaded_count,
+        }
+
+
+async def dispatch_verify_cairn(
+    cairn_dir: Path = CAIRN_DIR,
+    project_root: Path = PROJECT_ROOT,
+    max_claims: int = 5,
+    **kwargs: Any,
+) -> list[dict[str, Any]]:
+    """Extract claims from the cairn and dispatch verification scouts.
+
+    Picks up to max_claims verifiable claims and sends a judge for each.
+    """
+    from yanantin.chasqui.scorer import extract_cairn_claims
+
+    claims = extract_cairn_claims(cairn_dir, project_root)
+    if not claims:
+        return [{"error": "No verifiable claims found in cairn"}]
+
+    # Select a sample of claims to verify
+    import random
+    selected = random.sample(claims, min(max_claims, len(claims)))
+
+    tasks = [
+        dispatch_verify(
+            claim_text=c.claim_text,
+            file_path=c.file_path,
+            source_model=c.source_model,
+            source_tensor=c.source_tensor,
+            cairn_dir=cairn_dir,
+            project_root=project_root,
+            **kwargs,
+        )
+        for c in selected
+    ]
+    return await asyncio.gather(*tasks)
 
 
 async def dispatch_many(

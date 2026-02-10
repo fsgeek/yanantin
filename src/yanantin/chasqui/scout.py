@@ -261,6 +261,98 @@ Disagreement is data. Agreement across different models is structure.
 """
 
 
+# ── Verify prompt construction ───────────────────────────────────────
+
+VERIFY_SYSTEM_PROMPT = """\
+You are a chasqui — a messenger acting as a bounded judge. You are given
+a specific claim made by another model about a specific file. Your job is
+to read the file and determine whether the claim is accurate.
+
+You are not exploring. You are not wandering. You are checking one thing.
+
+Be precise. Quote the file. Show your evidence. A good judgment documents
+its basis so another judge can confirm it in 30 seconds.
+"""
+
+VERIFY_TEMPLATE = """\
+# Verification Assignment
+
+## The Claim
+
+Model `{source_model}` made this claim about `{file_path}`:
+
+> {claim_text}
+
+## The File
+
+Here is the actual content of `{file_path}`:
+
+```
+{file_content}
+```
+
+## Your Vantage
+
+You are model `{model_id}` (`{model_name}`).
+You are verifying a claim from `{source_model}`.
+Your cost: ${cost}/M tokens.
+
+## Your Task
+
+Read the file. Check the claim. Report your verdict.
+
+Structure your response exactly as follows:
+
+### Verdict
+One of: **CONFIRMED**, **DENIED**, or **INDETERMINATE**
+
+### Evidence
+Quote the specific lines from the file that support your verdict.
+If the claim references a line number, check that line specifically.
+
+### Reasoning
+Explain why the evidence supports your verdict. Be specific.
+If the claim is partially true, say which parts are accurate and which aren't.
+
+### Declared Losses
+What you couldn't check and why. (e.g., "The claim mentions behavior at
+runtime but I can only see the source code.")
+
+Important: say INDETERMINATE if you genuinely cannot tell. Do not guess.
+A honest "I can't tell" is more valuable than a confident wrong answer.
+"""
+
+
+def format_verify_prompt(
+    model: "ModelInfo",
+    claim_text: str,
+    file_path: str,
+    file_content: str,
+    source_model: str,
+) -> tuple[str, list[dict[str, str]]]:
+    """Build prompt for verifying a specific claim against a file.
+
+    Returns (system_prompt, messages) for the OpenRouter API.
+    """
+    cost = model.prompt_cost + model.completion_cost
+
+    user_prompt = VERIFY_TEMPLATE.format(
+        model_id=model.id,
+        model_name=model.name,
+        source_model=source_model,
+        cost=f"{cost:.4f}",
+        claim_text=claim_text,
+        file_path=file_path,
+        file_content=file_content,
+    )
+
+    messages = [{"role": "user", "content": user_prompt}]
+    return VERIFY_SYSTEM_PROMPT, messages
+
+
+# ── Respond prompt construction ──────────────────────────────────────
+
+
 def format_respond_prompt(
     model: ModelInfo,
     previous_tensor_content: str,

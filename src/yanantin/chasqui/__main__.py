@@ -21,6 +21,7 @@ from yanantin.chasqui.coordinator import (
     dispatch_many,
     dispatch_respond,
     dispatch_scout,
+    dispatch_verify_cairn,
 )
 
 
@@ -39,6 +40,15 @@ def main() -> None:
     parser.add_argument(
         "--score", action="store_true",
         help="Score all scout tensors in the cairn",
+    )
+    parser.add_argument(
+        "--verify", type=int, nargs="?", const=3, default=None,
+        metavar="N",
+        help="Verify N claims from the cairn (default: 3)",
+    )
+    parser.add_argument(
+        "--claims", action="store_true",
+        help="List verifiable claims extracted from the cairn",
     )
     parser.add_argument(
         "--seed", type=int, default=None,
@@ -67,6 +77,58 @@ def main() -> None:
             print(json.dumps([s.summary() for s in scores], indent=2, default=str))
         else:
             print(render_scorecard(scores))
+        return
+
+    # ── Claims mode ─────────────────────────────────────────────────
+    if args.claims:
+        from yanantin.chasqui.scorer import extract_cairn_claims
+
+        claims = extract_cairn_claims(CAIRN_DIR, PROJECT_ROOT)
+        if args.json:
+            print(json.dumps(
+                [{"file": c.file_path, "model": c.source_model, "claim": c.claim_text}
+                 for c in claims],
+                indent=2,
+            ))
+        else:
+            print(f"# Verifiable Claims ({len(claims)} found)\n")
+            for i, c in enumerate(claims, 1):
+                print(f"{i:3d}. [{c.source_model}] re `{c.file_path}`:")
+                # Truncate long claims for display
+                text = c.claim_text[:120] + "..." if len(c.claim_text) > 120 else c.claim_text
+                print(f"     {text}")
+                print()
+        return
+
+    # ── Verify mode ─────────────────────────────────────────────────
+    if args.verify is not None:
+        results = asyncio.run(dispatch_verify_cairn(
+            max_claims=args.verify,
+            seed=args.seed,
+            max_tokens=args.max_tokens,
+            temperature=args.temperature,
+        ))
+
+        if args.json:
+            print(json.dumps(results, indent=2, default=str))
+        else:
+            for r in results:
+                if "error" in r:
+                    print(f"Error: {r['error']}", file=sys.stderr)
+                    continue
+
+                verdict_marker = {
+                    "CONFIRMED": "+", "DENIED": "!", "INDETERMINATE": "?"
+                }.get(r["verdict"], "?")
+
+                print(f"[{verdict_marker}] {r['verdict']}")
+                print(f"    Claim by {r['source_model']}:")
+                claim = r["claim"][:100] + "..." if len(r["claim"]) > 100 else r["claim"]
+                print(f"    \"{claim}\"")
+                print(f"    File: {r['file_path']}")
+                print(f"    Judge: {r['model']} ({r['model_name']})")
+                print(f"    Cairn: {r['cairn_path']}")
+                print()
         return
 
     # ── Dispatch mode ───────────────────────────────────────────────

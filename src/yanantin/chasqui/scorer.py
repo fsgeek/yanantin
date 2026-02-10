@@ -277,6 +277,95 @@ def analyze_content(text: str) -> ContentAnalysis:
     )
 
 
+# ── Claim extraction ────────────────────────────────────────────────
+
+# A sentence boundary: period/question/exclamation followed by space or newline
+_SENTENCE_BOUNDARY = re.compile(r"(?<=[.?!])\s+")
+
+
+@dataclass(frozen=True)
+class VerifiableClaim:
+    """A claim from a scout report that can be checked against the codebase."""
+
+    file_path: str
+    line: int | None
+    claim_text: str          # The sentence(s) containing the claim
+    source_tensor: str       # Path to the scout report
+    source_model: str        # Model that made the claim
+
+
+def extract_claims(
+    text: str,
+    scout_path: str,
+    project_root: Path,
+) -> list[VerifiableClaim]:
+    """Extract verifiable claims from a scout tensor.
+
+    A verifiable claim is a sentence that references a specific file path.
+    The file must exist in the project (fabricated paths aren't verifiable
+    against the codebase — they're already caught by the scorer).
+    """
+    provenance = parse_provenance(text)
+    model_id = provenance.model_id if provenance else "unknown"
+    body = _strip_provenance_header(text)
+
+    claims = []
+    # Split body into sentences
+    sentences = _SENTENCE_BOUNDARY.split(body)
+
+    for sentence in sentences:
+        # Find file references in this sentence
+        refs = _PATH_PATTERN.findall(sentence)
+        if not refs:
+            continue
+
+        for ref_raw in refs:
+            parts = ref_raw.rsplit(":", 1)
+            path = parts[0]
+            line = int(parts[1]) if len(parts) > 1 and parts[1].isdigit() else None
+
+            # Only extract claims about files that exist — fabricated paths
+            # are already caught by the scorer, and we can't verify claims
+            # about files that don't exist
+            candidate = project_root / path
+            exists = candidate.exists()
+            if not exists:
+                # Try finding by filename alone
+                matches = list(project_root.rglob(Path(path).name))
+                if matches:
+                    path = str(matches[0].relative_to(project_root))
+                    exists = True
+
+            if exists:
+                # Clean up the sentence for use as a claim
+                claim_text = sentence.strip()
+                # Remove markdown formatting noise
+                claim_text = re.sub(r"\n\s*", " ", claim_text)
+                if len(claim_text) > 20:  # Skip trivially short fragments
+                    claims.append(VerifiableClaim(
+                        file_path=path,
+                        line=line,
+                        claim_text=claim_text,
+                        source_tensor=scout_path,
+                        source_model=model_id,
+                    ))
+
+    return claims
+
+
+def extract_cairn_claims(
+    cairn_dir: Path,
+    project_root: Path,
+) -> list[VerifiableClaim]:
+    """Extract all verifiable claims from all scout tensors in the cairn."""
+    all_claims = []
+    for scout_file in sorted(cairn_dir.glob("scout_*.md")):
+        text = scout_file.read_text(encoding="utf-8")
+        claims = extract_claims(text, str(scout_file), project_root)
+        all_claims.extend(claims)
+    return all_claims
+
+
 # ── Fabrication detection ───────────────────────────────────────────
 
 def verify_references(

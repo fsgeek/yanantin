@@ -21,9 +21,9 @@ Usage::
 from __future__ import annotations
 
 import asyncio
+import os
 import re
 from datetime import datetime, timezone
-from itertools import count
 from pathlib import Path
 from typing import Any
 
@@ -42,50 +42,56 @@ DEFAULT_EXCLUDE = [
     "openrouter/auto",  # Meta-router, not a real model
 ]
 
-# Atomic counter for parallel dispatches — survives across calls within a process.
-_run_counter: count | None = None
-
-
 # ── Cairn writer ─────────────────────────────────────────────────────
 
-def _next_scout_number(cairn_dir: Path) -> int:
-    """Get the next scout run number, safe for parallel dispatches.
+def _claim_scout_number(cairn_dir: Path, model_short: str) -> tuple[int, Path]:
+    """Claim a unique scout run number using filesystem atomicity.
 
-    On first call, scans the cairn directory to find the high-water mark.
-    Subsequent calls increment atomically within the process.
+    Lamport's bakery on POSIX: try to create a file with O_CREAT|O_EXCL.
+    If it exists, take the next ticket. Safe across processes.
+
+    Returns (run_number, claimed_path).
     """
-    global _run_counter
-    if _run_counter is None:
-        existing = list(cairn_dir.glob("scout_*.md"))
-        numbers = []
-        for f in existing:
-            match = re.search(r"scout_(\d+)", f.name)
-            if match:
-                numbers.append(int(match.group(1)))
-        start = max(numbers, default=0) + 1
-        _run_counter = count(start)
-    return next(_run_counter)
+    cairn_dir.mkdir(parents=True, exist_ok=True)
+    date_str = datetime.now(timezone.utc).strftime("%Y%m%d")
+
+    # Find the high-water mark to start from
+    existing = list(cairn_dir.glob("scout_*.md"))
+    numbers = []
+    for f in existing:
+        match = re.search(r"scout_(\d+)", f.name)
+        if match:
+            numbers.append(int(match.group(1)))
+    candidate = max(numbers, default=0) + 1
+
+    # Bakery loop: try to claim this number atomically
+    while True:
+        filename = f"scout_{candidate:04d}_{date_str}_{model_short}.md"
+        path = cairn_dir / filename
+        try:
+            # O_CREAT | O_EXCL: atomic create-if-not-exists
+            fd = os.open(str(path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o644)
+            os.close(fd)
+            return candidate, path
+        except FileExistsError:
+            candidate += 1
 
 
 def write_to_cairn(
     content: str,
     model: ModelInfo,
-    run_number: int,
     usage: dict[str, Any],
     cairn_dir: Path = CAIRN_DIR,
-) -> Path:
-    """Write a scout's tensor to the cairn.
+) -> tuple[int, Path]:
+    """Claim a run number and write a scout's tensor to the cairn.
 
-    The filename encodes the run number, date, and model family.
-    The content is the raw response — log before you parse.
+    Uses filesystem-atomic numbering (Lamport bakery on POSIX) to ensure
+    unique run numbers even across concurrent processes.
+
+    Returns (run_number, path).
     """
-    cairn_dir.mkdir(parents=True, exist_ok=True)
-    date_str = datetime.now(timezone.utc).strftime("%Y%m%d")
-
-    # Sanitize model name for filename
     model_short = model.id.split("/")[-1][:30].replace(" ", "_")
-    filename = f"scout_{run_number:04d}_{date_str}_{model_short}.md"
-    path = cairn_dir / filename
+    run_number, path = _claim_scout_number(cairn_dir, model_short)
 
     # Wrap with provenance header
     header = f"""\
@@ -99,7 +105,7 @@ def write_to_cairn(
 
 """
     path.write_text(header + content, encoding="utf-8")
-    return path
+    return run_number, path
 
 
 # ── Dispatch ─────────────────────────────────────────────────────────
@@ -135,23 +141,22 @@ async def dispatch_scout(
         )
         if seed is not None:
             selector.seed(seed)
-        count = selector.load_from_openrouter_response(models_data)
+        loaded_count = selector.load_from_openrouter_response(models_data)
 
-        if count == 0:
+        if loaded_count == 0:
             return {"error": "No models available after filtering"}
 
         model = selector.select()
-        run_number = _next_scout_number(cairn_dir)
 
-        # 3. Build prompt
+        # 3. Build prompt (run_number=0 placeholder — real number assigned at write)
         system_prompt, messages = format_scout_prompt(
             model=model,
             root=project_root,
-            run_number=run_number,
+            run_number=0,
         )
 
         # 4. Dispatch
-        metadata = scout_metadata(model, run_number)
+        metadata = scout_metadata(model, 0)
         response = await client.complete(
             model=model.id,
             messages=[{"role": "system", "content": system_prompt}] + messages,
@@ -160,11 +165,10 @@ async def dispatch_scout(
             metadata=metadata,
         )
 
-        # 5. Write to cairn
-        path = write_to_cairn(
+        # 5. Write to cairn — number claimed atomically here
+        run_number, path = write_to_cairn(
             content=response.content,
             model=model,
-            run_number=run_number,
             usage=response.usage,
             cairn_dir=cairn_dir,
         )
@@ -177,7 +181,7 @@ async def dispatch_scout(
             "cairn_path": str(path),
             "content_length": len(response.content),
             "usage": response.usage,
-            "pool_size": count,
+            "pool_size": loaded_count,
             "pool_stats": selector.stats(),
         }
 

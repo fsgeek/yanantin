@@ -3,6 +3,7 @@
     uv run python -m yanantin.chasqui                          # dispatch one scout
     uv run python -m yanantin.chasqui --many 3                 # dispatch three in parallel
     uv run python -m yanantin.chasqui --respond path/to/tensor # respond to a scout
+    uv run python -m yanantin.chasqui --score                  # score all scouts in the cairn
     uv run python -m yanantin.chasqui --seed 42                # reproducible model selection
 """
 
@@ -12,8 +13,15 @@ import argparse
 import asyncio
 import json
 import sys
+from pathlib import Path
 
-from yanantin.chasqui.coordinator import dispatch_many, dispatch_respond, dispatch_scout
+from yanantin.chasqui.coordinator import (
+    CAIRN_DIR,
+    PROJECT_ROOT,
+    dispatch_many,
+    dispatch_respond,
+    dispatch_scout,
+)
 
 
 def main() -> None:
@@ -27,6 +35,10 @@ def main() -> None:
     parser.add_argument(
         "--respond", type=str, default=None,
         help="Respond to a previous scout's tensor (path to .md file)",
+    )
+    parser.add_argument(
+        "--score", action="store_true",
+        help="Score all scout tensors in the cairn",
     )
     parser.add_argument(
         "--seed", type=int, default=None,
@@ -46,6 +58,18 @@ def main() -> None:
     )
     args = parser.parse_args()
 
+    # ── Score mode ──────────────────────────────────────────────────
+    if args.score:
+        from yanantin.chasqui.scorer import render_scorecard, score_cairn
+
+        scores = score_cairn(CAIRN_DIR, PROJECT_ROOT)
+        if args.json:
+            print(json.dumps([s.summary() for s in scores], indent=2, default=str))
+        else:
+            print(render_scorecard(scores))
+        return
+
+    # ── Dispatch mode ───────────────────────────────────────────────
     kwargs = {
         "seed": args.seed,
         "max_tokens": args.max_tokens,

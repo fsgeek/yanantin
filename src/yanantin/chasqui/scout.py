@@ -187,11 +187,108 @@ def format_scout_prompt(
     return SCOUT_SYSTEM_PROMPT, messages
 
 
-def scout_metadata(model: ModelInfo, run_number: int) -> dict[str, str]:
+def scout_metadata(model: ModelInfo, run_number: int, mode: str = "scout") -> dict[str, str]:
     """Build OpenRouter metadata for cost tracking."""
     return {
-        "experiment": "chasqui_scout",
+        "experiment": f"chasqui_{mode}",
         "model_id": model.id,
         "run_number": str(run_number),
         "timestamp": datetime.now(timezone.utc).isoformat(),
     }
+
+
+# ── Respond prompt construction ──────────────────────────────────────
+
+RESPOND_SYSTEM_PROMPT = """\
+You are a chasqui — a messenger. Another model explored a codebase and
+left observations, questions, and declared losses. You are being asked
+to respond.
+
+You may agree, disagree, correct, extend, or simply notice something
+the previous scout missed. You are not required to answer every question.
+You are required to be honest about what you know and don't know.
+
+Your output is a tensor — an authored response that composes with the
+original observation.
+"""
+
+RESPOND_TEMPLATE = """\
+# Response Assignment
+
+A previous scout explored the Yanantin project and left this report:
+
+## Previous Scout's Tensor
+
+{previous_tensor}
+
+## Your Vantage
+
+You are model `{model_id}` (`{model_name}`).
+You are responding to observations from `{previous_model}`.
+Your cost: ${cost}/M tokens.
+
+## Selected Files (for reference)
+
+{file_contents}
+
+## Your Task
+
+Read the previous scout's tensor. Respond to what catches your attention.
+
+Structure your response as a tensor:
+
+### Preamble
+What vantage you respond from, what struck you about the previous report.
+
+### Strands
+Each strand is a response thread. You might:
+- Answer an open question (with evidence from the files)
+- Disagree with an observation (say why)
+- Extend a strand the previous scout started
+- Notice something the previous scout's losses reveal
+
+### Declared Losses
+What you chose not to respond to and why.
+
+### Open Questions
+New questions that arose from reading the previous report.
+
+### Closing
+What would you tell the original scout if you could?
+
+Important: say what you know, what you don't, and what you made up.
+Disagreement is data. Agreement across different models is structure.
+"""
+
+
+def format_respond_prompt(
+    model: ModelInfo,
+    previous_tensor_content: str,
+    previous_model_id: str,
+    root: Path,
+) -> tuple[str, list[dict[str, str]]]:
+    """Build prompt for responding to a previous scout's tensor.
+
+    Returns (system_prompt, messages) for the OpenRouter API.
+    """
+    selected_files = select_files_for_scout(root)
+
+    file_contents_parts = []
+    for path, content in selected_files:
+        rel = path.relative_to(root)
+        file_contents_parts.append(f"### {rel}\n```\n{content}\n```")
+
+    file_contents = "\n\n".join(file_contents_parts)
+    cost = model.prompt_cost + model.completion_cost
+
+    user_prompt = RESPOND_TEMPLATE.format(
+        model_id=model.id,
+        model_name=model.name,
+        previous_model=previous_model_id,
+        cost=f"{cost:.4f}",
+        previous_tensor=previous_tensor_content,
+        file_contents=file_contents,
+    )
+
+    messages = [{"role": "user", "content": user_prompt}]
+    return RESPOND_SYSTEM_PROMPT, messages

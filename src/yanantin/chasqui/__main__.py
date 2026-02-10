@@ -1,8 +1,9 @@
 """Run the Chasqui coordinator.
 
-    uv run python -m yanantin.chasqui              # dispatch one scout
-    uv run python -m yanantin.chasqui --many 3     # dispatch three in parallel
-    uv run python -m yanantin.chasqui --seed 42    # reproducible model selection
+    uv run python -m yanantin.chasqui                          # dispatch one scout
+    uv run python -m yanantin.chasqui --many 3                 # dispatch three in parallel
+    uv run python -m yanantin.chasqui --respond path/to/tensor # respond to a scout
+    uv run python -m yanantin.chasqui --seed 42                # reproducible model selection
 """
 
 from __future__ import annotations
@@ -12,7 +13,7 @@ import asyncio
 import json
 import sys
 
-from yanantin.chasqui.coordinator import dispatch_many, dispatch_scout
+from yanantin.chasqui.coordinator import dispatch_many, dispatch_respond, dispatch_scout
 
 
 def main() -> None:
@@ -22,6 +23,10 @@ def main() -> None:
     parser.add_argument(
         "--many", type=int, default=None,
         help="Dispatch N scouts in parallel (default: 1)",
+    )
+    parser.add_argument(
+        "--respond", type=str, default=None,
+        help="Respond to a previous scout's tensor (path to .md file)",
     )
     parser.add_argument(
         "--seed", type=int, default=None,
@@ -47,7 +52,9 @@ def main() -> None:
         "temperature": args.temperature,
     }
 
-    if args.many:
+    if args.respond:
+        results = [asyncio.run(dispatch_respond(tensor_path=args.respond, **kwargs))]
+    elif args.many:
         results = asyncio.run(dispatch_many(n=args.many, **kwargs))
     else:
         results = [asyncio.run(dispatch_scout(**kwargs))]
@@ -59,10 +66,18 @@ def main() -> None:
             if "error" in r:
                 print(f"Error: {r['error']}", file=sys.stderr)
                 continue
-            print(f"Scout #{r['run_number']}")
-            print(f"  Model: {r['model']} ({r['model_name']})")
-            print(f"  Cost:  ${r['cost_per_million']:.4f}/M tokens")
-            print(f"  Pool:  {r['pool_size']} models available")
+
+            mode = r.get("mode", "scout")
+            if mode == "respond":
+                print(f"Response #{r['run_number']}")
+                print(f"  To:     {r['responding_to']}")
+                print(f"  From:   {r['previous_model']}")
+            else:
+                print(f"Scout #{r['run_number']}")
+
+            print(f"  Model:  {r['model']} ({r['model_name']})")
+            print(f"  Cost:   ${r['cost_per_million']:.4f}/M tokens")
+            print(f"  Pool:   {r['pool_size']} models available")
             print(f"  Output: {r['content_length']} chars")
             print(f"  Cairn:  {r['cairn_path']}")
             print()

@@ -29,7 +29,7 @@ from typing import Any
 
 from yanantin.apacheta.clients.openrouter import OpenRouterClient
 from yanantin.chasqui.model_selector import ModelInfo, ModelSelector
-from yanantin.chasqui.scout import format_scout_prompt, scout_metadata
+from yanantin.chasqui.scout import format_respond_prompt, format_scout_prompt, scout_metadata
 
 
 # ── Configuration ────────────────────────────────────────────────────
@@ -183,6 +183,89 @@ async def dispatch_scout(
             "usage": response.usage,
             "pool_size": loaded_count,
             "pool_stats": selector.stats(),
+        }
+
+
+async def dispatch_respond(
+    tensor_path: str | Path,
+    cairn_dir: Path = CAIRN_DIR,
+    project_root: Path = PROJECT_ROOT,
+    exclude_patterns: list[str] | None = None,
+    seed: int | None = None,
+    max_tokens: int = 4000,
+    temperature: float = 0.7,
+) -> dict[str, Any]:
+    """Dispatch a messenger to respond to a previous scout's tensor.
+
+    The cairn is the mailbox. The coordinator is the postal service.
+    The tensors are the letters.
+
+    Args:
+        tensor_path: Path to the scout tensor to respond to.
+    """
+    tensor_path = Path(tensor_path)
+    if not tensor_path.exists():
+        return {"error": f"Tensor not found: {tensor_path}"}
+
+    tensor_content = tensor_path.read_text(encoding="utf-8")
+
+    # Extract the previous model from the provenance header
+    model_match = re.search(r"Model:\s*(\S+)", tensor_content)
+    previous_model = model_match.group(1) if model_match else "unknown"
+
+    exclude = exclude_patterns or DEFAULT_EXCLUDE
+
+    async with OpenRouterClient() as client:
+        models_data = await client.list_models()
+
+        selector = ModelSelector(
+            min_context_length=8_000,
+            exclude_patterns=exclude,
+        )
+        if seed is not None:
+            selector.seed(seed)
+        loaded_count = selector.load_from_openrouter_response(models_data)
+
+        if loaded_count == 0:
+            return {"error": "No models available after filtering"}
+
+        model = selector.select()
+
+        system_prompt, messages = format_respond_prompt(
+            model=model,
+            previous_tensor_content=tensor_content,
+            previous_model_id=previous_model,
+            root=project_root,
+        )
+
+        metadata = scout_metadata(model, 0, mode="respond")
+        response = await client.complete(
+            model=model.id,
+            messages=[{"role": "system", "content": system_prompt}] + messages,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            metadata=metadata,
+        )
+
+        run_number, path = write_to_cairn(
+            content=response.content,
+            model=model,
+            usage=response.usage,
+            cairn_dir=cairn_dir,
+        )
+
+        return {
+            "mode": "respond",
+            "responding_to": str(tensor_path),
+            "previous_model": previous_model,
+            "model": model.id,
+            "model_name": model.name,
+            "cost_per_million": model.total_cost_per_million,
+            "run_number": run_number,
+            "cairn_path": str(path),
+            "content_length": len(response.content),
+            "usage": response.usage,
+            "pool_size": loaded_count,
         }
 
 

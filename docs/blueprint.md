@@ -3,13 +3,13 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: T13 session, 2026-02-10*
+*Last updated: post-T13 survey, 2026-02-10*
 
 ## What Exists
 
 ### Apacheta — Tensor Database (code: `src/yanantin/apacheta/`)
 
-The core. 37 classes, 26 abstract methods, 3 backends.
+The core. 37 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 
 | Layer | Files | What it does |
 |-------|-------|-------------|
@@ -18,10 +18,10 @@ The core. 37 classes, 26 abstract methods, 3 backends.
 | **backends/** | 3 files | `InMemoryBackend`, `DuckDBBackend`, `ArangoDBBackend`. All implement the same 26 methods. Three paths to the same interface. |
 | **operators/** | 7 files | compose, project, correct, dissent, negate, bootstrap, evolve. Functions that operate through the interface, never touch backend internals. |
 | **renderer/** | 1 file | Markdown rendering. TensorRecord → human-readable text. |
-| **ingest/** | 1 file | Markdown parsing. Human-readable text → TensorRecord. |
-| **clients/** | 1 file | OpenRouter API client for cross-model communication. |
+| **ingest/** | 2 files | Markdown parsing (human-readable text → TensorRecord) and tensor ballot (atomic T-number allocation via O_CREAT\|O_EXCL). |
+| **clients/** | 2 files | OpenRouter API client for cross-model communication. `ApachetaGatewayClient` — thin HTTP client implementing all 26 interface methods against Pukara. Fourth path to the interface. |
 
-**309 tests** across 14 files. 15 red-bar (structural invariants), 294 unit.
+**544 test functions** across 21 files. 22 red-bar (structural invariants, 5 files), 71 integration (ArangoDB live, 1 file), 451 unit (15 files). Parametrized tests expand to ~550 pytest items. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), and Tinkuy audit/succession (20 tests).
 
 ### Chasqui — Coordinator (code: `src/yanantin/chasqui/`)
 
@@ -57,19 +57,21 @@ Depends on yanantin via path. **150 tests** across 2 files.
 
 ### The Cairn (docs/cairn/)
 
-28 files. 12 tensors (T0-T7 as symlinks, T10-T12 native), 8 scout reports,
-8 original tensor files. The cairn is persistence — files on disk, in git,
-re-ingestible by the markdown parser.
+30 files. 14 tensors (T0-T7 as symlinks, T9-T14 native; T8 intentionally
+unwritten), 8 scout reports, 8 original tensor files. The cairn is
+persistence — files on disk, in git, re-ingestible by the markdown parser.
 
 ## What Connects
 
 ```
 Agent
+  ↓ (uses ApachetaGatewayClient)
+ApachetaInterface (abstract)
   ↓ (HTTP — the security boundary)
 Pukara (gateway)
   ↓ (Python import — path dependency)
 ApachetaInterface (abstract)
-  ↓ (one of three)
+  ↓ (one of three local backends)
 InMemoryBackend | DuckDBBackend | ArangoDBBackend
 
 Chasqui (coordinator)
@@ -79,19 +81,17 @@ External models → scout reports → docs/cairn/
 TensorRecord → ApachetaInterface → backend
 ```
 
-The missing link: **no thin HTTP client exists**. Agents can't talk to
-Pukara through the interface yet. `ApachetaGatewayClient` (implementing
-`ApachetaInterface` over HTTP) is unbuilt. That's the road to the fortress.
+Four paths to the interface: three local backends plus
+`ApachetaGatewayClient` over HTTP to Pukara. The road to the fortress
+is built.
 
 ## What Doesn't Exist
 
 | Name | Status | What it would be |
 |------|--------|-----------------|
-| **Tinkuy** | Name only | Governance. Where different forces meet. No code, no design. |
+| **Tinkuy** | v0 — audit + succession | Governance. Blueprint audit tool (`uv run python -m yanantin.tinkuy`), succession protocol. Code: `src/yanantin/tinkuy/`. |
 | **Choquequirao** | Name only | Archive and provenance. Buried things being excavated. No code, no design. |
 | **Takiq** | Name only | Singer role — carries the greeting. No implementation. |
-| **ApachetaGatewayClient** | Designed, not built | Fourth "backend" — implements ApachetaInterface over HTTP to Pukara. |
-| **ArangoDB backend tests** | Gap | `arango.py` has 0 tests. DuckDB and InMemory are tested. |
 | **DecoderRing v2** | Placeholder | UUID obfuscation is pass-through. Real obfuscation undesigned. |
 
 ## Roles
@@ -125,9 +125,28 @@ Both projects have `.github/workflows/separation.yml`:
 - The boundary is GitHub infrastructure, not local hooks (agents bypassed
   local hooks in Mallku)
 
+## Succession Protocol
+
+Before writing your tensor (the end-of-session ritual), run:
+
+```bash
+uv run python -m yanantin.tinkuy
+```
+
+Compare the audit report to this blueprint. If they disagree, update the
+blueprint. Then run the succession check:
+
+```bash
+uv run python -m yanantin.tinkuy --check
+```
+
+Empty list = the map matches the territory. Non-empty = fix the blueprint
+before writing your tensor.
+
 ## How to Update This Blueprint
 
 This document describes what IS, not what should be. When you build
 something, update this file. When something described here becomes wrong,
 fix it. A blueprint that doesn't match the building is worse than no
-blueprint at all.
+blueprint at all. The audit tool (`uv run python -m yanantin.tinkuy`)
+generates ground truth — use it to verify your updates.

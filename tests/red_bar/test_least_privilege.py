@@ -91,7 +91,9 @@ def test_pukara_config_template_does_not_use_root():
     that's what gets deployed. The template should show the
     least-privilege user pattern.
     """
-    template = Path("/home/tony/projects/pukara/config/pukara.ini.template")
+    # Pukara is a sibling project — derive from this project's root
+    project_root = Path(__file__).resolve().parents[2]
+    template = project_root.parent / "pukara" / "config" / "pukara.ini.template"
     if not template.exists():
         pytest.skip("Pukara config template not found")
 

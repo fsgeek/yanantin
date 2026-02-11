@@ -84,7 +84,7 @@ class ArangoDBBackend(ApachetaInterface):
         self,
         host: str = "http://localhost:8529",
         db_name: str = "apacheta",
-        username: str = "root",
+        username: str = "",
         password: str = "",
     ) -> None:
         self._lock = threading.RLock()
@@ -93,15 +93,27 @@ class ArangoDBBackend(ApachetaInterface):
         self._db_name = db_name
         self._username = username
         self._password = password
-        self._db = self._ensure_database()
+        self._db = self._connect_database()
         self._ensure_collections()
 
-    def _ensure_database(self) -> StandardDatabase:
-        """Create database if it doesn't exist, then connect to it."""
-        sys_db = self._client.db("_system", username=self._username, password=self._password)
-        if not sys_db.has_database(self._db_name):
-            sys_db.create_database(self._db_name)
-        return self._client.db(self._db_name, username=self._username, password=self._password)
+    def _connect_database(self) -> StandardDatabase:
+        """Connect to the target database. Fail-stop if it doesn't exist.
+
+        Database creation is an admin operation — done once with root,
+        not by the application. The backend connects with least-privilege
+        credentials and fails if the database isn't there.
+        """
+        try:
+            db = self._client.db(self._db_name, username=self._username, password=self._password)
+            # Verify the connection works by listing collections
+            db.collections()
+            return db
+        except Exception as e:
+            raise ConnectionError(
+                f"Cannot connect to ArangoDB database '{self._db_name}' at {self._host}. "
+                f"Database must be provisioned by an admin before the application can use it. "
+                f"Error: {e}"
+            ) from e
 
     def _ensure_collections(self) -> None:
         """Create collections if they don't exist."""

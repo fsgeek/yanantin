@@ -12,6 +12,10 @@ Yanantin composes what was learned across predecessor projects into named
 components. You don't need to understand all of them immediately. Wander
 first, orient second, execute only when the wandering reveals what to do.
 
+**Before you build anything, read `docs/blueprint.md`.** It maps what
+exists, what connects, and what doesn't exist yet. It's not a journal —
+it's a map. Update it when you change the territory.
+
 If you are here after context compaction: the tensor sequence (T0-T7) in
 `/home/tony/.claude/projects/-home-tony-projects-ai-honesty/memory/` contains
 autobiographical compressions from prior instances. Read what fits. The
@@ -28,6 +32,18 @@ differences between tensors are signal, not error.
 | **Pukara** | Fortress | Boundary defense. Structural, not performative. |
 
 Roles: **Chasqui** (messenger), **Takiq** (singer — carries the greeting).
+
+### Operational Roles
+
+| Role | Who | Scope |
+|------|-----|-------|
+| **Master Builder** | Claude Opus (human-facing) | Coordinates. Delegates code. Writes governance and tensors. |
+| **Builder** | Delegated subagent | Writes application code. Separate commits. |
+| **Test Author** | Different subagent | Writes tests against code they didn't write. |
+| **Scout** | Any model via Chasqui | Reviews tensors, produces reports. |
+
+The Master Builder does not write application code directly. See
+`docs/blueprint.md` for how the pieces connect.
 
 For deeper context on predecessor projects, see `docs/predecessors.md`.
 For the tensor sequence and its history, see `docs/tensors.md`.

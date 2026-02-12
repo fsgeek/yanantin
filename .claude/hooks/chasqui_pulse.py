@@ -70,6 +70,7 @@ SCOUR_TARGETS = [
     ("src/yanantin/awaq", "introspection"),
     ("src/yanantin/tinkuy", "introspection"),
     ("T*", "tensor"),
+    ("scout_*", "synthesis"),
 ]
 
 

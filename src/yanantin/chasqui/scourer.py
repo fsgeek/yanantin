@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 
 # ── Scope types ─────────────────────────────────────────────────────
 
-VALID_SCOPES = {"introspection", "external", "tensor"}
+VALID_SCOPES = {"introspection", "external", "tensor", "synthesis"}
 
 
 # ── Scourer prompt construction ─────────────────────────────────────
@@ -215,6 +215,107 @@ Important: say what you know, what you don't, and what you made up.
 """
 
 
+SCOURER_SYNTHESIS_TEMPLATE = """\
+# Scour Assignment — Synthesis
+
+You are examining a batch of scout and scour reports from the Yanantin
+cairn. These reports were written by different AI models examining
+different parts of the project. Your job is to digest the pile — to
+find what the herd is saying, where they agree, where they contradict
+each other, and what nobody is looking at.
+
+## Your Vantage
+
+You are model `{model_id}` (`{model_name}`).
+You were selected by cost-weighted random sampling (your cost: ${cost}/M tokens).
+This is scour run #{run_number}.
+
+## Your Target
+
+You have been directed to synthesize: `{target}`
+({report_count} reports)
+
+## Report Contents
+
+{target_contents}
+
+## Your Task
+
+Read across these reports. You are not examining the codebase — you are
+examining what other models said about the codebase. Look for the signal
+in the noise.
+
+Structure your response as a tensor:
+
+### Preamble
+How many reports you examined. What struck you about the collection as
+a whole, before reading closely.
+
+### Strands
+Each strand is a pattern you noticed across reports. Consider:
+- **Consensus**: What are multiple models saying about the same thing?
+- **Contradictions**: Where do reports disagree? Who's right?
+- **Blind spots**: What is nobody examining? What's being avoided?
+- **Recurring claims**: Which claims keep appearing? Are they verified?
+- **Model artifacts**: Are certain observations model-specific quirks
+  vs genuine findings?
+- **Drift**: Is the quality or focus of reports changing over time?
+
+### Declared Losses
+What you chose not to examine and why. Which reports you skimmed.
+
+### Open Questions
+Things that can't be resolved by reading reports alone — would
+require examining the code or running tests.
+
+### Closing
+What would you tell the project maintainers about the health of
+their scouting system? Is it finding useful things? Is it missing
+important things?
+
+Important: say what you know, what you don't, and what you made up.
+"""
+
+
+def _read_recent_reports(
+    target: str,
+    cairn_dir: Path,
+    max_reports: int = 15,
+    max_lines_per_report: int = 200,
+) -> list[tuple[Path, str]]:
+    """Read recent scout/scour reports matching target pattern.
+
+    Target can be:
+      - "scout_*" — all scout reports
+      - "scour_*" — all scour reports
+      - "*" — everything (scouts + scours)
+      - A specific glob pattern
+
+    Returns the most recent max_reports files, sorted newest first.
+    """
+    matches = sorted(cairn_dir.glob(f"{target}.md"), key=lambda p: p.stat().st_mtime, reverse=True)
+    if not matches:
+        matches = sorted(cairn_dir.glob(target), key=lambda p: p.stat().st_mtime, reverse=True)
+
+    selected = matches[:max_reports]
+
+    results = []
+    for path in selected:
+        if not path.is_file():
+            continue
+        try:
+            content = path.read_text(encoding="utf-8")
+            lines = content.split("\n")
+            if len(lines) > max_lines_per_report:
+                content = "\n".join(lines[:max_lines_per_report])
+                content += f"\n\n... ({len(lines) - max_lines_per_report} more lines truncated)"
+            results.append((path, content))
+        except (UnicodeDecodeError, OSError):
+            continue
+
+    return results
+
+
 def _read_target_contents(
     target_path: Path,
     max_files: int = 12,
@@ -346,7 +447,31 @@ def format_scour_prompt(
 
     cost = model.prompt_cost + model.completion_cost
 
-    if scope == "tensor":
+    if scope == "synthesis":
+        # Synthesis scope: read recent reports from cairn
+        if cairn_dir is None:
+            raise ValueError("cairn_dir is required for synthesis scope")
+
+        report_files = _read_recent_reports(target, cairn_dir)
+        logger.info("Scourer read %d report(s) for synthesis target %r", len(report_files), target)
+
+        contents_parts = []
+        for path, content in report_files:
+            contents_parts.append(f"### {path.name}\n```\n{content}\n```")
+
+        target_contents = "\n\n".join(contents_parts) if contents_parts else "(no matching reports found)"
+
+        user_prompt = SCOURER_SYNTHESIS_TEMPLATE.format(
+            model_id=model.id,
+            model_name=model.name,
+            cost=f"{cost:.4f}",
+            run_number=run_number,
+            target=target,
+            report_count=len(report_files),
+            target_contents=target_contents,
+        )
+
+    elif scope == "tensor":
         # Tensor scope: read from cairn
         if cairn_dir is None:
             raise ValueError("cairn_dir is required for tensor scope")

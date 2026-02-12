@@ -84,8 +84,8 @@ def cairn_dir(tmp_path: Path) -> Path:
 class TestValidScopes:
     """Verify the VALID_SCOPES constant."""
 
-    def test_contains_exactly_three_scopes(self):
-        assert VALID_SCOPES == {"introspection", "external", "tensor"}
+    def test_contains_expected_scopes(self):
+        assert VALID_SCOPES == {"introspection", "external", "tensor", "synthesis"}
 
     def test_is_a_set(self):
         assert isinstance(VALID_SCOPES, set)

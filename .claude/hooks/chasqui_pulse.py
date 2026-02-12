@@ -4,12 +4,16 @@
 Runs frequently via cron (every 1-5 minutes). Mostly does nothing.
 Wakes up when:
   - Code changed (new commits since last check) → dispatch a scout
-  - 6 hours since last scout → dispatch one anyway (minimum heartbeat)
+  - 30 minutes since last scout → dispatch one anyway (minimum heartbeat)
+  - Every 3rd heartbeat → queue a scour (periodic exploration)
+  - New cairn files sitting uncommitted → digest (auto-commit)
   - Work queue has items → process the next one
 
 The work queue is the living part. Scouts create verify items.
-Verifications with DENIED verdicts create respond items. The system
-generates its own work.
+Verifications with DENIED verdicts create respond items. Periodic
+scours explore code modules and tensors. The digest step commits
+new reports to git so the cairn stays clean. The system generates
+its own work.
 
 State lives in .claude/heartbeat_state.json (not committed).
 Work queue lives in .claude/work_queue.json (not committed).
@@ -57,6 +61,7 @@ LOG_DIR = PROJECT_DIR / "logs"
 MIN_SCOUT_INTERVAL = 300       # 5 minutes between scouts
 HEARTBEAT_INTERVAL = 1800      # 30 minutes — debugging frequency (was 6 hours)
 SCOUR_EVERY_N_HEARTBEATS = 3   # Queue a scour every 3rd heartbeat
+DIGEST_INTERVAL = 300          # 5 minutes between cairn commits (batch reports)
 
 # Scour targets — (target_path, scope) pairs for periodic exploration
 SCOUR_TARGETS = [
@@ -145,6 +150,60 @@ def run_tinkuy_check() -> tuple[bool, str]:
         return passed, output.strip()
     except (subprocess.SubprocessError, OSError) as e:
         return False, f"tinkuy check failed to run: {e}"
+
+
+AI_GIT_CONFIG = [
+    "-c", "user.name=Yanantin AI (Claude Opus)",
+    "-c", "user.email=yanantin@wamason.com",
+    "-c", "user.signingkey=1E416B1FB63AF88179EE0F38D0CAB9659C950893",
+]
+
+
+def digest_cairn() -> int:
+    """Auto-commit new/modified cairn files. Returns count committed."""
+    try:
+        result = subprocess.run(
+            ["git", "status", "--porcelain", "docs/cairn/"],
+            capture_output=True, text=True, cwd=PROJECT_DIR,
+        )
+    except (subprocess.SubprocessError, OSError):
+        return 0
+
+    lines = [ln for ln in result.stdout.strip().split("\n") if ln.strip()]
+    if not lines:
+        return 0
+
+    # Categorize for commit message
+    scouts = sum(1 for ln in lines if "scout_" in ln)
+    scours = sum(1 for ln in lines if "scour_" in ln)
+    compactions = sum(1 for ln in lines if "compaction" in ln)
+    other = len(lines) - scouts - scours - compactions
+
+    parts = []
+    if scouts:
+        parts.append(f"{scouts} scout{'s' if scouts != 1 else ''}")
+    if scours:
+        parts.append(f"{scours} scour{'s' if scours != 1 else ''}")
+    if compactions:
+        parts.append(f"{compactions} compaction{'s' if compactions != 1 else ''}")
+    if other:
+        parts.append(f"{other} other")
+    summary = ", ".join(parts) or f"{len(lines)} files"
+
+    try:
+        subprocess.run(
+            ["git", "add", "docs/cairn/"],
+            cwd=PROJECT_DIR, check=True,
+        )
+        subprocess.run(
+            ["git"] + AI_GIT_CONFIG + ["commit", "-S", "-m", f"Cairn digest: {summary}"],
+            cwd=PROJECT_DIR, check=True,
+        )
+        log(f"Cairn digest committed: {summary}")
+        return len(lines)
+    except (subprocess.SubprocessError, OSError) as e:
+        log(f"Cairn digest commit failed: {e}")
+        return 0
 
 
 def enqueue(queue: list, item: dict) -> list:
@@ -329,6 +388,17 @@ def main() -> None:
                     "scope": scope,
                     "created": datetime.now(timezone.utc).isoformat(),
                 })
+
+        # ── Digest: auto-commit new cairn files ─────────────────────
+        last_digest = state.get("last_digest", 0)
+        if now - last_digest >= DIGEST_INTERVAL:
+            digested = digest_cairn()
+            if digested:
+                state["last_digest"] = time.time()
+                state["total_digested"] = state.get("total_digested", 0) + digested
+                # Update HEAD after our commit
+                head = current_commit()
+                state["last_commit"] = head
 
         # ── Process next queue item ───────────────────────────────
         if queue:

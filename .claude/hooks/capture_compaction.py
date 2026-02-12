@@ -25,62 +25,109 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
+def _extract_summary_content(msg: dict) -> str:
+    """Extract text content from a compaction summary message."""
+    content = msg.get("message", {}).get("content", "")
+    if isinstance(content, list):
+        parts = []
+        for block in content:
+            if isinstance(block, dict) and block.get("type") == "text":
+                parts.append(block["text"])
+        content = "\n".join(parts)
+    return content
+
+
+def _find_boundary_and_summary(jsonl_path: Path, start_byte: int = 0) -> list[dict]:
+    """Scan JSONL from start_byte, returning all (boundary, summary) pairs found."""
+    results = []
+    try:
+        with open(jsonl_path, encoding="utf-8") as f:
+            if start_byte > 0:
+                f.seek(start_byte)
+                f.readline()  # skip partial line after seek
+
+            pending_boundary = None
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    entry = json.loads(line)
+                except (json.JSONDecodeError, ValueError):
+                    continue
+
+                if entry.get("subtype") == "compact_boundary":
+                    pending_boundary = entry
+                    continue
+
+                if pending_boundary and entry.get("type") == "user":
+                    # Check if this is a compaction summary
+                    is_summary = entry.get("isCompactSummary", False)
+                    msg_content = _extract_summary_content(entry)
+                    # Also detect by content pattern (starts with continuation preamble)
+                    if is_summary or (
+                        msg_content
+                        and "continued from a previous conversation" in msg_content[:200]
+                    ):
+                        results.append({
+                            "summary": msg_content,
+                            "boundary": pending_boundary,
+                            "summary_timestamp": entry.get("timestamp", "unknown"),
+                        })
+                    pending_boundary = None
+
+    except (OSError, IOError):
+        pass
+    return results
+
+
+def _already_captured(compaction_dir: Path, boundary_ts: str) -> bool:
+    """Check if a compaction with this boundary timestamp was already captured."""
+    for f in compaction_dir.iterdir():
+        if not f.name.endswith(".md") or f.name.startswith("."):
+            continue
+        try:
+            text = f.read_text(encoding="utf-8")
+            if boundary_ts in text:
+                return True
+        except (OSError, UnicodeDecodeError):
+            continue
+    return False
+
+
 def wait_for_summary(
     jsonl_path: Path,
     start_offset: int,
+    compaction_dir: Path,
     timeout: int = 120,
     poll_interval: float = 2.0,
 ) -> dict | None:
-    """Poll the JSONL for a compact_boundary, then read the summary after it."""
+    """Find uncaptured compaction summaries.
+
+    Strategy:
+    1. First scan backward from start_offset (catch boundaries written before hook fired)
+    2. Then poll forward from start_offset (catch boundaries written after hook fired)
+
+    Returns the first uncaptured boundary+summary pair found.
+    """
+    # Phase 1: look backward — scan from 512KB before start_offset
+    lookback = 512 * 1024
+    scan_from = max(0, start_offset - lookback)
+    backward_results = _find_boundary_and_summary(jsonl_path, scan_from)
+
+    for result in backward_results:
+        boundary_ts = result["boundary"].get("timestamp", "")
+        if boundary_ts and not _already_captured(compaction_dir, boundary_ts):
+            return result
+
+    # Phase 2: poll forward for new entries
     deadline = time.time() + timeout
-
     while time.time() < deadline:
-        try:
-            with open(jsonl_path, encoding="utf-8") as f:
-                f.seek(start_offset)
-                for line in f:
-                    line = line.strip()
-                    if not line:
-                        continue
-                    try:
-                        entry = json.loads(line)
-                    except (json.JSONDecodeError, ValueError):
-                        continue
-
-                    if entry.get("subtype") != "compact_boundary":
-                        continue
-
-                    # Found the boundary. The next user entry is the summary.
-                    for after_line in f:
-                        after_line = after_line.strip()
-                        if not after_line:
-                            continue
-                        try:
-                            after = json.loads(after_line)
-                        except (json.JSONDecodeError, ValueError):
-                            continue
-
-                        if after.get("type") != "user":
-                            continue
-
-                        msg = after.get("message", {})
-                        content = msg.get("content", "")
-
-                        if isinstance(content, list):
-                            parts = []
-                            for block in content:
-                                if isinstance(block, dict) and block.get("type") == "text":
-                                    parts.append(block["text"])
-                            content = "\n".join(parts)
-
-                        return {
-                            "summary": content,
-                            "boundary": entry,
-                            "summary_timestamp": after.get("timestamp", "unknown"),
-                        }
-
-        except (OSError, IOError):
-            pass
+        forward_results = _find_boundary_and_summary(jsonl_path, start_offset)
+        for result in forward_results:
+            boundary_ts = result["boundary"].get("timestamp", "")
+            if boundary_ts and not _already_captured(compaction_dir, boundary_ts):
+                return result
 
         time.sleep(poll_interval)
 
@@ -167,7 +214,7 @@ def main() -> None:
     os.dup2(devnull, 2)
     os.close(devnull)
 
-    result = wait_for_summary(transcript_path, start_offset)
+    result = wait_for_summary(transcript_path, start_offset, compaction_dir)
 
     if result is None:
         # Timed out. Log it.

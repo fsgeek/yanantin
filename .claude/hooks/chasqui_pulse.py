@@ -32,6 +32,22 @@ from pathlib import Path
 
 PROJECT_DIR = Path(__file__).resolve().parents[2]
 UV_BIN = Path.home() / ".local" / "bin" / "uv"
+ENV_FILE = PROJECT_DIR / ".env"
+
+
+def _load_env() -> None:
+    """Load .env file into os.environ. Stdlib only, no dotenv dependency."""
+    if not ENV_FILE.is_file():
+        return
+    for line in ENV_FILE.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        key = key.strip()
+        value = value.strip().strip("'\"")
+        if key and key not in os.environ:
+            os.environ[key] = value
 STATE_FILE = PROJECT_DIR / ".claude" / "heartbeat_state.json"
 QUEUE_FILE = PROJECT_DIR / ".claude" / "work_queue.json"
 LOCK_FILE = PROJECT_DIR / ".claude" / ".pulse.lock"
@@ -39,7 +55,7 @@ LOG_DIR = PROJECT_DIR / "logs"
 
 # Intervals in seconds
 MIN_SCOUT_INTERVAL = 300       # 5 minutes between scouts
-HEARTBEAT_INTERVAL = 6 * 3600  # 6 hours minimum heartbeat
+HEARTBEAT_INTERVAL = 1800      # 30 minutes — debugging frequency (was 6 hours)
 
 
 def log(msg: str) -> None:
@@ -140,6 +156,13 @@ def dispatch_chasqui(mode: str, extra_args: list[str] | None = None) -> dict | N
     elif mode == "respond":
         if extra_args:
             cmd.extend(["--respond", extra_args[0]])
+    elif mode == "scour":
+        if extra_args and len(extra_args) >= 1:
+            cmd.extend(["--scour", extra_args[0]])
+            if len(extra_args) >= 2:
+                cmd.extend(["--scope", extra_args[1]])
+        else:
+            return None
     elif mode == "score":
         cmd.extend(["--score"])
     else:
@@ -198,6 +221,14 @@ def process_queue_item(item: dict, state: dict) -> list[dict]:
         if target and Path(target).exists():
             dispatch_chasqui("respond", extra_args=[target])
 
+    elif item_type == "scour":
+        target = item.get("target", "")
+        scope = item.get("scope", "introspection")
+        if target:
+            result = dispatch_chasqui("scour", extra_args=[target, scope])
+            if result:
+                log(f"Scour completed: target={target}, scope={scope}")
+
     elif item_type == "governance":
         log(f"GOVERNANCE ALERT: {item.get('details', 'unknown issue')}")
 
@@ -210,6 +241,7 @@ def process_queue_item(item: dict, state: dict) -> list[dict]:
 
 
 def main() -> None:
+    _load_env()
     LOG_DIR.mkdir(parents=True, exist_ok=True)
 
     # Acquire exclusive lock — only one pulse runs at a time

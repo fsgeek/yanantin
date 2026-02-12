@@ -3,7 +3,7 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: post-T14 survey, 2026-02-11*
+*Last updated: post-T15 survey, 2026-02-12*
 
 ## What Exists
 
@@ -18,34 +18,54 @@ The core. 33 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 | **backends/** | 3 files | `InMemoryBackend`, `DuckDBBackend`, `ArangoDBBackend`. All implement the same 26 methods. Three paths to the same interface. |
 | **operators/** | 7 files | compose, project, correct, dissent, negate, bootstrap, evolve. Functions that operate through the interface, never touch backend internals. |
 | **renderer/** | 1 file | Markdown rendering. TensorRecord → human-readable text. |
-| **ingest/** | 2 files | Markdown parsing (human-readable text → TensorRecord) and tensor ballot (atomic T-number allocation via O_CREAT\|O_EXCL). |
+| **ingest/** | 2 files | Markdown parsing (human-readable text → TensorRecord) and tensor ballot (atomic T-number allocation via O_CREAT\|O_EXCL). Supports both modern (T*_*.md) and legacy (conversation_tensor_*.md) naming, with label-based deduplication on ingest. |
 | **clients/** | 2 files | OpenRouter API client for cross-model communication. `ApachetaGatewayClient` — thin HTTP client implementing all 26 interface methods against Pukara. Fourth path to the interface. |
+| **content_address.py** | 1 file | SHA-256 content addressing for cairn documents. `content_hash()`, `ContentIndex` for duplicate detection, CLI dedup reporting. |
 | **config.py** | 1 file | Config-as-tensors. `ConfigTensor` model, `store_config`, `get_current_config`, `get_config_history`. Immutable configuration stored in Apacheta with correction-chain lineage. File defaults bootstrap; database overrides. |
 
-**554 test functions** across 22 files. 22 red-bar (structural invariants, 5 files), 71 integration (ArangoDB live, 1 file), 461 unit (16 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, and Tinkuy audit/succession (20 tests).
+**712 test functions** across 25 files. 22 red-bar (structural invariants, 5 files), 71 integration (ArangoDB live, 1 file), 619 unit (19 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), and scourer (51 tests).
 
 ### Chasqui — Coordinator (code: `src/yanantin/chasqui/`)
 
-The heartbeat. Dispatches scouts, scores responses, selects models.
+The heartbeat. Dispatches scouts and scourers, scores responses, selects models.
 Now runs autonomously via cron using the pulse/heartbeat system
-(see Infrastructure below).
+(see Infrastructure below). 6 source files.
 
 | File | What it does |
 |------|-------------|
-| `coordinator.py` | Wake up, select tensor, dispatch scout, collect response |
+| `coordinator.py` | Wake up, select tensor, dispatch scout/scour, collect response |
 | `model_selector.py` | Cost-weighted random walk across OpenRouter's model catalog |
 | `scout.py` | Send a tensor to a model, get a response, write it to cairn |
+| `scourer.py` | Targeted exploration with 3 scope types: introspection (project internals), external (other codebases), tensor (cairn analysis). Three prompt templates. |
 | `scorer.py` | Score scout reports for provenance, verifiable claims, content |
-| `__main__.py` | CLI entry: `uv run python -m yanantin.chasqui` |
+| `__main__.py` | CLI: `uv run python -m yanantin.chasqui [--respond PATH] [--scour TARGET --scope {introspection,external,tensor}]` |
 
 **Respond mode**: `--respond path/to/tensor.md` sends a tensor to a randomly
 selected model and writes the response to `docs/cairn/`.
 
+**Scour mode**: `--scour TARGET --scope {introspection,external,tensor}` directs
+a randomly selected model to examine a specific target. Scourers are focused
+where scouts wander freely.
+
 **Autonomous mode**: The pulse hook (`.claude/hooks/chasqui_pulse.py`) detects
 code changes, enforces a minimum heartbeat interval, manages a work queue
-(scout → verify → respond on DENIED), and integrates with Tinkuy for
+(scout → verify → respond on DENIED → scour), and integrates with Tinkuy for
 governance checks. The simple cron wrapper (`chasqui_heartbeat.sh`) provides
 a less reactive alternative for scheduled dispatch.
+
+### Awaq — Weaver (code: `src/yanantin/awaq/`)
+
+Composition graph extraction. Deterministic, no LLM calls. 3 source files.
+
+| File | What it does |
+|------|-------------|
+| `weaver.py` | 14 regex patterns extract composition declarations from tensor prose. Handles Unicode subscripts (T₀), LaTeX (T_0), plain (T0). Returns `CompositionDeclaration` dataclasses with source, targets, relation, evidence, confidence. |
+| `__main__.py` | CLI: `uv run python -m yanantin.awaq [--tensor T15] [--json] [--list]` |
+| `__init__.py` | Package init with public API exports |
+
+Relations extracted: `composes_with`, `does_not_compose_with`, `corrects`,
+`bridges`, `branches_from`, `read`. Confidence levels: high/medium/low.
+Current corpus: 19 declarations from 15 tensors, 14 unique nodes.
 
 ### Pukara — Fortress Gateway (separate project: `/home/tony/projects/pukara/`)
 
@@ -66,9 +86,12 @@ Depends on yanantin via path. **150 tests** across 2 files.
 
 ### The Cairn (docs/cairn/)
 
-37 files. 14 tensors (T0-T7 as symlinks, T9-T14 native; T8 intentionally
-unwritten), 15 scout reports, 8 original tensor files. The cairn is
-persistence — files on disk, in git, re-ingestible by the markdown parser.
+104 files. 15 tensors (T0-T7, T9-T15; T8 intentionally unwritten),
+87 scout reports, 2 scour reports, 9 compaction records
+(`docs/cairn/compaction/`). Legacy `conversation_tensor_*` duplicates
+removed — T*_*.md is the canonical naming. The cairn is persistence —
+files on disk, in git, re-ingestible by the markdown parser.
+Content addressing (`content_address.py`) prevents future duplicates.
 
 ### Infrastructure — Hooks and Heartbeat (`.claude/hooks/`)
 
@@ -101,20 +124,28 @@ InMemoryBackend | DuckDBBackend | ArangoDBBackend
 
 Chasqui (coordinator)
   ↓ (OpenRouter API)
-External models → scout reports → docs/cairn/
+External models → scout/scour reports → docs/cairn/
   ↓ (markdown parser)
 TensorRecord → ApachetaInterface → backend
+
+Awaq (weaver)
+  ↓ (reads cairn)
+docs/cairn/ → CompositionDeclarations → (future: composition edges)
 ```
 
 Four paths to the interface: three local backends plus
 `ApachetaGatewayClient` over HTTP to Pukara. The road to the fortress
-is built.
+is built. Awaq provides the composition graph; Chasqui provides the
+epistemic diversity.
 
 ## What Doesn't Exist
 
 | Name | Status | What it would be |
 |------|--------|-----------------|
-| **Tinkuy** | v0 — audit + succession | Governance. Blueprint audit tool (`uv run python -m yanantin.tinkuy`), succession protocol. Code: `src/yanantin/tinkuy/`. |
+| **Tinkuy** | v0 — audit + succession | Governance. Blueprint audit tool (`uv run python -m yanantin.tinkuy`), succession protocol. Code: `src/yanantin/tinkuy/` (4 files). |
+| **Gleaner** | Concept | Compose patterns from scour results. Next role after scourer. |
+| **Analyst** | Concept | Identify actionable insights from gleaner patterns. |
+| **Cantor/Weaver** | Concept (Awaq is step 1) | Curate corpus, create composition edges. Awaq provides deterministic extraction; LLM-guided curation is the next layer. |
 | **Choquequirao** | Name only | Archive and provenance. Buried things being excavated. No code, no design. |
 | **Takiq** | Name only | Singer role — carries the greeting. No implementation. |
 | **DecoderRing v2** | Placeholder | UUID obfuscation is pass-through. Real obfuscation undesigned. |

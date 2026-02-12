@@ -56,6 +56,16 @@ LOG_DIR = PROJECT_DIR / "logs"
 # Intervals in seconds
 MIN_SCOUT_INTERVAL = 300       # 5 minutes between scouts
 HEARTBEAT_INTERVAL = 1800      # 30 minutes — debugging frequency (was 6 hours)
+SCOUR_EVERY_N_HEARTBEATS = 3   # Queue a scour every 3rd heartbeat
+
+# Scour targets — (target_path, scope) pairs for periodic exploration
+SCOUR_TARGETS = [
+    ("src/yanantin/apacheta", "introspection"),
+    ("src/yanantin/chasqui", "introspection"),
+    ("src/yanantin/awaq", "introspection"),
+    ("src/yanantin/tinkuy", "introspection"),
+    ("T*", "tensor"),
+]
 
 
 def log(msg: str) -> None:
@@ -304,6 +314,21 @@ def main() -> None:
                 "trigger": "heartbeat",
                 "created": datetime.now(timezone.utc).isoformat(),
             })
+
+            # ── Periodic scour ───────────────────────────────────
+            heartbeat_count = state.get("heartbeat_count", 0) + 1
+            state["heartbeat_count"] = heartbeat_count
+            if heartbeat_count % SCOUR_EVERY_N_HEARTBEATS == 0:
+                import random
+                target, scope = random.choice(SCOUR_TARGETS)
+                log(f"Queueing periodic scour: target={target}, scope={scope}")
+                queue = enqueue(queue, {
+                    "type": "scour",
+                    "trigger": "periodic",
+                    "target": target,
+                    "scope": scope,
+                    "created": datetime.now(timezone.utc).isoformat(),
+                })
 
         # ── Process next queue item ───────────────────────────────
         if queue:

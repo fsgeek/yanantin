@@ -3,29 +3,32 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: post-T13 survey, 2026-02-10*
+*Last updated: post-T14 survey, 2026-02-11*
 
 ## What Exists
 
 ### Apacheta — Tensor Database (code: `src/yanantin/apacheta/`)
 
-The core. 37 classes, 26 abstract methods, 3 backends, 1 HTTP client.
+The core. 33 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 
 | Layer | Files | What it does |
 |-------|-------|-------------|
-| **models/** | 7 files, 19 classes | Pydantic v2 data models: TensorRecord, StrandRecord, KeyClaim, CompositionEdge, CorrectionRecord, DissentRecord, NegationRecord, BootstrapRecord, SchemaEvolutionRecord, EntityResolution, EpistemicMetadata, DeclaredLoss, ProvenanceEnvelope, SourceIdentifier |
+| **models/** | 6 files, 19 classes | Pydantic v2 data models: TensorRecord, StrandRecord, KeyClaim, CompositionEdge, CorrectionRecord, DissentRecord, NegationRecord, BootstrapRecord, SchemaEvolutionRecord, EntityResolution, EpistemicMetadata, DeclaredLoss, ProvenanceEnvelope, SourceIdentifier |
 | **interface/** | 2 files | `ApachetaInterface` ABC (26 methods) + 5 error types. The only API. Everything goes through this. |
 | **backends/** | 3 files | `InMemoryBackend`, `DuckDBBackend`, `ArangoDBBackend`. All implement the same 26 methods. Three paths to the same interface. |
 | **operators/** | 7 files | compose, project, correct, dissent, negate, bootstrap, evolve. Functions that operate through the interface, never touch backend internals. |
 | **renderer/** | 1 file | Markdown rendering. TensorRecord → human-readable text. |
 | **ingest/** | 2 files | Markdown parsing (human-readable text → TensorRecord) and tensor ballot (atomic T-number allocation via O_CREAT\|O_EXCL). |
 | **clients/** | 2 files | OpenRouter API client for cross-model communication. `ApachetaGatewayClient` — thin HTTP client implementing all 26 interface methods against Pukara. Fourth path to the interface. |
+| **config.py** | 1 file | Config-as-tensors. `ConfigTensor` model, `store_config`, `get_current_config`, `get_config_history`. Immutable configuration stored in Apacheta with correction-chain lineage. File defaults bootstrap; database overrides. |
 
-**544 test functions** across 21 files. 22 red-bar (structural invariants, 5 files), 71 integration (ArangoDB live, 1 file), 451 unit (15 files). Parametrized tests expand to ~550 pytest items. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), and Tinkuy audit/succession (20 tests).
+**554 test functions** across 22 files. 22 red-bar (structural invariants, 5 files), 71 integration (ArangoDB live, 1 file), 461 unit (16 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, and Tinkuy audit/succession (20 tests).
 
 ### Chasqui — Coordinator (code: `src/yanantin/chasqui/`)
 
 The heartbeat. Dispatches scouts, scores responses, selects models.
+Now runs autonomously via cron using the pulse/heartbeat system
+(see Infrastructure below).
 
 | File | What it does |
 |------|-------------|
@@ -37,6 +40,12 @@ The heartbeat. Dispatches scouts, scores responses, selects models.
 
 **Respond mode**: `--respond path/to/tensor.md` sends a tensor to a randomly
 selected model and writes the response to `docs/cairn/`.
+
+**Autonomous mode**: The pulse hook (`.claude/hooks/chasqui_pulse.py`) detects
+code changes, enforces a minimum heartbeat interval, manages a work queue
+(scout → verify → respond on DENIED), and integrates with Tinkuy for
+governance checks. The simple cron wrapper (`chasqui_heartbeat.sh`) provides
+a less reactive alternative for scheduled dispatch.
 
 ### Pukara — Fortress Gateway (separate project: `/home/tony/projects/pukara/`)
 
@@ -57,9 +66,25 @@ Depends on yanantin via path. **150 tests** across 2 files.
 
 ### The Cairn (docs/cairn/)
 
-30 files. 14 tensors (T0-T7 as symlinks, T9-T14 native; T8 intentionally
-unwritten), 8 scout reports, 8 original tensor files. The cairn is
+37 files. 14 tensors (T0-T7 as symlinks, T9-T14 native; T8 intentionally
+unwritten), 15 scout reports, 8 original tensor files. The cairn is
 persistence — files on disk, in git, re-ingestible by the markdown parser.
+
+### Infrastructure — Hooks and Heartbeat (`.claude/hooks/`)
+
+Three scripts that give the project autonomous behavior between sessions.
+
+| File | What it does |
+|------|-------------|
+| `capture_compaction.py` | **PreCompact hook.** Fires before context compaction. Forks a child that polls the session JSONL for the compaction summary, then writes it to `docs/cairn/compaction/` with honest provenance labeling. The compaction summary is system-generated content wearing a `type: "user"` label — this hook surfaces that. Stdlib only, no project dependencies. |
+| `chasqui_pulse.py` | **Reactive heartbeat.** Runs via cron (every 1-5 min). Detects code changes via git, enforces minimum scout intervals, manages a work queue (scout → verify → respond on DENIED verdicts), runs Tinkuy governance checks when blueprint drifts. Exclusive lock prevents overlap. State in `.claude/heartbeat_state.json`, queue in `.claude/work_queue.json` (neither committed). |
+| `chasqui_heartbeat.sh` | **Simple cron wrapper.** Modes: scout, verify, respond, score. Sources `.env` for API keys. A less reactive alternative to the pulse — good for scheduled 6-hour/daily/weekly dispatch. |
+
+**Config-as-tensors** (`src/yanantin/apacheta/config.py`): Configuration
+stored as immutable TensorRecords with correction-chain lineage. Each config
+change records what changed, why, and what it replaced. File defaults
+bootstrap the system before a database is available; database configs override.
+`DEFAULT_CONFIGS` covers Chasqui pulse settings. See the Apacheta table above.
 
 ## What Connects
 

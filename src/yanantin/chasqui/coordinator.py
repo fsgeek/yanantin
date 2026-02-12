@@ -27,6 +27,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+import logging
+
 from yanantin.apacheta.clients.openrouter import OpenRouterClient
 from yanantin.chasqui.model_selector import ModelInfo, ModelSelector
 from yanantin.chasqui.scout import (
@@ -35,6 +37,9 @@ from yanantin.chasqui.scout import (
     format_verify_prompt,
     scout_metadata,
 )
+from yanantin.chasqui.scourer import VALID_SCOPES, format_scour_prompt
+
+logger = logging.getLogger(__name__)
 
 
 # ── Configuration ────────────────────────────────────────────────────
@@ -113,7 +118,179 @@ def write_to_cairn(
     return run_number, path
 
 
+# ── Scour cairn writer ───────────────────────────────────────────────
+
+def _claim_scour_number(cairn_dir: Path, model_short: str) -> tuple[int, Path]:
+    """Claim a unique scour run number using filesystem atomicity.
+
+    Same Lamport bakery as scouts, but with scour_ prefix to keep
+    the namespaces separate.
+
+    Returns (run_number, claimed_path).
+    """
+    cairn_dir.mkdir(parents=True, exist_ok=True)
+    date_str = datetime.now(timezone.utc).strftime("%Y%m%d")
+
+    # Find the high-water mark from existing scour reports
+    existing = list(cairn_dir.glob("scour_*.md"))
+    numbers = []
+    for f in existing:
+        match = re.search(r"scour_(\d+)", f.name)
+        if match:
+            numbers.append(int(match.group(1)))
+    candidate = max(numbers, default=0) + 1
+
+    # Bakery loop: try to claim this number atomically
+    while True:
+        filename = f"scour_{candidate:04d}_{date_str}_{model_short}.md"
+        path = cairn_dir / filename
+        try:
+            fd = os.open(str(path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o644)
+            os.close(fd)
+            return candidate, path
+        except FileExistsError:
+            candidate += 1
+
+
+def write_scour_to_cairn(
+    content: str,
+    model: ModelInfo,
+    usage: dict[str, Any],
+    target: str,
+    scope: str,
+    cairn_dir: Path = CAIRN_DIR,
+) -> tuple[int, Path]:
+    """Claim a run number and write a scourer's tensor to the cairn.
+
+    Scour reports are named scour_NNNN_DATE_MODEL.md — distinct from
+    scout reports so the two series don't collide.
+
+    Returns (run_number, path).
+    """
+    model_short = model.id.split("/")[-1][:30].replace(" ", "_")
+    run_number, path = _claim_scour_number(cairn_dir, model_short)
+
+    header = f"""\
+<!-- Chasqui Scour Tensor
+     Run: {run_number}
+     Model: {model.id} ({model.name})
+     Target: {target}
+     Scope: {scope}
+     Cost: prompt=${model.prompt_cost}/M, completion=${model.completion_cost}/M
+     Usage: {usage}
+     Timestamp: {datetime.now(timezone.utc).isoformat()}
+-->
+
+"""
+    path.write_text(header + content, encoding="utf-8")
+    return run_number, path
+
+
 # ── Dispatch ─────────────────────────────────────────────────────────
+
+async def dispatch_scour(
+    target: str,
+    scope: str = "introspection",
+    cairn_dir: Path = CAIRN_DIR,
+    project_root: Path = PROJECT_ROOT,
+    exclude_patterns: list[str] | None = None,
+    seed: int | None = None,
+    max_tokens: int = 4000,
+    temperature: float = 0.7,
+) -> dict[str, Any]:
+    """Dispatch a targeted scourer messenger.
+
+    Unlike a scout that wanders freely, a scourer examines a specific
+    target: a file, directory, tensor, or external codebase.
+
+    Args:
+        target: What to examine — a path or tensor spec.
+        scope: One of "introspection", "external", "tensor".
+
+    Returns a summary dict with model info, cost, path, and content length.
+    """
+    if scope not in VALID_SCOPES:
+        return {"error": f"Invalid scope: {scope!r}. Must be one of {VALID_SCOPES}"}
+
+    exclude = exclude_patterns or DEFAULT_EXCLUDE
+
+    async with OpenRouterClient() as client:
+        # 1. Get available models
+        models_data = await client.list_models()
+
+        # 2. Build selector and pick
+        selector = ModelSelector(
+            min_context_length=8_000,
+            exclude_patterns=exclude,
+        )
+        if seed is not None:
+            selector.seed(seed)
+        loaded_count = selector.load_from_openrouter_response(models_data)
+
+        if loaded_count == 0:
+            return {"error": "No models available after filtering"}
+
+        model = selector.select()
+
+        # 3. Build scour prompt
+        try:
+            system_prompt, messages = format_scour_prompt(
+                model=model,
+                target=target,
+                scope=scope,
+                run_number=0,
+                cairn_dir=cairn_dir,
+            )
+        except (FileNotFoundError, ValueError) as e:
+            return {"error": str(e)}
+
+        # 4. Log raw prompt before dispatch
+        logger.info(
+            "Scourer dispatch: model=%s, target=%r, scope=%s",
+            model.id, target, scope,
+        )
+
+        # 5. Dispatch
+        metadata = scout_metadata(model, 0, mode="scour")
+        response = await client.complete(
+            model=model.id,
+            messages=[{"role": "system", "content": system_prompt}] + messages,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            metadata=metadata,
+        )
+
+        # 6. Log raw response before parsing
+        logger.info(
+            "Scourer response: model=%s, content_length=%d, usage=%s",
+            model.id, len(response.content), response.usage,
+        )
+
+        # 7. Write to cairn — number claimed atomically here
+        run_number, path = write_scour_to_cairn(
+            content=response.content,
+            model=model,
+            usage=response.usage,
+            target=target,
+            scope=scope,
+            cairn_dir=cairn_dir,
+        )
+
+        return {
+            "mode": "scour",
+            "target": target,
+            "scope": scope,
+            "model": model.id,
+            "model_name": model.name,
+            "cost_per_million": model.total_cost_per_million,
+            "run_number": run_number,
+            "cairn_path": str(path),
+            "content_length": len(response.content),
+            "usage": response.usage,
+            "pool_size": loaded_count,
+            "pool_stats": selector.stats(),
+        }
+
 
 async def dispatch_scout(
     cairn_dir: Path = CAIRN_DIR,

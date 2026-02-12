@@ -3,6 +3,9 @@
     uv run python -m yanantin.chasqui                          # dispatch one scout
     uv run python -m yanantin.chasqui --many 3                 # dispatch three in parallel
     uv run python -m yanantin.chasqui --respond path/to/tensor # respond to a scout
+    uv run python -m yanantin.chasqui --scour src/yanantin/chasqui  # scour a target
+    uv run python -m yanantin.chasqui --scour /path/to/project --scope external
+    uv run python -m yanantin.chasqui --scour "T7*" --scope tensor
     uv run python -m yanantin.chasqui --score                  # score all scouts in the cairn
     uv run python -m yanantin.chasqui --seed 42                # reproducible model selection
 """
@@ -20,6 +23,7 @@ from yanantin.chasqui.coordinator import (
     PROJECT_ROOT,
     dispatch_many,
     dispatch_respond,
+    dispatch_scour,
     dispatch_scout,
     dispatch_verify_cairn,
 )
@@ -36,6 +40,15 @@ def main() -> None:
     parser.add_argument(
         "--respond", type=str, default=None,
         help="Respond to a previous scout's tensor (path to .md file)",
+    )
+    parser.add_argument(
+        "--scour", type=str, default=None, metavar="TARGET",
+        help="Scour a specific target (file, directory, tensor glob)",
+    )
+    parser.add_argument(
+        "--scope", type=str, default="introspection",
+        choices=["introspection", "external", "tensor"],
+        help="Scope for scouring (default: introspection)",
     )
     parser.add_argument(
         "--score", action="store_true",
@@ -138,7 +151,13 @@ def main() -> None:
         "temperature": args.temperature,
     }
 
-    if args.respond:
+    if args.scour:
+        results = [asyncio.run(dispatch_scour(
+            target=args.scour,
+            scope=args.scope,
+            **kwargs,
+        ))]
+    elif args.respond:
         results = [asyncio.run(dispatch_respond(tensor_path=args.respond, **kwargs))]
     elif args.many:
         results = asyncio.run(dispatch_many(n=args.many, **kwargs))
@@ -158,6 +177,10 @@ def main() -> None:
                 print(f"Response #{r['run_number']}")
                 print(f"  To:     {r['responding_to']}")
                 print(f"  From:   {r['previous_model']}")
+            elif mode == "scour":
+                print(f"Scour #{r['run_number']}")
+                print(f"  Target: {r['target']}")
+                print(f"  Scope:  {r['scope']}")
             else:
                 print(f"Scout #{r['run_number']}")
 

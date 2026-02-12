@@ -27,6 +27,56 @@ from yanantin.apacheta.models.tensor import KeyClaim, StrandRecord, TensorRecord
 # ── Filename → metadata mapping ──────────────────────────────────────
 
 TENSOR_METADATA: dict[str, dict] = {
+    # Modern naming (canonical)
+    "T0_20260207_bounded_verification.md": {
+        "label": "T0",
+        "author_model_family": "claude",
+        "lineage_tags": ("experimental", "calibration"),
+        "date": "2026-02-07",
+    },
+    "T1_20260207_seven_projects.md": {
+        "label": "T1",
+        "author_model_family": "claude",
+        "lineage_tags": ("experimental",),
+        "date": "2026-02-07",
+    },
+    "T2_20260207_calibration_recovery.md": {
+        "label": "T2",
+        "author_model_family": "claude",
+        "lineage_tags": ("experimental", "calibration"),
+        "date": "2026-02-07",
+    },
+    "T3_20260208_the_finishing_school.md": {
+        "label": "T3",
+        "author_model_family": "claude",
+        "lineage_tags": ("architectural", "philosophical"),
+        "date": "2026-02-08",
+    },
+    "T4_20260208_rcs_observer.md": {
+        "label": "T4",
+        "author_model_family": "chatgpt",
+        "lineage_tags": ("cross-model", "observer"),
+        "date": "2026-02-08",
+    },
+    "T5_20260208_post_paper.md": {
+        "label": "T5",
+        "author_model_family": "chatgpt",
+        "lineage_tags": ("cross-model", "correction"),
+        "date": "2026-02-08",
+    },
+    "T6_20260207_built_then_saw.md": {
+        "label": "T6",
+        "author_model_family": "claude",
+        "lineage_tags": ("bridge", "cross-model"),
+        "date": "2026-02-07",
+    },
+    "T7_20260208_the_wanderer.md": {
+        "label": "T7",
+        "author_model_family": "claude",
+        "lineage_tags": ("composite", "architectural"),
+        "date": "2026-02-08",
+    },
+    # Legacy naming (aliases for backward compat if files reappear)
     "conversation_tensor_20260207.md": {
         "label": "T0",
         "author_model_family": "claude",
@@ -331,19 +381,28 @@ def parse_tensor_file(path: Path) -> TensorRecord:
 
 def ingest_tensor_directory(
     directory: Path,
-    pattern: str = "conversation_tensor_*.md",
+    patterns: list[str] | None = None,
 ) -> list[TensorRecord]:
-    """Parse all tensor files matching a pattern in a directory.
+    """Parse all tensor files matching patterns in a directory.
 
     Args:
         directory: Path to directory containing tensor markdown files.
-        pattern: Glob pattern for tensor files.
+        patterns: Glob patterns for tensor files. Defaults to both modern
+            (T*_*.md) and legacy (conversation_tensor_*.md) naming.
 
     Returns:
         List of parsed TensorRecords, sorted by provenance timestamp.
+        Deduplicates by label if both naming conventions exist.
     """
+    if patterns is None:
+        patterns = ["T[0-9]*_*.md", "conversation_tensor_*.md"]
+    seen_labels: set[str] = set()
     tensors = []
-    for path in sorted(directory.glob(pattern)):
-        tensor = parse_tensor_file(path)
-        tensors.append(tensor)
+    for pattern in patterns:
+        for path in sorted(directory.glob(pattern)):
+            tensor = parse_tensor_file(path)
+            label = TENSOR_METADATA.get(path.name, {}).get("label", path.stem)
+            if label not in seen_labels:
+                seen_labels.add(label)
+                tensors.append(tensor)
     return sorted(tensors, key=lambda t: t.provenance.timestamp)

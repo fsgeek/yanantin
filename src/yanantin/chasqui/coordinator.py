@@ -25,11 +25,12 @@ import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
+import httpx
 import logging
 
-from yanantin.apacheta.clients.openrouter import OpenRouterClient
+from yanantin.apacheta.clients.openrouter import OpenRouterClient, OpenRouterResponse
 from yanantin.chasqui.model_selector import ModelInfo, ModelSelector
 from yanantin.chasqui.scout import (
     format_respond_prompt,
@@ -186,6 +187,52 @@ def write_scour_to_cairn(
     return run_number, path
 
 
+# ── Retry helper ─────────────────────────────────────────────────────
+
+MAX_DISPATCH_RETRIES = 3
+
+
+async def _complete_with_retry(
+    client: OpenRouterClient,
+    selector: ModelSelector,
+    build_prompt_fn: Callable[[ModelInfo], tuple[str, list[dict[str, str]]]],
+    metadata_fn: Callable[[ModelInfo], dict[str, Any]],
+    temperature: float = 0.7,
+    max_tokens: int = 4000,
+    max_retries: int = MAX_DISPATCH_RETRIES,
+) -> tuple[ModelInfo, OpenRouterResponse]:
+    """Select a model, build prompt, complete. Retry with a different model on HTTP error.
+
+    On 400/404/500+, the failed model is removed from the selector's pool
+    and a new model is selected. This handles models that have been removed
+    from OpenRouter or that reject the prompt format.
+    """
+    last_error: Exception | None = None
+    for attempt in range(max_retries):
+        model = selector.select()
+        system_prompt, messages = build_prompt_fn(model)
+        metadata = metadata_fn(model)
+        try:
+            response = await client.complete(
+                model=model.id,
+                messages=[{"role": "system", "content": system_prompt}] + messages,
+                temperature=temperature,
+                max_tokens=max_tokens,
+                metadata=metadata,
+            )
+            return model, response
+        except httpx.HTTPStatusError as e:
+            last_error = e
+            logger.warning(
+                "Model %s returned HTTP %d (attempt %d/%d), trying different model",
+                model.id, e.response.status_code, attempt + 1, max_retries,
+            )
+            selector.models = [m for m in selector.models if m.id != model.id]
+            if not selector.models:
+                raise ValueError(f"No models remaining after {attempt + 1} failures") from e
+    raise last_error  # type: ignore[misc]  # All retries exhausted
+
+
 # ── Dispatch ─────────────────────────────────────────────────────────
 
 async def dispatch_scour(
@@ -230,43 +277,35 @@ async def dispatch_scour(
         if loaded_count == 0:
             return {"error": "No models available after filtering"}
 
-        model = selector.select()
-
-        # 3. Build scour prompt
-        try:
-            system_prompt, messages = format_scour_prompt(
-                model=model,
-                target=target,
-                scope=scope,
-                run_number=0,
-                cairn_dir=cairn_dir,
+        # 3. Build prompt factory for retry loop
+        def _build_scour(m: ModelInfo) -> tuple[str, list[dict[str, str]]]:
+            return format_scour_prompt(
+                model=m, target=target, scope=scope,
+                run_number=0, cairn_dir=cairn_dir,
             )
+
+        try:
+            _build_scour(selector.models[0])  # Validate target exists before retrying
         except (FileNotFoundError, ValueError) as e:
             return {"error": str(e)}
 
-        # 4. Log raw prompt before dispatch
-        logger.info(
-            "Scourer dispatch: model=%s, target=%r, scope=%s",
-            model.id, target, scope,
-        )
-
-        # 5. Dispatch
-        metadata = scout_metadata(model, 0, mode="scour")
-        response = await client.complete(
-            model=model.id,
-            messages=[{"role": "system", "content": system_prompt}] + messages,
+        # 4. Dispatch with retry on HTTP errors
+        logger.info("Scourer dispatch: target=%r, scope=%s", target, scope)
+        model, response = await _complete_with_retry(
+            client, selector,
+            build_prompt_fn=_build_scour,
+            metadata_fn=lambda m: scout_metadata(m, 0, mode="scour"),
             temperature=temperature,
             max_tokens=max_tokens,
-            metadata=metadata,
         )
 
-        # 6. Log raw response before parsing
+        # 5. Log raw response before parsing
         logger.info(
             "Scourer response: model=%s, content_length=%d, usage=%s",
             model.id, len(response.content), response.usage,
         )
 
-        # 7. Write to cairn — number claimed atomically here
+        # 6. Write to cairn — number claimed atomically here
         run_number, path = write_scour_to_cairn(
             content=response.content,
             model=model,
@@ -328,26 +367,16 @@ async def dispatch_scout(
         if loaded_count == 0:
             return {"error": "No models available after filtering"}
 
-        model = selector.select()
-
-        # 3. Build prompt (run_number=0 placeholder — real number assigned at write)
-        system_prompt, messages = format_scout_prompt(
-            model=model,
-            root=project_root,
-            run_number=0,
-        )
-
-        # 4. Dispatch
-        metadata = scout_metadata(model, 0)
-        response = await client.complete(
-            model=model.id,
-            messages=[{"role": "system", "content": system_prompt}] + messages,
+        # 3. Dispatch with retry on HTTP errors
+        model, response = await _complete_with_retry(
+            client, selector,
+            build_prompt_fn=lambda m: format_scout_prompt(model=m, root=project_root, run_number=0),
+            metadata_fn=lambda m: scout_metadata(m, 0),
             temperature=temperature,
             max_tokens=max_tokens,
-            metadata=metadata,
         )
 
-        # 5. Write to cairn — number claimed atomically here
+        # 4. Write to cairn — number claimed atomically here
         run_number, path = write_to_cairn(
             content=response.content,
             model=model,
@@ -411,22 +440,15 @@ async def dispatch_respond(
         if loaded_count == 0:
             return {"error": "No models available after filtering"}
 
-        model = selector.select()
-
-        system_prompt, messages = format_respond_prompt(
-            model=model,
-            previous_tensor_content=tensor_content,
-            previous_model_id=previous_model,
-            root=project_root,
-        )
-
-        metadata = scout_metadata(model, 0, mode="respond")
-        response = await client.complete(
-            model=model.id,
-            messages=[{"role": "system", "content": system_prompt}] + messages,
+        model, response = await _complete_with_retry(
+            client, selector,
+            build_prompt_fn=lambda m: format_respond_prompt(
+                model=m, previous_tensor_content=tensor_content,
+                previous_model_id=previous_model, root=project_root,
+            ),
+            metadata_fn=lambda m: scout_metadata(m, 0, mode="respond"),
             temperature=temperature,
             max_tokens=max_tokens,
-            metadata=metadata,
         )
 
         run_number, path = write_to_cairn(
@@ -495,23 +517,15 @@ async def dispatch_verify(
         if loaded_count == 0:
             return {"error": "No models available after filtering"}
 
-        model = selector.select()
-
-        system_prompt, messages = format_verify_prompt(
-            model=model,
-            claim_text=claim_text,
-            file_path=file_path,
-            file_content=file_content,
-            source_model=source_model,
-        )
-
-        metadata = scout_metadata(model, 0, mode="verify")
-        response = await client.complete(
-            model=model.id,
-            messages=[{"role": "system", "content": system_prompt}] + messages,
+        model, response = await _complete_with_retry(
+            client, selector,
+            build_prompt_fn=lambda m: format_verify_prompt(
+                model=m, claim_text=claim_text, file_path=file_path,
+                file_content=file_content, source_model=source_model,
+            ),
+            metadata_fn=lambda m: scout_metadata(m, 0, mode="verify"),
             temperature=temperature,
             max_tokens=max_tokens,
-            metadata=metadata,
         )
 
         # Write verification to cairn

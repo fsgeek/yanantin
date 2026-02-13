@@ -7,6 +7,10 @@
           {
             "type": "command",
             "command": "cd \"$CLAUDE_PROJECT_DIR\" && uv run python .claude/hooks/capture_compaction.py"
+          },
+          {
+            "type": "command",
+            "command": "cd \"$CLAUDE_PROJECT_DIR\" && python3 .claude/hooks/precompact_tensor.py"
           }
         ]
       }

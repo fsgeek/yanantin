@@ -47,7 +47,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--scope", type=str, default="introspection",
-        choices=["introspection", "external", "tensor"],
+        choices=["introspection", "external", "tensor", "synthesis"],
         help="Scope for scouring (default: introspection)",
     )
     parser.add_argument(

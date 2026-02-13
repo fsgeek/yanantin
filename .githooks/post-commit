@@ -1,0 +1,28 @@
+#!/bin/bash
+# Post-commit hook: timestamp the commit via OpenTimestamps.
+#
+# This hook runs after every git commit. It calls the OTS stamping
+# script which submits the commit hash to calendar servers and stores
+# the pending proof in docs/ots/.
+#
+# Install:
+#   git config core.hooksPath .githooks
+#
+# The hook runs in the background so it never blocks git.
+# All output goes to logs/ots.log.
+
+SCRIPT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+
+# Run the stamper in the background. If uv isn't available, fail silently.
+if command -v uv &>/dev/null; then
+    (cd "$SCRIPT_DIR" && uv run python .claude/hooks/ots_stamp.py) &
+elif [ -x "$HOME/.local/bin/uv" ]; then
+    (cd "$SCRIPT_DIR" && "$HOME/.local/bin/uv" run python .claude/hooks/ots_stamp.py) &
+else
+    # No uv available. Log and exit silently.
+    mkdir -p "$SCRIPT_DIR/logs"
+    echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) ERROR uv not found, cannot run OTS hook" >> "$SCRIPT_DIR/logs/ots.log"
+fi
+
+# Always exit 0 — never block the commit.
+exit 0

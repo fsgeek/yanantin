@@ -401,6 +401,18 @@ def main() -> None:
                 head = current_commit()
                 state["last_commit"] = head
 
+        # ── OTS: upgrade pending timestamp proofs ──────────────────
+        try:
+            from yanantin.provenance.timestamp import upgrade_pending_proofs
+            ots_dir = PROJECT_DIR / "docs" / "ots"
+            upgraded = upgrade_pending_proofs(ots_dir)
+            if upgraded:
+                log(f"OTS upgraded {len(upgraded)} proofs: {', '.join(upgraded)}")
+        except ImportError:
+            pass  # provenance module not yet installed
+        except Exception as exc:
+            log(f"OTS upgrade error: {exc}")
+
         # ── Process next queue item ───────────────────────────────
         if queue:
             item = queue.pop(0)

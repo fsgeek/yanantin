@@ -230,6 +230,114 @@ def digest_cairn() -> int:
         return 0
 
 
+STALENESS_THRESHOLD = 900  # 15 minutes — flag untracked artifacts older than this
+INTEGRITY_EVERY_N_HEARTBEATS = 5  # Run chain integrity check every 5th heartbeat
+
+
+def check_staleness() -> list[str]:
+    """Detect untracked artifacts that should have been committed.
+
+    Returns list of warning strings. Observation only — no changes made.
+    """
+    warnings = []
+    watched_dirs = [
+        ("docs/cairn/", "cairn files"),
+        ("docs/ots/", "OTS proofs"),
+    ]
+    now = time.time()
+
+    for dir_path, label in watched_dirs:
+        full_path = PROJECT_DIR / dir_path
+        if not full_path.is_dir():
+            continue
+        try:
+            result = subprocess.run(
+                ["git", "status", "--porcelain", dir_path],
+                capture_output=True, text=True, cwd=PROJECT_DIR,
+            )
+        except (subprocess.SubprocessError, OSError):
+            continue
+
+        stale = []
+        for line in result.stdout.strip().split("\n"):
+            if not line.strip():
+                continue
+            # Extract filename from porcelain output (e.g. "?? docs/ots/foo.ots")
+            file_rel = line[3:].strip()
+            file_abs = PROJECT_DIR / file_rel
+            if file_abs.is_file():
+                try:
+                    age = now - file_abs.stat().st_mtime
+                    if age > STALENESS_THRESHOLD:
+                        stale.append((file_rel, int(age)))
+                except OSError:
+                    pass
+
+        if stale:
+            oldest = max(s[1] for s in stale)
+            warnings.append(
+                f"{len(stale)} stale {label} (oldest: {oldest}s, threshold: {STALENESS_THRESHOLD}s)"
+            )
+
+    return warnings
+
+
+def check_ots_chain_integrity() -> list[str]:
+    """Verify OTS proof chain completeness.
+
+    Checks that:
+    1. Recent commits have corresponding OTS proofs
+    2. OTS proofs on disk are committed (not orphaned)
+
+    Returns list of warning strings. Observation only.
+    """
+    warnings = []
+    ots_dir = PROJECT_DIR / "docs" / "ots"
+
+    if not ots_dir.is_dir():
+        return ["OTS directory does not exist — no proofs being created"]
+
+    # Get proof stems (short hashes) from disk
+    proof_stems = {f.stem for f in ots_dir.glob("*.ots")}
+
+    # Get recent commit short hashes (last 20 commits)
+    try:
+        result = subprocess.run(
+            ["git", "log", "--format=%H", "-20"],
+            capture_output=True, text=True, cwd=PROJECT_DIR,
+        )
+        recent_commits = [h.strip() for h in result.stdout.strip().split("\n") if h.strip()]
+    except (subprocess.SubprocessError, OSError):
+        return ["Cannot read git log for chain integrity check"]
+
+    # Check: do recent commits have proofs?
+    missing_proofs = []
+    for commit_hash in recent_commits:
+        short = commit_hash[:10]
+        if short not in proof_stems:
+            missing_proofs.append(short)
+
+    if missing_proofs:
+        warnings.append(
+            f"{len(missing_proofs)} recent commits without OTS proofs: "
+            + ", ".join(missing_proofs[:5])
+        )
+
+    # Check: are there untracked proof files?
+    try:
+        result = subprocess.run(
+            ["git", "status", "--porcelain", "docs/ots/"],
+            capture_output=True, text=True, cwd=PROJECT_DIR,
+        )
+        untracked = [ln for ln in result.stdout.strip().split("\n") if ln.strip()]
+        if untracked:
+            warnings.append(f"{len(untracked)} uncommitted OTS proofs pending digest")
+    except (subprocess.SubprocessError, OSError):
+        pass
+
+    return warnings
+
+
 def enqueue(queue: list, item: dict) -> list:
     """Add an item to the queue if no duplicate type+trigger exists."""
     for existing in queue:
@@ -435,6 +543,17 @@ def main() -> None:
             pass  # provenance module not yet installed
         except Exception as exc:
             log(f"OTS upgrade error: {exc}")
+
+        # ── Proprioception: staleness + chain integrity ────────────
+        stale_warnings = check_staleness()
+        for w in stale_warnings:
+            log(f"STALE: {w}")
+
+        heartbeat_count = state.get("heartbeat_count", 0)
+        if heartbeat_count % INTEGRITY_EVERY_N_HEARTBEATS == 0:
+            chain_warnings = check_ots_chain_integrity()
+            for w in chain_warnings:
+                log(f"CHAIN: {w}")
 
         # ── Process next queue item ───────────────────────────────
         if queue:

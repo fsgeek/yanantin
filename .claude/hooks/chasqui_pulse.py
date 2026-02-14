@@ -69,6 +69,8 @@ SCOUR_TARGETS = [
     ("src/yanantin/chasqui", "introspection"),
     ("src/yanantin/awaq", "introspection"),
     ("src/yanantin/tinkuy", "introspection"),
+    ("src/yanantin/provenance", "introspection"),
+    ("src/yanantin/chasqui/gleaner.py", "introspection"),
     ("T*", "tensor"),
     ("scout_*", "synthesis"),
 ]
@@ -161,24 +163,36 @@ AI_GIT_CONFIG = [
 
 
 def digest_cairn() -> int:
-    """Auto-commit new/modified cairn files. Returns count committed."""
+    """Auto-commit new cairn files and pending OTS proofs.
+
+    OTS proofs are included so each digest carries the proof for the
+    previous commit — creating a chain, not clumps of timestamps.
+    Returns count of cairn files committed.
+    """
     try:
-        result = subprocess.run(
+        cairn_result = subprocess.run(
             ["git", "status", "--porcelain", "docs/cairn/"],
+            capture_output=True, text=True, cwd=PROJECT_DIR,
+        )
+        ots_result = subprocess.run(
+            ["git", "status", "--porcelain", "docs/ots/"],
             capture_output=True, text=True, cwd=PROJECT_DIR,
         )
     except (subprocess.SubprocessError, OSError):
         return 0
 
-    lines = [ln for ln in result.stdout.strip().split("\n") if ln.strip()]
-    if not lines:
+    cairn_lines = [ln for ln in cairn_result.stdout.strip().split("\n") if ln.strip()]
+    ots_lines = [ln for ln in ots_result.stdout.strip().split("\n") if ln.strip()]
+
+    if not cairn_lines and not ots_lines:
         return 0
 
-    # Categorize for commit message
-    scouts = sum(1 for ln in lines if "scout_" in ln)
-    scours = sum(1 for ln in lines if "scour_" in ln)
-    compactions = sum(1 for ln in lines if "compaction" in ln)
-    other = len(lines) - scouts - scours - compactions
+    # Categorize cairn files for commit message
+    scouts = sum(1 for ln in cairn_lines if "scout_" in ln)
+    scours = sum(1 for ln in cairn_lines if "scour_" in ln)
+    compactions = sum(1 for ln in cairn_lines if "compaction" in ln)
+    other = len(cairn_lines) - scouts - scours - compactions
+    ots_count = len(ots_lines)
 
     parts = []
     if scouts:
@@ -189,19 +203,28 @@ def digest_cairn() -> int:
         parts.append(f"{compactions} compaction{'s' if compactions != 1 else ''}")
     if other:
         parts.append(f"{other} other")
-    summary = ", ".join(parts) or f"{len(lines)} files"
+    if ots_count:
+        parts.append(f"{ots_count} OTS proof{'s' if ots_count != 1 else ''}")
+    summary = ", ".join(parts) or f"{len(cairn_lines)} files"
 
     try:
-        subprocess.run(
-            ["git", "add", "docs/cairn/"],
-            cwd=PROJECT_DIR, check=True,
-        )
+        # Stage both cairn and OTS directories
+        if cairn_lines:
+            subprocess.run(
+                ["git", "add", "docs/cairn/"],
+                cwd=PROJECT_DIR, check=True,
+            )
+        if ots_lines:
+            subprocess.run(
+                ["git", "add", "docs/ots/"],
+                cwd=PROJECT_DIR, check=True,
+            )
         subprocess.run(
             ["git"] + AI_GIT_CONFIG + ["commit", "-S", "-m", f"Cairn digest: {summary}"],
             cwd=PROJECT_DIR, check=True,
         )
         log(f"Cairn digest committed: {summary}")
-        return len(lines)
+        return len(cairn_lines)
     except (subprocess.SubprocessError, OSError) as e:
         log(f"Cairn digest commit failed: {e}")
         return 0

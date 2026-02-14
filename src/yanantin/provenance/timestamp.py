@@ -150,6 +150,23 @@ def _get_pending_attestations(
     return results
 
 
+GIT_EMPTY_TREE = "4b825dc642cb6eb9a060e54bf899d15363d4a0d1"
+
+
+def stamp_genesis(ots_dir: Path) -> Path | None:
+    """Create a genesis timestamp for a new Yanantin instance.
+
+    Timestamps the git empty tree hash to establish the start of
+    the OTS chain. Must be called before the first commit so that
+    commit #1 can include this proof.
+
+    Returns:
+        Path to the genesis .ots file on success, None on failure.
+    """
+    logger.info("Creating genesis timestamp")
+    return stamp_commit(GIT_EMPTY_TREE, ots_dir)
+
+
 def stamp_commit(commit_hash: str, ots_dir: Path) -> Path | None:
     """Create an OpenTimestamps proof for a git commit hash.
 

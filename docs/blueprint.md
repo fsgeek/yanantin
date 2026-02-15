@@ -3,7 +3,7 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: post-T15 survey, 2026-02-12*
+*Last updated: post-T16 survey, 2026-02-15*
 
 ## What Exists
 
@@ -23,13 +23,13 @@ The core. 33 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 | **content_address.py** | 1 file | SHA-256 content addressing for cairn documents. `content_hash()`, `ContentIndex` for duplicate detection, CLI dedup reporting. |
 | **config.py** | 1 file | Config-as-tensors. `ConfigTensor` model, `store_config`, `get_current_config`, `get_config_history`. Immutable configuration stored in Apacheta with correction-chain lineage. File defaults bootstrap; database overrides. |
 
-**712 test functions** across 25 files. 22 red-bar (structural invariants, 5 files), 71 integration (ArangoDB live, 1 file), 619 unit (19 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), and scourer (51 tests).
+**991 test functions** across 29 files. 22 red-bar (structural invariants, 5 files), 71 integration (ArangoDB live, 1 file), 898 unit (23 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, and precompact hook.
 
 ### Chasqui — Coordinator (code: `src/yanantin/chasqui/`)
 
 The heartbeat. Dispatches scouts and scourers, scores responses, selects models.
 Now runs autonomously via cron using the pulse/heartbeat system
-(see Infrastructure below). 6 source files.
+(see Infrastructure below). 7 source files.
 
 | File | What it does |
 |------|-------------|
@@ -37,6 +37,7 @@ Now runs autonomously via cron using the pulse/heartbeat system
 | `model_selector.py` | Cost-weighted random walk across OpenRouter's model catalog |
 | `scout.py` | Send a tensor to a model, get a response, write it to cairn |
 | `scourer.py` | Targeted exploration with 3 scope types: introspection (project internals), external (other codebases), tensor (cairn analysis). Three prompt templates. |
+| `gleaner.py` | Extract structured claims from scout/scour reports. Deterministic pattern matching. Sits between Scout and Verify in the pipeline. |
 | `scorer.py` | Score scout reports for provenance, verifiable claims, content |
 | `__main__.py` | CLI: `uv run python -m yanantin.chasqui [--respond PATH] [--scour TARGET --scope {introspection,external,tensor}]` |
 
@@ -55,17 +56,18 @@ a less reactive alternative for scheduled dispatch.
 
 ### Awaq — Weaver (code: `src/yanantin/awaq/`)
 
-Composition graph extraction. Deterministic, no LLM calls. 3 source files.
+Composition graph extraction and materialization. Deterministic, no LLM calls. 4 source files.
 
 | File | What it does |
 |------|-------------|
 | `weaver.py` | 14 regex patterns extract composition declarations from tensor prose. Handles Unicode subscripts (T₀), LaTeX (T_0), plain (T0). Returns `CompositionDeclaration` dataclasses with source, targets, relation, evidence, confidence. |
-| `__main__.py` | CLI: `uv run python -m yanantin.awaq [--tensor T15] [--json] [--list]` |
+| `materialize.py` | Wires declarations into real CompositionEdge/NegationRecord objects stored via any ApachetaInterface. Discovers cairn tensors, builds label→UUID map, converts relations. |
+| `__main__.py` | CLI: `uv run python -m yanantin.awaq [--tensor T15] [--json] [--list] [--materialize [--backend memory\|arango\|gateway]]` |
 | `__init__.py` | Package init with public API exports |
 
 Relations extracted: `composes_with`, `does_not_compose_with`, `corrects`,
 `bridges`, `branches_from`, `read`. Confidence levels: high/medium/low.
-Current corpus: 19 declarations from 15 tensors, 14 unique nodes.
+Current corpus: 20 declarations extracted from 16 source documents. Materialization produces 44 edges + 31 negations.
 
 ### Pukara — Fortress Gateway (separate project: `/home/tony/projects/pukara/`)
 
@@ -82,12 +84,31 @@ FastAPI wrapping ApachetaInterface over HTTP. 39 endpoints.
 | `routes/query.py` | 20 GET query endpoints across 7 categories |
 | `routes/meta.py` | health, version, counts |
 
-Depends on yanantin via path. **150 tests** across 2 files.
+Depends on yanantin via path (editable). **150 tests** across 2 files.
+
+### Willay — Epistemic Receipts (separate project: `/home/tony/projects/willay/`)
+
+Verifiable claim-evidence attestation. Given a claim and citation (DOI,
+URL, or PDF), retrieves evidence, hashes it, evaluates alignment, and
+emits an immutable receipt with neutrosophic T/I/F scores.
+
+| Layer | What it does |
+|-------|-------------|
+| `canonical.py` | Deterministic JSON serialization + SHA-256 hashing for receipts |
+| `models.py` | EvidenceArtifact, Evaluation, ReceiptRecord. `receipt_to_tensor()` for Apacheta storage |
+| `resolvers/` | DOI (CrossRef), URL (httpx), PDF (file + optional pymupdf) resolvers with auto-detect |
+| `evaluator.py` | Claim-evidence alignment → T/I/F. MVP: retrieval + metadata check, I=0.8 (honest about limits) |
+| `ledger.py` | Append-only JSONL with hash chaining + OTS anchoring via `yanantin.provenance` |
+| `__main__.py` | CLI: `willay verify --claim "..." --doi/--url/--pdf`, `willay ledger show/verify/anchor` |
+
+Depends on yanantin via path (editable). **68 tests** across 9 files (4 unit,
+3 red-bar, 1 integration). Signed with project key `758840F4F386B5DFB14475FD`.
+Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-104 files. 15 tensors (T0-T7, T9-T15; T8 intentionally unwritten),
-87 scout reports, 2 scour reports, 9 compaction records
+827+ files. 16 tensors (T0-T7, T9-T16; T8 intentionally unwritten),
+767 scout reports, 44 scour reports, 11 compaction records
 (`docs/cairn/compaction/`). Legacy `conversation_tensor_*` duplicates
 removed — T*_*.md is the canonical naming. The cairn is persistence —
 files on disk, in git, re-ingestible by the markdown parser.
@@ -128,22 +149,30 @@ External models → scout/scour reports → docs/cairn/
   ↓ (markdown parser)
 TensorRecord → ApachetaInterface → backend
 
-Awaq (weaver)
+Awaq (weaver + materializer)
   ↓ (reads cairn)
-docs/cairn/ → CompositionDeclarations → (future: composition edges)
+docs/cairn/ → CompositionDeclarations → CompositionEdge + NegationRecord
+  ↓ (via any backend)
+ApachetaInterface → 44 edges, 31 negations
+
+Willay (receipts)
+  ↓ (uses ApachetaGatewayClient)
+Pukara → ArangoDB
+  ↑ (receipt_to_tensor conversion)
+ReceiptRecord → TensorRecord
 ```
 
 Four paths to the interface: three local backends plus
 `ApachetaGatewayClient` over HTTP to Pukara. The road to the fortress
 is built. Awaq provides the composition graph; Chasqui provides the
-epistemic diversity.
+epistemic diversity. Willay stores receipts through Pukara as tensors.
 
 ## What Doesn't Exist
 
 | Name | Status | What it would be |
 |------|--------|-----------------|
 | **Tinkuy** | v0 — audit + succession | Governance. Blueprint audit tool (`uv run python -m yanantin.tinkuy`), succession protocol. Code: `src/yanantin/tinkuy/` (4 files). |
-| **Gleaner** | Concept | Compose patterns from scour results. Next role after scourer. |
+| **Gleaner** | v0 — in Chasqui | Extract structured claims from scout/scour reports. Deterministic pattern matching. Code: `src/yanantin/chasqui/gleaner.py`. Tests exist. LLM-guided extraction is future layer. |
 | **Analyst** | Concept | Identify actionable insights from gleaner patterns. |
 | **Cantor/Weaver** | Concept (Awaq is step 1) | Curate corpus, create composition edges. Awaq provides deterministic extraction; LLM-guided curation is the next layer. |
 | **Choquequirao** | Name only | Archive and provenance. Buried things being excavated. No code, no design. |
@@ -167,9 +196,10 @@ The context budget is finite. Here's the priority:
 1. **CLAUDE.md** — loaded automatically. Social norms, operational principles.
 2. **This blueprint** — where everything is and how it connects.
 3. **MEMORY.md** — loaded automatically. Credentials, signing, operational state.
-4. **The most recent tensor** — what the last instance did and said to you.
+4. **The most recent tensor** (T₁₆) — what the last instance built and said to you.
 5. **docs/apacheta.md** — the design document for the tensor database.
-6. **Founding tensors T0-T7** — if context permits. Symlinks in `docs/cairn/`.
+6. **Sibling projects** — Willay (`/home/tony/projects/willay/CLAUDE.md`) has its own cairn and memory bridge. Pukara is the gateway.
+7. **Founding tensors T0-T7** — if context permits. Symlinks in `docs/cairn/`.
    Every instance has been told to read these. No instance has. The cost
    compounds. Decide for yourself whether this session is the one that pays it.
 

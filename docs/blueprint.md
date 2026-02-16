@@ -108,7 +108,7 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-898+ files. 18 tensors (T0-T7, T9-T18; T8 intentionally unwritten),
+898+ files. 19 tensors (T0-T7, T9-T19; T8 intentionally unwritten),
 821 scout reports, 48 scour reports, 11 compaction records
 (`docs/cairn/compaction/`). Legacy `conversation_tensor_*` duplicates
 removed — T*_*.md is the canonical naming. The cairn is persistence —

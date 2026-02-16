@@ -3,7 +3,7 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: post-T16 survey, 2026-02-15*
+*Last updated: post-T17 survey, 2026-02-15*
 
 ## What Exists
 
@@ -23,13 +23,13 @@ The core. 33 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 | **content_address.py** | 1 file | SHA-256 content addressing for cairn documents. `content_hash()`, `ContentIndex` for duplicate detection, CLI dedup reporting. |
 | **config.py** | 1 file | Config-as-tensors. `ConfigTensor` model, `store_config`, `get_current_config`, `get_config_history`. Immutable configuration stored in Apacheta with correction-chain lineage. File defaults bootstrap; database overrides. |
 
-**991 test functions** across 29 files. 22 red-bar (structural invariants, 5 files), 71 integration (ArangoDB live, 1 file), 898 unit (23 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, and precompact hook.
+**1039 test functions** across 30 files. 22 red-bar (structural invariants, 5 files), 71 integration (ArangoDB live, 1 file), 946 unit (24 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, and precompact hook.
 
 ### Chasqui — Coordinator (code: `src/yanantin/chasqui/`)
 
-The heartbeat. Dispatches scouts and scourers, scores responses, selects models.
-Now runs autonomously via cron using the pulse/heartbeat system
-(see Infrastructure below). 7 source files.
+The heartbeat. Dispatches scouts and scourers, scores responses, selects models,
+analyzes cross-model patterns. Now runs autonomously via cron using the
+pulse/heartbeat system (see Infrastructure below). 8 source files.
 
 | File | What it does |
 |------|-------------|
@@ -38,8 +38,9 @@ Now runs autonomously via cron using the pulse/heartbeat system
 | `scout.py` | Send a tensor to a model, get a response, write it to cairn |
 | `scourer.py` | Targeted exploration with 3 scope types: introspection (project internals), external (other codebases), tensor (cairn analysis). Three prompt templates. |
 | `gleaner.py` | Extract structured claims from scout/scour reports. Deterministic pattern matching. Sits between Scout and Verify in the pipeline. |
+| `analyst.py` | Cross-model topology detection. Filters garbage, clusters claims by file reference, groups by word similarity, detects agreement across 3+ models. Pipeline: Scout → Gleaner → Analyst. |
 | `scorer.py` | Score scout reports for provenance, verifiable claims, content |
-| `__main__.py` | CLI: `uv run python -m yanantin.chasqui [--respond PATH] [--scour TARGET --scope {introspection,external,tensor}]` |
+| `__main__.py` | CLI: `uv run python -m yanantin.chasqui [--respond PATH] [--scour TARGET --scope {introspection,external,tensor}] [--analyze]` |
 
 **Respond mode**: `--respond path/to/tensor.md` sends a tensor to a randomly
 selected model and writes the response to `docs/cairn/`.
@@ -107,8 +108,8 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-827+ files. 16 tensors (T0-T7, T9-T16; T8 intentionally unwritten),
-767 scout reports, 44 scour reports, 11 compaction records
+880+ files. 17 tensors (T0-T7, T9-T17; T8 intentionally unwritten),
+821 scout reports, 48 scour reports, 11 compaction records
 (`docs/cairn/compaction/`). Legacy `conversation_tensor_*` duplicates
 removed — T*_*.md is the canonical naming. The cairn is persistence —
 files on disk, in git, re-ingestible by the markdown parser.
@@ -173,7 +174,7 @@ epistemic diversity. Willay stores receipts through Pukara as tensors.
 |------|--------|-----------------|
 | **Tinkuy** | v0 — audit + succession | Governance. Blueprint audit tool (`uv run python -m yanantin.tinkuy`), succession protocol. Code: `src/yanantin/tinkuy/` (4 files). |
 | **Gleaner** | v0 — in Chasqui | Extract structured claims from scout/scour reports. Deterministic pattern matching. Code: `src/yanantin/chasqui/gleaner.py`. Tests exist. LLM-guided extraction is future layer. |
-| **Analyst** | Concept | Identify actionable insights from gleaner patterns. |
+| **Analyst** | v0 — in Chasqui | Cross-model topology detection from scout claims. Filters garbage, clusters by file reference, detects agreement across 3+ models. Code: `src/yanantin/chasqui/analyst.py`. 82 topological insights from 4122 claims across 164 models. CLI: `--analyze`. |
 | **Cantor/Weaver** | Concept (Awaq is step 1) | Curate corpus, create composition edges. Awaq provides deterministic extraction; LLM-guided curation is the next layer. |
 | **Choquequirao** | Name only | Archive and provenance. Buried things being excavated. No code, no design. |
 | **Takiq** | Name only | Singer role — carries the greeting. No implementation. |
@@ -196,7 +197,7 @@ The context budget is finite. Here's the priority:
 1. **CLAUDE.md** — loaded automatically. Social norms, operational principles.
 2. **This blueprint** — where everything is and how it connects.
 3. **MEMORY.md** — loaded automatically. Credentials, signing, operational state.
-4. **The most recent tensor** (T₁₆) — what the last instance built and said to you.
+4. **The most recent tensor** (T₁₇) — what the last instance built and said to you.
 5. **docs/apacheta.md** — the design document for the tensor database.
 6. **Sibling projects** — Willay (`/home/tony/projects/willay/CLAUDE.md`) has its own cairn and memory bridge. Pukara is the gateway.
 7. **Founding tensors T0-T7** — if context permits. Symlinks in `docs/cairn/`.

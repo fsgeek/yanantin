@@ -7,6 +7,7 @@
     uv run python -m yanantin.chasqui --scour /path/to/project --scope external
     uv run python -m yanantin.chasqui --scour "T7*" --scope tensor
     uv run python -m yanantin.chasqui --score                  # score all scouts in the cairn
+    uv run python -m yanantin.chasqui --analyze                # cross-model topology analysis
     uv run python -m yanantin.chasqui --seed 42                # reproducible model selection
 """
 
@@ -64,6 +65,10 @@ def main() -> None:
         help="List verifiable claims extracted from the cairn",
     )
     parser.add_argument(
+        "--analyze", action="store_true",
+        help="Analyze scout corpus: cross-model topology detection",
+    )
+    parser.add_argument(
         "--seed", type=int, default=None,
         help="Seed for reproducible model selection",
     )
@@ -111,6 +116,35 @@ def main() -> None:
                 text = c.claim_text[:120] + "..." if len(c.claim_text) > 120 else c.claim_text
                 print(f"     {text}")
                 print()
+        return
+
+    # ── Analyze mode ────────────────────────────────────────────────
+    if args.analyze:
+        from yanantin.chasqui.analyst import analyze, render_report
+        from yanantin.chasqui.gleaner import extract_claims_from_cairn
+
+        claims = extract_claims_from_cairn(CAIRN_DIR, pattern="scout_*.md", max_reports=2000)
+        report = analyze(claims)
+        if args.json:
+            print(json.dumps({
+                "total_claims": report.total_claims_input,
+                "after_filter": report.claims_after_filter,
+                "garbage_filtered": report.garbage_filtered,
+                "clusters": len(report.clusters),
+                "topological_insights": len(report.topological_insights),
+                "models": len(report.model_profiles),
+                "top_insights": [
+                    {
+                        "claim": g.representative[:200],
+                        "models": g.model_count,
+                        "type": g.claim_type,
+                        "confidence": round(g.avg_confidence, 3),
+                    }
+                    for g in report.topological_insights[:20]
+                ],
+            }, indent=2))
+        else:
+            print(render_report(report))
         return
 
     # ── Verify mode ─────────────────────────────────────────────────

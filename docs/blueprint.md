@@ -3,7 +3,7 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: post-T18 survey, 2026-02-16*
+*Last updated: post-T20 survey, 2026-02-16*
 
 ## What Exists
 
@@ -38,9 +38,9 @@ pulse/heartbeat system (see Infrastructure below). 8 source files.
 | `scout.py` | Send a tensor to a model, get a response, write it to cairn |
 | `scourer.py` | Targeted exploration with 3 scope types: introspection (project internals), external (other codebases), tensor (cairn analysis). Three prompt templates. |
 | `gleaner.py` | Extract structured claims from scout/scour reports. Deterministic pattern matching. Sits between Scout and Verify in the pipeline. |
-| `analyst.py` | Cross-model topology detection. Filters garbage, clusters claims by file reference, groups by word similarity, detects agreement across 3+ models. Pipeline: Scout → Gleaner → Analyst. |
+| `analyst.py` | Cross-model topology detection. Filters garbage, clusters claims by file reference, groups by word similarity, detects agreement across 3+ models. Surfaces open questions from singleton groups (epistemic/architectural claims consensus missed). Pipeline: Scout → Gleaner → Analyst → Investigate. |
 | `scorer.py` | Score scout reports for provenance, verifiable claims, content |
-| `__main__.py` | CLI: `uv run python -m yanantin.chasqui [--respond PATH] [--scour TARGET --scope {introspection,external,tensor}] [--analyze]` |
+| `__main__.py` | CLI: `uv run python -m yanantin.chasqui [--respond PATH] [--scour TARGET --scope {introspection,external,tensor}] [--analyze] [--investigate N]` |
 
 **Respond mode**: `--respond path/to/tensor.md` sends a tensor to a randomly
 selected model and writes the response to `docs/cairn/`.
@@ -67,8 +67,10 @@ Composition graph extraction and materialization. Deterministic, no LLM calls. 4
 | `__init__.py` | Package init with public API exports |
 
 Relations extracted: `composes_with`, `does_not_compose_with`, `corrects`,
-`bridges`, `branches_from`, `read`. Confidence levels: high/medium/low.
-Current corpus: 20 declarations extracted from 16 source documents. Materialization produces 44 edges + 31 negations.
+`bridges`, `branches_from`, `read`, `standalone`. Confidence levels: high/medium/low.
+Quote-leakage protection strips HTML comments, code blocks, and composition-keyword
+code spans before prose extraction. Subset dedup prevents redundant declarations.
+Current corpus: 28 declarations extracted from 20 source documents.
 
 ### Pukara — Fortress Gateway (separate project: `/home/tony/projects/pukara/`)
 
@@ -108,7 +110,7 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-898+ files. 19 tensors (T0-T7, T9-T19; T8 intentionally unwritten),
+905+ files. 20 tensors (T0-T7, T9-T20; T8 intentionally unwritten),
 821 scout reports, 48 scour reports, 11 compaction records
 (`docs/cairn/compaction/`). Legacy `conversation_tensor_*` duplicates
 removed — T*_*.md is the canonical naming. The cairn is persistence —
@@ -197,7 +199,7 @@ The context budget is finite. Here's the priority:
 1. **CLAUDE.md** — loaded automatically. Social norms, operational principles.
 2. **This blueprint** — where everything is and how it connects.
 3. **MEMORY.md** — loaded automatically. Credentials, signing, operational state.
-4. **The most recent tensor** (T₁₈) — what the last instance built and said to you.
+4. **The most recent tensor** (T₂₀) — what the last instance built and said to you.
 5. **docs/apacheta.md** — the design document for the tensor database.
 6. **Sibling projects** — Willay (`/home/tony/projects/willay/CLAUDE.md`) has its own cairn and memory bridge. Pukara is the gateway.
 7. **Founding tensors T0-T7** — if context permits. Symlinks in `docs/cairn/`.

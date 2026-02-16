@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 from yanantin.tinkuy.audit import render_report, survey_codebase
-from yanantin.tinkuy.succession import check_succession
+from yanantin.tinkuy.succession import check_orphan_tensors, check_succession
 
 
 def main() -> None:
@@ -22,9 +22,10 @@ def main() -> None:
 
     args = sys.argv[1:]
 
-    # Parse --check flag
+    # Parse flags
     check_mode = "--check" in args
-    remaining = [a for a in args if a != "--check"]
+    orphan_mode = "--check-orphans" in args
+    remaining = [a for a in args if a not in ("--check", "--check-orphans")]
 
     # Allow override via positional argument
     if remaining:
@@ -34,8 +35,19 @@ def main() -> None:
         print(f"Error: {project_root} is not a directory", file=sys.stderr)
         sys.exit(1)
 
-    if check_mode:
-        # Succession check: compare blueprint to reality
+    if orphan_mode:
+        # Orphan check only: find tensors with zero composition declarations
+        orphans = check_orphan_tensors(project_root)
+        if orphans:
+            print(f"Found {len(orphans)} orphan tensor(s):", file=sys.stderr)
+            for orphan in orphans:
+                print(f"  - {orphan}", file=sys.stderr)
+            sys.exit(1)
+        else:
+            print("No orphan tensors. All tensors declare composition relationships.")
+            sys.exit(0)
+    elif check_mode:
+        # Succession check: compare blueprint to reality (includes orphan check)
         issues = check_succession(project_root)
         if issues:
             print("Succession check FAILED:", file=sys.stderr)

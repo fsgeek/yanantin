@@ -23,6 +23,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+from yanantin.awaq.weaver import discover_tensors, extract_composition_declarations
 from yanantin.tinkuy.audit import CodebaseReport, survey_codebase
 
 
@@ -144,6 +145,38 @@ def _compare(
     return issues
 
 
+def check_orphan_tensors(project_root: Path) -> list[str]:
+    """Check for tensors with zero outgoing composition declarations.
+
+    Uses the Awaq weaver to extract declarations from cairn tensors.
+    Any tensor (except T0, the origin) with zero outgoing declarations
+    is reported as an orphan — structurally disconnected from the graph.
+
+    Returns a list of orphan descriptions. Empty = no orphans.
+    """
+    cairn_dir = project_root / "docs" / "cairn"
+    if not cairn_dir.is_dir():
+        return []
+
+    tensors = discover_tensors(cairn_dir=cairn_dir, sources=["cairn"])
+    orphans: list[str] = []
+
+    for tensor in tensors:
+        if tensor.tensor_name == "T0":
+            continue  # Origin tensor has no predecessors
+        decls = extract_composition_declarations(
+            tensor.raw_text, tensor.tensor_name
+        )
+        if not decls:
+            orphans.append(
+                f"Orphan tensor: {tensor.tensor_name} has zero composition "
+                f"declarations (add <!-- Composition: {tensor.tensor_name} "
+                f"composes_with ... --> to fix)"
+            )
+
+    return orphans
+
+
 def check_succession(project_root: Path) -> list[str]:
     """Run the succession check: audit the codebase, compare to blueprint.
 
@@ -162,4 +195,10 @@ def check_succession(project_root: Path) -> list[str]:
     if not claims:
         return ["Could not extract any claims from blueprint — format may have changed"]
 
-    return _compare(claims, report)
+    issues = _compare(claims, report)
+
+    # Orphan tensor check: tensors with no composition declarations
+    orphans = check_orphan_tensors(project_root)
+    issues.extend(orphans)
+
+    return issues

@@ -50,6 +50,22 @@ _TENSOR_REF = re.compile(
     re.VERBOSE,
 )
 
+# Structured composition metadata: <!-- Composition: T18 composes_with T17, T16; read T0, T7 -->
+_STRUCTURED_METADATA = re.compile(
+    r"<!--\s*Composition:\s*(.+?)\s*-->",
+    re.DOTALL,
+)
+
+_KNOWN_RELATIONS = frozenset({
+    "composes_with",
+    "does_not_compose_with",
+    "corrects",
+    "bridges",
+    "branches_from",
+    "read",
+    "standalone",
+})
+
 # ── Data Structures ──────────────────────────────────────────────
 
 
@@ -97,6 +113,86 @@ def _extract_tensor_refs(text: str) -> list[str]:
     """Find all tensor references in a string, normalized."""
     refs = _TENSOR_REF.findall(text)
     return sorted(set(normalize_tensor_name(r) for r in refs))
+
+
+# ── Structured Metadata Extraction ───────────────────────────────
+
+
+def extract_structured_metadata(
+    text: str, tensor_name: str
+) -> list[CompositionDeclaration]:
+    """Extract composition declarations from structured metadata comments.
+
+    Parses HTML comments in the format:
+        <!-- Composition: T18 composes_with T17, T16; read T0, T7 -->
+
+    Machine-readable, deterministic, always high confidence. These take
+    priority over prose pattern matching.
+    """
+    declarations: list[CompositionDeclaration] = []
+
+    for match in _STRUCTURED_METADATA.finditer(text):
+        content = match.group(1).strip()
+
+        # First token is the source tensor
+        tokens = content.split(None, 1)
+        if len(tokens) < 2:
+            continue
+
+        source = normalize_tensor_name(tokens[0])
+        if source != tensor_name:
+            continue
+
+        # Split on semicolons for multiple relation clauses
+        clauses = [c.strip() for c in tokens[1].split(";") if c.strip()]
+
+        for clause in clauses:
+            # First token is the relation, rest are targets
+            parts = clause.split(None, 1)
+            if len(parts) < 2:
+                continue
+
+            relation = parts[0].rstrip(":")
+            if relation not in _KNOWN_RELATIONS:
+                continue
+
+            # Standalone: no targets, the remainder is the reason
+            if relation == "standalone":
+                declarations.append(
+                    CompositionDeclaration(
+                        source=tensor_name,
+                        targets=[],
+                        relation="standalone",
+                        evidence=f"<!-- Composition: {content} -->",
+                        confidence="high",
+                    )
+                )
+                continue
+
+            # Extract targets: comma-separated tensor refs
+            target_parts = [t.strip() for t in parts[1].split(",")]
+            targets = []
+            for tp in target_parts:
+                refs = _extract_tensor_refs(tp)
+                targets.extend(refs)
+
+            # Remove self-references
+            targets = [t for t in targets if t != tensor_name]
+
+            if not targets:
+                continue
+
+            declarations.append(
+                CompositionDeclaration(
+                    source=tensor_name,
+                    targets=targets,
+                    relation=relation,
+                    evidence=f"<!-- Composition: {content} -->",
+                    confidence="high",
+                )
+            )
+
+    return declarations
 
 
 # ── Pattern Matching ─────────────────────────────────────────────
@@ -381,10 +477,18 @@ def extract_composition_declarations(
     intent. Ambiguous references get low confidence or are skipped.
     """
     declarations: list[CompositionDeclaration] = []
+
+    # Structured metadata first — machine-readable, highest priority
+    structured = extract_structured_metadata(text, tensor_name)
+    declarations.extend(structured)
+
     sentences = _sentence_boundaries(text)
 
     # Track what we've already declared to avoid duplicates
+    # Seed with structured metadata so prose patterns don't duplicate
     seen: set[tuple[str, str, tuple[str, ...]]] = set()
+    for d in structured:
+        seen.add((d.source, d.relation, tuple(sorted(d.targets))))
 
     # Lookahead window: how many subsequent lines to check when
     # a pattern matches but the current line has no tensor refs
@@ -505,8 +609,10 @@ def discover_tensors(
             continue
 
         for md_path in sorted(source_path.rglob("*.md")):
-            # Skip hidden files, MEMORY.md, non-tensor files
+            # Skip hidden files, MEMORY.md, non-tensor files, compaction records
             if md_path.name.startswith(".") or md_path.name == "MEMORY.md":
+                continue
+            if "compaction" in md_path.parts:
                 continue
 
             # Only process files that look like tensors
@@ -581,6 +687,7 @@ _RELATION_LABELS: dict[str, str] = {
     "bridges": "Bridges",
     "branches_from": "Branches From",
     "read": "Read",
+    "standalone": "Standalone (no predecessors)",
 }
 
 
@@ -622,6 +729,7 @@ def render_graph(declarations: list[CompositionDeclaration]) -> str:
         "bridges",
         "branches_from",
         "read",
+        "standalone",
     ]:
         group = by_relation.get(relation, [])
         if not group:

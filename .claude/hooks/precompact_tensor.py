@@ -28,7 +28,7 @@ from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
-PROJECT_DIR = Path("/home/tony/projects/yanantin")
+PROJECT_DIR = Path(__file__).resolve().parents[2]  # .claude/hooks -> project root
 LOG_DIR = PROJECT_DIR / "logs"
 LOG_FILE = LOG_DIR / "precompact.log"
 CAIRN_DIR = PROJECT_DIR / "docs" / "cairn"

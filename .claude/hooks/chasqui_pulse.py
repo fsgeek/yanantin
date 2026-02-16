@@ -122,9 +122,33 @@ def commits_since(old_hash: str) -> list[str]:
 
 
 def code_changed(commits: list[str]) -> bool:
-    """Check if any of the commits touched src/ or tests/."""
+    """Check if any of the commits touched src/ or tests/.
+
+    RECURSION GUARD: This function is the explicit boundary preventing
+    infinite pulse cycles. Changes to docs/ do NOT trigger scouts.
+
+    Additionally filters out commits made by the pulse itself (cairn digests)
+    to handle the edge case where a digest accidentally includes non-docs files.
+    """
     for commit in commits:
         try:
+            # Check if this commit was made by the pulse itself
+            author_result = subprocess.run(
+                ["git", "show", "-s", "--format=%ae", commit],
+                capture_output=True, text=True, cwd=PROJECT_DIR,
+            )
+            commit_msg_result = subprocess.run(
+                ["git", "show", "-s", "--format=%s", commit],
+                capture_output=True, text=True, cwd=PROJECT_DIR,
+            )
+            author_email = author_result.stdout.strip()
+            commit_msg = commit_msg_result.stdout.strip()
+
+            # Skip commits made by the pulse (cairn digests)
+            if author_email == "yanantin@wamason.com" and commit_msg.startswith("Cairn digest:"):
+                continue
+
+            # Check if this commit touched src/ or tests/
             result = subprocess.run(
                 ["git", "diff-tree", "--no-commit-id", "--name-only", "-r", commit],
                 capture_output=True, text=True, cwd=PROJECT_DIR,
@@ -168,6 +192,11 @@ def digest_cairn() -> int:
     OTS proofs are included so each digest carries the proof for the
     previous commit — creating a chain, not clumps of timestamps.
     Returns count of cairn files committed.
+
+    RECURSION GUARD: Before committing, verifies that ONLY files under docs/
+    are staged. If any files outside docs/ are staged, logs a warning and
+    aborts. This prevents the pulse from committing code changes that would
+    trigger itself.
     """
     try:
         cairn_result = subprocess.run(
@@ -219,6 +248,26 @@ def digest_cairn() -> int:
                 ["git", "add", "docs/ots/"],
                 cwd=PROJECT_DIR, check=True,
             )
+
+        # RECURSION GUARD: Verify only docs/ files are staged
+        staged_result = subprocess.run(
+            ["git", "diff", "--cached", "--name-only"],
+            capture_output=True, text=True, cwd=PROJECT_DIR, check=True,
+        )
+        staged_files = [f.strip() for f in staged_result.stdout.strip().split("\n") if f.strip()]
+        non_docs_files = [f for f in staged_files if not f.startswith("docs/")]
+
+        if non_docs_files:
+            log(f"RECURSION GUARD TRIGGERED: Staged files outside docs/: {', '.join(non_docs_files)}")
+            log("Aborting cairn digest to prevent pulse recursion.")
+            # Unstage everything to clean up
+            subprocess.run(
+                ["git", "reset", "HEAD"],
+                cwd=PROJECT_DIR, check=False,
+            )
+            return 0
+
+        # Safe to commit — all staged files are under docs/
         subprocess.run(
             ["git"] + AI_GIT_CONFIG + ["commit", "-S", "-m", f"Cairn digest: {summary}"],
             cwd=PROJECT_DIR, check=True,

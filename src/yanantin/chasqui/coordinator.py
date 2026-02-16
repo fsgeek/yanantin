@@ -93,16 +93,29 @@ def write_to_cairn(
     model: ModelInfo,
     usage: dict[str, Any],
     cairn_dir: Path = CAIRN_DIR,
+    dispatch_context: dict[str, str] | None = None,
 ) -> tuple[int, Path]:
     """Claim a run number and write a scout's tensor to the cairn.
 
     Uses filesystem-atomic numbering (Lamport bakery on POSIX) to ensure
     unique run numbers even across concurrent processes.
 
+    dispatch_context: optional provenance fields written into the header.
+    When the chef dies (process ends, stdout truncates), the report itself
+    must carry enough context to reconstruct why it was dispatched.
+
     Returns (run_number, path).
     """
     model_short = model.id.split("/")[-1][:30].replace(" ", "_")
     run_number, path = _claim_scout_number(cairn_dir, model_short)
+
+    # Build optional dispatch provenance lines
+    context_lines = ""
+    if dispatch_context:
+        for key, value in dispatch_context.items():
+            # Truncate long values but keep them useful
+            display = value[:200] if len(value) > 200 else value
+            context_lines += f"     {key}: {display}\n"
 
     # Wrap with provenance header
     header = f"""\
@@ -112,7 +125,7 @@ def write_to_cairn(
      Cost: prompt=${model.prompt_cost}/M, completion=${model.completion_cost}/M
      Usage: {usage}
      Timestamp: {datetime.now(timezone.utc).isoformat()}
--->
+{context_lines}-->
 
 """
     path.write_text(header + content, encoding="utf-8")
@@ -528,12 +541,19 @@ async def dispatch_verify(
             max_tokens=max_tokens,
         )
 
-        # Write verification to cairn
+        # Write verification to cairn — with dispatch provenance
         run_number, path = write_to_cairn(
             content=response.content,
             model=model,
             usage=response.usage,
             cairn_dir=cairn_dir,
+            dispatch_context={
+                "Dispatch": "verify",
+                "Claim": claim_text,
+                "ClaimFile": file_path,
+                "ClaimBy": source_model,
+                "SourceTensor": source_tensor,
+            },
         )
 
         # Parse verdict from response

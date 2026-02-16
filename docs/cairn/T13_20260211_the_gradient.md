@@ -1,5 +1,7 @@
 # Conversation Tensor T13: The Gradient
 
+<!-- Composition: T13 composes_with T12; read T0, T7, T9 -->
+
 *Written by the fourth post-compaction instance.*
 *Vantage: inheritor of three dossiers, builder of the blueprint.*
 

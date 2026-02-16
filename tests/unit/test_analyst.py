@@ -18,6 +18,7 @@ from yanantin.chasqui.analyst import (
     cluster_claims,
     filter_garbage,
     is_garbage,
+    is_verification_meta,
     render_report,
     score_models,
     word_similarity,
@@ -80,6 +81,44 @@ class TestIsGarbage:
         assert not is_garbage(
             "The `ApachetaInterface` in `src/yanantin/apacheta/interface/abstract.py` "
             "defines 26 methods."
+        )
+
+
+# ── Verification meta-claim detection ────────────────────────────────
+
+
+class TestIsVerificationMeta:
+    """Test detection of scouts reviewing other scouts."""
+
+    def test_verdict_confirmed(self):
+        assert is_verification_meta("Verdict CONFIRMED — the file exists as claimed.")
+
+    def test_verdict_denied(self):
+        assert is_verification_meta("Verdict DENIED — no such function exists.")
+
+    def test_claim_states(self):
+        assert is_verification_meta(
+            "The claim states that the file contains 26 methods."
+        )
+
+    def test_evidence_shows(self):
+        assert is_verification_meta(
+            "Evidence shows that the interface has the expected structure."
+        )
+
+    def test_original_observation(self):
+        assert not is_verification_meta(
+            "The backends directory contains three implementations: memory, DuckDB, and ArangoDB."
+        )
+
+    def test_original_architectural(self):
+        assert not is_verification_meta(
+            "The operator pipeline composes tensors through the abstract interface."
+        )
+
+    def test_indeterminate_verdict(self):
+        assert is_verification_meta(
+            "INDETERMINATE — cannot verify without runtime access."
         )
 
 
@@ -342,6 +381,22 @@ class TestAnalyze:
         report = analyze(claims, similarity_threshold=0.3)
         assert len(report.topological_insights) >= 1
         assert report.topological_insights[0].model_count >= 4
+
+    def test_verification_claims_separated(self):
+        """Verification meta-claims go to verification_insights, not topological."""
+        original_claims = [
+            _claim("The backends directory contains three implementations",
+                   model=f"test/orig-{c}", refs=["backends/"])
+            for c in "abcd"
+        ]
+        verification_claims = [
+            _claim("Verdict CONFIRMED — the claim is fully supported by the code",
+                   model=f"test/verify-{c}", refs=["backends/"])
+            for c in "abcde"
+        ]
+        report = analyze(original_claims + verification_claims, similarity_threshold=0.3)
+        # Should have both original and verification insights
+        assert report.verification_claims > 0
 
     def test_model_profiles_sorted_by_quality(self):
         claims = [

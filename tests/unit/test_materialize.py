@@ -139,7 +139,7 @@ class TestDeclarationsToEdges:
         assert negations[0].tensor_a == uuid_map["T1"]
         assert negations[0].tensor_b == uuid_map["T2"]
 
-    def test_bridges_creates_branches_from_edge(self, uuid_map):
+    def test_bridges_creates_bridges_edge(self, uuid_map):
         decls = [CompositionDeclaration(
             source="T0",
             targets=["T1"],
@@ -149,7 +149,7 @@ class TestDeclarationsToEdges:
         )]
         edges, negations, unknown = declarations_to_edges(decls, uuid_map)
         assert len(edges) == 1
-        assert edges[0].relation_type == RelationType.BRANCHES_FROM
+        assert edges[0].relation_type == RelationType.BRIDGES
         assert edges[0].authored_mapping is not None
 
     def test_read_creates_composes_with_mapping(self, uuid_map):

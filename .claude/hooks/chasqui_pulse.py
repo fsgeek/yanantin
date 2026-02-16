@@ -273,6 +273,18 @@ def digest_cairn() -> int:
             cwd=PROJECT_DIR, check=True,
         )
         log(f"Cairn digest committed: {summary}")
+
+        # Push to keep GitHub current — small frequent pushes
+        # are reviewable, 1925-commit backlogs are not.
+        try:
+            subprocess.run(
+                ["git", "push", "origin", "main"],
+                cwd=PROJECT_DIR, check=True, timeout=60,
+            )
+            log("Pushed to origin.")
+        except (subprocess.SubprocessError, OSError) as e:
+            log(f"Push failed (non-fatal): {e}")
+
         return len(cairn_lines)
     except (subprocess.SubprocessError, OSError) as e:
         log(f"Cairn digest commit failed: {e}")

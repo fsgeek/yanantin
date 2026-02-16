@@ -70,6 +70,7 @@ _RELATION_MAP: dict[str, tuple[bool, RelationType | None]] = {
     "branches_from": (True, RelationType.BRANCHES_FROM),
     "read": (True, RelationType.COMPOSES_WITH),
     "does_not_compose_with": (False, None),
+    "standalone": (False, None),  # No edge — explicit declaration of no predecessors
 }
 
 

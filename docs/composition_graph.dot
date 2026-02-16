@@ -1,0 +1,80 @@
+digraph TensorGraph {
+  rankdir=LR;
+  node [shape=ellipse, style=filled];
+
+  "T0" [fillcolor="#ffa07a", fontsize=20, tooltip="T0: 18 scout refs, in=9 out=2", label="T0
+(18 scouts)"];
+  "T1" [fillcolor="#ffd700", fontsize=19, tooltip="T1: 10 scout refs, in=7 out=2", label="T1
+(10 scouts)"];
+  "T2" [fillcolor="#98fb98", fontsize=17, tooltip="T2: 5 scout refs, in=5 out=2", label="T2
+(5 scouts)"];
+  "T3" [fillcolor="#98fb98", fontsize=14, tooltip="T3: 2 scout refs, in=4 out=0", label="T3
+(2 scouts)"];
+  "T4" [fillcolor="#98fb98", fontsize=19, tooltip="T4: 5 scout refs, in=5 out=4", label="T4
+(5 scouts)"];
+  "T5" [fillcolor="#ffa07a", fontsize=15, tooltip="T5: 17 scout refs, in=4 out=1", label="T5
+(17 scouts)"];
+  "T6" [fillcolor="#98fb98", fontsize=16, tooltip="T6: 1 scout refs, in=3 out=3", label="T6
+(1 scouts)"];
+  "T7" [fillcolor="#ffd700", fontsize=13, tooltip="T7: 10 scout refs, in=3 out=0", label="T7
+(10 scouts)"];
+  "T9" [fillcolor="#ffa07a", fontsize=10, tooltip="T9: 12 scout refs, in=0 out=0", label="T9
+(12 scouts)"];
+  "T10" [fillcolor="#ff6b6b", fontsize=20, tooltip="T10: 23 scout refs, in=2 out=8", label="T10
+(23 scouts)"];
+  "T11" [fillcolor="#ffd700", fontsize=12, tooltip="T11: 10 scout refs, in=1 out=1", label="T11
+(10 scouts)"];
+  "T12" [fillcolor="#ffa07a", fontsize=20, tooltip="T12: 14 scout refs, in=0 out=10", label="T12
+(14 scouts)"];
+  "T13" [fillcolor="#ff6b6b", fontsize=10, tooltip="T13: 22 scout refs, in=0 out=0", label="T13
+(22 scouts)"];
+  "T14" [fillcolor="#ff6b6b", fontsize=19, tooltip="T14: 30 scout refs, in=1 out=8", label="T14
+(30 scouts)"];
+  "T15" [fillcolor="#ffd700", fontsize=13, tooltip="T15: 7 scout refs, in=0 out=3", label="T15
+(7 scouts)"];
+  "T16" [fillcolor="#98fb98", fontsize=10, tooltip="T16: 5 scout refs, in=0 out=0", label="T16
+(5 scouts)"];
+
+  "T0" -> "T1" [style=dashed, color="#0066cc"];
+  "T0" -> "T2" [style=dashed, color="#0066cc"];
+  "T1" -> "T0" [style=solid, color="#333333"];
+  "T2" -> "T0" [style=solid, color="#333333"];
+  "T2" -> "T1" [style=solid, color="#333333"];
+  "T4" -> "T0" [style=solid, color="#333333"];
+  "T4" -> "T1" [style=solid, color="#333333"];
+  "T4" -> "T2" [style=solid, color="#333333"];
+  "T4" -> "T3" [style=solid, color="#333333"];
+  "T5" -> "T4" [style=solid, color="#333333"];
+  "T6" -> "T1" [style=dashed, color="#0066cc"];
+  "T6" -> "T4" [style=dashed, color="#0066cc"];
+  "T6" -> "T5" [style=dashed, color="#0066cc"];
+  "T10" -> "T0" [style=solid, color="#333333"];
+  "T10" -> "T1" [style=solid, color="#333333"];
+  "T10" -> "T2" [style=solid, color="#333333"];
+  "T10" -> "T3" [style=solid, color="#333333"];
+  "T10" -> "T4" [style=solid, color="#333333"];
+  "T10" -> "T5" [style=solid, color="#333333"];
+  "T10" -> "T6" [style=solid, color="#333333"];
+  "T10" -> "T7" [style=solid, color="#333333"];
+  "T11" -> "T10" [style=solid, color="#333333"];
+  "T12" -> "T0" [style=solid, color="#333333"];
+  "T12" -> "T1" [style=solid, color="#333333"];
+  "T12" -> "T2" [style=solid, color="#333333"];
+  "T12" -> "T3" [style=solid, color="#333333"];
+  "T12" -> "T4" [style=solid, color="#333333"];
+  "T12" -> "T5" [style=solid, color="#333333"];
+  "T12" -> "T6" [style=solid, color="#333333"];
+  "T12" -> "T7" [style=solid, color="#333333"];
+  "T12" -> "T10" [style=solid, color="#333333"];
+  "T12" -> "T11" [style=solid, color="#333333"];
+  "T14" -> "T0" [style=solid, color="#333333"];
+  "T14" -> "T1" [style=solid, color="#333333"];
+  "T14" -> "T2" [style=solid, color="#333333"];
+  "T14" -> "T3" [style=solid, color="#333333"];
+  "T14" -> "T4" [style=solid, color="#333333"];
+  "T14" -> "T5" [style=solid, color="#333333"];
+  "T14" -> "T6" [style=solid, color="#333333"];
+  "T14" -> "T7" [style=solid, color="#333333"];
+  "T15" -> "T0" [style=solid, color="#333333"];
+  "T15" -> "T14" [style=solid, color="#333333"];
+}

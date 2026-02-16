@@ -8,6 +8,8 @@
     uv run python -m yanantin.chasqui --scour "T7*" --scope tensor
     uv run python -m yanantin.chasqui --score                  # score all scouts in the cairn
     uv run python -m yanantin.chasqui --analyze                # cross-model topology analysis
+    uv run python -m yanantin.chasqui --investigate            # probe open questions from analyst
+    uv run python -m yanantin.chasqui --investigate 3          # probe top 3 questions
     uv run python -m yanantin.chasqui --seed 42                # reproducible model selection
 """
 
@@ -22,6 +24,7 @@ from pathlib import Path
 from yanantin.chasqui.coordinator import (
     CAIRN_DIR,
     PROJECT_ROOT,
+    dispatch_investigate,
     dispatch_many,
     dispatch_respond,
     dispatch_scour,
@@ -67,6 +70,11 @@ def main() -> None:
     parser.add_argument(
         "--analyze", action="store_true",
         help="Analyze scout corpus: cross-model topology detection",
+    )
+    parser.add_argument(
+        "--investigate", type=int, nargs="?", const=5, default=None,
+        metavar="N",
+        help="Investigate N open questions from the analyst (default: 5)",
     )
     parser.add_argument(
         "--seed", type=int, default=None,
@@ -145,6 +153,38 @@ def main() -> None:
             }, indent=2))
         else:
             print(render_report(report))
+        return
+
+    # ── Investigate mode ──────────────────────────────────────────────
+    if args.investigate is not None:
+        results = asyncio.run(dispatch_investigate(
+            max_questions=args.investigate,
+            seed=args.seed,
+            max_tokens=args.max_tokens,
+            temperature=args.temperature,
+        ))
+
+        if args.json:
+            print(json.dumps(results, indent=2, default=str))
+        else:
+            print(f"# Investigation Results ({len(results)} questions probed)\n")
+            for r in results:
+                if "error" in r:
+                    print(f"Error: {r['error']}", file=sys.stderr)
+                    continue
+
+                verdict_marker = {
+                    "CONFIRMED": "+", "DENIED": "!", "INDETERMINATE": "?"
+                }.get(r["verdict"], "?")
+
+                print(f"[{verdict_marker}] {r['verdict']}")
+                print(f"    Question by {r['source_model']}:")
+                claim = r["claim"][:120] + "..." if len(r["claim"]) > 120 else r["claim"]
+                print(f"    \"{claim}\"")
+                print(f"    File: {r['file_path']}")
+                print(f"    Judge: {r['model']} ({r['model_name']})")
+                print(f"    Cairn: {r['cairn_path']}")
+                print()
         return
 
     # ── Verify mode ─────────────────────────────────────────────────

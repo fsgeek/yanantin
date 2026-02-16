@@ -597,6 +597,56 @@ async def dispatch_verify_cairn(
     return await asyncio.gather(*tasks)
 
 
+async def dispatch_investigate(
+    cairn_dir: Path = CAIRN_DIR,
+    project_root: Path = PROJECT_ROOT,
+    max_questions: int = 5,
+    **kwargs: Any,
+) -> list[dict[str, Any]]:
+    """Investigate open questions surfaced by the analyst.
+
+    Runs the analysis pipeline, picks the top N open questions, and
+    dispatches verification scouts to check each one against the
+    referenced file. Cost: ~$0.000014 × N per investigation.
+
+    The analyst finds what consensus agrees on. This finds whether
+    the things individual models noticed are real.
+    """
+    from yanantin.chasqui.analyst import analyze
+    from yanantin.chasqui.gleaner import extract_claims_from_cairn
+
+    claims = extract_claims_from_cairn(cairn_dir, pattern="scout_*.md", max_reports=2000)
+    report = analyze(claims)
+
+    if not report.open_questions:
+        return [{"error": "No open questions found — analyst produced nothing to investigate"}]
+
+    # Pick questions that have file references we can verify
+    verifiable = [
+        q for q in report.open_questions
+        if q.file_references and (project_root / q.file_references[0]).exists()
+    ]
+
+    if not verifiable:
+        return [{"error": f"No verifiable open questions (all {len(report.open_questions)} lack valid file refs)"}]
+
+    selected = verifiable[:max_questions]
+
+    tasks = [
+        dispatch_verify(
+            claim_text=q.claim_text,
+            file_path=q.file_references[0],
+            source_model=q.source_model,
+            source_tensor="analyst-open-question",
+            cairn_dir=cairn_dir,
+            project_root=project_root,
+            **kwargs,
+        )
+        for q in selected
+    ]
+    return await asyncio.gather(*tasks)
+
+
 async def dispatch_many(
     n: int = 3,
     **kwargs: Any,

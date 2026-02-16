@@ -65,7 +65,7 @@ def extract_label(path: Path) -> str:
 # is_edge=False means it's a NegationRecord, not a CompositionEdge
 _RELATION_MAP: dict[str, tuple[bool, RelationType | None]] = {
     "composes_with": (True, RelationType.COMPOSES_WITH),
-    "bridges": (True, RelationType.BRANCHES_FROM),
+    "bridges": (True, RelationType.BRIDGES),
     "corrects": (True, RelationType.CORRECTS),
     "branches_from": (True, RelationType.BRANCHES_FROM),
     "read": (True, RelationType.COMPOSES_WITH),

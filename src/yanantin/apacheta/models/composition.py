@@ -17,6 +17,7 @@ class RelationType(str, Enum):
     COMPOSES_WITH = "composes_with"
     CORRECTS = "corrects"
     REFINES = "refines"
+    BRIDGES = "bridges"
     BRANCHES_FROM = "branches_from"
     DOES_NOT_COMPOSE_WITH = "does_not_compose_with"
     DISSENTS_FROM = "dissents_from"

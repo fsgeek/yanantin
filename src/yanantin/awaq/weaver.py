@@ -131,7 +131,13 @@ def extract_structured_metadata(
     """
     declarations: list[CompositionDeclaration] = []
 
-    for match in _STRUCTURED_METADATA.finditer(text):
+    # Strip code blocks/spans before matching — a composition header
+    # quoted inside backticks (e.g., T18 proposing the format) is an
+    # example, not a declaration.
+    clean_text = _FENCED_CODE_BLOCK.sub("", text)
+    clean_text = re.sub(r"`[^`\n]+`", "", clean_text)
+
+    for match in _STRUCTURED_METADATA.finditer(clean_text):
         content = match.group(1).strip()
 
         # First token is the source tensor
@@ -420,6 +426,42 @@ def _extract_targets_from_sentence(
     return targets
 
 
+# ── Text Cleaning ───────────────────────────────────────────────
+
+# Fenced code blocks: ```...``` (possibly with language tag)
+_FENCED_CODE_BLOCK = re.compile(
+    r"^```[^\n]*\n.*?^```",
+    re.MULTILINE | re.DOTALL,
+)
+
+# HTML comments: <!-- ... -->
+_HTML_COMMENT = re.compile(r"<!--.*?-->", re.DOTALL)
+
+# Inline code spans containing composition keywords — these are
+# quoted declarations from other tensors, not the current tensor's
+# own declarations. Simple formatting like `T6` is preserved.
+_COMPOSITION_KEYWORDS_IN_CODE = re.compile(
+    r"`[^`\n]*(?:\b(?:composes_with|does_not_compose_with|corrects|"
+    r"bridges|branches_from|standalone)\b|read\s+T)[^`\n]*`"
+)
+
+
+def _strip_non_prose(text: str) -> str:
+    """Remove HTML comments, code blocks, and quoted composition from text.
+
+    Used before prose pattern matching to prevent false declarations
+    from quoted composition metadata and code examples. The structured
+    metadata parser handles HTML comments independently.
+
+    Only strips inline code spans that contain composition keywords
+    (e.g., `read T0, T1`). Simple formatting like `T6` is preserved.
+    """
+    text = _FENCED_CODE_BLOCK.sub("", text)
+    text = _HTML_COMMENT.sub("", text)
+    text = _COMPOSITION_KEYWORDS_IN_CODE.sub("", text)
+    return text
+
+
 # ── Core Extraction ──────────────────────────────────────────────
 
 
@@ -482,7 +524,15 @@ def extract_composition_declarations(
     structured = extract_structured_metadata(text, tensor_name)
     declarations.extend(structured)
 
-    sentences = _sentence_boundaries(text)
+    # Strip HTML comments and code before prose extraction.
+    # Structured metadata already handles <!-- Composition: ... --> comments.
+    # Code blocks/spans contain quoted or example text, not declarations.
+    # Without this, a tensor that quotes another tensor's composition header
+    # (e.g., T19 quoting T18's `<!-- Composition: T18 ... -->`) gets false
+    # edges attributed to it by the prose regex.
+    prose_text = _strip_non_prose(text)
+
+    sentences = _sentence_boundaries(prose_text)
 
     # Track what we've already declared to avoid duplicates
     # Seed with structured metadata so prose patterns don't duplicate
@@ -547,9 +597,18 @@ def extract_composition_declarations(
             if not targets:
                 continue
 
-            # Dedup key: relation + sorted targets
+            # Dedup: exact match or subset of an already-seen declaration.
+            # If a prose pattern finds {T17} but structured metadata already
+            # declared {T16, T17}, the prose version adds no information.
+            target_set = frozenset(targets)
             key = (tensor_name, relation, tuple(sorted(targets)))
             if key in seen:
+                continue
+            is_subset = any(
+                s == tensor_name and r == relation and target_set <= frozenset(t)
+                for s, r, t in seen
+            )
+            if is_subset:
                 continue
             seen.add(key)
 

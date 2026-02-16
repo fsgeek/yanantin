@@ -72,6 +72,7 @@ class ClaimGroup:
     model_ids: set[str] = field(default_factory=set)
     claim_type: str = "factual"
     avg_confidence: float = 0.0
+    verification_ratio: float = 0.0  # Fraction of claims that are verification meta
 
     @property
     def model_count(self) -> int:
@@ -81,6 +82,11 @@ class ClaimGroup:
     def is_topological(self) -> bool:
         """3+ distinct models agreeing = structural truth."""
         return self.model_count >= 3
+
+    @property
+    def is_original(self) -> bool:
+        """Mostly original observations, not verification meta-claims."""
+        return self.verification_ratio < 0.5
 
 
 @dataclass
@@ -104,10 +110,35 @@ class AnalysisReport:
     total_claims_input: int
     claims_after_filter: int
     garbage_filtered: int
+    verification_claims: int = 0  # Claims that are scouts reviewing scouts
     clusters: list[ClaimCluster] = field(default_factory=list)
     model_profiles: list[ModelProfile] = field(default_factory=list)
     topological_insights: list[ClaimGroup] = field(default_factory=list)
+    verification_insights: list[ClaimGroup] = field(default_factory=list)  # Topology in verification layer
     textural_observations: list[ClaimGroup] = field(default_factory=list)
+
+
+# ── Verification meta-claim detection ────────────────────────────────
+
+_VERDICT_PATTERN = re.compile(
+    r"\b(?:Verdict|CONFIRMED|DENIED|INDETERMINATE)\b", re.IGNORECASE
+)
+_VERIFICATION_PHRASES = re.compile(
+    r"(?:The claim (?:is|states|asserts)|Evidence (?:shows|confirms|denies)|"
+    r"Reasoning The (?:claim|file)|the claim is (?:fully |partially )?(?:supported|verified|denied))",
+    re.IGNORECASE,
+)
+
+
+def is_verification_meta(claim_text: str) -> bool:
+    """Detect claims that are scouts reviewing other scouts' claims.
+
+    These are metadata about claims, not original observations.
+    They contain verdict language and verification framing.
+    """
+    has_verdict = bool(_VERDICT_PATTERN.search(claim_text))
+    has_verification = bool(_VERIFICATION_PHRASES.search(claim_text))
+    return has_verdict or has_verification
 
 
 # ── Garbage detection ────────────────────────────────────────────────
@@ -357,10 +388,12 @@ def _group_similar_claims(
                 claim_type=claim.claim_type,
             ))
 
-    # Compute average confidence per group
+    # Compute average confidence and verification ratio per group
     for group in groups:
         if group.claims:
             group.avg_confidence = sum(c.confidence for c in group.claims) / len(group.claims)
+            meta_count = sum(1 for c in group.claims if is_verification_meta(c.claim_text))
+            group.verification_ratio = meta_count / len(group.claims)
 
     # Sort by model count (topological first), then confidence
     groups.sort(
@@ -404,20 +437,30 @@ def analyze(
     # Step 3: Cluster
     clusters = cluster_claims(filtered, similarity_threshold)
 
-    # Step 4: Extract topological insights and textural observations
+    # Step 3.5: Count verification meta-claims
+    verification_count = sum(1 for c in filtered if is_verification_meta(c.claim_text))
+
+    # Step 4: Extract topological insights, split by original vs verification
     topological: list[ClaimGroup] = []
+    verification_topo: list[ClaimGroup] = []
     textural: list[ClaimGroup] = []
 
     for cluster in clusters:
         for group in cluster.groups:
             if group.model_count >= min_models_for_topology:
-                topological.append(group)
+                if group.is_original:
+                    topological.append(group)
+                else:
+                    verification_topo.append(group)
             elif group.model_count == 1 and len(group.claims) >= 2:
-                # Single model making multiple similar claims — textural
                 textural.append(group)
 
     # Sort topological by model count then confidence
     topological.sort(
+        key=lambda g: (g.model_count, g.avg_confidence),
+        reverse=True,
+    )
+    verification_topo.sort(
         key=lambda g: (g.model_count, g.avg_confidence),
         reverse=True,
     )
@@ -433,17 +476,19 @@ def analyze(
         total_claims_input=total_input,
         claims_after_filter=len(filtered),
         garbage_filtered=garbage_count,
+        verification_claims=verification_count,
         clusters=clusters,
         model_profiles=sorted_profiles,
         topological_insights=topological,
-        textural_observations=textural[:50],  # Cap textural to avoid noise
+        verification_insights=verification_topo,
+        textural_observations=textural[:50],
     )
 
     logger.info(
-        "Analysis complete: %d claims → %d filtered → %d clusters → "
-        "%d topological insights, %d textural observations",
-        total_input, len(filtered), len(clusters),
-        len(topological), len(report.textural_observations),
+        "Analysis complete: %d claims → %d filtered (%d verification) → "
+        "%d clusters → %d original topological, %d verification topological",
+        total_input, len(filtered), verification_count, len(clusters),
+        len(topological), len(verification_topo),
     )
 
     return report
@@ -460,14 +505,18 @@ def render_report(report: AnalysisReport, max_insights: int = 30) -> str:
     lines.append(f"**Claims processed:** {report.total_claims_input}")
     lines.append(f"**After garbage filter:** {report.claims_after_filter} "
                  f"({report.garbage_filtered} removed)")
+    lines.append(f"**Verification meta-claims:** {report.verification_claims} "
+                 f"(scouts reviewing scouts)")
     lines.append(f"**Clusters:** {len(report.clusters)} (by file reference)")
-    lines.append(f"**Topological insights:** {len(report.topological_insights)} "
-                 f"(3+ models agree)")
+    lines.append(f"**Original topological insights:** {len(report.topological_insights)} "
+                 f"(3+ models agree, original observations)")
+    lines.append(f"**Verification topological insights:** {len(report.verification_insights)} "
+                 f"(3+ models agree, verification layer)")
     lines.append(f"**Models contributing:** {len(report.model_profiles)}")
     lines.append("")
 
-    # Topological insights
-    lines.append("## Topological Insights (cross-model agreement)")
+    # Original topological insights
+    lines.append("## Original Topological Insights (cross-model agreement)")
     lines.append("")
     if not report.topological_insights:
         lines.append("*None found.*")
@@ -482,6 +531,19 @@ def render_report(report: AnalysisReport, max_insights: int = 30) -> str:
             lines.append(f"**Claims in group:** {len(group.claims)}, "
                          f"avg confidence: {group.avg_confidence:.2f}")
             lines.append("")
+
+    # Verification insights (collapsed summary)
+    if report.verification_insights:
+        lines.append(f"## Verification Layer ({len(report.verification_insights)} "
+                     f"topological groups)")
+        lines.append("")
+        lines.append("*These are scouts reviewing other scouts' claims. "
+                     "The verdicts themselves show cross-model agreement.*")
+        lines.append("")
+        for i, group in enumerate(report.verification_insights[:10], 1):
+            lines.append(f"{i}. [{group.claim_type}] {group.model_count} models — "
+                         f"{group.representative[:120]}")
+        lines.append("")
 
     # Top clusters
     lines.append("## Top File Clusters")

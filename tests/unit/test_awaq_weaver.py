@@ -430,7 +430,11 @@ class TestWeaveCorpus:
         decls = weave_corpus(cairn_dir=CAIRN_DIR, sources=["cairn"])
         for d in decls:
             assert isinstance(d.source, str) and d.source
-            assert isinstance(d.targets, list) and len(d.targets) > 0
+            assert isinstance(d.targets, list)
+            if d.relation == "standalone":
+                assert len(d.targets) == 0
+            else:
+                assert len(d.targets) > 0
             assert d.relation in {
                 "composes_with",
                 "does_not_compose_with",
@@ -438,6 +442,7 @@ class TestWeaveCorpus:
                 "bridges",
                 "branches_from",
                 "read",
+                "standalone",
             }
             assert isinstance(d.evidence, str) and d.evidence
             assert d.confidence in {"high", "medium", "low"}

@@ -116,6 +116,7 @@ class AnalysisReport:
     topological_insights: list[ClaimGroup] = field(default_factory=list)
     verification_insights: list[ClaimGroup] = field(default_factory=list)  # Topology in verification layer
     textural_observations: list[ClaimGroup] = field(default_factory=list)
+    open_questions: list[ExtractedClaim] = field(default_factory=list)  # High-quality unique claims the consensus missed
 
 
 # ── Verification meta-claim detection ────────────────────────────────
@@ -445,6 +446,13 @@ def analyze(
     verification_topo: list[ClaimGroup] = []
     textural: list[ClaimGroup] = []
 
+    # Step 5: Collect open questions — the claims the consensus missed.
+    # High-quality unique observations, especially epistemic and architectural,
+    # from singleton groups. The 3+ model consensus filter finds what's obvious.
+    # Individual models asking questions or noticing patterns nobody else did
+    # is where the interesting signal lives.
+    open_questions: list[ExtractedClaim] = []
+
     for cluster in clusters:
         for group in cluster.groups:
             if group.model_count >= min_models_for_topology:
@@ -454,6 +462,22 @@ def analyze(
                     verification_topo.append(group)
             elif group.model_count == 1 and len(group.claims) >= 2:
                 textural.append(group)
+
+            # Harvest unique observations from singleton groups
+            if group.model_count == 1 and group.is_original:
+                for claim in group.claims:
+                    if (
+                        claim.confidence >= 0.6
+                        and not is_verification_meta(claim.claim_text)
+                        and claim.claim_type in ("epistemic", "architectural", "structural", "missing")
+                    ):
+                        open_questions.append(claim)
+
+    # Sort: epistemic first, then by confidence
+    _type_priority = {"epistemic": 0, "architectural": 1, "structural": 2, "missing": 3}
+    open_questions.sort(
+        key=lambda c: (_type_priority.get(c.claim_type, 9), -c.confidence),
+    )
 
     # Sort topological by model count then confidence
     topological.sort(
@@ -482,13 +506,15 @@ def analyze(
         topological_insights=topological,
         verification_insights=verification_topo,
         textural_observations=textural[:50],
+        open_questions=open_questions[:30],
     )
 
     logger.info(
         "Analysis complete: %d claims → %d filtered (%d verification) → "
-        "%d clusters → %d original topological, %d verification topological",
+        "%d clusters → %d original topological, %d verification topological, "
+        "%d open questions",
         total_input, len(filtered), verification_count, len(clusters),
-        len(topological), len(verification_topo),
+        len(topological), len(verification_topo), len(open_questions),
     )
 
     return report
@@ -510,6 +536,8 @@ def render_report(report: AnalysisReport, max_insights: int = 30) -> str:
     lines.append(f"**Clusters:** {len(report.clusters)} (by file reference)")
     lines.append(f"**Original topological insights:** {len(report.topological_insights)} "
                  f"(3+ models agree, original observations)")
+    lines.append(f"**Open questions:** {len(report.open_questions)} "
+                 f"(unique observations the consensus missed)")
     lines.append(f"**Verification topological insights:** {len(report.verification_insights)} "
                  f"(3+ models agree, verification layer)")
     lines.append(f"**Models contributing:** {len(report.model_profiles)}")
@@ -544,6 +572,20 @@ def render_report(report: AnalysisReport, max_insights: int = 30) -> str:
             lines.append(f"{i}. [{group.claim_type}] {group.model_count} models — "
                          f"{group.representative[:120]}")
         lines.append("")
+
+    # Open questions — what individual models noticed that consensus missed
+    if report.open_questions:
+        lines.append(f"## Open Questions ({len(report.open_questions)} unique observations)")
+        lines.append("")
+        lines.append("*Claims from individual models that the consensus filter dropped. "
+                     "Epistemic and architectural observations, not file-existence confirmations.*")
+        lines.append("")
+        for i, claim in enumerate(report.open_questions[:20], 1):
+            lines.append(f"### {i}. [{claim.claim_type}] {claim.source_model}")
+            lines.append(f"{claim.claim_text[:300]}")
+            if claim.file_references:
+                lines.append(f"  refs: {', '.join(claim.file_references[:3])}")
+            lines.append("")
 
     # Top clusters
     lines.append("## Top File Clusters")

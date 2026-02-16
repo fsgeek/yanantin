@@ -53,6 +53,31 @@ DEFAULT_EXCLUDE = [
     "openrouter/auto",  # Meta-router, not a real model
 ]
 
+# ── Garbage detection ────────────────────────────────────────────────
+
+def _is_degenerate_repetition(text: str, phrase_len: int = 40, threshold: int = 5) -> bool:
+    """Detect degenerate repetition loops in model output.
+
+    A model stuck in a loop repeats the same phrase hundreds of times.
+    The verdict keyword may appear once at the start, making the garbage
+    parse as CONFIRMED or DENIED. This catches that.
+
+    Returns True if any substring of `phrase_len` chars repeats
+    `threshold` or more times in the text.
+    """
+    if len(text) < phrase_len * threshold:
+        return False
+    # Sample phrases from the middle of the text (avoid header/footer)
+    mid = len(text) // 2
+    for offset in range(0, min(200, mid), 20):
+        phrase = text[mid + offset : mid + offset + phrase_len]
+        if len(phrase) < phrase_len:
+            break
+        if text.count(phrase) >= threshold:
+            return True
+    return False
+
+
 # ── Cairn writer ─────────────────────────────────────────────────────
 
 def _claim_scout_number(cairn_dir: Path, model_short: str) -> tuple[int, Path]:
@@ -556,13 +581,19 @@ async def dispatch_verify(
             },
         )
 
-        # Parse verdict from response
+        # Detect degenerate repetition before trusting the verdict.
+        # A model stuck in a loop produces garbage that may contain
+        # verdict keywords by accident (scout 0983: 4000 tokens of
+        # "it does mention" repeated, parsed as CONFIRMED).
         verdict = "INDETERMINATE"
-        content_upper = response.content.upper()
-        if "**CONFIRMED**" in content_upper or "### VERDICT\nCONFIRMED" in content_upper:
-            verdict = "CONFIRMED"
-        elif "**DENIED**" in content_upper or "### VERDICT\nDENIED" in content_upper:
-            verdict = "DENIED"
+        if _is_degenerate_repetition(response.content):
+            verdict = "MODEL_FAILURE"
+        else:
+            content_upper = response.content.upper()
+            if "**CONFIRMED**" in content_upper or "### VERDICT\nCONFIRMED" in content_upper:
+                verdict = "CONFIRMED"
+            elif "**DENIED**" in content_upper or "### VERDICT\nDENIED" in content_upper:
+                verdict = "DENIED"
 
         return {
             "mode": "verify",

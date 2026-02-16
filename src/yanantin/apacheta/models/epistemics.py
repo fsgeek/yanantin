@@ -42,6 +42,8 @@ class DeclaredLoss(ApachetaBaseModel):
     what_was_lost: str
     why: str
     category: LossCategory
+    severity: float | None = None
+    severity_rationale: str | None = None
 
 
 class EpistemicMetadata(ApachetaBaseModel):

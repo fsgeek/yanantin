@@ -597,6 +597,58 @@ async def dispatch_verify_cairn(
     return await asyncio.gather(*tasks)
 
 
+def resolve_file_reference(name: str, project_root: Path) -> str | None:
+    """Resolve a bare filename to its project-relative path.
+
+    Models often report bare filenames like 'scout.py' instead of
+    'src/yanantin/chasqui/scout.py'. This searches the project tree
+    to find the actual path.
+
+    Args:
+        name: Filename or path to resolve
+        project_root: Project root directory
+
+    Returns:
+        Project-relative path if found, None if not found
+
+    Strategy:
+        1. If the path already exists as-is, return it unchanged
+        2. Search project tree for files matching the bare name
+        3. Skip .git/, __pycache__/, .venv/, node_modules/, .uv-cache/
+        4. If exactly one match: return it
+        5. If multiple: prefer src/ over others, then prefer shorter paths
+        6. If none: return None
+    """
+    # First check if it already resolves
+    if (project_root / name).exists():
+        return name
+
+    # Search the project tree
+    skip_dirs = {".git", "__pycache__", ".venv", "node_modules", ".uv-cache", ".pytest_cache"}
+    matches = []
+
+    for dirpath, dirnames, filenames in os.walk(project_root):
+        # Filter out skip_dirs in-place to avoid descending into them
+        dirnames[:] = [d for d in dirnames if d not in skip_dirs]
+
+        if name in filenames:
+            full_path = Path(dirpath) / name
+            relative_path = full_path.relative_to(project_root)
+            matches.append(str(relative_path))
+
+    if not matches:
+        return None
+
+    if len(matches) == 1:
+        return matches[0]
+
+    # Multiple matches: prefer src/ over others, then prefer shorter paths
+    src_matches = [m for m in matches if m.startswith("src/")]
+    if src_matches:
+        return min(src_matches, key=len)
+    return min(matches, key=len)
+
+
 async def dispatch_investigate(
     cairn_dir: Path = CAIRN_DIR,
     project_root: Path = PROJECT_ROOT,
@@ -622,10 +674,16 @@ async def dispatch_investigate(
         return [{"error": "No open questions found — analyst produced nothing to investigate"}]
 
     # Pick questions that have file references we can verify
-    verifiable = [
-        q for q in report.open_questions
-        if q.file_references and (project_root / q.file_references[0]).exists()
-    ]
+    # Resolve bare filenames to project-relative paths first
+    verifiable = []
+    for q in report.open_questions:
+        if not q.file_references:
+            continue
+        resolved_path = resolve_file_reference(q.file_references[0], project_root)
+        if resolved_path and (project_root / resolved_path).exists():
+            # Update the question's file reference with the resolved path
+            q.file_references[0] = resolved_path
+            verifiable.append(q)
 
     if not verifiable:
         return [{"error": f"No verifiable open questions (all {len(report.open_questions)} lack valid file refs)"}]

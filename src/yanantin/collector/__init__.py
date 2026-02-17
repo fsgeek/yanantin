@@ -17,6 +17,14 @@ Usage::
 """
 
 from yanantin.collector.base import CollectorBase, RecorderBase, WranglerBase
+from yanantin.collector.machine_config import (
+    MachineConfigCollector,
+    MachineConfigData,
+    MachineConfigRecorder,
+    collect_and_record,
+    collect_machine_config,
+    render_machine_config,
+)
 from yanantin.collector.models import ProviderRegistration, WranglerEnvelope
 from yanantin.collector.wranglers import BatchWrangler, DirectWrangler, QueuedWrangler
 
@@ -24,9 +32,15 @@ __all__ = [
     "BatchWrangler",
     "CollectorBase",
     "DirectWrangler",
+    "MachineConfigCollector",
+    "MachineConfigData",
+    "MachineConfigRecorder",
     "ProviderRegistration",
     "QueuedWrangler",
     "RecorderBase",
     "WranglerBase",
     "WranglerEnvelope",
+    "collect_and_record",
+    "collect_machine_config",
+    "render_machine_config",
 ]

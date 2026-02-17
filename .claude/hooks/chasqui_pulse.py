@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Chasqui pulse — the reactive heartbeat.
 
-Runs frequently via cron (every 1-5 minutes). Mostly does nothing.
+Runs via cron (every 5-10 minutes). Mostly does nothing.
 Wakes up when:
   - Code changed (new commits since last check) → dispatch a scout
   - 30 minutes since last scout → dispatch one anyway (minimum heartbeat)
   - Every 3rd heartbeat → queue a scour (periodic exploration)
-  - New cairn files sitting uncommitted → digest (auto-commit)
+  - 1 hour since last digest → commit cairn/OTS files (batch, not frenzy)
+  - 10 minutes since last OTS upgrade → check for proof upgrades
   - Work queue has items → process the next one
 
 The work queue is the living part. Scouts create verify items.
@@ -61,7 +62,8 @@ LOG_DIR = PROJECT_DIR / "logs"
 MIN_SCOUT_INTERVAL = 300       # 5 minutes between scouts
 HEARTBEAT_INTERVAL = 1800      # 30 minutes — debugging frequency (was 6 hours)
 SCOUR_EVERY_N_HEARTBEATS = 3   # Queue a scour every 3rd heartbeat
-DIGEST_INTERVAL = 300          # 5 minutes between cairn commits (batch reports)
+DIGEST_INTERVAL = 3600         # 1 hour between cairn commits (OTS settles at ~60 min)
+OTS_UPGRADE_INTERVAL = 600     # 10 minutes between OTS upgrades (one Bitcoin block)
 
 # Scour targets — (target_path, scope) pairs for periodic exploration
 SCOUR_TARGETS = [
@@ -594,16 +596,19 @@ def main() -> None:
                 state["last_commit"] = head
 
         # ── OTS: upgrade pending timestamp proofs ──────────────────
-        try:
-            from yanantin.provenance.timestamp import upgrade_pending_proofs
-            ots_dir = PROJECT_DIR / "docs" / "ots"
-            upgraded = upgrade_pending_proofs(ots_dir)
-            if upgraded:
-                log(f"OTS upgraded {len(upgraded)} proofs: {', '.join(upgraded)}")
-        except ImportError:
-            pass  # provenance module not yet installed
-        except Exception as exc:
-            log(f"OTS upgrade error: {exc}")
+        last_ots = state.get("last_ots_upgrade", 0)
+        if now - last_ots >= OTS_UPGRADE_INTERVAL:
+            try:
+                from yanantin.provenance.timestamp import upgrade_pending_proofs
+                ots_dir = PROJECT_DIR / "docs" / "ots"
+                upgraded = upgrade_pending_proofs(ots_dir)
+                if upgraded:
+                    log(f"OTS upgraded {len(upgraded)} proofs: {', '.join(upgraded)}")
+                state["last_ots_upgrade"] = time.time()
+            except ImportError:
+                pass  # provenance module not yet installed
+            except Exception as exc:
+                log(f"OTS upgrade error: {exc}")
 
         # ── Proprioception: staleness + chain integrity ────────────
         stale_warnings = check_staleness()

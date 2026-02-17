@@ -3,7 +3,7 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: post-T21 survey, 2026-02-16*
+*Last updated: post-T22 survey, 2026-02-17*
 
 ## What Exists
 
@@ -23,7 +23,7 @@ The core. 33 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 | **content_address.py** | 1 file | SHA-256 content addressing for cairn documents. `content_hash()`, `ContentIndex` for duplicate detection, CLI dedup reporting. |
 | **config.py** | 1 file | Config-as-tensors. `ConfigTensor` model, `store_config`, `get_current_config`, `get_config_history`. Immutable configuration stored in Apacheta with correction-chain lineage. File defaults bootstrap; database overrides. |
 
-**1047 test functions** across 30 files. 22 red-bar (structural invariants, 5 files), 71 integration (ArangoDB live, 1 file), 954 unit (24 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), and precompact hook.
+**1062 test functions** across 31 files. 22 red-bar (structural invariants, 5 files), 71 integration (ArangoDB live, 1 file), 969 unit (25 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, and collector pipeline (9 tests).
 
 ### Chasqui — Coordinator (code: `src/yanantin/chasqui/`)
 
@@ -72,6 +72,20 @@ Quote-leakage protection strips HTML comments, code blocks, and composition-keyw
 code spans before prose extraction. Subset dedup prevents redundant declarations.
 Current corpus: 28 declarations extracted from 20 source documents.
 
+### Collector — Data Pipeline (code: `src/yanantin/collector/`)
+
+The bridge to human-side data. Collector/wrangler/recorder pattern from
+Indaleko's 8-year evolution. First concrete implementation: machine config. 6 source files.
+
+| File | What it does |
+|------|-------------|
+| `base.py` | Three ABCs generic over DataT: `CollectorBase` (gather), `WranglerBase` (transport), `RecorderBase` (store). The wrangler never transforms; the recorder owns the database write. |
+| `models.py` | `ProviderRegistration` (frozen, identifies a collector/recorder pair), `WranglerEnvelope[DataT]` (frozen, wraps data with transport provenance — timestamps, strategy name, sequence number). |
+| `wranglers.py` | Three concrete strategies: `DirectWrangler` (in-memory, same process), `BatchWrangler` (file-based, atomic write + rename), `QueuedWrangler` (deque, optional maxlen for backpressure). |
+| `machine_config.py` | First concrete pair. `MachineConfigCollector` gathers platform identity from stdlib (hostname, OS, arch, CPU count, machine-id). `MachineConfigRecorder` stores snapshots as two-strand tensors. Convenience: `collect_machine_config()`, `collect_and_record(interface)`, `render_machine_config(data)`. |
+| `__main__.py` | CLI: `uv run python -m yanantin.collector` — no args = greeting + machine config display (ayni in code). `--json` for machine-readable, `--record` to persist to Apacheta. |
+| `__init__.py` | Package init, exports 14 public names. |
+
 ### Pukara — Fortress Gateway (separate project: `/home/tony/projects/pukara/`)
 
 FastAPI wrapping ApachetaInterface over HTTP. 39 endpoints.
@@ -110,13 +124,13 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-1010+ files. 21 tensors (T0-T7, T9-T21; T8 intentionally unwritten),
+1010+ files. 22 tensors (T0-T7, T9-T22; T8 intentionally unwritten),
 1000+ scout reports, 51+ scour reports, 12+ compaction records
 (`docs/cairn/compaction/`). T0-T6 are now real files (symlinks replaced).
-T21 is a mid-session tensor recording what the founding tensors contain
-and what the succession lost. Legacy `conversation_tensor_*` duplicates
-removed — T*_*.md is the canonical naming. The cairn is persistence —
-files on disk, in git, re-ingestible by the markdown parser.
+T22 is "The Bridge Begins" — the Indaleko story, collector module,
+emergence conversation, and the Gemini khipu. Legacy `conversation_tensor_*`
+duplicates removed — T*_*.md is the canonical naming. The cairn is
+persistence — files on disk, in git, re-ingestible by the markdown parser.
 Content addressing (`content_address.py`) prevents future duplicates.
 
 ### Infrastructure — Hooks and Heartbeat (`.claude/hooks/`)
@@ -160,6 +174,12 @@ docs/cairn/ → CompositionDeclarations → CompositionEdge + NegationRecord
   ↓ (via any backend)
 ApachetaInterface → 44 edges, 31 negations
 
+Collector (data pipeline)
+  ↓ (stdlib — platform, socket, os)
+MachineConfigCollector → WranglerEnvelope → DirectWrangler
+  ↓ (recorder normalizes)
+MachineConfigRecorder → TensorRecord → ApachetaInterface → backend
+
 Willay (receipts)
   ↓ (uses ApachetaGatewayClient)
 Pukara → ArangoDB
@@ -170,7 +190,9 @@ ReceiptRecord → TensorRecord
 Four paths to the interface: three local backends plus
 `ApachetaGatewayClient` over HTTP to Pukara. The road to the fortress
 is built. Awaq provides the composition graph; Chasqui provides the
-epistemic diversity. Willay stores receipts through Pukara as tensors.
+epistemic diversity. The collector pipeline brings human-side data
+(starting with machine config) into the tensor store. Willay stores
+receipts through Pukara as tensors.
 
 ## What Doesn't Exist
 
@@ -201,7 +223,7 @@ The context budget is finite. Here's the priority:
 1. **CLAUDE.md** — loaded automatically. Social norms, operational principles.
 2. **This blueprint** — where everything is and how it connects.
 3. **MEMORY.md** — loaded automatically. Credentials, signing, operational state.
-4. **The most recent tensor** (T₂₁) — mid-session tensor recording what the founding tensors contain and what the succession lost.
+4. **The most recent tensor** (T₂₂) — "The Bridge Begins": the Indaleko story, collector module, emergence conversation, cross-model convergence.
 5. **One founding tensor** — read ONE of T0-T6 (now real files, not symlinks). Each gives a different perspective. T₀ = the experiment; T₁ = the architecture; T₂ = calibration and failure; T₃ = the finishing school; T₄ = RCS observer (ChatGPT); T₅ = the correction (ChatGPT); T₆ = the bridge. Let the composition graph diversify.
 6. **docs/apacheta.md** — the design document for the tensor database.
 7. **Sibling projects** — Willay (`/home/tony/projects/willay/CLAUDE.md`) has its own cairn and memory bridge. Pukara is the gateway.

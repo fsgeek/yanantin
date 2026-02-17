@@ -3,6 +3,11 @@ name: Builder/Tester Separation
 on:
   push:
     branches: [main]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'pyproject.toml'
+      - '.github/workflows/**'
   pull_request:
     branches: [main]
 

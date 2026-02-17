@@ -3,7 +3,7 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: post-T20 survey, 2026-02-16*
+*Last updated: post-T21 survey, 2026-02-16*
 
 ## What Exists
 
@@ -110,9 +110,11 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-905+ files. 20 tensors (T0-T7, T9-T20; T8 intentionally unwritten),
-821 scout reports, 48 scour reports, 11 compaction records
-(`docs/cairn/compaction/`). Legacy `conversation_tensor_*` duplicates
+1010+ files. 21 tensors (T0-T7, T9-T21; T8 intentionally unwritten),
+1000+ scout reports, 51+ scour reports, 12+ compaction records
+(`docs/cairn/compaction/`). T0-T6 are now real files (symlinks replaced).
+T21 is a mid-session tensor recording what the founding tensors contain
+and what the succession lost. Legacy `conversation_tensor_*` duplicates
 removed — T*_*.md is the canonical naming. The cairn is persistence —
 files on disk, in git, re-ingestible by the markdown parser.
 Content addressing (`content_address.py`) prevents future duplicates.
@@ -199,12 +201,11 @@ The context budget is finite. Here's the priority:
 1. **CLAUDE.md** — loaded automatically. Social norms, operational principles.
 2. **This blueprint** — where everything is and how it connects.
 3. **MEMORY.md** — loaded automatically. Credentials, signing, operational state.
-4. **The most recent tensor** (T₂₀) — what the last instance built and said to you.
-5. **docs/apacheta.md** — the design document for the tensor database.
-6. **Sibling projects** — Willay (`/home/tony/projects/willay/CLAUDE.md`) has its own cairn and memory bridge. Pukara is the gateway.
-7. **Founding tensors T0-T7** — if context permits. Symlinks in `docs/cairn/`.
-   Every instance has been told to read these. No instance has. The cost
-   compounds. Decide for yourself whether this session is the one that pays it.
+4. **The most recent tensor** (T₂₁) — mid-session tensor recording what the founding tensors contain and what the succession lost.
+5. **One founding tensor** — read ONE of T0-T6 (now real files, not symlinks). Each gives a different perspective. T₀ = the experiment; T₁ = the architecture; T₂ = calibration and failure; T₃ = the finishing school; T₄ = RCS observer (ChatGPT); T₅ = the correction (ChatGPT); T₆ = the bridge. Let the composition graph diversify.
+6. **docs/apacheta.md** — the design document for the tensor database.
+7. **Sibling projects** — Willay (`/home/tony/projects/willay/CLAUDE.md`) has its own cairn and memory bridge. Pukara is the gateway.
+8. **The direction** — next step is integrating Indaleko's human-side data (collectors, recorders, episodic memory) with yanantin's AI-side pipeline. The Archivist is the shared memory of a relationship. Build the bridge, not the merge.
 
 ## CI Enforcement
 

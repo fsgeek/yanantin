@@ -24,7 +24,9 @@ from yanantin.apacheta.models import (
     StrandRecord,
     TensorRecord,
 )
-from yanantin.collector.base import CollectorBase, RecorderBase
+from yanantin.activity.models import FactRecord
+from yanantin.activity.store import ActivityStreamStore
+from yanantin.collector.base import CollectorBase, FactRecorderBase, RecorderBase
 from yanantin.collector.models import WranglerEnvelope
 from yanantin.collector.synthetic import SyntheticCollectorBase
 from yanantin.collector.wranglers import DirectWrangler
@@ -276,6 +278,45 @@ class ChecksumRecorder(RecorderBase[ChecksumData]):
 
     def get_description(self) -> str:
         return "Checksum recorder — stores file checksums as tensors"
+
+
+# ── Fact Recorder ─────────────────────────────────────────────────
+
+
+class ChecksumFactRecorder(FactRecorderBase[ChecksumData]):
+    """Stores checksum data as a single fact in the activity stream.
+
+    Unlike the batch-decomposition pattern of other fact recorders,
+    a checksum collection produces exactly one fact (one file, one
+    set of digests).
+    """
+
+    def __init__(self, store: ActivityStreamStore) -> None:
+        super().__init__(store)
+        self._recorder_id = uuid5(
+            NAMESPACE_DNS,
+            "yanantin.fact_recorder.checksum",
+        )
+
+    def record_facts(self, envelope: WranglerEnvelope[ChecksumData]) -> int:
+        """Store one fact for the checksum data. Return 1."""
+        data = envelope.data
+        data_dict = data.model_dump(mode="json")
+
+        fact = FactRecord(
+            provider_id=envelope.provider_id,
+            timestamp=data.collected_at,
+            data=data_dict,
+            content_hash=self._content_hash(data),
+        )
+        self.store.store_fact(fact)
+        return 1
+
+    def get_recorder_id(self) -> UUID:
+        return self._recorder_id
+
+    def get_description(self) -> str:
+        return "Checksum fact recorder — stores file checksums as facts"
 
 
 # ── Convenience Functions ─────────────────────────────────────────

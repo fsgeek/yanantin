@@ -16,10 +16,11 @@ Usage::
     from yanantin.collector import WranglerEnvelope, ProviderRegistration
 """
 
-from yanantin.collector.base import CollectorBase, RecorderBase, WranglerBase
+from yanantin.collector.base import CollectorBase, FactRecorderBase, RecorderBase, WranglerBase
 from yanantin.collector.checksum import (
     ChecksumCollector,
     ChecksumData,
+    ChecksumFactRecorder,
     ChecksumRecorder,
     SyntheticChecksumCollector,
     collect_and_record_checksum,
@@ -65,8 +66,10 @@ __all__ = [
     "BatchWrangler",
     "ChecksumCollector",
     "ChecksumData",
+    "ChecksumFactRecorder",
     "ChecksumRecorder",
     "CollectorBase",
+    "FactRecorderBase",
     "DirectWrangler",
     "DropboxCollector",
     "DropboxEntryData",

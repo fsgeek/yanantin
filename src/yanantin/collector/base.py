@@ -1,10 +1,11 @@
 """Abstract base classes for the collector/wrangler/recorder pipeline.
 
-Three roles, cleanly separated:
+Four roles, cleanly separated:
 
 - **Collector** gathers data. It never normalizes, never writes to storage.
 - **Wrangler** moves data across boundaries. It never transforms.
-- **Recorder** normalizes and stores. It owns the database write.
+- **Recorder** normalizes and stores tensors. It owns the Apacheta write.
+- **FactRecorder** stores raw facts in the activity stream. No tensors.
 
 Each is generic over DataT — the serializable Pydantic model that flows
 through the pipeline. The wrangler doesn't know what's inside the envelope.
@@ -21,6 +22,7 @@ from typing import Generic, TypeVar
 from uuid import UUID
 
 from yanantin.apacheta.interface import ApachetaInterface
+from yanantin.activity.store import ActivityStreamStore
 from yanantin.collector.models import WranglerEnvelope
 
 DataT = TypeVar("DataT")
@@ -150,6 +152,56 @@ class RecorderBase(ABC, Generic[DataT]):
         responsible for any transformation needed to fit the data
         into the Apacheta schema.
         """
+        ...
+
+    @abstractmethod
+    def get_recorder_id(self) -> UUID:
+        """Stable identifier for this recorder instance."""
+        ...
+
+    @abstractmethod
+    def get_description(self) -> str:
+        """Human-readable description of what this recorder stores."""
+        ...
+
+
+class FactRecorderBase(ABC, Generic[DataT]):
+    """Records collected data as facts in the activity stream.
+
+    Unlike RecorderBase (which produces tensors), FactRecorderBase
+    produces facts — raw observations stored in ActivityStreamStore.
+    The collector and wrangler pipeline is unchanged. The split happens
+    at the recorder layer: RecorderBase -> tensors, FactRecorderBase ->
+    activity stream.
+
+    Returns int (count of facts stored), not list[UUID] — at 28.5M
+    entries, building a UUID list is wasteful. Facts are addressable
+    by (provider_id, timestamp) range queries, not by individual UUID.
+    """
+
+    def __init__(self, store: ActivityStreamStore) -> None:
+        self._store = store
+
+    @property
+    def store(self) -> ActivityStreamStore:
+        """The activity stream store this recorder writes to."""
+        return self._store
+
+    @staticmethod
+    def _content_hash(data) -> str:
+        """SHA-256 of deterministic JSON serialization, truncated to 16 hex chars.
+
+        Used to tag facts for downstream dedup queries without
+        performing pre-store duplicate checks.
+        """
+        serialized = json.dumps(
+            data.model_dump(mode="json"), sort_keys=True, separators=(",", ":"),
+        )
+        return hashlib.sha256(serialized.encode()).hexdigest()[:16]
+
+    @abstractmethod
+    def record_facts(self, envelope: WranglerEnvelope[DataT]) -> int:
+        """Store facts from the envelope. Return count stored."""
         ...
 
     @abstractmethod

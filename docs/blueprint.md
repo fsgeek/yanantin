@@ -3,7 +3,7 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: post-T22 survey, 2026-02-17*
+*Last updated: post-activity-stream implementation, 2026-02-18*
 
 ## What Exists
 
@@ -23,7 +23,7 @@ The core. 33 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 | **content_address.py** | 1 file | SHA-256 content addressing for cairn documents. `content_hash()`, `ContentIndex` for duplicate detection, CLI dedup reporting. |
 | **config.py** | 1 file | Config-as-tensors. `ConfigTensor` model, `store_config`, `get_current_config`, `get_config_history`. Immutable configuration stored in Apacheta with correction-chain lineage. File defaults bootstrap; database overrides. |
 
-**1067 test functions** across 33 files. 22 red-bar (structural invariants, 5 files), 71 integration (ArangoDB live, 1 file), 974 unit (27 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, and collector pipeline (9 tests).
+**1258 test functions** across 43 files. 22 red-bar (structural invariants, 5 files), 71 integration (ArangoDB live, 1 file), 974 unit (27 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, and collector pipeline (9 tests).
 
 ### Chasqui — Coordinator (code: `src/yanantin/chasqui/`)
 
@@ -72,14 +72,36 @@ Quote-leakage protection strips HTML comments, code blocks, and composition-keyw
 code spans before prose extraction. Subset dedup prevents redundant declarations.
 Current corpus: 28 declarations extracted from 20 source documents.
 
-### Collector — Data Pipeline (code: `src/yanantin/collector/`)
+### Activity — Temporal Fact Storage (code: `src/yanantin/activity/`)
 
-The bridge to human-side data. Collector/wrangler/recorder pattern from
-Indaleko's 8-year evolution. First concrete implementation: machine config. 6 source files.
+Facts are not tensors. Facts are raw observations — schema-agnostic,
+high-volume, append-only. Tensors are authored compressions with
+narrative structure. The activity stream stores facts; the anchor
+service bridges facts to tensors. 8 source files.
 
 | File | What it does |
 |------|-------------|
-| `base.py` | Three ABCs generic over DataT: `CollectorBase` (gather), `WranglerBase` (transport), `RecorderBase` (store). The wrangler never transforms; the recorder owns the database write. |
+| `models.py` | `FactRecord` (schema-agnostic observation, extra="allow"), `AnchorCursor` (provider position), `MemoryAnchor` (immutable cursor snapshot), `AnchorView` (ephemeral resolution, never stored). All frozen. |
+| `store.py` | `ActivityStreamStore` ABC — 10 methods for facts and anchors. Append-only, no update, no delete. Same contract as ApachetaInterface. |
+| `anchor.py` | `MemoryAnchorService` — two-flag write gate (updated AND referenced), cursor tracking, handle issuance. `materialize()` resolves anchors with late binding. `freeze()` pins a temporal view into a tensor (the authored act). |
+| `backends/memory.py` | `InMemoryActivityStreamStore` — dict + bisect for O(log n) temporal queries. Thread-safe via RLock. Same pattern as Apacheta InMemoryBackend. |
+| `backends/duckdb.py` | `DuckDBActivityStreamStore` — SQL query pushdown for temporal queries. Timestamps as ISO 8601 VARCHAR. Indexed on (provider_id, timestamp). |
+| `backends/arango.py` | `ArangoDBActivityStreamStore` — AQL + persistent sorted index. Same least-privilege pattern as Apacheta. |
+
+Three-stage lifecycle: **Anchor** (immutable cursor) → **View** (ephemeral
+resolution, never cached) → **Tensor** (frozen/pinned view, authored act).
+Late-binding materialization: new providers retroactively enrich old anchors.
+
+### Collector — Data Pipeline (code: `src/yanantin/collector/`)
+
+The bridge to human-side data. Collector/wrangler/recorder pattern from
+Indaleko's 8-year evolution. First concrete implementation: machine config.
+26 source files: 6 core + 4 filesystem + 4 fs_events + 4 dropbox +
+4 checksum + 4 fact recorders.
+
+| File | What it does |
+|------|-------------|
+| `base.py` | Four ABCs generic over DataT: `CollectorBase` (gather), `WranglerBase` (transport), `RecorderBase` (store tensors), `FactRecorderBase` (store facts). The recorder split: RecorderBase → tensors, FactRecorderBase → activity stream. |
 | `models.py` | `ProviderRegistration` (frozen, identifies a collector/recorder pair), `WranglerEnvelope[DataT]` (frozen, wraps data with transport provenance — timestamps, strategy name, sequence number). |
 | `wranglers.py` | Three concrete strategies: `DirectWrangler` (in-memory, same process), `BatchWrangler` (file-based, atomic write + rename), `QueuedWrangler` (deque, optional maxlen for backpressure). |
 | `machine_config.py` | First concrete pair. `MachineConfigCollector` gathers platform identity from stdlib (hostname, OS, arch, CPU count, machine-id). `MachineConfigRecorder` stores snapshots as two-strand tensors. Convenience: `collect_machine_config()`, `collect_and_record(interface)`, `render_machine_config(data)`. |
@@ -180,6 +202,14 @@ MachineConfigCollector → WranglerEnvelope → DirectWrangler
   ↓ (recorder normalizes)
 MachineConfigRecorder → TensorRecord → ApachetaInterface → backend
 
+Activity Stream (fact storage)
+  ↓ (collectors)
+FilesystemFactRecorder → FactRecord → ActivityStreamStore → backend
+  ↓ (anchor service)
+MemoryAnchorService → MemoryAnchor → ActivityStreamStore
+  ↓ (freeze = authored act)
+materialize(handle) → AnchorView → freeze() → TensorRecord → ApachetaInterface
+
 Willay (receipts)
   ↓ (uses ApachetaGatewayClient)
 Pukara → ArangoDB
@@ -192,7 +222,9 @@ Four paths to the interface: three local backends plus
 is built. Awaq provides the composition graph; Chasqui provides the
 epistemic diversity. The collector pipeline brings human-side data
 (starting with machine config) into the tensor store. Willay stores
-receipts through Pukara as tensors.
+receipts through Pukara as tensors. The activity stream stores facts
+(raw observations) separately from tensors (authored compressions),
+with the anchor service bridging the two stores.
 
 ## What Doesn't Exist
 

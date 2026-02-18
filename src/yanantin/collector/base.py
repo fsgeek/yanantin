@@ -13,6 +13,8 @@ The recorder doesn't know how the data arrived.
 
 from __future__ import annotations
 
+import hashlib
+import json
 from abc import ABC, abstractmethod
 from datetime import datetime, timezone
 from typing import Generic, TypeVar
@@ -33,11 +35,16 @@ class CollectorBase(ABC, Generic[DataT]):
     """
 
     @abstractmethod
-    def collect(self) -> DataT:
+    def collect(self, since: datetime | None = None) -> DataT:
         """Gather data from the source and return it.
 
         The returned value must be a serializable Pydantic model.
         No side effects on storage. No normalization.
+
+        If ``since`` is provided, collectors that support time-based
+        filtering will restrict output to data newer than that timestamp.
+        Collectors that cannot meaningfully filter (e.g. single-file
+        checksums, machine config) accept the parameter and ignore it.
         """
         ...
 
@@ -122,6 +129,18 @@ class RecorderBase(ABC, Generic[DataT]):
     def interface(self) -> ApachetaInterface:
         """The storage interface this recorder writes to."""
         return self._interface
+
+    @staticmethod
+    def _content_hash(data) -> str:
+        """SHA-256 of deterministic JSON serialization, truncated to 16 hex chars.
+
+        Used to tag tensors for downstream dedup queries without
+        performing pre-store duplicate checks.
+        """
+        serialized = json.dumps(
+            data.model_dump(mode="json"), sort_keys=True, separators=(",", ":"),
+        )
+        return hashlib.sha256(serialized.encode()).hexdigest()[:16]
 
     @abstractmethod
     def record(self, envelope: WranglerEnvelope[DataT]) -> UUID:

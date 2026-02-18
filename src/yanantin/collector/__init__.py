@@ -17,6 +17,38 @@ Usage::
 """
 
 from yanantin.collector.base import CollectorBase, RecorderBase, WranglerBase
+from yanantin.collector.checksum import (
+    ChecksumCollector,
+    ChecksumData,
+    ChecksumRecorder,
+    SyntheticChecksumCollector,
+    collect_and_record_checksum,
+)
+from yanantin.collector.dropbox import (
+    DropboxCollector,
+    DropboxEntryData,
+    DropboxListing,
+    DropboxRecorder,
+    SyntheticDropboxCollector,
+    collect_and_record_dropbox,
+)
+from yanantin.collector.filesystem import (
+    FileEntryData,
+    FilesystemRecorder,
+    FilesystemSnapshot,
+    FileTimestamps,
+    LinuxFilesystemCollector,
+    SyntheticFilesystemCollector,
+    collect_and_record_filesystem,
+)
+from yanantin.collector.fs_events import (
+    FsChangeEvent,
+    FsEventBatch,
+    FsEventRecorder,
+    FsIncrementalCollector,
+    SyntheticFsEventCollector,
+    collect_and_record_fs_events,
+)
 from yanantin.collector.machine_config import (
     MachineConfigCollector,
     MachineConfigData,
@@ -26,21 +58,47 @@ from yanantin.collector.machine_config import (
     render_machine_config,
 )
 from yanantin.collector.models import ProviderRegistration, WranglerEnvelope
+from yanantin.collector.synthetic import SyntheticCollectorBase
 from yanantin.collector.wranglers import BatchWrangler, DirectWrangler, QueuedWrangler
 
 __all__ = [
     "BatchWrangler",
+    "ChecksumCollector",
+    "ChecksumData",
+    "ChecksumRecorder",
     "CollectorBase",
     "DirectWrangler",
+    "DropboxCollector",
+    "DropboxEntryData",
+    "DropboxListing",
+    "DropboxRecorder",
+    "FileEntryData",
+    "FilesystemRecorder",
+    "FilesystemSnapshot",
+    "FileTimestamps",
+    "FsChangeEvent",
+    "FsEventBatch",
+    "FsEventRecorder",
+    "FsIncrementalCollector",
+    "LinuxFilesystemCollector",
     "MachineConfigCollector",
     "MachineConfigData",
     "MachineConfigRecorder",
     "ProviderRegistration",
     "QueuedWrangler",
     "RecorderBase",
+    "SyntheticChecksumCollector",
+    "SyntheticCollectorBase",
+    "SyntheticDropboxCollector",
+    "SyntheticFsEventCollector",
+    "SyntheticFilesystemCollector",
     "WranglerBase",
     "WranglerEnvelope",
     "collect_and_record",
+    "collect_and_record_checksum",
+    "collect_and_record_dropbox",
+    "collect_and_record_filesystem",
+    "collect_and_record_fs_events",
     "collect_machine_config",
     "render_machine_config",
 ]

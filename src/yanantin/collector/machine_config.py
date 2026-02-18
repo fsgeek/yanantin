@@ -99,8 +99,12 @@ class MachineConfigCollector(CollectorBase[MachineConfigData]):
             f"yanantin.collector.machine_config.{_get_machine_id()}",
         )
 
-    def collect(self) -> MachineConfigData:
-        """Gather all machine configuration fields from stdlib."""
+    def collect(self, since: datetime | None = None) -> MachineConfigData:
+        """Gather all machine configuration fields from stdlib.
+
+        The ``since`` parameter is accepted but ignored — machine config
+        always returns the full current state.
+        """
         return MachineConfigData(
             hostname=socket.gethostname(),
             fqdn=socket.getfqdn(),
@@ -170,6 +174,7 @@ class MachineConfigRecorder(RecorderBase[MachineConfigData]):
             topics=("machine-config", "system"),
         )
 
+        content_tag = f"content:{self._content_hash(data)}"
         tensor = TensorRecord(
             provenance=ProvenanceEnvelope(
                 source=SourceIdentifier(
@@ -180,7 +185,7 @@ class MachineConfigRecorder(RecorderBase[MachineConfigData]):
             ),
             preamble=f"Machine configuration snapshot from {data.hostname}",
             strands=(identity_strand, system_strand),
-            lineage_tags=("machine-config",),
+            lineage_tags=("machine-config", content_tag),
         )
 
         self.interface.store_tensor(tensor)

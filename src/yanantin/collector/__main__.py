@@ -1,11 +1,22 @@
 """Run the Yanantin collector.
 
-    uv run python -m yanantin.collector                    # show machine config
-    uv run python -m yanantin.collector filesystem /path   # filesystem snapshot
-    uv run python -m yanantin.collector checksum /file     # file checksums
-    uv run python -m yanantin.collector fs-events /path    # incremental changes
-    uv run python -m yanantin.collector dropbox            # Dropbox listing
-    uv run python -m yanantin.collector synthetic fs 100   # synthetic filesystem
+    uv run python -m yanantin.collector                                   # machine config
+    uv run python -m yanantin.collector filesystem /path --store arango   # store facts
+    uv run python -m yanantin.collector checksum /file --store duckdb     # store facts
+    uv run python -m yanantin.collector fs-events /path --store arango    # store facts
+    uv run python -m yanantin.collector dropbox --store arango            # store facts
+    uv run python -m yanantin.collector synthetic fs 100 --store memory   # synthetic facts
+    uv run python -m yanantin.collector status --store arango             # what the system knows
+    uv run python -m yanantin.collector materialize <handle> --store arango  # temporal view
+
+Environment variables for ArangoDB backend:
+    YANANTIN_ARANGO_HOST     (default: http://localhost:8529)
+    YANANTIN_ARANGO_DB       (default: apacheta)
+    YANANTIN_ARANGO_USER     (default: "")
+    YANANTIN_ARANGO_PASSWORD (default: "")
+
+Environment variables for DuckDB backend:
+    YANANTIN_DUCKDB_PATH     (default: ~/.local/share/yanantin/activity.duckdb)
 """
 
 from __future__ import annotations
@@ -15,12 +26,10 @@ import json
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from uuid import UUID
 
-from yanantin.collector.machine_config import (
-    collect_and_record,
-    collect_machine_config,
-    render_machine_config,
-)
+
+_STORE_CHOICES = ["memory", "duckdb", "arango"]
 
 
 def _parse_since(value: str | None) -> datetime | None:
@@ -33,8 +42,56 @@ def _parse_since(value: str | None) -> datetime | None:
     return dt
 
 
+def _add_store_flag(parser: argparse.ArgumentParser) -> None:
+    """Add --store flag to a subparser."""
+    parser.add_argument(
+        "--store", choices=_STORE_CHOICES, default=None,
+        help="Store facts in activity stream (memory, duckdb, arango)",
+    )
+
+
+def _report_pipeline(result, args: argparse.Namespace) -> None:
+    """Report the result of a fact-recording pipeline run."""
+    if args.json:
+        print(json.dumps({
+            "stored": True,
+            "backend": result.backend,
+            "fact_count": result.fact_count,
+            "provider_id": str(result.provider_id),
+            "anchor_handle": str(result.anchor_handle) if result.anchor_handle else None,
+            "anchor_flushed": result.anchor_flushed,
+        }))
+    else:
+        print(f"  Stored {result.fact_count} facts [{result.backend}]")
+        print(f"  Provider: {result.provider_id}")
+        if result.anchor_flushed:
+            print(f"  Anchor:   {result.anchor_handle}")
+        print()
+
+
+def _store_facts(store_name, recorder_cls, data, provider_id, args):
+    """Common path: open store, record facts, wire anchor, report."""
+    from yanantin.collector.models import WranglerEnvelope
+    from yanantin.collector.pipeline import open_store, record_and_anchor
+
+    store = open_store(store_name)
+    recorder = recorder_cls(store)
+    envelope = WranglerEnvelope(data=data, provider_id=provider_id)
+    result = record_and_anchor(store, recorder, envelope, backend_name=store_name)
+    _report_pipeline(result, args)
+
+
+# -- Subcommand handlers -----------------------------------------------
+
+
 def _cmd_default(args: argparse.Namespace) -> None:
-    """Default behavior — machine config with optional recording."""
+    """Default behavior — machine config (the exception that IS a tensor)."""
+    from yanantin.collector.machine_config import (
+        collect_and_record,
+        collect_machine_config,
+        render_machine_config,
+    )
+
     data = collect_machine_config()
 
     if args.json:
@@ -61,7 +118,8 @@ def _cmd_default(args: argparse.Namespace) -> None:
             print()
     elif not args.json:
         print("  Use --json for machine-readable output.")
-        print("  Use --record to persist this snapshot to Apacheta.")
+        print("  Use --record to persist machine config as a tensor.")
+        print("  Use subcommands with --store to collect facts.")
         print()
 
 
@@ -78,46 +136,31 @@ def _cmd_filesystem(args: argparse.Namespace) -> None:
     collector = LinuxFilesystemCollector(root)
     snapshot = collector.collect(since=since)
 
-    if args.json:
-        print(snapshot.model_dump_json(indent=2))
-    else:
-        print()
-        print(f"  Filesystem Snapshot: {snapshot.root_path}")
-        print("  " + "\u2500" * 40)
-        print(f"  Files:   {snapshot.total_files}")
-        print(f"  Dirs:    {snapshot.total_dirs}")
-        print(f"  Errors:  {snapshot.error_count}")
-        print(f"  Entries: {len(snapshot.entries)}")
-        if since:
-            print(f"  Since:   {since.isoformat()}")
-        print()
-        # Show first 20 entries
-        for entry in snapshot.entries[:20]:
-            kind = "d" if entry.is_directory else "f"
-            link = f" -> {entry.link_target}" if entry.link_target else ""
-            print(f"  [{kind}] {entry.path}{link}")
-        if len(snapshot.entries) > 20:
-            print(f"  ... and {len(snapshot.entries) - 20} more")
-        print()
-
-    if getattr(args, "record", False):
-        from yanantin.apacheta.backends.memory import InMemoryBackend
-        from yanantin.collector.filesystem.recorder import FilesystemRecorder
-        from yanantin.collector.models import WranglerEnvelope
-        from yanantin.collector.wranglers import DirectWrangler
-
-        backend = InMemoryBackend()
-        wrangler = DirectWrangler()
-        recorder = FilesystemRecorder(backend)
-        envelope = WranglerEnvelope(data=snapshot, provider_id=collector.get_provider_id())
-        wrangler.deliver(envelope)
-        received = wrangler.receive()
-        tensor_id = recorder.record(received)
+    if not args.json or not args.store:
         if args.json:
-            print(json.dumps({"recorded": True, "tensor_id": str(tensor_id)}))
+            print(snapshot.model_dump_json(indent=2))
         else:
-            print(f"  Recorded as tensor {tensor_id}")
             print()
+            print(f"  Filesystem Snapshot: {snapshot.root_path}")
+            print("  " + "\u2500" * 40)
+            print(f"  Files:   {snapshot.total_files}")
+            print(f"  Dirs:    {snapshot.total_dirs}")
+            print(f"  Errors:  {snapshot.error_count}")
+            print(f"  Entries: {len(snapshot.entries)}")
+            if since:
+                print(f"  Since:   {since.isoformat()}")
+            print()
+            for entry in snapshot.entries[:20]:
+                kind = "d" if entry.is_directory else "f"
+                link = f" -> {entry.link_target}" if entry.link_target else ""
+                print(f"  [{kind}] {entry.path}{link}")
+            if len(snapshot.entries) > 20:
+                print(f"  ... and {len(snapshot.entries) - 20} more")
+            print()
+
+    if args.store:
+        from yanantin.collector.filesystem.fact_recorder import FilesystemFactRecorder
+        _store_facts(args.store, FilesystemFactRecorder, snapshot, collector.get_provider_id(), args)
 
 
 def _cmd_checksum(args: argparse.Namespace) -> None:
@@ -133,35 +176,21 @@ def _cmd_checksum(args: argparse.Namespace) -> None:
     collector = ChecksumCollector(file_path, **({"algorithms": algorithms} if algorithms else {}))
     data = collector.collect()
 
-    if args.json:
-        print(data.model_dump_json(indent=2))
-    else:
-        print()
-        print(f"  Checksums: {data.file_path}")
-        print("  " + "\u2500" * 40)
-        print(f"  Size: {data.file_size:,} bytes")
-        for alg, digest in data.checksums.items():
-            print(f"  {alg:8s}: {digest}")
-        print()
-
-    if getattr(args, "record", False):
-        from yanantin.apacheta.backends.memory import InMemoryBackend
-        from yanantin.collector.checksum import ChecksumRecorder
-        from yanantin.collector.models import WranglerEnvelope
-        from yanantin.collector.wranglers import DirectWrangler
-
-        backend = InMemoryBackend()
-        wrangler = DirectWrangler()
-        recorder = ChecksumRecorder(backend)
-        envelope = WranglerEnvelope(data=data, provider_id=collector.get_provider_id())
-        wrangler.deliver(envelope)
-        received = wrangler.receive()
-        tensor_id = recorder.record(received)
+    if not args.json or not args.store:
         if args.json:
-            print(json.dumps({"recorded": True, "tensor_id": str(tensor_id)}))
+            print(data.model_dump_json(indent=2))
         else:
-            print(f"  Recorded as tensor {tensor_id}")
             print()
+            print(f"  Checksums: {data.file_path}")
+            print("  " + "\u2500" * 40)
+            print(f"  Size: {data.file_size:,} bytes")
+            for alg, digest in data.checksums.items():
+                print(f"  {alg:8s}: {digest}")
+            print()
+
+    if args.store:
+        from yanantin.collector.checksum import ChecksumFactRecorder
+        _store_facts(args.store, ChecksumFactRecorder, data, collector.get_provider_id(), args)
 
 
 def _cmd_fs_events(args: argparse.Namespace) -> None:
@@ -175,43 +204,28 @@ def _cmd_fs_events(args: argparse.Namespace) -> None:
     collector = FsIncrementalCollector(volumes, state_file)
     batch = collector.collect(since=since)
 
-    if args.json:
-        print(batch.model_dump_json(indent=2))
-    else:
-        print()
-        print(f"  Filesystem Events")
-        print("  " + "\u2500" * 40)
-        print(f"  Volumes:  {', '.join(batch.volumes)}")
-        print(f"  Events:   {len(batch.events)}")
-        print(f"  Last run: {batch.last_run or 'first run'}")
-        if since:
-            print(f"  Since:    {since.isoformat()}")
-        print()
-        # Show first 20 events
-        for event in batch.events[:20]:
-            print(f"  [{event.event_type:8s}] {event.file_path}")
-        if len(batch.events) > 20:
-            print(f"  ... and {len(batch.events) - 20} more")
-        print()
-
-    if getattr(args, "record", False):
-        from yanantin.apacheta.backends.memory import InMemoryBackend
-        from yanantin.collector.fs_events.recorder import FsEventRecorder
-        from yanantin.collector.models import WranglerEnvelope
-        from yanantin.collector.wranglers import DirectWrangler
-
-        backend = InMemoryBackend()
-        wrangler = DirectWrangler()
-        recorder = FsEventRecorder(backend)
-        envelope = WranglerEnvelope(data=batch, provider_id=collector.get_provider_id())
-        wrangler.deliver(envelope)
-        received = wrangler.receive()
-        tensor_id = recorder.record(received)
+    if not args.json or not args.store:
         if args.json:
-            print(json.dumps({"recorded": True, "tensor_id": str(tensor_id)}))
+            print(batch.model_dump_json(indent=2))
         else:
-            print(f"  Recorded as tensor {tensor_id}")
             print()
+            print("  Filesystem Events")
+            print("  " + "\u2500" * 40)
+            print(f"  Volumes:  {', '.join(batch.volumes)}")
+            print(f"  Events:   {len(batch.events)}")
+            print(f"  Last run: {batch.last_run or 'first run'}")
+            if since:
+                print(f"  Since:    {since.isoformat()}")
+            print()
+            for event in batch.events[:20]:
+                print(f"  [{event.event_type:8s}] {event.file_path}")
+            if len(batch.events) > 20:
+                print(f"  ... and {len(batch.events) - 20} more")
+            print()
+
+    if args.store:
+        from yanantin.collector.fs_events.fact_recorder import FsEventFactRecorder
+        _store_facts(args.store, FsEventFactRecorder, batch, collector.get_provider_id(), args)
 
 
 def _cmd_dropbox(args: argparse.Namespace) -> None:
@@ -222,41 +236,27 @@ def _cmd_dropbox(args: argparse.Namespace) -> None:
     collector = DropboxCollector(config_dir)
     listing = collector.collect()
 
-    if args.json:
-        print(listing.model_dump_json(indent=2))
-    else:
-        print()
-        print(f"  Dropbox Listing: {listing.account_email}")
-        print("  " + "\u2500" * 40)
-        print(f"  Files:   {listing.total_files}")
-        print(f"  Folders: {listing.total_folders}")
-        print()
-        for entry in listing.entries[:20]:
-            kind = "d" if entry.entry_type == "folder" else "f"
-            size = f" ({entry.size:,}B)" if entry.size else ""
-            print(f"  [{kind}] {entry.path_display}{size}")
-        if len(listing.entries) > 20:
-            print(f"  ... and {len(listing.entries) - 20} more")
-        print()
-
-    if getattr(args, "record", False):
-        from yanantin.apacheta.backends.memory import InMemoryBackend
-        from yanantin.collector.dropbox.recorder import DropboxRecorder
-        from yanantin.collector.models import WranglerEnvelope
-        from yanantin.collector.wranglers import DirectWrangler
-
-        backend = InMemoryBackend()
-        wrangler = DirectWrangler()
-        recorder = DropboxRecorder(backend)
-        envelope = WranglerEnvelope(data=listing, provider_id=collector.get_provider_id())
-        wrangler.deliver(envelope)
-        received = wrangler.receive()
-        tensor_id = recorder.record(received)
+    if not args.json or not args.store:
         if args.json:
-            print(json.dumps({"recorded": True, "tensor_id": str(tensor_id)}))
+            print(listing.model_dump_json(indent=2))
         else:
-            print(f"  Recorded as tensor {tensor_id}")
             print()
+            print(f"  Dropbox Listing: {listing.account_email}")
+            print("  " + "\u2500" * 40)
+            print(f"  Files:   {listing.total_files}")
+            print(f"  Folders: {listing.total_folders}")
+            print()
+            for entry in listing.entries[:20]:
+                kind = "d" if entry.entry_type == "folder" else "f"
+                size = f" ({entry.size:,}B)" if entry.size else ""
+                print(f"  [{kind}] {entry.path_display}{size}")
+            if len(listing.entries) > 20:
+                print(f"  ... and {len(listing.entries) - 20} more")
+            print()
+
+    if args.store:
+        from yanantin.collector.dropbox.fact_recorder import DropboxFactRecorder
+        _store_facts(args.store, DropboxFactRecorder, listing, collector.get_provider_id(), args)
 
 
 def _cmd_synthetic(args: argparse.Namespace) -> None:
@@ -270,16 +270,22 @@ def _cmd_synthetic(args: argparse.Namespace) -> None:
 
         collector = SyntheticFilesystemCollector(seed=seed)
         snapshot = collector.collect()
-        if args.json:
-            print(snapshot.model_dump_json(indent=2))
-        else:
-            print()
-            print(f"  Synthetic Filesystem (seed={seed})")
-            print("  " + "\u2500" * 40)
-            print(f"  Entries: {len(snapshot.entries)}")
-            print(f"  Files:   {snapshot.total_files}")
-            print(f"  Dirs:    {snapshot.total_dirs}")
-            print()
+
+        if not args.json or not args.store:
+            if args.json:
+                print(snapshot.model_dump_json(indent=2))
+            else:
+                print()
+                print(f"  Synthetic Filesystem (seed={seed})")
+                print("  " + "\u2500" * 40)
+                print(f"  Entries: {len(snapshot.entries)}")
+                print(f"  Files:   {snapshot.total_files}")
+                print(f"  Dirs:    {snapshot.total_dirs}")
+                print()
+
+        if args.store:
+            from yanantin.collector.filesystem.fact_recorder import FilesystemFactRecorder
+            _store_facts(args.store, FilesystemFactRecorder, snapshot, collector.get_provider_id(), args)
 
     elif collector_type == "checksum":
         from yanantin.collector.checksum import SyntheticChecksumCollector
@@ -304,38 +310,160 @@ def _cmd_synthetic(args: argparse.Namespace) -> None:
 
         collector = SyntheticFsEventCollector(seed=seed, events_per_batch=count)
         batch = collector.collect()
-        if args.json:
-            print(batch.model_dump_json(indent=2))
-        else:
-            print()
-            print(f"  Synthetic FS Events (seed={seed}, count={count})")
-            print("  " + "\u2500" * 40)
-            print(f"  Events: {len(batch.events)}")
-            for event in batch.events[:10]:
-                print(f"  [{event.event_type:8s}] {event.file_path}")
-            if len(batch.events) > 10:
-                print(f"  ... and {len(batch.events) - 10} more")
-            print()
+
+        if not args.json or not args.store:
+            if args.json:
+                print(batch.model_dump_json(indent=2))
+            else:
+                print()
+                print(f"  Synthetic FS Events (seed={seed}, count={count})")
+                print("  " + "\u2500" * 40)
+                print(f"  Events: {len(batch.events)}")
+                for event in batch.events[:10]:
+                    print(f"  [{event.event_type:8s}] {event.file_path}")
+                if len(batch.events) > 10:
+                    print(f"  ... and {len(batch.events) - 10} more")
+                print()
+
+        if args.store:
+            from yanantin.collector.fs_events.fact_recorder import FsEventFactRecorder
+            _store_facts(args.store, FsEventFactRecorder, batch, collector.get_provider_id(), args)
 
     elif collector_type == "dropbox":
         from yanantin.collector.dropbox import SyntheticDropboxCollector
 
         collector = SyntheticDropboxCollector(seed=seed, total_entries=count)
         listing = collector.collect()
-        if args.json:
-            print(listing.model_dump_json(indent=2))
-        else:
-            print()
-            print(f"  Synthetic Dropbox (seed={seed}, count={count})")
-            print("  " + "\u2500" * 40)
-            print(f"  Files:   {listing.total_files}")
-            print(f"  Folders: {listing.total_folders}")
-            print()
+
+        if not args.json or not args.store:
+            if args.json:
+                print(listing.model_dump_json(indent=2))
+            else:
+                print()
+                print(f"  Synthetic Dropbox (seed={seed}, count={count})")
+                print("  " + "\u2500" * 40)
+                print(f"  Files:   {listing.total_files}")
+                print(f"  Folders: {listing.total_folders}")
+                print()
+
+        if args.store:
+            from yanantin.collector.dropbox.fact_recorder import DropboxFactRecorder
+            _store_facts(args.store, DropboxFactRecorder, listing, collector.get_provider_id(), args)
 
     else:
         print(f"  Unknown synthetic type: {collector_type}", file=sys.stderr)
         print("  Available: fs, checksum, events, dropbox", file=sys.stderr)
         sys.exit(1)
+
+
+def _cmd_status(args: argparse.Namespace) -> None:
+    """Show what the activity stream knows."""
+    from yanantin.collector.pipeline import open_store
+
+    store = open_store(args.store)
+    providers = store.list_providers()
+    total = store.count_facts()
+    latest_anchor = store.get_latest_anchor()
+
+    if args.json:
+        data = {
+            "backend": args.store,
+            "total_facts": total,
+            "provider_count": len(providers),
+            "providers": [
+                {"id": str(p), "facts": store.count_facts(p)}
+                for p in providers
+            ],
+            "latest_anchor": {
+                "handle": str(latest_anchor.handle),
+                "timestamp": latest_anchor.timestamp.isoformat(),
+                "cursor_count": len(latest_anchor.cursors),
+            } if latest_anchor else None,
+        }
+        print(json.dumps(data, indent=2))
+    else:
+        print()
+        print("  Activity Stream Status")
+        print("  " + "\u2500" * 40)
+        print(f"  Backend:   {args.store}")
+        print(f"  Facts:     {total:,}")
+        print(f"  Providers: {len(providers)}")
+        print()
+
+        if providers:
+            print("  Providers:")
+            for p in providers:
+                count = store.count_facts(p)
+                print(f"    {p}  ({count:,} facts)")
+            print()
+
+        if latest_anchor:
+            print("  Latest Anchor:")
+            print(f"    Handle:    {latest_anchor.handle}")
+            print(f"    Timestamp: {latest_anchor.timestamp.isoformat()}")
+            print(f"    Cursors:   {len(latest_anchor.cursors)}")
+            print()
+        else:
+            print("  No anchors yet.")
+            print()
+
+
+def _cmd_materialize(args: argparse.Namespace) -> None:
+    """Resolve an anchor against current streams."""
+    from yanantin.activity.anchor import MemoryAnchorService
+    from yanantin.collector.pipeline import open_store
+
+    try:
+        handle = UUID(args.handle)
+    except ValueError:
+        print(f"  Error: '{args.handle}' is not a valid UUID", file=sys.stderr)
+        sys.exit(1)
+
+    store = open_store(args.store)
+    service = MemoryAnchorService(store)
+
+    try:
+        view = service.materialize(handle)
+    except Exception as e:
+        print(f"  Error: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    if args.json:
+        data = {
+            "handle": str(view.handle),
+            "timestamp": view.timestamp.isoformat(),
+            "provider_count": len(view.providers),
+            "fact_count": len(view.facts),
+            "providers": [str(p) for p in view.providers],
+            "facts": {
+                str(pid): {
+                    "id": str(f.id),
+                    "timestamp": f.timestamp.isoformat(),
+                    "content_hash": f.content_hash,
+                    "data_keys": list(f.data.keys()),
+                }
+                for pid, f in view.facts.items()
+            },
+        }
+        print(json.dumps(data, indent=2))
+    else:
+        print()
+        print(f"  Anchor View: {view.handle}")
+        print("  " + "\u2500" * 40)
+        print(f"  Timestamp: {view.timestamp.isoformat()}")
+        print(f"  Providers: {len(view.providers)}")
+        print(f"  Facts:     {len(view.facts)}")
+        print()
+
+        if view.facts:
+            print("  Resolved Facts:")
+            for pid, fact in view.facts.items():
+                print(f"    Provider {pid}:")
+                print(f"      Fact:      {fact.id}")
+                print(f"      Time:      {fact.timestamp.isoformat()}")
+                print(f"      Hash:      {fact.content_hash}")
+                print(f"      Data keys: {list(fact.data.keys())}")
+            print()
 
 
 def main() -> None:
@@ -349,8 +477,8 @@ def main() -> None:
     # filesystem
     fs_parser = subparsers.add_parser("filesystem", help="Filesystem snapshot")
     fs_parser.add_argument("path", help="Root directory to scan")
-    fs_parser.add_argument("--record", action="store_true", help="Record to Apacheta")
     fs_parser.add_argument("--since", default=None, help="ISO datetime filter (mtime >= since)")
+    _add_store_flag(fs_parser)
 
     # checksum
     cksum_parser = subparsers.add_parser("checksum", help="File checksums")
@@ -359,7 +487,7 @@ def main() -> None:
         "--algorithms", default=None,
         help="Comma-separated hash algorithms (default: sha256,sha1,md5)",
     )
-    cksum_parser.add_argument("--record", action="store_true", help="Record to Apacheta")
+    _add_store_flag(cksum_parser)
 
     # fs-events
     fse_parser = subparsers.add_parser("fs-events", help="Incremental filesystem changes")
@@ -368,8 +496,8 @@ def main() -> None:
         "--state-file", default=None,
         help="State file path (default: .fs_events_state.json)",
     )
-    fse_parser.add_argument("--record", action="store_true", help="Record to Apacheta")
     fse_parser.add_argument("--since", default=None, help="ISO datetime filter")
+    _add_store_flag(fse_parser)
 
     # dropbox
     dbx_parser = subparsers.add_parser("dropbox", help="Dropbox file listing")
@@ -377,20 +505,34 @@ def main() -> None:
         "--config-dir", default=None,
         help="Dropbox config directory (default: ~/.config/yanantin/dropbox)",
     )
-    dbx_parser.add_argument("--record", action="store_true", help="Record to Apacheta")
+    _add_store_flag(dbx_parser)
 
     # synthetic
     syn_parser = subparsers.add_parser("synthetic", help="Synthetic data generators")
     syn_parser.add_argument("type", help="Generator type: fs, checksum, events, dropbox")
     syn_parser.add_argument("count", nargs="?", type=int, default=10, help="Number of items")
     syn_parser.add_argument("--seed", type=int, default=42, help="Random seed")
+    _add_store_flag(syn_parser)
 
-    # Legacy flags for default (no subcommand) behavior
-    parser.add_argument("--record", action="store_true", help="Record snapshot to Apacheta")
-    parser.add_argument(
-        "--backend", choices=["memory"], default="memory",
-        help="Storage backend for --record (default: memory)",
+    # status — what the activity stream knows
+    status_parser = subparsers.add_parser("status", help="Activity stream status")
+    status_parser.add_argument("--json", action="store_true", help="Output as JSON")
+    status_parser.add_argument(
+        "--store", choices=_STORE_CHOICES, required=True,
+        help="Backend to query",
     )
+
+    # materialize — resolve an anchor against current streams
+    mat_parser = subparsers.add_parser("materialize", help="Resolve an anchor to a temporal view")
+    mat_parser.add_argument("handle", help="Anchor handle UUID to materialize")
+    mat_parser.add_argument("--json", action="store_true", help="Output as JSON")
+    mat_parser.add_argument(
+        "--store", choices=_STORE_CHOICES, required=True,
+        help="Backend to query",
+    )
+
+    # Legacy flag for default (no subcommand) behavior — machine config as tensor
+    parser.add_argument("--record", action="store_true", help="Record machine config as tensor")
 
     args = parser.parse_args()
 
@@ -406,6 +548,10 @@ def main() -> None:
         _cmd_dropbox(args)
     elif args.command == "synthetic":
         _cmd_synthetic(args)
+    elif args.command == "status":
+        _cmd_status(args)
+    elif args.command == "materialize":
+        _cmd_materialize(args)
 
 
 if __name__ == "__main__":

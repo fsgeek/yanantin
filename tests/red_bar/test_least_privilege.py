@@ -7,6 +7,8 @@ operations done separately with root — never by the application.
 
 These tests exist because the original backend connected to _system
 to auto-create databases. That required root. A flatworm noticed.
+
+Both the Apacheta backend and the Activity Stream backend are checked.
 """
 
 import ast
@@ -17,6 +19,7 @@ from pathlib import Path
 import pytest
 
 from yanantin.apacheta.backends.arango import ArangoDBBackend
+from yanantin.activity.backends.arango import ArangoDBActivityStreamStore
 
 
 # ── The backend never touches _system ────────────────────────────────
@@ -136,5 +139,68 @@ def test_integration_tests_use_dedicated_test_user():
         assert "ADMIN" not in var_name, (
             f"Integration test creates ArangoDBBackend with {var_name}. "
             f"Backend instances in tests must use least-privilege test "
+            f"credentials, not admin credentials."
+        )
+
+
+# ── Activity stream backend: same invariants ─────────────────────────
+
+
+def test_activity_backend_source_has_no_system_database_reference():
+    """The activity stream ArangoDB backend must not reference '_system'."""
+    source_file = Path(inspect.getfile(ArangoDBActivityStreamStore))
+    source = source_file.read_text()
+
+    tree = ast.parse(source)
+    string_literals = []
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Constant) and isinstance(node.value, str):
+            string_literals.append(node.value)
+
+    system_refs = [s for s in string_literals if "_system" in s]
+    assert not system_refs, (
+        f"Activity stream backend references '_system' in string literals: {system_refs}. "
+        f"The backend must connect directly to its target database."
+    )
+
+
+def test_activity_backend_connect_does_not_create_databases():
+    """The activity stream backend must not have database creation logic."""
+    source_file = Path(inspect.getfile(ArangoDBActivityStreamStore))
+    source = source_file.read_text()
+
+    assert "create_database" not in source, (
+        "Activity stream backend contains 'create_database'. "
+        "The backend must fail-stop if the database doesn't exist."
+    )
+
+
+def test_activity_backend_default_username_is_not_root():
+    """The activity stream backend default username must not be 'root'."""
+    sig = inspect.signature(ArangoDBActivityStreamStore.__init__)
+    username_default = sig.parameters["username"].default
+
+    assert username_default != "root", (
+        f"Activity stream backend defaults username to '{username_default}'. "
+        f"Default should be empty or a non-root user."
+    )
+
+
+def test_activity_integration_tests_use_dedicated_test_user():
+    """Activity stream integration tests must not use root for test operations."""
+    test_file = Path("tests/integration/test_arango_activity.py")
+    if not test_file.exists():
+        pytest.skip("Activity integration test file not found")
+
+    content = test_file.read_text()
+
+    backend_calls = re.findall(
+        r'ArangoDBActivityStreamStore\([^)]*username\s*=\s*(\w+)',
+        content,
+    )
+    for var_name in backend_calls:
+        assert "ADMIN" not in var_name, (
+            f"Activity integration test creates store with {var_name}. "
+            f"Store instances in tests must use least-privilege test "
             f"credentials, not admin credentials."
         )

@@ -114,10 +114,23 @@ def select_files_for_scout(
     root: Path,
     max_files: int = 8,
     max_lines_per_file: int = 150,
+    coverage_map: dict | None = None,
 ) -> list[tuple[Path, str]]:
-    """Select a random sample of project files for the scout to read.
+    """Select a sample of project files for the scout to read.
 
-    Favors source files and tests. Skips binaries and generated files.
+    When coverage_map is provided, uses weighted random selection based
+    on coverage freshness: files never reviewed (epoch 0) get maximum
+    priority. Recently reviewed files still have some chance but lower
+    weight. Without a coverage map, falls back to uniform random.
+
+    Args:
+        root: Project root directory.
+        max_files: Maximum number of files to select.
+        max_lines_per_file: Truncate files longer than this.
+        coverage_map: {relative_path: last_reviewed_datetime} from
+            coverage.scan_cairn_coverage(). When provided, enables
+            coverage-weighted selection.
+
     Returns (path, content) tuples.
     """
     import random
@@ -136,8 +149,24 @@ def select_files_for_scout(
         and p.is_file()
     ]
 
-    # Random selection
-    selected = random.sample(candidates, min(max_files, len(candidates)))
+    # Weighted selection (coverage-aware) or uniform random
+    k = min(max_files, len(candidates))
+    if coverage_map is not None and candidates:
+        from yanantin.chasqui.coverage import coverage_weights
+        weights = coverage_weights(candidates, coverage_map, root)
+        # random.choices with weights, then deduplicate
+        # (choices can repeat, so oversample and deduplicate)
+        seen: set[Path] = set()
+        selected: list[Path] = []
+        attempts = 0
+        while len(selected) < k and attempts < k * 5:
+            picks = random.choices(candidates, weights=weights, k=1)
+            if picks[0] not in seen:
+                seen.add(picks[0])
+                selected.append(picks[0])
+            attempts += 1
+    else:
+        selected = random.sample(candidates, k)
 
     results = []
     for path in selected:
@@ -158,13 +187,17 @@ def format_scout_prompt(
     model: ModelInfo,
     root: Path,
     run_number: int = 1,
+    coverage_map: dict | None = None,
 ) -> tuple[str, list[dict[str, str]]]:
     """Build the system prompt and messages for a scout dispatch.
+
+    When coverage_map is provided, file selection is weighted by
+    coverage freshness — unreviewed files get higher priority.
 
     Returns (system_prompt, messages) for the OpenRouter API.
     """
     file_tree = build_file_tree(root)
-    selected_files = select_files_for_scout(root)
+    selected_files = select_files_for_scout(root, coverage_map=coverage_map)
 
     file_contents_parts = []
     for path, content in selected_files:

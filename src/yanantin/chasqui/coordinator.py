@@ -376,18 +376,30 @@ async def dispatch_scout(
     seed: int | None = None,
     max_tokens: int = 4000,
     temperature: float = 0.7,
+    use_coverage: bool = True,
 ) -> dict[str, Any]:
     """Dispatch a single scout messenger.
 
     1. Pull available models from OpenRouter
     2. Select one by inverse-cost weighting
-    3. Build a scout prompt with random file selection
+    3. Build a scout prompt with coverage-weighted file selection
     4. Send the messenger
     5. Write the tensor to the cairn
+
+    When use_coverage is True (default), file selection is weighted by
+    coverage freshness: files never reviewed start at epoch 0 (maximum
+    priority). Recently reviewed files still have some chance but lower
+    weight. This is the watchman — it ensures new code gets reviewed.
 
     Returns a summary dict with model info, cost, path, and content length.
     """
     exclude = exclude_patterns or DEFAULT_EXCLUDE
+
+    # Build coverage map if the cairn exists — the watchman
+    cov_map = None
+    if use_coverage and cairn_dir.is_dir():
+        from yanantin.chasqui.coverage import scan_cairn_coverage
+        cov_map = scan_cairn_coverage(cairn_dir)
 
     async with OpenRouterClient() as client:
         # 1. Get available models
@@ -408,7 +420,10 @@ async def dispatch_scout(
         # 3. Dispatch with retry on HTTP errors
         model, response = await _complete_with_retry(
             client, selector,
-            build_prompt_fn=lambda m: format_scout_prompt(model=m, root=project_root, run_number=0),
+            build_prompt_fn=lambda m: format_scout_prompt(
+                model=m, root=project_root, run_number=0,
+                coverage_map=cov_map,
+            ),
             metadata_fn=lambda m: scout_metadata(m, 0),
             temperature=temperature,
             max_tokens=max_tokens,

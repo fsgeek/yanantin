@@ -1,7 +1,9 @@
 {
-  "last_commit": "037c5a1e98f776550478f41956a3358a0e70b2cf",
-  "last_scout": 1770919273.5425384,
-  "last_commit_scouted": "5500e790623c9fe19d0779392a274adb56f0b054",
-  "last_digest": 1770919501.8426995,
-  "total_digested": 23
+  "last_commit": "fe820b838660a70c98fe63b19c3cf00982e2441c",
+  "last_scout": 1771457009.6745834,
+  "last_commit_scouted": "fe820b838660a70c98fe63b19c3cf00982e2441c",
+  "last_digest": 1771453986.6760392,
+  "total_digested": 1536,
+  "heartbeat_count": 296,
+  "last_ots_upgrade": 1771457348.9352148
 }

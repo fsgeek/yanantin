@@ -71,16 +71,14 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
 
         # Persistent sorted index for temporal queries on facts
         facts_col = self._db.collection("activity_facts")
-        facts_col.add_persistent_index(
-            fields=["provider_id", "timestamp"],
-            sparse=False,
+        facts_col.add_index(
+            {"type": "persistent", "fields": ["provider_id", "timestamp"], "sparse": False},
         )
 
         # Persistent sorted index for temporal anchor queries
         anchors_col = self._db.collection("activity_anchors")
-        anchors_col.add_persistent_index(
-            fields=["timestamp"],
-            sparse=False,
+        anchors_col.add_index(
+            {"type": "persistent", "fields": ["timestamp"], "sparse": False},
         )
 
     def close(self) -> None:

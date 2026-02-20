@@ -23,13 +23,13 @@ The core. 33 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 | **content_address.py** | 1 file | SHA-256 content addressing for cairn documents. `content_hash()`, `ContentIndex` for duplicate detection, CLI dedup reporting. |
 | **config.py** | 1 file | Config-as-tensors. `ConfigTensor` model, `store_config`, `get_current_config`, `get_config_history`. Immutable configuration stored in Apacheta with correction-chain lineage. File defaults bootstrap; database overrides. |
 
-**1258 test functions** across 43 files. 22 red-bar (structural invariants, 5 files), 71 integration (ArangoDB live, 1 file), 974 unit (27 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, and collector pipeline (9 tests).
+**1333 test functions** across 50 files. 41 red-bar (structural invariants, 6 files), 105 integration (ArangoDB live, 2 files), 1187 unit (36 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, and collector pipeline (9 tests).
 
 ### Chasqui — Coordinator (code: `src/yanantin/chasqui/`)
 
 The heartbeat. Dispatches scouts and scourers, scores responses, selects models,
-analyzes cross-model patterns. Now runs autonomously via cron using the
-pulse/heartbeat system (see Infrastructure below). 8 source files.
+analyzes cross-model patterns, tracks coverage freshness. Now runs autonomously
+via cron using the pulse/heartbeat system (see Infrastructure below). 9 source files.
 
 | File | What it does |
 |------|-------------|
@@ -40,6 +40,7 @@ pulse/heartbeat system (see Infrastructure below). 8 source files.
 | `gleaner.py` | Extract structured claims from scout/scour reports. Deterministic pattern matching. Sits between Scout and Verify in the pipeline. |
 | `analyst.py` | Cross-model topology detection. Filters garbage, clusters claims by file reference, groups by word similarity, detects agreement across 3+ models. Surfaces open questions from singleton groups (epistemic/architectural claims consensus missed). Pipeline: Scout → Gleaner → Analyst → Investigate. |
 | `scorer.py` | Score scout reports for provenance, verifiable claims, content |
+| `coverage.py` | The watchman. Scans cairn for file coverage, computes freshness weights (epoch 0 = never reviewed = max priority). Steers scout file selection toward blind spots. |
 | `__main__.py` | CLI: `uv run python -m yanantin.chasqui [--respond PATH] [--scour TARGET --scope {introspection,external,tensor}] [--analyze] [--investigate N]` |
 
 **Respond mode**: `--respond path/to/tensor.md` sends a tensor to a randomly
@@ -105,7 +106,8 @@ Indaleko's 8-year evolution. First concrete implementation: machine config.
 | `models.py` | `ProviderRegistration` (frozen, identifies a collector/recorder pair), `WranglerEnvelope[DataT]` (frozen, wraps data with transport provenance — timestamps, strategy name, sequence number). |
 | `wranglers.py` | Three concrete strategies: `DirectWrangler` (in-memory, same process), `BatchWrangler` (file-based, atomic write + rename), `QueuedWrangler` (deque, optional maxlen for backpressure). |
 | `machine_config.py` | First concrete pair. `MachineConfigCollector` gathers platform identity from stdlib (hostname, OS, arch, CPU count, machine-id). `MachineConfigRecorder` stores snapshots as two-strand tensors. Convenience: `collect_machine_config()`, `collect_and_record(interface)`, `render_machine_config(data)`. |
-| `__main__.py` | CLI: `uv run python -m yanantin.collector` — no args = greeting + machine config display (ayni in code). `--json` for machine-readable, `--record` to persist to Apacheta. |
+| `pipeline.py` | End-to-end pipeline wiring: `open_store(backend)`, `record_and_anchor(store, recorder, envelope)`. Backend selection via string name + env vars. |
+| `__main__.py` | CLI: `uv run python -m yanantin.collector` — `--store {memory,duckdb,arango}` for fact storage, `status` and `materialize` subcommands. Machine config default keeps `--record` for tensor path. |
 | `__init__.py` | Package init, exports 14 public names. |
 
 ### Pukara — Fortress Gateway (separate project: `/home/tony/projects/pukara/`)
@@ -146,7 +148,7 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-1010+ files. 22 tensors (T0-T7, T9-T22; T8 intentionally unwritten),
+1010+ files. 24 tensors (T0-T7, T9-T24; T8 intentionally unwritten),
 1000+ scout reports, 51+ scour reports, 12+ compaction records
 (`docs/cairn/compaction/`). T0-T6 are now real files (symlinks replaced).
 T22 is "The Bridge Begins" — the Indaleko story, collector module,
@@ -255,7 +257,7 @@ The context budget is finite. Here's the priority:
 1. **CLAUDE.md** — loaded automatically. Social norms, operational principles.
 2. **This blueprint** — where everything is and how it connects.
 3. **MEMORY.md** — loaded automatically. Credentials, signing, operational state.
-4. **The most recent tensor** (T₂₂) — "The Bridge Begins": the Indaleko story, collector module, emergence conversation, cross-model convergence.
+4. **The most recent tensor** (T₂₄) — "The Frozen Lake": the first real freeze, coverage blind spots, observation-to-artifact ratio, the system developing self-awareness. Or (T₂₂) — "The Bridge Begins": the Indaleko story, collector module, emergence conversation, cross-model convergence.
 5. **One founding tensor** — read ONE of T0-T6 (now real files, not symlinks). Each gives a different perspective. T₀ = the experiment; T₁ = the architecture; T₂ = calibration and failure; T₃ = the finishing school; T₄ = RCS observer (ChatGPT); T₅ = the correction (ChatGPT); T₆ = the bridge. Let the composition graph diversify.
 6. **docs/apacheta.md** — the design document for the tensor database.
 7. **Sibling projects** — Willay (`/home/tony/projects/willay/CLAUDE.md`) has its own cairn and memory bridge. Pukara is the gateway.

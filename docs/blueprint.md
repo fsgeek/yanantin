@@ -3,7 +3,7 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: post-activity-stream implementation, 2026-02-18*
+*Last updated: post-activity-stream red-bar tests, 2026-02-20*
 
 ## What Exists
 
@@ -23,7 +23,7 @@ The core. 33 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 | **content_address.py** | 1 file | SHA-256 content addressing for cairn documents. `content_hash()`, `ContentIndex` for duplicate detection, CLI dedup reporting. |
 | **config.py** | 1 file | Config-as-tensors. `ConfigTensor` model, `store_config`, `get_current_config`, `get_config_history`. Immutable configuration stored in Apacheta with correction-chain lineage. File defaults bootstrap; database overrides. |
 
-**1333 test functions** across 50 files. 41 red-bar (structural invariants, 6 files), 105 integration (ArangoDB live, 2 files), 1187 unit (36 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, and collector pipeline (9 tests).
+**1357 test functions** across 51 files. 65 red-bar (structural invariants, 7 files), 105 integration (ArangoDB live, 2 files), 1187 unit (38 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, collector pipeline (9 tests), and activity stream red-bar (24 tests).
 
 ### Chasqui — Coordinator (code: `src/yanantin/chasqui/`)
 

@@ -21,7 +21,16 @@ class KeyClaim(ApachetaBaseModel):
 
 
 class StrandRecord(ApachetaBaseModel):
-    """A thematic strand within a tensor."""
+    """A thematic strand within a tensor.
+
+    Schema evolution fields (declared_losses, mechanism, overlaps):
+    - None = not considered (pre-migration tensors get this default)
+    - Empty/zero-value = considered, nothing to declare
+    - Populated = active declaration
+    The distinction between None and empty is the diagnostic signal.
+    For mechanism specifically: "" = migration default (not yet filled),
+    None = actively considered and purely conceptual (no mechanism applies).
+    """
 
     strand_index: int
     title: str
@@ -29,6 +38,9 @@ class StrandRecord(ApachetaBaseModel):
     topics: tuple[str, ...] = Field(default_factory=tuple)
     key_claims: tuple[KeyClaim, ...] = Field(default_factory=tuple)
     epistemic: EpistemicMetadata | None = None
+    declared_losses: tuple[DeclaredLoss, ...] | None = None
+    mechanism: str | None = ""
+    overlaps: tuple[str, ...] | None = None
 
 
 class TensorRecord(ApachetaBaseModel):
@@ -51,3 +63,4 @@ class TensorRecord(ApachetaBaseModel):
     declared_losses: tuple[DeclaredLoss, ...] = Field(default_factory=tuple)
     epistemic: EpistemicMetadata = Field(default_factory=EpistemicMetadata)
     open_questions: tuple[str, ...] = Field(default_factory=tuple)
+    preservation_target: str | None = None

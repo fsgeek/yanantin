@@ -41,6 +41,8 @@ from yanantin.apacheta.models.tensor import TensorRecord
 
 
 # ── Schema ────────────────────────────────────────────────────────────
+# DuckDB is local storage on a trusted device. No obfuscation needed —
+# obfuscating against yourself is theater.
 
 _TABLES = (
     "tensors",
@@ -53,12 +55,6 @@ _TABLES = (
     "entities",
 )
 
-_DDL = "\n".join(
-    f"CREATE TABLE IF NOT EXISTS {t} (id VARCHAR PRIMARY KEY, data JSON NOT NULL);"
-    for t in _TABLES
-)
-
-# Map table names to Pydantic model classes for deserialization
 _TABLE_MODEL = {
     "tensors": TensorRecord,
     "composition_edges": CompositionEdge,
@@ -78,14 +74,22 @@ class DuckDBBackend(ApachetaInterface):
     on any store raises ImmutabilityError. Persistent to file.
     """
 
-    def __init__(self, db_path: str | Path = ":memory:") -> None:
+    def __init__(
+        self,
+        db_path: str | Path = ":memory:",
+    ) -> None:
         self._lock = threading.RLock()
         self._db_path = str(db_path)
         self._conn = duckdb.connect(self._db_path)
         self._init_schema()
 
     def _init_schema(self) -> None:
-        self._conn.execute(_DDL)
+        ddl = "\n".join(
+            f"CREATE TABLE IF NOT EXISTS {t} "
+            f"(id VARCHAR PRIMARY KEY, data JSON NOT NULL);"
+            for t in _TABLES
+        )
+        self._conn.execute(ddl)
 
     def close(self) -> None:
         self._conn.close()
@@ -105,20 +109,21 @@ class DuckDBBackend(ApachetaInterface):
                 + (f" on {target}" if target else "")
             )
 
-    @staticmethod
-    def _serialize(record) -> str:
+    def _serialize(self, record) -> str:
         """Serialize a Pydantic model to a JSON string."""
-        return json.dumps(record.model_dump(mode="json"))
+        doc = record.model_dump(mode="json")
+        return json.dumps(doc)
 
-    @staticmethod
-    def _deserialize(model_cls, data):
+    def _deserialize(self, model_cls, data):
         """Deserialize from DuckDB JSON column to Pydantic model."""
         if isinstance(data, str):
-            return model_cls.model_validate_json(data)
-        # DuckDB may return parsed dict/list
-        return model_cls.model_validate(data)
+            parsed = json.loads(data)
+        else:
+            parsed = data
+        return model_cls.model_validate(parsed)
 
     def _exists(self, table: str, record_id: UUID) -> bool:
+        """Check if a record exists."""
         result = self._conn.execute(
             f"SELECT 1 FROM {table} WHERE id = ?",  # noqa: S608
             [str(record_id)],
@@ -492,7 +497,6 @@ class DuckDBBackend(ApachetaInterface):
     def count_records(self) -> dict[str, int]:
         with self._lock:
             counts = {}
-            # Use the same keys as the in-memory backend
             key_map = {
                 "tensors": "tensors",
                 "composition_edges": "edges",

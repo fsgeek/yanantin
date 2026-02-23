@@ -18,6 +18,7 @@ Design:
 - Tests verify behavioral equivalence with InMemoryBackend
 """
 
+import os
 from datetime import datetime
 import math
 import threading
@@ -45,17 +46,17 @@ from yanantin.apacheta.models import (
     TensorRecord,
 )
 
-# Connection parameters
-ARANGO_HOST = "http://192.168.111.125:8529"
+# Connection parameters — from .env via root conftest.py
+ARANGO_HOST = os.environ.get("YANANTIN_ARANGO_HOST", "http://192.168.111.125:8529")
 ARANGO_DB = "apacheta_test"
 
 # Admin credentials — ONLY for database creation/teardown (session fixture)
-ARANGO_ADMIN_USER = "root"
-ARANGO_ADMIN_PASSWORD = "LFNi0vhD7mEE0ZH"
+ARANGO_ADMIN_USER = os.environ.get("ARANGO_ADMIN_USER", "root")
+ARANGO_ADMIN_PASSWORD = os.environ.get("ARANGO_ADMIN_PASSWORD", "")
 
 # Least-privilege test credentials — used for ALL test operations
-ARANGO_TEST_USER = "apacheta_test"
-ARANGO_TEST_PASSWORD = "lbxKTSrUc6OkNOranjI_Kw"
+ARANGO_TEST_USER = os.environ.get("ARANGO_TEST_USER", "apacheta_test")
+ARANGO_TEST_PASSWORD = os.environ.get("ARANGO_TEST_PASSWORD", "")
 
 
 def check_arango_available() -> bool:

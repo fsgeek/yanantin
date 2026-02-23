@@ -24,9 +24,10 @@ from arango.database import StandardDatabase
 from yanantin.activity.models import FactRecord, MemoryAnchor
 from yanantin.activity.store import ActivityStreamStore
 from yanantin.apacheta.interface.errors import ImmutabilityError, NotFoundError
+from yanantin.apacheta.storage_obfuscator import StorageObfuscator, TransparentObfuscator
 
 
-_COLLECTIONS = ("activity_facts", "activity_anchors")
+_SEMANTIC_COLLECTIONS = ("activity_facts", "activity_anchors")
 
 
 class ArangoDBActivityStreamStore(ActivityStreamStore):
@@ -42,8 +43,10 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
         db_name: str = "apacheta",
         username: str = "",
         password: str = "",
+        obfuscator: StorageObfuscator | None = None,
     ) -> None:
         self._lock = threading.RLock()
+        self._map = obfuscator or TransparentObfuscator()
         self._client = ArangoClient(hosts=host)
         self._host = host
         self._db_name = db_name
@@ -65,20 +68,32 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
 
     def _ensure_collections(self) -> None:
         """Create collections and indexes if they don't exist."""
-        for name in _COLLECTIONS:
-            if not self._db.has_collection(name):
-                self._db.create_collection(name)
+        for name in _SEMANTIC_COLLECTIONS:
+            mapped = self._map.collection_name(name)
+            if not self._db.has_collection(mapped):
+                self._db.create_collection(mapped)
 
         # Persistent sorted index for temporal queries on facts
-        facts_col = self._db.collection("activity_facts")
+        facts_col = self._db.collection(self._map.collection_name("activity_facts"))
         facts_col.add_index(
-            {"type": "persistent", "fields": ["provider_id", "timestamp"], "sparse": False},
+            {
+                "type": "persistent",
+                "fields": [
+                    self._map.field_name("provider_id"),
+                    self._map.field_name("timestamp"),
+                ],
+                "sparse": False,
+            },
         )
 
         # Persistent sorted index for temporal anchor queries
-        anchors_col = self._db.collection("activity_anchors")
+        anchors_col = self._db.collection(self._map.collection_name("activity_anchors"))
         anchors_col.add_index(
-            {"type": "persistent", "fields": ["timestamp"], "sparse": False},
+            {
+                "type": "persistent",
+                "fields": [self._map.field_name("timestamp")],
+                "sparse": False,
+            },
         )
 
     def close(self) -> None:
@@ -94,7 +109,7 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
 
     def store_fact(self, fact: FactRecord) -> None:
         with self._lock:
-            col = self._db.collection("activity_facts")
+            col = self._db.collection(self._map.collection_name("activity_facts"))
             key = str(fact.id)
             if col.has(key):
                 raise ImmutabilityError(
@@ -102,16 +117,22 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
                     "Facts are immutable — append, don't overwrite."
                 )
             doc = fact.model_dump(mode="json")
-            doc["_key"] = key
-            doc.pop("id", None)
-            # Store provider_id and timestamp as top-level fields for indexing
-            doc["provider_id"] = str(fact.provider_id)
-            doc["timestamp"] = fact.timestamp.isoformat()
-            col.insert(doc)
+            # Build mapped document: _key + mapped field names
+            mapped_doc = {"_key": key}
+            for k, v in doc.items():
+                if k == "id":
+                    continue  # moved to _key
+                elif k == "provider_id":
+                    mapped_doc[self._map.field_name(k)] = str(v)
+                elif k == "timestamp":
+                    mapped_doc[self._map.field_name(k)] = fact.timestamp.isoformat()
+                else:
+                    mapped_doc[self._map.field_name(k)] = v
+            col.insert(mapped_doc)
 
     def get_fact(self, fact_id: UUID) -> FactRecord:
         with self._lock:
-            col = self._db.collection("activity_facts")
+            col = self._db.collection(self._map.collection_name("activity_facts"))
             doc = col.get(str(fact_id))
             if doc is None:
                 raise NotFoundError(f"Fact {fact_id} not found.")
@@ -123,14 +144,17 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
         before: datetime | None = None,
     ) -> FactRecord | None:
         with self._lock:
+            col = self._map.collection_name("activity_facts")
+            f_pid = self._map.field_name("provider_id")
+            f_ts = self._map.field_name("timestamp")
             if before is not None:
                 cursor = self._db.aql.execute(
-                    "FOR doc IN activity_facts "
-                    "  FILTER doc.provider_id == @provider_id "
-                    "  FILTER doc.timestamp <= @before "
-                    "  SORT doc.timestamp DESC "
-                    "  LIMIT 1 "
-                    "  RETURN doc",
+                    f"FOR doc IN {col} "
+                    f"  FILTER doc.{f_pid} == @provider_id "
+                    f"  FILTER doc.{f_ts} <= @before "
+                    f"  SORT doc.{f_ts} DESC "
+                    f"  LIMIT 1 "
+                    f"  RETURN doc",
                     bind_vars={
                         "provider_id": str(provider_id),
                         "before": before.isoformat(),
@@ -138,11 +162,11 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
                 )
             else:
                 cursor = self._db.aql.execute(
-                    "FOR doc IN activity_facts "
-                    "  FILTER doc.provider_id == @provider_id "
-                    "  SORT doc.timestamp DESC "
-                    "  LIMIT 1 "
-                    "  RETURN doc",
+                    f"FOR doc IN {col} "
+                    f"  FILTER doc.{f_pid} == @provider_id "
+                    f"  SORT doc.{f_ts} DESC "
+                    f"  LIMIT 1 "
+                    f"  RETURN doc",
                     bind_vars={"provider_id": str(provider_id)},
                 )
             docs = list(cursor)
@@ -157,21 +181,25 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
         end: datetime | None = None,
     ) -> list[FactRecord]:
         with self._lock:
-            filters = ["doc.provider_id == @provider_id"]
+            col = self._map.collection_name("activity_facts")
+            f_pid = self._map.field_name("provider_id")
+            f_ts = self._map.field_name("timestamp")
+
+            filters = [f"doc.{f_pid} == @provider_id"]
             bind_vars: dict = {"provider_id": str(provider_id)}
 
             if start is not None:
-                filters.append("doc.timestamp >= @start")
+                filters.append(f"doc.{f_ts} >= @start")
                 bind_vars["start"] = start.isoformat()
             if end is not None:
-                filters.append("doc.timestamp <= @end")
+                filters.append(f"doc.{f_ts} <= @end")
                 bind_vars["end"] = end.isoformat()
 
             filter_clause = " FILTER ".join([""] + filters)
             cursor = self._db.aql.execute(
-                f"FOR doc IN activity_facts"
+                f"FOR doc IN {col}"
                 f"  {filter_clause}"
-                f"  SORT doc.timestamp ASC"
+                f"  SORT doc.{f_ts} ASC"
                 f"  RETURN doc",
                 bind_vars=bind_vars,
             )
@@ -181,7 +209,7 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
 
     def store_anchor(self, anchor: MemoryAnchor) -> None:
         with self._lock:
-            col = self._db.collection("activity_anchors")
+            col = self._db.collection(self._map.collection_name("activity_anchors"))
             key = str(anchor.handle)
             if col.has(key):
                 raise ImmutabilityError(
@@ -189,14 +217,26 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
                     "Anchors are immutable — advance, don't overwrite."
                 )
             doc = anchor.model_dump(mode="json")
-            doc["_key"] = key
-            doc.pop("handle", None)
-            doc["timestamp"] = anchor.timestamp.isoformat()
-            col.insert(doc)
+            # Build mapped document
+            mapped_doc = {"_key": key}
+            for k, v in doc.items():
+                if k == "handle":
+                    continue  # moved to _key
+                elif k == "timestamp":
+                    mapped_doc[self._map.field_name(k)] = anchor.timestamp.isoformat()
+                elif k == "cursors":
+                    # Cursors contain model fields --- obfuscate nested dicts
+                    mapped_doc[self._map.field_name(k)] = [
+                        self._map.obfuscate_document(c) if isinstance(c, dict) else c
+                        for c in v
+                    ]
+                else:
+                    mapped_doc[self._map.field_name(k)] = v
+            col.insert(mapped_doc)
 
     def get_anchor(self, handle: UUID) -> MemoryAnchor:
         with self._lock:
-            col = self._db.collection("activity_anchors")
+            col = self._db.collection(self._map.collection_name("activity_anchors"))
             doc = col.get(str(handle))
             if doc is None:
                 raise NotFoundError(f"Anchor {handle} not found.")
@@ -204,11 +244,13 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
 
     def get_latest_anchor(self) -> MemoryAnchor | None:
         with self._lock:
+            col = self._map.collection_name("activity_anchors")
+            f_ts = self._map.field_name("timestamp")
             cursor = self._db.aql.execute(
-                "FOR doc IN activity_anchors "
-                "  SORT doc.timestamp DESC "
-                "  LIMIT 1 "
-                "  RETURN doc"
+                f"FOR doc IN {col} "
+                f"  SORT doc.{f_ts} DESC "
+                f"  LIMIT 1 "
+                f"  RETURN doc"
             )
             docs = list(cursor)
             if not docs:
@@ -219,43 +261,48 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
 
     def list_providers(self) -> list[UUID]:
         with self._lock:
+            col = self._map.collection_name("activity_facts")
+            f_pid = self._map.field_name("provider_id")
             cursor = self._db.aql.execute(
-                "FOR doc IN activity_facts "
-                "  COLLECT provider = doc.provider_id "
-                "  RETURN provider"
+                f"FOR doc IN {col} "
+                f"  COLLECT provider = doc.{f_pid} "
+                f"  RETURN provider"
             )
             return [UUID(p) for p in cursor]
 
     def count_facts(self, provider_id: UUID | None = None) -> int:
         with self._lock:
+            col = self._map.collection_name("activity_facts")
+            f_pid = self._map.field_name("provider_id")
             if provider_id is not None:
                 cursor = self._db.aql.execute(
-                    "RETURN LENGTH("
-                    "  FOR doc IN activity_facts "
-                    "    FILTER doc.provider_id == @provider_id "
-                    "    RETURN 1"
-                    ")",
+                    f"RETURN LENGTH("
+                    f"  FOR doc IN {col} "
+                    f"    FILTER doc.{f_pid} == @provider_id "
+                    f"    RETURN 1"
+                    f")",
                     bind_vars={"provider_id": str(provider_id)},
                 )
             else:
                 cursor = self._db.aql.execute(
-                    "RETURN LENGTH(activity_facts)"
+                    f"RETURN LENGTH({col})"
                 )
             results = list(cursor)
             return results[0] if results else 0
 
     # -- Internal helpers ──────────────────────────────────────────────
 
-    @staticmethod
-    def _doc_to_fact(doc: dict) -> FactRecord:
+    def _doc_to_fact(self, doc: dict) -> FactRecord:
         """Convert an ArangoDB document to a FactRecord."""
-        data = {k: v for k, v in doc.items() if not k.startswith("_")}
+        # Reverse-map field names, then strip ArangoDB metadata
+        deobfuscated = self._map.deobfuscate_document(doc)
+        data = {k: v for k, v in deobfuscated.items() if not k.startswith("_")}
         data["id"] = doc["_key"]
         return FactRecord.model_validate(data)
 
-    @staticmethod
-    def _doc_to_anchor(doc: dict) -> MemoryAnchor:
+    def _doc_to_anchor(self, doc: dict) -> MemoryAnchor:
         """Convert an ArangoDB document to a MemoryAnchor."""
-        data = {k: v for k, v in doc.items() if not k.startswith("_")}
+        deobfuscated = self._map.deobfuscate_document(doc)
+        data = {k: v for k, v in deobfuscated.items() if not k.startswith("_")}
         data["handle"] = doc["_key"]
         return MemoryAnchor.model_validate(data)

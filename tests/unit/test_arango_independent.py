@@ -121,10 +121,10 @@ def db(mock_arango_client):
     """Fresh ArangoDB backend for each test (mocked)."""
     mock_client, collections = mock_arango_client
     backend = ArangoDBBackend(
-        host="http://192.168.111.125:8529",
+        host="http://mock:8529",
         db_name="apacheta",
-        username="root",
-        password="LFNi0vhD7mEE0ZH"
+        username="mock_user",
+        password="mock_password",
     )
     yield backend
     backend.close()

@@ -28,38 +28,47 @@ from yanantin.activity.store import ActivityStreamStore
 from yanantin.apacheta.interface.errors import ImmutabilityError, NotFoundError
 
 
-_DDL = """
-CREATE TABLE IF NOT EXISTS facts (
-    id VARCHAR PRIMARY KEY,
-    provider_id VARCHAR NOT NULL,
-    timestamp VARCHAR NOT NULL,
-    data JSON NOT NULL,
-    content_hash VARCHAR NOT NULL DEFAULT ''
-);
-CREATE INDEX IF NOT EXISTS idx_facts_provider_time ON facts (provider_id, timestamp);
-
-CREATE TABLE IF NOT EXISTS anchors (
-    handle VARCHAR PRIMARY KEY,
-    timestamp VARCHAR NOT NULL,
-    data JSON NOT NULL
-);
-CREATE INDEX IF NOT EXISTS idx_anchors_time ON anchors (timestamp);
-"""
-
-
 class DuckDBActivityStreamStore(ActivityStreamStore):
     """DuckDB implementation of ActivityStreamStore.
 
     Thread-safe via RLock. Enforces immutability. Pushes temporal
     queries to SQL for O(log n) performance via indexed queries.
     Timestamps are stored as ISO 8601 VARCHAR for portability.
+
+    DuckDB is local storage on a trusted device. No obfuscation
+    needed — the trust boundary is at Pukara, not the local disk.
     """
 
-    def __init__(self, db_path: str | Path = ":memory:") -> None:
+    def __init__(
+        self,
+        db_path: str | Path = ":memory:",
+    ) -> None:
         self._lock = threading.RLock()
         self._db_path = str(db_path)
         self._conn = duckdb.connect(self._db_path)
-        self._conn.execute(_DDL)
+        self._init_schema()
+
+    def _init_schema(self) -> None:
+        """Create tables and indexes with semantic names."""
+        ddl = (
+            "CREATE TABLE IF NOT EXISTS facts ("
+            "  id VARCHAR PRIMARY KEY,"
+            "  provider_id VARCHAR NOT NULL,"
+            "  timestamp VARCHAR NOT NULL,"
+            "  data JSON NOT NULL,"
+            "  content_hash VARCHAR NOT NULL DEFAULT ''"
+            ");"
+            "CREATE INDEX IF NOT EXISTS idx_facts_provider_id_timestamp "
+            "  ON facts (provider_id, timestamp);"
+            "CREATE TABLE IF NOT EXISTS anchors ("
+            "  handle VARCHAR PRIMARY KEY,"
+            "  timestamp VARCHAR NOT NULL,"
+            "  data JSON NOT NULL"
+            ");"
+            "CREATE INDEX IF NOT EXISTS idx_anchors_timestamp "
+            "  ON anchors (timestamp);"
+        )
+        self._conn.execute(ddl)
 
     def close(self) -> None:
         self._conn.close()
@@ -81,7 +90,7 @@ class DuckDBActivityStreamStore(ActivityStreamStore):
                 )
             data_json = json.dumps(fact.data)
             self._conn.execute(
-                "INSERT INTO facts (id, provider_id, timestamp, data, content_hash) "
+                "INSERT INTO facts (id, provider_id, timestamp, data, content_hash) "  # noqa: S608
                 "VALUES (?, ?, ?, ?, ?)",
                 [
                     str(fact.id),
@@ -95,7 +104,7 @@ class DuckDBActivityStreamStore(ActivityStreamStore):
     def get_fact(self, fact_id: UUID) -> FactRecord:
         with self._lock:
             row = self._conn.execute(
-                "SELECT id, provider_id, timestamp, data, content_hash "
+                "SELECT id, provider_id, timestamp, data, content_hash "  # noqa: S608
                 "FROM facts WHERE id = ?",
                 [str(fact_id)],
             ).fetchone()
@@ -109,18 +118,17 @@ class DuckDBActivityStreamStore(ActivityStreamStore):
         before: datetime | None = None,
     ) -> FactRecord | None:
         with self._lock:
+            select = "SELECT id, provider_id, timestamp, data, content_hash FROM facts"
             if before is not None:
                 row = self._conn.execute(
-                    "SELECT id, provider_id, timestamp, data, content_hash "
-                    "FROM facts "
+                    f"{select} "  # noqa: S608
                     "WHERE provider_id = ? AND timestamp <= ? "
                     "ORDER BY timestamp DESC LIMIT 1",
                     [str(provider_id), before.isoformat()],
                 ).fetchone()
             else:
                 row = self._conn.execute(
-                    "SELECT id, provider_id, timestamp, data, content_hash "
-                    "FROM facts "
+                    f"{select} "  # noqa: S608
                     "WHERE provider_id = ? "
                     "ORDER BY timestamp DESC LIMIT 1",
                     [str(provider_id)],
@@ -148,7 +156,7 @@ class DuckDBActivityStreamStore(ActivityStreamStore):
 
             where = " AND ".join(conditions)
             rows = self._conn.execute(
-                f"SELECT id, provider_id, timestamp, data, content_hash "  # noqa: S608
+                "SELECT id, provider_id, timestamp, data, content_hash "  # noqa: S608
                 f"FROM facts WHERE {where} ORDER BY timestamp ASC",
                 params,
             ).fetchall()
@@ -163,16 +171,17 @@ class DuckDBActivityStreamStore(ActivityStreamStore):
                     f"Anchor {anchor.handle} already exists. "
                     "Anchors are immutable — advance, don't overwrite."
                 )
-            data_json = json.dumps(anchor.model_dump(mode="json"))
+            doc = anchor.model_dump(mode="json")
+            data_json = json.dumps(doc)
             self._conn.execute(
-                "INSERT INTO anchors (handle, timestamp, data) VALUES (?, ?, ?)",
+                "INSERT INTO anchors (handle, timestamp, data) VALUES (?, ?, ?)",  # noqa: S608
                 [str(anchor.handle), anchor.timestamp.isoformat(), data_json],
             )
 
     def get_anchor(self, handle: UUID) -> MemoryAnchor:
         with self._lock:
             row = self._conn.execute(
-                "SELECT data FROM anchors WHERE handle = ?",
+                "SELECT data FROM anchors WHERE handle = ?",  # noqa: S608
                 [str(handle)],
             ).fetchone()
             if row is None:
@@ -182,7 +191,7 @@ class DuckDBActivityStreamStore(ActivityStreamStore):
     def get_latest_anchor(self) -> MemoryAnchor | None:
         with self._lock:
             row = self._conn.execute(
-                "SELECT data FROM anchors ORDER BY timestamp DESC LIMIT 1",
+                "SELECT data FROM anchors ORDER BY timestamp DESC LIMIT 1",  # noqa: S608
             ).fetchone()
             if row is None:
                 return None
@@ -193,7 +202,7 @@ class DuckDBActivityStreamStore(ActivityStreamStore):
     def list_providers(self) -> list[UUID]:
         with self._lock:
             rows = self._conn.execute(
-                "SELECT DISTINCT provider_id FROM facts",
+                "SELECT DISTINCT provider_id FROM facts",  # noqa: S608
             ).fetchall()
             return [UUID(row[0]) for row in rows]
 
@@ -201,16 +210,19 @@ class DuckDBActivityStreamStore(ActivityStreamStore):
         with self._lock:
             if provider_id is not None:
                 row = self._conn.execute(
-                    "SELECT COUNT(*) FROM facts WHERE provider_id = ?",
+                    "SELECT COUNT(*) FROM facts WHERE provider_id = ?",  # noqa: S608
                     [str(provider_id)],
                 ).fetchone()
             else:
-                row = self._conn.execute("SELECT COUNT(*) FROM facts").fetchone()
+                row = self._conn.execute(
+                    "SELECT COUNT(*) FROM facts",  # noqa: S608
+                ).fetchone()
             return row[0] if row else 0
 
     # -- Internal helpers ──────────────────────────────────────────────
 
     def _exists(self, table: str, key_col: str, key_val: UUID) -> bool:
+        """Check if a record exists."""
         row = self._conn.execute(
             f"SELECT 1 FROM {table} WHERE {key_col} = ?",  # noqa: S608
             [str(key_val)],
@@ -234,9 +246,10 @@ class DuckDBActivityStreamStore(ActivityStreamStore):
             content_hash=content_hash,
         )
 
-    @staticmethod
-    def _deserialize_anchor(data) -> MemoryAnchor:
+    def _deserialize_anchor(self, data) -> MemoryAnchor:
         """Convert stored JSON to MemoryAnchor."""
         if isinstance(data, str):
-            return MemoryAnchor.model_validate_json(data)
-        return MemoryAnchor.model_validate(data)
+            parsed = json.loads(data)
+        else:
+            parsed = data
+        return MemoryAnchor.model_validate(parsed)

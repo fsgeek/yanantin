@@ -60,9 +60,9 @@ def main() -> None:
     )
     parser.add_argument(
         "--backend",
-        choices=["memory", "arango", "gateway"],
+        choices=["memory", "gateway"],
         default="memory",
-        help="Backend to materialize into (default: memory = dry run)",
+        help="Backend to materialize into (default: memory = dry run, gateway = through Pukara)",
     )
 
     args = parser.parse_args()
@@ -97,7 +97,12 @@ def main() -> None:
 
 
 def _do_materialize(declarations: list, backend_name: str) -> None:
-    """Run materialization pipeline."""
+    """Run materialization pipeline.
+
+    Production writes go through Pukara (gateway). Direct ArangoDB
+    access is removed — the fortress is the trust boundary.
+    """
+    import os
     from pathlib import Path
 
     from yanantin.awaq.materialize import materialize
@@ -109,21 +114,12 @@ def _do_materialize(declarations: list, backend_name: str) -> None:
 
         interface = InMemoryBackend()
         print("Backend: in-memory (dry run — edges not persisted)")
-    elif backend_name == "arango":
-        from yanantin.apacheta.backends.arango import ArangoDBBackend
-
-        interface = ArangoDBBackend(
-            host="http://192.168.111.125:8529",
-            db_name="apacheta",
-            username="apacheta_app",
-            password="cxO4YV5JVjj1aE416puRrA",
-        )
-        print("Backend: ArangoDB (apacheta)")
     elif backend_name == "gateway":
         from yanantin.apacheta.clients.gateway import ApachetaGatewayClient
 
-        interface = ApachetaGatewayClient(base_url="http://127.0.0.1:8000")
-        print("Backend: Pukara gateway (http://127.0.0.1:8000)")
+        url = os.environ.get("PUKARA_URL", "http://127.0.0.1:8000")
+        interface = ApachetaGatewayClient(base_url=url)
+        print(f"Backend: Pukara gateway ({url})")
     else:
         print(f"Unknown backend: {backend_name}", file=sys.stderr)
         sys.exit(1)

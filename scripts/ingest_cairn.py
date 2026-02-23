@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Ingest cairn tensor files into ArangoDB.
+"""Ingest cairn tensor files through the Pukara gateway.
 
 Finds all tensor files (T*.md) in docs/cairn/, parses them through the
-markdown parser, and stores them in ArangoDB via ArangoDBBackend.
+markdown parser, and stores them via ApachetaGatewayClient. All production
+writes go through Pukara — the fortress is the trust boundary.
 
 Follows "log before you parse" principle:
 - Log raw filename before attempting to parse
@@ -11,15 +12,16 @@ Follows "log before you parse" principle:
 - Print summary at end: total files, parsed, stored, skipped, failed
 
 Usage:
-    uv run python scripts/ingest_cairn.py
+    PUKARA_URL=http://127.0.0.1:8000 uv run python scripts/ingest_cairn.py
 """
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
-from yanantin.apacheta.backends.arango import ArangoDBBackend
+from yanantin.apacheta.clients.gateway import ApachetaGatewayClient
 from yanantin.apacheta.ingest.markdown_parser import parse_tensor_file
 from yanantin.apacheta.interface.errors import ImmutabilityError
 
@@ -78,11 +80,11 @@ def find_tensor_files(cairn_dir: Path) -> list[Path]:
     return sorted(tensor_files, key=lambda p: p.name)
 
 
-def ingest_tensor(backend: ArangoDBBackend, path: Path) -> tuple[bool, str]:
+def ingest_tensor(client: ApachetaGatewayClient, path: Path) -> tuple[bool, str]:
     """Attempt to parse and store a single tensor file.
 
     Args:
-        backend: ArangoDBBackend instance for storage.
+        client: ApachetaGatewayClient instance for storage.
         path: Path to tensor markdown file.
 
     Returns:
@@ -103,20 +105,20 @@ def ingest_tensor(backend: ArangoDBBackend, path: Path) -> tuple[bool, str]:
         print(f"  Tensor ID: {tensor.id}")
         print(f"  Strands: {len(tensor.strands)}")
 
-        # Store in ArangoDB
-        backend.store_tensor(tensor)
-        print(f"  ✓ Stored successfully")
+        # Store through Pukara gateway
+        client.store_tensor(tensor)
+        print(f"  Stored successfully")
         return True, "stored"
 
     except ImmutabilityError as e:
         # Already exists — this is expected, not an error
-        print(f"  ⊙ Already exists, skipping")
+        print(f"  Already exists, skipping")
         return True, "skipped"
 
     except Exception as e:
         # Parse or store failure — log and continue
         error_msg = f"{type(e).__name__}: {e}"
-        print(f"  ✗ Failed: {error_msg}")
+        print(f"  Failed: {error_msg}")
         return False, error_msg
 
 
@@ -148,22 +150,21 @@ def main() -> int:
     print(f"\nFound {len(tensor_files)} tensor file(s)")
     print("=" * 60)
 
-    # Connect to ArangoDB with least-privilege credentials
-    print("\nConnecting to ArangoDB...")
-    print("  Host: http://192.168.111.125:8529")
-    print("  Database: apacheta")
-    print("  User: apacheta_app")
+    # Connect through Pukara gateway
+    pukara_url = os.environ.get("PUKARA_URL", "http://127.0.0.1:8000")
+    api_key = os.environ.get("PUKARA_API_KEY", "")
+
+    print(f"\nConnecting through Pukara gateway...")
+    print(f"  URL: {pukara_url}")
 
     try:
-        backend = ArangoDBBackend(
-            host="http://192.168.111.125:8529",
-            db_name="apacheta",
-            username="apacheta_app",
-            password="cxO4YV5JVjj1aE416puRrA",
-        )
-        print("  ✓ Connected")
+        kwargs = {"base_url": pukara_url}
+        if api_key:
+            kwargs["api_key"] = api_key
+        client = ApachetaGatewayClient(**kwargs)
+        print("  Connected")
     except Exception as e:
-        print(f"  ✗ Connection failed: {e}")
+        print(f"  Connection failed: {e}")
         return 1
 
     # Process each tensor file
@@ -177,7 +178,7 @@ def main() -> int:
     failed_files = []
 
     for path in tensor_files:
-        success, status = ingest_tensor(backend, path)
+        success, status = ingest_tensor(client, path)
         if success:
             if status == "stored":
                 stored_count += 1
@@ -202,15 +203,12 @@ def main() -> int:
             print(f"  - {filename}")
             print(f"    {error}")
 
-    # Close backend
-    backend.close()
-
     # Exit with appropriate code
     if failed_count > 0:
-        print(f"\n⚠ {failed_count} file(s) failed to ingest")
+        print(f"\n{failed_count} file(s) failed to ingest")
         return 1
     else:
-        print("\n✓ All tensor files processed successfully")
+        print("\nAll tensor files processed successfully")
         return 0
 
 

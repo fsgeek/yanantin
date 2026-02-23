@@ -44,6 +44,11 @@ def open_store(backend: str) -> ActivityStreamStore:
               YANANTIN_ARANGO_DB   (default: apacheta)
               YANANTIN_ARANGO_USER (default: "")
               YANANTIN_ARANGO_PASSWORD (default: "")
+
+    DuckDB uses semantic names (local trusted storage).
+    ArangoDB uses the transparent default — obfuscation is Pukara's job.
+    When Pukara gets activity endpoints, the collector will go through
+    the gateway client instead of connecting directly.
     """
     if backend == "memory":
         from yanantin.activity.backends.memory import InMemoryActivityStreamStore

@@ -1,9 +1,9 @@
 {
-  "last_commit": "fe820b838660a70c98fe63b19c3cf00982e2441c",
-  "last_scout": 1771457009.6745834,
-  "last_commit_scouted": "fe820b838660a70c98fe63b19c3cf00982e2441c",
-  "last_digest": 1771453986.6760392,
-  "total_digested": 1536,
-  "heartbeat_count": 296,
-  "last_ots_upgrade": 1771457348.9352148
+  "last_commit": "916ab4c37e1a2f6dcbd378780df17621c2283643",
+  "last_scout": 1771864426.3259363,
+  "last_commit_scouted": "8835c5cab840c8e08068a5fdf0e6bc6f9eed86f5",
+  "last_digest": 1771864809.8869488,
+  "total_digested": 2659,
+  "heartbeat_count": 559,
+  "last_ots_upgrade": 1771865350.290739
 }

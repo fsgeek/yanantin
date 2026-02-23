@@ -23,6 +23,7 @@ Design:
 
 from __future__ import annotations
 
+import os
 import threading
 from datetime import datetime, timedelta, timezone
 from uuid import UUID, uuid4
@@ -33,17 +34,17 @@ from yanantin.activity.backends.arango import ArangoDBActivityStreamStore
 from yanantin.activity.models import AnchorCursor, FactRecord, MemoryAnchor
 from yanantin.apacheta.interface.errors import ImmutabilityError, NotFoundError
 
-# Connection parameters — same test database as Apacheta integration tests
-ARANGO_HOST = "http://192.168.111.125:8529"
+# Connection parameters — from .env via root conftest.py
+ARANGO_HOST = os.environ.get("YANANTIN_ARANGO_HOST", "http://192.168.111.125:8529")
 ARANGO_DB = "apacheta_test"
 
 # Admin credentials — ONLY for database creation/teardown
-ARANGO_ADMIN_USER = "root"
-ARANGO_ADMIN_PASSWORD = "LFNi0vhD7mEE0ZH"
+ARANGO_ADMIN_USER = os.environ.get("ARANGO_ADMIN_USER", "root")
+ARANGO_ADMIN_PASSWORD = os.environ.get("ARANGO_ADMIN_PASSWORD", "")
 
 # Least-privilege test credentials — used for ALL test operations
-ARANGO_TEST_USER = "apacheta_test"
-ARANGO_TEST_PASSWORD = "lbxKTSrUc6OkNOranjI_Kw"
+ARANGO_TEST_USER = os.environ.get("ARANGO_TEST_USER", "apacheta_test")
+ARANGO_TEST_PASSWORD = os.environ.get("ARANGO_TEST_PASSWORD", "")
 
 
 def check_arango_available() -> bool:

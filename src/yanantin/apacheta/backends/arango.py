@@ -44,13 +44,14 @@ from yanantin.apacheta.models.composition import (
 )
 from yanantin.apacheta.models.entities import EntityResolution
 from yanantin.apacheta.models.tensor import TensorRecord
+from yanantin.apacheta.storage_obfuscator import StorageObfuscator, TransparentObfuscator
 
 
 # ── Collection names ──────────────────────────────────────────────────
-# Readable for now. UUID obfuscation comes when the provider threat
-# model is implemented.
+# Semantic names used in application code. The SchemaMap translates
+# these to opaque identifiers at the storage boundary.
 
-_COLLECTIONS = (
+_SEMANTIC_COLLECTIONS = (
     "tensors",
     "composition_edges",
     "corrections",
@@ -61,7 +62,7 @@ _COLLECTIONS = (
     "entities",
 )
 
-_COLLECTION_MODEL = {
+_SEMANTIC_MODEL = {
     "tensors": TensorRecord,
     "composition_edges": CompositionEdge,
     "corrections": CorrectionRecord,
@@ -86,8 +87,10 @@ class ArangoDBBackend(ApachetaInterface):
         db_name: str = "apacheta",
         username: str = "",
         password: str = "",
+        obfuscator: StorageObfuscator | None = None,
     ) -> None:
         self._lock = threading.RLock()
+        self._map = obfuscator or TransparentObfuscator()
         self._client = ArangoClient(hosts=host)
         self._host = host
         self._db_name = db_name
@@ -117,9 +120,10 @@ class ArangoDBBackend(ApachetaInterface):
 
     def _ensure_collections(self) -> None:
         """Create collections if they don't exist."""
-        for name in _COLLECTIONS:
-            if not self._db.has_collection(name):
-                self._db.create_collection(name)
+        for name in _SEMANTIC_COLLECTIONS:
+            mapped = self._map.collection_name(name)
+            if not self._db.has_collection(mapped):
+                self._db.create_collection(mapped)
 
     def close(self) -> None:
         self._client.close()
@@ -139,25 +143,28 @@ class ArangoDBBackend(ApachetaInterface):
                 + (f" on {target}" if target else "")
             )
 
-    @staticmethod
-    def _to_doc(record) -> dict:
+    def _to_doc(self, record) -> dict:
         """Convert a Pydantic model to an ArangoDB document."""
         data = record.model_dump(mode="json")
         # ArangoDB uses _key as the document identifier
         data["_key"] = str(data.pop("id"))
-        return data
+        return self._map.obfuscate_document(data)
 
-    @staticmethod
-    def _from_doc(model_cls, doc: dict):
+    def _from_doc(self, model_cls, doc: dict):
         """Convert an ArangoDB document back to a Pydantic model."""
+        deobfuscated = self._map.deobfuscate_document(doc)
         # Restore 'id' from '_key' and strip ArangoDB metadata
-        data = {k: v for k, v in doc.items() if not k.startswith("_")}
+        data = {k: v for k, v in deobfuscated.items() if not k.startswith("_")}
         data["id"] = doc["_key"]
         return model_cls.model_validate(data)
 
     def _store(self, collection_name: str, record_id: UUID, record) -> None:
-        """Generic store: check immutability, insert."""
-        collection = self._db.collection(collection_name)
+        """Generic store: check immutability, insert.
+
+        collection_name is semantic --- mapped to opaque via SchemaMap.
+        """
+        mapped = self._map.collection_name(collection_name)
+        collection = self._db.collection(mapped)
         key = str(record_id)
         if collection.has(key):
             type_name = type(record).__name__
@@ -169,7 +176,8 @@ class ArangoDBBackend(ApachetaInterface):
 
     def _get(self, collection_name: str, record_id: UUID, model_cls):
         """Generic get by UUID."""
-        collection = self._db.collection(collection_name)
+        mapped = self._map.collection_name(collection_name)
+        collection = self._db.collection(mapped)
         key = str(record_id)
         doc = collection.get(key)
         if doc is None:
@@ -178,7 +186,8 @@ class ArangoDBBackend(ApachetaInterface):
 
     def _load_all(self, collection_name: str, model_cls) -> list:
         """Load all records from a collection."""
-        collection = self._db.collection(collection_name)
+        mapped = self._map.collection_name(collection_name)
+        collection = self._db.collection(mapped)
         return [self._from_doc(model_cls, doc) for doc in collection.all()]
 
     # ── Write Operations ─────────────────────────────────────────
@@ -522,6 +531,6 @@ class ArangoDBBackend(ApachetaInterface):
                 "entities": "entities",
             }
             return {
-                key: self._db.collection(table).count()
+                key: self._db.collection(self._map.collection_name(table)).count()
                 for table, key in key_map.items()
             }

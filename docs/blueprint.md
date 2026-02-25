@@ -167,7 +167,7 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-3226 files. 25 tensors (T0-T7, T9-T25; T8 intentionally unwritten),
+3225 files. 25 tensors (T0-T7, T9-T25; T8 intentionally unwritten),
 2993 scout reports, 207 scour reports, 30 compaction records
 (`docs/cairn/compaction/`). T0-T6 are now real files (symlinks replaced).
 T25 is "Three Kinds of Same" — the most recent tensor. T22 is "The

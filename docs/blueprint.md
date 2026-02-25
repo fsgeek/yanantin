@@ -3,7 +3,7 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: query pipeline implemented, 2026-02-24*
+*Last updated: activity-aware dispatch, blueprint sync, 2026-02-25*
 
 ## What Exists
 
@@ -25,7 +25,7 @@ The core. 33 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 | **storage_obfuscator.py** | 1 file | `StorageObfuscator` Protocol + `TransparentObfuscator` default. The contract that backends accept for label obfuscation. Pukara provides `SchemaMap` implementation; backends don't know about it. |
 | **rummage.py** | 1 file | Cairn search tool. Searches across tensors, scout reports, scour documents, compaction records. Structure-aware: can target strands, declared losses, open questions. CLI: `uv run python -m yanantin.apacheta.rummage "query"`. |
 
-**1491 tests** across 50 files. 78 red-bar (structural invariants, 8 files), 105 integration (ArangoDB live, 2 files), 1279 unit (40 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, collector pipeline (9 tests), activity stream red-bar (24 tests), and query pipeline (105 tests across 3 files).
+**1491 tests** across 50 files. 78 red-bar (structural invariants, 8 files), 105 integration (ArangoDB live, 2 files), 1243 unit (40 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, collector pipeline (9 tests), activity stream red-bar (24 tests), and query pipeline (105 tests across 3 files).
 
 ### Chasqui — Coordinator (code: `src/yanantin/chasqui/`)
 
@@ -167,8 +167,8 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-2775 files. 25 tensors (T0-T7, T9-T25; T8 intentionally unwritten),
-1000+ scout reports, 51+ scour reports, 12+ compaction records
+3226 files. 25 tensors (T0-T7, T9-T25; T8 intentionally unwritten),
+2993 scout reports, 207 scour reports, 30 compaction records
 (`docs/cairn/compaction/`). T0-T6 are now real files (symlinks replaced).
 T25 is "Three Kinds of Same" — the most recent tensor. T22 is "The
 Bridge Begins" — the Indaleko story, collector module, emergence

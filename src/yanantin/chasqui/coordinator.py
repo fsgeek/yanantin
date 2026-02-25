@@ -43,6 +43,76 @@ from yanantin.chasqui.scourer import VALID_SCOPES, format_scour_prompt
 logger = logging.getLogger(__name__)
 
 
+# ── Activity map ─────────────────────────────────────────────────────
+
+def _build_activity_map(project_root: Path) -> dict[str, datetime] | None:
+    """Query the activity stream for recently-observed file state.
+
+    Returns {relative_path: last_modified_datetime} from the DuckDB
+    activity store, or None if the store doesn't exist or imports fail.
+    Graceful degradation: this is additive signal, not required.
+    """
+    try:
+        from yanantin.collector.pipeline import open_store
+        from yanantin.query.engine import QueryEngine
+        from yanantin.query.models import QuerySpec
+    except ImportError:
+        return None
+
+    db_path = Path.home() / ".local" / "share" / "yanantin" / "activity.duckdb"
+    if not db_path.exists():
+        return None
+
+    try:
+        store = open_store("duckdb")
+        engine = QueryEngine(store)
+
+        # Query all facts — we want the full file inventory with timestamps.
+        spec = QuerySpec(limit=10000)
+        result = engine.execute(spec)
+    except Exception:
+        logger.debug("Activity map: failed to query DuckDB store", exc_info=True)
+        return None
+
+    activity_map: dict[str, datetime] = {}
+    for fact in result.facts:
+        data = fact.get("data", {})
+        path = data.get("path", "")
+        if not path:
+            continue
+
+        # Extract mtime from fact data timestamps
+        timestamps = data.get("timestamps", {})
+        mtime_str = timestamps.get("modified") or timestamps.get("mtime")
+        if mtime_str:
+            try:
+                mtime = datetime.fromisoformat(mtime_str)
+            except (ValueError, TypeError):
+                continue
+        else:
+            # Fall back to fact timestamp (collection time)
+            try:
+                mtime = datetime.fromisoformat(fact["timestamp"])
+            except (ValueError, TypeError, KeyError):
+                continue
+
+        # Make timezone-aware if naive
+        if mtime.tzinfo is None:
+            mtime = mtime.replace(tzinfo=timezone.utc)
+
+        # Convert to relative path
+        try:
+            rel = str(Path(path).relative_to(project_root))
+        except ValueError:
+            continue
+
+        # Keep the most recent observation per file
+        if rel not in activity_map or mtime > activity_map[rel]:
+            activity_map[rel] = mtime
+
+    return activity_map if activity_map else None
+
+
 # ── Configuration ────────────────────────────────────────────────────
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]  # src/yanantin/chasqui -> project root
@@ -401,6 +471,9 @@ async def dispatch_scout(
         from yanantin.chasqui.coverage import scan_cairn_coverage
         cov_map = scan_cairn_coverage(cairn_dir)
 
+    # Build activity map if DuckDB store exists — disk change signal
+    act_map = _build_activity_map(project_root)
+
     async with OpenRouterClient() as client:
         # 1. Get available models
         models_data = await client.list_models()
@@ -423,6 +496,7 @@ async def dispatch_scout(
             build_prompt_fn=lambda m: format_scout_prompt(
                 model=m, root=project_root, run_number=0,
                 coverage_map=cov_map,
+                activity_map=act_map,
             ),
             metadata_fn=lambda m: scout_metadata(m, 0),
             temperature=temperature,

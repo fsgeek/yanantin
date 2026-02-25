@@ -115,6 +115,7 @@ def select_files_for_scout(
     max_files: int = 8,
     max_lines_per_file: int = 150,
     coverage_map: dict | None = None,
+    activity_map: dict[str, datetime] | None = None,
 ) -> list[tuple[Path, str]]:
     """Select a sample of project files for the scout to read.
 
@@ -123,6 +124,11 @@ def select_files_for_scout(
     priority. Recently reviewed files still have some chance but lower
     weight. Without a coverage map, falls back to uniform random.
 
+    When activity_map is also provided, files recently modified on disk
+    get a recency boost on top of their coverage weight. Files changed
+    today get ~2x weight; files unchanged for 30+ days get no boost.
+    The coverage signal dominates — activity breaks ties.
+
     Args:
         root: Project root directory.
         max_files: Maximum number of files to select.
@@ -130,6 +136,9 @@ def select_files_for_scout(
         coverage_map: {relative_path: last_reviewed_datetime} from
             coverage.scan_cairn_coverage(). When provided, enables
             coverage-weighted selection.
+        activity_map: {relative_path: last_modified_datetime} from
+            the activity stream. When provided alongside coverage_map,
+            boosts recently-changed files.
 
     Returns (path, content) tuples.
     """
@@ -154,6 +163,23 @@ def select_files_for_scout(
     if coverage_map is not None and candidates:
         from yanantin.chasqui.coverage import coverage_weights
         weights = coverage_weights(candidates, coverage_map, root)
+
+        # Blend activity freshness: recently-changed files get a boost
+        if activity_map is not None:
+            now = datetime.now(timezone.utc)
+            for i, path in enumerate(candidates):
+                try:
+                    rel = str(path.relative_to(root))
+                except ValueError:
+                    continue
+                mtime = activity_map.get(rel)
+                if mtime is None:
+                    continue  # Unknown activity — no boost
+                activity_age_seconds = (now - mtime).total_seconds()
+                activity_age_days = activity_age_seconds / 86400
+                recency_boost = max(0.0, 1.0 - activity_age_days / 30)
+                weights[i] *= (1 + recency_boost)
+
         # random.choices with weights, then deduplicate
         # (choices can repeat, so oversample and deduplicate)
         seen: set[Path] = set()
@@ -188,16 +214,21 @@ def format_scout_prompt(
     root: Path,
     run_number: int = 1,
     coverage_map: dict | None = None,
+    activity_map: dict[str, datetime] | None = None,
 ) -> tuple[str, list[dict[str, str]]]:
     """Build the system prompt and messages for a scout dispatch.
 
     When coverage_map is provided, file selection is weighted by
     coverage freshness — unreviewed files get higher priority.
+    When activity_map is also provided, recently-changed files get
+    a boost in selection probability.
 
     Returns (system_prompt, messages) for the OpenRouter API.
     """
     file_tree = build_file_tree(root)
-    selected_files = select_files_for_scout(root, coverage_map=coverage_map)
+    selected_files = select_files_for_scout(
+        root, coverage_map=coverage_map, activity_map=activity_map,
+    )
 
     file_contents_parts = []
     for path, content in selected_files:

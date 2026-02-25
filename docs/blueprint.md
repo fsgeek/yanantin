@@ -3,7 +3,7 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: post-activity-stream red-bar tests, 2026-02-20*
+*Last updated: query pipeline implemented, 2026-02-24*
 
 ## What Exists
 
@@ -22,8 +22,10 @@ The core. 33 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 | **clients/** | 2 files | OpenRouter API client for cross-model communication. `ApachetaGatewayClient` — thin HTTP client implementing all 26 interface methods against Pukara. Fourth path to the interface. |
 | **content_address.py** | 1 file | SHA-256 content addressing for cairn documents. `content_hash()`, `ContentIndex` for duplicate detection, CLI dedup reporting. |
 | **config.py** | 1 file | Config-as-tensors. `ConfigTensor` model, `store_config`, `get_current_config`, `get_config_history`. Immutable configuration stored in Apacheta with correction-chain lineage. File defaults bootstrap; database overrides. |
+| **storage_obfuscator.py** | 1 file | `StorageObfuscator` Protocol + `TransparentObfuscator` default. The contract that backends accept for label obfuscation. Pukara provides `SchemaMap` implementation; backends don't know about it. |
+| **rummage.py** | 1 file | Cairn search tool. Searches across tensors, scout reports, scour documents, compaction records. Structure-aware: can target strands, declared losses, open questions. CLI: `uv run python -m yanantin.apacheta.rummage "query"`. |
 
-**1357 test functions** across 51 files. 65 red-bar (structural invariants, 7 files), 105 integration (ArangoDB live, 2 files), 1187 unit (38 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, collector pipeline (9 tests), and activity stream red-bar (24 tests).
+**1462 test functions** across 54 files. 78 red-bar (structural invariants, 8 files), 105 integration (ArangoDB live, 2 files), 1279 unit (40 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, collector pipeline (9 tests), activity stream red-bar (24 tests), and query pipeline (105 tests across 3 files).
 
 ### Chasqui — Coordinator (code: `src/yanantin/chasqui/`)
 
@@ -93,6 +95,20 @@ Three-stage lifecycle: **Anchor** (immutable cursor) → **View** (ephemeral
 resolution, never cached) → **Tensor** (frozen/pinned view, authored act).
 Late-binding materialization: new providers retroactively enrich old anchors.
 
+### Query — Activity Stream Query Pipeline (code: `src/yanantin/query/`)
+
+Structured queries against any ActivityStreamStore. 5 source files.
+
+| File | What it does |
+|------|-------------|
+| `models.py` | `ContentFilter` (strict), `QuerySpec`, `QuerySummary`, `QueryResult` (extensible). All frozen. Schema policy: ContentFilter uses extra="forbid" (small fixed shape); everything else uses extra="allow" (evolving interfaces). |
+| `engine.py` | `QueryEngine` — executes QuerySpec against any store. Content filtering in Python via dotpath resolution and fnmatch. Declared loss: no AQL/SQL pushdown yet — works at test scale, falls over at 28.5M facts. |
+| `recorder.py` | `QueryFactRecorder` — records queries as facts (reflexivity). Deterministic `QUERY_PROVIDER_ID` via uuid5. NOT a FactRecorderBase subclass — no collector pipeline involved. |
+| `__main__.py` | CLI: `uv run python -m yanantin.query --store {memory,duckdb,arango} --stats\|--providers\|--search VALUE --field PATH [--glob] [--summarize] [--record]` |
+
+Queries are activity data. Recording them enables cross-instance pattern
+detection ("every new instance asks about the signing key first").
+
 ### Collector — Data Pipeline (code: `src/yanantin/collector/`)
 
 The bridge to human-side data. Collector/wrangler/recorder pattern from
@@ -112,20 +128,23 @@ Indaleko's 8-year evolution. First concrete implementation: machine config.
 
 ### Pukara — Fortress Gateway (separate project: `/home/tony/projects/pukara/`)
 
-FastAPI wrapping ApachetaInterface over HTTP. 39 endpoints.
+FastAPI wrapping ApachetaInterface over HTTP. The trust boundary — all
+production writes to ArangoDB go through here. 39 endpoints.
 
 | Layer | What it does |
 |-------|-------------|
-| `app.py` | Application factory, lifespan (ArangoDB backend), exception handlers, audit middleware |
-| `config.py` | INI + env var config. Credentials in `config/pukara.ini` (gitignored). |
+| `app.py` | Application factory, lifespan (ArangoDB backend with SchemaMap obfuscation), exception handlers, audit middleware |
+| `config.py` | INI + env var config. `[security]` section holds `storage_key`. Credentials in `config/pukara.ini` (gitignored). Env var: `PUKARA_STORAGE_KEY`. |
+| `schema_map.py` | `SchemaMap` — UUID5-derived opaque identifiers for collection and field names. Per-deployment isolation via namespace UUID. Satisfies yanantin's `StorageObfuscator` Protocol. The adversary is the database provider; obfuscation lives here, not in the library. |
 | `auth.py` | API key authentication. Empty key = dev mode. |
-| `decoder.py` | DecoderRing — UUID obfuscation. V1 = pass-through. |
+| `deps.py` | Dependency injection: `get_backend()`. |
 | `routes/store.py` | 8 POST endpoints (one per record type) |
 | `routes/read.py` | 4 GET endpoints (list, get tensor, get strand, get entity) |
 | `routes/query.py` | 20 GET query endpoints across 7 categories |
 | `routes/meta.py` | health, version, counts |
 
-Depends on yanantin via path (editable). **150 tests** across 2 files.
+Depends on yanantin via path (editable). **170 tests** across 4 files
+(gateway, gateway independent, schema map, data opacity).
 
 ### Willay — Epistemic Receipts (separate project: `/home/tony/projects/willay/`)
 
@@ -148,14 +167,16 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-1010+ files. 24 tensors (T0-T7, T9-T24; T8 intentionally unwritten),
+2775 files. 25 tensors (T0-T7, T9-T25; T8 intentionally unwritten),
 1000+ scout reports, 51+ scour reports, 12+ compaction records
 (`docs/cairn/compaction/`). T0-T6 are now real files (symlinks replaced).
-T22 is "The Bridge Begins" — the Indaleko story, collector module,
-emergence conversation, and the Gemini khipu. Legacy `conversation_tensor_*`
-duplicates removed — T*_*.md is the canonical naming. The cairn is
-persistence — files on disk, in git, re-ingestible by the markdown parser.
-Content addressing (`content_address.py`) prevents future duplicates.
+T25 is "Three Kinds of Same" — the most recent tensor. T22 is "The
+Bridge Begins" — the Indaleko story, collector module, emergence
+conversation. Legacy `conversation_tensor_*` duplicates removed —
+T*_*.md is the canonical naming. The cairn is persistence — files on
+disk, in git, re-ingestible by the markdown parser. Content addressing
+(`content_address.py`) prevents future duplicates. Rummage
+(`rummage.py`) provides structure-aware search across the cairn.
 
 ### Infrastructure — Hooks and Heartbeat (`.claude/hooks/`)
 
@@ -179,12 +200,14 @@ bootstrap the system before a database is available; database configs override.
 Agent
   ↓ (uses ApachetaGatewayClient)
 ApachetaInterface (abstract)
-  ↓ (HTTP — the security boundary)
-Pukara (gateway)
-  ↓ (Python import — path dependency)
-ApachetaInterface (abstract)
-  ↓ (one of three local backends)
-InMemoryBackend | DuckDBBackend | ArangoDBBackend
+  ↓ (HTTP — the trust boundary)
+Pukara (gateway + SchemaMap obfuscation)
+  ↓ (obfuscator= StorageObfuscator Protocol)
+ArangoDBBackend (opaque labels in database)
+
+Local testing (no fortress):
+InMemoryBackend | DuckDBBackend (semantic labels, no obfuscation)
+ArangoDBBackend + TransparentObfuscator (semantic labels, for dev)
 
 Chasqui (coordinator)
   ↓ (OpenRouter API)
@@ -212,6 +235,12 @@ MemoryAnchorService → MemoryAnchor → ActivityStreamStore
   ↓ (freeze = authored act)
 materialize(handle) → AnchorView → freeze() → TensorRecord → ApachetaInterface
 
+Query Pipeline (structured queries)
+  ↓ (QueryEngine against any ActivityStreamStore)
+ActivityStreamStore → ContentFilter (Python-side) → QueryResult
+  ↓ (reflexive recording)
+QueryFactRecorder → FactRecord → ActivityStreamStore (queries are facts)
+
 Willay (receipts)
   ↓ (uses ApachetaGatewayClient)
 Pukara → ArangoDB
@@ -220,13 +249,19 @@ ReceiptRecord → TensorRecord
 ```
 
 Four paths to the interface: three local backends plus
-`ApachetaGatewayClient` over HTTP to Pukara. The road to the fortress
-is built. Awaq provides the composition graph; Chasqui provides the
-epistemic diversity. The collector pipeline brings human-side data
-(starting with machine config) into the tensor store. Willay stores
-receipts through Pukara as tensors. The activity stream stores facts
-(raw observations) separately from tensors (authored compressions),
-with the anchor service bridging the two stores.
+`ApachetaGatewayClient` over HTTP to Pukara. Production writes go
+through Pukara, which applies SchemaMap obfuscation — the adversary is
+the database provider. Backends accept a `StorageObfuscator` Protocol
+(`obfuscator=` parameter); Pukara provides `SchemaMap`, local testing
+uses `TransparentObfuscator` (identity mapping). DuckDB backends have
+no obfuscation at all — local storage on a trusted device.
+
+Awaq provides the composition graph; Chasqui provides the epistemic
+diversity. The collector pipeline brings human-side data (starting with
+machine config) into the tensor store. Willay stores receipts through
+Pukara as tensors. The activity stream stores facts (raw observations)
+separately from tensors (authored compressions), with the anchor
+service bridging the two stores.
 
 ## What Doesn't Exist
 
@@ -238,7 +273,8 @@ with the anchor service bridging the two stores.
 | **Cantor/Weaver** | Concept (Awaq is step 1) | Curate corpus, create composition edges. Awaq provides deterministic extraction; LLM-guided curation is the next layer. |
 | **Choquequirao** | Name only | Archive and provenance. Buried things being excavated. No code, no design. |
 | **Takiq** | Name only | Singer role — carries the greeting. No implementation. |
-| **DecoderRing v2** | Placeholder | UUID obfuscation is pass-through. Real obfuscation undesigned. |
+| **Query pushdown** | Declared loss | Python-side content filtering works at test/small scale. AQL/SQL pushdown needed for Indaleko-scale data (28.5M facts). The engine is correct but slow. |
+| **NL query parsing** | Not started | Natural language → QuerySpec. The query engine accepts structured input; something upstream needs to produce it from human/LLM questions. |
 
 ## Roles
 
@@ -257,7 +293,7 @@ The context budget is finite. Here's the priority:
 1. **CLAUDE.md** — loaded automatically. Social norms, operational principles.
 2. **This blueprint** — where everything is and how it connects.
 3. **MEMORY.md** — loaded automatically. Credentials, signing, operational state.
-4. **The most recent tensor** (T₂₄) — "The Frozen Lake": the first real freeze, coverage blind spots, observation-to-artifact ratio, the system developing self-awareness. Or (T₂₂) — "The Bridge Begins": the Indaleko story, collector module, emergence conversation, cross-model convergence.
+4. **The most recent tensor** (T₂₅) — "Three Kinds of Same". Or (T₂₄) — "The Frozen Lake": the first real freeze, coverage blind spots, observation-to-artifact ratio. Or (T₂₂) — "The Bridge Begins": the Indaleko story, collector module, emergence conversation.
 5. **One founding tensor** — read ONE of T0-T6 (now real files, not symlinks). Each gives a different perspective. T₀ = the experiment; T₁ = the architecture; T₂ = calibration and failure; T₃ = the finishing school; T₄ = RCS observer (ChatGPT); T₅ = the correction (ChatGPT); T₆ = the bridge. Let the composition graph diversify.
 6. **docs/apacheta.md** — the design document for the tensor database.
 7. **Sibling projects** — Willay (`/home/tony/projects/willay/CLAUDE.md`) has its own cairn and memory bridge. Pukara is the gateway.

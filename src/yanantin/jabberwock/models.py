@@ -120,6 +120,14 @@ class Tove(BaseModel):
             )
         return self
 
+    @model_validator(mode="after")
+    def _reject_empty_strings(self) -> Self:
+        if not self.wabe.strip():
+            raise ValueError("Tove.wabe must be non-empty (got empty or whitespace-only string)")
+        if not self.gimble.strip():
+            raise ValueError("Tove.gimble must be non-empty (got empty or whitespace-only string)")
+        return self
+
 
 # -- Membership edge -------------------------------------------------------
 
@@ -187,6 +195,12 @@ class Vorpal(BaseModel):
     @model_validator(mode="after")
     def _normalize_timestamps(self) -> Self:
         object.__setattr__(self, "brillig", _ensure_utc(self.brillig))
+        return self
+
+    @model_validator(mode="after")
+    def _reject_empty_tulgey(self) -> Self:
+        if not self.tulgey.strip():
+            raise ValueError("Vorpal.tulgey must be non-empty (got empty or whitespace-only string)")
         return self
 
 

@@ -240,24 +240,45 @@ class Brillig:
         Queries all Toves, Vorpals, and Raths for the given entity,
         folds them into a Frabjous. Raises NotFoundError if the
         Jabberwock entity doesn't exist.
+
+        Claim Vorpals (tulgey="claim") are structural linking events,
+        not observations about the entity. They are excluded from the
+        vorpals tuple but their IDs are kept in evidence_ids (proof
+        envelope). The count of excluded claims is tracked in
+        excluded_count.
+
+        All collections are sorted by brillig descending (newest first)
+        so consumers can take the first observation of a given tulgey
+        as the most recent without inspecting timestamps.
         """
         jabberwock = self._load_jabberwock(jabberwock_id)
 
         entity_toves = [t for t in self._load_all(Tove) if t.jabberwock_id == jabberwock_id]
-        entity_vorpals = [v for v in self._load_all(Vorpal) if v.jabberwock_id == jabberwock_id]
+        all_entity_vorpals = [v for v in self._load_all(Vorpal) if v.jabberwock_id == jabberwock_id]
         entity_raths = [r for r in self._load_all(Rath) if r.jabberwock_id == jabberwock_id]
 
+        # Separate claim events from observation vorpals
+        claim_vorpals = [v for v in all_entity_vorpals if v.tulgey == "claim"]
+        observation_vorpals = [v for v in all_entity_vorpals if v.tulgey != "claim"]
+
+        # Sort by brillig descending (newest first)
+        entity_toves.sort(key=lambda t: t.brillig, reverse=True)
+        observation_vorpals.sort(key=lambda v: v.brillig, reverse=True)
+        entity_raths.sort(key=lambda r: r.brillig, reverse=True)
+
+        # Evidence includes ALL events (including claims -- proof envelope)
         evidence: list[UUID] = [jabberwock.id]
         evidence.extend(t.id for t in entity_toves)
-        evidence.extend(v.id for v in entity_vorpals)
+        evidence.extend(v.id for v in all_entity_vorpals)
         evidence.extend(r.id for r in entity_raths)
 
         return Frabjous(
             jabberwock=jabberwock,
             toves=tuple(entity_toves),
-            vorpals=tuple(entity_vorpals),
+            vorpals=tuple(observation_vorpals),
             raths=tuple(entity_raths),
             evidence_ids=tuple(evidence),
+            excluded_count=len(claim_vorpals),
             callooh=datetime.now(timezone.utc),
         )
 
@@ -267,9 +288,24 @@ class Brillig:
         """Show everything we noticed but couldn't attach to anyone.
 
         The still-walking observations. Data, not error.
-        Returns all Vorpals where jabberwock_id is None.
+        Returns all Vorpals where jabberwock_id is None, excluding
+        any mome records that have been claimed (connected to an entity
+        via a claim event).
         """
-        return [v for v in self._load_all(Vorpal) if v.jabberwock_id is None]
+        all_vorpals = self._load_all(Vorpal)
+
+        # Collect record_ids from claim events to exclude claimed momes
+        claimed_record_ids: set[str] = set()
+        for v in all_vorpals:
+            if v.tulgey == "claim" and isinstance(v.snicker_snack, dict):
+                rid = v.snicker_snack.get("record_id")
+                if rid is not None:
+                    claimed_record_ids.add(str(rid))
+
+        return [
+            v for v in all_vorpals
+            if v.jabberwock_id is None and str(v.id) not in claimed_record_ids
+        ]
 
     def claim_mome(
         self,

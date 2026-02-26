@@ -371,23 +371,34 @@ class TestClaimMome:
         assert claim.snicker_snack["record_id"] == str(mome_vorpal.id)
 
     def test_claim_mome_does_not_mutate_original(self, bootstrapped: Brillig):
-        """The original mome vorpal must remain unchanged after claim."""
+        """The original mome vorpal record is unchanged, but excluded from mome_vorpals().
+
+        Event sourcing: the original record persists with jabberwock_id=None.
+        But mome_vorpals() now filters claimed records -- a claimed mome is
+        no longer "still walking." The record is immutable; the view is not.
+        """
         mome_vorpal = bootstrapped.outgrabe(None, "behavioral", "prefers tabs")
         original_id = mome_vorpal.id
         entity = bootstrapped.beamish()
 
         bootstrapped.claim_mome(mome_vorpal.id, entity.id)
 
-        # The original mome should still be in the mome list
+        # The claimed mome should NOT appear in the unresolved list
         momes = bootstrapped.mome_vorpals()
-        original_still_mome = [m for m in momes if m.id == original_id]
-        assert len(original_still_mome) == 1, (
-            "Original mome vorpal must remain unchanged after claim_mome"
+        mome_ids = {m.id for m in momes}
+        assert original_id not in mome_ids, (
+            "Claimed mome must be excluded from mome_vorpals() -- "
+            "it is no longer unresolved"
         )
-        assert original_still_mome[0].jabberwock_id is None
 
     def test_mome_lifecycle(self, bootstrapped: Brillig):
-        """Full lifecycle: create mome -> claim -> verify both exist."""
+        """Full lifecycle: create mome -> claim -> mome disappears from unresolved.
+
+        After claim, three things are true:
+        1. The mome is excluded from mome_vorpals() (no longer unresolved).
+        2. The claim event is in evidence_ids (proof envelope).
+        3. The claim event is NOT in vorpals (structural, not observation).
+        """
         # 1. Create a mome observation
         mome = bootstrapped.outgrabe(None, "behavioral", "uses emacs")
         assert mome.jabberwock_id is None
@@ -398,16 +409,156 @@ class TestClaimMome:
         # 3. Claim the mome
         claim = bootstrapped.claim_mome(mome.id, entity.id)
 
-        # 4. Verify: original mome still exists and is still mome
+        # 4. Verify: claimed mome is excluded from the unresolved list
         momes = bootstrapped.mome_vorpals()
-        original_ids = {m.id for m in momes}
-        assert mome.id in original_ids
+        mome_ids = {m.id for m in momes}
+        assert mome.id not in mome_ids, (
+            "Claimed mome must not appear in mome_vorpals()"
+        )
 
-        # 5. Verify: claim event exists in entity's view
+        # 5. Verify: claim event is in evidence but NOT in vorpals
         view = bootstrapped.uffish(entity.id)
-        claim_vorpals = [v for v in view.vorpals if v.tulgey == "claim"]
-        assert len(claim_vorpals) == 1
-        assert claim_vorpals[0].id == claim.id
+        assert claim.id in set(view.evidence_ids), (
+            "Claim event must be in evidence_ids (proof envelope)"
+        )
+        claim_in_vorpals = [v for v in view.vorpals if v.tulgey == "claim"]
+        assert len(claim_in_vorpals) == 0, (
+            "Claim events must be filtered from vorpals tuple"
+        )
+
+
+class TestMomeVorpalsExclusion:
+    """Tests that mome_vorpals() correctly excludes claimed records."""
+
+    def test_mome_vorpals_excludes_claimed(self, bootstrapped: Brillig):
+        """After claim_mome, the mome Vorpal must not appear in mome_vorpals()."""
+        mome = bootstrapped.outgrabe(None, "behavioral", "loves cats")
+        entity = bootstrapped.beamish()
+
+        # Before claim: mome is in the unresolved list
+        momes_before = bootstrapped.mome_vorpals()
+        assert mome.id in {m.id for m in momes_before}
+
+        # Claim it
+        bootstrapped.claim_mome(mome.id, entity.id)
+
+        # After claim: mome is excluded
+        momes_after = bootstrapped.mome_vorpals()
+        assert mome.id not in {m.id for m in momes_after}, (
+            "Claimed mome must be excluded from mome_vorpals()"
+        )
+
+    def test_mome_vorpals_still_returns_unclaimed(self, bootstrapped: Brillig):
+        """Unclaimed momes must still appear after a different mome is claimed.
+
+        Regression guard: claiming one mome must not suppress others.
+        """
+        mome_a = bootstrapped.outgrabe(None, "behavioral", "prefers spaces")
+        mome_b = bootstrapped.outgrabe(None, "behavioral", "prefers tabs")
+        entity = bootstrapped.beamish()
+
+        # Claim only mome_a
+        bootstrapped.claim_mome(mome_a.id, entity.id)
+
+        momes = bootstrapped.mome_vorpals()
+        mome_ids = {m.id for m in momes}
+        assert mome_a.id not in mome_ids, "Claimed mome_a must be excluded"
+        assert mome_b.id in mome_ids, "Unclaimed mome_b must still appear"
+
+
+class TestUffishClaimFiltering:
+    """Tests that uffish() filters claim Vorpals from the vorpals tuple."""
+
+    def test_uffish_excludes_claim_vorpals(self, bootstrapped: Brillig):
+        """Claim Vorpals (tulgey='claim') must NOT appear in Frabjous.vorpals."""
+        mome = bootstrapped.outgrabe(None, "behavioral", "night owl")
+        entity = bootstrapped.beamish()
+        bootstrapped.claim_mome(mome.id, entity.id)
+
+        view = bootstrapped.uffish(entity.id)
+        claim_in_vorpals = [v for v in view.vorpals if v.tulgey == "claim"]
+        assert len(claim_in_vorpals) == 0, (
+            "Claim events are structural, not observations -- "
+            "they must not appear in vorpals"
+        )
+
+    def test_uffish_claim_in_evidence_ids(self, bootstrapped: Brillig):
+        """Claim events must be in evidence_ids (proof envelope)."""
+        mome = bootstrapped.outgrabe(None, "behavioral", "morning person")
+        entity = bootstrapped.beamish()
+        claim = bootstrapped.claim_mome(mome.id, entity.id)
+
+        view = bootstrapped.uffish(entity.id)
+        assert claim.id in set(view.evidence_ids), (
+            "Claim event ID must be in evidence_ids for provenance"
+        )
+
+    def test_uffish_excluded_count_tracks_claims(self, bootstrapped: Brillig):
+        """excluded_count must reflect the number of filtered claim events."""
+        entity = bootstrapped.beamish()
+
+        # No claims yet
+        view_before = bootstrapped.uffish(entity.id)
+        assert view_before.excluded_count == 0
+
+        # Create two momes and claim them both to this entity
+        mome_a = bootstrapped.outgrabe(None, "behavioral", "uses dvorak")
+        mome_b = bootstrapped.outgrabe(None, "behavioral", "uses qwerty")
+        bootstrapped.claim_mome(mome_a.id, entity.id)
+        bootstrapped.claim_mome(mome_b.id, entity.id)
+
+        view_after = bootstrapped.uffish(entity.id)
+        assert view_after.excluded_count == 2, (
+            "Two claim events were created -- excluded_count must be 2"
+        )
+
+
+class TestFrabjousSortOrder:
+    """Tests that Frabjous collections are sorted by brillig descending."""
+
+    def test_vorpals_sorted_newest_first(self, bootstrapped: Brillig):
+        """Frabjous.vorpals must be sorted by brillig descending (newest first)."""
+        import time
+
+        entity = bootstrapped.beamish()
+        # Create observations with small delays to ensure distinct timestamps
+        bootstrapped.outgrabe(entity.id, "species", "person")
+        time.sleep(0.01)
+        bootstrapped.outgrabe(entity.id, "teaching", "CPSC 436c")
+        time.sleep(0.01)
+        bootstrapped.outgrabe(entity.id, "office", "ICICS 389")
+
+        view = bootstrapped.uffish(entity.id)
+        assert len(view.vorpals) == 3
+
+        # Verify descending order by brillig
+        timestamps = [v.brillig for v in view.vorpals]
+        for i in range(len(timestamps) - 1):
+            assert timestamps[i] >= timestamps[i + 1], (
+                f"vorpals[{i}].brillig ({timestamps[i]}) must be >= "
+                f"vorpals[{i + 1}].brillig ({timestamps[i + 1]})"
+            )
+
+    def test_toves_sorted_newest_first(self, bootstrapped: Brillig):
+        """Frabjous.toves must be sorted by brillig descending (newest first)."""
+        import time
+
+        entity = bootstrapped.beamish()
+        bootstrapped.slithy(entity.id, "github", "fsgeek")
+        time.sleep(0.01)
+        bootstrapped.slithy(entity.id, "canvas", "592760")
+        time.sleep(0.01)
+        bootstrapped.slithy(entity.id, "email", "tony@example.com")
+
+        view = bootstrapped.uffish(entity.id)
+        assert len(view.toves) == 3
+
+        timestamps = [t.brillig for t in view.toves]
+        for i in range(len(timestamps) - 1):
+            assert timestamps[i] >= timestamps[i + 1], (
+                f"toves[{i}].brillig ({timestamps[i]}) must be >= "
+                f"toves[{i + 1}].brillig ({timestamps[i + 1]})"
+            )
 
 
 # -- Group traversal (whiffling, add_rath) ---------------------------------

@@ -94,6 +94,52 @@ def test_root_bandersnatch_is_uuid5():
     )
 
 
+# -- Empty string validation (poisonous namespaces / categories) -----------
+
+
+def test_tove_rejects_empty_wabe():
+    """Tove.wabe must reject empty strings -- empty namespaces are poisonous.
+
+    An empty wabe means "no namespace." Toves without a namespace cannot
+    be looked up, cannot be normalized, and silently corrupt resolution.
+    This is a structural invariant, not a cosmetic preference.
+    """
+    from datetime import datetime, timezone
+
+    from yanantin.jabberwock.models import Tove
+
+    with pytest.raises(ValidationError, match="wabe.*non-empty"):
+        Tove(
+            wabe="",
+            gimble="fsgeek",
+            gyre_from=datetime.now(timezone.utc),
+            bandersnatch="00000000-0000-0000-0000-000000000001",
+            brillig=datetime.now(timezone.utc),
+        )
+
+
+def test_vorpal_rejects_empty_tulgey():
+    """Vorpal.tulgey must reject empty strings -- uncategorized observations are useless.
+
+    An empty tulgey means "no category." Vorpals are filed by tulgey --
+    species, claim, behavioral, teaching. An empty string matches nothing
+    intentional and everything accidental. Structural poison.
+    """
+    from datetime import datetime, timezone
+    from uuid import uuid4
+
+    from yanantin.jabberwock.models import Vorpal
+
+    with pytest.raises(ValidationError, match="tulgey.*non-empty"):
+        Vorpal(
+            jabberwock_id=uuid4(),
+            tulgey="",
+            snicker_snack="person",
+            bandersnatch="00000000-0000-0000-0000-000000000001",
+            brillig=datetime.now(timezone.utc),
+        )
+
+
 # -- Models enforce frozen (immutability) ----------------------------------
 
 

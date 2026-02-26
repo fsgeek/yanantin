@@ -197,6 +197,39 @@ class TestTove:
         )
         assert t.gyre_to == t.gyre_from
 
+    def test_empty_wabe_rejected(self):
+        """Tove.wabe must be non-empty -- empty namespaces are poisonous."""
+        with pytest.raises(ValidationError, match="wabe.*non-empty"):
+            Tove(
+                wabe="",
+                gimble="fsgeek",
+                gyre_from=NOW,
+                bandersnatch=PROVIDER,
+                brillig=NOW,
+            )
+
+    def test_empty_gimble_rejected(self):
+        """Tove.gimble must be non-empty -- identifiers require content."""
+        with pytest.raises(ValidationError, match="gimble.*non-empty"):
+            Tove(
+                wabe="github",
+                gimble="",
+                gyre_from=NOW,
+                bandersnatch=PROVIDER,
+                brillig=NOW,
+            )
+
+    def test_whitespace_only_wabe_rejected(self):
+        """Whitespace-only wabe is functionally empty and must be rejected."""
+        with pytest.raises(ValidationError, match="wabe.*non-empty"):
+            Tove(
+                wabe="   ",
+                gimble="fsgeek",
+                gyre_from=NOW,
+                bandersnatch=PROVIDER,
+                brillig=NOW,
+            )
+
 
 # -- Vorpal (Observation) --------------------------------------------------
 
@@ -288,6 +321,28 @@ class TestVorpal:
                 snicker_snack="person",
                 bandersnatch=PROVIDER,
                 brillig=naive,
+            )
+
+    def test_empty_tulgey_rejected(self):
+        """Vorpal.tulgey must be non-empty -- observations need a category."""
+        with pytest.raises(ValidationError, match="tulgey.*non-empty"):
+            Vorpal(
+                jabberwock_id=uuid4(),
+                tulgey="",
+                snicker_snack="person",
+                bandersnatch=PROVIDER,
+                brillig=NOW,
+            )
+
+    def test_whitespace_only_tulgey_rejected(self):
+        """Whitespace-only tulgey is functionally empty and must be rejected."""
+        with pytest.raises(ValidationError, match="tulgey.*non-empty"):
+            Vorpal(
+                jabberwock_id=uuid4(),
+                tulgey="   \t  ",
+                snicker_snack="person",
+                bandersnatch=PROVIDER,
+                brillig=NOW,
             )
 
 

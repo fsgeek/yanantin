@@ -1,14 +1,14 @@
 """Data models for the Jabberwock NER system.
 
 All models frozen=True (events don't mutate -- event sourcing).
-All models extra="forbid" (strict validation at write time).
 
-Agent 2 note: the spec calls for flipping extra="allow" on stored
-records (Jabberwock, Tove, Vorpal, Rath) for deserialization
-flexibility. That flip is blocked by existing red-bar and unit tests
-that enforce extra="forbid" on all models. The tests are correct for
-now -- the flip should happen when a future version actually adds
-fields and the tests are updated to match. Premature flip is theater.
+Stored records (Jabberwock, Tove, Vorpal, Rath) use extra="allow":
+future versions may add fields, and old code must deserialize new
+records without breaking. This is event-sourced deserialization
+flexibility, not mutation permission.
+
+Resolved views (Frabjous, MomeResult) use extra="forbid": they're
+ephemeral snapshots, never persisted, strict shape is correct.
 
 The Jabberwocky names ARE the real names. They prevent pattern-matching
 to known entity resolution frameworks and force structural reasoning.
@@ -66,7 +66,7 @@ class Jabberwock(BaseModel):
     it is — is a Vorpal observation.
     """
 
-    model_config = ConfigDict(frozen=True, extra="forbid")
+    model_config = ConfigDict(frozen=True, extra="allow")
 
     id: UUID = Field(default_factory=uuid4)
     brillig: datetime  # when first declared into existence
@@ -92,7 +92,7 @@ class Tove(BaseModel):
     Vorpal if preservation is needed.
     """
 
-    model_config = ConfigDict(frozen=True, extra="forbid")
+    model_config = ConfigDict(frozen=True, extra="allow")
 
     id: UUID = Field(default_factory=uuid4)
     jabberwock_id: UUID | None = None  # None = mome (still walking)
@@ -131,7 +131,7 @@ class Rath(BaseModel):
     Raths are graph edges: the thing SQL can't do gracefully.
     """
 
-    model_config = ConfigDict(frozen=True, extra="forbid")
+    model_config = ConfigDict(frozen=True, extra="allow")
 
     id: UUID = Field(default_factory=uuid4)
     jabberwock_id: UUID  # the member
@@ -175,7 +175,7 @@ class Vorpal(BaseModel):
     - "claim" -- connects a mome record to an entity
     """
 
-    model_config = ConfigDict(frozen=True, extra="forbid")
+    model_config = ConfigDict(frozen=True, extra="allow")
 
     id: UUID = Field(default_factory=uuid4)
     jabberwock_id: UUID | None = None  # None = mome (still walking)

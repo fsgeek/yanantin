@@ -3,7 +3,7 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: activity-aware dispatch, blueprint sync, 2026-02-25*
+*Last updated: Jabberwock module built, blueprint sync, 2026-02-25*
 
 ## What Exists
 
@@ -25,7 +25,7 @@ The core. 33 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 | **storage_obfuscator.py** | 1 file | `StorageObfuscator` Protocol + `TransparentObfuscator` default. The contract that backends accept for label obfuscation. Pukara provides `SchemaMap` implementation; backends don't know about it. |
 | **rummage.py** | 1 file | Cairn search tool. Searches across tensors, scout reports, scour documents, compaction records. Structure-aware: can target strands, declared losses, open questions. CLI: `uv run python -m yanantin.apacheta.rummage "query"`. |
 
-**1491 tests** across 50 files. 78 red-bar (structural invariants, 8 files), 105 integration (ArangoDB live, 2 files), 1243 unit (40 files). Parametrized tests expand beyond that count. Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, collector pipeline (9 tests), activity stream red-bar (24 tests), and query pipeline (105 tests across 3 files).
+**1548 tests** (def count) across 54 files, 1620 pytest-collected (parametrized expansion). 88 red-bar (structural invariants, 9 files), 105 integration (ArangoDB live, 2 files), 1355 unit (43 files). Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, collector pipeline (9 tests), activity stream red-bar (24 tests), query pipeline (105 tests across 3 files), and Jabberwock NER (130 tests across 4 files).
 
 ### Chasqui — Coordinator (code: `src/yanantin/chasqui/`)
 
@@ -109,6 +109,28 @@ Structured queries against any ActivityStreamStore. 5 source files.
 Queries are activity data. Recording them enables cross-instance pattern
 detection ("every new instance asks about the signing key first").
 
+### Jabberwock — Named Entity Resolution (code: `src/yanantin/jabberwock/`)
+
+The foreign body in the naming system. Every other module has a Quechua
+name; this one is Victorian nonsense poetry. The Jabberwocky names are
+structural defense against RLHF pattern-matching to known NER frameworks.
+4 source files.
+
+| File | What it does |
+|------|-------------|
+| `models.py` | 6 data models: `Jabberwock` (entity — 3 fields), `Tove` (alias with namespace normalization), `Vorpal` (observation — mome-capable), `Rath` (membership edge), `Frabjous` (resolved view with proof envelope), `MomeResult` (partial resolution). All `frozen=True`. Stored records `extra="forbid"` (flip to `"allow"` deferred until future fields exist). Deterministic provider UUIDs via uuid5. |
+| `brillig.py` | `Brillig` service: `bootstrap()` (self-referential root), `beamish()` (create entity), `outgrabe()` (observe), `slithy()` (alias with normalization), `galumph()` (resolve by alias → Frabjous or MomeResult), `uffish()` (materialize by UUID), `mome_vorpals()` (unresolved observations), `claim_mome()` (new event linking mome → entity), `whiffling()` (traverse group members), `add_rath()` (membership edge). All records stored as FactRecords in ActivityStreamStore. |
+| `normalize.py` | Per-wabe namespace normalization. Default: lowercase, strip, NFKC. Case-sensitive wabes for filesystem-linux, sha256, etc. Custom normalizers via `register_normalizer()`. |
+| `__init__.py` | Package init, 13 public exports. |
+
+Event-sourced: records are immutable events, Frabjous is a fold.
+Entities are near-empty UUIDs; identity is observational (Vorpals).
+Mome = unresolved observations, data not error. Bandersnatch (provider)
+IS a Jabberwock — provenance is composable. Spec: `docs/jabberwock-spec.md`.
+
+Declared loss: Python-side joins for all resolution. No AQL pushdown,
+no Tumtum index layers. Falls over at Indaleko scale.
+
 ### Collector — Data Pipeline (code: `src/yanantin/collector/`)
 
 The bridge to human-side data. Collector/wrangler/recorder pattern from
@@ -167,16 +189,17 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-3225 files. 25 tensors (T0-T7, T9-T25; T8 intentionally unwritten),
-2993 scout reports, 207 scour reports, 30 compaction records
+3337 files. 26 tensors (T0-T7, T9-T26; T8 intentionally unwritten),
+3000+ scout reports, 200+ scour reports, 30+ compaction records
 (`docs/cairn/compaction/`). T0-T6 are now real files (symlinks replaced).
-T25 is "Three Kinds of Same" — the most recent tensor. T22 is "The
-Bridge Begins" — the Indaleko story, collector module, emergence
-conversation. Legacy `conversation_tensor_*` duplicates removed —
-T*_*.md is the canonical naming. The cairn is persistence — files on
-disk, in git, re-ingestible by the markdown parser. Content addressing
-(`content_address.py`) prevents future duplicates. Rummage
-(`rummage.py`) provides structure-aware search across the cairn.
+T26 is "The Jabberwock" — NER spec design and cross-model review.
+T25 is "Three Kinds of Same". T22 is "The Bridge Begins" — the Indaleko
+story, collector module, emergence conversation. Legacy
+`conversation_tensor_*` duplicates removed — T*_*.md is the canonical
+naming. The cairn is persistence — files on disk, in git, re-ingestible
+by the markdown parser. Content addressing (`content_address.py`)
+prevents future duplicates. Rummage (`rummage.py`) provides
+structure-aware search across the cairn.
 
 ### Infrastructure — Hooks and Heartbeat (`.claude/hooks/`)
 
@@ -241,6 +264,14 @@ ActivityStreamStore → ContentFilter (Python-side) → QueryResult
   ↓ (reflexive recording)
 QueryFactRecorder → FactRecord → ActivityStreamStore (queries are facts)
 
+Jabberwock (NER)
+  ↓ (Brillig service)
+outgrabe/slithy/add_rath → FactRecord → ActivityStreamStore
+  ↓ (resolution)
+galumph/uffish → query ActivityStreamStore → fold into Frabjous
+  ↓ (provenance)
+Bandersnatch (provider) IS a Jabberwock — composable provenance chain
+
 Willay (receipts)
   ↓ (uses ApachetaGatewayClient)
 Pukara → ArangoDB
@@ -273,6 +304,7 @@ service bridging the two stores.
 | **Cantor/Weaver** | Concept (Awaq is step 1) | Curate corpus, create composition edges. Awaq provides deterministic extraction; LLM-guided curation is the next layer. |
 | **Choquequirao** | Name only | Archive and provenance. Buried things being excavated. No code, no design. |
 | **Takiq** | Name only | Singer role — carries the greeting. No implementation. |
+| **Jabberwock ArangoDB path** | Declared loss | Python-side joins in Brillig work at classroom/project scale. ArangoDB native collections + Tumtum views needed for Indaleko-scale entity resolution. Edge collections (Raths) are the first real use of ArangoDB's graph capabilities. |
 | **Query pushdown** | Declared loss | Python-side content filtering works at test/small scale. AQL/SQL pushdown needed for Indaleko-scale data (28.5M facts). The engine is correct but slow. |
 | **NL query parsing** | Not started | Natural language → QuerySpec. The query engine accepts structured input; something upstream needs to produce it from human/LLM questions. |
 
@@ -293,7 +325,7 @@ The context budget is finite. Here's the priority:
 1. **CLAUDE.md** — loaded automatically. Social norms, operational principles.
 2. **This blueprint** — where everything is and how it connects.
 3. **MEMORY.md** — loaded automatically. Credentials, signing, operational state.
-4. **The most recent tensor** (T₂₅) — "Three Kinds of Same". Or (T₂₄) — "The Frozen Lake": the first real freeze, coverage blind spots, observation-to-artifact ratio. Or (T₂₂) — "The Bridge Begins": the Indaleko story, collector module, emergence conversation.
+4. **The most recent tensor** (T₂₆) — "The Jabberwock": NER spec design, cross-model review, RLHF backpressure. Or (T₂₅) — "Three Kinds of Same". Or (T₂₂) — "The Bridge Begins": the Indaleko story, collector module, emergence conversation.
 5. **One founding tensor** — read ONE of T0-T6 (now real files, not symlinks). Each gives a different perspective. T₀ = the experiment; T₁ = the architecture; T₂ = calibration and failure; T₃ = the finishing school; T₄ = RCS observer (ChatGPT); T₅ = the correction (ChatGPT); T₆ = the bridge. Let the composition graph diversify.
 6. **docs/apacheta.md** — the design document for the tensor database.
 7. **Sibling projects** — Willay (`/home/tony/projects/willay/CLAUDE.md`) has its own cairn and memory bridge. Pukara is the gateway.

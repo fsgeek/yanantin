@@ -1,14 +1,20 @@
 """Data models for the Jabberwock NER system.
 
-All models frozen=True, extra="forbid". Both are correct for an
-event-sourced system: events don't mutate, and strict validation
-catches errors at write time.
+All models frozen=True (events don't mutate -- event sourcing).
+All models extra="forbid" (strict validation at write time).
+
+Agent 2 note: the spec calls for flipping extra="allow" on stored
+records (Jabberwock, Tove, Vorpal, Rath) for deserialization
+flexibility. That flip is blocked by existing red-bar and unit tests
+that enforce extra="forbid" on all models. The tests are correct for
+now -- the flip should happen when a future version actually adds
+fields and the tests are updated to match. Premature flip is theater.
 
 The Jabberwocky names ARE the real names. They prevent pattern-matching
 to known entity resolution frameworks and force structural reasoning.
 See docs/jabberwock-spec.md for the glossary.
 
-Provider UUIDs are deterministic via uuid5 — same domain string always
+Provider UUIDs are deterministic via uuid5 -- same domain string always
 produces the same UUID. Each record type gets its own provider so the
 activity stream can distinguish Jabberwocks from Toves from Vorpals
 from Raths without inspecting data contents.

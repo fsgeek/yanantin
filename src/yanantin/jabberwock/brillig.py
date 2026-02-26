@@ -21,6 +21,8 @@ from datetime import datetime, timezone
 from typing import Any
 from uuid import UUID
 
+from pydantic import BaseModel
+
 from yanantin.activity.models import FactRecord
 from yanantin.activity.store import ActivityStreamStore
 from yanantin.apacheta.interface.errors import NotFoundError
@@ -38,6 +40,20 @@ from yanantin.jabberwock.models import (
     Vorpal,
 )
 from yanantin.jabberwock.normalize import normalize_gimble
+
+# Provider UUID lookup by model class. Keeps _store_record and
+# _load_all generic without per-type helper methods.
+_PROVIDER_FOR: dict[type[BaseModel], UUID] = {
+    Jabberwock: JABBERWOCK_PROVIDER,
+    Tove: TOVE_PROVIDER,
+    Vorpal: VORPAL_PROVIDER,
+    Rath: RATH_PROVIDER,
+}
+
+
+def _provider_or_root(bandersnatch: UUID | None) -> UUID:
+    """Default to ROOT_BANDERSNATCH_ID when no provider is given."""
+    return bandersnatch if bandersnatch is not None else ROOT_BANDERSNATCH_ID
 
 
 class Brillig:
@@ -68,12 +84,9 @@ class Brillig:
         duplicates.
         """
         # Check if root already bootstrapped
-        existing = self._store.query_range(
-            provider_id=JABBERWOCK_PROVIDER,
-        )
-        for fact in existing:
+        for fact in self._store.query_range(provider_id=JABBERWOCK_PROVIDER):
             if fact.data.get("id") == str(ROOT_BANDERSNATCH_ID):
-                return Jabberwock(**self._deserialize_jabberwock(fact.data))
+                return Jabberwock.model_validate(fact.data)
 
         now = datetime.now(timezone.utc)
 
@@ -83,7 +96,7 @@ class Brillig:
             brillig=now,
             bandersnatch=ROOT_BANDERSNATCH_ID,
         )
-        self._store_jabberwock(root)
+        self._store_record(root)
 
         # 2. Species Vorpal
         self.outgrabe(
@@ -111,14 +124,12 @@ class Brillig:
         Uses ROOT_BANDERSNATCH_ID as the provider if none specified.
         Returns the newly created Jabberwock.
         """
-        provider = bandersnatch if bandersnatch is not None else ROOT_BANDERSNATCH_ID
         now = datetime.now(timezone.utc)
-
         entity = Jabberwock(
             brillig=now,
-            bandersnatch=provider,
+            bandersnatch=_provider_or_root(bandersnatch),
         )
-        self._store_jabberwock(entity)
+        self._store_record(entity)
         return entity
 
     # -- Observation -------------------------------------------------------
@@ -135,17 +146,15 @@ class Brillig:
         jabberwock_id=None creates a mome vorpal (still walking).
         bandersnatch defaults to ROOT_BANDERSNATCH_ID if not specified.
         """
-        provider = bandersnatch if bandersnatch is not None else ROOT_BANDERSNATCH_ID
         now = datetime.now(timezone.utc)
-
         vorpal = Vorpal(
             jabberwock_id=jabberwock_id,
             tulgey=tulgey,
             snicker_snack=snicker_snack,
-            bandersnatch=provider,
+            bandersnatch=_provider_or_root(bandersnatch),
             brillig=now,
         )
-        self._store_vorpal(vorpal)
+        self._store_record(vorpal)
         return vorpal
 
     # -- Alias creation ----------------------------------------------------
@@ -166,20 +175,17 @@ class Brillig:
         gyre_from defaults to now if not specified.
         bandersnatch defaults to ROOT_BANDERSNATCH_ID if not specified.
         """
-        provider = bandersnatch if bandersnatch is not None else ROOT_BANDERSNATCH_ID
         now = datetime.now(timezone.utc)
-        canonical_gimble = normalize_gimble(wabe, gimble)
-
         tove = Tove(
             jabberwock_id=jabberwock_id,
             wabe=wabe,
-            gimble=canonical_gimble,
+            gimble=normalize_gimble(wabe, gimble),
             gyre_from=gyre_from if gyre_from is not None else now,
             gyre_to=gyre_to,
-            bandersnatch=provider,
+            bandersnatch=_provider_or_root(bandersnatch),
             brillig=now,
         )
-        self._store_tove(tove)
+        self._store_record(tove)
         return tove
 
     # -- Resolution --------------------------------------------------------
@@ -193,51 +199,38 @@ class Brillig:
         - Multiple candidates exist
         - No alias exists at all (empty MomeResult)
         """
-        canonical_gimble = normalize_gimble(wabe, gimble)
+        canonical = normalize_gimble(wabe, gimble)
 
-        # Find all Toves matching (wabe, canonical_gimble)
-        all_toves = self._load_all_toves()
-        matching_toves = [
-            t for t in all_toves
-            if t.wabe == wabe and t.gimble == canonical_gimble
+        matching = [
+            t for t in self._load_all(Tove)
+            if t.wabe == wabe and t.gimble == canonical
         ]
 
-        if not matching_toves:
-            # Nothing found at all
+        if not matching:
             return MomeResult()
 
         # Collect distinct jabberwock_ids (excluding None/mome)
-        resolved_ids: set[UUID] = set()
-        mome_toves: list[Tove] = []
-        for tove in matching_toves:
-            if tove.jabberwock_id is not None:
-                resolved_ids.add(tove.jabberwock_id)
-            else:
-                mome_toves.append(tove)
+        resolved_ids = {t.jabberwock_id for t in matching if t.jabberwock_id is not None}
 
-        # If all toves are mome, return MomeResult
         if not resolved_ids:
             return MomeResult(
-                toves=tuple(matching_toves),
+                toves=tuple(matching),
                 mome_vorpals=tuple(self.mome_vorpals()),
             )
 
-        # If exactly one resolved entity, return Frabjous
         if len(resolved_ids) == 1:
-            jabberwock_id = next(iter(resolved_ids))
-            return self.uffish(jabberwock_id)
+            return self.uffish(next(iter(resolved_ids)))
 
-        # Multiple candidates -- return MomeResult with candidates
+        # Multiple candidates
         candidates = []
         for jid in resolved_ids:
             try:
-                jabberwock = self._load_jabberwock(jid)
-                candidates.append(jabberwock)
+                candidates.append(self._load_jabberwock(jid))
             except NotFoundError:
                 pass
 
         return MomeResult(
-            toves=tuple(matching_toves),
+            toves=tuple(matching),
             candidates=tuple(candidates),
         )
 
@@ -250,23 +243,14 @@ class Brillig:
         """
         jabberwock = self._load_jabberwock(jabberwock_id)
 
-        # Gather all projections
-        all_toves = self._load_all_toves()
-        entity_toves = [t for t in all_toves if t.jabberwock_id == jabberwock_id]
+        entity_toves = [t for t in self._load_all(Tove) if t.jabberwock_id == jabberwock_id]
+        entity_vorpals = [v for v in self._load_all(Vorpal) if v.jabberwock_id == jabberwock_id]
+        entity_raths = [r for r in self._load_all(Rath) if r.jabberwock_id == jabberwock_id]
 
-        all_vorpals = self._load_all_vorpals()
-        entity_vorpals = [v for v in all_vorpals if v.jabberwock_id == jabberwock_id]
-
-        all_raths = self._load_all_raths()
-        entity_raths = [r for r in all_raths if r.jabberwock_id == jabberwock_id]
-
-        # Collect evidence IDs
         evidence: list[UUID] = [jabberwock.id]
         evidence.extend(t.id for t in entity_toves)
         evidence.extend(v.id for v in entity_vorpals)
         evidence.extend(r.id for r in entity_raths)
-
-        now = datetime.now(timezone.utc)
 
         return Frabjous(
             jabberwock=jabberwock,
@@ -274,7 +258,7 @@ class Brillig:
             vorpals=tuple(entity_vorpals),
             raths=tuple(entity_raths),
             evidence_ids=tuple(evidence),
-            callooh=now,
+            callooh=datetime.now(timezone.utc),
         )
 
     # -- Mome operations ---------------------------------------------------
@@ -285,8 +269,7 @@ class Brillig:
         The still-walking observations. Data, not error.
         Returns all Vorpals where jabberwock_id is None.
         """
-        all_vorpals = self._load_all_vorpals()
-        return [v for v in all_vorpals if v.jabberwock_id is None]
+        return [v for v in self._load_all(Vorpal) if v.jabberwock_id is None]
 
     def claim_mome(
         self,
@@ -301,8 +284,6 @@ class Brillig:
         event sourcing: the original event persists unchanged, the
         claim is a new event that establishes the connection.
         """
-        provider = bandersnatch if bandersnatch is not None else ROOT_BANDERSNATCH_ID
-
         return self.outgrabe(
             jabberwock_id=jabberwock_id,
             tulgey="claim",
@@ -310,7 +291,7 @@ class Brillig:
                 "record_id": str(record_id),
                 "jabberwock_id": str(jabberwock_id),
             },
-            bandersnatch=provider,
+            bandersnatch=_provider_or_root(bandersnatch),
         )
 
     # -- Group traversal ---------------------------------------------------
@@ -321,25 +302,19 @@ class Brillig:
         Finds all Rath edges where borogove_id matches, then
         materializes each member via uffish.
         """
-        all_raths = self._load_all_raths()
-        member_ids: list[UUID] = []
         seen: set[UUID] = set()
-
-        for rath in all_raths:
+        member_ids: list[UUID] = []
+        for rath in self._load_all(Rath):
             if rath.borogove_id == borogove_id and rath.jabberwock_id not in seen:
                 member_ids.append(rath.jabberwock_id)
                 seen.add(rath.jabberwock_id)
 
         results: list[Frabjous] = []
-        for member_id in member_ids:
+        for mid in member_ids:
             try:
-                results.append(self.uffish(member_id))
+                results.append(self.uffish(mid))
             except NotFoundError:
-                # Member entity was referenced but not found.
-                # Possible if the entity was declared in a different
-                # store or hasn't been created yet. Skip silently --
-                # the Rath still exists as evidence.
-                pass
+                pass  # referenced but not found -- Rath still exists as evidence
 
         return results
 
@@ -359,96 +334,48 @@ class Brillig:
         gyre_from defaults to now if not specified.
         bandersnatch defaults to ROOT_BANDERSNATCH_ID if not specified.
         """
-        provider = bandersnatch if bandersnatch is not None else ROOT_BANDERSNATCH_ID
         now = datetime.now(timezone.utc)
-
         rath = Rath(
             jabberwock_id=jabberwock_id,
             borogove_id=borogove_id,
             mimsy=mimsy,
             gyre_from=gyre_from if gyre_from is not None else now,
             gyre_to=gyre_to,
-            bandersnatch=provider,
+            bandersnatch=_provider_or_root(bandersnatch),
             brillig=now,
         )
-        self._store_rath(rath)
+        self._store_record(rath)
         return rath
 
-    # -- Internal storage helpers ------------------------------------------
+    # -- Internal helpers --------------------------------------------------
 
-    def _store_jabberwock(self, jabberwock: Jabberwock) -> None:
-        """Store a Jabberwock entity as a FactRecord."""
-        fact = FactRecord(
-            provider_id=JABBERWOCK_PROVIDER,
-            timestamp=jabberwock.brillig,
-            data=jabberwock.model_dump(mode="json"),
-        )
-        self._store.store_fact(fact)
+    def _store_record(self, record: BaseModel) -> None:
+        """Store any Jabberwock record as a FactRecord.
 
-    def _store_tove(self, tove: Tove) -> None:
-        """Store a Tove alias as a FactRecord."""
-        fact = FactRecord(
-            provider_id=TOVE_PROVIDER,
-            timestamp=tove.brillig,
-            data=tove.model_dump(mode="json"),
-        )
-        self._store.store_fact(fact)
-
-    def _store_vorpal(self, vorpal: Vorpal) -> None:
-        """Store a Vorpal observation as a FactRecord."""
-        fact = FactRecord(
-            provider_id=VORPAL_PROVIDER,
-            timestamp=vorpal.brillig,
-            data=vorpal.model_dump(mode="json"),
-        )
-        self._store.store_fact(fact)
-
-    def _store_rath(self, rath: Rath) -> None:
-        """Store a Rath membership edge as a FactRecord."""
-        fact = FactRecord(
-            provider_id=RATH_PROVIDER,
-            timestamp=rath.brillig,
-            data=rath.model_dump(mode="json"),
-        )
-        self._store.store_fact(fact)
-
-    # -- Internal query helpers --------------------------------------------
-
-    @staticmethod
-    def _deserialize_jabberwock(data: dict) -> dict:
-        """Prepare raw fact data for Jabberwock construction.
-
-        FactRecord.data stores UUIDs as strings and datetimes as
-        ISO 8601 strings. Pydantic handles the conversion, but we
-        need to pass the dict through.
+        Looks up the provider UUID from the model's type.
+        All four record types (Jabberwock, Tove, Vorpal, Rath) use
+        the same pattern: serialize to JSON, wrap in FactRecord, store.
         """
-        return data
+        provider = _PROVIDER_FOR[type(record)]
+        brillig = getattr(record, "brillig")
+        self._store.store_fact(FactRecord(
+            provider_id=provider,
+            timestamp=brillig,
+            data=record.model_dump(mode="json"),
+        ))
+
+    def _load_all[T: BaseModel](self, cls: type[T]) -> list[T]:
+        """Load all records of a given type from the store."""
+        provider = _PROVIDER_FOR[cls]
+        return [cls.model_validate(f.data) for f in self._store.query_range(provider_id=provider)]
 
     def _load_jabberwock(self, jabberwock_id: UUID) -> Jabberwock:
         """Load a Jabberwock entity by its ID.
 
         Scans all Jabberwock facts. Raises NotFoundError if not found.
         """
-        facts = self._store.query_range(provider_id=JABBERWOCK_PROVIDER)
-        for fact in facts:
+        for fact in self._store.query_range(provider_id=JABBERWOCK_PROVIDER):
             if str(fact.data.get("id")) == str(jabberwock_id):
                 return Jabberwock.model_validate(fact.data)
 
-        raise NotFoundError(
-            f"Jabberwock {jabberwock_id} not found."
-        )
-
-    def _load_all_toves(self) -> list[Tove]:
-        """Load all Tove records from the store."""
-        facts = self._store.query_range(provider_id=TOVE_PROVIDER)
-        return [Tove.model_validate(fact.data) for fact in facts]
-
-    def _load_all_vorpals(self) -> list[Vorpal]:
-        """Load all Vorpal records from the store."""
-        facts = self._store.query_range(provider_id=VORPAL_PROVIDER)
-        return [Vorpal.model_validate(fact.data) for fact in facts]
-
-    def _load_all_raths(self) -> list[Rath]:
-        """Load all Rath records from the store."""
-        facts = self._store.query_range(provider_id=RATH_PROVIDER)
-        return [Rath.model_validate(fact.data) for fact in facts]
+        raise NotFoundError(f"Jabberwock {jabberwock_id} not found.")

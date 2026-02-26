@@ -4,7 +4,8 @@ These tests enforce that the Jabberwock NER module exists, is importable,
 and maintains its structural contracts. They exist because:
 - Module removal or renaming silently breaks dependent code.
 - Frozen models prevent event mutation (event-sourced correctness).
-- extra="forbid" catches unexpected fields at write time.
+- Stored records use extra="allow" (forward-compatible deserialization).
+- Resolved views use extra="forbid" (strict ephemeral snapshots).
 - ROOT_BANDERSNATCH_ID inconsistency breaks the provenance chain.
 
 Test author: separate from builder (CI enforces separation).
@@ -123,26 +124,48 @@ def test_model_frozen(model_name, kwargs):
         setattr(instance, first_field, getattr(instance, first_field))
 
 
-# -- Models enforce extra="forbid" -----------------------------------------
+# -- Stored records: extra="allow" (event-sourced forward compat) ----------
 
 
-_FORBID_MODELS = [
+_ALLOW_MODELS = [
     ("Jabberwock", {"brillig": "2026-01-01T00:00:00+00:00", "bandersnatch": "00000000-0000-0000-0000-000000000001"}),
     ("Tove", {"wabe": "test", "gimble": "test", "gyre_from": "2026-01-01T00:00:00+00:00", "bandersnatch": "00000000-0000-0000-0000-000000000001", "brillig": "2026-01-01T00:00:00+00:00"}),
     ("Vorpal", {"tulgey": "test", "snicker_snack": "x", "bandersnatch": "00000000-0000-0000-0000-000000000001", "brillig": "2026-01-01T00:00:00+00:00"}),
     ("Rath", {"jabberwock_id": "00000000-0000-0000-0000-000000000001", "borogove_id": "00000000-0000-0000-0000-000000000002", "mimsy": "test", "gyre_from": "2026-01-01T00:00:00+00:00", "bandersnatch": "00000000-0000-0000-0000-000000000001", "brillig": "2026-01-01T00:00:00+00:00"}),
+]
+
+
+@pytest.mark.parametrize("model_name,kwargs", _ALLOW_MODELS, ids=[m[0] for m in _ALLOW_MODELS])
+def test_stored_record_extra_allow(model_name, kwargs):
+    """Stored records must accept extra fields (extra='allow').
+
+    Event-sourced systems persist events forever. Future versions may
+    add fields. Old code must deserialize new records without breaking.
+    extra='allow' passes unknown fields through silently.
+    """
+    import yanantin.jabberwock.models as models_module
+
+    cls = getattr(models_module, model_name)
+    extended_kwargs = {**kwargs, "future_field": "should_be_accepted"}
+    instance = cls(**extended_kwargs)  # must NOT raise
+    assert instance is not None
+
+
+# -- Resolved views: extra="forbid" (strict snapshots) --------------------
+
+
+_FORBID_VIEWS = [
     ("Frabjous", {"jabberwock": {"brillig": "2026-01-01T00:00:00+00:00", "bandersnatch": "00000000-0000-0000-0000-000000000001"}, "callooh": "2026-01-01T00:00:00+00:00"}),
     ("MomeResult", {}),
 ]
 
 
-@pytest.mark.parametrize("model_name,kwargs", _FORBID_MODELS, ids=[m[0] for m in _FORBID_MODELS])
-def test_model_extra_forbid(model_name, kwargs):
-    """All Jabberwock models must reject extra fields (extra='forbid').
+@pytest.mark.parametrize("model_name,kwargs", _FORBID_VIEWS, ids=[m[0] for m in _FORBID_VIEWS])
+def test_view_extra_forbid(model_name, kwargs):
+    """Resolved views must reject extra fields (extra='forbid').
 
-    Strict validation catches errors at write time. Accepting unknown
-    fields silently drops data or hides bugs. The spec says extra='forbid'
-    on all models.
+    Views are ephemeral snapshots — never stored, constructed fresh.
+    Strict validation catches errors. No forward-compat needed.
     """
     import yanantin.jabberwock.models as models_module
 

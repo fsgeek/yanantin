@@ -1,8 +1,8 @@
 """Unit tests for Jabberwock data models.
 
-Verifies frozen semantics, extra="forbid", naive datetime rejection,
-temporal ordering, UUID defaults, and provider UUID determinism for
-all Jabberwock NER models.
+Verifies frozen semantics, extra policy (allow for stored records,
+forbid for views), naive datetime rejection, temporal ordering,
+UUID defaults, and provider UUID determinism for all Jabberwock NER models.
 
 Test author: separate from builder (CI enforces separation).
 """
@@ -56,9 +56,10 @@ class TestJabberwock:
         with pytest.raises(ValidationError):
             j.brillig = YESTERDAY  # type: ignore[misc]
 
-    def test_extra_forbid(self):
-        with pytest.raises(ValidationError):
-            Jabberwock(brillig=NOW, bandersnatch=PROVIDER, species="person")  # type: ignore[call-arg]
+    def test_extra_allow(self):
+        """Stored records accept unknown fields (event-sourced forward compat)."""
+        j = Jabberwock(brillig=NOW, bandersnatch=PROVIDER, species="person")  # type: ignore[call-arg]
+        assert j.brillig is not None  # extra field accepted silently
 
     def test_naive_datetime_rejected(self):
         naive = datetime(2026, 1, 1, 12, 0, 0)
@@ -114,16 +115,17 @@ class TestTove:
         with pytest.raises(ValidationError):
             t.wabe = "canvas"  # type: ignore[misc]
 
-    def test_extra_forbid(self):
-        with pytest.raises(ValidationError):
-            Tove(
-                wabe="github",
-                gimble="fsgeek",
-                gyre_from=NOW,
-                bandersnatch=PROVIDER,
-                brillig=NOW,
-                color="red",  # type: ignore[call-arg]
-            )
+    def test_extra_allow(self):
+        """Stored records accept unknown fields (event-sourced forward compat)."""
+        t = Tove(
+            wabe="github",
+            gimble="fsgeek",
+            gyre_from=NOW,
+            bandersnatch=PROVIDER,
+            brillig=NOW,
+            color="red",  # type: ignore[call-arg]
+        )
+        assert t.wabe == "github"  # extra field accepted silently
 
     def test_naive_datetime_brillig(self):
         naive = datetime(2026, 1, 1, 12, 0, 0)
@@ -265,16 +267,17 @@ class TestVorpal:
         with pytest.raises(ValidationError):
             v.tulgey = "other"  # type: ignore[misc]
 
-    def test_extra_forbid(self):
-        with pytest.raises(ValidationError):
-            Vorpal(
-                jabberwock_id=uuid4(),
-                tulgey="species",
-                snicker_snack="person",
-                bandersnatch=PROVIDER,
-                brillig=NOW,
-                confidence=0.9,  # type: ignore[call-arg]
-            )
+    def test_extra_allow(self):
+        """Stored records accept unknown fields (event-sourced forward compat)."""
+        v = Vorpal(
+            jabberwock_id=uuid4(),
+            tulgey="species",
+            snicker_snack="person",
+            bandersnatch=PROVIDER,
+            brillig=NOW,
+            confidence=0.9,  # type: ignore[call-arg]
+        )
+        assert v.tulgey == "species"  # extra field accepted silently
 
     def test_naive_datetime_rejected(self):
         naive = datetime(2026, 1, 1, 12, 0, 0)
@@ -316,17 +319,18 @@ class TestRath:
         with pytest.raises(ValidationError):
             r.mimsy = "ta"  # type: ignore[misc]
 
-    def test_extra_forbid(self):
-        with pytest.raises(ValidationError):
-            Rath(
-                jabberwock_id=uuid4(),
-                borogove_id=uuid4(),
-                mimsy="student",
-                gyre_from=NOW,
-                bandersnatch=PROVIDER,
-                brillig=NOW,
-                weight=1.0,  # type: ignore[call-arg]
-            )
+    def test_extra_allow(self):
+        """Stored records accept unknown fields (event-sourced forward compat)."""
+        r = Rath(
+            jabberwock_id=uuid4(),
+            borogove_id=uuid4(),
+            mimsy="student",
+            gyre_from=NOW,
+            bandersnatch=PROVIDER,
+            brillig=NOW,
+            weight=1.0,  # type: ignore[call-arg]
+        )
+        assert r.mimsy == "student"  # extra field accepted silently
 
     def test_naive_datetime_brillig(self):
         naive = datetime(2026, 1, 1, 12, 0, 0)

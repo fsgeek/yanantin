@@ -25,7 +25,7 @@ The core. 33 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 | **storage_obfuscator.py** | 1 file | `StorageObfuscator` Protocol + `TransparentObfuscator` default. The contract that backends accept for label obfuscation. Pukara provides `SchemaMap` implementation; backends don't know about it. |
 | **rummage.py** | 1 file | Cairn search tool. Searches across tensors, scout reports, scour documents, compaction records. Structure-aware: can target strands, declared losses, open questions. CLI: `uv run python -m yanantin.apacheta.rummage "query"`. |
 
-**1548 tests** (def count) across 54 files, 1620 pytest-collected (parametrized expansion). 88 red-bar (structural invariants, 9 files), 105 integration (ArangoDB live, 2 files), 1355 unit (43 files). Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, collector pipeline (9 tests), activity stream red-bar (24 tests), query pipeline (105 tests across 3 files), and Jabberwock NER (130 tests across 4 files).
+**1600 tests** (def count) across 56 files, 1671 pytest-collected (parametrized expansion). 96 red-bar (structural invariants, 11 files), 105 integration (ArangoDB live, 2 files), 1399 unit (45 files). Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, collector pipeline (9 tests), activity stream red-bar (24 tests), query pipeline (105 tests across 3 files), and Jabberwock NER (174 tests across 6 files).
 
 ### Chasqui — Coordinator (code: `src/yanantin/chasqui/`)
 
@@ -114,22 +114,28 @@ detection ("every new instance asks about the signing key first").
 The foreign body in the naming system. Every other module has a Quechua
 name; this one is Victorian nonsense poetry. The Jabberwocky names are
 structural defense against RLHF pattern-matching to known NER frameworks.
-4 source files.
+5 source files.
 
 | File | What it does |
 |------|-------------|
-| `models.py` | 6 data models: `Jabberwock` (entity — 3 fields), `Tove` (alias with namespace normalization), `Vorpal` (observation — mome-capable), `Rath` (membership edge), `Frabjous` (resolved view with proof envelope), `MomeResult` (partial resolution). All `frozen=True`. Stored records `extra="forbid"` (flip to `"allow"` deferred until future fields exist). Deterministic provider UUIDs via uuid5. |
-| `brillig.py` | `Brillig` service: `bootstrap()` (self-referential root), `beamish()` (create entity), `outgrabe()` (observe), `slithy()` (alias with normalization), `galumph()` (resolve by alias → Frabjous or MomeResult), `uffish()` (materialize by UUID), `mome_vorpals()` (unresolved observations), `claim_mome()` (new event linking mome → entity), `whiffling()` (traverse group members), `add_rath()` (membership edge). All records stored as FactRecords in ActivityStreamStore. |
+| `models.py` | 6 data models: `Jabberwock` (entity — 3 fields), `Tove` (alias with namespace normalization, rejects empty wabe/gimble), `Vorpal` (observation — mome-capable, rejects empty tulgey), `Rath` (membership edge), `Frabjous` (resolved view with proof envelope), `MomeResult` (partial resolution). All `frozen=True`. Stored records (Jabberwock, Tove, Vorpal, Rath) use `extra="allow"` (event-sourced forward compat). Views (Frabjous, MomeResult) use `extra="forbid"` (strict ephemeral snapshots). Deterministic provider UUIDs via uuid5. |
+| `brillig.py` | `Brillig` service: `bootstrap()` (self-referential root), `beamish()` (create entity), `outgrabe()` (observe), `slithy()` (alias with normalization), `galumph()` (resolve by alias → Frabjous or MomeResult), `uffish()` (materialize by UUID — filters claims, sorts newest-first, tracks excluded_count), `mome_vorpals()` (unresolved observations — excludes claimed records), `claim_mome()` (new event linking mome → entity), `whiffling()` (traverse group members), `add_rath()` (membership edge). All records stored as FactRecords in ActivityStreamStore. |
 | `normalize.py` | Per-wabe namespace normalization. Default: lowercase, strip, NFKC. Case-sensitive wabes for filesystem-linux, sha256, etc. Custom normalizers via `register_normalizer()`. |
+| `__main__.py` | CLI: `uv run python -m yanantin.jabberwock [--store {memory,duckdb,arango}] [--json] {bootstrap,create,observe,alias,resolve,show,unresolved,claim,group}`. Defaults to DuckDB (deliberate testing path). Auto-bootstraps on every command. |
 | `__init__.py` | Package init, 13 public exports. |
 
 Event-sourced: records are immutable events, Frabjous is a fold.
 Entities are near-empty UUIDs; identity is observational (Vorpals).
 Mome = unresolved observations, data not error. Bandersnatch (provider)
 IS a Jabberwock — provenance is composable. Spec: `docs/jabberwock-spec.md`.
+Live data in DuckDB: 4 entities (root, Tony, Claude, Yanantin project),
+cross-namespace resolution verified, group traversal working.
 
 Declared loss: Python-side joins for all resolution. No AQL pushdown,
-no Tumtum index layers. Falls over at Indaleko scale.
+no Tumtum index layers. Falls over at Indaleko scale. New validation
+constraints on models create a deserialization hazard for historical
+data — event-sourced stores may contain records that predate the
+constraint. `_load_all` does not yet handle this gracefully.
 
 ### Collector — Data Pipeline (code: `src/yanantin/collector/`)
 
@@ -189,8 +195,8 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-3337 files. 26 tensors (T0-T7, T9-T26; T8 intentionally unwritten),
-3000+ scout reports, 200+ scour reports, 30+ compaction records
+3712 files. 27 tensors (T0-T7, T9-T27; T8 intentionally unwritten),
+3300+ scout reports, 200+ scour reports, 30+ compaction records
 (`docs/cairn/compaction/`). T0-T6 are now real files (symlinks replaced).
 T26 is "The Jabberwock" — NER spec design and cross-model review.
 T25 is "Three Kinds of Same". T22 is "The Bridge Begins" — the Indaleko

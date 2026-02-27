@@ -17,11 +17,14 @@ Tumtum layers. All of those are future path (see spec).
 
 from __future__ import annotations
 
+import logging
 from datetime import datetime, timezone
 from typing import Any
 from uuid import UUID
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ValidationError
+
+logger = logging.getLogger(__name__)
 
 from yanantin.activity.models import FactRecord
 from yanantin.activity.store import ActivityStreamStore
@@ -86,7 +89,15 @@ class Brillig:
         # Check if root already bootstrapped
         for fact in self._store.query_range(provider_id=JABBERWOCK_PROVIDER):
             if fact.data.get("id") == str(ROOT_BANDERSNATCH_ID):
-                return Jabberwock.model_validate(fact.data)
+                try:
+                    return Jabberwock.model_validate(fact.data)
+                except ValidationError as e:
+                    logger.warning(
+                        "Root bandersnatch exists but fails validation: %s (raw: %s)",
+                        e, fact.data,
+                    )
+                    # Fall through to create a fresh root
+                    break
 
         now = datetime.now(timezone.utc)
 
@@ -401,17 +412,42 @@ class Brillig:
         ))
 
     def _load_all[T: BaseModel](self, cls: type[T]) -> list[T]:
-        """Load all records of a given type from the store."""
+        """Load all records of a given type from the store.
+
+        Historical records that fail current validation constraints are
+        skipped with a warning. Event-sourced stores accumulate records
+        over time; new validators must not break old data.
+        """
         provider = _PROVIDER_FOR[cls]
-        return [cls.model_validate(f.data) for f in self._store.query_range(provider_id=provider)]
+        results: list[T] = []
+        for f in self._store.query_range(provider_id=provider):
+            try:
+                results.append(cls.model_validate(f.data))
+            except ValidationError as e:
+                logger.warning(
+                    "Skipping %s record %s: validation failed: %s",
+                    cls.__name__, f.data.get("id", "?"), e,
+                )
+        return results
 
     def _load_jabberwock(self, jabberwock_id: UUID) -> Jabberwock:
         """Load a Jabberwock entity by its ID.
 
-        Scans all Jabberwock facts. Raises NotFoundError if not found.
+        Scans all Jabberwock facts. Raises NotFoundError if not found
+        or if the record exists but fails current validation.
         """
         for fact in self._store.query_range(provider_id=JABBERWOCK_PROVIDER):
             if str(fact.data.get("id")) == str(jabberwock_id):
-                return Jabberwock.model_validate(fact.data)
+                try:
+                    return Jabberwock.model_validate(fact.data)
+                except ValidationError as e:
+                    logger.warning(
+                        "Jabberwock %s exists but fails validation: %s (raw: %s)",
+                        jabberwock_id, e, fact.data,
+                    )
+                    raise NotFoundError(
+                        f"Jabberwock {jabberwock_id} exists in store but "
+                        f"fails current validation: {e}"
+                    ) from e
 
         raise NotFoundError(f"Jabberwock {jabberwock_id} not found.")

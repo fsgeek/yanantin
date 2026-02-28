@@ -12,11 +12,16 @@ We measured context window utilization across 813 Claude Code
 conversation transcripts (668 MB) spanning 15 projects on two
 machines. Tool outputs consume 79.4% of conversation content
 (aggregate), replicating an independent measurement of 78.2% from
-26 sessions (research-program T5). Main sessions — the long agentic
-building sessions where humans work — show a median amplification
-factor of 84.4x: each byte of tool output is reprocessed across
-a median of 84 subsequent turns. This amplification is the mechanism
-by which context windows exhaust during complex agentic tasks.
+26 sessions (research-program T5). Session segmentation reveals
+Simpson's paradox: the unsegmented median amplification of 13.6x
+hides a bimodal distribution. Main sessions — the long agentic
+building sessions where humans work — show 84.4x median
+amplification (log-normal, P90=570.8x). Subagents show 12.8x
+but outnumber main sessions 5:1. Amplification scales linearly
+with session length (~0.5 ratio) with no acceleration. Within
+sessions, orientation-phase tool outputs (first quartile) survive
+~90% of the session, making FIFO compaction near-optimal. Read
+tool outputs account for 75% of all tool overhead bytes.
 
 ## Motivation
 
@@ -130,6 +135,72 @@ read is the one you never do.
 
 Two independent measurements on different corpora converge.
 
+### Amplification by position within session
+
+Analysis of 44 main sessions with >50 turns, segmenting tool results
+into quartiles by their position within the session:
+
+| Quartile | Position | Amp/turns ratio | Interpretation |
+|----------|----------|----------------|----------------|
+| Q1 | 0-25% (orientation) | **0.896** | Survives ~90% of session |
+| Q2 | 25-50% | 0.619 | Survives ~62% |
+| Q3 | 50-75% | 0.377 | Survives ~38% |
+| Q4 | 75-100% (late) | 0.110 | Survives ~11% |
+
+The 0.5 aggregate ratio assumed uniform distribution. Q1 is nearly
+double — orientation-phase tool outputs survive almost the entire
+session. The earliest reads are the longest-lived and most costly.
+
+Tool output volume distribution:
+
+| Quartile | % of tool bytes | Avg size/result | Count |
+|----------|----------------|-----------------|-------|
+| Q1 | 22.8% | 2,544 | 3,389 |
+| Q2 | 22.8% | 2,510 | 3,448 |
+| Q3 | 20.5% | 2,285 | 3,397 |
+| Q4 | **33.9%** | **3,775** | 3,406 |
+
+Volume is NOT front-loaded — it's back-loaded. Q4 produces the most
+bytes (larger file reads during implementation after orientation).
+But Q4 results barely matter for amplification (0.11 ratio) because
+they die soon after creation.
+
+The expensive combination is Q1: moderate volume (22.8%) but
+near-maximum amplification (0.896). Those orientation reads —
+README, config, main module — survive 90% of the session, getting
+reprocessed on nearly every subsequent turn.
+
+**Intervention design implication:** FIFO compaction (compact the
+oldest results first) is near-optimal by accident, because the
+oldest results have the highest remaining amplification. A crude
+"compact anything older than N turns" heuristic captures benefit
+proportional to N regardless of session length (because the
+amplification-to-length relationship is linear, not accelerating).
+
+### Distribution shape
+
+The amplification distribution across main sessions is log-normal:
+
+| Percentile | Amplification |
+|-----------|---------------|
+| P10 | 26.7x |
+| P25 | 54.9x |
+| P50 (median) | 84.4x |
+| P75 | 217.9x |
+| P90 | 570.8x |
+| P95 | 783.9x |
+
+Log(amplification): mean 4.64, stdev 1.09, skewness proxy 0.21
+(nearly symmetric in log space — textbook log-normal).
+
+Amplification scales linearly with session length — the ratio
+amplification/turns has mean 0.50, median 0.49, range 0.27-0.77.
+This means amplification does not accelerate. Longer sessions
+amplify more because they have more turns, not because each
+additional turn compounds the problem. This is good news for
+intervention: compaction at any fixed point yields proportional
+benefit with no critical threshold or cliff behavior.
+
 ## Methodology
 
 ### Instrument
@@ -148,18 +219,54 @@ Session classification by filename: UUID = main, `agent-` = subagent,
 `agent-acompact-` = compact, `agent-aprompt_suggestion-` = prompt
 suggestion.
 
+### Corpus bias and population
+
+This corpus is drawn from a power-user population: a researcher
+using Claude Code as a force multiplier across multiple concurrent
+projects, with heavy agentic tool use. It does not represent
+average Claude Code usage. The overhead and amplification numbers
+are representative of the class of sessions where context
+exhaustion is a problem — which is the class the intervention
+targets. You don't measure bridge failure rates using the
+population of people who cross footbridges. The Pareto
+distribution of token consumption means this class of users,
+while small in number, likely dominates total token spend.
+
 ### Amplification factor
 
-For each tool result, amplification = (conversation_turns − turn_index).
-This counts the number of turns the result *could* survive in context,
-from its creation to the end of the session. It is a **conservative
-upper bound** — in reality, context compaction may evict results
-earlier.
+Byte-weighted, not turn-weighted:
 
-The true amplification lies in [1, measured_value] for each result.
+```
+For each tool_result:
+    turns_survived = total_conversation_turns − turn_index
+
+amplification = Σ(content_bytes × turns_survived) / Σ(content_bytes)
+```
+
+This answers: "for each byte of tool output, how many turns does it
+appear in the inference context?" A 8KB Read result that survives
+100 turns contributes more to the factor than a 22-byte Edit
+confirmation surviving the same 100 turns.
+
+`turns_survived` counts from the tool result to the end of the
+session, not to when context compaction actually evicts it. This is
+a **conservative upper bound**. The true amplification lies in
+[1, measured_value] for each result.
+
 Pinning this down precisely requires the API proxy
 (`tools/phase1/proxy.py`) which captures the actual messages array
 sent to the API on each turn, including what has been truncated.
+
+**Note on KV cache:** The amplification factor counts appearances
+in the inference context, not full recomputations. At 93.4% cache
+hit ratio, most appearances are cache hits — the tokens are not
+recomputed from scratch. However: (1) cached tokens still occupy
+context window space (the binding problem — space used by dead
+tool results cannot be used for new content), (2) cached tokens
+still have API cost (reduced rate, not zero), (3) cache eviction
+under memory pressure reintroduces full computation cost, and the
+sessions with highest amplification are most likely to exhaust
+cache. The strongest argument is opportunity cost, not compute cost.
 
 ### Declared losses
 
@@ -199,12 +306,20 @@ The numbers justify building the compaction prototype. Specifically:
    that die from context exhaustion are the main human-facing
    sessions with 84x median amplification.
 
-3. **The proxy is the next instrument.** To move from upper-bound
+3. **FIFO compaction is near-optimal.** Orientation-phase tool
+   results (Q1) have 0.896 amplification-to-turns ratio vs 0.110
+   for late-session results (Q4). Compacting the oldest results
+   first captures disproportionate benefit. A crude "compact
+   anything older than N turns" heuristic works because
+   amplification scales linearly — no critical threshold to get
+   right.
+
+4. **The proxy is the next instrument.** To move from upper-bound
    amplification to precise measurement, run `tools/phase1/proxy.py`
    during a real session. This also captures the system prompt
    dimension that JSONL can't provide.
 
-4. **Non-inferiority test design.** The compaction hypothesis says
+5. **Non-inferiority test design.** The compaction hypothesis says
    replacing consumed tool results with compacted cells should not
    degrade downstream quality. Testing this requires: (a) take real
    session transcripts, (b) produce compacted versions at various
@@ -212,7 +327,7 @@ The numbers justify building the compaction prototype. Specifically:
    a given turn, (d) compare the model's subsequent actions. What
    "compare" means is the open design question.
 
-5. **Additional data sources.** Claude web/desktop exports
+6. **Additional data sources.** Claude web/desktop exports
    (available via Anthropic data export) provide a conversational
    baseline with minimal tool overhead. The contrast between
    agentic (79.4% overhead) and conversational (estimated <10%)

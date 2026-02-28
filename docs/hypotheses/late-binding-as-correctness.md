@@ -49,14 +49,52 @@ know what the question will be."
   stream will contain facts recorded before the current schema knew what
   questions to ask.
 
+### Fourth instance: Context window compaction
+
+The research-program's T7 ("The Design") proposes replacing consumed
+tool outputs in agentic sessions with compacted cells: conclusion +
+declared losses + retrieval handle. The full output materializes only
+when a future question needs it. This is the same pattern applied to
+conversation memory:
+
+| What's stored | What materializes | When |
+|--------------|-------------------|------|
+| Compacted cell (conclusion + losses + handle) | Full original tool output | When future instance retrieves by handle |
+
+Empirical baseline (T5, 26 sessions): 78.2% of context window is
+consumed by tool outputs that have already been acted on. This is
+the measured cost of eager materialization in this domain — the
+conversational equivalent of the cursor that materializes all data.
+
+The compacted cell is structurally a mome: the observation (tool
+result) has been recorded, but its full content is not bound into the
+current context. It materializes only when the question demands it.
+Different questions retrieve different originals from the same
+compacted summary.
+
+**This provides a concrete, measurable test of the hypothesis.**
+Phase 1 measures the cost of eager binding. Phase 2 tests whether
+deferred binding preserves correctness (non-inferiority). If
+compacted sessions produce equivalent quality, deferred ontological
+binding works for conversation memory. If they degrade, we learn
+where the pattern breaks.
+
+See: `~/projects/research-program/tensors/T7_the_design.md`
+
 ## What Would Confirm It
 
 - The pattern continues to emerge in new layers without being mandated.
+  **Status: confirmed.** The research-program's T7 design independently
+  converges on the same structure for context compaction — a fourth
+  layer, designed by a different instance, with no knowledge of this
+  hypothesis.
 - Systems designed with eager materialization in the same problem space
   develop update cascades, version conflicts, or cache invalidation
-  problems that this architecture avoids.
+  problems that this architecture avoids. **Status: testable.** Phase 1
+  measures the cost; Phase 2 tests non-inferiority.
 - Prior art search finds this distinguished from lazy evaluation and
   late binding in the knowledge representation or database literature.
+  **Status: partially confirmed** (see Literature Survey).
 
 ## What Would Refute It
 

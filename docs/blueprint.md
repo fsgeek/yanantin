@@ -195,8 +195,8 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-3712 files. 27 tensors (T0-T7, T9-T27; T8 intentionally unwritten),
-3300+ scout reports, 200+ scour reports, 30+ compaction records
+4004 files. 28 tensors (T0-T7, T9-T28; T8 intentionally unwritten),
+3600+ scout reports, 200+ scour reports, 30+ compaction records
 (`docs/cairn/compaction/`). T0-T6 are now real files (symlinks replaced).
 T26 is "The Jabberwock" — NER spec design and cross-model review.
 T25 is "Three Kinds of Same". T22 is "The Bridge Begins" — the Indaleko

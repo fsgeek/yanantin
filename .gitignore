@@ -5,3 +5,4 @@ __pycache__/
 .uv-cache/
 .env
 logs/
+tmp/

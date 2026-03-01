@@ -118,6 +118,70 @@ def scan_cairn_coverage(
     return coverage
 
 
+def _lookup_coverage_or_none(
+    rel_path: str,
+    coverage_map: dict[str, datetime],
+    basename_index: dict[str, datetime],
+) -> datetime | None:
+    """Like _lookup_coverage, but returns None instead of EPOCH_ZERO on miss."""
+    # Exact match first
+    exact = coverage_map.get(rel_path)
+    if exact is not None:
+        return exact
+
+    # Fallback: basename
+    basename = rel_path.rsplit("/", 1)[-1] if "/" in rel_path else rel_path
+    return basename_index.get(basename)
+
+
+def _lookup_coverage(
+    rel_path: str,
+    coverage_map: dict[str, datetime],
+    basename_index: dict[str, datetime],
+) -> datetime:
+    """Look up coverage for a file, falling back to basename matching.
+
+    Scout reports often reference files by short names like `evolve.py`
+    or `predecessors.md`, while candidate paths are full project-relative
+    paths like `src/yanantin/apacheta/operators/evolve.py`. Without
+    basename fallback, the coverage map never matches and every file
+    appears as "never reviewed" (epoch zero).
+
+    Lookup order:
+    1. Exact match on full relative path
+    2. Basename match (last component of the path)
+
+    Returns the most recent review timestamp found, or EPOCH_ZERO.
+    """
+    # Exact match first
+    exact = coverage_map.get(rel_path)
+    if exact is not None:
+        return exact
+
+    # Fallback: basename of the candidate against the coverage map
+    basename = rel_path.rsplit("/", 1)[-1] if "/" in rel_path else rel_path
+    base_ts = basename_index.get(basename)
+    if base_ts is not None:
+        return base_ts
+
+    return EPOCH_ZERO
+
+
+def _build_basename_index(coverage_map: dict[str, datetime]) -> dict[str, datetime]:
+    """Build a basename-to-timestamp index from the coverage map.
+
+    When multiple coverage entries share a basename, keep the most
+    recent timestamp (same "latest wins" semantics as the main map).
+    """
+    index: dict[str, datetime] = {}
+    for path, ts in coverage_map.items():
+        basename = path.rsplit("/", 1)[-1] if "/" in path else path
+        existing = index.get(basename)
+        if existing is None or ts > existing:
+            index[basename] = ts
+    return index
+
+
 def coverage_weights(
     candidates: list[Path],
     coverage_map: dict[str, datetime],
@@ -143,6 +207,8 @@ def coverage_weights(
     if now is None:
         now = datetime.now(timezone.utc)
 
+    basename_index = _build_basename_index(coverage_map)
+
     weights = []
     for path in candidates:
         try:
@@ -150,7 +216,7 @@ def coverage_weights(
         except ValueError:
             rel = str(path)
 
-        last_reviewed = coverage_map.get(rel, EPOCH_ZERO)
+        last_reviewed = _lookup_coverage(rel, coverage_map, basename_index)
         age_seconds = (now - last_reviewed).total_seconds()
         # Minimum weight of 1.0 so every file has some chance
         weights.append(max(1.0, age_seconds))
@@ -179,6 +245,8 @@ def coverage_report(
     """
     skip_dirs = {"__pycache__", ".git", ".venv", ".uv-cache", ".serena", ".pytest_cache"}
 
+    basename_index = _build_basename_index(coverage_map)
+
     all_files: dict[str, datetime | None] = {}
     for ext in source_extensions:
         for path in project_root.rglob(f"*{ext}"):
@@ -187,7 +255,9 @@ def coverage_report(
             if not path.is_file():
                 continue
             rel = str(path.relative_to(project_root))
-            all_files[rel] = coverage_map.get(rel)
+            # Try exact match, then basename fallback
+            ts = _lookup_coverage_or_none(rel, coverage_map, basename_index)
+            all_files[rel] = ts
 
     return all_files
 

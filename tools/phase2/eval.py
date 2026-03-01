@@ -280,18 +280,46 @@ def extract_compaction_context(jsonl_path: Path) -> SessionContext | None:
 # System prompt
 # ---------------------------------------------------------------------------
 
-def build_system_prompt() -> str:
-    """Build the system prompt from project files (what Claude Code loads)."""
+def build_system_prompt(base_prompt_path: Path | None = None) -> str:
+    """Build the system prompt matching what Claude Code actually sends.
+
+    The real system prompt has three layers:
+    1. Claude Code base prompt (behavioral instructions, tool descriptions)
+    2. CLAUDE.md (project instructions, checked into the codebase)
+    3. MEMORY.md (persistent auto-memory)
+
+    Without the base prompt, we're testing a different thing than what
+    a real session experiences.
+    """
     parts = []
 
+    # Layer 1: Claude Code base system prompt
+    if base_prompt_path is None:
+        # Default location: arbiter's extracted prompt
+        base_prompt_path = Path(
+            "/home/tony/projects/arbiter/data/prompts/claude-code/"
+            "v2.1.50_prompt.md"
+        )
+
+    if base_prompt_path.exists():
+        parts.append(base_prompt_path.read_text())
+    else:
+        print(
+            f"Warning: base prompt not found at {base_prompt_path}. "
+            f"Results will not match real Claude Code sessions.",
+            file=sys.stderr,
+        )
+
+    # Layer 2: CLAUDE.md
     claude_md = Path("/home/tony/projects/yanantin/CLAUDE.md")
+    if claude_md.exists():
+        parts.append(claude_md.read_text())
+
+    # Layer 3: MEMORY.md
     memory_md = Path(
         "/home/tony/.claude/projects/"
         "-home-tony-projects-yanantin/memory/MEMORY.md"
     )
-
-    if claude_md.exists():
-        parts.append(claude_md.read_text())
     if memory_md.exists():
         parts.append(memory_md.read_text())
 
@@ -614,6 +642,7 @@ async def run_experiment(
     judge_model: str | None = None,
     token_budget: int = 100_000,
     dry_run: bool = False,
+    base_prompt_path: Path | None = None,
 ) -> list[ProbeResult]:
     """Run all probes against all conditions for one session."""
     context: SessionContext | None = None
@@ -632,7 +661,7 @@ async def run_experiment(
                 print("No conditions to run.", file=sys.stderr)
                 return []
 
-    system = build_system_prompt()
+    system = build_system_prompt(base_prompt_path)
 
     if dry_run:
         print(f"\n--- DRY RUN ---")
@@ -895,6 +924,15 @@ def main():
         help="Directory for JSONL output (default: tools/phase2/results)",
     )
     parser.add_argument(
+        "--base-prompt",
+        type=Path,
+        default=None,
+        help=(
+            "Path to the Claude Code base system prompt "
+            "(default: arbiter's v2.1.50 extraction)"
+        ),
+    )
+    parser.add_argument(
         "--dry-run",
         action="store_true",
         help="Show what would run without making API calls",
@@ -941,6 +979,7 @@ def main():
                 judge_model=args.judge,
                 token_budget=args.token_budget,
                 dry_run=args.dry_run,
+                base_prompt_path=args.base_prompt,
             )
         )
         all_results.extend(results)

@@ -7,10 +7,10 @@ actual endpoint.
 
 Usage:
     # Start the proxy
-    python tmp/api_proxy.py [--port 8080] [--log-dir tmp/api_logs]
+    uv run python tools/phase1/proxy.py [--port 8080] [--log-dir tmp/api_logs]
 
     # Point Claude Code at it
-    claude --api-base-url http://localhost:8080
+    ANTHROPIC_BASE_URL=http://localhost:8080 claude
 
 The proxy captures:
 - System prompt (full text, every turn)
@@ -182,24 +182,48 @@ def create_app(log_dir: Path) -> Flask:
 
         log_record(request_record)
 
-        # Forward to Anthropic
+        # Forward to Anthropic — preserve query string (e.g. ?beta=true)
         headers = dict(request.headers)
         # Remove hop-by-hop headers
         for h in ["Host", "Content-Length", "Transfer-Encoding"]:
             headers.pop(h, None)
 
+        upstream_path = "/v1/messages"
+        if request.query_string:
+            upstream_path += "?" + request.query_string.decode("utf-8")
+
         if body.get("stream", False):
             # Streaming response — forward chunks
-            return _proxy_streaming(body, headers, request_time)
+            return _proxy_streaming(body, headers, request_time, upstream_path)
         else:
             # Non-streaming — simple forward
-            return _proxy_direct(body, headers, request_time)
+            return _proxy_direct(body, headers, request_time, upstream_path)
 
-    def _proxy_direct(body, headers, request_time):
+    def _strip_response_headers(raw_headers):
+        """Remove hop-by-hop headers that Flask manages itself.
+
+        Forwarding transfer-encoding/content-length from upstream
+        causes double-chunking or length mismatches — Flask sets
+        these based on how it sends the response body.
+        """
+        skip = {
+            "transfer-encoding",
+            "content-length",
+            "content-encoding",
+            "connection",
+            "keep-alive",
+        }
+        return {
+            k: v
+            for k, v in raw_headers.items()
+            if k.lower() not in skip
+        }
+
+    def _proxy_direct(body, headers, request_time, upstream_path):
         """Handle non-streaming API call."""
         try:
             resp = client.post(
-                "/v1/messages",
+                upstream_path,
                 json=body,
                 headers=headers,
             )
@@ -231,7 +255,7 @@ def create_app(log_dir: Path) -> Flask:
             return Response(
                 resp.content,
                 status=resp.status_code,
-                headers=dict(resp.headers),
+                headers=_strip_response_headers(resp.headers),
             )
         except Exception as e:
             log_record({
@@ -245,27 +269,37 @@ def create_app(log_dir: Path) -> Flask:
                 content_type="application/json",
             )
 
-    def _proxy_streaming(body, headers, request_time):
-        """Handle streaming API call (SSE)."""
+    def _proxy_streaming(body, headers, request_time, upstream_path):
+        """Handle streaming API call (SSE).
+
+        The generator must own the stream lifecycle — the httpx context
+        manager cannot wrap the Response because Flask iterates the
+        generator *after* the function returns, by which time the `with`
+        block has exited and the stream is closed.
+        """
         try:
-            # Use httpx streaming
-            with client.stream(
-                "POST",
-                "/v1/messages",
-                json=body,
-                headers=headers,
-            ) as resp:
-                response_headers = dict(resp.headers)
+            resp = client.send(
+                client.build_request(
+                    "POST",
+                    upstream_path,
+                    json=body,
+                    headers=headers,
+                ),
+                stream=True,
+            )
+            response_headers = _strip_response_headers(resp.headers)
+
+            def generate():
                 first_byte_time = None
                 chunks_collected = []
-
-                def generate():
-                    nonlocal first_byte_time
+                try:
                     for chunk in resp.iter_bytes():
                         if first_byte_time is None:
                             first_byte_time = datetime.now(timezone.utc)
                         chunks_collected.append(chunk)
                         yield chunk
+                finally:
+                    resp.close()
 
                     # Log after stream completes
                     response_time = datetime.now(timezone.utc)
@@ -278,7 +312,6 @@ def create_app(log_dir: Path) -> Flask:
                         text = full_response.decode("utf-8", errors="replace")
                         for line in reversed(text.split("\n")):
                             if "message_delta" in line and "usage" in line:
-                                # Extract the JSON from the SSE data line
                                 if line.startswith("data: "):
                                     event_data = json.loads(line[6:])
                                     usage = event_data.get("usage", {})
@@ -309,14 +342,14 @@ def create_app(log_dir: Path) -> Flask:
                         "usage": usage,
                     })
 
-                return Response(
-                    generate(),
-                    status=resp.status_code,
-                    headers=response_headers,
-                    content_type=response_headers.get(
-                        "content-type", "text/event-stream"
-                    ),
-                )
+            return Response(
+                generate(),
+                status=resp.status_code,
+                headers=response_headers,
+                content_type=response_headers.get(
+                    "content-type", "text/event-stream"
+                ),
+            )
 
         except Exception as e:
             log_record({
@@ -355,7 +388,7 @@ def main():
         file=sys.stderr,
     )
     print(
-        f"Use: claude --api-base-url http://localhost:{args.port}",
+        f"Use: ANTHROPIC_BASE_URL=http://localhost:{args.port} claude",
         file=sys.stderr,
     )
     app.run(host="127.0.0.1", port=args.port, threaded=True)

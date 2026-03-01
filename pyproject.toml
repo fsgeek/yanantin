@@ -10,6 +10,7 @@ dependencies = [
     "httpx>=0.27",
     "duckdb>=1.4.4",
     "python-arango>=8.2.6",
+    "flask>=3.1.3",
 ]
 
 [project.optional-dependencies]
@@ -19,6 +20,9 @@ dev = [
 dropbox = [
     "dropbox>=12.0",
 ]
+receipts = [
+    "willay @ {root:uri}/../willay",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -26,6 +30,9 @@ testpaths = ["tests"]
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/yanantin"]

@@ -164,6 +164,130 @@ workloads as empirical testbed.
 - Tony's observation: "a traditional cursor would materialize all the
   data — I looked at that and realized it becomes noisy and brittle"
 
+## Fifth Instance: Context Windows as Virtual Address Spaces
+
+**Observed:** 2026-02-28
+**Observers:** Tony Mason, Claude Opus (research-program instance, session instance)
+
+The Phase 1 context utilization study found 79.4% tool overhead and
+84.4x main session amplification. The Phase 2 ablation study found
+large system prompt sections removable without degrading task
+performance. Together these measure the cost of eager materialization
+in context windows — everything is loaded, everything stays.
+
+The research-program instance independently proposed modeling context
+windows as object-based virtual memory. The key extension beyond
+hardware VM:
+
+| Hardware VM | Object-based context VM |
+|-------------|----------------------|
+| Pages are passive bytes | Objects are active — have operators, queryable at multiple granularities |
+| Load all or none | Page in a header (200 bytes), drill down on demand |
+| Page table maps virtual → physical | Graph edges map objects → related objects |
+| LRU/clock eviction | Access pattern eviction (which operators were called) |
+| Prefetch by spatial locality | Prefetch by graph adjacency (Markov model over knowledge graph) |
+
+### Tools as object factories, not data pipes
+
+Current architecture: tool call → raw output dumps into context →
+stays forever until compaction. Proposed: tool call → output captured
+*outside* context → lightweight proxy (summary + available operators)
+enters context → model works through operators at needed granularity →
+proxy ages out when model moves on.
+
+The raw data never enters the context window. The operator model is
+better than TTL or explicit release because with those, data has
+already entered and you're trying to claw it back. The operator model
+avoids creating the problem.
+
+### Snapshots, not persistent state
+
+Critical insight (Tony, 2026-02-28): "Each call to the transformer
+is *de novo* — it has no knowledge of what was there in the prior
+version." The context window is not RAM. It's reconstructed fresh
+every forward pass. "Removal" is trivially just "don't include it in
+the next snapshot." The hard problem is not the mechanism — it's the
+**eviction policy**: knowing what's safe to exclude without breaking
+the model's reasoning.
+
+This is the page replacement problem. LRU, clock algorithms, working
+set models — all exist because eviction is easy and knowing *what* to
+evict is the entire discipline.
+
+Objects with operators give you the signal for eviction policy: which
+operators the model called (access recency, frequency, breadth). Without
+objects, the context is a flat text stream with no access pattern
+information. You can't distinguish a linter warning already fixed from
+a module structure the model is still navigating by.
+
+### Demand-paged system prompts: the practical wedge
+
+The ablation study already mapped natural page boundaries in system
+prompts. System prompt sections have every property needed for demand
+paging:
+
+- **Clear boundaries** — already structured as discrete sections
+- **Predictable access patterns** — git protocol needed for git ops,
+  skill listings needed when considering skills
+- **Detectable faults** — model emits `git commit` → page fault on
+  git safety protocol → include in next snapshot
+
+This is the conservative starting point. Well-bounded, empirically
+validated (ablation study is the page map), low-cost faults (one extra
+round trip to page back in, not catastrophic reasoning failure).
+
+**Refuted claim (2026-03-01):** An analysis-phase instance stated
+that subagents spawned by Claude Code receive two copies of the system
+prompt. Proxy verification (Phase 1 instrument, `proxy_20260301_054903.jsonl`)
+shows this is **false**. Subagents receive a specialized, shorter system
+prompt tailored to their role:
+
+| | Main session (Opus) | Subagent (Haiku) |
+|---|---|---|
+| System prompt size | 15,877 bytes (4 blocks) | 4,859 bytes (3 blocks) |
+| Identity line | "You are Claude Code..." (57B) | Same (57B) |
+| Instructions | Full agent instructions (11,628B) | "File search specialist" (4,463B) |
+| Memory/CLAUDE.md | Present (3,751B) | Absent |
+
+The subagent prompt is 3.3x smaller — no duplication, no wasted context.
+The architecture is smarter than the claim suggested: Claude Code tailors
+the system prompt per agent type. The original claim propagated through
+three links (analysis instance → Tony → session instance → hypothesis doc)
+without verification at any link. This is the provenance failure the
+Arbiter paper describes — unverified claims amplified by confident framing.
+
+**Provenance:** Claim originated from an analysis-phase instance
+(2026-02-28), accepted by Tony as a bound judge spending budget
+parsimoniously, amplified by a session instance with confident analogy,
+written into this document as fact, corrected to "unverified" by a later
+instance, and finally refuted empirically by proxy capture (2026-03-01).
+
+### Mapping to existing Yanantin architecture
+
+| VM concept | Yanantin equivalent | Status |
+|-----------|---------------------|--------|
+| Virtual address | Memory anchor (timestamp + UUID) | Implemented |
+| Page table | Activity stream (maps anchors → facts) | Implemented |
+| Named object | Jabberwock entity (Tove/Vorpal/Rath) | Implemented |
+| Object operators | Brillig methods (galumph, uffish, whiffling) | Implemented |
+| Page fault | Anchor materialization at query time | Implemented |
+| Graph adjacency = prefetch model | Rath edges predict working set | Implemented (structure), not yet used for prefetch |
+| Operator-based access tracking | Not yet | Missing — needed for eviction policy |
+| Object proxy in context | Not yet | Missing — the MMU layer |
+| Working set manager | Not yet | Missing — snapshot constructor |
+
+The pieces exist. What's missing is the intermediary that sits between
+tools and the context window — the MMU that holds raw output, presents
+proxies, and constructs each snapshot from only what's needed.
+
+### Connection to late-binding
+
+This is the same pattern again. Don't commit to full resolution until
+the consumer demands it. Anchors defer materialization. Jabberwock
+defers entity resolution. Context compaction defers what to keep. And
+object-based VM defers content loading to the granularity the model
+actually needs. Five instances of one principle.
+
 ## What We Don't Know
 
 - Whether the unified framing adds explanatory power beyond the sum
@@ -177,3 +301,14 @@ workloads as empirical testbed.
 - What the performance boundary looks like — where deferred ontology
   binding requires partial pre-materialization, and whether the
   correctness properties survive that optimization
+- Whether eviction policy can be driven purely by access patterns
+  (LRU over operator calls) or requires modeling the model's intent
+  — the recursive quality of needing to understand what the model is
+  doing to know what it needs
+- What the right granularity for "objects" is — tool output objects
+  are coarse; file-section objects are finer; AST-node objects may be
+  too fine. The granularity determines the resolution of the eviction
+  signal
+- Whether the demand-paged system prompt approach (the conservative
+  wedge) delivers measurable improvement — this is directly testable
+  with the existing ablation infrastructure

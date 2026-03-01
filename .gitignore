@@ -4,5 +4,6 @@ __pycache__/
 .serena/
 .uv-cache/
 .env
+.claude/pipeline_health.json
 logs/
 tmp/

@@ -23,6 +23,7 @@ from __future__ import annotations
 import asyncio
 import os
 import re
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
@@ -146,6 +147,55 @@ def _is_degenerate_repetition(text: str, phrase_len: int = 40, threshold: int = 
         if text.count(phrase) >= threshold:
             return True
     return False
+
+
+# ── Verification dedup ───────────────────────────────────────────────
+
+# Maximum number of verification reports for the same (file, model) pair
+# before we stop dispatching more.  Three is enough to establish consensus
+# without feeding a cascade when a confused claim keeps getting re-verified.
+MAX_VERIFY_PER_CLAIM = 3
+
+
+def _count_prior_verifications(cairn_dir: Path) -> Counter[tuple[str, str]]:
+    """Count existing verification reports per (ClaimFile, ClaimBy) pair.
+
+    Scans scout reports that carry ``Dispatch: verify`` provenance for
+    their ClaimFile and ClaimBy fields.  Returns a Counter keyed by
+    (claim_file, claim_by) so callers can check whether a claim has
+    already been verified enough times.
+
+    This is intentionally simple — regex on provenance headers, no full
+    parse.  It needs to be fast because it runs before every verification
+    batch.
+    """
+    counts: Counter[tuple[str, str]] = Counter()
+    if not cairn_dir.is_dir():
+        return counts
+
+    _dispatch_re = re.compile(r"Dispatch:\s*verify", re.IGNORECASE)
+    _file_re = re.compile(r"ClaimFile:\s*(.+)")
+    _by_re = re.compile(r"ClaimBy:\s*(.+)")
+
+    for path in cairn_dir.glob("scout_*.md"):
+        try:
+            # Only read the header — 1500 bytes covers the longest observed
+            # provenance block (1144 bytes with long Claim text).
+            with open(path, "r", encoding="utf-8") as f:
+                header = f.read(1500)
+        except OSError:
+            continue
+
+        if not _dispatch_re.search(header):
+            continue
+
+        file_match = _file_re.search(header)
+        by_match = _by_re.search(header)
+        if file_match and by_match:
+            key = (file_match.group(1).strip(), by_match.group(1).strip())
+            counts[key] += 1
+
+    return counts
 
 
 # ── Cairn writer ─────────────────────────────────────────────────────
@@ -684,7 +734,7 @@ async def dispatch_verify(
             elif "**DENIED**" in content_upper or "### VERDICT\nDENIED" in content_upper:
                 verdict = "DENIED"
 
-        return {
+        result = {
             "mode": "verify",
             "verdict": verdict,
             "claim": claim_text,
@@ -700,6 +750,19 @@ async def dispatch_verify(
             "usage": response.usage,
             "pool_size": loaded_count,
         }
+
+        # Record attestation receipt if Willay is available.
+        # Attestation failure must never block verification.
+        try:
+            from yanantin.chasqui.attestation import record_verification
+
+            record_verification(result)
+        except ImportError:
+            pass  # Willay not installed
+        except Exception:
+            pass  # Attestation failure never blocks verification
+
+        return result
 
 
 async def dispatch_verify_cairn(
@@ -717,6 +780,18 @@ async def dispatch_verify_cairn(
     claims = extract_cairn_claims(cairn_dir, project_root)
     if not claims:
         return [{"error": "No verifiable claims found in cairn"}]
+
+    # Dedup: skip claims that have already been verified enough times.
+    # Without this, a confused claim (e.g. self-referential) that gets
+    # DENIED triggers more verification, which triggers more DENIED,
+    # creating a cascade.  See: 2990/9494 claims on predecessors.md.
+    prior = _count_prior_verifications(cairn_dir)
+    claims = [
+        c for c in claims
+        if prior[(c.file_path, c.source_model)] < MAX_VERIFY_PER_CLAIM
+    ]
+    if not claims:
+        return [{"info": "All verifiable claims already at verification limit"}]
 
     # Select a sample of claims to verify
     import random
@@ -827,6 +902,15 @@ async def dispatch_investigate(
 
     if not verifiable:
         return [{"error": f"No verifiable open questions (all {len(report.open_questions)} lack valid file refs)"}]
+
+    # Dedup: skip questions whose (file, model) pair already has enough verifications
+    prior = _count_prior_verifications(cairn_dir)
+    verifiable = [
+        q for q in verifiable
+        if prior[(q.file_references[0], q.source_model)] < MAX_VERIFY_PER_CLAIM
+    ]
+    if not verifiable:
+        return [{"info": "All open questions already at verification limit"}]
 
     selected = verifiable[:max_questions]
 

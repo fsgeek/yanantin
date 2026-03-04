@@ -81,13 +81,60 @@ where the pattern breaks.
 
 See: `~/projects/research-program/tensors/T7_the_design.md`
 
+### Fifth instance: Pager summary as anchor handle
+
+The Pichay context pager (`~/projects/pichay/`) implements the
+fourth instance's design. When tool results are evicted, they are
+replaced with a retrieval handle:
+
+```
+[Paged out: Read /path/to/file.py (8,192 bytes, 187 lines).
+ Re-read the file if you need its content.]
+```
+
+This was designed as a space-saving measure — a human-readable
+marker to reduce context consumption. In practice it functions as
+a late-binding anchor:
+
+| What's stored | What materializes | When |
+|--------------|-------------------|------|
+| Path + size + retrieval instruction | Full file content at current state | When model re-reads (page fault) |
+
+The critical difference from the fourth instance's theoretical
+design: the anchor resolves to *current* content, not the original
+evicted content. A file edited since eviction materializes at its
+new state. This is the same temporal property as activity anchors
+(new streams retroactively enrich old anchors) but applied to
+files on disk.
+
+**Behavioral confirmation:** When a fresh instance resumed a
+session with paged-out content, it unprompted said: "Let me
+re-read the files I need since some were paged out." The model
+recognized the handles and chose to fault content in before acting.
+The pattern was understood without instruction — the handle's
+format carries its own semantics.
+
+**Measured:** Over 681 turns, 659 page faults fired — the model
+consistently pulled on handles to recover content it needed. The
+97% fault rate is a pathology (thrashing, not efficient paging),
+but it confirms the mechanism works: the model knows how to use
+the handles.
+
+See: `docs/phase1_context_utilization.md` (Phase 2 results),
+`docs/cairn/T31_20260302_the_page_fault.md` (tensor from the
+instance that was simultaneously builder and test subject).
+
 ## What Would Confirm It
 
 - The pattern continues to emerge in new layers without being mandated.
-  **Status: confirmed.** The research-program's T7 design independently
-  converges on the same structure for context compaction — a fourth
-  layer, designed by a different instance, with no knowledge of this
-  hypothesis.
+  **Status: confirmed (twice).** The research-program's T7 design
+  independently converges on the same structure for context compaction
+  — a fourth layer, designed by a different instance, with no knowledge
+  of this hypothesis. The Pichay pager summary — designed as a
+  space-saving marker — independently became a fifth instance when the
+  retrieval handle turned out to be an anchor. The instance that built
+  it recognized this while experiencing context pressure from its own
+  pager (T31).
 - Systems designed with eager materialization in the same problem space
   develop update cascades, version conflicts, or cache invalidation
   problems that this architecture avoids. **Status: testable.** Phase 1

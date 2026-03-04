@@ -1,10 +1,12 @@
 # Phase 1: Context Window Utilization in Agentic Coding Sessions
 
-**Status:** Empirical measurement complete. Phase 2 design pending.
-**Date:** 2026-02-28
+**Status:** Phase 2 intervention deployed and under active experiment.
+**Date:** 2026-02-28 (Phase 1), 2026-03-02 (Phase 2)
 **Authors:** Yanantin AI (Claude Opus), with experimental design from
 research-program T7 (research supervisor instance)
-**Instruments:** `tools/phase1/probe.py`, `tools/phase1/proxy.py`
+**Instruments:** `tools/phase1/probe.py`, `tools/phase1/proxy.py`,
+`tools/phase1/reference_string.py`, Pichay pager (`pichay.pager`,
+`pichay.proxy`)
 
 ## Abstract
 
@@ -348,3 +350,229 @@ binding preserves correctness (non-inferiority). This is the
 fourth independent instance of the deferred ontological binding
 pattern emerging in this architecture, following activity anchors,
 Jabberwock NER, and mome observations.
+
+## Phase 2: Context Paging — Experimental Results
+
+### Instrument
+
+Pichay (`~/projects/pichay/`) is a self-contained context pager
+implemented as an API proxy. It sits between Claude Code and the
+Anthropic API, intercepting the messages array on each request.
+
+- **Observe mode:** Logs request metrics without modification.
+- **Compact mode:** Evicts old tool results, replacing them with
+  retrieval handles. The evicted content is stored in a `PageStore`
+  and can be "faulted" back in when the model re-requests it.
+
+Eviction policy: FIFO by user-turn age. Tool results older than
+`age_threshold` turns (default 4) and larger than `min_size` bytes
+(default 500) are replaced with a summary:
+
+```
+[Paged out: Read /path/to/file.py (8,192 bytes, 187 lines).
+ Re-read the file if you need its content.]
+```
+
+This summary is the retrieval handle — a late-binding anchor that
+tells the model what was removed and how to fault it back in.
+
+### Eviction semantics: GC vs paging
+
+Not all evictions are equal. The Shannon plan (T31 implementation)
+distinguished two categories:
+
+- **Garbage collection (GC):** Bash, Grep, Glob results — ephemeral
+  tool outputs with no stable identity. Removing these is cleanup.
+  The model cannot re-request "the same" Bash output.
+- **Eviction (paging):** Read results — content with stable identity
+  (file paths). Removing these is real eviction with fault risk. The
+  model can re-read the same file.
+
+This distinction corrects the denominator for fault rate calculation.
+Fault rate = faults / unique Read evictions, not faults / total
+evictions. GC cannot produce faults by definition.
+
+### Session 1: First compact-mode run
+
+A live coding session using compact mode (age_threshold=4,
+min_size=500):
+
+| Metric | Value |
+|--------|-------|
+| Context free before compaction | 7% |
+| Context free after compaction | 43% |
+| Total evictions | 15 |
+| GC (Bash/Grep/Glob) | ~11 |
+| Read evictions | ~4 |
+| Page faults | 1 |
+| Fault rate (Read only) | ~25% |
+
+**Result:** 36 percentage points of context recovered. The session
+would have hit compaction pressure within a few turns without
+intervention. The simple age-based policy captured most dead tool
+output without sophistication.
+
+**Failure mode discovered:** The single fault was a plan file. The
+model was in plan mode; the plan file was read early in the session
+and evicted when it crossed the age threshold. The plan is reference
+material the model needs for the entire session — a hot page that
+FIFO treats as cold because it measures age, not access pattern.
+
+### Session 2: Thrashing under sustained load
+
+A 681-turn session with subagent coordination:
+
+| Metric | Value |
+|--------|-------|
+| Turns | 681 |
+| Evictions (total) | 680 |
+| GC | 74 |
+| Read evictions | 606 |
+| Page faults | 659 |
+| Fault rate (total) | 97% |
+| Peak compression | 5,038KB → 339KB |
+
+**The 97% fault rate is a pathology, not a feature.** The proxy
+evicted almost everything and the model re-requested almost
+everything. Each fault generates a Read tool call — a full round
+trip at Opus pricing. The proxy was spending money to save context
+space.
+
+Observed patterns:
+
+1. **Three-file cycle:** Three files (3,438 + 1,570 + 1,592 bytes)
+   evicted and faulted repeatedly across turns 163-170+. Classic
+   thrashing — the working set exceeds the resident set.
+
+2. **Seven-file sequential scan:** During planning, the model read
+   across three projects (Pukara, Willay, Yanantin), cycling through
+   the same 7 files repeatedly. The working set was larger than what
+   the age threshold allowed to stay resident.
+
+3. **Self-inflicted inflation:** The 5,038KB pre-compaction size
+   includes re-reads caused by previous evictions. Without the
+   eviction-fault cycle, the actual content would have been
+   substantially smaller. The proxy was measuring its own overhead
+   as "bytes saved."
+
+4. **Session death by rate limit:** The session hit the 5-hour rate
+   limit, not the context limit. At 659 faults (each an Opus-priced
+   tool call round trip), the thrashing consumed rate budget faster
+   than useful work.
+
+### The anchor handle discovery
+
+The most significant finding was behavioral, not quantitative. The
+eviction summary — `[Paged out: Read file.py (N bytes, M lines).
+Re-read if you need its content.]` — functions as a late-binding
+anchor handle.
+
+When a fresh instance resumed a session with paged-out content, it
+said: "Let me re-read the files I need since some were paged out."
+The model recognized the handles, understood what was missing, and
+chose to fault content back in before acting.
+
+This is the same pattern as Yanantin's memory anchors. The anchor
+stores almost nothing (a path, a size, an instruction). The content
+materializes on demand when the model pulls on the handle. The model
+doesn't need the content resident — it needs to know it *can* get it.
+
+The pager summary was designed as a space-saving measure. It turns
+out to be an anchor.
+
+### Fault-driven pinning
+
+The thrashing pathology has a known solution from OS research:
+fault-driven pinning. If evicting a page caused a fault, don't
+evict it again.
+
+Implementation (in Pichay pager, pending deployment):
+
+1. On fault: record the file path and content hash of what was
+   evicted.
+2. Next time that path would be evicted: if the content hash matches
+   what caused the fault, pin it — skip eviction permanently.
+3. If the model reads the same path with *different* content (file
+   was edited), unpin. The old version is stale; the new version
+   starts a fresh fault cycle.
+
+This handles the edit/review cycle: `foo.py` is loaded, pinned
+(working set), edited, loaded again (new content replaces old pin),
+and the new version can go through the fault cycle independently.
+
+The content hash comparison prevents false pins: if a file changed
+between eviction and re-read, the eviction was correct (stale data
+removed). Only pin when the model demonstrably needed exactly what
+was taken away.
+
+Cost argument: every prevented fault is a tool call that doesn't
+happen. At Opus pricing, the 580+ avoidable faults in Session 2
+represent significant cost savings.
+
+### Declared losses (Phase 2)
+
+- **Single PageStore for all connections.** The proxy does not
+  distinguish main sessions from subagents. Cross-contamination
+  inflates fault counts. Per-connection isolation is the obvious fix.
+- **No phase awareness.** The proxy treats planning and execution
+  identically. Planning requires broad simultaneous context (many
+  files held at once); execution is sequential (read, edit, move on).
+  Aggressive eviction during planning is destructive.
+- **Cumulative counters inflate savings.** The same file evicted and
+  faulted 10 times counts as 10x the savings. The real metric is
+  per-request compression, not cumulative.
+- **Pinning not yet deployed.** The code is written and tested but
+  the running proxy was on the pre-pinning build during Session 2.
+- **No conversation compaction.** The proxy only handles tool results.
+  Non-tool messages (conversation history) are untouched. See
+  Phase 3 direction below.
+
+## Phase 3 Direction: Rolling Tensor Compaction
+
+Phase 2 handles tool results — content with stable identity that can
+be faulted back in. Conversation history is different. You cannot
+re-read a dialogue turn. Compressing it is genuinely lossy.
+
+But genuine lossy compression with declared losses is what Yanantin's
+tensor format was designed for.
+
+**Proposed mechanism:** When context pressure exceeds a threshold,
+the proxy compresses early conversation turns into a tensor — an
+authored summary with explicit declared losses and composition
+metadata. The tensor replaces the original messages. The model sees
+that its earlier history has been compressed and knows what was
+dropped.
+
+This is what T0-T28 already do, but applied to live conversation
+history rather than post-mortem autobiographical compression. The
+proxy becomes the mechanism by which Yanantin's tensor architecture
+enters the context window — not after context death, but before it.
+
+**Key design questions:**
+
+1. **Who writes the tensor?** A cheap/fast model (Haiku) called by
+   the proxy? The model itself, asked to compress before continuing?
+   A deterministic summarizer with no model call?
+
+2. **When to trigger?** At a fixed context percentage (e.g., 80%
+   full)? When fault rate exceeds a threshold? When the model enters
+   a new phase (planning → execution)?
+
+3. **Pin backoff:** Pinned pages should eventually become cold. Under
+   context pressure, the oldest/coldest pins should be released.
+   Context-pressure-based decay (pins are permanent when the window
+   is under 60% full; above that, unpin coldest-first) matches real
+   VM behavior — page replacement only matters under memory pressure.
+
+4. **Phase-aware eviction:** Planning mode needs broad simultaneous
+   context. Execution mode is sequential. The proxy could detect
+   phase from request patterns (many Reads, no Edits = planning) or
+   from explicit signals in the system prompt.
+
+**Simulation path:** `tools/phase1/reference_string.py` extracts
+the reference string (sequence of page accesses) from session
+transcripts. Trace-driven simulation can evaluate replacement
+policies against recorded workloads without live Opus-priced
+experiments. This is how Belady, Denning, and the OS research
+community evaluated page replacement algorithms — record the
+reference string, replay under different policies, compare.

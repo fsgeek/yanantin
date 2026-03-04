@@ -295,6 +295,7 @@ def digest_cairn() -> int:
 
 STALENESS_THRESHOLD = 900  # 15 minutes — flag untracked artifacts older than this
 INTEGRITY_EVERY_N_HEARTBEATS = 5  # Run chain integrity check every 5th heartbeat
+HEALTH_ATTEST_INTERVAL = 43200    # 12 hours between auto-attestation attempts
 
 
 def check_staleness() -> list[str]:
@@ -609,6 +610,26 @@ def main() -> None:
                 pass  # provenance module not yet installed
             except Exception as exc:
                 log(f"OTS upgrade error: {exc}")
+
+        # ── Pipeline health auto-attestation ─────────────────────
+        last_health = state.get("last_health_attest", 0)
+        if now - last_health >= HEALTH_ATTEST_INTERVAL:
+            try:
+                result = subprocess.run(
+                    [str(UV_BIN), "run", "python", "tools/pipeline_health.py", "--attest"],
+                    cwd=PROJECT_DIR,
+                    capture_output=True,
+                    text=True,
+                    timeout=120,
+                    env={**os.environ, "PYTHONPATH": str(PROJECT_DIR)},
+                )
+                if result.returncode == 0:
+                    log("Pipeline health attestation renewed.")
+                    state["last_health_attest"] = time.time()
+                else:
+                    log(f"Pipeline health check reported issues (not attested): {result.stderr[:200]}")
+            except Exception as exc:
+                log(f"Pipeline health check error: {exc}")
 
         # ── Proprioception: staleness + chain integrity ────────────
         stale_warnings = check_staleness()

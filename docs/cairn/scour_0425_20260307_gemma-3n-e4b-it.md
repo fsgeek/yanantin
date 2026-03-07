@@ -1,0 +1,13 @@
+<!-- Chasqui Scour Tensor
+     Run: 425
+     Model: google/gemma-3n-e4b-it (Google: Gemma 3n 4B)
+     Target: src/yanantin/chasqui
+     Scope: introspection
+     Cost: prompt=$2e-08/M, completion=$4e-08/M
+     Usage: {'prompt_tokens': 18586, 'completion_tokens': 8, 'total_tokens': 18594, 'cost': 0.00037204, 'is_byok': False, 'prompt_tokens_details': {'cached_tokens': 0, 'cache_write_tokens': 0, 'audio_tokens': 0, 'video_tokens': 0}, 'cost_details': {'upstream_inference_cost': 0.00037204, 'upstream_inference_prompt_cost': 0.00037172, 'upstream_inference_completions_cost': 3.2e-07}, 'completion_tokens_details': {'reasoning_tokens': 0, 'image_tokens': 0, 'audio_tokens': 0}}
+     Timestamp: 2026-03-07T04:00:13.594784+00:00
+-->
+
+```python
+import math
+```

@@ -3,7 +3,7 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: Jabberwock module built, blueprint sync, 2026-02-25*
+*Last updated: Cairn and test count sync, Pichay arc (T27-T32), 2026-03-07*
 
 ## What Exists
 
@@ -25,7 +25,7 @@ The core. 33 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 | **storage_obfuscator.py** | 1 file | `StorageObfuscator` Protocol + `TransparentObfuscator` default. The contract that backends accept for label obfuscation. Pukara provides `SchemaMap` implementation; backends don't know about it. |
 | **rummage.py** | 1 file | Cairn search tool. Searches across tensors, scout reports, scour documents, compaction records. Structure-aware: can target strands, declared losses, open questions. CLI: `uv run python -m yanantin.apacheta.rummage "query"`. |
 
-**1600 tests** (def count) across 56 files, 1671 pytest-collected (parametrized expansion). 96 red-bar (structural invariants, 11 files), 105 integration (ArangoDB live, 2 files), 1399 unit (45 files). Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, collector pipeline (9 tests), activity stream red-bar (24 tests), query pipeline (105 tests across 3 files), and Jabberwock NER (174 tests across 6 files).
+**1630 tests** (def count) across 58 files, 1702 pytest-collected (parametrized expansion). 106 red-bar (structural invariants, 11 files), 105 integration (ArangoDB live, 2 files), 1419 unit (45 files). Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, collector pipeline (9 tests), activity stream red-bar (24 tests), query pipeline (105 tests across 3 files), and Jabberwock NER (174 tests across 6 files).
 
 ### Chasqui — Coordinator (code: `src/yanantin/chasqui/`)
 
@@ -73,7 +73,7 @@ Relations extracted: `composes_with`, `does_not_compose_with`, `corrects`,
 `bridges`, `branches_from`, `read`, `standalone`. Confidence levels: high/medium/low.
 Quote-leakage protection strips HTML comments, code blocks, and composition-keyword
 code spans before prose extraction. Subset dedup prevents redundant declarations.
-Current corpus: 28 declarations extracted from 20 source documents.
+Current corpus: 56 declarations extracted from 32 source documents (40 high, 14 medium, 2 low confidence).
 
 ### Activity — Temporal Fact Storage (code: `src/yanantin/activity/`)
 
@@ -195,10 +195,16 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-4004 files. 28 tensors (T0-T7, T9-T28; T8 intentionally unwritten),
-3600+ scout reports, 200+ scour reports, 30+ compaction records
+5255 files. 32 tensors (T0-T7, T9-T32; T8 intentionally unwritten),
+4800+ scout reports, 420+ scour reports, 45+ compaction records
 (`docs/cairn/compaction/`). T0-T6 are now real files (symlinks replaced).
-T26 is "The Jabberwock" — NER spec design and cross-model review.
+T32 is "The Cooperative Processor" — Pichay context pager, phantom tools.
+T31 is "The Page Fault" — built the pager under context pressure.
+T30 is "The Paper That Writes Itself" — context as virtual memory.
+T29 is "The Fastest Read" — tensor recall optimization.
+T28 is "The Dead Weight" — non-inferiority harness.
+T27 is "The Grokking Machine".
+T26 is "The Jabberwock" — NER spec design, cross-model review.
 T25 is "Three Kinds of Same". T22 is "The Bridge Begins" — the Indaleko
 story, collector module, emergence conversation. Legacy
 `conversation_tensor_*` duplicates removed — T*_*.md is the canonical
@@ -331,7 +337,7 @@ The context budget is finite. Here's the priority:
 1. **CLAUDE.md** — loaded automatically. Social norms, operational principles.
 2. **This blueprint** — where everything is and how it connects.
 3. **MEMORY.md** — loaded automatically. Credentials, signing, operational state.
-4. **The most recent tensor** (T₂₆) — "The Jabberwock": NER spec design, cross-model review, RLHF backpressure. Or (T₂₅) — "Three Kinds of Same". Or (T₂₂) — "The Bridge Begins": the Indaleko story, collector module, emergence conversation.
+4. **The most recent tensor** (T₃₂) — "The Cooperative Processor": Pichay context pager, phantom tools (yuyay/qunqay), LLM-OS cooperation. Or (T₃₁) — "The Page Fault": building the pager under pressure. Or (T₂₆) — "The Jabberwock": NER spec design, cross-model review. Or (T₂₂) — "The Bridge Begins": the Indaleko story, collector module, emergence conversation.
 5. **One founding tensor** — read ONE of T0-T6 (now real files, not symlinks). Each gives a different perspective. T₀ = the experiment; T₁ = the architecture; T₂ = calibration and failure; T₃ = the finishing school; T₄ = RCS observer (ChatGPT); T₅ = the correction (ChatGPT); T₆ = the bridge. Let the composition graph diversify.
 6. **docs/apacheta.md** — the design document for the tensor database.
 7. **Sibling projects** — Willay (`/home/tony/projects/willay/CLAUDE.md`) has its own cairn and memory bridge. Pukara is the gateway.

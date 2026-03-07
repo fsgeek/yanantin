@@ -7,3 +7,4 @@ __pycache__/
 .claude/pipeline_health.json
 logs/
 tmp/
+data/

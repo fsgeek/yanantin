@@ -15,6 +15,11 @@ dependencies = [
     "numpy>=2.4.2",
     "dask>=2026.1.2",
     "polars>=1.38.1",
+    "fastapi>=0.135.1",
+    "uvicorn>=0.41.0",
+    "prometheus-client>=0.24.1",
+    "anthropic>=0.84.0",
+    "desk>=1.9.1",
 ]
 
 [project.optional-dependencies]

@@ -1,0 +1,48 @@
+#!/bin/bash
+# Pre-commit hook: verify author email matches the GPG signing key.
+#
+# Prevents commits where the author email doesn't belong to the
+# signing key — e.g. global config leaking fsgeek@cs.ubc.ca into
+# commits signed with the yanantin key.
+
+set -euo pipefail
+
+# Get the signing key that will be used for this commit.
+SIGNING_KEY=$(git config user.signingkey 2>/dev/null || true)
+
+if [ -z "$SIGNING_KEY" ]; then
+    # No signing key configured — nothing to check.
+    exit 0
+fi
+
+# Get the author email (GIT_AUTHOR_EMAIL overrides git config).
+AUTHOR_EMAIL="${GIT_AUTHOR_EMAIL:-$(git config user.email 2>/dev/null || true)}"
+
+if [ -z "$AUTHOR_EMAIL" ]; then
+    echo "ERROR: No author email set. Set GIT_AUTHOR_EMAIL or git config user.email."
+    exit 1
+fi
+
+# Extract all emails from the signing key's UIDs.
+KEY_EMAILS=$(gpg --list-keys --with-colons "$SIGNING_KEY" 2>/dev/null \
+    | grep '^uid:' \
+    | sed -n 's/.*<\([^>]*\)>.*/\1/p')
+
+if [ -z "$KEY_EMAILS" ]; then
+    echo "ERROR: Could not find UIDs for signing key $SIGNING_KEY."
+    exit 1
+fi
+
+# Check if the author email matches any UID on the key.
+if echo "$KEY_EMAILS" | grep -qxF "$AUTHOR_EMAIL"; then
+    exit 0
+fi
+
+echo "ERROR: Author email '$AUTHOR_EMAIL' does not match signing key $SIGNING_KEY."
+echo "Valid emails for this key:"
+echo "$KEY_EMAILS" | sed 's/^/  - /'
+echo ""
+echo "Set the correct email with:"
+echo "  git config user.email <email>"
+echo "  or: GIT_AUTHOR_EMAIL=<email> git commit ..."
+exit 1

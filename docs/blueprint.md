@@ -25,7 +25,7 @@ The core. 33 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 | **storage_obfuscator.py** | 1 file | `StorageObfuscator` Protocol + `TransparentObfuscator` default. The contract that backends accept for label obfuscation. Pukara provides `SchemaMap` implementation; backends don't know about it. |
 | **rummage.py** | 1 file | Cairn search tool. Searches across tensors, scout reports, scour documents, compaction records. Structure-aware: can target strands, declared losses, open questions. CLI: `uv run python -m yanantin.apacheta.rummage "query"`. |
 
-**1630 tests** (def count) across 58 files, 1702 pytest-collected (parametrized expansion). 106 red-bar (structural invariants, 11 files), 105 integration (ArangoDB live, 2 files), 1419 unit (45 files). Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, collector pipeline (9 tests), activity stream red-bar (24 tests), query pipeline (105 tests across 3 files), and Jabberwock NER (174 tests across 6 files).
+**1638 tests** (def count) across 58 files, ~1710 pytest-collected (parametrized expansion). 106 red-bar (structural invariants, 11 files), 105 integration (ArangoDB live, 2 files), 1427 unit (45 files). Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, collector pipeline (9 tests), activity stream red-bar (24 tests), query pipeline (105 tests across 3 files), and Jabberwock NER (174 tests across 6 files).
 
 ### Chasqui — Coordinator (code: `src/yanantin/chasqui/`)
 
@@ -195,7 +195,7 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-5588 files. 33 tensor-named files (T0-T7, T9-T32, plus
+5607 files. 33 tensor-named files (T0-T7, T9-T32, plus
 `T15_pichay_cache_aware_hardening.md` — a Yanantin instance's record of
 Pichay work; T8 intentionally unwritten). 5075 scout reports, 477 scour reports, 47 compaction
 records (`docs/cairn/compaction/`). T0-T6 are now real files (symlinks replaced).

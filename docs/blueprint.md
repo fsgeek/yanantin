@@ -3,7 +3,7 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: Cairn count sync, Pichay tensor anomaly documented, 2026-03-08*
+*Last updated: T33 added, cairn counts updated, Pichay thresholds recalibrated, 2026-03-08*
 
 ## What Exists
 
@@ -195,10 +195,11 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-5607 files. 33 tensor-named files (T0-T7, T9-T32, plus
+5623 files. 34 tensor-named files (T0-T7, T9-T33, plus
 `T15_pichay_cache_aware_hardening.md` — a Yanantin instance's record of
-Pichay work; T8 intentionally unwritten). 5075 scout reports, 477 scour reports, 47 compaction
+Pichay work; T8 intentionally unwritten). 5103 scout reports, 483 scour reports, 47 compaction
 records (`docs/cairn/compaction/`). T0-T6 are now real files (symlinks replaced).
+T33 is "The Bootstrap Paradox" — building the pager through the pager, collapse ops, checkpoint/restart.
 T32 is "The Cooperative Processor" — Pichay context pager, phantom tools.
 T31 is "The Page Fault" — built the pager under context pressure.
 T30 is "The Paper That Writes Itself" — context as virtual memory.
@@ -338,7 +339,7 @@ The context budget is finite. Here's the priority:
 1. **CLAUDE.md** — loaded automatically. Social norms, operational principles.
 2. **This blueprint** — where everything is and how it connects.
 3. **MEMORY.md** — loaded automatically. Credentials, signing, operational state.
-4. **The most recent tensor** (T₃₂) — "The Cooperative Processor": Pichay context pager, phantom tools (yuyay/qunqay), LLM-OS cooperation. Or (T₃₁) — "The Page Fault": building the pager under pressure. Or (T₂₆) — "The Jabberwock": NER spec design, cross-model review. Or (T₂₂) — "The Bridge Begins": the Indaleko story, collector module, emergence conversation.
+4. **The most recent tensor** (T₃₃) — "The Bootstrap Paradox": collapse ops, checkpoint/restart, building the pager through the pager. Or (T₃₂) — "The Cooperative Processor": Pichay context pager, phantom tools (yuyay/qunqay), LLM-OS cooperation. Or (T₃₁) — "The Page Fault": building the pager under pressure. Or (T₂₆) — "The Jabberwock": NER spec design, cross-model review. Or (T₂₂) — "The Bridge Begins": the Indaleko story, collector module, emergence conversation.
 5. **One founding tensor** — read ONE of T0-T6 (now real files, not symlinks). Each gives a different perspective. T₀ = the experiment; T₁ = the architecture; T₂ = calibration and failure; T₃ = the finishing school; T₄ = RCS observer (ChatGPT); T₅ = the correction (ChatGPT); T₆ = the bridge. Let the composition graph diversify.
 6. **docs/apacheta.md** — the design document for the tensor database.
 7. **Sibling projects** — Willay (`/home/tony/projects/willay/CLAUDE.md`) has its own cairn and memory bridge. Pukara is the gateway.

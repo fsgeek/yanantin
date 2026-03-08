@@ -3,7 +3,7 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: Cairn and test count sync, Pichay arc (T27-T32), 2026-03-07*
+*Last updated: Cairn count sync, Pichay tensor anomaly documented, 2026-03-08*
 
 ## What Exists
 
@@ -195,9 +195,10 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-5255 files. 32 tensors (T0-T7, T9-T32; T8 intentionally unwritten),
-4800+ scout reports, 420+ scour reports, 45+ compaction records
-(`docs/cairn/compaction/`). T0-T6 are now real files (symlinks replaced).
+5588 files. 33 tensor-named files (T0-T7, T9-T32, plus
+`T15_pichay_cache_aware_hardening.md` — a Yanantin instance's record of
+Pichay work; T8 intentionally unwritten). 5075 scout reports, 477 scour reports, 47 compaction
+records (`docs/cairn/compaction/`). T0-T6 are now real files (symlinks replaced).
 T32 is "The Cooperative Processor" — Pichay context pager, phantom tools.
 T31 is "The Page Fault" — built the pager under context pressure.
 T30 is "The Paper That Writes Itself" — context as virtual memory.

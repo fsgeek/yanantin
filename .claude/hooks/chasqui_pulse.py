@@ -61,20 +61,29 @@ LOG_DIR = PROJECT_DIR / "logs"
 # Intervals in seconds
 MIN_SCOUT_INTERVAL = 300       # 5 minutes between scouts
 HEARTBEAT_INTERVAL = 1800      # 30 minutes — debugging frequency (was 6 hours)
-SCOUR_EVERY_N_HEARTBEATS = 3   # Queue a scour every 3rd heartbeat
+SCOUR_EVERY_N_HEARTBEATS = 2   # Queue a scour every 2nd heartbeat
 DIGEST_INTERVAL = 3600         # 1 hour between cairn commits (OTS settles at ~60 min)
 OTS_UPGRADE_INTERVAL = 600     # 10 minutes between OTS upgrades (one Bitcoin block)
 
 # Scour targets — (target_path, scope) pairs for periodic exploration
+# Weighted toward tensors and synthesis: these produce idea engagement,
+# while scouts already cover source files at 48/day. Introspection scours
+# are kept but reduced — they duplicate what scouts do.
 SCOUR_TARGETS = [
+    # Tensor scours — engage with ideas, not just file paths
+    ("T32*", "tensor"),       # The Cooperative Processor (Pichay context pager)
+    ("T31*", "tensor"),       # The Page Fault (pager under pressure)
+    ("T30*", "tensor"),       # The Paper That Writes Itself (context as VM)
+    ("T27*", "tensor"),       # The Grokking Machine
+    ("T26*", "tensor"),       # The Jabberwock (NER spec)
+    ("T*", "tensor"),         # Full cairn (catch older tensors too)
+    # Synthesis — find noise patterns and cross-model signal
+    ("scout_*", "synthesis"),
+    ("scout_*", "synthesis"), # Doubled weight: this is where noise detection happens
+    # Introspection — kept for source review, reduced from 6 to 3
     ("src/yanantin/apacheta", "introspection"),
     ("src/yanantin/chasqui", "introspection"),
-    ("src/yanantin/awaq", "introspection"),
-    ("src/yanantin/tinkuy", "introspection"),
-    ("src/yanantin/provenance", "introspection"),
-    ("src/yanantin/chasqui/gleaner.py", "introspection"),
-    ("T*", "tensor"),
-    ("scout_*", "synthesis"),
+    ("src/yanantin/activity", "introspection"),
 ]
 
 

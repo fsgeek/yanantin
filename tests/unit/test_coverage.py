@@ -313,3 +313,115 @@ def test_scout_file_selection_accepts_coverage_map():
         "select_files_for_scout must accept coverage_map parameter. "
         "Without it, file selection can't be weighted by coverage freshness."
     )
+
+
+# ── Tensor coverage ───────────────────────────────────────────────
+
+
+from yanantin.chasqui.coverage import (
+    list_tensors,
+    scan_tensor_coverage,
+    stalest_tensors,
+    dynamic_scour_targets,
+)
+
+
+@pytest.fixture
+def tensor_cairn(tmp_path):
+    """Create a cairn with tensors and scour reports."""
+    cairn = tmp_path / "cairn"
+    cairn.mkdir()
+
+    # Tensors
+    (cairn / "T0_20260207_bounded_verification.md").write_text("# T0")
+    (cairn / "T1_20260207_seven_projects.md").write_text("# T1")
+    (cairn / "T2_20260207_calibration_recovery.md").write_text("# T2")
+    (cairn / "T3_20260208_the_finishing_school.md").write_text("# T3")
+
+    # Scour report that references T0 and T1
+    (cairn / "scour_0001_20260220_test-model.md").write_text(
+        "<!-- Chasqui Scour Tensor\n"
+        "     Run: 1\n"
+        "     Model: test/model-a (Test Model A)\n"
+        "     Target: T0*\n"
+        "     Scope: tensor\n"
+        "     Timestamp: 2026-02-20T10:00:00+00:00\n"
+        "-->\n\n"
+        "# Tensor Analysis\n\n"
+        "T0 discusses bounded verification. T1 is referenced too.\n"
+    )
+
+    # Later scour that references T0 again
+    (cairn / "scour_0002_20260225_test-model.md").write_text(
+        "<!-- Chasqui Scour Tensor\n"
+        "     Run: 2\n"
+        "     Model: test/model-b (Test Model B)\n"
+        "     Target: T*\n"
+        "     Scope: tensor\n"
+        "     Timestamp: 2026-02-25T14:00:00+00:00\n"
+        "-->\n\n"
+        "# Tensor Analysis\n\n"
+        "T0 is foundational. T2 extends the calibration theme.\n"
+    )
+
+    return cairn
+
+
+def test_list_tensors(tensor_cairn):
+    """list_tensors finds all T*_*.md files and extracts numbers."""
+    tensors = list_tensors(tensor_cairn)
+    assert tensors == ["0", "1", "2", "3"]
+
+
+def test_scan_tensor_coverage_extracts_refs(tensor_cairn):
+    """Scanning scour reports extracts tensor references."""
+    cov = scan_tensor_coverage(tensor_cairn)
+    assert "0" in cov  # T0 in both reports
+    assert "1" in cov  # T1 in report 1
+    assert "2" in cov  # T2 in report 2
+
+
+def test_scan_tensor_coverage_uses_latest(tensor_cairn):
+    """When a tensor appears in multiple reports, use latest timestamp."""
+    cov = scan_tensor_coverage(tensor_cairn)
+    # T0 in both reports; latest is Feb 25
+    assert cov["0"] == datetime(2026, 2, 25, 14, 0, 0, tzinfo=timezone.utc)
+    # T1 only in report 1; Feb 20
+    assert cov["1"] == datetime(2026, 2, 20, 10, 0, 0, tzinfo=timezone.utc)
+
+
+def test_stalest_tensors_never_scoured_first(tensor_cairn):
+    """Tensors never referenced in scour reports come first."""
+    stalest = stalest_tensors(tensor_cairn, n=10)
+    # T3 is never scoured
+    assert stalest[0] == ("3", None)
+
+
+def test_stalest_tensors_ordering(tensor_cairn):
+    """After never-scoured, ordered by oldest coverage first."""
+    stalest = stalest_tensors(tensor_cairn, n=10)
+    # T3 (never) first, then T1 (Feb 20), then T0/T2 (Feb 25)
+    assert stalest[0][0] == "3"
+    assert stalest[1][0] == "1"
+
+
+def test_dynamic_scour_targets_includes_stalest(tensor_cairn):
+    """Dynamic targets should include the stalest tensors."""
+    targets = dynamic_scour_targets(tensor_cairn)
+    target_patterns = [t for t, _ in targets]
+    # T3 is never scoured, should appear as T3*
+    assert "T3*" in target_patterns
+
+
+def test_dynamic_scour_targets_includes_fixed(tensor_cairn):
+    """Dynamic targets always include synthesis and introspection."""
+    targets = dynamic_scour_targets(tensor_cairn)
+    scopes = [s for _, s in targets]
+    assert "synthesis" in scopes
+    assert "introspection" in scopes
+
+
+def test_dynamic_scour_targets_includes_wildcard(tensor_cairn):
+    """Dynamic targets always include T* wildcard for broad coverage."""
+    targets = dynamic_scour_targets(tensor_cairn)
+    assert ("T*", "tensor") in targets

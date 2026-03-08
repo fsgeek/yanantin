@@ -65,26 +65,31 @@ SCOUR_EVERY_N_HEARTBEATS = 2   # Queue a scour every 2nd heartbeat
 DIGEST_INTERVAL = 3600         # 1 hour between cairn commits (OTS settles at ~60 min)
 OTS_UPGRADE_INTERVAL = 600     # 10 minutes between OTS upgrades (one Bitcoin block)
 
-# Scour targets — (target_path, scope) pairs for periodic exploration
-# Weighted toward tensors and synthesis: these produce idea engagement,
-# while scouts already cover source files at 48/day. Introspection scours
-# are kept but reduced — they duplicate what scouts do.
-SCOUR_TARGETS = [
-    # Tensor scours — engage with ideas, not just file paths
-    ("T32*", "tensor"),       # The Cooperative Processor (Pichay context pager)
-    ("T31*", "tensor"),       # The Page Fault (pager under pressure)
-    ("T30*", "tensor"),       # The Paper That Writes Itself (context as VM)
-    ("T27*", "tensor"),       # The Grokking Machine
-    ("T26*", "tensor"),       # The Jabberwock (NER spec)
-    ("T*", "tensor"),         # Full cairn (catch older tensors too)
-    # Synthesis — find noise patterns and cross-model signal
+# Scour targets — dynamically generated from tensor coverage freshness.
+# Falls back to static list if coverage scan fails.
+CAIRN_DIR = PROJECT_DIR / "docs" / "cairn"
+
+SCOUR_TARGETS_FALLBACK = [
+    ("T*", "tensor"),
     ("scout_*", "synthesis"),
-    ("scout_*", "synthesis"), # Doubled weight: this is where noise detection happens
-    # Introspection — kept for source review, reduced from 6 to 3
-    ("src/yanantin/apacheta", "introspection"),
     ("src/yanantin/chasqui", "introspection"),
-    ("src/yanantin/activity", "introspection"),
 ]
+
+
+def _get_scour_targets() -> list[tuple[str, str]]:
+    """Get scour targets, weighted by tensor coverage freshness.
+
+    Stalest tensors get priority. New tensors auto-appear.
+    Falls back to static list if the coverage module fails.
+    """
+    try:
+        from yanantin.chasqui.coverage import dynamic_scour_targets
+        targets = dynamic_scour_targets(CAIRN_DIR)
+        if targets:
+            return targets
+    except Exception as exc:
+        log(f"Dynamic scour targets failed, using fallback: {exc}")
+    return SCOUR_TARGETS_FALLBACK
 
 
 def log(msg: str) -> None:
@@ -584,7 +589,8 @@ def main() -> None:
             state["heartbeat_count"] = heartbeat_count
             if heartbeat_count % SCOUR_EVERY_N_HEARTBEATS == 0:
                 import random
-                target, scope = random.choice(SCOUR_TARGETS)
+                scour_targets = _get_scour_targets()
+                target, scope = random.choice(scour_targets)
                 log(f"Queueing periodic scour: target={target}, scope={scope}")
                 queue = enqueue(queue, {
                     "type": "scour",

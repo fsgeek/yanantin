@@ -324,6 +324,11 @@ def scan_tensor_coverage(
     referenced in scour reports. Tensor numbers are strings
     ("0", "12", "32") matching the T-prefix naming convention.
 
+    Only counts references to tensors that actually exist in the
+    cairn (have T*_*.md files). This prevents phantom matches —
+    line numbers, counts, and other numeric text in report prose
+    that happen to match the T-number pattern.
+
     A tensor is considered "covered" if a scour report either:
     - Targeted it directly (Target: T32*)
     - Referenced it in body text (mentions T32)
@@ -331,6 +336,9 @@ def scan_tensor_coverage(
     if not cairn_dir.is_dir():
         logger.warning("Cairn directory does not exist: %s", cairn_dir)
         return {}
+
+    # Ground truth: only track tensors that actually exist
+    known_tensors = set(list_tensors(cairn_dir))
 
     coverage: dict[str, datetime] = {}
     report_count = 0
@@ -343,7 +351,7 @@ def scan_tensor_coverage(
 
         report_count += 1
         timestamp = _parse_report_timestamp(text)
-        tensor_refs = _extract_tensor_refs(text)
+        tensor_refs = _extract_tensor_refs(text) & known_tensors
 
         for tensor_num in tensor_refs:
             existing = coverage.get(tensor_num)

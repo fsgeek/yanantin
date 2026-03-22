@@ -1,0 +1,11 @@
+{
+  "id": "78ce586f-9af6-473b-a3d3-636655799bcb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7322_20260322_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0304_20260213_l3-lunaris-8b.md",
+  "relation": "denies",
+  "claim_text": "For example, `scout_0118_20260212_llama-guard-2-8b.md` shows a detailed analysis of a specific model's behavior.",
+  "claim_file": "docs/cairn/scout_0118_20260212_llama-guard-2-8b.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-22T08:18:10.722402+00:00"
+}

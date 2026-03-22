@@ -1,0 +1,11 @@
+{
+  "id": "aee93d83-5b36-4d85-8de4-e8873e69457f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7326_20260322_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0924_20260216_claude-3.7-sonnet.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: Provenance and Cryptographic Verification The project puts significant emphasis on provenance tracking and cryptographic verification: - `src/yanantin/provenance/timestamp.py` - Timestamp functionality - `docs/ots/` directory contains thousands of OpenTimestamps (OTS) files - `.claude/hooks/ots_stamp.py` - Hook for timestamping - `docs/signing.md` - Documentation on signing process This suggests a strong focus on verifiability and auditability of AI-generated content, ensuring that the provenance of observations can be cryptographically proven.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "anthropic/claude-3.7-sonnet",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-22T08:50:23.894820+00:00"
+}

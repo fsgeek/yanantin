@@ -1,0 +1,11 @@
+{
+  "id": "331aed4c-0184-414f-9e31-3e36f408c1b3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7325_20260322_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1017_20260216_lfm2-8b-a1b.md",
+  "relation": "confirms",
+  "claim_text": "Since no external reference to `apacheta.md` appears, and the claim contradicts the document\u2019s self-referential description, the claim is false.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-03-22T08:50:22.892746+00:00"
+}

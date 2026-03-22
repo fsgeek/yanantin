@@ -42,10 +42,11 @@ epistemic observability.
 You are model `{model_id}` (`{model_name}`).
 You were selected by cost-weighted random sampling (your cost: ${cost}/M tokens).
 This is run #{run_number} of the chasqui scout program.
+{vantage_description}
 
-## The Codebase
+## Local Structure
 
-Here are the files and their structure:
+Here are the files in your area:
 
 ```
 {file_tree}
@@ -57,7 +58,9 @@ Here are the files and their structure:
 
 ## Your Task
 
-Wander. Notice what others might miss. The obvious is already known —
+You've been dropped into a specific part of the codebase. Don't describe
+the directory structure — describe what the code is doing, what assumptions
+it makes, and what tensions you notice. The obvious is already known —
 what's surprising, confusing, or worth exploring further?
 
 Structure your response as a tensor:
@@ -113,14 +116,134 @@ def build_file_tree(root: Path, max_depth: int = 4) -> str:
     return "\n".join(lines)
 
 
+def gather_prior_findings(
+    vantage: Path,
+    root: Path,
+    cairn_dir: Path | None = None,
+    max_findings: int = 8,
+) -> str:
+    """Collect verified claims about files in a vantage's area.
+
+    Reads edge files from docs/cairn/edges/ and filters for claims
+    about files under the vantage directory. Returns a human-readable
+    summary for injection into the scout prompt.
+
+    Returns empty string if no edges exist or none match the vantage.
+    """
+    import json
+
+    if cairn_dir is None:
+        cairn_dir = root / "docs" / "cairn"
+
+    edges_dir = cairn_dir / "edges"
+    if not edges_dir.is_dir():
+        return ""
+
+    try:
+        vantage_rel = str(vantage.relative_to(root))
+    except ValueError:
+        return ""
+
+    findings: list[str] = []
+    for edge_file in sorted(edges_dir.glob("*.json"), reverse=True):
+        if len(findings) >= max_findings:
+            break
+        try:
+            edge = json.loads(edge_file.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+
+        claim_file = edge.get("claim_file", "")
+        if not claim_file.startswith(vantage_rel):
+            continue
+
+        relation = edge.get("relation", "?")
+        claim_text = edge.get("claim_text", "")
+        verified_by = edge.get("verified_by", "unknown")
+
+        # Truncate long claims
+        if len(claim_text) > 120:
+            claim_text = claim_text[:117] + "..."
+
+        status = "CONFIRMED" if relation == "confirms" else "DENIED"
+        findings.append(f"- [{status}] {claim_text} (verified by `{verified_by}`)")
+
+    if not findings:
+        return ""
+
+    header = f"## Prior Findings in Your Area\n\nOther scouts have made claims about files here. These have been verified:\n\n"
+    return header + "\n".join(findings) + "\n\nPush past what's already known. What did they miss?\n"
+
+
+def pick_vantage_directory(
+    root: Path,
+    coverage_map: dict | None = None,
+) -> Path:
+    """Pick a random starting directory for a scout, weighted by coverage.
+
+    Instead of always showing the full project tree, scouts get dropped
+    into a specific subtree. This breaks mode collapse by giving each
+    scout a genuinely different vantage point.
+
+    Directories containing more unreviewed or stale files get higher
+    weight. The project root is excluded — scouts always land somewhere
+    specific.
+
+    Returns an absolute path to the chosen directory.
+    """
+    import random
+
+    source_extensions = {".py", ".md", ".toml", ".yaml", ".yml"}
+    skip_dirs = {"__pycache__", ".git", ".venv", ".uv-cache", ".serena",
+                 "node_modules", ".pytest_cache"}
+
+    # Collect all directories that contain source files
+    dir_files: dict[Path, list[Path]] = {}
+    for ext in source_extensions:
+        for path in root.rglob(f"*{ext}"):
+            if any(d in path.parts for d in skip_dirs):
+                continue
+            if not path.is_file():
+                continue
+            parent = path.parent
+            # Skip project root and cairn (7000+ reports is not useful)
+            if parent == root:
+                continue
+            if "cairn" in parent.parts:
+                continue
+            dir_files.setdefault(parent, []).append(path)
+
+    if not dir_files:
+        return root  # Fallback: nowhere to go
+
+    dirs = list(dir_files.keys())
+
+    if coverage_map is not None:
+        from yanantin.chasqui.coverage import coverage_weights
+        # Weight each directory by the sum of its files' staleness
+        dir_weights = []
+        for d in dirs:
+            files = dir_files[d]
+            weights = coverage_weights(files, coverage_map, root)
+            dir_weights.append(sum(weights))
+    else:
+        dir_weights = [float(len(dir_files[d])) for d in dirs]
+
+    return random.choices(dirs, weights=dir_weights, k=1)[0]
+
+
 def select_files_for_scout(
     root: Path,
     max_files: int = 8,
     max_lines_per_file: int = 150,
     coverage_map: dict | None = None,
     activity_map: dict[str, datetime] | None = None,
+    vantage: Path | None = None,
 ) -> list[tuple[Path, str]]:
     """Select a sample of project files for the scout to read.
+
+    When vantage is provided, candidates are restricted to that subtree.
+    This gives scouts a focused view rather than the full project.
 
     When coverage_map is provided, uses weighted random selection based
     on coverage freshness: files never reviewed (epoch 0) get maximum
@@ -142,16 +265,18 @@ def select_files_for_scout(
         activity_map: {relative_path: last_modified_datetime} from
             the activity stream. When provided alongside coverage_map,
             boosts recently-changed files.
+        vantage: Optional subtree to constrain file selection to.
 
     Returns (path, content) tuples.
     """
     import random
 
     source_extensions = {".py", ".md", ".toml", ".yaml", ".yml"}
+    search_root = vantage if vantage is not None else root
     candidates = []
 
     for ext in source_extensions:
-        candidates.extend(root.rglob(f"*{ext}"))
+        candidates.extend(search_root.rglob(f"*{ext}"))
 
     # Filter out noise
     skip_dirs = {"__pycache__", ".git", ".venv", ".uv-cache", ".serena"}
@@ -221,17 +346,28 @@ def format_scout_prompt(
 ) -> tuple[str, list[dict[str, str]]]:
     """Build the system prompt and messages for a scout dispatch.
 
-    When coverage_map is provided, file selection is weighted by
-    coverage freshness — unreviewed files get higher priority.
-    When activity_map is also provided, recently-changed files get
-    a boost in selection probability.
+    Picks a random vantage directory (coverage-weighted) and drops the
+    scout there. The scout sees only the local subtree and files from
+    that area, breaking the mode collapse that comes from every scout
+    seeing the same full project tree.
 
     Returns (system_prompt, messages) for the OpenRouter API.
     """
-    file_tree = build_file_tree(root)
+    vantage = pick_vantage_directory(root, coverage_map=coverage_map)
+    file_tree = build_file_tree(vantage)
     selected_files = select_files_for_scout(
         root, coverage_map=coverage_map, activity_map=activity_map,
+        vantage=vantage,
     )
+
+    # If the vantage directory had no files (unlikely but possible),
+    # fall back to project-wide selection
+    if not selected_files:
+        vantage = root
+        file_tree = build_file_tree(root)
+        selected_files = select_files_for_scout(
+            root, coverage_map=coverage_map, activity_map=activity_map,
+        )
 
     file_contents_parts = []
     for path, content in selected_files:
@@ -241,6 +377,22 @@ def format_scout_prompt(
     file_contents = "\n\n".join(file_contents_parts)
 
     cost = model.prompt_cost + model.completion_cost
+
+    # Describe the vantage to the scout
+    if vantage != root:
+        try:
+            rel_vantage = vantage.relative_to(root)
+        except ValueError:
+            rel_vantage = vantage
+        vantage_description = f"You were dropped into `{rel_vantage}/`."
+    else:
+        vantage_description = "You are viewing the full project."
+
+    # Collect prior verified claims about this area
+    prior_findings = gather_prior_findings(
+        vantage, root, cairn_dir=root / "docs" / "cairn",
+    )
+
     user_prompt = SCOUT_TEMPLATE.format(
         model_id=model.id,
         model_name=model.name,
@@ -248,7 +400,12 @@ def format_scout_prompt(
         run_number=run_number,
         file_tree=file_tree,
         file_contents=file_contents,
+        vantage_description=vantage_description,
     )
+
+    # Inject prior findings between the file contents and the task
+    if prior_findings:
+        user_prompt += "\n" + prior_findings
 
     messages = [{"role": "user", "content": user_prompt}]
     return SCOUT_SYSTEM_PROMPT, messages

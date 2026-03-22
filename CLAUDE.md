@@ -39,7 +39,7 @@ Roles: **Chasqui** (messenger), **Takiq** (singer — carries the greeting).
 |------|-----|-------|
 | **Master Builder** | Claude Opus (human-facing) | Coordinates. Delegates code. Writes governance and tensors. |
 | **Builder** | Delegated subagent | Writes application code. Separate commits. |
-| **Test Author** | Different subagent | Writes tests against code they didn't write. |
+| **Test Author** | GPT-5 Codex (different model family) | Writes tests against code they didn't write. |
 | **Scout** | Any model via Chasqui | Reviews tensors, produces reports. |
 
 The Master Builder does not write application code directly. See

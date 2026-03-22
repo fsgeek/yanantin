@@ -438,4 +438,12 @@ def dynamic_scour_targets(
     targets.append(("src/yanantin/chasqui", "introspection"))
     targets.append(("src/yanantin/activity", "introspection"))
 
+    # Sibling projects — external scope
+    # These are part of the same research program; cross-pollination is valuable
+    siblings = Path(__file__).resolve().parents[4]  # src/yanantin/chasqui → projects/
+    for sibling_name in ("tinkuy", "hamutay"):
+        sibling_path = siblings / sibling_name
+        if sibling_path.is_dir():
+            targets.append((str(sibling_path), "external"))
+
     return targets

@@ -650,6 +650,50 @@ async def dispatch_respond(
         }
 
 
+def _record_verification_edge(result: dict[str, Any], cairn_dir: Path) -> None:
+    """Record a verification verdict as a cairn edge.
+
+    Creates a lightweight JSON edge linking the verification report
+    to the original scout report, with claim details as properties.
+    Edges are stored in docs/cairn/edges/ — files on disk, ingestible
+    later into Apacheta as CompositionEdges.
+
+    Only called for CONFIRMED or DENIED verdicts. INDETERMINATE is
+    not an edge — it's the absence of one.
+    """
+    import json
+    from uuid import uuid4
+
+    edges_dir = cairn_dir / "edges"
+    edges_dir.mkdir(exist_ok=True)
+
+    verdict = result["verdict"]
+    relation = "confirms" if verdict == "CONFIRMED" else "denies"
+
+    edge = {
+        "id": str(uuid4()),
+        "from_report": result["cairn_path"],
+        "to_report": result["source_tensor"],
+        "relation": relation,
+        "claim_text": result["claim"],
+        "claim_file": result["file_path"],
+        "claim_by": result["source_model"],
+        "verified_by": result["model"],
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+    }
+
+    # Atomic write via rename
+    edge_file = edges_dir / f"{relation}_{result['run_number']:04d}_{edge['id'][:8]}.json"
+    tmp = edge_file.with_suffix(".tmp")
+    tmp.write_text(json.dumps(edge, indent=2), encoding="utf-8")
+    tmp.rename(edge_file)
+
+    logger.info(
+        "Verification edge: %s %s claim from %s about %s",
+        result["model"], relation, result["source_model"], result["file_path"],
+    )
+
+
 async def dispatch_verify(
     claim_text: str,
     file_path: str,
@@ -761,6 +805,14 @@ async def dispatch_verify(
             pass  # Willay not installed
         except Exception:
             pass  # Attestation failure never blocks verification
+
+        # Record verification edge in the cairn.
+        # Edge failure must never block verification.
+        if verdict in ("CONFIRMED", "DENIED"):
+            try:
+                _record_verification_edge(result, cairn_dir)
+            except Exception:
+                pass  # Edge recording failure never blocks verification
 
         return result
 

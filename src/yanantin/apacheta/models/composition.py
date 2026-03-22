@@ -21,6 +21,9 @@ class RelationType(str, Enum):
     BRANCHES_FROM = "branches_from"
     DOES_NOT_COMPOSE_WITH = "does_not_compose_with"
     DISSENTS_FROM = "dissents_from"
+    CONFIRMS = "confirms"
+    DENIES = "denies"
+    DEPENDS_ON = "depends_on"
 
 
 class CompositionEdge(ApachetaBaseModel):

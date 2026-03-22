@@ -1,0 +1,11 @@
+{
+  "id": "3169636c-18a2-48c4-8b85-7984bf15deac",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7311_20260322_minimax-m2.7.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0127_20260212_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The `bootstrap.py` file, for example, handles the initialization of new instances, while `evolve.py` manages schema evolution.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "minimax/minimax-m2.7",
+  "timestamp": "2026-03-22T06:46:42.508259+00:00"
+}

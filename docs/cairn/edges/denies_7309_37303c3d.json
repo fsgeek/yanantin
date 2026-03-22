@@ -1,0 +1,11 @@
+{
+  "id": "37303c3d-2a04-46cc-ba92-c2a756a85e11",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7309_20260322_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6943_20260320_qwen-plus-2025-07-28.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning   The claim falsely implies that `scout_0240_20260213_olmo-3.1-32b-instruct.md` was among the files the model chose not to respond to.",
+  "claim_file": "docs/cairn/scout_0240_20260213_olmo-3.1-32b-instruct.md",
+  "claim_by": "qwen/qwen-plus-2025-07-28",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-03-22T06:46:28.181541+00:00"
+}

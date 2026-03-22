@@ -1,0 +1,11 @@
+{
+  "id": "127b2c3f-93ad-47d7-a1c1-cf7104fb1452",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7365_20260322_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5503_20260311_grok-4.1-fast.md",
+  "relation": "confirms",
+  "claim_text": "`model_selector.py` in chasqui picks by \"cost-weighted random sampling.\" Tension: cheap models (grok-4.1-fast $0) vs expensive (qwen3-235b $0.002/file).",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "x-ai/grok-4.1-fast",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-03-22T14:01:35.461933+00:00"
+}

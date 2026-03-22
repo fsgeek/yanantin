@@ -1,0 +1,11 @@
+{
+  "id": "543ff58e-ad4f-4f70-b2e4-17543752842b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7361_20260322_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5594_20260311_devstral-medium.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The claim states: > is not supported by the content.\" Even `scour_0074_20260217_gemma-2-9b-it.md` introspects on `src/yanantin/chasqui/scorer.py`, noting functions like `parse_provenance` and `ContentAnalysis` for verification.",
+  "claim_file": "docs/cairn/scour_0074_20260217_gemma-2-9b-it.md",
+  "claim_by": "mistralai/devstral-medium",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-03-22T13:29:35.340549+00:00"
+}

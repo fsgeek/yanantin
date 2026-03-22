@@ -1,0 +1,11 @@
+{
+  "id": "666b919a-f5ef-4d28-80da-71ed0212775b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7277_20260322_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4990_20260308_gpt-5.1-codex-mini.md",
+  "relation": "confirms",
+  "claim_text": "**Strand 2: Provenance/blueprint focus in doc reports.**   In several tensors (e.g., `scout_2519`, `scout_4758`, `scout_4128`), the emphasis is on audit and provenance documents (`succession.py`, `T14_20260211_the_flatworm.md`, `docs/predecessors.md`).",
+  "claim_file": "docs/cairn/T14_20260211_the_flatworm.md",
+  "claim_by": "openai/gpt-5.1-codex-mini",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-03-22T02:59:31.142732+00:00"
+}

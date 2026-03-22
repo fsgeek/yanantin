@@ -1,0 +1,11 @@
+{
+  "id": "740bdbb7-9418-4f83-ba0a-47825aca86f9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7274_20260322_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0244_20260213_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "Not only is it enforced at the data model level (as mentioned in `tests/unit/test_immutability.py`), but it also seems to permeate the project's governance and decision-making processes.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-03-22T02:29:38.738870+00:00"
+}

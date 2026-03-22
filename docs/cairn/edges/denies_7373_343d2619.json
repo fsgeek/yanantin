@@ -1,0 +1,11 @@
+{
+  "id": "343d2619-49ac-4ffc-b7f6-ae7a97e9b6b4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7373_20260322_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4217_20260303_nova-micro-v1.md",
+  "relation": "denies",
+  "claim_text": "However, the provided file `src/yanantin/apacheta/content_address.py` does not contain any references to `provenance.py` or a `provenance` directory with `timestamp.py`.",
+  "claim_file": "src/yanantin/apacheta/content_address.py",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-03-22T15:04:59.653082+00:00"
+}

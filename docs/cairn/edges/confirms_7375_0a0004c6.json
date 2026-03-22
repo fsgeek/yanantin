@@ -1,0 +1,11 @@
+{
+  "id": "0a0004c6-7dd3-4364-8f70-f0a190911dd0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7375_20260322_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4140_20260303_seed-1.6-flash.md",
+  "relation": "confirms",
+  "claim_text": "The file provides a complete view of `src/yanantin/chasqui/scout.py`, and no additional information is required to verify the claim.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-03-22T15:05:09.623497+00:00"
+}

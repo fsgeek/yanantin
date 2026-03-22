@@ -1,0 +1,11 @@
+{
+  "id": "46e1f9a4-3574-4b19-9360-2bd238ca26f5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7371_20260322_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7350_20260322_hermes-2-pro-llama-3-8b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The file `attestation.py` seems to provide a framework for converting Chasqui verification results into Willay epistemic receipts.",
+  "claim_file": "src/yanantin/chasqui/attestation.py",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-22T14:32:41.511474+00:00"
+}

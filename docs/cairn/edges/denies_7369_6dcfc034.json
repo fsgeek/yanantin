@@ -1,0 +1,11 @@
+{
+  "id": "6dcfc034-a06f-4716-99ce-8b6a8f9a4331",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7369_20260322_qwen3-coder-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3673_20260228_deepseek-v3.1-terminus.md",
+  "relation": "denies",
+  "claim_text": "Without seeing `src/yanantin/awaq/__main__.py` or related implementation files, any analysis would be speculative.",
+  "claim_file": "src/yanantin/awaq/__main__.py",
+  "claim_by": "deepseek/deepseek-v3.1-terminus",
+  "verified_by": "qwen/qwen3-coder-flash",
+  "timestamp": "2026-03-22T14:31:45.100120+00:00"
+}

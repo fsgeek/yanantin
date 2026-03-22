@@ -1,0 +1,11 @@
+{
+  "id": "1462cd2f-0ec3-4507-860f-85cf9f73e29f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7370_20260322_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0370_20260213_ernie-4.5-21b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "Repository: `/home/tony/projects/thesis` ``` ### Reasoning The claim states that the model incorrectly substitutes `apacheta.md` with `tensors.md` and invents `predecessors.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "baidu/ernie-4.5-21b-a3b",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-22T14:32:39.794310+00:00"
+}

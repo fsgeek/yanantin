@@ -1,0 +1,11 @@
+{
+  "id": "728c20e3-692b-4985-936e-184cd1d7e121",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7374_20260322_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0820_20260216_qwen3-vl-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The `tests` directory includes unit, integration, and red-bar tests \u2014 with `tests/unit/test_arango_independent.py` and `tests/integration/test_arango_real.py` suggesting a strong commitment to testing real-world scenarios.",
+  "claim_file": "tests/unit/test_arango_independent.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-03-22T15:05:07.019933+00:00"
+}

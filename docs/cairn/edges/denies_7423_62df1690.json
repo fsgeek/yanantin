@@ -1,0 +1,11 @@
+{
+  "id": "62df1690-1143-4d75-8f4c-c20bf2244bf7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7423_20260322_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4359_20260304_glm-4.5-air.md",
+  "relation": "denies",
+  "claim_text": "This indicates that the code in `synthetic.py` depends on and references code in `yanantin/collector/base.py`.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "z-ai/glm-4.5-air",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-03-22T21:18:31.108030+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "b49b0c4e-c9c2-4d0d-bf07-23f114077c23",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7419_20260322_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4870_20260307_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim mentions \"loss declarations in `models/base.py`\" but the file `tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py` does not contain any mention of \"loss declarations\" or the file `models/base.py` itself.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-03-22T20:46:21.641081+00:00"
+}

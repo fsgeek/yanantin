@@ -1,0 +1,11 @@
+{
+  "id": "b3000f41-1b67-436b-a72a-9dd4286091c2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7421_20260322_ernie-4.5-21b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7124_20260321_seed-2.0-lite.md",
+  "relation": "denies",
+  "claim_text": "They belong to lineages: ``` ### Reasoning Every claim made by `microsoft/wizardlm-2-8x22b` is fully verified by the content of `docs/tensors.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "bytedance-seed/seed-2.0-lite",
+  "verified_by": "baidu/ernie-4.5-21b-a3b",
+  "timestamp": "2026-03-22T21:18:24.925310+00:00"
+}

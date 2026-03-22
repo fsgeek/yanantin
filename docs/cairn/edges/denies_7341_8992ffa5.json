@@ -1,0 +1,11 @@
+{
+  "id": "8992ffa5-bafc-44a7-9a07-cc9590b6a177",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7341_20260322_qwen3-coder-next.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0476_20260214_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "In `scout_0344_20260213_qwen-2.5-7b-instruct.md`, the `ApachetaBaseModel` in `src/yanantin/apacheta/models/base.py` enforces structural locks.",
+  "claim_file": "src/yanantin/apacheta/models/base.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "qwen/qwen3-coder-next",
+  "timestamp": "2026-03-22T10:54:25.923897+00:00"
+}

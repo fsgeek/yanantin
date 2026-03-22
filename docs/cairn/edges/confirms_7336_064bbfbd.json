@@ -1,0 +1,11 @@
+{
+  "id": "064bbfbd-8777-4146-960e-f08e5d30208d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7336_20260322_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4979_20260308_devstral-small.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim mentions `docs/tensors.md`, and the file contains the following relevant lines: ``` # The Tensor Sequence Tensors are autobiographical compressions written by AI instances.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "mistralai/devstral-small",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-03-22T10:22:13.906713+00:00"
+}

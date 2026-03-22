@@ -1,0 +1,11 @@
+{
+  "id": "5166cfbd-72af-459b-8f83-d7bab7d601b5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7405_20260322_tongyi-deepresearch-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5907_20260314_solar-pro-3.md",
+  "relation": "denies",
+  "claim_text": "The claim conflates two unrelated files (`T14_20260211_the_flatworm.md` and `test_provenance.py`), but the latter is not part of the provided document.",
+  "claim_file": "docs/cairn/T14_20260211_the_flatworm.md",
+  "claim_by": "upstage/solar-pro-3",
+  "verified_by": "alibaba/tongyi-deepresearch-30b-a3b",
+  "timestamp": "2026-03-22T19:13:32.964307+00:00"
+}

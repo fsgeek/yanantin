@@ -1,0 +1,11 @@
+{
+  "id": "793e3048-407d-4ca0-81ea-206f4925c6dc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7402_20260322_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4071_20260302_qwen-plus.md",
+  "relation": "denies",
+  "claim_text": "That division appears in `src/yanantin/chasqui/scout.py` and `scourer.py`, but I didn\u2019t open them \u2014 the naming alone, the metadata schema, the distribution (3,000+ scouts, 400+ scours), tells the story: Yanantin doesn\u2019t just build infrastructure \u2014 it *ritualizes the epistemic act*.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-03-22T18:41:24.595983+00:00"
+}

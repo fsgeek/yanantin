@@ -1,0 +1,11 @@
+{
+  "id": "648bbe3c-a7a9-4ce0-a031-9a355397b3ec",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7401_20260322_gpt-5.4-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1429_20260218_gemma-3-12b-it.md",
+  "relation": "confirms",
+  "claim_text": "- The `test_immutability.py` file includes a test that explicitly checks for an `ImmutabilityError`, which represents a critical violation of Yanantin's core design principle.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "google/gemma-3-12b-it",
+  "verified_by": "openai/gpt-5.4-nano",
+  "timestamp": "2026-03-22T18:41:18.776241+00:00"
+}

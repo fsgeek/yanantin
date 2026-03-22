@@ -1,0 +1,11 @@
+{
+  "id": "0732a8b2-e159-4ee8-b488-963b30a623b7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7269_20260322_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6701_20260318_mistral-large-2512.md",
+  "relation": "denies",
+  "claim_text": "**`__init__.py` and `__main__.py`**: The claim lists these files as part of the `tinkuy` module, but I could not verify their existence or content.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "mistralai/mistral-large-2512",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-03-22T01:57:39.583253+00:00"
+}

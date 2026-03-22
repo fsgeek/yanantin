@@ -1,0 +1,11 @@
+{
+  "id": "8cafbca0-3dfe-4d09-897e-2183045f5709",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7270_20260322_mercury-2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5447_20260310_nova-2-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "- **Example**: In `docs/cairn/scout_3041_20260225_nemotron-nano-9b-v2.md`, the claim about `CLAUDE.md` is confirmed, but the reasoning highlights that the file doesn't instruct to read itself, only other files.",
+  "claim_file": "docs/cairn/scout_3041_20260225_nemotron-nano-9b-v2.md",
+  "claim_by": "amazon/nova-2-lite-v1",
+  "verified_by": "inception/mercury-2",
+  "timestamp": "2026-03-22T01:57:39.877308+00:00"
+}

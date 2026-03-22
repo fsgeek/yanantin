@@ -1,0 +1,11 @@
+{
+  "id": "75392fee-c818-4908-b3a9-8e08a895ac16",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7271_20260322_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5749_20260312_gpt-4.1-nano.md",
+  "relation": "denies",
+  "claim_text": "The Interaction of `store.py` with Other Modules**   The `store.py` module interacts with `provenance.py` and `tensor.py`, embedding provenance as a core attribute.",
+  "claim_file": "src/yanantin/activity/store.py",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-22T01:57:40.395120+00:00"
+}

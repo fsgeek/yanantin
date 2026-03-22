@@ -1,0 +1,11 @@
+{
+  "id": "3f291950-78b1-4598-9721-a10df34984bf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7397_20260322_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6304_20260316_mistral-large-2411.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim mentions a test function `test_chasqui_files_non_empty(...)` that confirms `chasqui_files` is non-empty and includes files like `coordinator.py` and `scout.py`.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "mistralai/mistral-large-2411",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-22T18:11:23.822363+00:00"
+}

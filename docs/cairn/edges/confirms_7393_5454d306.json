@@ -1,0 +1,11 @@
+{
+  "id": "5454d306-a49f-44c8-964b-addc43b110e9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7393_20260322_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4140_20260303_seed-1.6-flash.md",
+  "relation": "confirms",
+  "claim_text": "There is no evidence within the provided file to support the existence of a second `scout.py` in that directory.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-22T17:39:38.092242+00:00"
+}

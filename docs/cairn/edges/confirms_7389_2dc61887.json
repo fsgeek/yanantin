@@ -1,0 +1,11 @@
+{
+  "id": "2dc61887-0714-4592-bbc3-b136f7d10599",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7389_20260322_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0136_20260212_ministral-3b-2512.md",
+  "relation": "confirms",
+  "claim_text": "This suggests it\u2019s a *template*\u2014a blueprint that other models inherit from, but the actual enforcement is in the `base.py` file.\" } ], \"evidence\": [ { \"run\": \"0098 (gpt-oss-20b)\", \"verdict\": \"DENIED\u2014no configuration in the imported file.\" }, { \"run\": \"0045 (gemma-3-12b-it)\", \"verdict\": \"CONFIRMED\u2014no explicit configuration, but the metadata is present in the file.\" } ] }, { \"file\": \"src/yanantin/chasqui/scorer.py\", \"details\": [ { \"line\": \"50-150 (scoring logic)\", \"details\": \"This file likely contains the logic for determining 'verdicts' (CONFIRMED/DENIED/INDETERMINATE).",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-03-22T17:09:11.137188+00:00"
+}

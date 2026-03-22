@@ -1,0 +1,11 @@
+{
+  "id": "8bfd810b-04ba-41eb-9a0a-22b5343ca5f2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7391_20260322_glm-4.7.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5858_20260313_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "It implies a need to track not just what a model says, but *why* it might be saying it, and if that 'why' is systemic.\" }, { \"name\": \"Provenance as a Structural Necessity\", \"observations\": [ \"The filenames themselves are highly structured: `scout_RUN_TIMESTAMP_MODEL_ID.md` (e.g., `scout_2223_20260222_llama-3.1-8b-instruct.md`).\", \"The `CLAUDE.md` file (in `docs/cairn/`) mentions 'Provenance Is Structural' as a project principle.\", \"The `src/yanantin/apacheta/models/provenance.py` file defines `ProvenanceEnvelope` with fields like `source`, `timestamp`, `author_model_family`, `author_instance_id`, and `predecessors_in_scope`.\", \"Scout `scout_5648` confirms the robustness of these provenance mechanisms, citing specific fields in `provenance.py`.\" ], \"thoughts\": \"This structured naming and explicit `ProvenanceEnvelope` indicate that tracking *who* observed *what*, *when*, and *from where* is not an afterthought but a fundamental design principle.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "z-ai/glm-4.7",
+  "timestamp": "2026-03-22T17:09:51.868652+00:00"
+}

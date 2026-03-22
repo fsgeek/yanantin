@@ -1,0 +1,11 @@
+{
+  "id": "3accb454-981a-45fd-b1b1-7ddae523aada",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7385_20260322_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0945_20260216_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim is referring to the file `tests/red_bar/test_immutability.py` specifically lines 9\u201312 of the `test_duplicate_tensor_raises` function: ```python def test_duplicate_tensor_raises(): backend = InMemoryBackend() tensor = TensorRecord(preamble=\"First version\") backend.store_tensor(tensor) # Same UUID = ImmutabilityError.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-03-22T16:36:54.069075+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "db2f237b-a9e8-4934-a137-51658d3f92a7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7434_20260322_mercury.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5045_20260308_gemini-2.5-flash-lite.md",
+  "relation": "denies",
+  "claim_text": "*   **References:** *   `docs/cairn/scout_0618_20260215_gpt-oss-20b.md` *   `docs/cairn/scout_1397_20260218_ministral-8b-2512.md` *   `docs/cairn/scour_0104_20260219_gpt-oss-20b.md` (This one is a \"Scour\" report, which seems to be a deeper dive into a specific file's structure and patterns, contrasting with \"scout\" reports which seem more claim-focused.) *   `docs/cairn/scour_0429_20260307_glm-4.7-flash.md` #### 2.",
+  "claim_file": "docs/cairn/scour_0429_20260307_glm-4.7-flash.md",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "inception/mercury",
+  "timestamp": "2026-03-22T22:51:24.208998+00:00"
+}

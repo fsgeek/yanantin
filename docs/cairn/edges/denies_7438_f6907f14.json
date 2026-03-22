@@ -1,0 +1,11 @@
+{
+  "id": "f6907f14-627e-49df-b1cd-4535ead6f595",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7438_20260322_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7014_20260320_lfm-2-24b-a2b.md",
+  "relation": "denies",
+  "claim_text": "The evidence shows that none of the scouts ever need to consult `blueprint.md` or `succession.py`\u2014they only interact with the documented interfaces and stored artifacts.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-03-22T23:23:20.574299+00:00"
+}

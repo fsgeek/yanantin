@@ -1,0 +1,11 @@
+{
+  "id": "544ce310-530c-4c90-a4ec-68e87e7cbccf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7435_20260322_pixtral-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4356_20260304_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 3: Model Usage and Costs - **What I saw**: Cost details are meticulously documented in each tensor, such as in `scout_2811_20260224_llama-3.1-8b-instruct.md`, where the cost per token is clearly stated (`prompt=$2e-08/M, completion=$5e-08/M`).",
+  "claim_file": "docs/cairn/scout_2811_20260224_llama-3.1-8b-instruct.md",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "mistralai/pixtral-12b",
+  "timestamp": "2026-03-22T22:51:24.559921+00:00"
+}

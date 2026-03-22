@@ -1,0 +1,11 @@
+{
+  "id": "1df48b3a-2a95-44a4-a131-9701fabf6280",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7437_20260322_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1091_20260217_qwen3-vl-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **CONFIRMED** ### Evidence   The claim states:   > \"The Archive of Epistemic Experiments (docs/cairn) Observation: - The `docs/cairn` directory is a graveyard of AI scouts, each named after the model they represent (e.g., `scout_0001_20260210_ministral-3b.md`, `scout_0692_20260215_claude-3-haiku.md`).\" From the file `docs/cairn/scout_0692_20260215_claude-3-haiku.md`: - The filename itself matches the pattern: `scout_0692_20260215_claude-3-haiku.md`, where: - `scout_0692` indicates the scout number (692), - `20260215` is the date (February 15, 2026), - `claude-3-haiku` is the model name.",
+  "claim_file": "docs/cairn/scout_0692_20260215_claude-3-haiku.md",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-22T23:23:14.482731+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "bc7413d9-01a5-4942-b50c-202d3a67909a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7313_20260322_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1401_20260218_longcat-flash-chat.md",
+  "relation": "denies",
+  "claim_text": "The `.claude/hooks` Directory The `.claude/hooks/capture_compaction.py` and `precompact_tensor.py` files were examined in `docs/cairn/scout_1378_20260218_hermes-3-llama-3.1-70b.md` and confirmed to be present, while the claim about `chasqui_heartbeat.sh` was **false** (not mentioned in the file).",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "meituan/longcat-flash-chat",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-22T07:16:01.390348+00:00"
+}

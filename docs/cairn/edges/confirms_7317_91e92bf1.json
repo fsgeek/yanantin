@@ -1,0 +1,11 @@
+{
+  "id": "91e92bf1-9880-4bce-b160-7fb0229e36e8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7317_20260322_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2421_20260223_mistral-7b-instruct-v0.2.md",
+  "relation": "confirms",
+  "claim_text": "Epistemic Theater: \"The Flatworm is Watching\"** - MiniMax: *\"Yanantin is a 'living organism' \u2014 but its scouts are only documenters, not actors.\"* - **Evidence**: - `scout_0048` (Qwen3 VL) describes *\"The Flatworm\u2019s pedagogy\"* as a **Socratic AI that teaches through wandering**, but provides **no codified mechanism** (only `CLAUDE.md` mentions \"no theater\").",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "mistralai/mistral-7b-instruct-v0.2",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-22T07:48:07.478643+00:00"
+}

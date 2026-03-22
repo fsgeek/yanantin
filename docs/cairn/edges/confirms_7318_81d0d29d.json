@@ -1,0 +1,11 @@
+{
+  "id": "81d0d29d-6f6e-4abb-bbd7-35183b3d06b8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7318_20260322_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0701_20260215_step-3.5-flash.md",
+  "relation": "confirms",
+  "claim_text": "weights = [] for m in self.models: cost = m.total_cost_per_million if cost <= 0: cost = 0.001  # Nominal cost for free models weights.append(1.0 / cost) ``` ### Reasoning The claim states that `model_selector.py` calculates weights inversely by cost and avoids division by zero for free models.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "stepfun/step-3.5-flash",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-03-22T07:48:07.795371+00:00"
+}

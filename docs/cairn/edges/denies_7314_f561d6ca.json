@@ -1,0 +1,11 @@
+{
+  "id": "f561d6ca-827d-4624-bcbd-98472a664a9c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7314_20260322_olmo-3-7b-think.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2756_20260224_glm-4.5-air.md",
+  "relation": "denies",
+  "claim_text": "The `src/yanantin/apacheta/operators/compose.py` then uses this metadata to build compositions, suggesting `audit.py` is one step in a pipeline.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "z-ai/glm-4.5-air",
+  "verified_by": "allenai/olmo-3-7b-think",
+  "timestamp": "2026-03-22T07:16:04.391641+00:00"
+}

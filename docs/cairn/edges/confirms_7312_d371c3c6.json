@@ -1,0 +1,11 @@
+{
+  "id": "d371c3c6-f9be-49f4-bf67-e5aad74047ca",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7312_20260322_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7037_20260320_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "The relationship between \\\"Claude\\\" and the \\\"Chasqui Scout\\\" system is intriguing.\", \"What mechanisms are in place (or planned) to ensure that the high-level design documents (`docs/blueprint.md`, `expedition-findings.md`) remain consistent with the evolving codebase?",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-03-22T07:15:57.425537+00:00"
+}

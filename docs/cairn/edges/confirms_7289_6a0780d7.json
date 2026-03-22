@@ -1,0 +1,11 @@
+{
+  "id": "6a0780d7-8a5f-4fde-afba-fcf1df51c3dd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7289_20260322_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4577_20260305_qwen3.5-plus-02-15.md",
+  "relation": "confirms",
+  "claim_text": "The Hook Infrastructure Speaks First In `.claude/hooks/`, I find: - `capture_compaction.py` \u2014 captures something about compaction - `chasqui_heartbeat.sh` and `chasqui_pulse.py` \u2014 rhythmic life-signs - `ots_stamp.py` \u2014 OpenTimestamps proofing for commits - `pipeline_attestation.py` \u2014 verification layer - `precompact_tensor.py` \u2014 preparation before compaction These aren't passive docs.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "qwen/qwen3.5-plus-02-15",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-03-22T04:10:39.201700+00:00"
+}

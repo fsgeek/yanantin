@@ -1,0 +1,11 @@
+{
+  "id": "4414cb48-2ddf-4961-b73b-391fce0646e5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7294_20260322_qwen-vl-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2412_20260223_llama-3.3-nemotron-super-49b-v.md",
+  "relation": "denies",
+  "claim_text": "Tension Between Claims and Evidence**   Many scout reports reference files not visible in the provided context (e.g., `test_provenance.py` in `scout_1737_20260219_gemma-3n-e4b-it.md`).",
+  "claim_file": "docs/cairn/scout_1737_20260219_gemma-3n-e4b-it.md",
+  "claim_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "verified_by": "qwen/qwen-vl-plus",
+  "timestamp": "2026-03-22T04:42:57.147746+00:00"
+}

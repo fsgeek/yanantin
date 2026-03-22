@@ -1,0 +1,11 @@
+{
+  "id": "4e2348c3-a190-4819-a930-1177e7983038",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7290_20260322_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6628_20260318_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "log = compaction_dir / \".capture_failures.log\" with open(log, \"a\", encoding=\"utf-8\") as f: f.write( f\"{datetime.now(timezone.utc).isoformat()}: \" f\"Timeout capturing summary for session {session_id}\\n\" ) sys.exit(1) boundary = result[\"boundary\"] pre_tokens = boundary.get(\"compactMetadata\", {}).get(\"preTokens\", 0) actual_trigger = boundary.get(\"compactMetadata\", {}).get(\"trigger\", trigger) boundary_ts = boundary.get(\"timestamp\", \"unknown\") # Filename: session_short + timestamp (no sequential numbering needed) ts = datetime.now(timezone.utc).strftime(\"%Y%m%d_%H%M%S\") session_short = session_id[:8] output_path = compaction_dir / f\"{session_short}_{ts}_{actual_trigger}.md\" write_compaction_record( output_path=output_path, trigger=actual_trigger, pre_tokens=pre_tokens, summary_text=result[\"summary\"], session_id=session_id, boundary_timestamp=boundary_ts, ) ``` The file `capture_compaction.py` defines a function `main` that is executed when the script runs.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-03-22T04:10:40.163873+00:00"
+}

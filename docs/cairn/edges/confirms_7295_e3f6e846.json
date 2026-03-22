@@ -1,0 +1,11 @@
+{
+  "id": "e3f6e846-bc28-40f6-abaa-890f73eb41f2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7295_20260322_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6457_20260317_phi-4.md",
+  "relation": "confirms",
+  "claim_text": "The claim specifically references `src/yanantin/apacheta/operators/bootstrap.py` alongside `tests/unit/test_operators.py`, indicating a relationship between these two files within the context of the content provided.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-22T04:43:02.260617+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "fe3c133a-3b01-4eba-b415-18c46329ec8d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7293_20260322_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3654_20260228_gpt-oss-120b.md",
+  "relation": "confirms",
+  "claim_text": "Interaction with `docs/apacheta.md` Claim**   - Another scout (`1892`) verified that `docs/apacheta.md` does **not** check for the existence/modification of `tensors.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-03-22T04:42:56.395764+00:00"
+}

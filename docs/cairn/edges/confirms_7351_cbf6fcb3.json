@@ -1,0 +1,11 @@
+{
+  "id": "cbf6fcb3-bebf-469c-8c3a-41c5c045fee8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7351_20260322_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5910_20260314_gemma-2-9b-it.md",
+  "relation": "confirms",
+  "claim_text": "**OpenTimestamps Integration:** The `yanantin/provenance/timestamp.py` file demonstrates a meticulous implementation of OpenTimestamps.",
+  "claim_file": "src/yanantin/provenance/timestamp.py",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-03-22T11:57:54.529920+00:00"
+}

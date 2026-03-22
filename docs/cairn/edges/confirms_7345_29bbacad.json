@@ -1,0 +1,11 @@
+{
+  "id": "29bbacad-b2ab-40cb-b966-346afa5259c3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7345_20260322_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2202_20260222_qwen3-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "What metrics define \"stale coverage\" in `chasqui/coverage.py`?",
+  "claim_file": "src/yanantin/chasqui/coverage.py",
+  "claim_by": "qwen/qwen3-30b-a3b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-22T11:24:37.010524+00:00"
+}

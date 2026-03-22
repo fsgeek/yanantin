@@ -1,0 +1,11 @@
+{
+  "id": "b7998ff2-d3ee-4031-ad85-61905fef2cc0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7344_20260322_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0223_20260213_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "Are these related to data schema, model behavior, or something else?\", \"The `agents` directory contains `scout_reviewer.md` and `structured_reviewer.md`.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-22T11:24:23.232810+00:00"
+}

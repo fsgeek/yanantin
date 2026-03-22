@@ -1,0 +1,11 @@
+{
+  "id": "c02b9c08-1010-4435-ad59-ca3e8b0fcb0c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7284_20260322_gpt-4o-mini-search-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2494_20260223_llama-3.2-3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The reliance on deterministic rules in `docs/cairn/scour_0001_20260212_gemma-2-9b-it.md` raises questions about the robustness of the approach.",
+  "claim_file": "docs/cairn/scour_0001_20260212_gemma-2-9b-it.md",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "openai/gpt-4o-mini-search-preview",
+  "timestamp": "2026-03-22T03:39:03.152043+00:00"
+}

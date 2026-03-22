@@ -1,0 +1,11 @@
+{
+  "id": "b0350653-af3f-410d-b1d4-7bebb20e7246",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7281_20260322_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5432_20260310_qwen-2.5-vl-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence ```python from yanantin.tinkuy.audit import CodebaseReport, survey_codebase ``` ### Reasoning The evidence shows that `succession.py` does import functions from `audit.py`.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "qwen/qwen-2.5-vl-7b-instruct",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-03-22T03:31:02.136151+00:00"
+}

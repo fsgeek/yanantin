@@ -1,0 +1,11 @@
+{
+  "id": "a852f54c-cb1e-4b70-9a5b-1535a654ffb2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7283_20260322_grok-3-mini-beta.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6183_20260315_grok-4.1-fast.md",
+  "relation": "denies",
+  "claim_text": "Recursive Self-Scouting (Cairn as Living Archive)**   Saw `docs/cairn/` bloated with 5000+ `scout_*`/`scour_*` files (e.g., `scout_5966_20260314_llama-3-8b-instruct.md`), each a \"tensor\" of model verdicts on claims like \"lines 56\u201381 demonstrate portability\" (often **DENIED** with line-by-line evidence).",
+  "claim_file": "docs/cairn/scout_5966_20260314_llama-3-8b-instruct.md",
+  "claim_by": "x-ai/grok-4.1-fast",
+  "verified_by": "x-ai/grok-3-mini-beta",
+  "timestamp": "2026-03-22T03:31:22.878688+00:00"
+}

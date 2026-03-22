@@ -1,0 +1,11 @@
+{
+  "id": "fdc441fb-cfea-4e7a-b555-552eca06e425",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7285_20260322_gpt-5.4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1789_20260220_l3.1-euryale-70b.md",
+  "relation": "confirms",
+  "claim_text": "**Backend & Interface Design** - `docs/cairn/scout_0727_20260215_qwen3-vl-235b-a22b-instruct.md` describes the Pukara v0 FastAPI gateway.",
+  "claim_file": "docs/cairn/scout_0727_20260215_qwen3-vl-235b-a22b-instruct.md",
+  "claim_by": "sao10k/l3.1-euryale-70b",
+  "verified_by": "openai/gpt-5.4",
+  "timestamp": "2026-03-22T03:39:04.982563+00:00"
+}

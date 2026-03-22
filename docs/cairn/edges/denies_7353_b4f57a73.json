@@ -1,0 +1,11 @@
+{
+  "id": "b4f57a73-4166-4d52-a54b-9cb05aaf2d23",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7353_20260322_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4118_20260303_gpt-oss-120b:exacto.md",
+  "relation": "denies",
+  "claim_text": "``` ### Reasoning The file `scout_0189_20260213_ministral-8b-2512.md` contains: - A header comment that lists **Run**, **Model**, **Cost**, **Usage**, and **Timestamp**.",
+  "claim_file": "docs/cairn/scout_0189_20260213_ministral-8b-2512.md",
+  "claim_by": "openai/gpt-oss-120b:exacto",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-22T12:26:34.234689+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "ac8341c1-a733-45a6-91e0-542edaf4b63a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7357_20260322_unslopnemo-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3179_20260226_granite-4.0-h-micro.md",
+  "relation": "denies",
+  "claim_text": "Since the claim is partially true (the directory exists and contains `scourer.py`) but **not fully accurate** (it omits other files like `scout.py` and `model_selector.py`), we cannot confirm the claim as true without additional information about the complete contents of the directory.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "thedrummer/unslopnemo-12b",
+  "timestamp": "2026-03-22T12:59:31.566975+00:00"
+}

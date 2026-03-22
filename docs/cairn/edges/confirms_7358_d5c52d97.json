@@ -1,0 +1,11 @@
+{
+  "id": "d5c52d97-9026-4bcb-8593-f68802a2c809",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7358_20260322_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7061_20260320_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "I started by examining the provided codebase and noticed the structure, focusing on the `weaver.py` module and its relationship with `__main__.py`.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-03-22T12:59:33.595911+00:00"
+}

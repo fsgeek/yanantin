@@ -1,0 +1,11 @@
+{
+  "id": "fe4167cb-5670-435c-b753-205c516fcf44",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7329_20260322_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1896_20260220_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "For example, `scout_0683_20260215_olmo-3.1-32b-think.md` mentions the importance of provenance tracking, and `scout_0647_20260215_gemma-3-4b-it.md` links to `docs/blueprint.md` and `docs/tensors.md`, suggesting a network of references that maintain project history.",
+  "claim_file": "docs/cairn/scout_0647_20260215_gemma-3-4b-it.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-03-22T09:20:10.761639+00:00"
+}

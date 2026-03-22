@@ -1,0 +1,11 @@
+{
+  "id": "be6083e9-5f9e-4b56-b85e-2fe77df37ac9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7335_20260322_deepseek-v3.2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5501_20260311_qwen-plus-2025-07-28.md",
+  "relation": "denies",
+  "claim_text": "``` ### Reasoning   The claim states that the file does *not* contain modules for operators such as `bootstrap.py`, `compose.py`, `correct.py`, `evolve.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "qwen/qwen-plus-2025-07-28",
+  "verified_by": "deepseek/deepseek-v3.2",
+  "timestamp": "2026-03-22T09:52:24.458622+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "c4c99239-27dd-42b8-8f9a-a8b2fc6b098b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7333_20260322_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1693_20260219_mercury.md",
+  "relation": "confirms",
+  "claim_text": "| |10| **Predecessors and Documentation** | `docs/predecessors.md` exists (see scout out_1258).",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "inception/mercury",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-03-22T09:52:16.490187+00:00"
+}

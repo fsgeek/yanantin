@@ -1,0 +1,11 @@
+{
+  "id": "c2a2a2ef-4716-41cf-8d26-f9808461e199",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7379_20260322_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0170_20260213_codestral-2508.md",
+  "relation": "confirms",
+  "claim_text": "However, the file `audit.py` does not contain any information about the `tinkuy` governance system or its interaction with the broader system.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "mistralai/codestral-2508",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-03-22T15:35:45.921342+00:00"
+}

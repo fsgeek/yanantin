@@ -1,0 +1,11 @@
+{
+  "id": "fa3a8cda-43f3-4988-a9b2-6c1d8687dc51",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7382_20260322_deepseek-chat-v3-0324.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4475_20260305_gemma-3-12b-it.md",
+  "relation": "confirms",
+  "claim_text": "Like a ghost in the machine, its absence implicates deliberate abstraction.\" ### Reasoning The provided file (`docs/cairn/scout_0564_20260214_lfm-2.2-6b.md`) is a report *about* the system, specifically the LFM-2.2-6b model.",
+  "claim_file": "docs/cairn/scout_0564_20260214_lfm-2.2-6b.md",
+  "claim_by": "google/gemma-3-12b-it",
+  "verified_by": "deepseek/deepseek-chat-v3-0324",
+  "timestamp": "2026-03-22T16:07:18.397102+00:00"
+}

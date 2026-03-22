@@ -1,0 +1,11 @@
+{
+  "id": "c3e2da4a-9c41-496e-81b2-e79d4547e347",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7378_20260322_hermes-4-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4451_20260304_nova-lite-v1.md",
+  "relation": "denies",
+  "claim_text": "The provided file `src/yanantin/apacheta/operators/project.py` only contains import statements and no comments or statements that reference `compose.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "nousresearch/hermes-4-70b",
+  "timestamp": "2026-03-22T15:35:04.671266+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "369dde69-a5d1-4840-b9bb-6f8f4007cc17",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7377_20260322_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5595_20260311_gemini-2.0-flash-001.md",
+  "relation": "confirms",
+  "claim_text": "The Python scripts, such as `pipeline_attestation.py` and `ots_stamp.py`, suggest an automated system for verifying the integrity and origin of data.",
+  "claim_file": ".claude/hooks/pipeline_attestation.py",
+  "claim_by": "google/gemini-2.0-flash-001",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-03-22T15:35:03.580870+00:00"
+}

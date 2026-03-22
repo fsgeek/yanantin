@@ -1,0 +1,11 @@
+{
+  "id": "8b96a7f9-0492-46f7-b078-f69e918718b5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7297_20260322_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2378_20260222_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "These test cases collectively demonstrate that immutability is a core design principle of the `InMemoryBackend` class, aligning with the claim that immutability is emphasized in `tests/red_bar/test_immutability.py`.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-22T05:12:51.175092+00:00"
+}

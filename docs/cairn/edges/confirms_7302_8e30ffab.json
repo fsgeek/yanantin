@@ -1,0 +1,11 @@
+{
+  "id": "8e30ffab-07c6-40bc-85fd-45eef8c7b41f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7302_20260322_gemini-2.0-flash-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0215_20260213_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": "Furthermore, I cannot confirm that `compose.py` handles schema changes *formally*; it only records a composition edge using an optional `authored_mapping` string, the formal definition/handling of which is external to this function's scope.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "google/gemini-2.0-flash-001",
+  "timestamp": "2026-03-22T05:44:40.027186+00:00"
+}

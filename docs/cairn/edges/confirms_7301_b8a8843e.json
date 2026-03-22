@@ -1,0 +1,11 @@
+{
+  "id": "b8a8843e-c346-4a9e-96d7-516d8ac4b3f6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7301_20260322_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0452_20260214_lfm2-8b-a1b.md",
+  "relation": "confirms",
+  "claim_text": "### Strands   #### Strand 1: The Verification Gap   From `CLAUDE.md`\u2019s self-description: \u201cdocs/blueprint.md\u201d is the map, not the territory.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-03-22T05:44:38.674457+00:00"
+}

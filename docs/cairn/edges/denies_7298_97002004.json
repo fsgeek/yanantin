@@ -1,0 +1,11 @@
+{
+  "id": "97002004-51c4-42fe-8ded-3324b1f848b8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7298_20260322_grok-4.1-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3047_20260225_nemotron-3-nano-30b-a3b.md",
+  "relation": "denies",
+  "claim_text": "However, the link between these timestamps and the tensor infrastructure itself remains under\u2011documented.\" }, { \"name\": \"Scout Dispatch & Variable Naming Conventions\", \"files\": [ \"scout.py\", \"agents/scout_reviewer.md\", \"agents/structured_reviewer.md\" ], \"notes\": \"Files are named after the model they evaluate (e.g., `scout_0001_20260210_ministral-3b.md`).",
+  "claim_file": "docs/cairn/scout_0001_20260210_ministral-3b.md",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "x-ai/grok-4.1-fast",
+  "timestamp": "2026-03-22T05:13:08.495309+00:00"
+}

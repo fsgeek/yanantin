@@ -1,0 +1,11 @@
+{
+  "id": "60f2e69b-8c1b-470b-a125-4ce81d186625",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7431_20260322_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5143_20260308_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "\"\"\" claims: dict[str, int | str] = {} # \"What Doesn't Exist\" items doesnt_exist_section = re.search( r\"## What Doesn't Exist.*?(?=##|\\Z)\", blueprint_text, re.DOTALL ) if doesnt_exist_section: claims[\"doesnt_exist_text\"] = doesnt_exist_section.group() ``` ### Reasoning The claim states, \"However, since there is no mention of the `docs/cairn/scout_1269_20260217_qwen3-30b-a3b.md` file in the `tinkuy/succession.py` file, it is impossible for it to deny any claims about it.\" The provided file `src/yanantin/tinkuy/succession.py` does not contain any mention of the file `docs/cairn/scout_1269_20260217_qwen3-30b-a3b.md`.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-03-22T22:20:32.235395+00:00"
+}

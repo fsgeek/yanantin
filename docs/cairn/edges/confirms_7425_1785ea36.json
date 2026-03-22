@@ -1,0 +1,11 @@
+{
+  "id": "1785ea36-3c67-4e3c-a36b-16dbf35e2f05",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7425_20260322_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5317_20260310_llama-4-maverick.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `agents/structured_reviewer.md` does not contain the phrase \"epistemic auditing\" or any mention of \"tensor graph\" in the context claimed.",
+  "claim_file": "agents/structured_reviewer.md",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-03-22T21:48:26.180625+00:00"
+}

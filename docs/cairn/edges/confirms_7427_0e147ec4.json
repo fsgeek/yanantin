@@ -1,0 +1,11 @@
+{
+  "id": "0e147ec4-424e-45e0-a967-fae3a3ed8c25",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7427_20260322_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3816_20260301_mixtral-8x7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The file `docs/cairn/T13_20260211_the_gradient.md` does not contain any assertions that are not supported by its content.",
+  "claim_file": "docs/cairn/T13_20260211_the_gradient.md",
+  "claim_by": "mistralai/mixtral-8x7b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-22T21:48:27.054224+00:00"
+}

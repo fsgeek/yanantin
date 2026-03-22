@@ -1,0 +1,11 @@
+{
+  "id": "1560816c-14a7-4a7e-b856-36a46a24182f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7430_20260322_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6296_20260316_mistral-small-24b-instruct-250.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The file `docs/tensors.md` does not provide any information about the structure of \"high-level overview\" documents.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-03-22T22:20:26.788486+00:00"
+}

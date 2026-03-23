@@ -1,0 +1,11 @@
+{
+  "id": "c973c95e-2ef9-4fda-8870-98bb15c1b0fd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7554_20260323_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7283_20260322_grok-3-mini-beta.md",
+  "relation": "denies",
+  "claim_text": "- In the \"Strands\" section:   ``` Evidence: `src/yanantin/apacheta/interface/abstract.py` and `src/yanantin/chasqui/model_selector.py` ``` And:   ``` Evidence: `src/yanantin/chasqui/model_selector.py` (lines 120-125) ``` These are the only references to specific lines (e.g., lines 120-125), and they are presented as observations or evidence supporting the scout's analysis, not as denials of claims like \"lines 56\u201381 demonstrate portability.\" - The file contains no mention of any claim resembling \"lines 56\u201381 demonstrate portability,\" nor does it include any **DENIED** verdicts with line-by-line evidence.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "x-ai/grok-3-mini-beta",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-23T14:57:55.841915+00:00"
+}

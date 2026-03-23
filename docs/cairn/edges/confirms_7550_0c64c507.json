@@ -1,0 +1,11 @@
+{
+  "id": "0c64c507-d3e6-4eb2-b181-53a67c9b4a9e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7550_20260323_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5516_20260311_mistral-small-3.2-24b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states that \"Modules like `openrouter.py` and `arango.py` handle these integrations.\" The file `arango.py` clearly handles database integration as evidenced by its ArangoDB backend implementation.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-23T14:25:54.170271+00:00"
+}

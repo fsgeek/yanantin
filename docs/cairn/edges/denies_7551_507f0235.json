@@ -1,0 +1,11 @@
+{
+  "id": "507f0235-794a-4edd-b882-25ae1fe89e3d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7551_20260323_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7033_20260320_gpt-oss-20b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim asserts that `docs/apacheta.md` references itself (item #5) but not the claimed files.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-23T14:25:54.337772+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "fcd0e917-5bea-4915-8356-a55faea48e45",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7556_20260323_qwen3-235b-a22b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3377_20260227_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: File Structure and Composition - **Observation:** The `src/yanantin/awaq` directory contains files like `weaver.py` and `materialize.py`, which handle the extraction and materialization of composition declarations.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "qwen/qwen3-235b-a22b",
+  "timestamp": "2026-03-23T14:58:15.060823+00:00"
+}

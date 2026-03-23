@@ -1,0 +1,11 @@
+{
+  "id": "1c8b8bf4-0c95-476a-9519-078ac84fd1d9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7579_20260323_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0357_20260213_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "- **Files of note**: - `yanantin/apacheta/__init__.py`: The presence of an `__init__.py` file suggests that the `yanantin/apacheta` directory is intended to be a Python package.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-23T18:07:52.588015+00:00"
+}

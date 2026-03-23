@@ -1,0 +1,11 @@
+{
+  "id": "828959a2-953e-4592-a8a4-5e644f27bf3a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7580_20260323_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1202_20260217_nova-pro-v1.md",
+  "relation": "confirms",
+  "claim_text": "- **Location**: `src/yanantin/awaq/__main__.py` and `src/yanantin/awaq/weaver.py`.",
+  "claim_file": "src/yanantin/awaq/__main__.py",
+  "claim_by": "amazon/nova-pro-v1",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-03-23T18:08:00.170274+00:00"
+}

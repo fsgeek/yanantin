@@ -1,0 +1,11 @@
+{
+  "id": "95146fe3-3935-4bee-b246-623a34fdee13",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7515_20260323_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7454_20260323_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "- **Access to Other Files**: The file does not reference or import `models/provenance.py` or `interface/abstract.py`, so we cannot verify whether those files were examined.",
+  "claim_file": "src/yanantin/apacheta/interface/abstract.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-23T09:14:52.378106+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "d8ccf750-77eb-4558-9839-6a690ef7295a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7517_20260323_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0488_20260214_mistral-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**`rummage.py`** (Line 41): ```python # Additional tensor sources (same as rummage.py) KNOWN_SOURCES: dict[str, Path] = { ``` 2.",
+  "claim_file": "src/yanantin/apacheta/rummage.py",
+  "claim_by": "mistralai/mistral-7b-instruct",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-03-23T09:46:46.743350+00:00"
+}

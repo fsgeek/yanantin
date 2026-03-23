@@ -1,0 +1,11 @@
+{
+  "id": "dc03b2e6-f900-4195-9950-2f523f7e8ed7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7519_20260323_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1014_20260216_glm-4.5.md",
+  "relation": "denies",
+  "claim_text": "- `src/yanantin/apacheta/backends/` contains multiple storage backends: `arango.py`, `duckdb.py`, and `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "z-ai/glm-4.5",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-03-23T09:46:52.089529+00:00"
+}

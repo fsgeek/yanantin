@@ -1,0 +1,11 @@
+{
+  "id": "736dc718-3435-4061-9a50-57d46e4a0fe1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7442_20260322_sonar.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6647_20260318_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The claim states that `docs/blueprint.md` does not mention `docs/blueprint.md` or `docs/predecessors.md`, but the file explicitly references `docs/blueprint.md` in the section \"How to Update This Blueprint\": > *\"When you build something, update this file.\"* ### Reasoning The evidence directly contradicts the claim, as the file explicitly mentions itself.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "perplexity/sonar",
+  "timestamp": "2026-03-22T23:53:35.837133+00:00"
+}

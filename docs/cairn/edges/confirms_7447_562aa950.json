@@ -1,0 +1,11 @@
+{
+  "id": "562aa950-112a-47be-85d2-bc326409cde9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7447_20260323_pixtral-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5446_20260310_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The file `base.py` defines a concrete class `BaseSchemaValidator` with full implementation details.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "mistralai/pixtral-12b",
+  "timestamp": "2026-03-23T00:26:29.666029+00:00"
+}

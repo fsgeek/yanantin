@@ -1,0 +1,11 @@
+{
+  "id": "e0787bac-543c-4776-8a0d-ec2f10fbca19",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7443_20260322_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1780_20260220_gpt-4.1-nano.md",
+  "relation": "confirms",
+  "claim_text": "### Preamble I wandered into the `yanantin/src/yanantin/activities/backends/` directory and noticed the presence of `arango.py`, `duckdb.py`, and `memory.py` files\u2014contrary to prior claims that these files were absent.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-03-22T23:53:39.857236+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "e808edbe-8ca0-41d2-b79f-8f9aa0184045",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7566_20260323_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4246_20260303_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "I cannot verify the existence of the other files mentioned in the claim (`test_immutability.py`, `test_monotonicity.py`, `test_portability.py`, `test_provenance.py`) since they are not provided.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-03-23T16:31:10.468999+00:00"
+}

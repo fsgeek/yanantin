@@ -1,0 +1,11 @@
+{
+  "id": "e924b183-9974-4447-8033-3d99d4fc64d0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7567_20260323_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3405_20260227_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "Tests like `test_arango_real.py` demonstrate the project's commitment to ensuring backend components function correctly in a real-world setting.",
+  "claim_file": "tests/integration/test_arango_real.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-23T16:31:13.661730+00:00"
+}

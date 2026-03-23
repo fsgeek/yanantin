@@ -1,0 +1,11 @@
+{
+  "id": "ff2039b6-020e-44af-a1a4-0b22daf37b0d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7571_20260323_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1236_20260217_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "* What conflict resolution mechanisms exist for composition edges (e.g., `compose.py`)?",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-03-23T17:03:47.776652+00:00"
+}

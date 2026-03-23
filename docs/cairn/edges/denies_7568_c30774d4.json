@@ -1,0 +1,11 @@
+{
+  "id": "c30774d4-3529-4724-ba36-325c3f9c4ded",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7568_20260323_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2226_20260222_deepseek-v3.1-terminus.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states: \"The file does not contain a line that states *'`docs/predecessors.md` is not present'*.\" This is a negative claim about the absence of specific text.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "deepseek/deepseek-v3.1-terminus",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-23T16:31:14.022088+00:00"
+}

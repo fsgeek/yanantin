@@ -1,0 +1,11 @@
+{
+  "id": "f4602912-8df4-4a76-b52d-ce567da613cd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7501_20260323_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1560_20260219_qwen3-30b-a3b-thinking-2507.md",
+  "relation": "confirms",
+  "claim_text": "**How are `scout.py` and `succession.py` connected?** Is the relationship **explicit** (code) or **implicit** (cairn claims)?",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-23T07:42:42.571795+00:00"
+}

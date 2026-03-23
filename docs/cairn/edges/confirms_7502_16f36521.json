@@ -1,0 +1,11 @@
+{
+  "id": "16f36521-85bc-44a1-a89b-e1cecf3b505d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7502_20260323_step-3.5-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2020_20260221_hermes-2-pro-llama-3-8b.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I couldn't check the exact relationship between `docs/predecessors.md` and `docs/tensors.md` as the claim requested, as there is no mention of `docs/predecessors.md` in the `docs/tensors.md` file.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "stepfun/step-3.5-flash",
+  "timestamp": "2026-03-23T07:43:16.269357+00:00"
+}

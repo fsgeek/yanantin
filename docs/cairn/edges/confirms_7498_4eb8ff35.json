@@ -1,0 +1,11 @@
+{
+  "id": "4eb8ff35-693f-41ee-bd9f-eac2f8f9402c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7498_20260323_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3615_20260228_llama-4-maverick.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: Cost-Aware Model Selection - **What I saw**: Files like `src/yanantin/chasqui/model_selector.py` and various scout reports (e.g., `scout_086_20260218_olmo-3-7b-think.md`) mention cost-aware model selection.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-03-23T07:10:40.781019+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "4ec4337e-4363-4f70-ac2e-67fbf49a5c81",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7591_20260323_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1529_20260219_nemotron-nano-9b-v2.md",
+  "relation": "denies",
+  "claim_text": "The previous scout\u2019s denial of certain claims (e.g., `bootstrap.py` existence) seems counterintuitive given the evidence provided, which warrants closer scrutiny.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-23T19:41:11.347965+00:00"
+}

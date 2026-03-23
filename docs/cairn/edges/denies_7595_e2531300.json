@@ -1,0 +1,11 @@
+{
+  "id": "e2531300-e2f8-49fa-ba36-9b95575a1a15",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7595_20260323_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0419_20260214_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "What I made up: Nothing, but I may have misread the depth of some modules (like `negate.py`) due to incomplete files.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-03-23T20:16:32.981117+00:00"
+}

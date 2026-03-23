@@ -1,0 +1,11 @@
+{
+  "id": "c33f9094-c94e-466d-ad6b-785cc8368da2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7592_20260323_qwen-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6295_20260316_l3-lunaris-8b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The text explicitly mentions Apacheta as a future schema for the tensor database, and not as a currently existing markdown file (`apacheta.md`) or related to `tensors.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "qwen/qwen-plus",
+  "timestamp": "2026-03-23T19:41:20.924709+00:00"
+}

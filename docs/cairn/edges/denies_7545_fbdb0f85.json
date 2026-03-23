@@ -1,0 +1,11 @@
+{
+  "id": "fbdb0f85-f02d-4eb7-9275-f7248fef937e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7545_20260323_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6854_20260319_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "There is no evidence in the file that `evolve.py` is used to merge dissent records.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-23T13:24:30.580879+00:00"
+}

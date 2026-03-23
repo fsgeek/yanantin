@@ -1,0 +1,11 @@
+{
+  "id": "4883a8cf-c8e1-4026-b277-7a9f10f4dcbf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7544_20260323_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0705_20260215_trinity-mini.md",
+  "relation": "confirms",
+  "claim_text": "**CLAUDE.md** \u2014 loaded automatically.\" ### Reasoning The claim states: \"There is **no instruction or recommendation to fetch, read, or reference `CLAUDE.md` itself**.\" The file explicitly states that `CLAUDE.md` is \"loaded automatically\" (line 1 in the \"Reading Order for New Instances\" section).",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-23T13:24:29.741791+00:00"
+}

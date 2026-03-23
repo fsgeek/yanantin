@@ -1,0 +1,11 @@
+{
+  "id": "f179ca6e-7982-4cfd-b58e-8c1bbe056f40",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7546_20260323_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2206_20260222_llama-3.3-70b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim mentions that \"The `operators` directory, in particular, lists files like `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, and `project.py`.\" However, the provided file `src/yanantin/apacheta/operators/dissent.py` does not contain any information about the files in the `operators` directory.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "meta-llama/llama-3.3-70b-instruct",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-23T13:24:31.830561+00:00"
+}

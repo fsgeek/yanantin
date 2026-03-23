@@ -1,0 +1,11 @@
+{
+  "id": "58d6ee14-3163-4a31-82c0-32d8f1eb4b36",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7540_20260323_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0642_20260215_deepseek-v3.2.md",
+  "relation": "confirms",
+  "claim_text": "The file `tests/integration/test_arango_real.py` exists (confirmed) 2.",
+  "claim_file": "tests/integration/test_arango_real.py",
+  "claim_by": "deepseek/deepseek-v3.2",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-23T12:53:59.114123+00:00"
+}

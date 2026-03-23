@@ -1,0 +1,11 @@
+{
+  "id": "721fb5d5-2bc6-4f78-a6e6-c9ecb6462fe8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7542_20260323_qwen3-vl-235b-a22b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2221_20260222_ernie-4.5-vl-28b-a3b.md",
+  "relation": "denies",
+  "claim_text": "**Partial Truth Rejection**: The claim is not fully supported because: - The referenced file (`scout_0002_20260210_deepseek-chat-v3.1.md`) does not exist in the provided document.",
+  "claim_file": "docs/cairn/scout_0002_20260210_deepseek-chat-v3.1.md",
+  "claim_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "verified_by": "qwen/qwen3-vl-235b-a22b-instruct",
+  "timestamp": "2026-03-23T12:54:10.493472+00:00"
+}

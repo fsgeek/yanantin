@@ -1,0 +1,11 @@
+{
+  "id": "27c30e1a-6606-47ab-aa5d-fcbf2298bb9b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7537_20260323_qwen3-coder.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2695_20260224_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "**The `awaq` module's usage in parsing** \u2014 although it's referenced in `scour_0001_20260212_gemma-2-9b-it.md`, I didn\u2019t find concrete examples of how `weaver.py` processes tensor text in practice.",
+  "claim_file": "docs/cairn/scour_0001_20260212_gemma-2-9b-it.md",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "qwen/qwen3-coder",
+  "timestamp": "2026-03-23T12:21:00.468841+00:00"
+}

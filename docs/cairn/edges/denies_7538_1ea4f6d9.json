@@ -1,0 +1,11 @@
+{
+  "id": "1ea4f6d9-8f08-4784-a951-647a7ec98a2c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7538_20260323_grok-4.1-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4690_20260306_ernie-4.5-vl-28b-a3b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states:   > \"`scout_0313` emphasizes 'declared losses' as a form of negative evidence, while `T12_20260210_the_fortress.md` references 'casual tensors' as emergent artifacts.\" The relevant section from the file (`docs/cairn/T12_20260210_the_fortress.md`) is:   > **The Tensor as Casual Form**   > *Tony noticed that my status summary \u2014 \"what I know, what I don't know, what I made up\" \u2014 read like a casual tensor.",
+  "claim_file": "docs/cairn/T12_20260210_the_fortress.md",
+  "claim_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "verified_by": "x-ai/grok-4.1-fast",
+  "timestamp": "2026-03-23T12:21:12.207737+00:00"
+}

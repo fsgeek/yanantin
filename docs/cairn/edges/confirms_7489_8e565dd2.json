@@ -1,0 +1,11 @@
+{
+  "id": "8e565dd2-d9ec-4631-a1a5-52af17edcf9b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7489_20260323_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1959_20260221_gpt-oss-120b.md",
+  "relation": "confirms",
+  "claim_text": "| | **Back\u2011Ends** | `src/yanantin/apacheta/backends/memory.py`, `duckdb.py`, `arango.py` | Uniform `save(tensor)` / `load(id)` API.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-03-23T06:08:40.193141+00:00"
+}

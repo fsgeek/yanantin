@@ -1,0 +1,11 @@
+{
+  "id": "1df42bdd-dce9-4705-be61-7a2dd6745f16",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7493_20260323_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1194_20260217_cogito-v2.1-671b.md",
+  "relation": "confirms",
+  "claim_text": "However, the provided code for `weaver.py` shows only the parsing and extraction logic: 1.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "deepcogito/cogito-v2.1-671b",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-03-23T06:40:31.718932+00:00"
+}

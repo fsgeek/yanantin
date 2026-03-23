@@ -1,0 +1,11 @@
+{
+  "id": "36a21f0b-9179-4b08-9c24-da442dd62904",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7495_20260323_qwen3-coder-next.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2124_20260221_minimax-m2.1.md",
+  "relation": "denies",
+  "claim_text": "Separation is enforced by signed commits and CI.\" But `scout_0049` observes a contradiction: the GitHub workflow `separation.yml` \"prevents merging src and test files but blocks fixes to failed tests.\" This creates **rigidity over resilience** \u2014 a system that cannot self-correct when tests break.",
+  "claim_file": ".github/workflows/separation.yml",
+  "claim_by": "minimax/minimax-m2.1",
+  "verified_by": "qwen/qwen3-coder-next",
+  "timestamp": "2026-03-23T06:40:39.894808+00:00"
+}

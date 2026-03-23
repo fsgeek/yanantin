@@ -1,0 +1,11 @@
+{
+  "id": "c0a07d9f-0170-4dd7-926f-f956e6710a25",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7526_20260323_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4890_20260307_nemotron-nano-9b-v2.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `docs/signing.md` lists two keys under \"Current Keys\": - **Human (Tony Mason)** with identity \"Tony Mason <fsgeek@cs.ubc.ca>\" - **AI (Claude Opus)** with identity \"Yanantin AI (Claude Opus) <yanantin@wamson.com>\" The claim references a \"Yanantin Human\" key, but the file explicitly names the human key as \"Tony Mason,\" not \"Yanantin Human.\" ### Reasoning The claim is partially accurate but contains a critical inaccuracy.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-03-23T10:49:16.147491+00:00"
+}

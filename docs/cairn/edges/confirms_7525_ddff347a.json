@@ -1,0 +1,11 @@
+{
+  "id": "ddff347a-6e6c-4e46-916d-620fb36e6dad",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7525_20260323_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1317_20260218_nemotron-nano-9b-v2.md",
+  "relation": "confirms",
+  "claim_text": "Does the `analyst.py` pipeline reduce false positives in clustering?",
+  "claim_file": "src/yanantin/chasqui/analyst.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-23T10:48:55.399833+00:00"
+}

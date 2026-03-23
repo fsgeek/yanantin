@@ -1,0 +1,11 @@
+{
+  "id": "d3a60012-bdd7-4d63-88d9-8aecacb4c624",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7524_20260323_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5327_20260310_qwen3-vl-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning   The claim is about the project\u2019s overall structure\u2014specifically, that it ships **three** backends: `memory.py`, `duckdb.py`, and `arango.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-03-23T10:48:47.447720+00:00"
+}

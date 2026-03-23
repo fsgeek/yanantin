@@ -1,0 +1,11 @@
+{
+  "id": "dc60bc0f-3895-415b-b3c5-8a325a857440",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7453_20260323_gemini-2.0-flash-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4183_20260303_deepseek-r1-0528.md",
+  "relation": "denies",
+  "claim_text": "The claim references files beyond `correct.py` (`dissent.py`, `evolve.py`, `negate.py`, `project.py`), but I was only provided with the content of `correct.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "deepseek/deepseek-r1-0528",
+  "verified_by": "google/gemini-2.0-flash-001",
+  "timestamp": "2026-03-23T01:30:39.153052+00:00"
+}

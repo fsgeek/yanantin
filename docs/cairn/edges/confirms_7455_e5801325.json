@@ -1,0 +1,11 @@
+{
+  "id": "e5801325-8fce-4ec2-bc94-2bc7bf1c719a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7455_20260323_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0328_20260213_llama-3.2-1b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 5: Configurations I noted that the `yanantin/apacheta/config.py` file stores configurations as a tensor-compatible structure, with each setting becoming a KeyClaim.",
+  "claim_file": "src/yanantin/apacheta/config.py",
+  "claim_by": "meta-llama/llama-3.2-1b-instruct",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-03-23T01:31:45.587455+00:00"
+}

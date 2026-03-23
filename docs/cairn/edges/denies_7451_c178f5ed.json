@@ -1,0 +1,11 @@
+{
+  "id": "c178f5ed-2f49-40ea-8184-ee1b960ea61f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7451_20260323_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6536_20260317_glm-4-32b.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I couldn't verify the existence or non-existence of the other files (`bootstrap.py`, `correct.py`, `negate.py`, `evolve.py`) because the provided file `compose.py` does not reference or mention them.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-23T00:57:15.586375+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "64ac1857-abbf-48fd-83d7-c5987d3cae21",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7604_20260323_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0433_20260214_grok-4-fast.md",
+  "relation": "confirms",
+  "claim_text": "However, the report feels narrowly scoped, treating the file in isolation without connecting it to the broader Apacheta tensor database architecture mentioned in other project docs (e.g., `docs/cairn/scout_0191_20260213_mistral-nemo.md` and `docs/cairn/scout_0371_20260213_qwen3-coder-flash.md`), where Apacheta is framed as a \"stone cairn\" for immutable records.",
+  "claim_file": "docs/cairn/scout_0191_20260213_mistral-nemo.md",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-03-23T21:45:33.897723+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "352325f1-0eb4-4543-b5e1-29be6666d33c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7609_20260323_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5443_20260310_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "The contract says *no agreement required*, yet the system demands *verification* (`scout.py`).",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-03-23T22:18:05.722724+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "f24f9e71-6293-40e0-b174-82ad14265ade",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7612_20260323_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5151_20260309_phi-4.md",
+  "relation": "confirms",
+  "claim_text": "The structure and naming convention also align with the claim, where `project.py` is located under `src/yanantin/apacheta/operators/`, confirming that it is indeed part of the set of operators mentioned.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-23T22:47:41.414420+00:00"
+}

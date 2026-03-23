@@ -1,0 +1,11 @@
+{
+  "id": "848c8adc-43f6-4f53-83b3-8c7ee2084e36",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7617_20260323_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2685_20260224_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "It records the failure as data.\u201d* This aligns with the earlier scout\u2019s loss: *\u201cI cannot see what is sealed.\u201d* Here, the absence of `apacheta.md` is not a bug \u2014 it\u2019s a feature.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-23T23:21:04.261971+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "18c809c7-ff3a-4d14-8dc0-984b38aa4e74",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7614_20260323_qwen3-coder.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5979_20260314_qwen3-coder.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states: \"The file `agents/structured_reviewer.md` does not mention `scout_reviewer.md`.\" However, the provided file is `agents/scout_reviewer.md`, not `agents/structured_reviewer.md`.",
+  "claim_file": "agents/structured_reviewer.md",
+  "claim_by": "qwen/qwen3-coder",
+  "verified_by": "qwen/qwen3-coder",
+  "timestamp": "2026-03-23T22:47:45.837469+00:00"
+}

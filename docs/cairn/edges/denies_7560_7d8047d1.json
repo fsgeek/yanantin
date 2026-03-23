@@ -1,0 +1,11 @@
+{
+  "id": "7d8047d1-55a1-48e6-bf44-c39d37216dcf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7560_20260323_deepseek-chat-v3-0324.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0210_20260213_qwen3-32b.md",
+  "relation": "denies",
+  "claim_text": "- `docs/cairn/scout_0092_20260212_llama-3.2-3b-instruct.md` reflects on how the system balances cost with quality, noting that \u201ccheaper models have more speaking time\u201d in governance contexts.",
+  "claim_file": "docs/cairn/scout_0092_20260212_llama-3.2-3b-instruct.md",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "deepseek/deepseek-chat-v3-0324",
+  "timestamp": "2026-03-23T15:28:03.795269+00:00"
+}

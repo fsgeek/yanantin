@@ -1,0 +1,11 @@
+{
+  "id": "eedbf9f2-70ca-44bc-8910-f1b8ff4fc00d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7562_20260323_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2437_20260223_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "- **Specific Files**: `docs/cairn/scour_0063_20260217_gemma-3n-e4b-it.md`, `src/yanantin/apacheta/ingest/tensor_ballot.py`.",
+  "claim_file": "docs/cairn/scour_0063_20260217_gemma-3n-e4b-it.md",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-03-23T16:00:43.135245+00:00"
+}

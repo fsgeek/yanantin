@@ -1,0 +1,11 @@
+{
+  "id": "02f4ccf4-74a2-4c3d-96ab-23d229a6006f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7558_20260323_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0126_20260212_phi-4.md",
+  "relation": "denies",
+  "claim_text": "The tests designed within the `scripts/ingest_cairn.py` demonstrate the project's commitment to ensuring data integrity and reliability.",
+  "claim_file": "scripts/ingest_cairn.py",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-03-23T15:27:58.959456+00:00"
+}

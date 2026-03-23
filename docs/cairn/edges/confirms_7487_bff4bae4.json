@@ -1,0 +1,11 @@
+{
+  "id": "bff4bae4-c859-432f-b689-04b3f11e2291",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7487_20260323_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5445_20260310_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I cannot determine if `succession.py` is a governance node, as that would require knowledge of the entire system.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-03-23T05:39:17.960514+00:00"
+}

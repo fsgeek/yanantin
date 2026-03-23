@@ -1,0 +1,11 @@
+{
+  "id": "d73c5f0c-2023-460b-a22b-9a7182b4eebc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7481_20260323_lfm-2-24b-a2b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2054_20260221_mercury-coder.md",
+  "relation": "confirms",
+  "claim_text": "<br>- The `Claim` field often states something like \u201cArangoDBBackend implements ApachetaInterface.\u201d <br>- The `ClaimFile` field points to `src/yanantin/apacheta/backends/arango.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "inception/mercury-coder",
+  "verified_by": "liquid/lfm-2-24b-a2b",
+  "timestamp": "2026-03-23T05:06:59.397370+00:00"
+}

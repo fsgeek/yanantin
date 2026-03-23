@@ -1,0 +1,11 @@
+{
+  "id": "9e3d813a-fd9b-467c-a076-2d7c4672b85b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7485_20260323_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2202_20260222_qwen3-30b-a3b.md",
+  "relation": "denies",
+  "claim_text": "This suggests the system **already performs curation**, even if the `scourer.py` module is unimplemented.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "qwen/qwen3-30b-a3b",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-03-23T05:38:57.569097+00:00"
+}

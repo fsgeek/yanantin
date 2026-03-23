@@ -1,0 +1,11 @@
+{
+  "id": "9ee6dc79-5891-4e4b-9afd-762435b211dd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7459_20260323_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1542_20260219_llama-3.2-1b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The file `src/yanantin/apacheta/backends/duckdb.py` indeed contains implementations for different database backends, including `arango.py`, `duckdb.py`, and `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "meta-llama/llama-3.2-1b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-23T02:00:00.857722+00:00"
+}

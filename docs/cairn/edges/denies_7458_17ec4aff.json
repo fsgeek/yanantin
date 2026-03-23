@@ -1,0 +1,11 @@
+{
+  "id": "17ec4aff-5379-49c5-bde8-e9d49b061944",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7458_20260323_hermes-4-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4429_20260304_rocinante-12b.md",
+  "relation": "denies",
+  "claim_text": "This aligns with the described interaction between `scout.py` and `succession.py` via file-tree construction and selection.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "thedrummer/rocinante-12b",
+  "verified_by": "nousresearch/hermes-4-70b",
+  "timestamp": "2026-03-23T01:59:32.819118+00:00"
+}

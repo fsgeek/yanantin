@@ -1,0 +1,11 @@
+{
+  "id": "26cb2b52-ec02-4c45-8db6-fe0de961385b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7511_20260323_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7092_20260321_seed-1.6-flash.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that `correct.py` \"handles schema changes and disagreements formally.\" However, the content of `correct.py` focuses on creating correction records for prior claims, not schema evolution (which is the focus of `evolve.py` as shown in the provided code snippet).",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-03-23T08:45:38.869006+00:00"
+}

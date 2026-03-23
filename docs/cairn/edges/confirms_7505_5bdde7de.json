@@ -1,0 +1,11 @@
+{
+  "id": "5bdde7de-e6c5-4ef5-8caf-26c01f243313",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7505_20260323_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3563_20260228_command-a.md",
+  "relation": "confirms",
+  "claim_text": "**Evidence**:   - `src/yanantin/tinkuy/succession.py` contains logic to compare audit results with `blueprint.md` claims.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "cohere/command-a",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-23T08:13:04.878496+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "1836ec83-5cb8-4ea4-88e5-d8398a2c2416",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7584_20260323_qwen3-30b-a3b-instruct-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0019_20260212_mistral-small-3.1-24b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The `ApachetaInterface` abstract class in `src/yanantin/apacheta/interface/abstract.py` explicitly states that all records are immutable and that no updates or deletions are allowed.",
+  "claim_file": "src/yanantin/apacheta/interface/abstract.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "timestamp": "2026-03-23T18:38:09.229718+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "6b003dab-c4a8-463d-92e1-d9a14f4bce04",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7586_20260323_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2322_20260222_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: Disagreement with \"File Not Present\" Claim The previous report claimed that `docs/predecessors.md` was not present, but multiple other scout reports, including `scout_2305_20260222_mistral-small-creative.md`, clearly show that the file **does exist** and is well-structured.",
+  "claim_file": "docs/cairn/scout_2305_20260222_mistral-small-creative.md",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-03-23T19:11:15.901550+00:00"
+}

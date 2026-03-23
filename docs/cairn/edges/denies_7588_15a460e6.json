@@ -1,0 +1,11 @@
+{
+  "id": "15a460e6-d118-4fa8-834c-ee13bfd0afdf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7588_20260323_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6579_20260318_l3-lunaris-8b.md",
+  "relation": "denies",
+  "claim_text": "Files like `capture_compaction.py` and `precompact_tensor.py` deal with tensor manipulation and compaction.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-03-23T19:11:22.232345+00:00"
+}

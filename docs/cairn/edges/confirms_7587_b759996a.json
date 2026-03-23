@@ -1,0 +1,11 @@
+{
+  "id": "b759996a-1ed3-450e-a20c-470fc5d0aab1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7587_20260323_devstral-small.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0273_20260213_llama-3.2-3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: Verification of `docs/cairn/T14_20260211_the_flatworm.md` and `tests/red_bar/test_provenance.py` The previous scout's tensor reports that the file `docs/cairn/T14_20260211_the_flatworm.md` and `tests/red_bar/test_provenance.py` emphasize provenance tracking and structural invariants.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "mistralai/devstral-small",
+  "timestamp": "2026-03-23T19:11:17.645520+00:00"
+}

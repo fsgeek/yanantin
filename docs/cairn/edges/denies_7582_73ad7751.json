@@ -1,0 +1,11 @@
+{
+  "id": "73ad7751-1cb8-4353-abf9-124e1136445a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7582_20260323_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7453_20260323_gemini-2.0-flash-001.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The claim states: \"The claim references files beyond `correct.py` (`dissent.py`, `evolve.py`, `negate.py`, `project.py`), but I was only provided with the content of `correct.py`.\" I was provided with the content of `src/yanantin/apacheta/operators/dissent.py`, as shown above.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "google/gemini-2.0-flash-001",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-23T18:38:04.560866+00:00"
+}

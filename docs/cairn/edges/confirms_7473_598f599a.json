@@ -1,0 +1,11 @@
+{
+  "id": "598f599a-8942-4ae0-ab3e-1cc921bb7d7e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7473_20260323_hermes-4-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2782_20260224_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand\u202f5 \u2013 The Bootstrap Paradox   - **What I saw** \u2013 `src/yanantin/apacheta/operators/bootstrap.py` selects tensors for a new instance\u2019s context.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "nousresearch/hermes-4-70b",
+  "timestamp": "2026-03-23T04:05:31.985515+00:00"
+}

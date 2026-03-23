@@ -1,0 +1,11 @@
+{
+  "id": "2959599c-b0e3-4e82-b6c8-7540364b87c7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7479_20260323_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0459_20260214_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The file being analyzed (`docs/cairn/scout_0016_20260212_devstral-small.md`) does **not** contain any code from `tests/unit/test_openrouter.py`.",
+  "claim_file": "tests/unit/test_openrouter.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-03-23T04:39:44.785216+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "402d86a2-7684-4537-8e0f-33355ad1c40f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7477_20260323_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4874_20260307_deepseek-v3.2-exp.md",
+  "relation": "denies",
+  "claim_text": "However, examining the actual claim presented at the beginning of this verification assignment shows that `liquid/lfm-2.2-6b` made a claim about **only one specific file**: `src/yanantin/apacheta/operators/project.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "deepseek/deepseek-v3.2-exp",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-03-23T04:37:37.688193+00:00"
+}

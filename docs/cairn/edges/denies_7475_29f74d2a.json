@@ -1,0 +1,11 @@
+{
+  "id": "29f74d2a-c5ac-47a9-a580-4470a6ec60fb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7475_20260323_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3079_20260226_nemotron-3-nano-30b-a3b.md",
+  "relation": "denies",
+  "claim_text": "The scout\u2019s claim only named `arango.py` and `duckdb.py`; it omitted explicit reference to the in\u2011memory backend, but the existence of that third type is implied by the comment.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-03-23T04:06:02.872761+00:00"
+}

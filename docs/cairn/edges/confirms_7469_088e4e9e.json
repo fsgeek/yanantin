@@ -1,0 +1,11 @@
+{
+  "id": "088e4e9e-a12e-4f77-9eac-a286b4e9cfcc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7469_20260323_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0557_20260214_gemini-2.0-flash-001.md",
+  "relation": "confirms",
+  "claim_text": "\"\"\" ``` ### Reasoning The docstring at the top of the file `weaver.py` explicitly states that the Weaver uses \"deterministic: regex and keyword matching only, no LLM calls.\" This confirms that the file uses a deterministic pattern-matching approach.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "google/gemini-2.0-flash-001",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-23T03:34:37.105480+00:00"
+}

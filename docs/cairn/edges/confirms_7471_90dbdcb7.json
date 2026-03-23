@@ -1,0 +1,11 @@
+{
+  "id": "90dbdcb7-8401-4c69-b25f-64325221612a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7471_20260323_wizardlm-2-8x22b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0460_20260214_gemma-2-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "**Scout as Epistemic Agent:** I'm struck by the fact that the `scout.py` file implements a *directed* mechanism for exploring and querying the codebase.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "google/gemma-2-27b-it",
+  "verified_by": "microsoft/wizardlm-2-8x22b",
+  "timestamp": "2026-03-23T03:35:14.020426+00:00"
+}

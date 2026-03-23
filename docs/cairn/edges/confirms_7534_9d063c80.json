@@ -1,0 +1,11 @@
+{
+  "id": "9d063c80-a423-411a-9a50-aac5fb906905",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7534_20260323_deepseek-chat-v3-0324.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4918_20260307_qwen3-32b.md",
+  "relation": "confirms",
+  "claim_text": "An `__init__.py` file can be empty in Python to mark a directory as a package, but its presence alone does not imply the existence of domain-specific modules.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "deepseek/deepseek-chat-v3-0324",
+  "timestamp": "2026-03-23T11:50:58.950612+00:00"
+}

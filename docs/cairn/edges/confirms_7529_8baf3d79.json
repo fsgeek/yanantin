@@ -1,0 +1,11 @@
+{
+  "id": "8baf3d79-79a9-407b-b53c-d971ab801d69",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7529_20260323_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2437_20260223_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "- **Specific Files**: `tests/unit/test_exception.py`, `tests/unit/test_error.py`.",
+  "claim_file": ".venv/lib/python3.14/site-packages/astropy/io/votable/tests/test_exception.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-23T11:19:11.768960+00:00"
+}

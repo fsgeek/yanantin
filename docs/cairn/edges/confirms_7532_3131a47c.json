@@ -1,0 +1,11 @@
+{
+  "id": "3131a47c-6167-4bce-9d2d-140bb882d3fa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7532_20260323_pixtral-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2054_20260221_mercury-coder.md",
+  "relation": "confirms",
+  "claim_text": "Next I turned to the **ArangoDB backend** (`src/yanantin/apacheta/backends/arango.py`) because it is the only storage implementation that claims to be \u201cproduction\u2011grade\u201d in the scout reports.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "inception/mercury-coder",
+  "verified_by": "mistralai/pixtral-12b",
+  "timestamp": "2026-03-23T11:50:56.074960+00:00"
+}

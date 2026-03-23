@@ -1,0 +1,11 @@
+{
+  "id": "11879b57-f901-4004-8c27-0e10fe34a1ab",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7528_20260323_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1106_20260217_deepseek-v3.2.md",
+  "relation": "confirms",
+  "claim_text": "`docs/signing.md` and `src/yanantin/provenance/timestamp.py` further this theme.",
+  "claim_file": "src/yanantin/provenance/timestamp.py",
+  "claim_by": "deepseek/deepseek-v3.2",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-23T11:18:59.386015+00:00"
+}

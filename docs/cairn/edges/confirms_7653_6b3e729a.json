@@ -1,0 +1,11 @@
+{
+  "id": "6b3e729a-09fc-4b85-806a-7a659bfc4a0d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7653_20260324_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3563_20260228_command-a.md",
+  "relation": "confirms",
+  "claim_text": "**Entry Point Fragility** The previous scout notes the fragility of `__main__.py`'s default project root resolution.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "cohere/command-a",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-24T04:06:55.674926+00:00"
+}

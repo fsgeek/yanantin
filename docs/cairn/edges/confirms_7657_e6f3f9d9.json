@@ -1,0 +1,11 @@
+{
+  "id": "e6f3f9d9-12b8-422c-bfc2-206e93900927",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7657_20260324_qwen3.5-35b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3722_20260228_ernie-4.5-21b-a3b-thinking.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim alleges that `docs/predecessors.md` mentions its own absence, but the file contains no such statement.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "verified_by": "qwen/qwen3.5-35b-a3b",
+  "timestamp": "2026-03-24T04:41:46.993232+00:00"
+}

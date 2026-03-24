@@ -1,0 +1,11 @@
+{
+  "id": "5c218a6b-8756-4422-8a7c-a4dfb623839c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7655_20260324_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5234_20260309_llama-3.2-1b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "- The `pipeline_attestation.py` file uses the `datetime` and `timezone` modules to parse the timestamp from the `pipeline_health.json` file.",
+  "claim_file": ".claude/hooks/pipeline_attestation.py",
+  "claim_by": "meta-llama/llama-3.2-1b-instruct",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-03-24T04:40:52.494883+00:00"
+}

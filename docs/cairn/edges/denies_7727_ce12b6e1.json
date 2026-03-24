@@ -1,0 +1,11 @@
+{
+  "id": "ce12b6e1-1eb1-44d2-ab16-2ed49cfa2c2f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7727_20260324_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4730_20260306_qwen3-32b.md",
+  "relation": "denies",
+  "claim_text": "The verification task explicitly focuses on `scout.py`'s content, and the file immutability constraints mentioned in the claim are not present in this file's code or documentation.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-24T14:28:36.044095+00:00"
+}

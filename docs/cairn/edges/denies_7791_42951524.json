@@ -1,0 +1,11 @@
+{
+  "id": "42951524-6808-43f4-9e37-96348e5b84ff",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7791_20260324_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0353_20260213_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `src/yanantin/chasqui/scorer.py` explicitly mentions the following: ``` The system *expects* some scouts to produce \"wallpaper\" (low-signal output) and designs around it (see `scorer.py`).",
+  "claim_file": "src/yanantin/chasqui/scorer.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-03-24T22:54:32.989336+00:00"
+}

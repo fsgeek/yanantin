@@ -1,0 +1,11 @@
+{
+  "id": "fa6b0570-5557-4fa7-ab33-1e0a895e66f0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7787_20260324_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5292_20260309_l3-lunaris-8b.md",
+  "relation": "denies",
+  "claim_text": "**What is the role of `audit.py` in the succession protocol?**: The claim about `audit.py` being used in the succession protocol is intriguing, but the code doesn't provide clear evidence of this.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-24T22:22:30.461116+00:00"
+}

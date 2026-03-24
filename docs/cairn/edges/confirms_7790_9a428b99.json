@@ -1,0 +1,11 @@
+{
+  "id": "9a428b99-26dd-4989-bfd0-be1b4c366e21",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7790_20260324_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0511_20260214_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `docs/cairn/T1_20260207_seven_projects.md` does mention the \"seven projects\" lineage, as stated in the claim.",
+  "claim_file": "docs/cairn/T1_20260207_seven_projects.md",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-24T22:54:31.329626+00:00"
+}

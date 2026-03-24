@@ -1,0 +1,11 @@
+{
+  "id": "35fc64e6-bb90-4d58-b7f4-69faa69aff7e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7786_20260324_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6052_20260315_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "It also assumes the anchor service is the authoritative gatekeeper for determining when data should be persisted.\" }, { \"title\": \"Model Definitions and Normalization\", \"content\": \"The `models.py` file defines the core data structures, such as `FactRecord` and `MemoryAnchor`, using Pydantic.",
+  "claim_file": "src/yanantin/jabberwock/models.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-03-24T22:22:30.384864+00:00"
+}

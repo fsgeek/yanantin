@@ -1,0 +1,11 @@
+{
+  "id": "019180a8-e892-4295-8e1a-d64e62d513bc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7659_20260324_hermes-3-llama-3.1-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7081_20260321_rocinante-12b.md",
+  "relation": "confirms",
+  "claim_text": "- How does the `DocxXMLEditor` class in `document.py` handle conflicts between existing attributes and the ones it automatically injects?",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/scripts/document.py",
+  "claim_by": "thedrummer/rocinante-12b",
+  "verified_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "timestamp": "2026-03-24T05:10:20.951666+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "4d77fafd-faef-4e21-93a1-0a108c9da648",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7743_20260324_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3867_20260301_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "**Is the `gleaner.py` module\u2019s regex-based typing sufficient, or is it a brittle facade?**   4.",
+  "claim_file": "src/yanantin/chasqui/gleaner.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-24T16:36:24.213004+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "7c033391-3686-4f14-8132-23f917590968",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7748_20260324_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1247_20260217_gemini-2.0-flash-lite-001.md",
+  "relation": "confirms",
+  "claim_text": "Predecessor Projects and the Blueprint** -   **What I saw:** The file `docs/cairn/scout_0209_20260213_gemma-3n-e4b-it.md` and `docs/cairn/scout_0850_20260216_phi-4.md` both refer to `docs/predecessors.md` and the `indaleko` and `lares` projects.",
+  "claim_file": "docs/cairn/scout_0209_20260213_gemma-3n-e4b-it.md",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-03-24T17:09:21.486854+00:00"
+}

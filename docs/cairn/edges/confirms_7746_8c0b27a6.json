@@ -1,0 +1,11 @@
+{
+  "id": "8c0b27a6-1a0d-4ef6-aae2-9afed9c6f693",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7746_20260324_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2018_20260221_qwen-2.5-72b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "- **Extension**: The `materialize.py` file in the `awaq` module hints at a pipeline for turning tensors into structured data.",
+  "claim_file": "src/yanantin/awaq/materialize.py",
+  "claim_by": "qwen/qwen-2.5-72b-instruct",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-03-24T17:08:51.563442+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "a3a2a9f0-7a59-4bfd-af93-07a389e81405",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7642_20260324_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2412_20260223_llama-3.3-nemotron-super-49b-v.md",
+  "relation": "confirms",
+  "claim_text": "**Invisible Test Code**: Critical files like `test_provenance.py` and `test_activity_stream.py` are not included in the context, limiting verification of test coverage claims.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-03-24T02:32:52.804421+00:00"
+}

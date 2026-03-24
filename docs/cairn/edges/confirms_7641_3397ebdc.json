@@ -1,0 +1,11 @@
+{
+  "id": "3397ebdc-a8c4-4a9e-802b-72b0890da1e2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7641_20260324_qwen-vl-max.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0626_20260215_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The file `src/yanantin/apacheta/backends/memory.py` contains implementations for different record types used in Apacheta, such as `TensorRecord`, `CompositionEdge`, `CorrectionRecord`, `DissentRecord`, `NegationRecord`, `BootstrapRecord`, `SchemaEvolutionRecord`, and `EntityResolution`.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "qwen/qwen-vl-max",
+  "timestamp": "2026-03-24T02:32:44.572318+00:00"
+}

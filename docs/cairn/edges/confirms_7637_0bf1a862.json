@@ -1,0 +1,11 @@
+{
+  "id": "0bf1a862-ee0f-4c32-b1a4-ff8ae7f2e75b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7637_20260324_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5095_20260308_glm-4.7-flash.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `CLAUDE.md` contains no mention of: 1.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "z-ai/glm-4.7-flash",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-03-24T02:02:47.635692+00:00"
+}

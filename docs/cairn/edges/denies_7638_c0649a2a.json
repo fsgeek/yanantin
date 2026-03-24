@@ -1,0 +1,11 @@
+{
+  "id": "c0649a2a-64ef-4c5b-97d7-252360d0ce8b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7638_20260324_seed-1.6-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1103_20260217_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence ```python \"\"\"Evolve operator \u2014 records schema evolution.\"\"\" def evolve( interface: ApachetaInterface, from_version: str, to_version: str, *, fields_added: list[str] | None = None, fields_removed: list[str] | None = None, migration_notes: str = \"\", provenance: ProvenanceEnvelope | None = None, ) -> SchemaEvolutionRecord: \"\"\"Record a schema evolution step.\"\"\" record = SchemaEvolutionRecord( from_version=from_version, to_version=to_version, fields_added=fields_added or [], fields_removed=fields_removed or [], migration_notes=migration_notes, provenance=provenance or ProvenanceEnvelope(), ) interface.store_evolution(record) return record ``` ### Reasoning The claim states that `evolve.py` is in the directory `src/yanantin/apacheta/operators/` and lists files `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, `project.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "bytedance-seed/seed-1.6-flash",
+  "timestamp": "2026-03-24T02:03:01.388149+00:00"
+}

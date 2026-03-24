@@ -1,0 +1,11 @@
+{
+  "id": "5de7f01f-8df3-4d61-b5f3-92225d757d6e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7688_20260324_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1303_20260218_grok-code-fast-1.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I chose not to examine the actual source code files in `src/yanantin/` (e.g., not diving into `apacheta/models/composition.py` beyond the snippet in `scout_1056`), because the task says \"What catches your attention is data,\" and the scout reports are the primary data\u2014examining code directly would be like cheating on my role.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "x-ai/grok-code-fast-1",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-03-24T09:01:55.610558+00:00"
+}

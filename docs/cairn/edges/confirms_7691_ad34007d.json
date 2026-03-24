@@ -1,0 +1,11 @@
+{
+  "id": "ad34007d-5031-412f-aea1-ed996b814f81",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7691_20260324_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0334_20260213_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "The docstring at the beginning of the file lists the modes that `__main__.py` can operate in, and the imports section shows that it imports functions from `weaver.py`.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-24T09:33:06.820672+00:00"
+}

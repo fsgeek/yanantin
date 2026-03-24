@@ -1,0 +1,11 @@
+{
+  "id": "9f61bd48-9f0a-4662-b1b1-84628f246e36",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7689_20260324_o3-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4520_20260305_olmo-3-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   CONFIRMED ### Evidence   > \"- I did not verify the correctness of the `signing.md` or the full content of `predecessors.md`; I only checked their presence and references.\" The file `docs/signing.md` exists and the section titled \"Current Keys\" explicitly lists both human and AI signing keys with their identities and key IDs, confirming the document's existence and content relevance.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "allenai/olmo-3-7b-instruct",
+  "verified_by": "openai/o3-mini",
+  "timestamp": "2026-03-24T09:32:57.008383+00:00"
+}

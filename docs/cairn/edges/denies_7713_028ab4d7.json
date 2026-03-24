@@ -1,0 +1,11 @@
+{
+  "id": "028ab4d7-a51a-49f0-bbcd-8b5b5c5ed56a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7713_20260324_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1177_20260217_qwen2.5-vl-72b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The previous report's detailed analysis of `docs/predecessors.md` and its implications for the Yanantin project caught my attention.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "qwen/qwen2.5-vl-72b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-24T12:48:00.005586+00:00"
+}

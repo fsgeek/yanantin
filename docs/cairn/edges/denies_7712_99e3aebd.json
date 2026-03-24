@@ -1,0 +1,11 @@
+{
+  "id": "99e3aebd-175f-4df5-86ed-91861cba3217",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7712_20260324_grok-3-mini-beta.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0447_20260214_ui-tars-1.5-7b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The functions listed in the test file `test_operators.py` all have the explicit purpose of representing and evolving knowledge.",
+  "claim_file": "tests/unit/test_operators.py",
+  "claim_by": "bytedance/ui-tars-1.5-7b",
+  "verified_by": "x-ai/grok-3-mini-beta",
+  "timestamp": "2026-03-24T12:21:15.351610+00:00"
+}

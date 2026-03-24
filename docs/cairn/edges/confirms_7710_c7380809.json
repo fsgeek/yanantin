@@ -1,0 +1,11 @@
+{
+  "id": "c7380809-759f-4a7f-a82c-1918edf1b4a3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7710_20260324_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7081_20260321_rocinante-12b.md",
+  "relation": "confirms",
+  "claim_text": "- `utilities.py`: This file contains a Python class called `XMLEditor` that provides utilities for editing OOXML documents.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/scripts/utilities.py",
+  "claim_by": "thedrummer/rocinante-12b",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-24T12:20:56.884400+00:00"
+}

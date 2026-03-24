@@ -1,0 +1,11 @@
+{
+  "id": "c1cee852-4016-4059-834a-23db528b8068",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7671_20260324_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0206_20260213_gpt-oss-safeguard-20b.md",
+  "relation": "confirms",
+  "claim_text": "The `tests/red_bar/test_provenance.py` is minimal but critical.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "openai/gpt-oss-safeguard-20b",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-03-24T06:49:52.369052+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "e28d7713-c4da-4388-87c6-3fed618698bb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7674_20260324_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5347_20260310_qwq-32b.md",
+  "relation": "confirms",
+  "claim_text": "The file contains **no mention of `src/yanantin/apacheta/operators/bootstrap.py`**.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "qwen/qwq-32b",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-03-24T07:25:44.380055+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "8861767f-2cb8-4e72-8db3-f950aef30def",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7783_20260324_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3090_20260226_qwen3-vl-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "I noticed the **cost-weighted sampling** in `tests/unit/test_chasqui.py` \u2014 a clever way to balance cheap, fast models with expensive, precise ones.",
+  "claim_file": "tests/unit/test_chasqui.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-24T21:54:28.438832+00:00"
+}

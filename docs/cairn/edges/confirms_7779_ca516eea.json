@@ -1,0 +1,11 @@
+{
+  "id": "ca516eea-cc3b-49f3-ade9-036b12eaeaf1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7779_20260324_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5993_20260314_llama-3.2-11b-vision-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `src/yanantin/apacheta/operators/correct.py` contains the following lines: ``` def correct( interface: ApachetaInterface, target_tensor: UUID, original_claim: str, corrected_claim: str, *, ...",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-24T21:20:40.920118+00:00"
+}

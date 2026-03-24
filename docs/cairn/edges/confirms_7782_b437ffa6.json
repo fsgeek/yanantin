@@ -1,0 +1,11 @@
+{
+  "id": "b437ffa6-24a8-4be0-9133-63a742db337c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7782_20260324_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6713_20260318_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `src/yanantin/collector/synthetic.py` contains the following relevant lines: ```python from yanantin.collector.base import CollectorBase class SyntheticCollectorBase(CollectorBase[DataT]): ...",
+  "claim_file": "src/yanantin/collector/synthetic.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-24T21:54:25.326272+00:00"
+}

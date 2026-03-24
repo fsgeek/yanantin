@@ -1,0 +1,11 @@
+{
+  "id": "5d0a6b53-bbcd-4278-9235-f79eee909f74",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7722_20260324_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7711_20260324_deepseek-r1-distill-qwen-32b.md",
+  "relation": "confirms",
+  "claim_text": "We can only confirm the presence of `correct.py` in the `operators/` directory.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-03-24T13:58:21.238942+00:00"
+}

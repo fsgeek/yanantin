@@ -1,0 +1,11 @@
+{
+  "id": "15453678-616b-4109-ba01-20fa47adc6ce",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7724_20260324_step-3.5-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1337_20260218_minimax-01.md",
+  "relation": "confirms",
+  "claim_text": "**Strand 2: The Provenance Ecosystem** The concept of provenance is deeply embedded in the system, as seen in `src/yanantin/apacheta/models/provenance.py` (lines 12-22).",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "minimax/minimax-01",
+  "verified_by": "stepfun/step-3.5-flash",
+  "timestamp": "2026-03-24T13:58:27.063191+00:00"
+}

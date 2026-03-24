@@ -1,0 +1,11 @@
+{
+  "id": "520803de-0c01-483b-b035-2ea43b920627",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7750_20260324_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2913_20260225_ministral-3b-2512.md",
+  "relation": "confirms",
+  "claim_text": "**Open Question:** If `weaver.py` is so conservative, why does it not explicitly document its **losses** (e.g., ambiguous references it ignores)?",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-03-24T17:38:25.782745+00:00"
+}

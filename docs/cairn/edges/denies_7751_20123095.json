@@ -1,0 +1,11 @@
+{
+  "id": "20123095-d019-4c44-acb5-d089ffa119e8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7751_20260324_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5602_20260311_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "**Output format**: The function returns a string (line 23: `return \"\\n\".join(lines)`) that includes filenames like `arango.py` or `duckdb.py` (as seen in the loop on line 20).",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-03-24T17:38:25.880597+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "a9783fd0-3f22-42aa-bbe8-9d0ddf8ba74d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7749_20260324_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4599_20260305_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The docstring in the file explicitly states the purpose of the `markdown.py` file: ``` \"\"\"Markdown renderer \u2014 converts tensor records to human-readable output.",
+  "claim_file": "src/yanantin/apacheta/renderer/markdown.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-24T17:38:23.314583+00:00"
+}

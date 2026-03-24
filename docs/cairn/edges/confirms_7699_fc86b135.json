@@ -1,0 +1,11 @@
+{
+  "id": "fc86b135-7e4f-4ca3-8ba5-03fb2956b4e6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7699_20260324_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7418_20260322_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "These details directly support the claim that the presence of a structured `signing.md` file indicates \"presence and reference\" verification of some form of signing.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-03-24T10:41:03.191144+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "261bca0e-4469-426f-89a6-551771a9a323",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7694_20260324_gpt-4o-mini-search-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1202_20260217_nova-pro-v1.md",
+  "relation": "confirms",
+  "claim_text": "**Rich Type System for Tensor Relationships** - **Observation**: The `CompositionDeclaration` class in `weaver.py` defines several relationship types, including `composes_with`, `does_not_compose_with`, `corrects`, `bridges`, `branches_from`, and `read`.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "amazon/nova-pro-v1",
+  "verified_by": "openai/gpt-4o-mini-search-preview",
+  "timestamp": "2026-03-24T10:10:46.741417+00:00"
+}

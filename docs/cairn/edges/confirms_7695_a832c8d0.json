@@ -1,0 +1,11 @@
+{
+  "id": "a832c8d0-a13b-4fce-8ad0-c282908b5c17",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7695_20260324_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5472_20260310_nemotron-3-nano-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `src/yanantin/apacheta/models/provenance.py` defines two classes, **SourceIdentifier** and **ProvenanceEnvelope**.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-03-24T10:10:50.955707+00:00"
+}

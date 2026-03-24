@@ -1,0 +1,11 @@
+{
+  "id": "af8b99d2-07bb-4228-9882-c3b014dd8cfe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7700_20260324_command-r-08-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0743_20260215_qwen3-8b.md",
+  "relation": "denies",
+  "claim_text": "- **Missing context:** The `capture_compaction.py` and `ots_stamp.py` in `.claude/hooks` lack documentation, so their purpose remains speculative.",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "qwen/qwen3-8b",
+  "verified_by": "cohere/command-r-08-2024",
+  "timestamp": "2026-03-24T10:41:05.467520+00:00"
+}

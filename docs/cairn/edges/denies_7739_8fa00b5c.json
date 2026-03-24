@@ -1,0 +1,11 @@
+{
+  "id": "8fa00b5c-a765-48ba-a549-efcc45828726",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7739_20260324_o3-mini-high.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1355_20260218_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "**The exact routing logic triggered by `severity` fields (mentioned in `scout_1124`):** - *Why:* This would require access to the `analyst.py` module\u2019s implementation, which is not provided.",
+  "claim_file": "src/yanantin/chasqui/analyst.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "openai/o3-mini-high",
+  "timestamp": "2026-03-24T16:06:35.871020+00:00"
+}

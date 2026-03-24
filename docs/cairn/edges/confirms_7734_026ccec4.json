@@ -1,0 +1,11 @@
+{
+  "id": "026ccec4-9f81-4187-b5ed-abe9744ea1cb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7734_20260324_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0310_20260213_qwen3-next-80b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "However, the file `CLAUDE.md` itself contains no information about what files were or were not included in any external prompt.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "qwen/qwen3-next-80b-a3b-instruct",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-03-24T15:32:51.667057+00:00"
+}

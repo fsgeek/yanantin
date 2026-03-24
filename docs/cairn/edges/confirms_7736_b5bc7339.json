@@ -1,0 +1,11 @@
+{
+  "id": "b5bc7339-22e5-496e-8392-b7125473412f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7736_20260324_gpt-5-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7239_20260321_phi-4.md",
+  "relation": "confirms",
+  "claim_text": "### Strands #### Visual Interaction Design The `concept-map.md` file outlines a canvas-based interaction model.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/playground/skills/playground/templates/concept-map.md",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "openai/gpt-5-nano",
+  "timestamp": "2026-03-24T15:33:12.588209+00:00"
+}

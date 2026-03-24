@@ -1,0 +1,11 @@
+{
+  "id": "cf1c223b-3cf8-4cee-8507-b59c2000ab20",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7703_20260324_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6937_20260320_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": "The Silence of the Predecessors - **What I Saw**: The file `docs/predecessors.md` exists and is heavily referenced (even in the contradictory scout reports).",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-24T11:13:55.426945+00:00"
+}

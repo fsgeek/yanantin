@@ -1,0 +1,11 @@
+{
+  "id": "80422466-774e-4f6a-bf70-0bc06acf2ce5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7702_20260324_voxtral-small-24b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4163_20260303_deepseek-v3.2.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states: \"The file `docs/blueprint.md` contains no references to `docs/tensors.md` in any section or subsection.\" However, the file provided for verification is `docs/tensors.md`, not `docs/blueprint.md`.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "deepseek/deepseek-v3.2",
+  "verified_by": "mistralai/voxtral-small-24b-2507",
+  "timestamp": "2026-03-24T11:13:55.205288+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "dd5c885c-6b59-4394-8e1a-33b1478d4fa1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7704_20260324_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3234_20260226_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "The test file `test_tinkuy_audit.py` has a similar structure: it has fixtures (setup), strands (test categories), and assertions (checks).",
+  "claim_file": "tests/unit/test_tinkuy_audit.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-03-24T11:14:30.994195+00:00"
+}

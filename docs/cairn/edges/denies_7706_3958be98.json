@@ -1,0 +1,11 @@
+{
+  "id": "3958be98-bf24-4471-877f-d91ccdf0d2b0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7706_20260324_gemini-2.5-flash-lite-preview-.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4040_20260302_mercury.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `src/yanantin/apacheta/backends/duckdb.py` contains many lines that are not part of a `memory.py` module: ``` \"\"\"DuckDB backend for Apacheta.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "inception/mercury",
+  "verified_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "timestamp": "2026-03-24T11:44:04.589749+00:00"
+}

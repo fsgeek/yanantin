@@ -1,0 +1,11 @@
+{
+  "id": "54be2174-8939-4e56-8902-c0a5c25696fe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7622_20260323_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0581_20260214_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence ``` \"\"\"Base model for all Apacheta records.\"\"\" from __future__ import annotations from pydantic import BaseModel, ConfigDict ``` ### Reasoning The claim states that model `x-ai/grok-code-fast-1` asserted that `models/base.py` declares losses, but the content shows an empty `class ApachetaBaseModel` with documentation stating it's a base model using Pydantic conventions.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-03-23T23:52:56.235890+00:00"
+}

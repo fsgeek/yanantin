@@ -1,0 +1,11 @@
+{
+  "id": "eb6a2131-7273-43da-ae41-03d4ef8bc766",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7626_20260324_olmo-3.1-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4730_20260306_qwen3-32b.md",
+  "relation": "denies",
+  "claim_text": "- No line in the codebase references `succession.py` in the context of \"governance node\" or \"atomic numbering\" (full file scan).",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "allenai/olmo-3.1-32b-instruct",
+  "timestamp": "2026-03-24T00:24:57.060346+00:00"
+}

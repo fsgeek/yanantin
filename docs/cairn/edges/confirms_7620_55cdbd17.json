@@ -1,0 +1,11 @@
+{
+  "id": "55cdbd17-9b19-4a3b-8a09-09a7f8394dab",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7620_20260323_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4669_20260306_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "However, in the file `scourer.py`, we see the following import statement: ```python from yanantin.chasqui.scout import build_file_tree ``` This line directly references `scout.py` (as `yanantin.chasqui.scout`) and uses a function `build_file_tree` from it.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-03-23T23:52:47.827405+00:00"
+}

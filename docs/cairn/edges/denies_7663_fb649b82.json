@@ -1,0 +1,11 @@
+{
+  "id": "fb649b82-af11-40c2-8f4d-7d1eef5ce33f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7663_20260324_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2168_20260221_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states that the model \"Did not examine `tensor.py`, `composition.py`, or `epistemics.py`\u2014focused on scouts, tests, and workflows instead.\" However, the file content provided is `src/yanantin/apacheta/models/epistemics.py`, which is explicitly mentioned in the claim as a file that was *not* examined.",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-24T05:45:47.155167+00:00"
+}

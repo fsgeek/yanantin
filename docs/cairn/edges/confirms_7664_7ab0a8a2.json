@@ -1,0 +1,11 @@
+{
+  "id": "7ab0a8a2-8e1a-4747-8ad5-681ee7402a20",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7664_20260324_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2747_20260224_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "I also **did not investigate** how `provenance.py`, `signing.md`, or `model_selector.py` interact with tensor storage or propagation \u2014 even though they were mentioned in the previous tensor.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-24T05:45:58.544356+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "df5c2791-a767-4ec7-ba19-08a07be0a3ba",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7768_20260324_qwen2.5-vl-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3323_20260227_gemini-3.1-flash-image-preview.md",
+  "relation": "confirms",
+  "claim_text": "*   **Reasoning:** This section analyzes the evidence, stating: \"The evidence supports the claim that the test cases in `test_provenance.py` are thorough and cover edge cases, indicating a high standard of quality assurance.\" *   **Declared Losses:** This section further discusses the scope of the verification related to testing, mentioning that \"the verification only checks the presence of provenance in the records, but does not evaluate the actual content or correctness...\".",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "google/gemini-3.1-flash-image-preview",
+  "verified_by": "qwen/qwen2.5-vl-32b-instruct",
+  "timestamp": "2026-03-24T19:46:48.758847+00:00"
+}

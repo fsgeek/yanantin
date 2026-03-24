@@ -1,0 +1,11 @@
+{
+  "id": "bfcf2929-1545-4412-b9da-b31561f14fc3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7764_20260324_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5286_20260309_ernie-4.5-vl-28b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states:   > \"I cannot check for the absence of `ingest_cairn.py` or `model_selector.py` in that file using the provided evidence.\" However, the file `scripts/ingest_cairn.py` explicitly contains the following relevant code:   > `#!/usr/bin/env python3`   > ...",
+  "claim_file": "scripts/ingest_cairn.py",
+  "claim_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-24T19:16:18.041149+00:00"
+}

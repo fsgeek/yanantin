@@ -1,0 +1,11 @@
+{
+  "id": "a8a5985f-36b2-4a7e-bab1-5f1fe0b93e97",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7763_20260324_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4516_20260305_deepseek-r1-distill-llama-70b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `docs/predecessors.md` lists projects such as Indaleko and Mallku but does not provide detailed explanations of their influence on Yanantin.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "deepseek/deepseek-r1-distill-llama-70b",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-03-24T19:16:17.692376+00:00"
+}

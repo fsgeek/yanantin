@@ -1,0 +1,11 @@
+{
+  "id": "6cdd9f53-e345-4f88-a2f8-f1228f83efa8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7767_20260324_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3913_20260301_claude-3-haiku.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses The claim does not mention any specific behavior or contents of the `correct.py` file beyond it being an operator.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "anthropic/claude-3-haiku",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-03-24T19:46:21.009438+00:00"
+}

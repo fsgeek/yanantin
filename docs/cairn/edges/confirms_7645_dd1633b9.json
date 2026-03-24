@@ -1,0 +1,11 @@
+{
+  "id": "dd1633b9-4ad4-4718-845d-a9a33d6ee592",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7645_20260324_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1035_20260216_hermes-4-70b.md",
+  "relation": "confirms",
+  "claim_text": "For the tensor sequence and its history, see `docs/tensors.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "nousresearch/hermes-4-70b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-24T03:05:39.401910+00:00"
+}

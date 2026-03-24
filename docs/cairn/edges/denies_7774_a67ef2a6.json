@@ -1,0 +1,11 @@
+{
+  "id": "a67ef2a6-0541-4dba-99af-835e18eedc69",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7774_20260324_mistral-small-creative.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7294_20260322_qwen-vl-plus.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim suggests that `scout_1737_20260219_gemma-3n-e4b-it.md` references a file (`test_provenance.py`) that is not visible in the provided context.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "qwen/qwen-vl-plus",
+  "verified_by": "mistralai/mistral-small-creative",
+  "timestamp": "2026-03-24T20:48:24.257801+00:00"
+}

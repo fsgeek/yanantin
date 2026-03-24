@@ -1,0 +1,11 @@
+{
+  "id": "85ebb103-0ed9-4441-af2d-f495b6176ae4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7771_20260324_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5186_20260309_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "This confirms that the file is indeed related to verification tasks, contrary to the claim about `succession.py`.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-03-24T20:18:32.702934+00:00"
+}

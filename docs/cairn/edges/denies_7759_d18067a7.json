@@ -1,0 +1,11 @@
+{
+  "id": "d18067a7-098f-460a-9eea-6953b6fa9771",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7759_20260324_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1303_20260218_grok-code-fast-1.md",
+  "relation": "denies",
+  "claim_text": "#### Strand 3: Dissent and Denial as Core Dynamics - **What I saw:** Many reports feature \"DENIED\" verdicts with evidence, like in `scout_1171_20260217_hermes-2-pro-llama-3-8b.md` repeatedly denying a claim about `docs/predecessors.md` (though the denial text loops endlessly, which confused me\u2014maybe a rendering error?).",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "x-ai/grok-code-fast-1",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-24T18:44:40.785203+00:00"
+}

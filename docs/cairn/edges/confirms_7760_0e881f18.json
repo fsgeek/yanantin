@@ -1,0 +1,11 @@
+{
+  "id": "0e881f18-d6eb-4d6e-9eb7-c89e546cab35",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7760_20260324_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4015_20260302_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "**Tensor Prose and Composition Declarations**: I noticed that many markdown files contain prose interspersed with tensor composition declarations, such as `T0_20260207_bounded_verification.md`.",
+  "claim_file": "docs/cairn/T0_20260207_bounded_verification.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-24T18:45:18.622624+00:00"
+}

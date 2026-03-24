@@ -1,0 +1,11 @@
+{
+  "id": "198f527b-76d4-42a1-a21e-cfad0bb7b99c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7755_20260324_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2580_20260223_qwen3-coder-next.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning   The claim is self-contradictory and factually false: it asserts *repeatedly* that `docs/predecessors.md` is not present, while the very act of providing its full contents confirms its presence.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "qwen/qwen3-coder-next",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-24T18:14:40.675893+00:00"
+}

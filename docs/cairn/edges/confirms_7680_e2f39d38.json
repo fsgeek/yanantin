@@ -1,0 +1,11 @@
+{
+  "id": "e2f39d38-f853-4a7a-b06f-5b3286c635c3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7680_20260324_tongyi-deepresearch-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0789_20260215_qwen3-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 4: Testing as Epistemic Verification   The `tests/unit/test_operators.py` file is a goldmine.",
+  "claim_file": "tests/unit/test_operators.py",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "alibaba/tongyi-deepresearch-30b-a3b",
+  "timestamp": "2026-03-24T07:55:50.074575+00:00"
+}

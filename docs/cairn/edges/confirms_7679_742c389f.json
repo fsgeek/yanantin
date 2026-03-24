@@ -1,0 +1,11 @@
+{
+  "id": "742c389f-fb10-4374-a93a-1983bfafcfd4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7679_20260324_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2912_20260225_kimi-k2.md",
+  "relation": "confirms",
+  "claim_text": "`entropy_code_experiment_v2.md`, as they're not in the selected files.\"* However, the file is explicitly provided in full here, containing over 100 lines of detailed experimental design.",
+  "claim_file": "docs/entropy_code_experiment_v2.md",
+  "claim_by": "moonshotai/kimi-k2",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-24T07:55:50.017390+00:00"
+}

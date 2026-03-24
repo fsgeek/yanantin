@@ -1,0 +1,11 @@
+{
+  "id": "ae9c240d-55c4-4050-938b-165fb131f524",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7683_20260324_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5217_20260309_gpt-4.1-nano.md",
+  "relation": "confirms",
+  "claim_text": "### Strands - **Claim Verification and Validation (Files: `scout_*.md`)**   Files like `scout_3777_20260301_llama-4-scout.md` and `scout_5198_20260309_gpt-4.1-nano.md` embed detailed metadata about model runs, costs, timestamps, and claims.",
+  "claim_file": "docs/cairn/scout_3777_20260301_llama-4-scout.md",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-03-24T08:30:13.694026+00:00"
+}

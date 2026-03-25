@@ -1,0 +1,11 @@
+{
+  "id": "9100a7ab-1620-4a07-bdf8-8355a15c46e4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7917_20260325_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7369_20260322_qwen3-coder-flash.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim implies that the file was not accessible or that its contents were unknown, which directly contradicts the fact that the full content of `__main__.py` is shown in the assignment.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-25T15:42:25.304104+00:00"
+}

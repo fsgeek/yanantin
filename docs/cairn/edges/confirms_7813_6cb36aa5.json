@@ -1,0 +1,11 @@
+{
+  "id": "6cb36aa5-cff6-416f-a93c-8836635233cf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7813_20260325_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1852_20260220_relace-search.md",
+  "relation": "confirms",
+  "claim_text": "- `scout_0989_20260216_qwen-2.5-coder-32b-instruct.md` denies a claim about `docs/predecessors.md` being absent \u2014 again, a factual error by the AI model.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "relace/relace-search",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-03-25T02:02:47.684005+00:00"
+}

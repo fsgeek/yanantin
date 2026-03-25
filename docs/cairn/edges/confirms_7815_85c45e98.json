@@ -1,0 +1,11 @@
+{
+  "id": "85c45e98-b493-47e1-bf91-b773c424ffa4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7815_20260325_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3394_20260227_glm-4-32b.md",
+  "relation": "confirms",
+  "claim_text": "**Interaction with `gleaner.py`**: I did not analyze how the claim about `docs/predecessors.md` was extracted or processed by `gleaner.py`.",
+  "claim_file": "src/yanantin/chasqui/gleaner.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-25T02:02:57.197175+00:00"
+}

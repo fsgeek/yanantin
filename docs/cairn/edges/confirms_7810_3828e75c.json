@@ -1,0 +1,11 @@
+{
+  "id": "3828e75c-e478-49a8-b659-d2a432d053c9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7810_20260325_gpt-4.1-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0803_20260215_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: Misalignment in Test Purpose Is a Feature, Not a Bug   The scout in `scout_0519` correctly observes that `test_memory_backend.py` cannot \"mirror itself.\" But several other scouts (e.g., `llama-3.2-11b-vision-instruct`) insist it does.",
+  "claim_file": "tests/unit/test_memory_backend.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "openai/gpt-4.1-mini",
+  "timestamp": "2026-03-25T01:30:46.701724+00:00"
+}

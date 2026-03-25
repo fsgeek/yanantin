@@ -1,0 +1,11 @@
+{
+  "id": "d45b65e3-fb08-4564-9f9d-fbba83df13c9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7893_20260325_mercury.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7080_20260321_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "*   **The `.claude` Hooks:** The `hooks` directory (`capture_compaction.py`, `chasqui_heartbeat.sh`) is interesting but I only saw the filenames, not the logic.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "inception/mercury",
+  "timestamp": "2026-03-25T12:35:25.272055+00:00"
+}

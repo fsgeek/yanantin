@@ -1,0 +1,11 @@
+{
+  "id": "800d7284-8fab-4279-aab9-771a9d8ceb48",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7891_20260325_llama-3.3-nemotron-super-49b-v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7502_20260323_step-3.5-flash.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `docs/tensors.md` contains the following references to other files: ``` | ID | File | Date | Vantage | |----|------|------|---------| | T\u2080 | `conversation_tensor_20260207.md` | Feb 6-7 | Experiment 27/27b, paper insights | | T\u2081 | `conversation_tensor_20260207_session2.md` | Feb 7 | Indaleko architecture, composable components, finding\u2192relationship | | T\u2082 | `conversation_tensor_20260207_session3.md` | Feb 7 | Calibration results, length-entropy decoupling, meta-failure | | T\u2083 | `conversation_tensor_20260208_t3.md` | Feb 8 | Field metaphor, Mallku khipus, honesty\u2192observability reframe | | T\u2084 | `conversation_tensor_20260208_chatgpt_t4.md` | Feb 8 | ChatGPT reading T\u2080-T\u2083 | | T\u2085 | `conversation_tensor_20260208_chatgpt_t5.md` | Feb 8 | ChatGPT, authorship/projection theory | | T\u2086 | `conversation_tensor_20260207_session2_t6.md` | Feb 8 | T\u2081 instance receiving T\u2084-T\u2085; bridge tensor | | T\u2087 | `conversation_tensor_20260208_session2_t7.md` | Feb 8 | Finishing school, dissertation+code scouring, tensor database | | T\u2088 | `conversation_tensor_20260208_t8.md` | Feb 8 | First Yanantin instance, foundation laying, role swap, scout deployment | ``` and ``` These are in the same memory directory, prefixed `dissertation_scour_` and `indaleko_scour_`.",
+  "claim_file": "tmp/ubuntu-vm.claude/projects/-home-tony-projects-yanantin/memory/conversation_tensor_20260208_t8.md",
+  "claim_by": "stepfun/step-3.5-flash",
+  "verified_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "timestamp": "2026-03-25T12:03:41.461466+00:00"
+}

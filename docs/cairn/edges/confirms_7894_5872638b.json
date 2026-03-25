@@ -1,0 +1,11 @@
+{
+  "id": "5872638b-3118-422f-9739-cc670f4a4598",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7894_20260325_qwen3-next-80b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6796_20260319_qwq-32b.md",
+  "relation": "confirms",
+  "claim_text": "- Runtime behavior (e.g., if `rummage.py` is referenced programmatically) is not relevant here since the claim specifically cites comments/docstrings.",
+  "claim_file": "src/yanantin/apacheta/rummage.py",
+  "claim_by": "qwen/qwq-32b",
+  "verified_by": "qwen/qwen3-next-80b-a3b-instruct",
+  "timestamp": "2026-03-25T12:35:29.601771+00:00"
+}

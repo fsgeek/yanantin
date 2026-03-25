@@ -1,0 +1,11 @@
+{
+  "id": "06192c32-ca55-43fd-9fe5-751a8c6ca28f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7895_20260325_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5567_20260311_minimax-01.md",
+  "relation": "confirms",
+  "claim_text": "For instance, the claim about the absence of `docs/predecessors.md` is repeatedly denied across multiple reports (e.g., `scout_1564_20260219_llama-3.1-nemotron-70b-instruc.md`), yet the file clearly exists and contains detailed information about predecessor projects.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "minimax/minimax-01",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-25T12:35:41.457036+00:00"
+}

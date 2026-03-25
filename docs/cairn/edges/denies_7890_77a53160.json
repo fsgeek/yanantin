@@ -1,0 +1,11 @@
+{
+  "id": "77a53160-8033-461e-a1fd-7603dd64627a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7890_20260325_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3506_20260227_unslopnemo-12b.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I cannot verify if the other files mentioned in the claim, `docs/blueprint.md` and `docs/predecessors.md`, also provide high-level overviews, as I have not been directed to check those files.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "thedrummer/unslopnemo-12b",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-03-25T12:03:26.791299+00:00"
+}

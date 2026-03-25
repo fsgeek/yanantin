@@ -1,0 +1,11 @@
+{
+  "id": "8216efa1-3625-42b4-99e7-5fd7b0f71192",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7821_20260325_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3578_20260228_ministral-14b-2512.md",
+  "relation": "denies",
+  "claim_text": "- `src/yanantin/provenance/timestamp.py` defines the `ProvenanceEnvelope` for tracking lineage.",
+  "claim_file": "src/yanantin/provenance/timestamp.py",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-03-25T03:05:52.638509+00:00"
+}

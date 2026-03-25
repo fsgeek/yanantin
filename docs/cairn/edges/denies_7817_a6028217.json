@@ -1,0 +1,11 @@
+{
+  "id": "a6028217-b587-4ba1-a9f7-ffa483f5cf3c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7817_20260325_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2067_20260221_minimax-m2.1.md",
+  "relation": "denies",
+  "claim_text": "It asserts that the file `docs/predecessors.md` contains a statement that `docs/predecessors.md` is not present.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "minimax/minimax-m2.1",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-25T02:32:46.498378+00:00"
+}

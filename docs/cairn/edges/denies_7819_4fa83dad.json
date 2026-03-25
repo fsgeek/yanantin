@@ -1,0 +1,11 @@
+{
+  "id": "4fa83dad-03bf-4c2d-b6a9-365be616e401",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7819_20260325_longcat-flash-chat.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0364_20260213_rnj-1-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The claim references behavior not directly observable in the provided `CLAUDE.md` file.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "essentialai/rnj-1-instruct",
+  "verified_by": "meituan/longcat-flash-chat",
+  "timestamp": "2026-03-25T02:32:50.068171+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "b3bf47f7-aa61-45c6-8715-2676417892d4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7961_20260325_ernie-4.5-vl-28b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1384_20260218_ernie-4.5-vl-28b-a3b.md",
+  "relation": "denies",
+  "claim_text": "The claim's examples (`compose`, `correct`, `dissent`) are explicitly present in the file >  > **However, the file content provided does NOT discuss or reference `src/yanantin/apacheta/operators/bootstrap.py` at all.** The evidence section specifically lists imports and tests from `tests/unit/test_operators.py` (lines 1-17 and class definitions) and makes **no mention** of `src/yanantin/apacheta/operators/bootstrap.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "verified_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "timestamp": "2026-03-25T21:30:13.449281+00:00"
+}

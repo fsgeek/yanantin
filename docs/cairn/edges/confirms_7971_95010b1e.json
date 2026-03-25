@@ -1,0 +1,11 @@
+{
+  "id": "95010b1e-c877-4c50-8c66-687060bc3ffb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7971_20260325_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7085_20260321_gemini-2.5-flash-image.md",
+  "relation": "confirms",
+  "claim_text": "### Orchestration of Complexity The `advanced-workflows.md` file reveals a strong emphasis on orchestrating complex operations, not just single actions.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/command-development/references/advanced-workflows.md",
+  "claim_by": "google/gemini-2.5-flash-image",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-03-25T23:03:50.116926+00:00"
+}

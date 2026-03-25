@@ -1,0 +1,11 @@
+{
+  "id": "700e9e43-21e1-4edf-9ec0-a24e40ca978c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7970_20260325_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0133_20260212_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "See > `docs/blueprint.md` for how the pieces connect.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-25T23:03:41.933537+00:00"
+}

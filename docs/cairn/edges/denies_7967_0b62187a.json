@@ -1,0 +1,11 @@
+{
+  "id": "0b62187a-8d40-486c-8321-b823ab88c248",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7967_20260325_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3445_20260227_qwen3-30b-a3b-instruct-2507.md",
+  "relation": "denies",
+  "claim_text": "The `chasqui_pulse.py` script runs every 1\u20135 minutes, dispatching scouts.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-03-25T22:31:21.523494+00:00"
+}

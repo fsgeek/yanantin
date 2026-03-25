@@ -1,0 +1,11 @@
+{
+  "id": "562992fd-c020-4979-8342-fd3c6e4e9fd4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7968_20260325_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3148_20260226_nova-lite-v1.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states: > \"The project implements various mechanisms for tracking changes and maintaining consistency, including operators such as `compose.py`, `correct.py`, and `evolve.py`.\" The actual content of `src/yanantin/apacheta/operators/evolve.py` does not reference or mention `compose.py` or `correct.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-25T22:31:22.736974+00:00"
+}

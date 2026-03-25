@@ -1,0 +1,11 @@
+{
+  "id": "d2de1f2b-ad7c-45a3-a458-90ad2dcf0d83",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7972_20260325_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7826_20260325_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   **INDETERMINATE** ### Evidence   The file explicitly describes the blueprint as a **capitalized** artifact that \"governs the succession protocol\" and enforces rules, but it makes **no mention** of a `blueprint.md` file\u2014only stating that the audit tool \"does not parse `blueprint.md`\" and that the blueprint is checked via structural metadata.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-03-25T23:04:04.285050+00:00"
+}

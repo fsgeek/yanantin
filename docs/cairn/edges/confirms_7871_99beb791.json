@@ -1,0 +1,11 @@
+{
+  "id": "99beb791-098e-4665-985b-8fe3ebf5407e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7871_20260325_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1386_20260218_qwen3-vl-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "--- ### Declared Losses   - **I did not examine the full implementation of `src/yanantin/apacheta/backends/arango.py`**, though it is referenced in `scout_0857_20260216_nemotron-3-nano-30b-a3b.md`.",
+  "claim_file": "docs/cairn/scout_0857_20260216_nemotron-3-nano-30b-a3b.md",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-03-25T09:25:38.316735+00:00"
+}

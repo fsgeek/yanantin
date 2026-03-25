@@ -1,0 +1,11 @@
+{
+  "id": "5745ae0e-1708-46d4-beac-e1137200aaf7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7866_20260325_gemini-2.5-flash-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0898_20260216_qwen3-8b.md",
+  "relation": "denies",
+  "claim_text": "- **Evidence**: In `docs/cairn/scout_0206_20260213_gpt-oss-safeguard-20b.md`, the claim states: `src/yanantin/apacheta/backends/` contains `arango.py`, `duckdb.py`, and `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "qwen/qwen3-8b",
+  "verified_by": "google/gemini-2.5-flash-lite",
+  "timestamp": "2026-03-25T08:53:55.402654+00:00"
+}

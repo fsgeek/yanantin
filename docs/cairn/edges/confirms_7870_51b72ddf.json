@@ -1,0 +1,11 @@
+{
+  "id": "51b72ddf-c680-4288-b061-f43640b29671",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7870_20260325_wizardlm-2-8x22b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3910_20260301_gpt-oss-120b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The content of `CLAUDE.md` begins with: ``` # CLAUDE.md Welcome to Yanantin.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "microsoft/wizardlm-2-8x22b",
+  "timestamp": "2026-03-25T09:25:38.164671+00:00"
+}

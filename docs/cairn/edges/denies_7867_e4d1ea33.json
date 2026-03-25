@@ -1,0 +1,11 @@
+{
+  "id": "e4d1ea33-3aeb-4b7d-95ca-d137a9fe9523",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7867_20260325_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6861_20260319_gemini-3.1-flash-lite-preview.md",
+  "relation": "denies",
+  "claim_text": "The system is fighting its own desire to be \"finished.\" #### Strand 3: The Ghost of the \"Proxy\" In `src/yanantin/activity/backends/memory.py` and the surrounding `apacheta` operators, there is a clear architectural shift from \"Proxy\" to \"Gateway.\" The `docs/cairn/` reports (like `tensor_session_20260306_gateway.md`) show a system trying to reduce the \"tax\" of its own memory management.",
+  "claim_file": "src/yanantin/activity/backends/memory.py",
+  "claim_by": "google/gemini-3.1-flash-lite-preview",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-25T08:53:57.469418+00:00"
+}

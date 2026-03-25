@@ -1,0 +1,11 @@
+{
+  "id": "b98813e1-de67-487c-915f-39534ce36daa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7865_20260325_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5789_20260313_qwen3-next-80b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "- There is no loop on line 20 or anywhere else that iterates over filenames like `arango.py` or `duckdb.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "qwen/qwen3-next-80b-a3b-instruct",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-03-25T08:53:55.138560+00:00"
+}

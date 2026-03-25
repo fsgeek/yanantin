@@ -1,0 +1,11 @@
+{
+  "id": "2b421c59-c967-4d60-84c7-4e3ad199e917",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7922_20260325_cydonia-24b-v4.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1324_20260218_granite-4.0-h-micro.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The claim states: *\"What struck me most is the claim that `apacheta.md` was substituted with `tensors.md` \u2014 a rather dramatic allegation that contradicts the clearly enumerated project history in `docs/predecessors.md`.\"* In `docs/tensors.md`, there is no mention of `apacheta.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "thedrummer/cydonia-24b-v4.1",
+  "timestamp": "2026-03-25T16:14:21.621126+00:00"
+}

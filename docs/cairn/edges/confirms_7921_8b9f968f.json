@@ -1,0 +1,11 @@
+{
+  "id": "8b9f968f-caaf-4db6-b6b0-1d30c757f54d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7921_20260325_devstral-medium.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4869_20260307_nova-micro-v1.md",
+  "relation": "confirms",
+  "claim_text": "If upgraded (has BitcoinBlockHeaderAttestation), merge and re-save\" ### Reasoning The file `timestamp.py` explicitly mentions using OpenTimestamps to provide blockchain-anchored proof of git commit existence at specific times.",
+  "claim_file": "src/yanantin/provenance/timestamp.py",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "mistralai/devstral-medium",
+  "timestamp": "2026-03-25T16:14:20.904036+00:00"
+}

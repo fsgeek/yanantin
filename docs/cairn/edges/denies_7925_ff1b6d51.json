@@ -1,0 +1,11 @@
+{
+  "id": "ff1b6d51-4dea-4537-8806-1dc7780ba993",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7925_20260325_qwen3-30b-a3b-instruct-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2573_20260223_llama-4-maverick.md",
+  "relation": "denies",
+  "claim_text": "- **Evidence**: The `__init__.py` files in various directories show how the project is organized into manageable modules, supporting the observation of a well-structured codebase.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "timestamp": "2026-03-25T16:44:16.095556+00:00"
+}

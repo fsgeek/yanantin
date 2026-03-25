@@ -1,0 +1,11 @@
+{
+  "id": "3ae484c1-aaea-4377-8077-d0fa42fa933a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7927_20260325_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0922_20260216_llama-3.2-3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I couldn't check the claim about the other files in the `src/yanantin/apacheta/operators/` directory, as I can only see the content of `dissent.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-25T16:44:29.403962+00:00"
+}

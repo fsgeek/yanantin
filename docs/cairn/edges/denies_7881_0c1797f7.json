@@ -1,0 +1,11 @@
+{
+  "id": "0c1797f7-cc9a-48c0-991f-13d80609ca72",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7881_20260325_qwen3-vl-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6089_20260315_lfm-2-24b-a2b.md",
+  "relation": "denies",
+  "claim_text": "However, the exact contents of `docs/tensors.md` are irrelevant to the truth of the claim because the claim specifically addresses what Apacheta contains, not what tensors reference.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "qwen/qwen3-vl-8b-instruct",
+  "timestamp": "2026-03-25T11:01:25.710739+00:00"
+}

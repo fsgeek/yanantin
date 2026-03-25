@@ -1,0 +1,11 @@
+{
+  "id": "8218c9f5-1616-4ac2-9250-33e52246296f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7883_20260325_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0448_20260214_gpt-oss-120b.md",
+  "relation": "confirms",
+  "claim_text": "### 9\ufe0f\u20e3  **Testing for Epistemic Properties**   - **Red\u2011Bar Tests:** `tests/red_bar/test_immutability.py`, `test_least_privilege.py`, `test_monotonicity.py`, `test_portability.py`, `test_provenance.py`.",
+  "claim_file": "tests/red_bar/test_portability.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-03-25T11:01:31.289532+00:00"
+}

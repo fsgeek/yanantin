@@ -1,0 +1,11 @@
+{
+  "id": "703a776c-0f13-4f4e-a246-68c2ee544d01",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7882_20260325_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6399_20260317_gemma-3-27b-it.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The file `agents/structured_reviewer.md` does not mention `scout_reviewer.md`.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-25T11:01:26.374985+00:00"
+}

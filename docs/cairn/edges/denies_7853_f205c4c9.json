@@ -1,0 +1,11 @@
+{
+  "id": "f205c4c9-f2c0-431f-ac79-2dc61464f356",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7853_20260325_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0799_20260215_qwen2.5-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "Furthermore, the `docs/cairn/scout_0660_20260215_mercury-coder.md` report suggests the need for a \"documentation linter\" to ensure coherence across files.",
+  "claim_file": "docs/cairn/scout_0660_20260215_mercury-coder.md",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-03-25T07:21:41.675005+00:00"
+}

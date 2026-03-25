@@ -1,0 +1,11 @@
+{
+  "id": "dfee5ca2-a2cc-4124-8478-55c40705e9b2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7854_20260325_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7579_20260323_lfm-2.2-6b.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses The file is syntactically empty; no contextual details or actual `__init__.py` material exist for validation.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-03-25T07:21:42.222600+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "14e7956b-2c68-4c49-b8b9-d8b0133c1401",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7855_20260325_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1043_20260216_qwen2.5-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The `gateway.py` client interface was noted but not fully tested.",
+  "claim_file": "src/yanantin/apacheta/clients/gateway.py",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-25T07:21:43.778324+00:00"
+}

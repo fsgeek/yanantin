@@ -1,0 +1,11 @@
+{
+  "id": "4740fd5f-f85f-4632-99db-b0076217d1c0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7851_20260325_wizardlm-2-8x22b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0173_20260213_l3.3-euryale-70b.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand\u202f3 \u2013 Model\u2011Aware Infrastructure & Cost\u2011Awareness   - **What I saw** \u2013 The scout program (`src/yanantin/chasqui/`) includes model\u2011selection logic that explicitly tracks **prompt and completion token costs** (e.g., `src/yanantin/chasqui/model_selector.py`).",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "sao10k/l3.3-euryale-70b",
+  "verified_by": "microsoft/wizardlm-2-8x22b",
+  "timestamp": "2026-03-25T06:50:05.851626+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "13a28ed3-0ce0-459a-be75-21cde4c94194",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7934_20260325_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3042_20260225_minimax-m2.1.md",
+  "relation": "denies",
+  "claim_text": "It's likely in `epistemics.py` or the operators.",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "minimax/minimax-m2.1",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-03-25T17:48:28.168447+00:00"
+}

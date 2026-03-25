@@ -1,0 +1,11 @@
+{
+  "id": "05a1840b-2305-4b4b-8a8d-71f602416549",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7933_20260325_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4621_20260305_gemini-2.5-pro.md",
+  "relation": "denies",
+  "claim_text": "`tinkuy/` holds `audit.py` and `succession.py`, which speak of judgment and inheritance.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "google/gemini-2.5-pro",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-03-25T17:48:13.053256+00:00"
+}

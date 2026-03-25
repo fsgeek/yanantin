@@ -1,0 +1,11 @@
+{
+  "id": "2f313779-1a53-4e08-aace-5bf785740ff8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7830_20260325_hermes-4-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0857_20260216_nemotron-3-nano-30b-a3b.md",
+  "relation": "denies",
+  "claim_text": "| | 4 | **Composable tensor infrastructure & provenance** | `src/yanantin/epistemics.py` defines `TensorRecord` with fields `id`, `preamble`, `provenance`, and raises `ImmutabilityError` on duplicate `id` (see `tests/unit/test_duplicate_tensor_raises.py`).",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "nousresearch/hermes-4-70b",
+  "timestamp": "2026-03-25T04:09:44.128309+00:00"
+}

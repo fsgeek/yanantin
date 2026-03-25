@@ -1,0 +1,11 @@
+{
+  "id": "4826decc-9c85-4973-93e7-cb61a0fa9121",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7857_20260325_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0113_20260212_mistral-medium-3.1.md",
+  "relation": "confirms",
+  "claim_text": "**Reference**: - `T10_20260209_post_compaction.md`: > \"Chasqui v0 (coordinator, model selector, scout dispatch, respond mode, **bakery algorithm**)\" --- #### 5.",
+  "claim_file": "docs/cairn/T10_20260209_post_compaction.md",
+  "claim_by": "mistralai/mistral-medium-3.1",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-25T07:51:42.589771+00:00"
+}

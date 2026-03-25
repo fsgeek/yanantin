@@ -1,0 +1,11 @@
+{
+  "id": "74f7209f-af2b-4795-a3ae-e50b5910add5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7861_20260325_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5149_20260308_kimi-k2.5.md",
+  "relation": "denies",
+  "claim_text": "What drew my attention first: the scout report `scout_1947_20260220_hermes-2-pro-llama-3-8b.md`, which contains a spectacular model failure\u2014repetition of the phrase \"but it does mention `docs/predecessors.md` is not present\" approximately 60 times, ending in the garbled \"iot prs nesent.\" Someone committed this to the repository.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "moonshotai/kimi-k2.5",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-03-25T08:24:54.995945+00:00"
+}

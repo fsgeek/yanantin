@@ -1,0 +1,11 @@
+{
+  "id": "e3cccc2c-6a08-4343-8be9-b20e596833fe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7862_20260325_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4618_20260305_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "Also, the document does not specifically state that the scout did not explore how `CLAUDE.md`'s principles might manifest in other files.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-25T08:24:56.381029+00:00"
+}

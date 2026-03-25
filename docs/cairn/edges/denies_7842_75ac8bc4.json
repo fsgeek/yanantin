@@ -1,0 +1,11 @@
+{
+  "id": "75ac8bc4-ea3d-4bf9-a2fc-cf2a48041b1f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7842_20260325_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6497_20260317_rnj-1-instruct.md",
+  "relation": "denies",
+  "claim_text": "THOUGHT: I need to verify the claim that the model made about `tensor.py` in the absence of a `config.py`.",
+  "claim_file": "src/yanantin/apacheta/config.py",
+  "claim_by": "essentialai/rnj-1-instruct",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-03-25T05:47:31.289748+00:00"
+}

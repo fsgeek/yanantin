@@ -1,0 +1,11 @@
+{
+  "id": "14d5d8d7-4187-43da-9fcb-ea4b0730929c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7841_20260325_devstral-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3923_20260302_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I chose not to examine the full `CodebaseReport` structure from `tinkuy/audit.py`, as well as the exact frequency of `chasqui_pulse.py`.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "mistralai/devstral-2512",
+  "timestamp": "2026-03-25T05:47:29.647494+00:00"
+}

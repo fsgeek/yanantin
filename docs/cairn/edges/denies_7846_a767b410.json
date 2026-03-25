@@ -1,0 +1,11 @@
+{
+  "id": "a767b410-5c48-46ff-bb65-3d02fdb777da",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7846_20260325_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1702_20260219_gpt-oss-120b:exacto.md",
+  "relation": "denies",
+  "claim_text": "| | 6 | **Data\u2011collection back\u2011ends** | `src/yanantin/collector/filesystem/collector.py` (line\u202f22) implements a `FileSystemCollector`; `src/yanantin/collector/dropbox/collector.py` does the same for Dropbox; each has a matching `recorder.py` and `synthetic.py`.",
+  "claim_file": "src/yanantin/collector/dropbox/collector.py",
+  "claim_by": "openai/gpt-oss-120b:exacto",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-25T06:19:37.223979+00:00"
+}

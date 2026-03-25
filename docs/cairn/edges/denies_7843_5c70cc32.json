@@ -1,0 +1,11 @@
+{
+  "id": "5c70cc32-e8d1-4637-b4e2-6df7b8ab74ca",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7843_20260325_llama-4-scout.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3674_20260228_qwen3-30b-a3b-instruct-2507.md",
+  "relation": "denies",
+  "claim_text": "For example, `scout_3082_20260226_gemma-3-4b-it.md` explicitly references `scout_0630_20260215_granite-4.0-h-micro.md` as a 'detailed JSON report of a scout\u2019s observations'.",
+  "claim_file": "docs/cairn/scout_0630_20260215_granite-4.0-h-micro.md",
+  "claim_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "verified_by": "meta-llama/llama-4-scout",
+  "timestamp": "2026-03-25T05:47:38.784313+00:00"
+}

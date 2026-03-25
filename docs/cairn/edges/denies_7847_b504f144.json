@@ -1,0 +1,11 @@
+{
+  "id": "b504f144-ebd5-497d-b169-1c8316bf335a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7847_20260325_grok-3-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1285_20260218_gpt-oss-safeguard-20b.md",
+  "relation": "denies",
+  "claim_text": "- Without seeing `scourer.py` or any import/interaction in `scout.py`, we cannot determine whether the two are orchestrated or how their scopes differ.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "openai/gpt-oss-safeguard-20b",
+  "verified_by": "x-ai/grok-3-mini",
+  "timestamp": "2026-03-25T06:19:47.965219+00:00"
+}

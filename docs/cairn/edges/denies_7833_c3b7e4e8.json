@@ -1,0 +1,11 @@
+{
+  "id": "c3b7e4e8-d839-4292-93a3-89bff2ccbb90",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7833_20260325_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5497_20260311_qwen-2.5-coder-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "``` and ``` if __name__ == \"__main__\": # Example usage declarations = weave_corpus() print(render_graph(declarations)) ``` ### Reasoning The claim states that the file does not mention `weaver.py` and `__main__.py`.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "qwen/qwen-2.5-coder-32b-instruct",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-25T04:39:02.874467+00:00"
+}

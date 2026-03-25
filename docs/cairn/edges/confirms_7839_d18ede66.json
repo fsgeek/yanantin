@@ -1,0 +1,11 @@
+{
+  "id": "d18ede66-1911-4f69-9a2c-de1341f21380",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7839_20260325_aion-2.0.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2018_20260221_qwen-2.5-72b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The Claim About `docs/predecessors.md`** - **Disagreement**: The claim that `docs/predecessors.md` is not present is false.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "qwen/qwen-2.5-72b-instruct",
+  "verified_by": "aion-labs/aion-2.0",
+  "timestamp": "2026-03-25T05:17:05.940807+00:00"
+}

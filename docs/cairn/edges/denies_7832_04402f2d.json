@@ -1,0 +1,11 @@
+{
+  "id": "04402f2d-2e41-49a5-8579-deb80b1beab3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7832_20260325_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7213_20260321_gpt-4o-mini-search-preview.md",
+  "relation": "denies",
+  "claim_text": "\"\"\" ``` ### Reasoning The claim states that the emphasis on \"epistemic observability\" across various files, including `ots_stamp.py`, indicates a focus on understanding the knowledge and reasoning processes within the system.",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "openai/gpt-4o-mini-search-preview",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-03-25T04:39:02.703044+00:00"
+}

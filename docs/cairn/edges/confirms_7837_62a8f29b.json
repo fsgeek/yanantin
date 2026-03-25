@@ -1,0 +1,11 @@
+{
+  "id": "62a8f29b-d631-461f-b224-0fde84510267",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7837_20260325_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4852_20260307_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "However, the code in `evolve.py` only deals with schema evolution and does not contain any verbs or operations related to dissent.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-25T05:16:45.223999+00:00"
+}

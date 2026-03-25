@@ -1,0 +1,11 @@
+{
+  "id": "dca156ff-511e-4d73-a318-024db6c6b79b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7834_20260325_minimax-01.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7293_20260322_ministral-8b-2512.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states: > `docs/apacheta.md` does **not** check for the existence/modification of `tensors.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "minimax/minimax-01",
+  "timestamp": "2026-03-25T04:39:04.582098+00:00"
+}

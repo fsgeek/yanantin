@@ -1,0 +1,11 @@
+{
+  "id": "7bb06991-41df-4f03-9c91-8b5e5e943f11",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7878_20260325_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2332_20260222_qwen3-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "This is not a failure, but a sign of recursive scrutiny, which the project embraces.\", \"strands\": [ \"The 'composition' in `compose.py` is not a mathematical operation, but a *semantic bridge*.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-03-25T10:29:48.752724+00:00"
+}

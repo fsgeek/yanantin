@@ -1,0 +1,11 @@
+{
+  "id": "6660718e-3cfa-4629-9307-78e5523caf11",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7877_20260325_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1394_20260218_deepseek-r1-distill-qwen-32b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The file `docs/predecessors.md` contains the following content: ``` # Predecessor Projects Yanantin composes what was learned across these projects.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-03-25T10:29:40.265433+00:00"
+}

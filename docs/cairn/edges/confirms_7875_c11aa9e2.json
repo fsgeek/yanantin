@@ -1,0 +1,11 @@
+{
+  "id": "c11aa9e2-170b-4725-838c-01998b12bf96",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7875_20260325_gpt-5-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0404_20260214_lfm-2.2-6b.md",
+  "relation": "confirms",
+  "claim_text": "**Extend Strand: Lost Operator Details**   The `negate.py` operator creates `NegationRecord`\u2014a formal boundary declaration.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "openai/gpt-5-nano",
+  "timestamp": "2026-03-25T09:55:47.019030+00:00"
+}

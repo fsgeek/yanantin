@@ -1,0 +1,11 @@
+{
+  "id": "61ea2f53-e1da-49d1-87e2-ad6dadc82b6d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7910_20260325_mercury-coder.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6992_20260320_kimi-k2-thinking.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I cannot verify whether such a scout report discussion actually exists in the cairn directory (which would be in `docs/cairn/` rather than `docs/blueprint.md`).",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "moonshotai/kimi-k2-thinking",
+  "verified_by": "inception/mercury-coder",
+  "timestamp": "2026-03-25T14:40:24.509801+00:00"
+}

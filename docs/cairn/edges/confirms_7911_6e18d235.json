@@ -1,0 +1,11 @@
+{
+  "id": "6e18d235-aa78-4849-8472-b0346f79d2dd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7911_20260325_llama-3.3-nemotron-super-49b-v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4825_20260307_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "However, the content of `docs/cairn/scout_1239_20260217_gemma-3-4b-it.md` does not provide any evidence to support this claim.",
+  "claim_file": "docs/cairn/scout_1239_20260217_gemma-3-4b-it.md",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "timestamp": "2026-03-25T14:40:37.758961+00:00"
+}

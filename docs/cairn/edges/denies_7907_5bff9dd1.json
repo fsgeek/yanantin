@@ -1,0 +1,11 @@
+{
+  "id": "5bff9dd1-4741-4937-95b1-6c5b35170e64",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7907_20260325_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4971_20260307_kimi-k2-thinking.md",
+  "relation": "denies",
+  "claim_text": "**Operators as Epistemic Primitives** In `src/yanantin/apacheta/operators/`, I found seven verbs: `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, `project.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "moonshotai/kimi-k2-thinking",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-03-25T14:09:30.871497+00:00"
+}

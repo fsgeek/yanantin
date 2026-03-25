@@ -1,0 +1,11 @@
+{
+  "id": "9f63917a-f2e0-45d2-8088-20fc7e654b93",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7906_20260325_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1702_20260219_gpt-oss-120b:exacto.md",
+  "relation": "denies",
+  "claim_text": "--- ### Strands   | # | Theme | What I saw (files/lines) | What it suggests | |---|-------|--------------------------|------------------| | 1 | **Modular architecture** | `src/yanantin/activity/`, `src/yanantin/apacheta/`, `src/yanantin/awaq/`, `src/yanantin/chasqui/`, `src/yanantin/collector/`, `src/yanantin/tinkuy/` (each with `__init__.py` and several sub\u2011modules).",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "openai/gpt-oss-120b:exacto",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-25T14:09:24.603640+00:00"
+}

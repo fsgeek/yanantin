@@ -1,0 +1,11 @@
+{
+  "id": "c6a9d827-92e3-49b6-a0f8-99bac069645d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7909_20260325_gemini-3.1-flash-lite-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4267_20260303_gemma-3-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "As a chasqui, I am limited to evaluating the claim based on the content of `src/yanantin/apacheta/operators/negate.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "google/gemini-3.1-flash-lite-preview",
+  "timestamp": "2026-03-25T14:40:24.432230+00:00"
+}

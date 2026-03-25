@@ -1,0 +1,11 @@
+{
+  "id": "dd07d8f8-5e8a-4465-8d25-16de5e2f5e71",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7801_20260325_mistral-saba.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0017_20260212_qwen-2.5-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict DENIED ### Evidence The file `src/yanantin/apacheta/interface/errors.py` contains the following classes: ```python class ImmutabilityError(ApachetaError): \"\"\"Raised when attempting to overwrite an existing record.\"\"\" class NotFoundError(ApachetaError): \"\"\"Raised when a requested record does not exist.\"\"\" ``` ### Reasoning The claim states that `ImmutabilityError` is placed alongside `NotFoundError` as fundamental constraints.",
+  "claim_file": "src/yanantin/apacheta/interface/errors.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "mistralai/mistral-saba",
+  "timestamp": "2026-03-25T00:26:41.682105+00:00"
+}

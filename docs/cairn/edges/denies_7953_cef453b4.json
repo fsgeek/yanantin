@@ -1,0 +1,11 @@
+{
+  "id": "cef453b4-d05e-4b3a-97eb-c24acab531c1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7953_20260325_gpt-oss-safeguard-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3833_20260301_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning   The file supports the technical part of the claim \u2014 that `audit.py` inspects filesystem structure without parsing content \u2014 but offers no evidence of it fulfilling a higher-level \"abstraction\" role beyond its documented behavior.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "openai/gpt-oss-safeguard-20b",
+  "timestamp": "2026-03-25T20:26:44.397625+00:00"
+}

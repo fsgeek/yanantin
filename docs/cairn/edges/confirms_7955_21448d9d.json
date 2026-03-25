@@ -1,0 +1,11 @@
+{
+  "id": "21448d9d-adf5-4b95-bade-2940b95ee34d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7955_20260325_mistral-large-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1873_20260220_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "LLM-guided extraction is a future enhancement.\" ### Reasoning The claim implies that the file `src/yanantin/chasqui/gleaner.py` is somehow related to or derived from the content of `docs/cairn/scour_0088_20260218_ministral-14b-2512.md`, which describes using a specific model to analyze code and extract claims.",
+  "claim_file": "src/yanantin/chasqui/gleaner.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "mistralai/mistral-large-2512",
+  "timestamp": "2026-03-25T20:26:50.276716+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "a6e0c5b8-60e7-4fa3-b055-7634ee828f41",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7957_20260325_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6923_20260320_qwq-32b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that `src/yanantin/awaq/weaver.py` does not mention `weaver.py` and `__main__.py`.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "qwen/qwq-32b",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-03-25T20:58:47.305563+00:00"
+}

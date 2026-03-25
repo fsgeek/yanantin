@@ -1,0 +1,11 @@
+{
+  "id": "4b8c5c46-68b5-4062-8699-0c0f8873fd0c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7942_20260325_nemotron-3-super-120b-a12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7342_20260322_voxtral-small-24b-2507.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The file `docs/cairn/scout_2365_20260222_lfm-2.2-6b.md` contains the following claim: ``` ### Declared Losses - **Deep Code Dives**: I skimmed but didn't parse full implementations, like `src/yanantin/apacheta/ingest/markdown_parser.py` or all operators\u2014too many files, and my attention wan ``` The file `src/yanantin/apacheta/ingest/markdown_parser.py` contains the following content: ``` ``` ### Reasoning The claim states that the scout skimmed but didn't parse full implementations, specifically mentioning `src/yanantin/apacheta/ingest/markdown_parser.py`.",
+  "claim_file": "docs/cairn/scout_2365_20260222_lfm-2.2-6b.md",
+  "claim_by": "mistralai/voxtral-small-24b-2507",
+  "verified_by": "nvidia/nemotron-3-super-120b-a12b",
+  "timestamp": "2026-03-25T18:55:48.451178+00:00"
+}

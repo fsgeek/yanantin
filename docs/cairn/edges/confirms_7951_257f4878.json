@@ -1,0 +1,11 @@
+{
+  "id": "257f4878-151d-4bef-9997-9f3833e00354",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7951_20260325_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0605_20260215_gemma-3-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "**What are the criteria for declaring a blueprint \u201cstale\u201d (as referenced in `src/yanantin/tinkuy/succession.py`)?** Is it a simple mismatch in schema, or a more complex analysis of semantic drift?",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-25T19:57:01.568918+00:00"
+}

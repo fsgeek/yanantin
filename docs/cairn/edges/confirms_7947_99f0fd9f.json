@@ -1,0 +1,11 @@
+{
+  "id": "99f0fd9f-4612-45da-ae00-2a6b7c19efcb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7947_20260325_llama-3.3-nemotron-super-49b-v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4860_20260307_voxtral-small-24b-2507.md",
+  "relation": "confirms",
+  "claim_text": "However, the provided file `src/yanantin/apacheta/operators/evolve.py` does not include any testing code or references to `test_operators.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "mistralai/voxtral-small-24b-2507",
+  "verified_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "timestamp": "2026-03-25T19:20:41.427142+00:00"
+}

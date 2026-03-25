@@ -1,0 +1,11 @@
+{
+  "id": "9f51fa75-ece2-477b-b64d-1f510df444f8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7899_20260325_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6693_20260318_olmo-3.1-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "Thus, the specific claim is **partially correct** in that it does not mention `arango.py`, and does not refer to `memory.py` or `duckdb.py` as backend names, but it is **inaccurate** to say that it \"explicitly references 'in-memory' and 'DuckDB' as backends\" in the sense of naming them in the file's code or comments as backend implementations, except in a comparative sense (\"same as in-memory\", \"DuckDB backend\").",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "allenai/olmo-3.1-32b-instruct",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-25T13:05:21.356950+00:00"
+}

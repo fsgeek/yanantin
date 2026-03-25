@@ -1,0 +1,11 @@
+{
+  "id": "49f29ca1-9567-465c-8377-8f4a8878d13b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7901_20260325_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1730_20260219_llama-3.2-3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "# Strands ## Strand 1: Testing Infrastructure - **Observed**: The project has comprehensive integration and unit tests, including a real ArangoDB instance connection (`tests/integration/test_arango_real.py`).",
+  "claim_file": "tests/integration/test_arango_real.py",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-03-25T13:37:35.760076+00:00"
+}

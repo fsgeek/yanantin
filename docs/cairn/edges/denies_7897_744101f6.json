@@ -1,0 +1,11 @@
+{
+  "id": "744101f6-e13d-41cb-ade4-821dcfe855d8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7897_20260325_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5517_20260311_ernie-4.5-vl-28b-a3b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states: > These hooks include `capture_compaction.py`, `chasqui_heartbeat.sh`, `chasqui_pulse.py`, `ots_stamp.py`, `pipeline_attestation.py`, and `precompact_tensor.py`.",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-25T13:05:19.735344+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "48cb5c7b-eaf8-4bf7-ab6b-05610b4b942c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7903_20260325_deepseek-r1t2-chimera.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0218_20260213_qwen2.5-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "For example: - `bootstrap.py` handles the initialization of new instances.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "tngtech/deepseek-r1t2-chimera",
+  "timestamp": "2026-03-25T13:38:05.507203+00:00"
+}

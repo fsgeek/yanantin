@@ -1,0 +1,11 @@
+{
+  "id": "66fc898d-057d-4bd3-858c-b8c45e5affba",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7797_20260324_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0379_20260214_deepseek-r1-distill-llama-70b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence - The function `verify_references` in `src/yanantin/chasqui/scorer.py` checks each file reference against the project tree and marks them as existing or not.",
+  "claim_file": "src/yanantin/chasqui/scorer.py",
+  "claim_by": "deepseek/deepseek-r1-distill-llama-70b",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-24T23:56:45.383195+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "2a224417-9416-4436-a035-790a25aad727",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7798_20260324_ernie-4.5-vl-424b-a47b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1846_20260220_llama-3.1-70b-instruct.md",
+  "relation": "denies",
+  "claim_text": "#### Strand 3: Exploring the Provenance Module I would like to explore the `src/yanantin/provenance/__init__.py` module further.",
+  "claim_file": "src/yanantin/provenance/__init__.py",
+  "claim_by": "meta-llama/llama-3.1-70b-instruct",
+  "verified_by": "baidu/ernie-4.5-vl-424b-a47b",
+  "timestamp": "2026-03-24T23:56:46.259523+00:00"
+}

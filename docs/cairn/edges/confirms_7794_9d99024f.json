@@ -1,0 +1,11 @@
+{
+  "id": "9d99024f-ed1d-4998-aab8-49daca153167",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7794_20260324_qwen-vl-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5419_20260310_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": "The existence of this historical record, framed as a \"Cairn,\" suggests that **epistemic observability is being achieved through meticulous, recurrent, and expensive self-reporting.** ### Strands #### Strand 1: The Self-Reporting Tensor Format is a Primitive **Observation:** Nearly every file in `docs/cairn/` (e.g., `scout_4513_20260305_lfm2-8b-a1b.md`, `scout_2287_20260222_gpt-oss-120b.md`) is wrapped in a multi-line comment containing highly structured metadata: `Run`, `Model`, `Cost`, `Usage`, `Timestamp`, `Dispatch`, `Claim`, and crucially, `SourceTensor`.",
+  "claim_file": "docs/cairn/scout_2287_20260222_gpt-oss-120b.md",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "qwen/qwen-vl-plus",
+  "timestamp": "2026-03-24T23:24:33.863278+00:00"
+}

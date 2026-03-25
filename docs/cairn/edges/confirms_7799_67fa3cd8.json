@@ -1,0 +1,11 @@
+{
+  "id": "67fa3cd8-71b2-4cdc-bfaa-dffe7757ca08",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7799_20260324_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1017_20260216_lfm2-8b-a1b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **CONFIRMED** ### Evidence   The claim states:   > \"The file `docs/tensors.md` does not reference `apacheta.md` as a substitution for `tensors.md`.\" This is accurate.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-03-24T23:57:17.994436+00:00"
+}

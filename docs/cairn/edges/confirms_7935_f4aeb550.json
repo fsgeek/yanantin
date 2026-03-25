@@ -1,0 +1,11 @@
+{
+  "id": "f4aeb550-191d-4871-9055-b1b3e878ed5f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7935_20260325_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6210_20260316_gpt-4.1-nano.md",
+  "relation": "confirms",
+  "claim_text": "Blockchain Anchoring & Proof Hierarchy**   What I saw: The `timestamp.py` functions, notably `stamp_commit()` and `_submit_to_calendar()`, employ OpenTimestamps to create cryptographically anchored proofs.",
+  "claim_file": "src/yanantin/provenance/timestamp.py",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-03-25T17:52:18.586329+00:00"
+}

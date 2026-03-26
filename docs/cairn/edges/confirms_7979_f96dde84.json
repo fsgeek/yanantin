@@ -1,0 +1,11 @@
+{
+  "id": "f96dde84-9576-4e07-a413-352a65c5ac41",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7979_20260326_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7311_20260322_minimax-m2.7.md",
+  "relation": "confirms",
+  "claim_text": "The function creates a `SchemaEvolutionRecord` and stores it via `interface.store_evolution()` These are all direct indicators that `evolve.py` is designed to manage schema evolution.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "minimax/minimax-m2.7",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-03-26T00:05:42.428647+00:00"
+}

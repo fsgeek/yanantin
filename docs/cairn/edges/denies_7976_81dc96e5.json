@@ -1,0 +1,11 @@
+{
+  "id": "81dc96e5-721e-48b7-9014-b7f31b8461b6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7976_20260325_llama-3.3-nemotron-super-49b-v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5722_20260312_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "* In `docs/cairn/scout_1079_20260217_llama-3.1-8b-instruct.md`, the claim states that `docs/predecessors.md` mentions that it is not present, but the file actually contains a list of predecessor projects.",
+  "claim_file": "docs/cairn/scout_1079_20260217_llama-3.1-8b-instruct.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "timestamp": "2026-03-25T23:36:20.274607+00:00"
+}

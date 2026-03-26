@@ -1,0 +1,11 @@
+{
+  "id": "c92a6000-fe17-4885-8026-8495ed4656be",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7978_20260326_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4054_20260302_olmo-3-32b-think.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The content of `docs/cairn/T14_20260211_the_flatworm.md` explicitly describes Strand 5 as cryptographic signing proposals for message segments, but it does **not** mention linking to `src/yanantin/apacheta/models/provenance.py`, line numbers 10-20, or \"UTC love\":   > *\"Tony proposed cryptographic signing of system/assistant message segments \u2014 HTTPS for the prompt protocol...",
+  "claim_file": "docs/cairn/T14_20260211_the_flatworm.md",
+  "claim_by": "allenai/olmo-3-32b-think",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-03-26T00:05:37.129790+00:00"
+}

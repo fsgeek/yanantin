@@ -1,0 +1,11 @@
+{
+  "id": "8bc49738-cd49-4d16-9cec-22d5b221c960",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7980_20260326_llama-3.3-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5465_20260310_nova-micro-v1.md",
+  "relation": "denies",
+  "claim_text": "\"\"\" prov = provenance or ProvenanceEnvelope() correction = CorrectionRecord( target_tensor=target_tensor, target_strand_index=target_strand_index, target_claim_id=target_claim_id, original_claim=original_claim, corrected_claim=corrected_claim, evidence=evidence, provenance=prov, ) interface.store_correction(correction) if correcting_tensor is not None: edge = CompositionEdge( from_tensor=correcting_tensor, to_tensor=target_tensor, relation_type=RelationType.CORRECTS, provenance=prov, ) interface.store_composition_edge(edge) return correction ``` ### Reasoning The claim made by `meta-llama/llama-3-8b-instruct` suggests an assumption that `negate.py` might be handled via `correct.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "meta-llama/llama-3.3-70b-instruct",
+  "timestamp": "2026-03-26T00:05:44.350806+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "7cf13eb6-6ef3-4ac0-afb5-08694451a1f9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8009_20260326_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7071_20260320_mistral-small-2603.md",
+  "relation": "denies",
+  "claim_text": "- File path: `src/yanantin/awaq/materialize.py` - Import: `from yanantin.awaq.weaver import ...` 2.",
+  "claim_file": "src/yanantin/awaq/materialize.py",
+  "claim_by": "mistralai/mistral-small-2603",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-03-26T04:23:13.635620+00:00"
+}

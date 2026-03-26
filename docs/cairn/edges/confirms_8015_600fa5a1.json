@@ -1,0 +1,11 @@
+{
+  "id": "600fa5a1-fdb6-494b-98c2-2051ada861d0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8015_20260326_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7427_20260322_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence \"The file `docs/cairn/T13_20260211_the_gradient.md` does not contain any assertions that are not supported by its content.\" ### Reasoning The text of `docs/cairn/T13_20260211_the_gradient.md` is an autobiographical account of another instance's (T13's) work.",
+  "claim_file": "docs/cairn/T13_20260211_the_gradient.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-26T04:52:19.383025+00:00"
+}

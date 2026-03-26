@@ -1,0 +1,11 @@
+{
+  "id": "b1006cad-a194-42f8-855d-167a4b87ea24",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8013_20260326_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2514_20260223_mistral-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Strands #### **Strand 1: The Predecessors.md File Is a *Tensor*\u2014Not Just a Document** The previous scout treated `docs/predecessors.md` as a simple markdown file, but the evidence (e.g., from `docs/cairn/scout_2483_20260223_qwen3-vl-32b-instruct.md`) shows it is a **provenanced artifact** deserving deeper analysis: - The file contains **strands** (e.g., Indaleko, Mallku, ai-honesty) with their contributions, declared losses, and open questions.",
+  "claim_file": "docs/cairn/scout_2483_20260223_qwen3-vl-32b-instruct.md",
+  "claim_by": "mistralai/mistral-7b-instruct",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-03-26T04:52:13.598785+00:00"
+}

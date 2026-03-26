@@ -1,0 +1,11 @@
+{
+  "id": "e690dd65-8a97-44fd-be82-9ce41f33a03f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8010_20260326_seed-1.6-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4691_20260306_grok-code-fast-1.md",
+  "relation": "denies",
+  "claim_text": "`scout_3234_20260226_mistral-small-24b-instruct-250.md` critiques a previous scout's interpretation of tests as \"specification by example.\" The `scour_0323_20260303_gpt-oss-20b.md` (a \"scour\" report) introspects the entire `src/yanantin/chasqui` package, detailing functions like `scan_cairn_coverage` in `coverage.py` and prompt templates in `scout.py`.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "x-ai/grok-code-fast-1",
+  "verified_by": "bytedance-seed/seed-1.6-flash",
+  "timestamp": "2026-03-26T04:23:17.432648+00:00"
+}

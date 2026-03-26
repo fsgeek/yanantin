@@ -1,0 +1,11 @@
+{
+  "id": "ca133014-a58e-4b9a-94f5-8acdca530f7c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8103_20260326_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3090_20260226_qwen3-vl-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "--- #### Strand 2: Cost-Weighted Sampling as a Design Principle **What I saw**:   - `tests/unit/test_chasqui.py` lines 44-46:   ```python dummy.last_weights == pytest.approx([0.5, 1 / 0.001]) ``` - `scout_0063_20260212_phi-4.md` and `scout_0350_20260213_qwen2.5-coder-7b-instruct.md` \u2014 both list their cost per token.",
+  "claim_file": "docs/cairn/scout_0350_20260213_qwen2.5-coder-7b-instruct.md",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-03-26T17:13:33.526386+00:00"
+}

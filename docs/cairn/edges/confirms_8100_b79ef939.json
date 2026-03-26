@@ -1,0 +1,11 @@
+{
+  "id": "b79ef939-bdaa-4bf7-a947-5afb5d895634",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8100_20260326_deepseek-chat-v3-0324.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0486_20260214_minimax-m2.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: The Verification Loop Scout reports have a consistent structure: - **Verdict**: CONFIRMED, DENIED, or INDETERMINATE - **Evidence**: What the scout found in the file(s) - **Reasoning**: How the evidence maps to the claim - **Declared Losses**: What the scout couldn't verify Looking at the sample reports: - `scout_0431_20260214_gemma-3n-e4b-it.md`: DENIED \u2014 found a docstring describing the purpose of a file, but the claim was about a different file - `scout_0105_20260212_qwen-2.5-vl-7b-instruct.md`: CONFIRMED \u2014 found comprehensive tests in `test_arango_independent.py` - `scout_0123_20260212_gemma-3n-e4b-it.md`: DENIED \u2014 couldn't access external files (the model couldn't verify the claim) - `scout_0193_20260213_gpt-4.1-nano.md`: INDETERMINATE \u2014 the claim was about the first lines of CLAUDE.md matching exactly, which it did, but the model seemed uncertain about what to do with that This is a **calibration system**.",
+  "claim_file": "tests/unit/test_arango_independent.py",
+  "claim_by": "minimax/minimax-m2",
+  "verified_by": "deepseek/deepseek-chat-v3-0324",
+  "timestamp": "2026-03-26T16:43:54.541473+00:00"
+}

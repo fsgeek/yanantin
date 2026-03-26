@@ -1,0 +1,11 @@
+{
+  "id": "c58f795a-9909-4b7b-88dc-97ddaa6d48cb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8101_20260326_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4839_20260307_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "**Strand 4: Documentation and Evidence** The project contains various documentation files, including `README.md` and `scout_*.md` files, which provide an overview of the project and its components.",
+  "claim_file": "README.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-03-26T16:45:29.673927+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "f39b0f01-2aa3-4c34-9aec-268ba87f389c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8104_20260326_glm-4.5.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0901_20260216_nemotron-nano-9b-v2.md",
+  "relation": "confirms",
+  "claim_text": "The user provided the content of `memory.py`, so existence is confirmed.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "z-ai/glm-4.5",
+  "timestamp": "2026-03-26T17:13:40.589137+00:00"
+}

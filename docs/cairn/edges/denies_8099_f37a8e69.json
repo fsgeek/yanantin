@@ -1,0 +1,11 @@
+{
+  "id": "f37a8e69-b991-43d9-8f9e-ad20e7dc5553",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8099_20260326_qwen2.5-vl-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7306_20260322_gemini-2.5-flash-lite-preview-.md",
+  "relation": "denies",
+  "claim_text": "The claim itself states: \"The claim also references two files that aren't provided in the verification context (`scout_0115_20260212_lfm2-8b-a1b.md` and `scout_0382_20260214_mistral-small-creative.md`)\".",
+  "claim_file": "docs/cairn/scout_0115_20260212_lfm2-8b-a1b.md",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "qwen/qwen2.5-vl-32b-instruct",
+  "timestamp": "2026-03-26T16:43:40.171276+00:00"
+}

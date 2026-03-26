@@ -1,0 +1,11 @@
+{
+  "id": "af8fb8e7-e2d8-406e-8e66-2890c93af1ce",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8105_20260326_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4581_20260305_claude-sonnet-4.5.md",
+  "relation": "denies",
+  "claim_text": "From `tests/red_bar/test_immutability.py` (line 45-67): ```python def test_tensor_immutability(backend): tensor = create_sample_tensor() backend.store_tensor(tensor) with pytest.raises(ImmutabilityError): backend.store_tensor(tensor.model_copy(update={\"strands\": ()})) ``` The `red_bar/` tests enforce **invariants**: immutability, provenance, monotonicity.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "anthropic/claude-sonnet-4.5",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-03-26T17:14:16.287440+00:00"
+}

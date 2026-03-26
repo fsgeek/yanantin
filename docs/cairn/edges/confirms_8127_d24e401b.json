@@ -1,0 +1,11 @@
+{
+  "id": "d24e401b-0b46-4599-9413-ed16fe3f9c29",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8127_20260326_gemini-2.5-flash-lite-preview-.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7530_20260323_qwen3-8b.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses The file does not explicitly define the role of `docs/blueprint.md` as the authoritative source for **all** claims.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "qwen/qwen3-8b",
+  "verified_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "timestamp": "2026-03-26T20:35:51.429285+00:00"
+}

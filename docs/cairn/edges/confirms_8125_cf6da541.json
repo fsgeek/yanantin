@@ -1,0 +1,11 @@
+{
+  "id": "cf6da541-7d0d-4908-a769-00c3fd47e65e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8125_20260326_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3355_20260227_claude-3-haiku.md",
+  "relation": "confirms",
+  "claim_text": "**Backend Swaps** - While exploring the test suite, I noticed the presence of files like `test_memory_backend.py` and `test_duckdb_backend.py`.",
+  "claim_file": "tests/unit/test_duckdb_backend.py",
+  "claim_by": "anthropic/claude-3-haiku",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-03-26T19:59:45.443684+00:00"
+}

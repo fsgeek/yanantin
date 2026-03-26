@@ -1,0 +1,11 @@
+{
+  "id": "5bc4b146-9a94-49ef-9bd3-5f099d875092",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8123_20260326_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0683_20260215_olmo-3.1-32b-think.md",
+  "relation": "denies",
+  "claim_text": "- `scout_0330_20260213_qwen-2.5-coder-32b-instruct.md` flags a cost discrepancy (line 4: `$4e-08/M` vs.",
+  "claim_file": "docs/cairn/scout_0330_20260213_qwen-2.5-coder-32b-instruct.md",
+  "claim_by": "allenai/olmo-3.1-32b-think",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-03-26T19:59:44.418278+00:00"
+}

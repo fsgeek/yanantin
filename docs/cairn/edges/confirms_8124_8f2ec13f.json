@@ -1,0 +1,11 @@
+{
+  "id": "8f2ec13f-22d1-4aae-b6ee-91583fb33cf7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8124_20260326_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3247_20260226_gemini-2.0-flash-lite-001.md",
+  "relation": "confirms",
+  "claim_text": "What is the purpose of the `apacheta.md` file?",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-03-26T19:59:44.485261+00:00"
+}

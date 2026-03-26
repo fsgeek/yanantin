@@ -1,0 +1,11 @@
+{
+  "id": "93507c84-6493-4b6f-81bc-e2ef1cd77d62",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8129_20260326_ernie-4.5-vl-28b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5514_20260311_qwen-2.5-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "- The file does not contain any direct reference to `scourer.py` by filename, but it does import `scourer.py` and references it by module name.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "timestamp": "2026-03-26T20:35:59.775780+00:00"
+}

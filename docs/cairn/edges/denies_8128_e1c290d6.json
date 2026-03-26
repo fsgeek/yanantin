@@ -1,0 +1,11 @@
+{
+  "id": "e1c290d6-b948-49e0-9b53-55aa52524222",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8128_20260326_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1910_20260220_claude-3.7-sonnet:thinking.md",
+  "relation": "denies",
+  "claim_text": "This module includes components like `scout.py`, `scourer.py`, and `coordinator.py`.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "anthropic/claude-3.7-sonnet:thinking",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-03-26T20:35:56.151362+00:00"
+}

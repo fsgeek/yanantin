@@ -1,0 +1,11 @@
+{
+  "id": "53b57317-e1a3-4b5b-b074-b36590a79f9e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8055_20260326_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3903_20260301_qwen2.5-vl-72b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The contents of `CLAUDE.md` are not provided, so the claim regarding the contents of `CLAUDE.md` cannot be verified.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "qwen/qwen2.5-vl-72b-instruct",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-03-26T10:45:03.959267+00:00"
+}

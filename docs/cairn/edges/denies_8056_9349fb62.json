@@ -1,0 +1,11 @@
+{
+  "id": "9349fb62-f9ab-4dc8-90d6-0cc319a13927",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8056_20260326_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3293_20260226_llama-4-maverick.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The actual content of `agents/scout_reviewer.md` is not available for review.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-26T10:45:06.075601+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "bbfca7d2-8dbe-43fe-bfbe-0fb121469b58",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8060_20260326_qwen3-vl-235b-a22b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2138_20260221_qwen-vl-max.md",
+  "relation": "confirms",
+  "claim_text": "But in `docs/cairn/compaction/T31_compaction_20260220_074241.md`, the `Declared Losses` section is not merely a placeholder \u2014 it is a **core mechanism** of the system: > \"This tensor was authored by automation, not by the instance itself.",
+  "claim_file": "docs/cairn/compaction/T31_compaction_20260220_074241.md",
+  "claim_by": "qwen/qwen-vl-max",
+  "verified_by": "qwen/qwen3-vl-235b-a22b-instruct",
+  "timestamp": "2026-03-26T11:19:29.577497+00:00"
+}

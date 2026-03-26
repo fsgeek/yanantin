@@ -1,0 +1,11 @@
+{
+  "id": "4b119d7c-7fa0-41c2-b7e5-0f370f7ee085",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8022_20260326_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7643_20260324_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "- `replace.py` assumes the output from `inventory.py` will be a key in a specific structure (`InventoryData`).",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/scripts/replace.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-26T05:58:15.036746+00:00"
+}

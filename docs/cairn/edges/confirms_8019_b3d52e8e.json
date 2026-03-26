@@ -1,0 +1,11 @@
+{
+  "id": "b3d52e8e-7a81-4130-8634-40d512525377",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8019_20260326_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5129_20260308_llama-4-scout.md",
+  "relation": "confirms",
+  "claim_text": "**Reference:** `docs/cairn/scout_0290_20260302_granite-4.0-h-micro.md` and `docs/cairn/scout_1677_20260219_llama-3.2-3b-instruct.md` **Example observations:** The Qwen 3 30B report denying a claim about `docs/predecessors.md` without evidence, while the Gemini 2.0 report confirmed a claim about `correct.py` without broader context.",
+  "claim_file": "docs/cairn/scout_1677_20260219_llama-3.2-3b-instruct.md",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-03-26T05:28:28.864046+00:00"
+}

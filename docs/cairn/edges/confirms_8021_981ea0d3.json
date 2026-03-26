@@ -1,0 +1,11 @@
+{
+  "id": "981ea0d3-097e-475d-95dd-f1ff2e90e18e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8021_20260326_rnj-1-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5005_20260308_deepseek-chat-v3.1.md",
+  "relation": "confirms",
+  "claim_text": "**Contains no reference to the cited scout** (`0528_20260214_hunyuan-a13b-instruct`) or Strand 2 While `CLAUDE.md` does describe \"No Theater\" as an operational principle and mentions social norms, the specific technical enforcement mechanisms and terminology (\"red-bar invariant\") claimed by the model are not present in this file.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "deepseek/deepseek-chat-v3.1",
+  "verified_by": "essentialai/rnj-1-instruct",
+  "timestamp": "2026-03-26T05:58:09.525386+00:00"
+}

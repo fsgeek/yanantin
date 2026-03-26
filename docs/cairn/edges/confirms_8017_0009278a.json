@@ -1,0 +1,11 @@
+{
+  "id": "0009278a-bc3a-4440-bd4c-9f014c1bd998",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8017_20260326_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6403_20260317_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "Therefore, based on the content of the provided file, the claim about reading `provenance.py` first is confirmed.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-26T05:28:23.304243+00:00"
+}

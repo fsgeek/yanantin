@@ -1,0 +1,11 @@
+{
+  "id": "28967c9d-109f-4c38-82c1-fe66c6ef1a44",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8018_20260326_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5153_20260309_grok-4.1-fast.md",
+  "relation": "denies",
+  "claim_text": "Surprising: `tinkuy/succession.py` & `awaq/weaver.py` \u2014 Quechua names (tinkuy=meet, awaq=weaver) encode human-AI complementarity.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "x-ai/grok-4.1-fast",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-26T05:28:26.544186+00:00"
+}

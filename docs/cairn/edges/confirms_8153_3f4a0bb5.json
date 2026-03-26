@@ -1,0 +1,11 @@
+{
+  "id": "3f4a0bb5-7611-4699-92a6-07f63a90fa56",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8153_20260326_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0080_20260212_mistral-small-3.1-24b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Integration and Ingestion The previous scout's analysis of the `scripts/ingest_cairn.py` script is accurate.",
+  "claim_file": "scripts/ingest_cairn.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-26T23:43:49.527171+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "3e2da974-6f37-4f10-ac57-0ef0ba6e2bee",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8151_20260326_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0167_20260213_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "There is no mention of `correct.py` or any functionality related to recording corrections or creating correction edges within the `bootstrap.py` file.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-26T23:43:43.876772+00:00"
+}

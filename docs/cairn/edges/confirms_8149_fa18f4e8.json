@@ -1,0 +1,11 @@
+{
+  "id": "fa18f4e8-214d-45e5-9ac9-28a01f62784f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8149_20260326_qwen3-235b-a22b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7119_20260321_qwen3-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning   The claim by `mistralai/ministral-8b-2512` states:   > **Extension**: The scout in `scout_2118_20260221_grok-3-mini.md` notices that \"emergent artifacts\" might be *implicit* in the codebase (e.g., in `tests/unit/test_collector_synthetic.py` via seeded RNG).",
+  "claim_file": "docs/cairn/scout_2118_20260221_grok-3-mini.md",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "qwen/qwen3-235b-a22b",
+  "timestamp": "2026-03-26T23:12:12.483154+00:00"
+}

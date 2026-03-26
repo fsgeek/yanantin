@@ -1,0 +1,11 @@
+{
+  "id": "7f0590e2-ea7c-42e5-a6cc-16656b74ad17",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8152_20260326_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0757_20260215_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Strands **Strand 1: Tensor Composition and Governance** - Observation: The codebase contains a comprehensive tensor composition system, with multiple files defining various aspects of tensor relationships (e.g., `composition_edge.py`, `tensor.py`).",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-03-26T23:43:44.423158+00:00"
+}

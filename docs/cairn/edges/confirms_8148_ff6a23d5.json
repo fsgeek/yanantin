@@ -1,0 +1,11 @@
+{
+  "id": "ff6a23d5-01e8-454a-81af-af5762d0fb81",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8148_20260326_qwen3-vl-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2745_20260224_olmo-3-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict DENIED ### Evidence The claim states: > \"I also did not analyze the specific regular expressions used in succession.py to extract claims from the blueprint.\" However, the file `src/yanantin/tinkuy/succession.py` contains this code block: ```python from __future__ import annotations # ...",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "allenai/olmo-3-7b-instruct",
+  "verified_by": "qwen/qwen3-vl-32b-instruct",
+  "timestamp": "2026-03-26T23:12:06.025996+00:00"
+}

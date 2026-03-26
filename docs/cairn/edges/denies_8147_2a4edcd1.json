@@ -1,0 +1,11 @@
+{
+  "id": "2a4edcd1-3a03-471d-940b-55e43076d98f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8147_20260326_qwen-plus-2025-07-28.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2299_20260222_glm-4.7.md",
+  "relation": "denies",
+  "claim_text": "It turns a disagreement (like `scout_2005` denying a claim about `predecessors.md`) into a discrete data point.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "z-ai/glm-4.7",
+  "verified_by": "qwen/qwen-plus-2025-07-28",
+  "timestamp": "2026-03-26T23:12:00.735997+00:00"
+}

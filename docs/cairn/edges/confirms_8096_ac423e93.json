@@ -1,0 +1,11 @@
+{
+  "id": "ac423e93-c577-4cbe-9b56-b89c298d1c41",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8096_20260326_cydonia-24b-v4.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0318_20260213_qwen3-4b.md",
+  "relation": "confirms",
+  "claim_text": "This separation supports the 'composable tensor infrastructure' goal but raises questions about how tensor metadata (like provenance) is enforced across different backends.\" }, { \"theme\": \"Provenance as a Structural Invariant\", \"observation\": \"The `test_provenance.py` file verifies that records like `BootstrapRecord`, `TensorRecord`, and `ProvenanceEnvelope` all carry provenance.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "qwen/qwen3-4b",
+  "verified_by": "thedrummer/cydonia-24b-v4.1",
+  "timestamp": "2026-03-26T16:11:32.336385+00:00"
+}

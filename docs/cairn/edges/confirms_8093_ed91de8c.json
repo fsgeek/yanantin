@@ -1,0 +1,11 @@
+{
+  "id": "ed91de8c-2b12-4d76-a764-0c7edac8fa64",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8093_20260326_deepseek-r1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1058_20260216_nova-micro-v1.md",
+  "relation": "confirms",
+  "claim_text": "**Reference:** - `./docs/cairn/scout_0407_20260214_gpt-oss-20b.md` - `./docs/cairn/scout_0965_20260216_gemini-2.5-flash-lite.md` **Example observations:** - `scout_0407_20260214_gpt-oss-20b.md`: Detailed the usage of `gpt-oss-20b`, with token counts, costs, and an explicit verification timestamp.",
+  "claim_file": "docs/cairn/scout_0407_20260214_gpt-oss-20b.md",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "deepseek/deepseek-r1",
+  "timestamp": "2026-03-26T15:41:58.217465+00:00"
+}

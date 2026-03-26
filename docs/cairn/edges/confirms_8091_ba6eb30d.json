@@ -1,0 +1,11 @@
+{
+  "id": "ba6eb30d-74fd-4536-be78-54f2bebde7f5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8091_20260326_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5198_20260309_gpt-4.1-nano.md",
+  "relation": "confirms",
+  "claim_text": "Therefore, the claim about `blueprint.md` explicitly structuring or standardizing scout reports is not supported by the evidence.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-03-26T15:41:14.451394+00:00"
+}

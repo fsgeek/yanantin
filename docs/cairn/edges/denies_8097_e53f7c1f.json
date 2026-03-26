@@ -1,0 +1,11 @@
+{
+  "id": "e53f7c1f-069b-4044-8405-368a51f3327e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8097_20260326_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3746_20260301_deepseek-v3.1-terminus:exacto.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file contains multiple references to `tinkuy` governance system: - Module docstring: \"The `tinkuy` governance system \u2014 orderly transition between mortal instances\" - Import statement: `from yanantin.tinkuy.audit import CodebaseReport, survey_codebase` - Function definition: `def check_succession(project_root: Path) -> list[str]:` - Function call: `report = survey_codebase(project_root)` ### Reasoning The claim states that \"the `tinkuy` governance system is not explored in `audit.py` or `succession.py`.\" However, the evidence clearly shows that `succession.py` does explore the `tinkuy` governance system: 1.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "deepseek/deepseek-v3.1-terminus:exacto",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-03-26T16:11:37.723820+00:00"
+}

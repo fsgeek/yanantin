@@ -1,0 +1,11 @@
+{
+  "id": "d044b6dd-3d10-4cd5-8ba6-ca24d2ae2e88",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8068_20260326_qwen3-vl-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7897_20260325_lfm-2.2-6b.md",
+  "relation": "confirms",
+  "claim_text": "### Final Judgment **DENIED** --- **Quote from file:**   \"# Import here so the hook fails gracefully if dependencies are missing.\"   This confirms `ots_stamp.py` imports `stamp_commit` but does not contain all listed files.",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "qwen/qwen3-vl-8b-instruct",
+  "timestamp": "2026-03-26T12:21:15.107273+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "7b6d71a5-235a-4b98-a270-7c12b2530894",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8064_20260326_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4991_20260308_hunyuan-a13b-instruct.md",
+  "relation": "denies",
+  "claim_text": "There is no reference to any file or project named `apacheta.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "tencent/hunyuan-a13b-instruct",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-26T11:49:06.646445+00:00"
+}

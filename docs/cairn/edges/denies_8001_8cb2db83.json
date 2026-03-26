@@ -1,0 +1,11 @@
+{
+  "id": "8cb2db83-5ef5-44bc-ad46-a928eb595238",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8001_20260326_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7834_20260325_minimax-01.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that `docs/apacheta.md` does not check for the existence or modification of `tensors.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "minimax/minimax-01",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-03-26T03:15:49.672968+00:00"
+}

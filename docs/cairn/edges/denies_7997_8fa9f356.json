@@ -1,0 +1,11 @@
+{
+  "id": "8fa9f356-4693-421c-9ac4-122c42efda83",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7997_20260326_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2306_20260222_minimax-m2.md",
+  "relation": "denies",
+  "claim_text": "To verify whether other files explicitly require or reference `docs/predecessors.md`, I would need to examine: - Import statements across the codebase - Documentation that links to this file - Configuration files that might reference it The provided file `docs/predecessors.md` is self-contained \u2014 it describes predecessor projects but provides no mechanism to verify whether other files reference it.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "minimax/minimax-m2",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-26T02:43:45.703776+00:00"
+}

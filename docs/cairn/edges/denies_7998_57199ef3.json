@@ -1,0 +1,11 @@
+{
+  "id": "57199ef3-d10d-4ffd-a1c6-2bb4f35914d3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7998_20260326_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3834_20260301_wizardlm-2-8x22b.md",
+  "relation": "denies",
+  "claim_text": "Budget optimization is future work.\" ### Reasoning The claim states that `memory.py` is a \"well-designed and intentional component.\" The file content supports this: 1.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "microsoft/wizardlm-2-8x22b",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-26T02:43:52.345120+00:00"
+}

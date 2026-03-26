@@ -1,0 +1,11 @@
+{
+  "id": "a330f28f-1bc5-4270-9c85-535a9f46a8ef",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8002_20260326_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4471_20260305_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": "I can confirm the existence of `compose.py` and its content, but I cannot verify the existence of the other files (`correct.py`, `dissent.py`, `evolve.py`, `negate.py`, `project.py`) within the directory `src/yanantin/apacheta/operators` because I do not have access to the directory listing or the contents of those other files.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-26T03:15:54.584897+00:00"
+}

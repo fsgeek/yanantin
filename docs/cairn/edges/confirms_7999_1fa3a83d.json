@@ -1,0 +1,11 @@
+{
+  "id": "1fa3a83d-d1b8-41b3-950b-0ce27d06ea89",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7999_20260326_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1967_20260221_llama-3.2-1b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "## Step 2: Check the claim The claim made by `relace/relace-search` is: \"The previous scout claims that `src/yanantin/chasqui/scout.py` contains a function named `test_chasqui_files_non_empty(...)`, which allegedly confirms non-empty `chasqui_files` with expected files like `coordinator.py`, `scout.py`.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "meta-llama/llama-3.2-1b-instruct",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-26T02:43:57.386112+00:00"
+}

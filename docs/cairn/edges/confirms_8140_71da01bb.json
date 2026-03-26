@@ -1,0 +1,11 @@
+{
+  "id": "71da01bb-7e14-4745-af43-bf7656cee86f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8140_20260326_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1088_20260217_minimax-m1.md",
+  "relation": "confirms",
+  "claim_text": "But the convergence of hundreds of scouts on the same claims creates epistemic confidence.\" #### Strand 2: Provenance Is Enforced by Red-Bar Tests, Not Convention In `tests/red_bar/test_provenance.py`, there are eight assertions that every record type (`TensorRecord`, `CompositionEdge`, `CorrectionRecord`, etc.) must have a `provenance` field.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "minimax/minimax-m1",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-03-26T22:09:39.116268+00:00"
+}

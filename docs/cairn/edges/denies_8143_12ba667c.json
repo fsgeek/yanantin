@@ -1,0 +1,11 @@
+{
+  "id": "12ba667c-026a-46f3-8544-5744da1bdba6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8143_20260326_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5789_20260313_qwen3-next-80b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "- The file does not reference `arango.py` at all \u2014 it only references DuckDB and internal model types.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "qwen/qwen3-next-80b-a3b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-26T22:39:55.119542+00:00"
+}

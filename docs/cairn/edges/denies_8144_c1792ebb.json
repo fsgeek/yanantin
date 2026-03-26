@@ -1,0 +1,11 @@
+{
+  "id": "c1792ebb-98f9-4e9e-8537-0721aeb455d1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8144_20260326_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7343_20260322_glm-4.5.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I cannot check the content of the report `scout_0200_20260213_kimi-k2-0905.md` that is referenced in the claim, as this file was not provided.",
+  "claim_file": "docs/cairn/scout_0200_20260213_kimi-k2-0905.md",
+  "claim_by": "z-ai/glm-4.5",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-26T22:40:02.111679+00:00"
+}

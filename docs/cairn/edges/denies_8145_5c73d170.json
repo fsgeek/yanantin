@@ -1,0 +1,11 @@
+{
+  "id": "5c73d170-d813-4924-b2ad-69308676e826",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8145_20260326_mistral-medium-3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2037_20260221_glm-4.7-flash.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I cannot verify the claim regarding `docs/signing.md` because the file content provided is limited to `tests/red_bar/test_immutability.py`.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "z-ai/glm-4.7-flash",
+  "verified_by": "mistralai/mistral-medium-3",
+  "timestamp": "2026-03-26T22:40:03.413536+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "e89e2e3a-e454-42f1-b1ff-2415c94bfd41",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8081_20260326_mistral-large-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0039_20260212_gpt-5.1.md",
+  "relation": "confirms",
+  "claim_text": "- `docs/cairn/T10_20260209_post_compaction.md` is the first \u201cpost-compaction instance\u201d speaking explicitly about what was lost when a previous, full session was compressed into a 4,000-word summary: - Technical continuity survives (files, tests, commits).",
+  "claim_file": "docs/cairn/T10_20260209_post_compaction.md",
+  "claim_by": "openai/gpt-5.1",
+  "verified_by": "mistralai/mistral-large-2512",
+  "timestamp": "2026-03-26T13:55:28.044238+00:00"
+}

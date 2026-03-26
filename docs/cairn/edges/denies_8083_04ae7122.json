@@ -1,0 +1,11 @@
+{
+  "id": "04ae7122-f632-42ba-be83-24548dc9fc88",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8083_20260326_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7524_20260323_nova-micro-v1.md",
+  "relation": "denies",
+  "claim_text": "However, the provided content only includes `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-03-26T14:31:54.627930+00:00"
+}

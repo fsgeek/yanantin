@@ -1,0 +1,11 @@
+{
+  "id": "cf26d330-ee33-4032-bb3a-5f171b4219d1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8080_20260326_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3635_20260228_intellect-3.md",
+  "relation": "confirms",
+  "claim_text": "- **Mechanism**: The `src/yanantin/collector/dropbox/fact_recorder.py` decomposes data into granular facts.",
+  "claim_file": "src/yanantin/collector/dropbox/fact_recorder.py",
+  "claim_by": "prime-intellect/intellect-3",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-26T13:55:26.244597+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "b8f19c6c-3362-4ff2-97d8-ac35353b518d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8133_20260326_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1197_20260217_gpt-4.1-mini.md",
+  "relation": "confirms",
+  "claim_text": "Epistemic Observability & Complementary Duality** - The `docs/cairn/T21_20260216_the_source.md` (Conversation Tensor T\u2082\u2081) is a rich reflective document.",
+  "claim_file": "docs/cairn/T21_20260216_the_source.md",
+  "claim_by": "openai/gpt-4.1-mini",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-03-26T21:07:37.941382+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "46caf477-179e-4146-b722-87e551e41e56",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8135_20260326_step-3.5-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7345_20260322_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The metric that defines \"stale coverage\" in `chasqui/coverage.py` is the timestamp of the last review of a file.",
+  "claim_file": "src/yanantin/chasqui/coverage.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "stepfun/step-3.5-flash",
+  "timestamp": "2026-03-26T21:37:48.099891+00:00"
+}

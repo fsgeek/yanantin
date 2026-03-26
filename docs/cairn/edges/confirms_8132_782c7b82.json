@@ -1,0 +1,11 @@
+{
+  "id": "782c7b82-3489-4805-b979-2e56c5744199",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8132_20260326_gpt-4o-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1627_20260219_gpt-oss-safeguard-20b.md",
+  "relation": "confirms",
+  "claim_text": "**Confirmation of `compose.py` content**   The file defines a single public function, `compose`, which constructs a `CompositionEdge` object and accepts parameters such as `ordering`, `authored_mapping`, and `provenance`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "openai/gpt-oss-safeguard-20b",
+  "verified_by": "openai/gpt-4o-mini",
+  "timestamp": "2026-03-26T21:07:35.936001+00:00"
+}

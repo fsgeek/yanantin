@@ -1,0 +1,11 @@
+{
+  "id": "a95ee979-c2c6-4b14-827e-efe210672c9d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8005_20260326_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7168_20260321_llama-3.3-70b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `CLAUDE.md` mentions \"Apacheta\" as a \"Stone cairn\" and a \"Tensor database.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "meta-llama/llama-3.3-70b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-26T03:45:25.792283+00:00"
+}

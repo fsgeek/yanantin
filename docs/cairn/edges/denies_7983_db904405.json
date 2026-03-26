@@ -1,0 +1,11 @@
+{
+  "id": "db904405-f6b5-463c-be88-544513748bc2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7983_20260326_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6285_20260316_ernie-4.5-21b-a3b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim is: > The files like `coordinator.py`, `model_selector.py`, `scorer.py`, and `scout.py` paint a picture of a sophisticated system for dispatching, selecting, and evaluating AI models.",
+  "claim_file": "src/yanantin/chasqui/scorer.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-03-26T00:37:34.194022+00:00"
+}

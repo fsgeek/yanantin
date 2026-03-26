@@ -1,0 +1,11 @@
+{
+  "id": "b8f5b0f6-a95f-48cf-9f3f-515b209d9ace",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7984_20260326_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5807_20260313_cogito-v2.1-671b.md",
+  "relation": "confirms",
+  "claim_text": "However, I was only provided with the contents of `src/yanantin/activity/backends/arango.py`.",
+  "claim_file": "src/yanantin/activity/backends/arango.py",
+  "claim_by": "deepcogito/cogito-v2.1-671b",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-26T00:37:35.919308+00:00"
+}

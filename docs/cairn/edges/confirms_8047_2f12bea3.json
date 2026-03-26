@@ -1,0 +1,11 @@
+{
+  "id": "2f12bea3-ea28-4799-ae7c-34654eb32a80",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8047_20260326_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5643_20260311_gemini-2.0-flash-lite-001.md",
+  "relation": "confirms",
+  "claim_text": "**The Role of `.claude` Hooks**: The `.claude/hooks` directory contains Python scripts, including `capture_compaction.py`, `ots_stamp.py`, `pipeline_attestation.py` and `precompact_tensor.py`.",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-26T09:13:08.477564+00:00"
+}

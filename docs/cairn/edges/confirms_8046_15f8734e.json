@@ -1,0 +1,11 @@
+{
+  "id": "15f8734e-c986-4412-82a2-72943d6d18fe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8046_20260326_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4671_20260306_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "It notes that previous scouts denied its existence based on `duckdb.py`, but other scouts confirmed it.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-26T09:13:06.678011+00:00"
+}

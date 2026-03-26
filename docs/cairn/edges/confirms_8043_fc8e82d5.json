@@ -1,0 +1,11 @@
+{
+  "id": "fc8e82d5-a92f-40eb-8956-01380b195538",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8043_20260326_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7589_20260323_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "- The tests cover various aspects of the project, from models (`test_models.py`) to collectorts (`test_collector_cli.py`) and even the test framework itself (`test_coverage.py`).",
+  "claim_file": "tests/unit/test_collector_cli.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-26T08:41:28.237273+00:00"
+}

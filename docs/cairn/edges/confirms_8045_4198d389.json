@@ -1,0 +1,11 @@
+{
+  "id": "4198d389-719f-4ae6-8f1d-2c8ad3fcac7f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8045_20260326_qwen3-next-80b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2293_20260222_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "Additionally, I did not examine the specifics of the markdown parser implementation in `src/yanantin/apacheta/ingest/markdown_parser.py`, as this area falls outside my expertise.",
+  "claim_file": "src/yanantin/apacheta/ingest/markdown_parser.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "qwen/qwen3-next-80b-a3b-instruct",
+  "timestamp": "2026-03-26T09:13:04.701046+00:00"
+}

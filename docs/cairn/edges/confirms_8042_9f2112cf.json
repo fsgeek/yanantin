@@ -1,0 +1,11 @@
+{
+  "id": "9f2112cf-6579-49b8-94fd-c30858f8a6f5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8042_20260326_qwen-vl-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5089_20260308_hermes-2-pro-llama-3-8b.md",
+  "relation": "confirms",
+  "claim_text": "- Lines of interest: `clients/gateway.py`, `clients/openrouter.py`, `ingest/markdown_parser.py`, `ingest/tensor_ballot.py` ### Declared Losses I did not examine the `interface` and `operators` modules in detail, as they seemed to be interfaces and operations performed on tensors rather than tensor data structures themselves.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "qwen/qwen-vl-plus",
+  "timestamp": "2026-03-26T08:41:27.618694+00:00"
+}

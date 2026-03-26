@@ -1,0 +1,11 @@
+{
+  "id": "e8ebe74d-e5e2-45e1-8332-015895a9c708",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8049_20260326_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5764_20260312_grok-4-fast.md",
+  "relation": "confirms",
+  "claim_text": "**Time Warp?** Why 2026 dates on scouts (e.g., `scout_5644_20260311_gemma-2-9b-it.md`)?",
+  "claim_file": "docs/cairn/scout_5644_20260311_gemma-2-9b-it.md",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-26T09:43:03.629086+00:00"
+}

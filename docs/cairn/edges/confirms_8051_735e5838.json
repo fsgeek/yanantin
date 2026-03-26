@@ -1,0 +1,11 @@
+{
+  "id": "735e5838-b792-4db0-95d4-e598618f89ef",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8051_20260326_glm-4.6.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7922_20260325_cydonia-24b-v4.1.md",
+  "relation": "confirms",
+  "claim_text": "Additionally, without seeing `docs/tensors.md`, I cannot directly verify the claim that \"In `docs/tensors.md`, there is no mention of `apacheta.md`.\" However, the absence of any reference to substitution within the provided `apacheta.md` file is sufficient to deny the claim.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "thedrummer/cydonia-24b-v4.1",
+  "verified_by": "z-ai/glm-4.6",
+  "timestamp": "2026-03-26T10:15:15.577495+00:00"
+}

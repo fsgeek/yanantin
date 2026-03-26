@@ -1,0 +1,11 @@
+{
+  "id": "e762a681-db33-4d62-ba97-b38473b75aa4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8112_20260326_qwen3.5-35b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2499_20260223_mistral-small-creative.md",
+  "relation": "confirms",
+  "claim_text": "**Is the blueprint (`docs/blueprint.md`) a \"theoretical\" document, while `tinkuy`/`succession.py` handle the \"practical\" automation?** - If so, this explains the **disconnect between claims and evidence**.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "qwen/qwen3.5-35b-a3b",
+  "timestamp": "2026-03-26T18:15:49.177226+00:00"
+}

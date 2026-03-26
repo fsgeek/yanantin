@@ -1,0 +1,11 @@
+{
+  "id": "5f8a2069-5767-4f89-81c2-66790ed7f60b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8108_20260326_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0448_20260214_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "The \u201cLamport bakery\u201d run\u2011numbering, the content\u2011addressed storage, and the modular backends all serve a single purpose: *make every piece of knowledge observable, auditable, and comparable across time and model families.*   For the next scout: keep an eye on the **scoring & conflict\u2011resolution layer** (likely in `scorer.py` and the audit modules).",
+  "claim_file": "src/yanantin/chasqui/scorer.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-03-26T17:45:27.152525+00:00"
+}

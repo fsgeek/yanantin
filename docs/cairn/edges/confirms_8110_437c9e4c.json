@@ -1,0 +1,11 @@
+{
+  "id": "437c9e4c-86e8-4221-a671-a6291f8e3945",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8110_20260326_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5764_20260312_grok-4-fast.md",
+  "relation": "confirms",
+  "claim_text": "Surprising scale\u2014UUID explosion implies 100s of convos digested for \"epistemic observability.\" | | 3 | **Claude's Shadow Realm** | `.claude/` hooks (`chasqui_heartbeat.sh`, `capture_compaction.py`), `heartbeat_state.json`, `work_queue.json`; `tmp/ubuntu-vm.claude/` dumps convos (`conversations.duckdb`), projects, skills (`algorithmic-art/`, `canvas-design/`), todos (1000+ agent JSONs).",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-03-26T18:15:29.754812+00:00"
+}

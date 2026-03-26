@@ -1,0 +1,11 @@
+{
+  "id": "010cfb27-148d-4162-9a49-9f1e3a3022f0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8109_20260326_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1355_20260218_mistral-small-creative.md",
+  "relation": "confirms",
+  "claim_text": "- `scout_0937_20260216_mistral-small-3.2-24b-instruct.md` confirms that scout reports document *how tensors document themselves*.",
+  "claim_file": "docs/cairn/scout_0937_20260216_mistral-small-3.2-24b-instruct.md",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-26T17:45:30.317193+00:00"
+}

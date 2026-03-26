@@ -1,0 +1,11 @@
+{
+  "id": "4c7f1e18-6e96-48fb-92c9-0f11223190b2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7991_20260326_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5195_20260309_olmo-3-32b-think.md",
+  "relation": "confirms",
+  "claim_text": "The file contains multiple references to other documents and directories, such as:   - `docs/blueprint.md` (\"Before you build anything, read `docs/blueprint.md`.\" and \"See `docs/blueprint.md` for how the pieces connect.\")   - `docs/predecessors.md` (\"For deeper context on predecessor projects, see `docs/predecessors.md`.\")   - `docs/tensors.md` (\"For the tensor sequence and its history, see `docs/tensors.md`.\")   - `docs/signing.md` (\"Commits are signed.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "allenai/olmo-3-32b-think",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-26T01:40:33.201141+00:00"
+}

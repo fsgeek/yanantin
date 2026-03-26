@@ -1,0 +1,11 @@
+{
+  "id": "6def40b1-be77-487b-8be4-57e11a206cc8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7990_20260326_gemini-3.1-flash-lite-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0570_20260214_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Rendering and correction**: The file `yanantin/tests/unit/test_renderer.py` contains tests for rendering Markdown output, including tests for `render_tensor`, `render_composition_view`, and `render_correction_chain`.",
+  "claim_file": "tests/unit/test_renderer.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "google/gemini-3.1-flash-lite-preview",
+  "timestamp": "2026-03-26T01:40:29.340589+00:00"
+}

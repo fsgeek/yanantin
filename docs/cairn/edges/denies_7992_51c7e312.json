@@ -1,0 +1,11 @@
+{
+  "id": "51c7e312-d5bd-4593-ae6b-9cc2bc2c8a50",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_7992_20260326_minimax-m2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4547_20260305_l3-lunaris-8b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The file `docs/tensors.md` explicitly states: \"Files like `docs/blueprint.md`, `docs/predecessors.md`, and `docs/tensors.md` provide high-level overviews.\" ``` # Verification Assignment ## The Claim Model `inception/mercury` made this claim about `docs/tensors.md`: > Documentation hierarchy** | Files like `docs/blueprint.md`, `docs/predecessors.md`, and `docs/tensors.md` provide high-level overviews.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "minimax/minimax-m2",
+  "timestamp": "2026-03-26T01:40:41.395682+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "33749afb-d377-4835-92a1-093ffd264933",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8088_20260326_ernie-4.5-21b-a3b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6231_20260316_grok-4.1-fast.md",
+  "relation": "confirms",
+  "claim_text": "Confusing: `.claude/pipeline_health.json` + `work_queue.json` suggest daemonized verification, but `tests/red_bar/` hits invariants like `test_provenance.py`.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "x-ai/grok-4.1-fast",
+  "verified_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "timestamp": "2026-03-26T15:04:19.203355+00:00"
+}

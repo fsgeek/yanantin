@@ -1,0 +1,11 @@
+{
+  "id": "6d41adf2-214d-4f74-8ffc-120f9b9053da",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8117_20260326_seed-1.6-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7244_20260321_gemma-2-9b-it.md",
+  "relation": "denies",
+  "claim_text": "### Verdict CONFIRMED ### Evidence ```python # Holds heartbeat scripts (`chasqui_heartbeat.sh`, `chasqui_pulse.py`).",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "bytedance-seed/seed-1.6-flash",
+  "timestamp": "2026-03-26T18:56:58.481327+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "3569b86f-37ec-4ff4-883e-2f5fd6955b20",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8116_20260326_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3056_20260225_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "**Evidence:** - `docs/cairn/scout_0258_20260213_ernie-4.5-21b-a3b-thinking.md`: \"The project builds composable tensor infrastructure for epistemic observability.\" - `src/yanantin/tinkuy/__init__.py`: `def compose(tensor_a, tensor_b, ordering=None): ...` and `def decompose(tensor, ordering=None): ...` #### 2.",
+  "claim_file": "docs/cairn/scout_0258_20260213_ernie-4.5-21b-a3b-thinking.md",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-03-26T18:56:57.578715+00:00"
+}

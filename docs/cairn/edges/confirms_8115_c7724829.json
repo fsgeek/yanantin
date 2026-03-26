@@ -1,0 +1,11 @@
+{
+  "id": "c7724829-6169-4c12-a6f0-8b6984a94e96",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8115_20260326_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1326_20260218_lfm-2.2-6b.md",
+  "relation": "confirms",
+  "claim_text": "- **Notice**: **Losses** declared no contradiction in cost structures, but **open questions** remain about temporal inconsistencies during `precompact_tensor.py`.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-26T18:56:48.128291+00:00"
+}

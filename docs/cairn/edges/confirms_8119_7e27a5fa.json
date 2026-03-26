@@ -1,0 +1,11 @@
+{
+  "id": "7e27a5fa-5396-4586-9421-f6cd804b3f69",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8119_20260326_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0634_20260215_ministral-8b-2512.md",
+  "relation": "confirms",
+  "claim_text": "--- #### **Strand 3: Extending the \"Operator Suite\" Strand** **Previous Scout\u2019s Observation**: > *\"The `operators/` directory contains `compose.py`, `correct.py`, `dissent.py`, etc.\u2014first-class tensor operators for knowledge evolution.\"* **Extension**: The operators are **not just functions**\u2014they\u2019re **epistemic primitives** with **explicit failure modes**: 1.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-26T19:29:31.083115+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "ac27ce06-716d-4f94-8ba8-771bef730d05",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8038_20260326_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4368_20260304_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "# Strands ## Strand 1: Recursive Knowledge Architecture ### Observation The `docs/cairn` directory is filled with markdown files like `scout_0588_20260214_lfm2-8b-a1b.md` and `scout_0140_20260215_nova-lite-v1.md`, which document model interactions.",
+  "claim_file": "docs/cairn/scout_0588_20260214_lfm2-8b-a1b.md",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-26T08:11:00.619608+00:00"
+}

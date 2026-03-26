@@ -1,0 +1,11 @@
+{
+  "id": "5cb3b5f3-65c8-4fd2-bae4-1f52aa1c5150",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8033_20260326_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7601_20260323_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 4: Metaphorical Documentation and Unresolved Theory **What I saw**: Several top-level documents use evocative, non-technical names: `apacheta.md`, `blueprint.md`, `jabberwock-spec.md`, `phase1_context_utilization.md`, and the T-files in `cairn/` like `T11_the_immune_system.md` and `T14_the_flatworm.md`.",
+  "claim_file": "docs/jabberwock-spec.md",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-03-26T07:39:07.447644+00:00"
+}

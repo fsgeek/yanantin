@@ -1,0 +1,11 @@
+{
+  "id": "f88dbcef-c6e2-409f-99bc-c6ee23ce1fe7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8037_20260326_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0974_20260216_trinity-mini.md",
+  "relation": "denies",
+  "claim_text": "This mirrors Scout 079's \"DENIED\" verdict on `entropy_code_experiment_v2.md`'s cryptographic claims, suggesting a systemic bias toward surface-level assertions over deep validation.",
+  "claim_file": "docs/entropy_code_experiment_v2.md",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-03-26T08:10:58.141524+00:00"
+}

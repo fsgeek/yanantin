@@ -1,0 +1,11 @@
+{
+  "id": "93e6fb2a-5828-41c4-9eb1-54fa47197fa0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8025_20260326_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0502_20260214_nemotron-3-nano-30b-a3b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim asserts that `CLAUDE.md` **does not** mention the model\u2019s assigned role or instructions.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-26T06:34:32.945339+00:00"
+}

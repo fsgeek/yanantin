@@ -1,0 +1,11 @@
+{
+  "id": "f50a6bb5-abd5-4bb1-a907-b03ea27ed531",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8031_20260326_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6634_20260318_grok-4-fast.md",
+  "relation": "denies",
+  "claim_text": "### Strands #### Strand 1: Recursive Self-Scrutiny (docs/cairn/*scout*.md & *scour*.md) Hundreds of files like `scour_0950_20260316_llama-guard-3-8b.md` (ends \"safe S2*safeassistant safe\") or `scout_6507_20260317_llama-3.1-8b-instruct.md` (verdicts: CONFIRMED/DENIED/INDETERMINATE on claims like \"same block unchanged\").",
+  "claim_file": "docs/cairn/scout_6507_20260317_llama-3.1-8b-instruct.md",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-26T07:09:09.420773+00:00"
+}

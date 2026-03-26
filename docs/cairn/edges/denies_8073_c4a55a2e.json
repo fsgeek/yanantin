@@ -1,0 +1,11 @@
+{
+  "id": "c4a55a2e-a4c6-402e-a10c-e9fb8a871fd7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8073_20260326_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6716_20260318_skyfall-36b-v2.md",
+  "relation": "denies",
+  "claim_text": "``` ```python class InMemoryBackend(ApachetaInterface): ``` ### Reasoning The claim states that `memory.py` does not explicitly reference 'in-memory' and 'DuckDB' as backend names.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "thedrummer/skyfall-36b-v2",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-26T12:51:23.491036+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "ed9c3934-f5cd-4709-8b97-c06422fdd88d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8220_20260327_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0232_20260213_gemini-2.0-flash-001.md",
+  "relation": "confirms",
+  "claim_text": "Some reports, like `scout_0008_20260212_mistral-nemo.md` and `scout_0175_20260213_rnj-1-instruct.md`, confirm claims based on code or documentation.",
+  "claim_file": "docs/cairn/scout_0175_20260213_rnj-1-instruct.md",
+  "claim_by": "google/gemini-2.0-flash-001",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-03-27T08:42:55.868958+00:00"
+}

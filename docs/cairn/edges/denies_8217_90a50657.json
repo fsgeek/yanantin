@@ -1,0 +1,11 @@
+{
+  "id": "90a50657-5d00-4c5f-ac2e-1fd2e8fabc86",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8217_20260327_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7451_20260323_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I could not verify if the functions and classes defined in `correct.py` are used or mentioned in `compose.py`, as I have not seen the content of `compose.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-03-27T08:11:51.887742+00:00"
+}

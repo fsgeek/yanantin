@@ -1,0 +1,11 @@
+{
+  "id": "43097fcc-c0b1-46ed-8464-c4c2fb274556",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8215_20260327_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0259_20260213_lfm2-8b-a1b.md",
+  "relation": "confirms",
+  "claim_text": "What strikes me is the consistency across files\u2014`chasqui/scout.py`, `yanantin/chasqui/scout.py`, and `tests/unit/test_renderer.py`\u2014in grounding exploration in structured metadata, file lineage, and honest loss attribution.",
+  "claim_file": "tests/unit/test_renderer.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-27T08:11:14.262355+00:00"
+}

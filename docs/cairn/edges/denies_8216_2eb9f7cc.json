@@ -1,0 +1,11 @@
+{
+  "id": "2eb9f7cc-4f53-451b-8b83-0c5dd51e7998",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8216_20260327_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5932_20260314_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence \"T\u2088 is stored in the Yanantin memory directory:\\n`/home/tony/.claude/projects/-home-tony-projects-yanantin/memory/`\" \"T\u2086 is a bridge: it connects the architectural lineage (T\u2081) with the\\ntheoretical framework (T\u2084, T\u2085).\" ### Reasoning The claim states \"Only cross-references: The file makes strategic references to other documentation files (`docs/blueprint.md`, `docs/predecessors.md`, `docs/tensors.md`, `docs/signing.md`) but maintains no self-reference.\" The file contains multiple references to other files: `docs/blueprint.md`, `docs/predecessors.md`, `docs/tensors.md`, and `docs/signing.md` are mentioned in the first paragraph.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-03-27T08:11:24.871410+00:00"
+}

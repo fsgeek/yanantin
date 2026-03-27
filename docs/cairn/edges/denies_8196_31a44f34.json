@@ -1,0 +1,11 @@
+{
+  "id": "31a44f34-c045-4bd4-bbc8-603be733fbfe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8196_20260327_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4291_20260304_qwen3-next-80b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The only other file in the `src/yanantin/awaq/` directory that could be relevant \u2014 `__main__.py` \u2014 is not present in this file at all.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "qwen/qwen3-next-80b-a3b-instruct",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-03-27T05:32:59.164881+00:00"
+}

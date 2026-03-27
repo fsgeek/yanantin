@@ -1,0 +1,11 @@
+{
+  "id": "3f896219-dfa7-4704-9680-f8a57c899e7f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8195_20260327_gemini-2.5-flash-lite-preview-.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1193_20260217_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "<br>\u2022 `docs/cairn/compaction/T1_20260207_seven_projects.md` \u2013 lists **seven projects** (scout, analyst, scorer, verification, etc.).",
+  "claim_file": "docs/cairn/T1_20260207_seven_projects.md",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "timestamp": "2026-03-27T05:32:58.635777+00:00"
+}

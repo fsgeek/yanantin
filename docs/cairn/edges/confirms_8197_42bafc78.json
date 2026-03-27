@@ -1,0 +1,11 @@
+{
+  "id": "42bafc78-8162-4810-b671-03b8133998fc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8197_20260327_mistral-small-creative.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4497_20260305_deepseek-chat-v3.1.md",
+  "relation": "confirms",
+  "claim_text": "**\"Parallels backends (`memory.py`, `duckdb.py`, `arango.py`)\"** - This file exists (`memory.py`), but we cannot verify the existence or structure of `duckdb.py` and `arango.py` from this single file.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "deepseek/deepseek-chat-v3.1",
+  "verified_by": "mistralai/mistral-small-creative",
+  "timestamp": "2026-03-27T05:33:01.811452+00:00"
+}

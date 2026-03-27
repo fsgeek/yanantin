@@ -1,0 +1,11 @@
+{
+  "id": "c8763c06-09a9-4b99-96fd-b1259042524c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8192_20260327_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7175_20260321_lfm-2.2-6b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The file explicitly describes the purpose and functionality of `ots_stamp.py`, confirming that it acts as a post-commit hook that submits the commit's SHA-256 to OpenTimestamps.",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-03-27T05:00:52.275005+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "388fb786-3688-4677-a2c2-57d0e7982338",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8193_20260327_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5014_20260308_llama-4-maverick.md",
+  "relation": "denies",
+  "claim_text": "**Runtime Behavior**: While the codebase has extensive tests, I did not investigate the runtime behavior of certain components, such as the `chasqui_pulse.py` and `precompact_tensor.py` scripts in `.claude/hooks/`, as they were not directly related to my initial observations.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-27T05:00:52.401694+00:00"
+}

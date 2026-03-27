@@ -1,0 +1,11 @@
+{
+  "id": "2ad58bbb-7c13-4c60-8c4e-6e444901877b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8326_20260327_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0467_20260214_rnj-1-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states: \"The file `docs/predecessors.md` does not contain any mention of `apacheta.md` being substituted with `tensors.md` or any indication that `predecessors.md` was invented.\" However, the file `docs/apacheta.md` **does not reference** `predecessors.md` at all.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "essentialai/rnj-1-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-27T22:46:36.383748+00:00"
+}

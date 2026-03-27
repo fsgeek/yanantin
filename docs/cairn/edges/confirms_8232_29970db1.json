@@ -1,0 +1,11 @@
+{
+  "id": "29970db1-8b6f-4f09-a218-226bb7596b5a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8232_20260327_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0880_20260216_gpt-oss-120b.md",
+  "relation": "confirms",
+  "claim_text": "| | 3 | **Immutability & Safety Tests** | The `tests/red_bar/` directory holds `test_immutability.py`, `test_least_privilege.py`, `test_monotonicity.py`, `test_portability.py`, `test_provenance.py`.",
+  "claim_file": "tests/red_bar/test_least_privilege.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-27T10:14:46.186846+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "d320a51f-a2b2-4e69-9e90-39f847c04be5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8237_20260327_qwen3-235b-a22b-thinking-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5092_20260308_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "The claim states \"The logic in `model_selector.py` or `coordinator.py`.\" The first two lines in the file show examples of how the `dispatch_scout` function in `coordinator.py` can be called from the command line and within Python code.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "qwen/qwen3-235b-a22b-thinking-2507",
+  "timestamp": "2026-03-27T10:47:52.660466+00:00"
+}

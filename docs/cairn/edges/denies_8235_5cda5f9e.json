@@ -1,0 +1,11 @@
+{
+  "id": "5cda5f9e-31c5-4d5d-b175-4786d32b449f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8235_20260327_rnj-1-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6568_20260318_gemini-2.5-flash-lite-preview-.md",
+  "relation": "denies",
+  "claim_text": "The 'Evidence' section only discusses `tests/red_bar/test_provenance.py`.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "essentialai/rnj-1-instruct",
+  "timestamp": "2026-03-27T10:47:06.445544+00:00"
+}

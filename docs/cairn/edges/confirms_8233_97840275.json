@@ -1,0 +1,11 @@
+{
+  "id": "97840275-8869-4e87-a0a2-ef152c379405",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8233_20260327_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2272_20260222_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence ```python # The claim mentions the full scope of `scout_0313`, the implementation of `succession.py`,  # or the long-term evolution of the chasqui system.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-27T10:15:14.259213+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "4c9de57e-f4cd-4b00-bee9-9357dd48798e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8236_20260327_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0743_20260215_qwen3-8b.md",
+  "relation": "confirms",
+  "claim_text": "Yet, the lack of deletion methods in tensor implementations (as noted in `scout_0181_20260213_nemotron-nano-9b-v2.md`) raises questions about how \"updates\" are handled\u2014perhaps via new tensor versions?",
+  "claim_file": "docs/cairn/scout_0181_20260213_nemotron-nano-9b-v2.md",
+  "claim_by": "qwen/qwen3-8b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-27T10:47:07.420546+00:00"
+}

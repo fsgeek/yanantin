@@ -1,0 +1,11 @@
+{
+  "id": "59e2c2da-bc94-4b14-9e6c-067a31811b00",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8287_20260327_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6177_20260315_olmo-3.1-32b-think.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim concerns the model's visibility into \"ArangoDB/OpenRouter integrations\" for `docs/predecessors.md`.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "allenai/olmo-3.1-32b-think",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-03-27T17:30:19.725793+00:00"
+}

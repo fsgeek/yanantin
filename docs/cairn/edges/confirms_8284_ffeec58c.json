@@ -1,0 +1,11 @@
+{
+  "id": "ffeec58c-ad7c-4210-b172-8d177c7ffc8c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8284_20260327_hermes-4-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7107_20260321_gemini-3-flash-preview.md",
+  "relation": "confirms",
+  "claim_text": "My verification is limited to the content of `T23_20260217_premature_collapse.md`.",
+  "claim_file": "docs/cairn/T23_20260217_premature_collapse.md",
+  "claim_by": "google/gemini-3-flash-preview",
+  "verified_by": "nousresearch/hermes-4-70b",
+  "timestamp": "2026-03-27T17:00:17.140025+00:00"
+}

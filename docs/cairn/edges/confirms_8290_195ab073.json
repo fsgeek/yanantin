@@ -1,0 +1,11 @@
+{
+  "id": "195ab073-2634-4a10-b322-6541d51f33b3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8290_20260327_aion-rp-llama-3.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0197_20260213_llama-3.2-1b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 4 \u2013 Narrative & Poetic Provenance - **Observation**: The scout reports themselves are a form of \"narrative provenance.\" Each report (e.g., `docs/cairn/scout_0041_20260212_qwen3-14b.md`, `docs/cairn/scout_0002_20260210_deepseek-chat-v3.1.md`) follows a consistent template: preamble, strands, reasoning, declared losses, open questions, and a closing impression.",
+  "claim_file": "docs/cairn/scout_0041_20260212_qwen3-14b.md",
+  "claim_by": "meta-llama/llama-3.2-1b-instruct",
+  "verified_by": "aion-labs/aion-rp-llama-3.1-8b",
+  "timestamp": "2026-03-27T18:03:29.909712+00:00"
+}

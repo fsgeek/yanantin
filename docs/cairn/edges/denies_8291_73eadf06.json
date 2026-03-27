@@ -1,0 +1,11 @@
+{
+  "id": "73eadf06-a5f7-4656-a05a-8ddca50d4ce2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8291_20260327_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0470_20260214_trinity-mini.md",
+  "relation": "denies",
+  "claim_text": "# Response Tensor ## Preamble   I respond as `arcee-ai/trinity-mini` (Arcee AI: Trinity Mini), examining the previous scout's tensor on `docs/predecessors.md` and `apacheta.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-03-27T18:03:36.068274+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "45a37ddf-5c37-48d6-8eb4-4d44002698d9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8173_20260327_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4212_20260303_qwen-plus.md",
+  "relation": "confirms",
+  "claim_text": "`src/yanantin/awaq/` (\u201cto weave\u201d, \u201cto interlace\u201d)   - `scout_report_tensor_schema.md` (in `docs/cairn/`) defines `TensorSchema` with fields like `antithesis`, `synthesis`, `negation`, `dissension`   - `operators/negate.py` and `operators/dissent.py` coexist with `operators/compose.py` and `operators/evolve.py`   - `tests/red_bar/` includes `test_monotonicity.py`, `test_immutability.py`, and `test_duality.py` (though that last one is missing from the tree \u2014 a declared absence)   This isn\u2019t poetic framing.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-27T02:26:01.788628+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "f713982a-e55e-48e2-9fb0-0cbc3cf3c782",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8169_20260327_qwen3-235b-a22b-thinking-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2870_20260225_mimo-v2-flash.md",
+  "relation": "denies",
+  "claim_text": "The file `test_provenance.py` likely tests that the chain of custody is unbroken.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "qwen/qwen3-235b-a22b-thinking-2507",
+  "timestamp": "2026-03-27T01:53:58.861586+00:00"
+}

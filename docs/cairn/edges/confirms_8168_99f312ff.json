@@ -1,0 +1,11 @@
+{
+  "id": "99f312ff-5a75-42f8-9967-863b20152afa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8168_20260327_gpt-5-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0101_20260212_ernie-4.5-21b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "However, the base model's configuration is explicitly defined in `src/yanantin/apacheta/models/base.py`, which the previous scout did not mention.",
+  "claim_file": "src/yanantin/apacheta/models/base.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b",
+  "verified_by": "openai/gpt-5-nano",
+  "timestamp": "2026-03-27T01:53:46.328416+00:00"
+}

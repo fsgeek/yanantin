@@ -1,0 +1,11 @@
+{
+  "id": "44d3e61a-e809-4cdb-b8a4-83e594879ccd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8247_20260327_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3245_20260226_command-r-08-2024.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence > ## Strands > ### Strand 1: Immutable Ledger & Provenance > - **What I saw** \u2013 `docs/signing.md` defines GPG keys for both human and AI actors, creating a dual-signature system for commits.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "cohere/command-r-08-2024",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-03-27T12:18:58.352112+00:00"
+}

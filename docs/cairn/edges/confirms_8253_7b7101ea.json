@@ -1,0 +1,11 @@
+{
+  "id": "7b7101ea-49c5-479b-84a8-2ffcf45de6b4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8253_20260327_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2913_20260225_ministral-3b-2512.md",
+  "relation": "confirms",
+  "claim_text": "**How does the system handle \"missing\" files (e.g., `CLAUDE.md`)?** Is the absence **intentional**, or is it a **design choice**?",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-27T12:51:22.630492+00:00"
+}

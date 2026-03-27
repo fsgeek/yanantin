@@ -1,0 +1,11 @@
+{
+  "id": "cc601943-c6a8-44e7-90da-c2db764dbac3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8249_20260327_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0446_20260214_command-r7b-12-2024.md",
+  "relation": "denies",
+  "claim_text": "The `scout.py` template is defined elsewhere in the codebase and is constructed dynamically using the `build_file_tree()` function.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-03-27T12:20:15.144389+00:00"
+}

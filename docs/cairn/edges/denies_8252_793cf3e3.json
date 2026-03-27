@@ -1,0 +1,11 @@
+{
+  "id": "793cf3e3-368b-4a76-80ed-edd2acda1192",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8252_20260327_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1043_20260216_qwen2.5-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The `tensors.md` document in `docs` explicitly states this philosophy, and the `tensor.py` model enforces it through fields like `provenance` and `narrative_body`.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-27T12:51:20.911132+00:00"
+}

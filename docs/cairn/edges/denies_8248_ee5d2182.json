@@ -1,0 +1,11 @@
+{
+  "id": "ee5d2182-b515-4fd0-a478-3e1751d17b04",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8248_20260327_ernie-4.5-21b-a3b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7080_20260321_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "**Strand 5: The Indeterminate Verdict** *   **What I saw:** `docs/cairn/scout_5380_20260310_hermes-3-llama-3.1-70b.md` ends with `Verdict: INDETERMINATE` because `standard` Python configurations are undefined.",
+  "claim_file": "docs/cairn/scout_5380_20260310_hermes-3-llama-3.1-70b.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "timestamp": "2026-03-27T12:19:35.554208+00:00"
+}

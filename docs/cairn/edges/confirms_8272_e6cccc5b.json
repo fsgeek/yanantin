@@ -1,0 +1,11 @@
+{
+  "id": "e6cccc5b-fdee-4abe-9698-e54d9e8dd3d0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8272_20260327_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7288_20260322_lfm-2-24b-a2b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The file list matches the claim\u2019s mention of two files: `agents/scout_reviewer.md` and `agents/structured_reviewer.md`.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-03-27T15:25:47.319701+00:00"
+}

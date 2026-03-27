@@ -1,0 +1,11 @@
+{
+  "id": "c7f2e479-d150-479c-a4e6-40e2ea707dcc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8273_20260327_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0734_20260215_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "The Llama-Guard Logs Are Not What They Seem** The file `docs/cairn/scout_0327_20260213_llama-guard-3-8b.md` contains: ``` safe unsafe safe unsafe ...",
+  "claim_file": "docs/cairn/scout_0327_20260213_llama-guard-3-8b.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-03-27T15:25:49.326701+00:00"
+}

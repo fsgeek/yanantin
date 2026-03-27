@@ -1,0 +1,11 @@
+{
+  "id": "70a06116-4aa6-4da5-a95b-9ef095ea7e91",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8271_20260327_qwen3-coder-next.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5178_20260309_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim \"Specific modules like `openrouter.py` and `arango.py` handle these integrations\" is supported by the following lines from the file: `class OpenRouterClient:` This line indicates that `openrouter.py` contains a class definition for handling OpenRouter API integrations.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "qwen/qwen3-coder-next",
+  "timestamp": "2026-03-27T15:25:47.063078+00:00"
+}

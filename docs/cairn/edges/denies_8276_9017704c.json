@@ -1,0 +1,11 @@
+{
+  "id": "9017704c-65db-47e5-817d-b131cf17272c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8276_20260327_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5182_20260309_hermes-3-llama-3.1-70b.md",
+  "relation": "denies",
+  "claim_text": "The claim is about `CLAUDE.md` but the file given is `docs/signing.md`, which is not relevant to the claim.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-03-27T15:57:52.906461+00:00"
+}

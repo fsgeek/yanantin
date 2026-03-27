@@ -1,0 +1,11 @@
+{
+  "id": "c7eee912-4f57-487c-bf0c-1afc17157430",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8281_20260327_ernie-4.5-vl-28b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5381_20260310_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "The code imports from `yanantin.provenance.timestamp`, but this does not mean `ots_stamp.py` itself is in the `yanantin/` directory\u2014the import is a Python module reference, not a file location statement.",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "timestamp": "2026-03-27T16:28:16.722792+00:00"
+}

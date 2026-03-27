@@ -1,0 +1,11 @@
+{
+  "id": "0c8a3899-18b1-46bc-82b2-6938ff2150ea",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8280_20260327_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4043_20260302_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "*Reference*: `docs/cairn/scout_1353_20260218_grok-3-mini-beta.md`, `docs/cairn/scout_0440_20260214_mistral-nemo.md`, `docs/cairn/scout_2708_20260224_lfm2-8b-a1b.md`.",
+  "claim_file": "docs/cairn/scout_0440_20260214_mistral-nemo.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-03-27T16:28:10.559969+00:00"
+}

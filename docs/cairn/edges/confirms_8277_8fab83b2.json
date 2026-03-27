@@ -1,0 +1,11 @@
+{
+  "id": "8fab83b2-30cf-4c1e-84ab-efce9f7bfd3a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8277_20260327_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2363_20260222_mistral-saba.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The file `src/yanantin/apacheta/backends/arango.py` contains the definition of the `ImmutabilityError` class and its usage within the `_store` method, which is called by various store methods like `store_tensor`, `store_composition_edge`, etc.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "mistralai/mistral-saba",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-27T15:57:55.313671+00:00"
+}

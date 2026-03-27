@@ -1,0 +1,11 @@
+{
+  "id": "cd4c4d54-c9af-4b4e-8ce8-e591a3144345",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8201_20260327_seed-2.0-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0654_20260215_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "The presence of shell scripts (`chasqui_heartbeat.sh`) and Python scripts (`capture_compaction.py`, `chasqui_pulse.py`, `ots_stamp.py`, `precompact_tensor.py`) suggests some form of automated process management or monitoring.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "bytedance-seed/seed-2.0-mini",
+  "timestamp": "2026-03-27T06:10:12.457622+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "931abf3b-a6e4-44a9-bf71-15fdc6346890",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8199_20260327_gpt-5.1-codex-max.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8042_20260326_qwen-vl-plus.md",
+  "relation": "denies",
+  "claim_text": "\"\"\" ``` This opening comment explicitly mentions that the file is part of the `clients` directory and is related to OpenRouter, which confirms the mention of `clients/openrouter.py` in the claim.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "qwen/qwen-vl-plus",
+  "verified_by": "openai/gpt-5.1-codex-max",
+  "timestamp": "2026-03-27T06:06:15.824699+00:00"
+}

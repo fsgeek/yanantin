@@ -1,0 +1,11 @@
+{
+  "id": "432d0f07-b4e6-4347-a8d3-f5b68355e5eb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8200_20260327_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4043_20260302_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "It highlights `content_address.py` using SHA-256.",
+  "claim_file": "src/yanantin/apacheta/content_address.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-03-27T06:06:18.378281+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "f4db6584-f9f6-427f-82e1-d5fc300268d6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8165_20260327_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6441_20260317_nova-lite-v1.md",
+  "relation": "denies",
+  "claim_text": "However, the claim asks about the events that trigger the `evolve.py` to run, which is not evident in the provided source code.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-27T01:23:51.784206+00:00"
+}

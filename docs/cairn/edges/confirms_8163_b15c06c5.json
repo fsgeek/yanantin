@@ -1,0 +1,11 @@
+{
+  "id": "b15c06c5-b102-479a-8fb5-b5a3fcb2837f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8163_20260327_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6536_20260317_glm-4-32b.md",
+  "relation": "confirms",
+  "claim_text": "It does not mention or reference any other files such as `bootstrap.py`, `correct.py`, `negate.py`, or `evolve.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-03-27T01:23:44.975932+00:00"
+}

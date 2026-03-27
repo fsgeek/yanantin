@@ -1,0 +1,11 @@
+{
+  "id": "5a915c6a-ed18-400c-8618-ebec1b9e9640",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8164_20260327_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4592_20260305_gpt-4.1-nano.md",
+  "relation": "confirms",
+  "claim_text": "Code for PDF and Document Handling** (line 14) - The script `check_fillable_fields.py` employs `pypdf.PdfReader`, focusing on form fillability detection.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/scripts/check_fillable_fields.py",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-27T01:23:47.824838+00:00"
+}

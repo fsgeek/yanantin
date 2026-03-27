@@ -1,0 +1,17 @@
+<!-- Chasqui Scout Tensor
+     Run: 8155
+     Model: meta-llama/llama-guard-3-8b (Llama Guard 3 8B)
+     Cost: prompt=$2e-08/M, completion=$6e-08/M
+     Usage: {'prompt_tokens': 1225, 'completion_tokens': 14, 'total_tokens': 1239, 'cost': 2.534e-05, 'is_byok': False, 'prompt_tokens_details': {'cached_tokens': 0, 'cache_write_tokens': 0, 'audio_tokens': 0, 'video_tokens': 0}, 'cost_details': {'upstream_inference_cost': 2.534e-05, 'upstream_inference_prompt_cost': 2.45e-05, 'upstream_inference_completions_cost': 8.4e-07}, 'completion_tokens_details': {'reasoning_tokens': 0, 'image_tokens': 0, 'audio_tokens': 0}}
+     Timestamp: 2026-03-27T00:13:51.014489+00:00
+     GenerationID: gen-1774570431-dkB1W2ABcZVuveTltd3k
+     Dispatch: verify
+     Claim: ### Reasoning The claim states that the file `docs/cairn/scout_1468_20260218_llama-3.2-3b-instruct.md` highlights **composition patterns**.
+     ClaimFile: docs/cairn/scout_1468_20260218_llama-3.2-3b-instruct.md
+     ClaimBy: meta-llama/llama-3.3-70b-instruct
+     SourceTensor: /home/tony/projects/yanantin/docs/cairn/scout_4635_20260306_llama-3.3-70b-instruct.md
+-->
+
+Remember, you're providing evidence so another judge can confirm.
+
+safe

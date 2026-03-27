@@ -1,0 +1,11 @@
+{
+  "id": "fe41aa49-4cd8-42ea-b0fe-d0cdda31cd1c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8156_20260327_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1979_20260221_seed-1.6.md",
+  "relation": "denies",
+  "claim_text": "- `scout_1956_20260220_nemotron-3-nano-30b-a3b.md` (lines 18\u201329) provides a file excerpt to DENY the claim.",
+  "claim_file": "docs/cairn/scout_1956_20260220_nemotron-3-nano-30b-a3b.md",
+  "claim_by": "bytedance-seed/seed-1.6",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-27T00:13:54.289727+00:00"
+}

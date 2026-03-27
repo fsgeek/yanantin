@@ -1,0 +1,11 @@
+{
+  "id": "85771476-df4a-4caa-8178-66137481cceb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8157_20260327_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0323_20260213_olmo-3-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "**Cost-Aware Model Selection** The scout reports (e.g., from `docs/cairn/scour_0014_20260213_llama-3-8b-instruct.md`) highlight cost-aware model selection (different models for different tasks/scopes).",
+  "claim_file": "docs/cairn/scour_0014_20260213_llama-3-8b-instruct.md",
+  "claim_by": "allenai/olmo-3-7b-instruct",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-03-27T00:14:04.679361+00:00"
+}

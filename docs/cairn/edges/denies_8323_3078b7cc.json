@@ -1,0 +1,11 @@
+{
+  "id": "3078b7cc-1727-45f3-88c4-9ba460a02646",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8323_20260327_claude-3.7-sonnet.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7352_20260322_nova-lite-v1.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence There are no comments or statements in the given `project.py` file that list, reference, or declare other files like `project.py` or `compose.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "anthropic/claude-3.7-sonnet",
+  "timestamp": "2026-03-27T22:14:44.613353+00:00"
+}

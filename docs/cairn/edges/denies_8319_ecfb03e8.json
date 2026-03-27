@@ -1,0 +1,11 @@
+{
+  "id": "ecfb03e8-2783-4098-a476-0ca1eec150cd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8319_20260327_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0318_20260213_qwen3-4b.md",
+  "relation": "denies",
+  "claim_text": "The `ProvenanceEnvelope` class in `models/provenance.py` likely contains metadata about the model, instance, and context, ensuring that every tensor has a traceable origin.\" }, { \"theme\": \"Tinkuy as a Governance Layer\", \"observation\": \"The `src/yanantin/tinkuy/` directory includes `audit.py` and `succession.py`, with `__init__.py` stating that `Tinkuy` 'surveys, audits, and governs the project's structural invariants.' This implies a layer of governance that ensures the system's integrity, possibly by enforcing constraints on tensor composition or data flow.\", \"reflection\": \"The `tinkuy` module's role as a 'guardian' of the project's architecture is critical.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "qwen/qwen3-4b",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-03-27T21:44:41.025782+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "4a764d8d-fc4a-4ab2-9967-7ff0601c17be",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8311_20260327_deepseek-r1-distill-qwen-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3340_20260227_router.md",
+  "relation": "confirms",
+  "claim_text": "The `src/yanantin/chasqui` directory (containing `scout.py`, `scourer.py`, `analyst.py`, `coordinator.py`) undoubtedly orchestrates this symphony of self-reflection.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "switchpoint/router",
+  "verified_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "timestamp": "2026-03-27T20:43:06.618852+00:00"
+}

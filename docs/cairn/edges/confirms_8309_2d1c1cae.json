@@ -1,0 +1,11 @@
+{
+  "id": "2d1c1cae-e8c8-4660-8626-b623920cb051",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8309_20260327_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7306_20260322_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": "The crucial part to verify is: \"The claim also references two files that aren't provided in the verification context (`scout_0115_20260212_lfm2-8b-a1b.md` and `scout_0382_20260214_mistral-small-creative.md`)\" The file provided *is* `scout_0382_20260214_mistral-small-creative.md`.",
+  "claim_file": "docs/cairn/scout_0382_20260214_mistral-small-creative.md",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-03-27T20:42:28.184411+00:00"
+}

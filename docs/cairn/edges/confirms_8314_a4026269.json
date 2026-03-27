@@ -1,0 +1,11 @@
+{
+  "id": "a4026269-e878-491a-b8f1-a77f73312662",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8314_20260327_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4908_20260307_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The actual content of `tests/unit/test_openrouter.py` is included in the file, but it contains test code, not the lines mentioned in the claim.",
+  "claim_file": "tests/unit/test_openrouter.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-03-27T21:12:13.970634+00:00"
+}

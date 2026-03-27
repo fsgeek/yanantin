@@ -1,0 +1,11 @@
+{
+  "id": "2bb8ad6b-b69b-4fa0-b1aa-44a81430933e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8313_20260327_mercury.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4509_20260305_llama-3.2-11b-vision-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The file `CLAUDE.md` explicitly states: \"**Before you build anything, read `docs/blueprint.md`.** It maps what exists, what connects, and what doesn't exist yet.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "inception/mercury",
+  "timestamp": "2026-03-27T21:12:11.924442+00:00"
+}

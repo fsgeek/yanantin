@@ -1,0 +1,11 @@
+{
+  "id": "e8aca6a5-06d4-46b1-92be-ca3121bf536b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8256_20260327_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3615_20260228_llama-4-maverick.md",
+  "relation": "denies",
+  "claim_text": "**Model Selector Logic**: The exact logic behind model selection (e.g., how cost, performance, and diversity are balanced) in `model_selector.py` was not thoroughly analyzed.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-27T13:21:08.162868+00:00"
+}

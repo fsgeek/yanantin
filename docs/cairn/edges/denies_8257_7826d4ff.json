@@ -1,0 +1,11 @@
+{
+  "id": "7826d4ff-cbd0-4e3c-808d-c8c60de8b5f3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8257_20260327_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7294_20260322_qwen-vl-plus.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim made by `nvidia/llama-3.3-nemotron-super-49b-v1.5` states: > Tension Between Claims and Evidence** Many scout reports reference files not visible in the provided context (e.g., `test_provenance.py` in `scout_1737_20260219_gemma-3n-e4b-it.md`).",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "qwen/qwen-vl-plus",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-03-27T13:21:08.541590+00:00"
+}

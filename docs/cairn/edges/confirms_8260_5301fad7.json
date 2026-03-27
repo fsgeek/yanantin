@@ -1,0 +1,11 @@
+{
+  "id": "5301fad7-08e9-47fe-86a6-11c6f397a58b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8260_20260327_mistral-small-creative.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7303_20260322_cydonia-24b-v4.1.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The provided file content is actually for `docs/cairn/T14_20260211_the_flatworm.md`, not `docs/cairn/scout_0063_20260212_phi-4.md` as referenced in the claim.",
+  "claim_file": "docs/cairn/scout_0063_20260212_phi-4.md",
+  "claim_by": "thedrummer/cydonia-24b-v4.1",
+  "verified_by": "mistralai/mistral-small-creative",
+  "timestamp": "2026-03-27T13:53:32.183836+00:00"
+}

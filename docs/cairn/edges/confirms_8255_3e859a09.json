@@ -1,0 +1,11 @@
+{
+  "id": "3e859a09-e32f-470c-8dc9-a0a5e285ad5c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8255_20260327_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1585_20260219_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "The `content_address.py` file further reinforces this by using SHA\u2011256 hashing for deduplication, ensuring each tensor has a **semantically unique identifier**.",
+  "claim_file": "src/yanantin/apacheta/content_address.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-03-27T13:21:07.932568+00:00"
+}

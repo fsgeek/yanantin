@@ -1,0 +1,11 @@
+{
+  "id": "82802640-b251-41fd-ad3d-8ea30d60d906",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8268_20260327_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4126_20260303_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **CONFIRMED** ### Evidence   From the file `docs/cairn/scout_3634_20260228_mistral-small-3.1-24b-instruct.md`:   ``` ### Verdict   **CONFIRMED** ``` ### Reasoning   The claim states that `scout_3634_20260228_mistral-small-3.1-24b-instruct.md` has a **CONFIRMED** verdict.",
+  "claim_file": "docs/cairn/scout_3634_20260228_mistral-small-3.1-24b-instruct.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-27T14:55:42.306416+00:00"
+}

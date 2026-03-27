@@ -1,0 +1,11 @@
+{
+  "id": "a77aa8d2-616a-4f51-a1d3-e1d4e54d53fe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8267_20260327_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5505_20260311_nemotron-3-nano-30b-a3b.md",
+  "relation": "denies",
+  "claim_text": "If `docs/apacheta.md` contains the referenced instruction, I am unable to see it.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-03-27T14:55:41.081046+00:00"
+}

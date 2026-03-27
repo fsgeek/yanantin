@@ -1,0 +1,11 @@
+{
+  "id": "b8e01d2b-a2ad-402e-9bd2-bb878cb2d757",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8263_20260327_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3118_20260226_qwen3-vl-235b-a22b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**How is compaction implemented?** The `capture_compaction.py` hook suggests a mechanism, but the tensor doesn\u2019t say what it does.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "qwen/qwen3-vl-235b-a22b-instruct",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-03-27T14:23:29.757501+00:00"
+}

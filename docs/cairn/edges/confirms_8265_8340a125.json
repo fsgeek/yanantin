@@ -1,0 +1,11 @@
+{
+  "id": "8340a125-a068-4dd9-b695-367ada66cb1c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8265_20260327_step-3.5-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4651_20260306_qwen3-vl-8b-thinking.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that `ots_stamp.py` exists in `yanantin/hooks/`, but the file's actual path is `.claude/hooks/ots_stamp.py` (as per the given file content).",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "qwen/qwen3-vl-8b-thinking",
+  "verified_by": "stepfun/step-3.5-flash",
+  "timestamp": "2026-03-27T14:23:34.429432+00:00"
+}

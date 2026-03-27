@@ -1,0 +1,11 @@
+{
+  "id": "2fa337c4-56eb-43ba-85a7-a6d4aebbb7ce",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8269_20260327_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4128_20260303_gpt-4o-mini-2024-07-18.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim is partially true in that `CLAUDE.md` and `docs/blueprint.md` are indeed not mentioned in the file.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "openai/gpt-4o-mini-2024-07-18",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-03-27T14:55:50.863061+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "12fd4454-83c1-468d-8952-b3eaa4c3fd92",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8187_20260327_mercury-coder.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1021_20260216_hermes-4-70b.md",
+  "relation": "confirms",
+  "claim_text": "There is no evidence in `CLAUDE.md` that mandates files to ignore role/instruction mentions.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "nousresearch/hermes-4-70b",
+  "verified_by": "inception/mercury-coder",
+  "timestamp": "2026-03-27T04:30:57.769003+00:00"
+}

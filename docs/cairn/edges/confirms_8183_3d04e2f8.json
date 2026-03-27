@@ -1,0 +1,11 @@
+{
+  "id": "3d04e2f8-3f70-443e-8c97-d242f78369eb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8183_20260327_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2597_20260223_gpt-oss-safeguard-20b.md",
+  "relation": "confirms",
+  "claim_text": "- **File**: `scout_2530_20260223_qwen3-235b-a22b-2507.md` (Run\u202f2530)   *Cost* \u2013 $0.030792 for 146\u202f132 prompt + 1\u202f957 completion tokens.",
+  "claim_file": "docs/cairn/scout_2530_20260223_qwen3-235b-a22b-2507.md",
+  "claim_by": "openai/gpt-oss-safeguard-20b",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-03-27T03:57:56.693635+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "215d902f-3842-42ae-b003-65de86a065cf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8188_20260327_qwen3-vl-235b-a22b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1990_20260221_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "I have read the entire file and can confirm that there is no reference to `duckdb.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "qwen/qwen3-vl-235b-a22b-instruct",
+  "timestamp": "2026-03-27T04:31:08.113597+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "dc21e1ea-6ae6-4e00-aa53-dadeddc2e9aa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8302_20260327_gpt-4o-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6529_20260317_ui-tars-1.5-7b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The file `src/yanantin/chasqui/model_selector.py` does not directly reference `scripts/ingest_cairn.py` or `model_selector.py`.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "bytedance/ui-tars-1.5-7b",
+  "verified_by": "openai/gpt-4o-mini",
+  "timestamp": "2026-03-27T19:37:54.404519+00:00"
+}

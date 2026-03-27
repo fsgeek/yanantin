@@ -1,0 +1,11 @@
+{
+  "id": "0f4fea0e-d721-46a7-939b-0305799d8ef5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8303_20260327_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4248_20260303_gemini-3.1-pro-preview-customt.md",
+  "relation": "confirms",
+  "claim_text": "Identity Collapse and Context Bleed** In `docs/cairn/scout_1507_20260218_trinity-mini.md`, the metadata clearly stamps the model as `arcee-ai/trinity-mini`.",
+  "claim_file": "docs/cairn/scout_1507_20260218_trinity-mini.md",
+  "claim_by": "google/gemini-3.1-pro-preview-customtools",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-27T19:37:57.377405+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "19e2b0e2-2de8-4f79-b97b-88a5b5123131",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8307_20260327_deepseek-r1-distill-qwen-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0899_20260216_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "The `scripts/ingest_cairn.py` script may be involved.",
+  "claim_file": "scripts/ingest_cairn.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "timestamp": "2026-03-27T20:08:04.675701+00:00"
+}

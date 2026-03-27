@@ -1,0 +1,11 @@
+{
+  "id": "ea34d44e-91b4-47ef-b5e4-63131ce5b56b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8301_20260327_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1808_20260220_mistral-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: **Structured Reviewer\u2019s \"Anti-Meta\" Guardrails** **RESPONSE**: The claim\u2019s **scout-by-scout variation** (e.g., `qwen-2.5` denying `docs/predecessors.md`\u2019s absence, while `mistral-small` correctly confirms its presence) aligns with the **anti-meta guardrails** documented in `scout_reviewer.md`.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "mistralai/mistral-7b-instruct",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-03-27T19:37:51.795220+00:00"
+}

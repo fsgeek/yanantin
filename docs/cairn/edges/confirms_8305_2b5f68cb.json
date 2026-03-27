@@ -1,0 +1,11 @@
+{
+  "id": "2b5f68cb-0437-4ec8-84cf-8aca551392eb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8305_20260327_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1833_20260220_llama-4-scout.md",
+  "relation": "confirms",
+  "claim_text": "### Strands #### Strand 1: Documentation and Verification - **What I see:** The project includes extensive documentation and verification processes, such as scout reports (e.g., `scout_0513_20260214_minimax-m2.1.md`, `scout_1555_20260219_nova-micro-v1.md`) and test files (e.g., `tests/unit/test_openrouter.py`).",
+  "claim_file": "docs/cairn/scout_0513_20260214_minimax-m2.1.md",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-03-27T20:07:34.619635+00:00"
+}

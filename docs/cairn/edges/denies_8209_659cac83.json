@@ -1,0 +1,11 @@
+{
+  "id": "659cac83-6d4a-4518-80e1-9765e13cdd89",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8209_20260327_seed-2.0-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1673_20260219_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "| | 6 | **Collector back\u2011ends are plug\u2011able** | `src/yanantin/collector/filesystem/collector.py`, `dropbox/collector.py`, `fs_events/collector.py` \u2013 each implements a `Collector` subclass with `collect()` and `record()` methods.",
+  "claim_file": "src/yanantin/collector/filesystem/collector.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "bytedance-seed/seed-2.0-lite",
+  "timestamp": "2026-03-27T07:08:47.675443+00:00"
+}

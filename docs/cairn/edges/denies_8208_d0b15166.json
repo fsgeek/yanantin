@@ -1,0 +1,11 @@
+{
+  "id": "d0b15166-1d06-44e3-86d1-63f4c86fa30f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8208_20260327_qwen3-coder.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1435_20260218_grok-3-mini.md",
+  "relation": "denies",
+  "claim_text": "In `src/yanantin/chasqui/scout.py`, I spotted functions like `analyst.py` and `scourer.py` that orchestrate this, using cost-weighted sampling to pick models.",
+  "claim_file": "src/yanantin/chasqui/analyst.py",
+  "claim_by": "x-ai/grok-3-mini",
+  "verified_by": "qwen/qwen3-coder",
+  "timestamp": "2026-03-27T07:08:19.405350+00:00"
+}

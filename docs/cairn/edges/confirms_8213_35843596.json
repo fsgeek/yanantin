@@ -1,0 +1,11 @@
+{
+  "id": "35843596-60cb-476a-af8d-96b6fb57a13b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8213_20260327_mixtral-8x7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0673_20260215_hermes-3-llama-3.1-405b.md",
+  "relation": "confirms",
+  "claim_text": "Based on the file names in `.claude/hooks`, such as `capture_compaction.py`, `chasqui_heartbeat.sh`, and `chasqui_pulse.py`, it appears that this directory contains scripts related to the runtime aspects of the scouting process.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "nousresearch/hermes-3-llama-3.1-405b",
+  "verified_by": "mistralai/mixtral-8x7b-instruct",
+  "timestamp": "2026-03-27T07:40:10.157748+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "64209fa7-e9f0-4068-bf0a-3928509103a0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8229_20260327_qwen2.5-vl-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7296_20260322_minimax-m2.md",
+  "relation": "confirms",
+  "claim_text": "The filename `revise-claude-md.md` immediately signals this is metadata about a command rather than the command itself.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/claude-md-management/commands/revise-claude-md.md",
+  "claim_by": "minimax/minimax-m2",
+  "verified_by": "qwen/qwen2.5-vl-32b-instruct",
+  "timestamp": "2026-03-27T09:45:03.091123+00:00"
+}

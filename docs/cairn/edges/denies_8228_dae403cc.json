@@ -1,0 +1,11 @@
+{
+  "id": "dae403cc-e33b-4695-b60e-4bc292930f0c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8228_20260327_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5453_20260310_lfm-2-24b-a2b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim's statement that the file is `tensors.md` is inconsistent with the visible content of `apacheta.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-03-27T09:44:56.307037+00:00"
+}

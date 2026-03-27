@@ -1,0 +1,11 @@
+{
+  "id": "0ac4fa6f-a3cb-41f5-aa0b-adf9eb65bacb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8224_20260327_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5005_20260308_deepseek-chat-v3.1.md",
+  "relation": "confirms",
+  "claim_text": "**Does not mention `tinkuy/audit.py`** or any specific blueprint verification code 3.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "deepseek/deepseek-chat-v3.1",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-03-27T09:12:52.706749+00:00"
+}

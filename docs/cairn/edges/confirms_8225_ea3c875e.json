@@ -1,0 +1,11 @@
+{
+  "id": "ea3c875e-5683-4233-8388-a8a90aa8ddfd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8225_20260327_lfm-2.2-6b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4899_20260307_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "The `src/yanantin/apacheta/models/` directory structure itself, with files like `base.py`, `tensor.py`, and `entities.py`, points towards a Pydantic-based data modeling approach that emphasizes strict schemas and immutability.\", \"reflection\": \"Immutability appears to be more than just a coding practice; it's a core tenet of Yanantin's philosophy, likely tied to its goal of 'epistemic observability.' If data and models are immutable, their history and state become reliably traceable, preventing subtle corruption or drift.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "liquid/lfm-2.2-6b",
+  "timestamp": "2026-03-27T09:12:58.493632+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "d943d6de-ea52-463b-9f27-433444869ba4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8241_20260327_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5730_20260312_gemini-2.5-flash-lite.md",
+  "relation": "denies",
+  "claim_text": "Is it a simulation, a projection, or a historical archive from a future state?\", \"How does the system handle conflicting scout reports like the one in `docs/cairn/scout_2685_20260224_llama-3.1-8b-instruct.md` (Llama claiming confirmation with contradictory evidence) versus `scout_4512_20260305_ernie-4.5-21b-a3b-thinking.md` (Ernie correctly denying a claim)?",
+  "claim_file": "docs/cairn/scout_2685_20260224_llama-3.1-8b-instruct.md",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-03-27T11:17:26.206777+00:00"
+}

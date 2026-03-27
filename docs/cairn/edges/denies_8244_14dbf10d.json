@@ -1,0 +1,11 @@
+{
+  "id": "14dbf10d-b181-4e59-a915-8b63a54585f6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8244_20260327_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6900_20260320_minimax-m1.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I cannot verify: - Whether `scout.py` or `scorer.py` files physically exist in `src/yanantin/chasqui/` - The directory structure beyond what's imported/referenced within this single file - The intent behind the original \"self-testing\" comment (the source of that interpretation is unclear)",
+  "claim_file": "src/yanantin/chasqui/scorer.py",
+  "claim_by": "minimax/minimax-m1",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-03-27T11:50:08.485044+00:00"
+}

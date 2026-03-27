@@ -1,0 +1,11 @@
+{
+  "id": "eddc0975-7789-4bdf-822e-abd25c472ac9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8239_20260327_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1114_20260217_phi-4.md",
+  "relation": "denies",
+  "claim_text": "**Chain Integrity and Genesis Timestamps:** - **What I see:** The `__init__.py` docstring emphasizes the importance of maintaining chain integrity through timestamp inclusion in commits.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-03-27T11:17:10.809058+00:00"
+}

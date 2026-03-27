@@ -1,0 +1,11 @@
+{
+  "id": "57a73ebf-dd9a-4868-b07a-595a71c739cc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8245_20260327_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7112_20260321_qwen3-14b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The provided file contains this line: ``` Model: google/gemma-2-9b-it (Google: Gemma 2 9B) ``` ### Reasoning The claim references \"numerous markdown files\" with names like `scour_0001_20260212_gemma-2-9b-it.md` and `scour_0002_20260212_gpt-4o-mini.md` as evidence of model diversity.",
+  "claim_file": "docs/cairn/scour_0002_20260212_gpt-4o-mini.md",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-27T11:50:10.177940+00:00"
+}

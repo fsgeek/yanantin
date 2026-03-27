@@ -1,0 +1,11 @@
+{
+  "id": "b2b0eb29-a806-487c-b52d-25988be4212e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8297_20260327_gpt-5.1-codex-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7780_20260324_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that \"the file emphasizes this mismatch in Strand 1, including quotes from `succession.py` and `audit.py` implementations to highlight the discrepancy.\" While the provided file does not explicitly mention \"Strand 1\" or directly quote from `succession.py` and `audit.py`, it does clearly define a section dedicated to \"Chasqui\" and lists the files within that directory.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "openai/gpt-5.1-codex-mini",
+  "timestamp": "2026-03-27T19:05:47.507455+00:00"
+}

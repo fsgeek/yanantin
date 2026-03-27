@@ -1,0 +1,11 @@
+{
+  "id": "ff67485d-be43-4d51-9834-d04104c0e268",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8298_20260327_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7983_20260326_qwen-turbo.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I could not check the contents of `coordinator.py`, `model_selector.py`, or `scout.py` because they are not provided in the file listing.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-03-27T19:05:48.124641+00:00"
+}

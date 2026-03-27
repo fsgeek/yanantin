@@ -1,0 +1,11 @@
+{
+  "id": "47c23b5c-6caa-4261-844f-68d6bfc591ef",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8294_20260327_gemini-2.5-flash-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1924_20260220_hunyuan-a13b-instruct.md",
+  "relation": "denies",
+  "claim_text": "**Epistemic Metadata as First-Class Citizens** The scout's analysis of the `EpistemicMetadata` class in `src/yanantin/apacheta/models/epistemics.py` and its alignment with the scout's mandate to declare losses is insightful.",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "tencent/hunyuan-a13b-instruct",
+  "verified_by": "google/gemini-2.5-flash-lite",
+  "timestamp": "2026-03-27T18:35:27.190990+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "3323aaba-1f9b-4c91-a7d8-ec197d6ff396",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8180_20260327_minimax-m1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0637_20260215_nemotron-nano-9b-v2.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning   The claim states that `__main__.py` mentions `weaver.py` and itself.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "minimax/minimax-m1",
+  "timestamp": "2026-03-27T03:27:56.067820+00:00"
+}

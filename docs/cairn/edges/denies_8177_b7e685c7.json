@@ -1,0 +1,11 @@
+{
+  "id": "b7e685c7-405e-491a-88b9-ceb91754440a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8177_20260327_deepseek-v3.2-speciale.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6829_20260319_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "**How does `succession.py` work?** If tensors are immutable, how does `succession.py` manage replacement without breaking the \"hash chain\"?",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "deepseek/deepseek-v3.2-speciale",
+  "timestamp": "2026-03-27T02:58:35.434268+00:00"
+}

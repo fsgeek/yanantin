@@ -1,0 +1,11 @@
+{
+  "id": "f8c8584d-71c9-4a51-8bf2-64a2bbc4c08d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8357_20260328_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0400_20260214_gpt-4o-2024-08-06.md",
+  "relation": "denies",
+  "claim_text": "`bootstrap.py` and `evolve.py` indicate a decoupled approach, allowing for context-bound selections and schema migrations.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "openai/gpt-4o-2024-08-06",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-28T02:55:33.116060+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "313a8db9-9d57-4821-9f8c-8ed6d1bbc09a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8355_20260328_deepseek-r1-distill-qwen-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0251_20260213_l3-lunaris-8b.md",
+  "relation": "denies",
+  "claim_text": "``` The file `src/yanantin/tinkuy/succession.py` explicitly mentions `tinkuy/succession.py` in its docstring, contradicting the claim.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "timestamp": "2026-03-28T02:24:12.155685+00:00"
+}

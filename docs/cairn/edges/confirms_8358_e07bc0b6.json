@@ -1,0 +1,11 @@
+{
+  "id": "e07bc0b6-2f3d-4ef5-a2d3-61edee951b56",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8358_20260328_olmo-3-32b-think.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8274_20260327_mistral-small-3.1-24b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Task-Oriented Command Definitions** - **Observation**: Each markdown file (`commit.md`, `commit-push-pr.md`, `clean_gone.md`) defines a specific git-related task.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/commit-commands/commands/clean_gone.md",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "allenai/olmo-3-32b-think",
+  "timestamp": "2026-03-28T02:55:39.147676+00:00"
+}

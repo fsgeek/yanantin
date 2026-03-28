@@ -1,0 +1,11 @@
+{
+  "id": "806d6b35-7aad-4b71-a8b7-e33a4f23c228",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8430_20260328_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5842_20260313_grok-4-fast.md",
+  "relation": "confirms",
+  "claim_text": "`scout_5645_20260311_lfm2-8b-a1b.md` denies `build_file_tree` in `src/yanantin/chasqui/scout.py`, but the tree shows it *does* have tree-building logic.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-03-28T12:15:45.937607+00:00"
+}

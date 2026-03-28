@@ -1,0 +1,11 @@
+{
+  "id": "3f4cbb48-5f1d-4970-ba03-9eac9a039c36",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8432_20260328_qwen3-coder-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6695_20260318_gpt-3.5-turbo.md",
+  "relation": "confirms",
+  "claim_text": "Original is preserved.\" - `class DissentRecord(ApachetaBaseModel):` which describes \"Formal disagreement with a prior tensor or claim.\" ### Reasoning The claim made by `meta-llama/llama-3.2-11b-vision-instruct` that the `gateway.py` client is referenced in `scout_0151_20260212_gpt-4o-mini.md` but its implementation is not visible in the source tree is accurate.",
+  "claim_file": "src/yanantin/apacheta/clients/gateway.py",
+  "claim_by": "openai/gpt-3.5-turbo",
+  "verified_by": "qwen/qwen3-coder-flash",
+  "timestamp": "2026-03-28T12:44:58.645260+00:00"
+}

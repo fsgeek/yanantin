@@ -1,0 +1,11 @@
+{
+  "id": "9f1d310f-b620-4351-b0b8-cf0ef2e4b8bf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8429_20260328_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7273_20260322_mistral-small-24b-instruct-250.md",
+  "relation": "denies",
+  "claim_text": "The `succession-2026-02-20.md` and `succession-2026-02-19.md` files caught my attention first.",
+  "claim_file": "tmp/ubuntu-vm.claude/projects/-home-tony-projects-episode/memory/succession-2026-02-19.md",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-03-28T12:15:02.377434+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "69d7380e-38a8-46a8-8ca9-0456d915979b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8428_20260328_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3673_20260228_deepseek-v3.1-terminus.md",
+  "relation": "denies",
+  "claim_text": "Looking at `tests/unit/test_openrouter.py`, I see this project has a sophisticated client architecture for API interactions.",
+  "claim_file": "tests/unit/test_openrouter.py",
+  "claim_by": "deepseek/deepseek-v3.1-terminus",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-28T12:14:55.619002+00:00"
+}

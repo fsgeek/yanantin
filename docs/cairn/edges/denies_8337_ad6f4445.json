@@ -1,0 +1,11 @@
+{
+  "id": "ad6f4445-9492-48b7-8edb-f32873c9208c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8337_20260328_command-r-08-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0734_20260215_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "- **I did not explore the `awaq` module** \u2014 `src/yanantin/awaq/weaver.py`.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "cohere/command-r-08-2024",
+  "timestamp": "2026-03-28T00:20:11.140178+00:00"
+}

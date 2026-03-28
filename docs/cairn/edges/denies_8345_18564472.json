@@ -1,0 +1,11 @@
+{
+  "id": "18564472-4cd6-4c2a-b154-0a5fa8b711e7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8345_20260328_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5414_20260310_gpt-4o-mini.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I could not check the actual content of `docs/predecessors.md` as it is not included in the file.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "openai/gpt-4o-mini",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-03-28T01:20:38.058993+00:00"
+}

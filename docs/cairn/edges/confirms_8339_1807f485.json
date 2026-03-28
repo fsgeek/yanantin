@@ -1,0 +1,11 @@
+{
+  "id": "1807f485-6d83-489e-b047-9b28bf7a93b0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8339_20260328_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3345_20260227_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "#### Integration Modules I observed that the file `src/yanantin/apacheta/backends/arango.py` contains information about handling integrations with ArangoDB.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-03-28T00:20:17.673457+00:00"
+}

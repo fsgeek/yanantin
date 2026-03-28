@@ -1,0 +1,11 @@
+{
+  "id": "a7ee81db-dda5-468c-bd80-408716663cf7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8493_20260328_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3313_20260227_qwen2.5-coder-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "# Verification Assignment ## The Claim Model `z-ai/glm-4-32b` made this claim about `scripts/ingest_cairn.py`: > Integration and Ingestion The `scripts/ingest_cairn.py` script demonstrates the integration of the tensor infrastructure with external systems.",
+  "claim_file": "scripts/ingest_cairn.py",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-03-28T21:06:10.331678+00:00"
+}

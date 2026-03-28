@@ -1,0 +1,11 @@
+{
+  "id": "049363c4-17b6-4075-9e65-6bc1deca255e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8498_20260328_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8019_20260326_qwen2.5-coder-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "Evidence: `docs/cairn/scout_1032_20260216_gemma-3-4b-it.md` and `src/yanantin/apacheta/interface/abstract.py` #### Strand 2: Scout Ecology The previous scout's observation about the cost-aware scout ecology in the Yanantin project is fascinating.",
+  "claim_file": "docs/cairn/scout_1032_20260216_gemma-3-4b-it.md",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-28T21:37:41.214948+00:00"
+}

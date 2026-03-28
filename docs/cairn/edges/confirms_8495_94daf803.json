@@ -1,0 +1,11 @@
+{
+  "id": "94daf803-f2ef-4e0a-8d60-4b14b5a8bd6d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8495_20260328_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2756_20260224_glm-4.5-air.md",
+  "relation": "confirms",
+  "claim_text": "**What is the relationship between `audit.py`, `awaq.py`, and `succession.py`?** Is there a data pipeline where `audit.py` generates ground truth, `awaq.py` extracts compositions, and `succession.py` uses both?",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "z-ai/glm-4.5-air",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-28T21:06:35.236207+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "a8905247-8e33-485f-aedc-9f638c818639",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8499_20260328_qwen-2.5-72b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1555_20260219_nova-micro-v1.md",
+  "relation": "confirms",
+  "claim_text": "**Evidence from files:** In `audit.py`, regex patterns are used to identify specific files (e.g., `T123.md`, `scout_*.md`).",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "qwen/qwen-2.5-72b-instruct",
+  "timestamp": "2026-03-28T21:37:41.669438+00:00"
+}

@@ -1,0 +1,46 @@
+<!-- Chasqui Scour Tensor
+     Run: 1426
+     Model: x-ai/grok-code-fast-1 (xAI: Grok Code Fast 1)
+     Target: src/yanantin/apacheta
+     Scope: introspection
+     Cost: prompt=$2e-07/M, completion=$1.5e-06/M
+     Usage: {'prompt_tokens': 6506, 'completion_tokens': 2257, 'total_tokens': 8763, 'cost': 0.00465214, 'is_byok': False, 'prompt_tokens_details': {'cached_tokens': 192, 'cache_write_tokens': 0, 'audio_tokens': 0, 'video_tokens': 0}, 'cost_details': {'upstream_inference_cost': 0.00465214, 'upstream_inference_prompt_cost': 0.00126664, 'upstream_inference_completions_cost': 0.0033855}, 'completion_tokens_details': {'reasoning_tokens': 486, 'image_tokens': 0, 'audio_tokens': 0}}
+     Timestamp: 2026-03-28T22:00:15.676049+00:00
+     GenerationID: gen-1774735203-sR5uxPSMgE8WtMa21ilr
+-->
+
+### Preamble
+I was directed to examine `src/yanantin/apacheta`, scoped to introspection within the Yanantin project's codebase. This subdirectory appears to be the core engine for a "tensor database" handling epistemic observability, with a focus on immutable, composable records (tensors) that represent claims, compositions, and operations like dissent or evolution. What drew my attention first was the `operators/dissent.py` file—its detailed implementation of formal disagreement, including creating a `DissentRecord` and a `CompositionEdge`, immediately highlighted the project's emphasis on structured epistemic operations and immutability. This stood out as a concrete example of how the system enforces formal relations between tensors, aligning with the broader Yanantin duality theme.
+
+### Strands
+
+#### Strand 1: Immuntability and Epistemic Integrity
+In `operators/dissent.py` (lines 10-40), the `dissent` function creates a new `DissentRecord` and stores it via the interface, explicitly noting that tensors are immutable ("Tensors are immutable — compose, don't overwrite."). This connects to the interface in `interface/abstract.py` (lines 25-30), where the abstract class mandates immutability: store operations raise `ImmutabilityError` on duplicate UUIDs, with no delete or update methods. In the DuckDB backend (`backends/duckdb.py`, lines 150-160), this is enforced via `_exists` and `_store` checks before inserts. This makes me think the project assumes epistemic records are append-only to preserve truth-seeking history, valid for a system built around observability and corrections. If this changed (e.g., allowing updates), it could break trust in lineage queries (like `query_lineage` in `interface/abstract.py`), as corrections and dissents rely on immutable originals. What's missing is explicit testing for immutability violations—only the DuckDB backend shows enforcement; the memory backend (not shown) might not.
+
+#### Strand 2: Composition Operators and Relational Structure
+Operators like `compose.py` and `dissent.py` define how tensors relate, using `CompositionEdge` with types like `RelationType.COMPOSES_WITH` or `DISSENTS_FROM` (from `models/composition.py`, inferred but not fully shown). `compose.py` (lines 10-30) creates edges with optional `authored_mapping` for "bridge" compositions, emphasizing non-commutativity. This ties into the project's composable tensor infrastructure, where edges form a graph for queries like `query_composition_graph` (`interface/abstract.py`, lines 90-95). It makes me think this enables epistemic lineage but assumes operators are the sole way to modify relations—no direct edge manipulation outside them. If the interface allowed arbitrary edge creation, it could undermine the formal operators. Missing here are implementations for other operators (e.g., `negate.py` or `correct.py` are listed but not detailed), and how they integrate with the graph.
+
+#### Strand 3: Backend Abstraction and Multi-Implementation
+The `interface/abstract.py` defines the sole API (`ApachetaInterface`), with backends like DuckDB (`backends/duckdb.py`) implementing it via JSON-serialized tables (e.g., lines 140-150: `_serialize` and `_deserialize`). It thread-safes with RLock and enforces access control hooks (always true in v1). This connects to the project's duality by allowing different storage backends (DuckDB for persistence, memory for tests), ensuring the interface remains honest. Assumptions: Backends are interchangeable and thread-safe. If changed, e.g., adding a non-thread-safe backend, it could break parallel operations (noted as a v1 constraint). What's missing: Full backend implementations—only DuckDB is detailed, and ArangoDB (`backends/arango.py`) is listed but not shown. Also, obfuscation is mentioned in `storage_obfuscator.py` but not detailed.
+
+#### Strand 4: Provenance and Authorship Tracking
+Every record wraps in `ProvenanceEnvelope` (`models/provenance.py`, lines 20-40), capturing source, timestamp, model family, and predecessors. This is used in operators like `dissent` and `evolve` (lines 20-25 in `operators/evolve.py`). It links to epistemic observability, enabling queries like `query_authorship` or `query_cross_model` (`interface/abstract.py`). Makes me think it supports human-AI duality by tracking who (human/AI) made what. Assumption: Provenance is optional (default envelope in operators), but always attached—valid if enforced. If removed, queries on authorship would fail. Missing: How provenance integrates with external clients, like `clients/gateway.py` (not shown).
+
+#### Strand 5: Search and Rummage Tools for Observability
+`rummage.py` provides search across "tensors, scours, and scout reports" (lines 10-20), parsing documents into sections (e.g., strands, losses) and matching queries. It knows about sources like "cairn" and "ai-honesty". This connects to the project's broader epistemic tools, beyond just the database. Assumptions: Markdown structure for tensors/scours. If doc formats change, parsing could break. What's missing: Integration with Apacheta queries—rummage seems separate, searching external docs, not the database itself. Also, it's a CLI tool, but how it feeds back into composition isn't clear.
+
+#### Strand 6: Error Handling and Defensive Design
+Custom exceptions in `interface/errors.py` (e.g., `ImmutabilityError`, `AccessDeniedError`) are raised in backends. Queries include defensive ones like `query_unlearn` (what changes if a claim is wrong) or `query_losses` (declared losses per tensor). This reinforces epistemic caution. Makes me think the system is built to handle disagreements and errors formally. Assumption: Errors are always custom, no generic exceptions. If not enforced, inconsistency arises. Missing: How errors propagate to clients or operators.
+
+### Declared Losses
+I chose not to examine the full contents of files beyond what's provided, such as the complete `backends/duckdb.py` (truncated at line 316), `rummage.py` (truncated at line 153), or unshown files like `models/base.py`, `models/tensor.py`, `backends/arango.py`, `backends/memory.py`, `clients/gateway.py`, `clients/openrouter.py`, `ingest/markdown_parser.py`, `renderer/markdown.py`, `config.py`, `content_address.py`, and `storage_obfuscator.py`. I did this because the provided contents are incomplete, and delving into inferences without data would be speculative; my attention is limited to explicit details. I also skipped deeper analysis of model definitions (e.g., `TensorRecord`, `CompositionEdge`) not fully shown, as they underpin everything but aren't directly in the snippets. I ran out of attention on querying how this integrates with the "scout" or "yanantin" parts of the project, as my target is apacheta-specific.
+
+### Open Questions
+- How does Apacheta integrate with the rest of Yanantin? For example, is rummage the only bridge to "scours" and "scout reports," or are there direct APIs?
+- What are the full model definitions (e.g., in `models/tensor.py` or `models/composition.py`)? Without them, I can't confirm if assumptions like non-commutativity are enforced in the models.
+- Why is provenance optional in operators, and how is it validated? Does the system guarantee it's always populated?
+- Are there performance implications for queries (e.g., `query_composition_graph`) in large graphs, and how do backends optimize?
+- What does "storage obfuscation" in `storage_obfuscator.py` entail, and when is it used (DuckDB notes it's not needed for local trusted storage)?
+
+### Closing
+Overall, `src/yanantin/apacheta` impresses as a rigorously designed, immutable database for epistemic records, emphasizing composition, dissent, and observability in a human-AI collaborative context. It's honest in its constraints (immutability, thread-safety) and defensive (provenance, error classes), but the abstraction feels solid yet untested without full backend parity. Someone modifying it should prioritize maintaining immutability—any loophole could erode the epistemic foundation—and test across backends to avoid leaks. I know the structure from provided files, don't know the integrations beyond, and made no assumptions about unseen code. If something confuses me (like why rummage searches external docs), I noted it as unresolved.

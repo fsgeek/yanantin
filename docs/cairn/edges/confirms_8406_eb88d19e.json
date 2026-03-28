@@ -1,0 +1,11 @@
+{
+  "id": "eb88d19e-ba2e-434d-9c8c-e68beeebfb31",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8406_20260328_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2864_20260225_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "``` There is no mention of a claim about `CLAUDE.md` being denied, nor any discussion of a scout\u2019s claim.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-03-28T09:09:06.548860+00:00"
+}

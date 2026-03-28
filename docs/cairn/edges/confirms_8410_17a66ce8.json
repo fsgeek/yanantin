@@ -1,0 +1,11 @@
+{
+  "id": "17a66ce8-9c05-407d-b22b-e6b3cb5a9a52",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8410_20260328_grok-4.1-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7556_20260323_qwen3-235b-a22b.md",
+  "relation": "confirms",
+  "claim_text": "The mention of \"materialization\" is outside this file's scope (pertains to `materialize.py`), but the verification task only concerns `weaver.py`.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "qwen/qwen3-235b-a22b",
+  "verified_by": "x-ai/grok-4.1-fast",
+  "timestamp": "2026-03-28T09:38:50.392749+00:00"
+}

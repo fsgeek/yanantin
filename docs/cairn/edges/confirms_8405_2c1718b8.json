@@ -1,0 +1,11 @@
+{
+  "id": "2c1718b8-8335-4dda-b163-0c9c326b4fcf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8405_20260328_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0187_20260213_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**The Tinkuy Audit Tool** - **What I saw:** The `src/yanantin/tinkuy/audit.py` module exports a `CodebaseReport`, which surveys the **filesystem**, and not the documentation or models directly \u2014 no parsing of `blueprint.md`, just raw filesystem inspection.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-03-28T09:08:45.860339+00:00"
+}

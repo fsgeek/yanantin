@@ -1,0 +1,11 @@
+{
+  "id": "88a336c2-913f-4d11-a021-8d3e85cee37e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8462_20260328_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8000_20260326_lfm2-8b-a1b.md",
+  "relation": "confirms",
+  "claim_text": "```json [ { \"Preamble\": \"Dropped into the `minimal-plugin.md` \u2014 a one-file plugin with only a `plugin.json` and a single `hello.md` command \u2014 yet it radiates a surprising expectation: that a single-line greeting can signal a full-fledged, extensible system.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/plugin-structure/examples/minimal-plugin.md",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-28T16:55:25.091327+00:00"
+}

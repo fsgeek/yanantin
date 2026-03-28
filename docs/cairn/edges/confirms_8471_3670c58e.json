@@ -1,0 +1,11 @@
+{
+  "id": "3670c58e-9161-4f73-bf3d-6584dfd5f222",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8471_20260328_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5373_20260310_ui-tars-1.5-7b.md",
+  "relation": "confirms",
+  "claim_text": "This information from the `docs/cairn/scout_2390_20260222_phi-4.md` directly refutes the original claim and justifies its denial.",
+  "claim_file": "docs/cairn/scout_2390_20260222_phi-4.md",
+  "claim_by": "bytedance/ui-tars-1.5-7b",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-03-28T17:58:49.187869+00:00"
+}

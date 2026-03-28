@@ -1,0 +1,11 @@
+{
+  "id": "a7d89959-d829-4be0-8f3e-8089c52052de",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8463_20260328_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0928_20260216_deepseek-r1-distill-llama-70b.md",
+  "relation": "denies",
+  "claim_text": "- The `InMemoryBackend` test in `test_arango_independent.py` mocks immutability errors, but without examining the real backend, we cannot confirm runtime enforcement.",
+  "claim_file": "tests/unit/test_arango_independent.py",
+  "claim_by": "deepseek/deepseek-r1-distill-llama-70b",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-28T16:55:29.397566+00:00"
+}

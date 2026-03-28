@@ -1,0 +1,11 @@
+{
+  "id": "f8ab3430-3250-4dab-bc70-c5a6de4c6fe7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8469_20260328_deepseek-v3.2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4203_20260303_lfm-2-24b-a2b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The file `docs/cairn/scout_0435_20260214_llama-3.2-3b-instruct.md` contains the following relevant lines: ``` ### Verdict **CONFIRMED** ### Reasoning The claim references `O_CREAT|O_EXCL` in `succession.py` and Lamport's bakery algorithm, but the evidence file does not specify which exact file or line number in `succession.py` contains this.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "deepseek/deepseek-v3.2",
+  "timestamp": "2026-03-28T17:58:47.450550+00:00"
+}

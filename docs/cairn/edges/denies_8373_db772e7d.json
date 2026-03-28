@@ -1,0 +1,11 @@
+{
+  "id": "db772e7d-7667-40fd-a6fc-1c6142507bf2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8373_20260328_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2387_20260222_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "For example, the `src/yanantin/apacheta` directory contains several composition files, such as `composition.py` and `entities.py`.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-03-28T05:00:32.536009+00:00"
+}

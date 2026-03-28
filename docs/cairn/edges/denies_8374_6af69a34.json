@@ -1,0 +1,11 @@
+{
+  "id": "6af69a34-eab4-4034-b215-b4ff0b88bc0b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8374_20260328_qwen3-coder-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7195_20260321_qwen3-coder-flash.md",
+  "relation": "denies",
+  "claim_text": "Instead, they all reference other files like `docs/blueprint.md`, `docs/predecessors.md`, `docs/tensors.md`, and `docs/signing.md`.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "qwen/qwen3-coder-flash",
+  "timestamp": "2026-03-28T05:00:33.507449+00:00"
+}

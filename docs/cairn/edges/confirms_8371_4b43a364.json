@@ -1,0 +1,11 @@
+{
+  "id": "4b43a364-342a-4699-bbfa-333af874720c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8371_20260328_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0559_20260214_deepseek-r1-distill-llama-70b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim is supported by the following lines from `compose.py`: - Line 6: `from yanantin.apacheta.models.provenance import ProvenanceEnvelope` - Line 20: `provenance: ProvenanceEnvelope | None = None,` - Line 28: `provenance=provenance or ProvenanceEnvelope(),` ### Reasoning The code shows that `ProvenanceEnvelope` is imported and used as a type for the `provenance` parameter in the `compose` function.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "deepseek/deepseek-r1-distill-llama-70b",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-28T04:28:39.838427+00:00"
+}

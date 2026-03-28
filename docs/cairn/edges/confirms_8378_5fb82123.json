@@ -1,0 +1,11 @@
+{
+  "id": "5fb82123-80d1-46df-ac69-f80a93d19ca7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8378_20260328_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4725_20260306_qwen3-coder-next.md",
+  "relation": "confirms",
+  "claim_text": "Additionally, the claim implies that `audit.py` (mentioned alongside `succession.py`) proves governance focus, but `audit.py` was not provided, so we cannot assess it.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "qwen/qwen3-coder-next",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-03-28T05:30:40.839349+00:00"
+}

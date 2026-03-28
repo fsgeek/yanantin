@@ -1,0 +1,11 @@
+{
+  "id": "af4cc2ef-aa80-4b39-b788-74a9c668a6f3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8370_20260328_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8350_20260328_deepseek-v3.2.md",
+  "relation": "confirms",
+  "claim_text": "Therefore, the claim about the existence of `compose.py` in that directory is accurate.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "deepseek/deepseek-v3.2",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-28T04:28:38.470654+00:00"
+}

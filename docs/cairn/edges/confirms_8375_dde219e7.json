@@ -1,0 +1,11 @@
+{
+  "id": "dde219e7-3ceb-4420-a5b9-f5fbbcf2d707",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8375_20260328_grok-4-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3924_20260302_gemma-3-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The provided file, `base.py`, does not contain any mention of \"tensor-level provenance\", \"ProvenanceEnvelope\", or any code referencing `src/yanantin/models/base.py`.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "x-ai/grok-4-fast",
+  "timestamp": "2026-03-28T05:00:37.447784+00:00"
+}

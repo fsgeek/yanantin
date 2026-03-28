@@ -1,0 +1,11 @@
+{
+  "id": "89a2dbcf-c80f-405f-aa01-2b6a7f1dc712",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8379_20260328_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1884_20260220_inflection-3-pi.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim repeatedly states that `docs/predecessors.md` is not present, but the content of the file does not support this statement.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "inflection/inflection-3-pi",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-03-28T05:31:00.155122+00:00"
+}

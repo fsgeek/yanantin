@@ -1,0 +1,11 @@
+{
+  "id": "83f2f453-df58-4988-a672-71ecd68082b8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8473_20260328_minimax-m2.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3177_20260226_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Are there explicit mechanisms for tensor negation or correction?** The `operators` directory and references to \"correction\" in `models/composition.py` suggest this is part of the system, but what does it look like in practice?",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "minimax/minimax-m2.1",
+  "timestamp": "2026-03-28T18:33:58.344835+00:00"
+}

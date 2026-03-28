@@ -1,0 +1,11 @@
+{
+  "id": "46c1f37d-54d0-48f0-ae2d-6fa1486394a5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8475_20260328_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6989_20260320_hermes-2-pro-llama-3-8b.md",
+  "relation": "denies",
+  "claim_text": "* `ots_stamp.py`: A Python script related to object store tagging.",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-03-28T18:34:05.327443+00:00"
+}

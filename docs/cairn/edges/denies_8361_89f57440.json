@@ -1,0 +1,11 @@
+{
+  "id": "89f57440-35c5-4238-8eb4-ccc0fd535fd1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8361_20260328_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4525_20260305_router.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence ``` # Verification Assignment ## The Claim Model `qwen/qwen-turbo` made this claim about `src/yanantin/chasqui/model_selector.py`: > ### Declared Losses I could not check the contents of `model_selector.py` or `coordinator.py` because they are not part of the file being verified.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "switchpoint/router",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-03-28T03:26:18.298034+00:00"
+}

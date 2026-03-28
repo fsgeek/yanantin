@@ -1,0 +1,11 @@
+{
+  "id": "cbef047c-99d5-42e0-9164-f855c7f3bd00",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8367_20260328_deepseek-r1-distill-qwen-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6631_20260318_gpt-oss-safeguard-20b.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The document explicitly verifies that the claim \u201cTensor\u2011level provenance is not documented in `docs/signing.md`\u201d is true, as it states that `docs/signing.md` contains no mention of that phrase and concludes with a **CONFIRMED** verdict.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "openai/gpt-oss-safeguard-20b",
+  "verified_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "timestamp": "2026-03-28T03:58:20.154178+00:00"
+}

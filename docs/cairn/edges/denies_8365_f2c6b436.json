@@ -1,0 +1,11 @@
+{
+  "id": "f2c6b436-1c87-44c6-ad2e-55c819aa92b5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8365_20260328_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2947_20260225_qwen3-coder-flash.md",
+  "relation": "denies",
+  "claim_text": "**Evident in:** `src/yanantin/apacheta/models.py`, `src/yanantin/apacheta/operators/compose.py`, `ots/` directory listing ## Declared Losses 1.",
+  "claim_file": "src/yanantin/jabberwock/models.py",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-28T03:58:05.271667+00:00"
+}

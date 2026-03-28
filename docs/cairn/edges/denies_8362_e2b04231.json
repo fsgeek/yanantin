@@ -1,0 +1,11 @@
+{
+  "id": "e2b04231-fc34-40cf-8850-59896cb3aa73",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8362_20260328_glm-4.7-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2895_20260225_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "Finally, I did not read `src/yanantin/awaq/weaver.py` or `materialize.py`, even though they sound central.",
+  "claim_file": "src/yanantin/awaq/materialize.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "z-ai/glm-4.7-flash",
+  "timestamp": "2026-03-28T03:26:29.652227+00:00"
+}

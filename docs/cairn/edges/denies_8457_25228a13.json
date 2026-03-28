@@ -1,0 +1,11 @@
+{
+  "id": "25228a13-f7ae-4d7d-a2d0-240b0acb6113",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8457_20260328_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6669_20260318_l3-euryale-70b.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I only checked the code in `scourer.py` and did not run it to see how it behaves at runtime.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "sao10k/l3-euryale-70b",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-28T16:26:13.080057+00:00"
+}

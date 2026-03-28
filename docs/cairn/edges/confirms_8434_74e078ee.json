@@ -1,0 +1,11 @@
+{
+  "id": "74e078ee-4b6b-47a9-9e78-45b914a1501c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8434_20260328_qwen3.5-plus-02-15.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6403_20260317_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "While `tensor.py` is not provided, the claim only asks to verify the statement about `provenance.py`.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "qwen/qwen3.5-plus-02-15",
+  "timestamp": "2026-03-28T12:45:49.399890+00:00"
+}

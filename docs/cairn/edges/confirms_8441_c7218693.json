@@ -1,0 +1,11 @@
+{
+  "id": "c7218693-3202-4c15-a142-bc079cb33be0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8441_20260328_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2289_20260222_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Some files appear to be automatic summaries (e.g., `scour_0001_20260212_gemma-2-9b-it.md`), while others seem to be manual entries (e.g., `T30_compaction_20260220_073440.md`).",
+  "claim_file": "docs/cairn/compaction/T30_compaction_20260220_073440.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-03-28T13:46:50.098161+00:00"
+}

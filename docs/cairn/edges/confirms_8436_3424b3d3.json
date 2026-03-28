@@ -1,0 +1,11 @@
+{
+  "id": "3424b3d3-9988-4ac3-9ccd-34698b4f2711",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8436_20260328_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4611_20260305_unslopnemo-12b.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The claim states that the evidence shows there is a clear instruction in the file to read `docs/blueprint.md` before building anything, which directly relates to handling `CLAUDE.md`.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "thedrummer/unslopnemo-12b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-28T13:16:53.962551+00:00"
+}

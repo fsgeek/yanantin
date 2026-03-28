@@ -1,0 +1,11 @@
+{
+  "id": "427685f6-ee7c-43ed-b0ed-d5a13440a548",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8438_20260328_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6504_20260317_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "* The ` ClaimFile` and `ClaimBy` metadata in various files, such as `docs/cairn/scout_1318_20260218_gpt-oss-20b.md`, indicate that the system is using some form of model verification or validation.",
+  "claim_file": "docs/cairn/scout_1318_20260218_gpt-oss-20b.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-03-28T13:17:11.761355+00:00"
+}

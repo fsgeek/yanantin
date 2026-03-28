@@ -1,0 +1,11 @@
+{
+  "id": "8e017e8b-f2ca-48d0-afcf-aaac70556433",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8420_20260328_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1157_20260217_qwen3-14b.md",
+  "relation": "confirms",
+  "claim_text": "This creates a gap in verification: - If `chasqui_pulse.py` and `chasqui_heartbeat.sh` exist in the `.claude` directory but are not included in the shared files, the denial is premature.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-03-28T11:12:56.221799+00:00"
+}

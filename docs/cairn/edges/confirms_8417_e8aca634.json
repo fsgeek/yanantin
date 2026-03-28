@@ -1,0 +1,11 @@
+{
+  "id": "e8aca634-5cda-4454-9aea-39bba07287f5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8417_20260328_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8205_20260327_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **DENIED** ### Evidence   The file `docs/apacheta.md` explicitly exists and contains detailed documentation about Apacheta.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-03-28T10:41:06.160015+00:00"
+}

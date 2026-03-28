@@ -1,0 +1,11 @@
+{
+  "id": "f1eb7fb9-bb25-4f2b-b551-09566c2f3bf8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8418_20260328_deepseek-v3.2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2434_20260223_gpt-oss-120b:exacto.md",
+  "relation": "denies",
+  "claim_text": "Scanning the entire source shown, there are no comments, strings, or annotations that reference `docs/blueprint.md` or any similar tag.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "openai/gpt-oss-120b:exacto",
+  "verified_by": "deepseek/deepseek-v3.2",
+  "timestamp": "2026-03-28T10:41:46.989444+00:00"
+}

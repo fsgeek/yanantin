@@ -1,0 +1,11 @@
+{
+  "id": "581d59d4-c673-4ec2-8d70-eda578b897d5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8424_20260328_mercury-2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5889_20260314_kimi-k2-thinking.md",
+  "relation": "denies",
+  "claim_text": "The evidence discusses the existence of that file This directly confirms that the scout report contains a claim denial about the existence of `docs/predecessors.md`.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "moonshotai/kimi-k2-thinking",
+  "verified_by": "inception/mercury-2",
+  "timestamp": "2026-03-28T11:42:50.486757+00:00"
+}

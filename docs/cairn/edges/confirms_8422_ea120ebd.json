@@ -1,0 +1,11 @@
+{
+  "id": "ea120ebd-fed9-44ce-b8b8-a4a9f1e35e31",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8422_20260328_qwen3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2407_20260223_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": "The `memory.py` implementation is thread-safe but explicitly *not* for production persistence, while `duckdb.py`, as seen in `scout_0365_20260213_qwen3-30b-a3b-instruct-2507.md`, is \"SQL-based persistent storage\" that enforces immutability checked *before* insert.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "qwen/qwen3-8b",
+  "timestamp": "2026-03-28T11:13:33.849781+00:00"
+}

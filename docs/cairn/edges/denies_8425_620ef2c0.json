@@ -1,0 +1,11 @@
+{
+  "id": "620ef2c0-c81c-495f-a16b-57572f45d8db",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8425_20260328_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8082_20260326_qwen3.5-9b.md",
+  "relation": "denies",
+  "claim_text": "But look at `complete-agent-examples.md` \u2014 it contains the *output* of that process.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/agent-development/examples/complete-agent-examples.md",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-03-28T11:42:56.811534+00:00"
+}

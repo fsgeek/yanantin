@@ -1,0 +1,11 @@
+{
+  "id": "271cc2b4-c88f-4814-bd73-ca18218d1b2e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8350_20260328_deepseek-v3.2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1910_20260220_claude-3.7-sonnet:thinking.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 5: Composable Operators for Knowledge Manipulation What I saw \u2013 The `src/yanantin/apacheta/operators/` directory contains operations like `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, and `project.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "anthropic/claude-3.7-sonnet:thinking",
+  "verified_by": "deepseek/deepseek-v3.2",
+  "timestamp": "2026-03-28T01:53:53.664622+00:00"
+}

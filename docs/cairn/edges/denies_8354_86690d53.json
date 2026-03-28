@@ -1,0 +1,11 @@
+{
+  "id": "86690d53-a19f-48d7-b64a-970c58aff2cb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8354_20260328_qwq-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7223_20260321_qwen-vl-max.md",
+  "relation": "denies",
+  "claim_text": "--- ### Declared Losses   I did not examine `templates.md` \u2014 it was not in the selected files, and I\u2019m not sure if it exists.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/claude-md-management/skills/claude-md-improver/references/templates.md",
+  "claim_by": "qwen/qwen-vl-max",
+  "verified_by": "qwen/qwq-32b",
+  "timestamp": "2026-03-28T02:23:53.640978+00:00"
+}

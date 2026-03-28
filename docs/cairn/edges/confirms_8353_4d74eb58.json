@@ -1,0 +1,11 @@
+{
+  "id": "4d74eb58-4008-4724-a87a-e74537c232aa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8353_20260328_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3491_20260227_sonar-pro-search.md",
+  "relation": "confirms",
+  "claim_text": "No actual quotes or lines from `docs/predecessors.md` are cited to support any coherent claim.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "perplexity/sonar-pro-search",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-28T02:23:32.825535+00:00"
+}

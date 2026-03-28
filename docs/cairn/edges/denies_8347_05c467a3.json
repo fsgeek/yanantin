@@ -1,0 +1,11 @@
+{
+  "id": "05c467a3-3747-433a-986d-b95a2d0361a3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8347_20260328_llama-3.1-nemotron-70b-instruc.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5080_20260308_llama-3.3-70b-instruct.md",
+  "relation": "denies",
+  "claim_text": "Specifically, it does not mention \"manual or automated\" processes, the role of `rummage.py` in `src/yanantin/`, or how the project ensures consistency between tensor schemas and their documentation.",
+  "claim_file": "src/yanantin/apacheta/rummage.py",
+  "claim_by": "meta-llama/llama-3.3-70b-instruct",
+  "verified_by": "nvidia/llama-3.1-nemotron-70b-instruct",
+  "timestamp": "2026-03-28T01:24:37.333992+00:00"
+}

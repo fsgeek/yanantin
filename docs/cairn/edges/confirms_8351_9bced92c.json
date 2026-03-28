@@ -1,0 +1,11 @@
+{
+  "id": "9bced92c-8c3f-4204-9998-30c64b38bc0a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8351_20260328_seed-2.0-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4332_20260304_gemini-2.0-flash-001.md",
+  "relation": "confirms",
+  "claim_text": "This would be a good thing to corroborate by looking at the source code, maybe specifically in the `src/yanantin/chasqui/model_selector.py` file (though I didn't actually look in the file).",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "google/gemini-2.0-flash-001",
+  "verified_by": "bytedance-seed/seed-2.0-mini",
+  "timestamp": "2026-03-28T01:57:12.100657+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "738f1569-3452-4a85-80ba-a05bf7252800",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8491_20260328_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6658_20260318_gemma-2-9b-it.md",
+  "relation": "denies",
+  "claim_text": "* **Tensor Infrastructure:** While the `data/compaction_experiment` folder focuses on data, the project's name, `yanantin`, and the existence of files like `capture_compaction.py` and `pipeline_attestation.py` hint at a broader focus on building tensor infrastructure for a specific purpose.",
+  "claim_file": ".claude/hooks/pipeline_attestation.py",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-28T20:35:34.792981+00:00"
+}

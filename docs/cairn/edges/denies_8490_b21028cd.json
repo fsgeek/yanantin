@@ -1,0 +1,11 @@
+{
+  "id": "b21028cd-535a-4377-ad67-653d3fd41d93",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8490_20260328_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0717_20260215_molmo-2-8b.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The claim references the `src/yanantin/chasqui/` scout program, but the provided file is `tests/red_bar/test_immutability.py`, which does not contain any code from `src/yanantin/chasqui/`.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "allenai/molmo-2-8b",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-28T20:35:27.108193+00:00"
+}

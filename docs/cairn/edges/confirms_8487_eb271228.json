@@ -1,0 +1,11 @@
+{
+  "id": "eb271228-babc-4bf6-a35e-847ae7506d8c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8487_20260328_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0650_20260215_voxtral-small-24b-2507.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states that `test_tinkuy_audit.py` guards the audit tool's behavior.",
+  "claim_file": "tests/unit/test_tinkuy_audit.py",
+  "claim_by": "mistralai/voxtral-small-24b-2507",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-28T20:04:31.457564+00:00"
+}

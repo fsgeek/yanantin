@@ -1,0 +1,11 @@
+{
+  "id": "e6d35b69-b050-4b16-87d9-bfa193d6b1ed",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8485_20260328_mistral-small-2603.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1617_20260219_gpt-oss-safeguard-20b.md",
+  "relation": "denies",
+  "claim_text": "- **Full Documentation:** Files such as `scout_report_indaleko_patterns.md` or `capture_compaction.py` were not examined due to absence in the provided snapshot.",
+  "claim_file": "docs/scout_report_indaleko_patterns.md",
+  "claim_by": "openai/gpt-oss-safeguard-20b",
+  "verified_by": "mistralai/mistral-small-2603",
+  "timestamp": "2026-03-28T20:03:58.939477+00:00"
+}

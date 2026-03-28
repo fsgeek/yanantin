@@ -1,0 +1,11 @@
+{
+  "id": "eeeb6cba-f9c4-4ac1-ab15-6dfd745f84a5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8489_20260328_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8380_20260328_gemini-2.0-flash-lite-001.md",
+  "relation": "confirms",
+  "claim_text": "**Interface Abstraction and Error Handling:** `test_interface.py` focuses on testing abstract base classes and custom exceptions.",
+  "claim_file": "tests/unit/test_interface.py",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-03-28T20:35:25.405046+00:00"
+}

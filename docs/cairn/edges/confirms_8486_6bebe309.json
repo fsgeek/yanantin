@@ -1,0 +1,11 @@
+{
+  "id": "6bebe309-31b6-4f2e-ba9c-b030fb6810e7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8486_20260328_rnj-1-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4134_20260303_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "The other elements mentioned in the claim regarding `.env`, `.python-version`, `CLAUDE.md`, and the other file references were not found in the provided `pyproject.toml` file.",
+  "claim_file": "pyproject.toml",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "essentialai/rnj-1-instruct",
+  "timestamp": "2026-03-28T20:04:00.716997+00:00"
+}

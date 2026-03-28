@@ -1,0 +1,11 @@
+{
+  "id": "582e4f53-3791-47da-8c31-3bb0e8e47c3f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8400_20260328_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2613_20260223_nemotron-nano-9b-v2.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that `bootstrap.py` is an example and its presence cannot be confirmed.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-28T08:36:43.378860+00:00"
+}

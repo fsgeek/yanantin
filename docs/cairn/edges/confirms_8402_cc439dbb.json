@@ -1,0 +1,11 @@
+{
+  "id": "cc439dbb-aa49-40a4-b883-9e36cb002444",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8402_20260328_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4342_20260304_phi-4.md",
+  "relation": "confirms",
+  "claim_text": "However, within the content of `scout_0133_20260212_gemma-3n-e4b-it.md`, the following lines address this claim: > The file contains the following lines which explicitly state the model's assigned role and instructions: > > > Welcome to Yanantin.",
+  "claim_file": "docs/cairn/scout_0133_20260212_gemma-3n-e4b-it.md",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-28T08:36:49.382006+00:00"
+}

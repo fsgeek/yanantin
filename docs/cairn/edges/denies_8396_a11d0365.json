@@ -1,0 +1,11 @@
+{
+  "id": "a11d0365-db73-440b-b2df-3e4d07d39c5b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8396_20260328_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3075_20260226_qwen-turbo.md",
+  "relation": "denies",
+  "claim_text": "The scout report `docs/cairn/scout_0244_20260213_mistral-nemo.md` mentions this concept but does not explore it further.",
+  "claim_file": "docs/cairn/scout_0244_20260213_mistral-nemo.md",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-28T08:06:57.790935+00:00"
+}

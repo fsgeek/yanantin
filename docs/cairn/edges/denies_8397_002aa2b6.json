@@ -1,0 +1,11 @@
+{
+  "id": "002aa2b6-79fc-4b63-8473-0e514d42de19",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8397_20260328_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1463_20260218_phi-4.md",
+  "relation": "denies",
+  "claim_text": "#### Strand 2: Open Questions on Model Processes The previous scout's report on `x-ai/grok-4.1-fast` highlights an indeterminate verdict due to a lack of evidence in `agents/structured_reviewer.md`.",
+  "claim_file": "agents/structured_reviewer.md",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-03-28T08:07:25.044469+00:00"
+}

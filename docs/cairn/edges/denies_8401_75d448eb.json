@@ -1,0 +1,11 @@
+{
+  "id": "75d448eb-43e0-4132-baaa-0ee1489a11c3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8401_20260328_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5586_20260311_gpt-4o-mini-2024-07-18.md",
+  "relation": "denies",
+  "claim_text": "While it is true that `compose.py` is an operator, it does not substantiate the claim that the entire `yanantin/apacheta` directory is the heart of a \"composable tensor infrastructure,\" nor does it imply that it contains multiple modules as claimed.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "openai/gpt-4o-mini-2024-07-18",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-03-28T08:36:43.627771+00:00"
+}

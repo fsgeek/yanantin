@@ -1,0 +1,11 @@
+{
+  "id": "aa6c828c-d1c4-40f0-be70-7d3c533a43bd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8502_20260328_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7866_20260325_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses The claim references a markdown file (`docs/cairn/scout_0206_20260213_gpt-oss-safeguard-20b.md`) which was not provided.",
+  "claim_file": "docs/cairn/scout_0206_20260213_gpt-oss-safeguard-20b.md",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-03-28T22:08:16.307159+00:00"
+}

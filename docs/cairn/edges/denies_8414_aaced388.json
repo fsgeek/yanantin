@@ -1,0 +1,11 @@
+{
+  "id": "aaced388-c26a-4e08-94d5-bd9350d7dd92",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8414_20260328_qwen3-30b-a3b-instruct-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3787_20260301_qwen3-coder-flash.md",
+  "relation": "denies",
+  "claim_text": "- `scout_3284_20260226_lfm-2.2-6b.md`: Another denial of a claim that the file is absent from itself.",
+  "claim_file": "docs/cairn/scout_3284_20260226_lfm-2.2-6b.md",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "timestamp": "2026-03-28T10:11:53.209250+00:00"
+}

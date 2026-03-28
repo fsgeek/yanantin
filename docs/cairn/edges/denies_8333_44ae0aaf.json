@@ -1,0 +1,11 @@
+{
+  "id": "44ae0aaf-2c40-46c5-b2ba-7a8e65f913ed",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8333_20260327_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1260_20260217_minimax-m2.1.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that `src/yanantin/apacheta/models/composition.py` does not contain modules for backends (`arango.py`, `duckdb.py`, `memory.py`), clients (`openrouter.py`), or operators (`bootstrap.py`, `compose.py`, `correct.py`, `evolve.py`).",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "minimax/minimax-m2.1",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-03-27T23:49:08.458982+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "b920a08e-a3b1-4cff-acfc-0c9d8a6e1b2c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8334_20260327_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7119_20260321_qwen3-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "In `docs/cairn/scout_0254_20260213_llama-3.2-11b-vision-instruct.md`, there's talk of \"immutability and provenance\" emerging from design choices, which could be seen as a subtle artifact of the system.",
+  "claim_file": "docs/cairn/scout_0254_20260213_llama-3.2-11b-vision-instruct.md",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-03-27T23:49:21.850564+00:00"
+}

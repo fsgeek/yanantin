@@ -1,0 +1,11 @@
+{
+  "id": "495a2324-3e15-43f2-8abc-cf525f3e033b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8450_20260328_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1934_20260220_mistral-small-3.1-24b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The presence of detailed provenance information in tests like those in `tests/red_bar/test_provenance.py` indicates that the project places a high value on the ability to trace the origin and history of its data.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-28T15:21:26.797849+00:00"
+}

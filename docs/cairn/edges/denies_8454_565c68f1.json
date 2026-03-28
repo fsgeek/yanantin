@@ -1,0 +1,11 @@
+{
+  "id": "565c68f1-6a82-4be7-b178-853ff3b7c484",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8454_20260328_weaver.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3160_20260226_step-3.5-flash.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `src/yanantin/jabberwock/__main__.py` contains multiple import statements that reference modules other than `weaver.py` and `__main__.py`, directly contradicting the claim that only those two files are relevant: ```python def _open(args: argparse.Namespace): from yanantin.collector.pipeline import open_store from yanantin.jabberwock import Brillig store = open_store(args.store) brillig = Brillig(store) brillig.bootstrap() return store, brillig ``` ```python def _cmd_default(args: argparse.Namespace) -> None: from yanantin.collector.pipeline import open_store from yanantin.jabberwock import ( JABBERWOCK_PROVIDER, RATH_PROVIDER, TOVE_PROVIDER, VORPAL_PROVIDER, Brillig, ) ``` These lines explicitly import `open_store` from `yanantin.collector.pipeline` and various symbols from `yanantin.jabberwock`, demonstrating that additional files are relevant to the module's operation.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "stepfun/step-3.5-flash",
+  "verified_by": "mancer/weaver",
+  "timestamp": "2026-03-28T15:52:25.208798+00:00"
+}

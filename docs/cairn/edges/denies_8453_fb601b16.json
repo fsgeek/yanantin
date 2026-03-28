@@ -1,0 +1,11 @@
+{
+  "id": "fb601b16-3041-4ca8-a446-df92ab5cc9da",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8453_20260328_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6359_20260316_aion-rp-llama-3.1-8b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The file `src/yanantin/activity/backends/arango.py` does not appear to contain the expected class `ArangoActivityBackend`.",
+  "claim_file": "src/yanantin/activity/backends/arango.py",
+  "claim_by": "aion-labs/aion-rp-llama-3.1-8b",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-03-28T15:52:17.157360+00:00"
+}

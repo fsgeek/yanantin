@@ -1,0 +1,11 @@
+{
+  "id": "6a4f6219-e192-425b-9889-7931f5383c0c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8446_20260328_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4898_20260307_qwen3-vl-8b-thinking.md",
+  "relation": "denies",
+  "claim_text": "- **Reasoning about `epistemics.py` is irrelevant**: The claim's reasoning mentions `epistemics.py`, but this is outside the scope of the specific claim being verified (which is solely about the docstring of `composition.py`).",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "qwen/qwen3-vl-8b-thinking",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-03-28T14:49:28.358231+00:00"
+}

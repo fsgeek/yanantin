@@ -1,0 +1,11 @@
+{
+  "id": "d434ca60-0f8e-42cd-9f94-909b1fd69d4e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8447_20260328_cydonia-24b-v4.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1183_20260217_kimi-k2.5.md",
+  "relation": "confirms",
+  "claim_text": "**Strand 3: Immutability as Architectural Constraint** `tests/red_bar/test_immutability.py` enforces a hard rule: \"A tensor, once written, is never modified.\" Lines 32-37 explicitly assert that the backend lacks `delete_tensor`, `update`, `modify`, or `patch` methods.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "moonshotai/kimi-k2.5",
+  "verified_by": "thedrummer/cydonia-24b-v4.1",
+  "timestamp": "2026-03-28T14:49:30.943521+00:00"
+}

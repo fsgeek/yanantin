@@ -1,0 +1,11 @@
+{
+  "id": "99512b80-93ae-4d93-a760-d9d5e6bac8df",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8389_20260328_ernie-4.5-21b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3952_20260302_qwen-2.5-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The current markdown files in the ai-honesty memory > directory are the prototype.\" ### Reasoning The claim suggests that `tensors.md` is a replacement for `apacheta.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "baidu/ernie-4.5-21b-a3b",
+  "timestamp": "2026-03-28T07:04:41.938137+00:00"
+}

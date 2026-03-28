@@ -1,0 +1,11 @@
+{
+  "id": "34e2c0f6-181a-4c23-a5f8-feef45fe05ff",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8386_20260328_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1785_20260220_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "Are there specific strategies in place for scaling `arango.py` and `duckdb.py`?",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-28T06:33:14.299416+00:00"
+}

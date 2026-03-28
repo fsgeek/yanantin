@@ -1,0 +1,11 @@
+{
+  "id": "ef52e2e7-a18a-4880-9e63-eb59f128c234",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8479_20260328_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1440_20260218_grok-3-mini-beta.md",
+  "relation": "confirms",
+  "claim_text": "Files like `scout_0001_20260210_ministral-3b.md` and `scout_1439_20260218_gemma-3n-e4b-it.md` screamed \"meta!\"\u2014they're self-referential logs of AI wanderings, mirroring my own gig.",
+  "claim_file": "docs/cairn/scout_1439_20260218_gemma-3n-e4b-it.md",
+  "claim_by": "x-ai/grok-3-mini-beta",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-28T19:01:59.868718+00:00"
+}

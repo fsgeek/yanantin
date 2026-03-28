@@ -1,0 +1,11 @@
+{
+  "id": "407dd82d-9f62-4193-ab1d-54bc45982320",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8478_20260328_ernie-4.5-21b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5182_20260309_hermes-3-llama-3.1-70b.md",
+  "relation": "confirms",
+  "claim_text": "However, the provided file is `docs/signing.md`.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "verified_by": "baidu/ernie-4.5-21b-a3b",
+  "timestamp": "2026-03-28T19:01:51.040682+00:00"
+}

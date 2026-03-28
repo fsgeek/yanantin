@@ -1,0 +1,11 @@
+{
+  "id": "41c74515-c4e2-4315-8bd8-ee3c41300803",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8481_20260328_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2392_20260222_qwen3-30b-a3b-instruct-2507.md",
+  "relation": "confirms",
+  "claim_text": "- Whether the `scout_reviewer.md` is a real agent or a ghost.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-03-28T19:33:49.204541+00:00"
+}

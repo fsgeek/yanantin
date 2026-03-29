@@ -1,0 +1,11 @@
+{
+  "id": "45a570ae-b26b-47a0-8f31-7648c1d8311c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8533_20260329_hermes-4-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7134_20260321_trinity-mini.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `src/yanantin/collector/base.py` contains the following classes:   - `CollectorBase`   - `WranglerBase`   - `RecorderBase`   - `FactRecorderBase`   None of these classes are named `ApachetaBaseModel`.",
+  "claim_file": "src/yanantin/collector/base.py",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "nousresearch/hermes-4-70b",
+  "timestamp": "2026-03-29T02:15:41.710233+00:00"
+}

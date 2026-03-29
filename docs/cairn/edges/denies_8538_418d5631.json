@@ -1,0 +1,11 @@
+{
+  "id": "418d5631-9d9f-4299-be55-94c2004a419b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8538_20260329_olmo-3-32b-think.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8322_20260327_nova-micro-v1.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The claim states: \"Declared Losses I chose not to examine the actual source code files mentioned (e.g., `src/yanantin/query/__main__.py` or `src/yanantin/apacheta/backends/duckdb.py`) because the selected files are the scout reports, not the code itself.\" ### Reasoning The file `src/yanantin/apacheta/backends/duckdb.py` provided does not contain any explicit mention of any declared losses or any logic that specifically handles declared losses.",
+  "claim_file": "src/yanantin/query/__main__.py",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "allenai/olmo-3-32b-think",
+  "timestamp": "2026-03-29T02:48:07.938159+00:00"
+}

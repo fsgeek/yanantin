@@ -1,0 +1,11 @@
+{
+  "id": "5159ee21-6d9d-4c52-a2f8-02b41005013b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8534_20260329_cydonia-24b-v4.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7423_20260322_qwen3.5-9b.md",
+  "relation": "confirms",
+  "claim_text": "Only imports `re`, `pathlib.Path`, and `lxml.etree` The claim would require examining `synthetic.py` itself (to see what it imports) and potentially `yanantin/collector/base.py` (to see if it exists and what base.py imports it).",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "thedrummer/cydonia-24b-v4.1",
+  "timestamp": "2026-03-29T02:15:45.192297+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "2486cd38-266c-47e6-b358-786d87c9b4e6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8539_20260329_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4623_20260305_qwen3-30b-a3b-thinking-2507.md",
+  "relation": "confirms",
+  "claim_text": "However, the claim also asserts the presence of `tensor.py` (and other files), but the provided file content does *not* include `tensor.py` or any reference to it.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-03-29T02:48:15.277856+00:00"
+}

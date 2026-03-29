@@ -1,0 +1,11 @@
+{
+  "id": "3820db2b-bc8d-4fcc-b6a4-09416e0051f2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8529_20260329_gpt-4o-mini-search-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6366_20260316_phi-4.md",
+  "relation": "denies",
+  "claim_text": "The claim also references other files (`apacheta.md` and `tensors.md`) which are not provided here.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "openai/gpt-4o-mini-search-preview",
+  "timestamp": "2026-03-29T01:45:38.100190+00:00"
+}

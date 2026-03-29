@@ -1,0 +1,11 @@
+{
+  "id": "e9d814f4-24c0-4b0e-b4a6-54bbf4bd7e9b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8518_20260329_qwen3-next-80b-a3b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3330_20260227_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "**Evidence**: The tests for `parse_tensor_file` and the emphasis on composition declarations in `src/yanantin/apacheta/weaver.py` support this interpretation.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "timestamp": "2026-03-29T00:11:50.059262+00:00"
+}

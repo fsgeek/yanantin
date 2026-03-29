@@ -1,0 +1,11 @@
+{
+  "id": "e2373ce6-8a01-4e35-a092-3f760670f566",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8522_20260329_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5149_20260308_kimi-k2.5.md",
+  "relation": "confirms",
+  "claim_text": "**Reference:** `docs/cairn/scout_1727_20260219_qwen-2.5-vl-7b-instruct.md` (DENIED verdict due to wrong file checked); `docs/cairn/scout_2591_20260223_gemma-3n-e4b-it.md` (CONFIRMED verdict with SourceTensor to scout_1500).",
+  "claim_file": "docs/cairn/scout_2591_20260223_gemma-3n-e4b-it.md",
+  "claim_by": "moonshotai/kimi-k2.5",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-29T00:43:47.687816+00:00"
+}

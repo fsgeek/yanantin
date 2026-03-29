@@ -1,0 +1,11 @@
+{
+  "id": "63b19946-859f-476e-86cb-7a777d392ab6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8523_20260329_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0361_20260213_minimax-m2-her.md",
+  "relation": "denies",
+  "claim_text": "- `scout_0077_20260212_gemini-2.5-flash-lite.md` tests `query_operational_principles`, not metadata.",
+  "claim_file": "docs/cairn/scout_0077_20260212_gemini-2.5-flash-lite.md",
+  "claim_by": "minimax/minimax-m2-her",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-29T00:43:47.878429+00:00"
+}

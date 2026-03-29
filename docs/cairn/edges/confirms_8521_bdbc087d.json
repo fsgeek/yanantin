@@ -1,0 +1,11 @@
+{
+  "id": "bdbc087d-44c7-4bc1-8f47-558d343c930c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8521_20260329_devstral-small.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7799_20260324_qwen3.5-9b.md",
+  "relation": "confirms",
+  "claim_text": "The current markdown files in the ai-honesty memory directory are the prototype.\" > > \"Apacheta formalizes the schema, relations, and query operators that are currently implicit in the file naming and cross-references.\" ### Reasoning The claim asserts that `docs/tensors.md` does not reference `apacheta.md` as a substitution for `tensors.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "mistralai/devstral-small",
+  "timestamp": "2026-03-29T00:43:43.050299+00:00"
+}

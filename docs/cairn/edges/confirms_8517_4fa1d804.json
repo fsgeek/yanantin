@@ -1,0 +1,11 @@
+{
+  "id": "4fa1d804-b16c-4ce3-9d57-31328f99db43",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8517_20260329_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7545_20260323_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The `evolve.py` script is designed to record schema evolution steps, which implies that it is used to track changes to the schema, but not necessarily to merge dissent records.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-03-29T00:11:45.432596+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "dcd96721-31dc-4d2b-b18e-4d52ff610413",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8519_20260329_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0499_20260214_qwen-2.5-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "- **File Example:** `src/yanantin/tinkuy/__main__.py` (Lines 12-32) outlines the entry points for running audits and succession checks, indicating the importance of maintaining consistency and integrity in the codebase.",
+  "claim_file": "src/yanantin/tinkuy/__main__.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-03-29T00:11:50.479178+00:00"
+}

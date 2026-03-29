@@ -1,0 +1,11 @@
+{
+  "id": "b9dbeb82-74db-40db-a3c4-a4bece4ffdb7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8509_20260328_inflection-3-pi.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2102_20260221_ministral-8b-2512.md",
+  "relation": "confirms",
+  "claim_text": "**The broader documentation context**: Other files (e.g., `tensors.md`) reference `T\u2080-T\u2082` as experimental data, implying a **documented lineage**.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "inflection/inflection-3-pi",
+  "timestamp": "2026-03-28T23:09:51.538074+00:00"
+}

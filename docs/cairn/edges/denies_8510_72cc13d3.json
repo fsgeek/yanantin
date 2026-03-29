@@ -1,0 +1,11 @@
+{
+  "id": "72cc13d3-304e-4c32-a370-5ef2f87f486e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8510_20260328_longcat-flash-chat.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7897_20260325_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "try: from yanantin.provenance.timestamp import stamp_commit except ImportError as exc: log.error(\"Cannot import provenance module: %s\", exc) ``` The claim says that `ots_stamp.py` includes `capture_compaction.py`, `chasqui_heartbeat.sh`, `chasqui_pulse.py`, `ots_stamp.py`, `pipeline_attestation.py`, and `precompact_tensor.py`.",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "meituan/longcat-flash-chat",
+  "timestamp": "2026-03-28T23:09:53.106696+00:00"
+}

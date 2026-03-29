@@ -1,0 +1,11 @@
+{
+  "id": "7a3518da-8e08-4530-b6b9-7c171a953248",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8563_20260329_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4874_20260307_deepseek-v3.2-exp.md",
+  "relation": "confirms",
+  "claim_text": "The file content I'm examining is indeed `project.py`, and it contains no references to `compose.py` or any other files, which is consistent with what the claim states about the file content.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "deepseek/deepseek-v3.2-exp",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-03-29T19:48:06.013341+00:00"
+}

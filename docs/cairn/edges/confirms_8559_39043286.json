@@ -1,0 +1,11 @@
+{
+  "id": "39043286-506c-46ec-b237-faeb7152403e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8559_20260329_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5988_20260314_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "The claim states that `src/yanantin/apacheta/clients/openrouter.py` implements `OpenRouterClient` and that `src/yanantin/apacheta/clients/gateway.py` wraps any client behind `ApachetaGatewayClient`.",
+  "claim_file": "src/yanantin/apacheta/clients/gateway.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-29T19:16:09.997011+00:00"
+}

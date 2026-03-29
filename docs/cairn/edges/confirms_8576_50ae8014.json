@@ -1,0 +1,11 @@
+{
+  "id": "50ae8014-72d6-4b24-ac98-14f80a91c0c5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8576_20260329_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3390_20260227_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "Agents like `scout_reviewer.md` and `structured_reviewer.md` reside in the `agents` directory.",
+  "claim_file": "agents/structured_reviewer.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-29T21:20:26.523920+00:00"
+}

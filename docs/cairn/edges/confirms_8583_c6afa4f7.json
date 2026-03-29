@@ -1,0 +1,11 @@
+{
+  "id": "c6afa4f7-88e2-4552-9dde-b3a1e2f38edf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8583_20260329_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1510_20260218_qwen3-32b.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses   - Cannot verify directory structure or presence of other files (e.g., `duckdb.py`, `interface/...`) outside `openrouter.py` because only the content of `openrouter.py` is provided.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-03-29T22:24:10.422642+00:00"
+}

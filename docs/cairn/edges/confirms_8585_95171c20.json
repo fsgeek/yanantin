@@ -1,0 +1,11 @@
+{
+  "id": "95171c20-6d30-4bbe-8137-d5ef718d6747",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8585_20260329_gpt-5-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3817_20260301_nova-micro-v1.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `docs/signing.md` does not contain any references to external documents such as `CLAUDE.md`, `docs/blueprint.md`, `docs/predecessors.md`, `docs/tensors.md`, and `docs/signing.md`.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "openai/gpt-5-nano",
+  "timestamp": "2026-03-29T22:24:36.539414+00:00"
+}

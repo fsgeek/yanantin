@@ -1,0 +1,11 @@
+{
+  "id": "85d09129-6d70-4b0c-bee9-a4b572eef93b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8568_20260329_qwen-plus-2025-07-28.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7756_20260324_grok-3-mini-beta.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The file `docs/apacheta.md` does not explicitly mention or reference a file named `tensors.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "x-ai/grok-3-mini-beta",
+  "verified_by": "qwen/qwen-plus-2025-07-28",
+  "timestamp": "2026-03-29T20:18:15.693084+00:00"
+}

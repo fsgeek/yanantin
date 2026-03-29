@@ -1,0 +1,11 @@
+{
+  "id": "25272aa5-cc5c-4493-ba4f-a86f8fc51fc5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8572_20260329_qwen3-235b-a22b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8230_20260327_deepseek-chat-v3-0324.md",
+  "relation": "confirms",
+  "claim_text": "It enforces rules like:   - Nesting deletions inside insertions when rejecting others' changes (`redlining.py:91`)   - Author attribution checks (`redlining.py:42`)   This implies the system expects documents to be living collaboration artifacts, not static files.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/redlining.py",
+  "claim_by": "deepseek/deepseek-chat-v3-0324",
+  "verified_by": "qwen/qwen3-235b-a22b",
+  "timestamp": "2026-03-29T20:50:47.981554+00:00"
+}

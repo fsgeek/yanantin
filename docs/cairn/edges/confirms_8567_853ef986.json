@@ -1,0 +1,11 @@
+{
+  "id": "853ef986-f850-412e-bda1-fc1cfbccd4e3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8567_20260329_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0096_20260212_ernie-4.5-21b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "This suggests that in the Yanantin project, tests are seen as active enforcers of design, which aligns with the idea that the test file `test_tinkuy_audit.py` is indeed \"implementing\" the enforcement of those invariants.",
+  "claim_file": "tests/unit/test_tinkuy_audit.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-03-29T20:18:13.589725+00:00"
+}

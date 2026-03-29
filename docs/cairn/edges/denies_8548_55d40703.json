@@ -1,0 +1,11 @@
+{
+  "id": "55d40703-12ed-4236-b7a6-8c71d45163de",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8548_20260329_qwen3-vl-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7841_20260325_devstral-2512.md",
+  "relation": "denies",
+  "claim_text": "**Frequency of `chasqui_pulse.py`**: - The file does not explicitly state its own execution frequency.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "mistralai/devstral-2512",
+  "verified_by": "qwen/qwen3-vl-8b-instruct",
+  "timestamp": "2026-03-29T17:44:57.025873+00:00"
+}

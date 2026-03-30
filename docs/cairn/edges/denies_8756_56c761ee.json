@@ -1,0 +1,11 @@
+{
+  "id": "56c761ee-f240-4d75-8b1d-700755ccd57d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8756_20260330_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4471_20260305_gemini-2.5-flash-lite-preview-.md",
+  "relation": "denies",
+  "claim_text": "\"\"\" edge = CompositionEdge( from_tensor=from_tensor, to_tensor=to_tensor, relation_type=RelationType.COMPOSES_WITH, ordering=ordering, authored_mapping=authored_mapping, provenance=provenance or ProvenanceEnvelope(), ) interface.store_composition_edge(edge) return edge ``` ### Reasoning The claim states: \"> | | **Operator pipeline** | `src/yanantin/apacheta/operators` contains `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, `project.py`.\" I have been provided only the content of `src/yanantin/apacheta/operators/compose.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-03-30T21:23:25.674412+00:00"
+}

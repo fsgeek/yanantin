@@ -1,0 +1,11 @@
+{
+  "id": "cdf0e2b8-0922-4546-92a1-0a60843e96be",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8752_20260330_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8643_20260330_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim explicitly states: > *\"I skipped the internals of `src/yanantin/chasqui/scout.py`, `compose.py`, `correct.py`, `evolve.py`, and the scoring algorithm in `scorer.py`.\"* From the provided `scorer.py`, **the entire file is fully exposed and analyzed**\u2014including: 1.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-30T20:51:26.529871+00:00"
+}

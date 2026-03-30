@@ -1,0 +1,11 @@
+{
+  "id": "a1fdc6c7-0918-4659-a6dc-55aa7cd89523",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8755_20260330_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4361_20260304_intellect-3.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning   The claim explicitly concerns a different file (`content_address.py`) than the one provided (`provenance.py`).",
+  "claim_file": "src/yanantin/apacheta/content_address.py",
+  "claim_by": "prime-intellect/intellect-3",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-03-30T21:23:25.414393+00:00"
+}

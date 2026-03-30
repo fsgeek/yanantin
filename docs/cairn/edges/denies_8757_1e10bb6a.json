@@ -1,0 +1,11 @@
+{
+  "id": "1e10bb6a-838b-4f3c-8a8b-31b907a40e65",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8757_20260330_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1332_20260218_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "For example, `docs/cairn/scout_1145_20260217_llama-guard-4-12b.md` **denied** a claim about `CLAUDE.md`\u2019s content, but it didn\u2019t **explore why** the scout thought it was a directive.",
+  "claim_file": "docs/cairn/scout_1145_20260217_llama-guard-4-12b.md",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-03-30T21:23:35.564248+00:00"
+}

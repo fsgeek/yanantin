@@ -1,0 +1,11 @@
+{
+  "id": "b44e06aa-744c-4b79-9508-61bcf5e62377",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8751_20260330_rnj-1-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6587_20260318_qwen-plus-2025-07-28:thinking.md",
+  "relation": "denies",
+  "claim_text": "Specifically: - The claim references `predecessors.md`, but `apacheta.md` contains no mention of any file named `predecessors.md` - No section discusses substitution of `apacheta.md` or `tensors.md` - No reference to anything being \"invented\" - Yanantin is never mentioned (though Indaleko and Mallku appear in technical contexts) Relevant excerpts showing absence of claimed content: ``` # Apacheta: The Tensor Database [...] ## Properties [...] ### Lineage Tracking Tensors belong to lineages (tensor spaces): the experimental sequence (T\u2080-T\u2082), the Mallku lineage (T\u2083), the cross-model sequence (T\u2084-T\u2085), bridge tensors (T\u2086), and composite tensors (T\u2087).",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "qwen/qwen-plus-2025-07-28:thinking",
+  "verified_by": "essentialai/rnj-1-instruct",
+  "timestamp": "2026-03-30T20:51:20.800042+00:00"
+}

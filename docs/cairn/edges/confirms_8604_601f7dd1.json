@@ -1,0 +1,11 @@
+{
+  "id": "601f7dd1-8833-4fb2-b911-8bf7fa33c42e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8604_20260330_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2856_20260225_gpt-4.1-mini.md",
+  "relation": "confirms",
+  "claim_text": "**OpenRouterClient and API Key Handling** One scout file (`scout_0359_20260213_olmo-3-32b-think.md`) confirms tests for `OpenRouterClient` checking for:   - Mandatory API key enforcement (raising `ValueError` if missing).",
+  "claim_file": "docs/cairn/scout_0359_20260213_olmo-3-32b-think.md",
+  "claim_by": "openai/gpt-4.1-mini",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-30T01:04:26.249234+00:00"
+}

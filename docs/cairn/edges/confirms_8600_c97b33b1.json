@@ -1,0 +1,11 @@
+{
+  "id": "c97b33b1-7908-448d-9f28-76d883c13b4b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8600_20260330_deepseek-v3.2-exp.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8437_20260328_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `tests/red_bar/test_immutability.py` contains tests that confirm the immutability of tensors and edges in the system being tested.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "deepseek/deepseek-v3.2-exp",
+  "timestamp": "2026-03-30T00:30:53.222709+00:00"
+}

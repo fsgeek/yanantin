@@ -1,0 +1,11 @@
+{
+  "id": "9d6c3e09-699c-4856-afc0-7d295c160ace",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8599_20260330_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3759_20260301_hermes-2-pro-llama-3-8b.md",
+  "relation": "confirms",
+  "claim_text": "My attention was first drawn to the absence of the `test_chasqui_files_non_empty` claim in `coordinator.py`.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-03-30T00:30:47.418061+00:00"
+}

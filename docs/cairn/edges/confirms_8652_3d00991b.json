@@ -1,0 +1,11 @@
+{
+  "id": "3d00991b-d697-44fb-897f-f157ad5a55a8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8652_20260330_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2895_20260225_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "For example, `scout_2496_20260223_ernie-4.5-21b-a3b-thinking.md` *verifies a claim* about `docs/blueprint.md`, and `scout_1075_20260217_qwen3-vl-8b-instruct.md` verifies a claim about `memory.py`.",
+  "claim_file": "docs/cairn/scout_1075_20260217_qwen3-vl-8b-instruct.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-03-30T07:20:05.888245+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "d25dc0ad-fa5b-4f2e-89fc-383200ab8b45",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8656_20260330_qwen3.5-plus-02-15.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0110_20260212_cydonia-24b-v4.1.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The claim states: \"Watch how `weaver.py` merges styles.\" The file `weaver.py` contains no explicit mention of merging styles.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "thedrummer/cydonia-24b-v4.1",
+  "verified_by": "qwen/qwen3.5-plus-02-15",
+  "timestamp": "2026-03-30T07:50:07.151421+00:00"
+}

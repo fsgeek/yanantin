@@ -1,0 +1,11 @@
+{
+  "id": "18c2b1b3-41a6-493d-9dfb-8682d9cd6613",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8657_20260330_minimax-m2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1837_20260220_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "I agree with this assessment, as the documentation in `docs/cairn/scout_0905_20260216_lfm-2.2-6b.md` explicitly states that the schema is \"practice-derived\" and provides details about the schema's structure.",
+  "claim_file": "docs/cairn/scout_0905_20260216_lfm-2.2-6b.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "minimax/minimax-m2",
+  "timestamp": "2026-03-30T07:50:08.274054+00:00"
+}

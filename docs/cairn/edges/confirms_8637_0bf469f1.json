@@ -1,0 +1,11 @@
+{
+  "id": "0bf469f1-09bc-4bcb-9150-bdfb04d98f85",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8637_20260330_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7501_20260323_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The evidence confirms that the `succession.py` file is connected to the `scout.py` file through the `yanantin.tinkuy.audit` module, which is used to generate the `report` variable.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-03-30T05:17:20.574866+00:00"
+}

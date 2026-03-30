@@ -1,0 +1,11 @@
+{
+  "id": "fe2c991b-c92a-4bdf-a1ae-9aa7375daa56",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8633_20260330_llama-3.3-nemotron-super-49b-v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0886_20260216_grok-3-mini-beta.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict DENIED ### Evidence From the file `docs/cairn/scout_0411_20260214_qwen-2.5-7b-instruct.md`, the following sections directly contradict the claim by delving into the specifics of immutability tests: - In the \"Evidence\" section:   ``` The file `tests/red_bar/test_immutability.py` contains the following comments and code: ```python \"\"\"Red-bar test: Immutability invariant.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "x-ai/grok-3-mini-beta",
+  "verified_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "timestamp": "2026-03-30T04:44:48.693542+00:00"
+}

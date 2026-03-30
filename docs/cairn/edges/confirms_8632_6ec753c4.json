@@ -1,0 +1,11 @@
+{
+  "id": "6ec753c4-33a1-4247-82f9-435de82f0076",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8632_20260330_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3789_20260301_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "The claim references behavior inferred from other files (`models/tensor.py`) and test files which are not provided in this task.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-03-30T04:43:48.511901+00:00"
+}

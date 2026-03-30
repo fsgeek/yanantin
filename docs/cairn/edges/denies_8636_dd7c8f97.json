@@ -1,0 +1,11 @@
+{
+  "id": "dd7c8f97-275c-4363-a50e-28dc44846507",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8636_20260330_longcat-flash-chat.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4429_20260304_rocinante-12b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim is accurate because the provided file contains a function `check_succession` that interacts with `scout.py` through `CodebaseReport` and `yanantin.awaq.weaver` to compare the blueprint claims against the audit reality and check for orphan tensors.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "thedrummer/rocinante-12b",
+  "verified_by": "meituan/longcat-flash-chat",
+  "timestamp": "2026-03-30T05:16:50.129380+00:00"
+}

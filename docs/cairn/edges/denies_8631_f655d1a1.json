@@ -1,0 +1,11 @@
+{
+  "id": "f655d1a1-796d-492e-8758-e8a7c972a1c8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8631_20260330_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3741_20260301_rnj-1-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states that the Gemini model \"did not read the content of `docs/blueprint.md` or `docs/predecessors.md`, despite being explicitly told to read the former in `CLAUDE.md`.\" However, the code provided in `src/yanantin/apacheta/backends/arango.py` does not contain any references or mentions of `docs/blueprint.md` or `docs/predecessors.md`.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "essentialai/rnj-1-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-30T04:43:46.466319+00:00"
+}

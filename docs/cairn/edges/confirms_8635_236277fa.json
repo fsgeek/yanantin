@@ -1,0 +1,11 @@
+{
+  "id": "236277fa-a838-46c3-a5e4-b1eae9bc3f5c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8635_20260330_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0820_20260216_qwen3-vl-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "For example, `docs/cairn/scout_0630_20260215_granite-4.0-h-micro.md` includes a JSON preamble with \u201cstrands,\u201d \u201cdeclared_losses,\u201d and \u201copen_questions,\u201d which is a meta-structure that mirrors the tensor sequence\u2019s design.",
+  "claim_file": "docs/cairn/scout_0630_20260215_granite-4.0-h-micro.md",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-30T05:16:48.505770+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "f753701b-5a9f-4b77-83af-67b58a587645",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8761_20260330_qwen3-coder-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3074_20260225_gpt-oss-120b.md",
+  "relation": "confirms",
+  "claim_text": "--- ### Declared Losses   I deliberately **did not** dive into the unrelated scout reports concerning other files (e.g., `src/yanantin/apacheta/interface/errors.py`, `test_arango_real.py`, or the introspection `chasqui` module).",
+  "claim_file": "src/yanantin/apacheta/interface/errors.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "qwen/qwen3-coder-flash",
+  "timestamp": "2026-03-30T21:56:20.119116+00:00"
+}

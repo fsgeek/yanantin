@@ -1,0 +1,11 @@
+{
+  "id": "864bf9ea-9f48-4456-9a73-c5969ab300bc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8765_20260330_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5564_20260311_command-r7b-12-2024.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The file `docs/cairn/scout_0311_20260213_mistral-7b-instruct-v0.2.md` does not contain the code for the `mistral-7b-instruct-v0.2` model itself, nor does it contain the implementation of the `ImmutabilityError` in `arango.py`.",
+  "claim_file": "docs/cairn/scout_0311_20260213_mistral-7b-instruct-v0.2.md",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-03-30T22:27:41.091599+00:00"
+}

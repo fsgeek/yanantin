@@ -1,0 +1,11 @@
+{
+  "id": "a107f219-1618-4ec4-8af4-81c4e71ca550",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8764_20260330_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4338_20260304_ernie-4.5-21b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "\"\"\" ``` ### Reasoning The file explicitly describes the functionality of the `chasqui_pulse.py` script, including its periodic execution via cron (every 5-10 minutes), its triggers for various actions (code changes, minimum heartbeat intervals, periodic scours, digests, OTS upgrades, and work queue processing), and its internal state management via `.claude/heartbeat_state.json` and `.claude/work_queue.json`.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-03-30T22:27:22.720599+00:00"
+}

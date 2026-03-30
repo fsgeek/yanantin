@@ -1,0 +1,11 @@
+{
+  "id": "cd1c553f-0464-4ddc-9eb9-1d17245df27a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8643_20260330_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0880_20260216_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "- **Scouter Core Logic** \u2013 I skipped the internals of `src/yanantin/chasqui/scout.py`, `compose.py`, `correct.py`, `evolve.py`, and the scoring algorithm in `scorer.py`.",
+  "claim_file": "src/yanantin/chasqui/scorer.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-03-30T06:17:56.139520+00:00"
+}

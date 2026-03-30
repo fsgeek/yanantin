@@ -1,0 +1,11 @@
+{
+  "id": "494bf5b4-a296-4213-8a5a-acde803e38d8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8645_20260330_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5781_20260313_olmo-3-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### The File in Question (`src/yanantin/chasqui/scout.py`) Below is the relevant excerpt of the file, including line 11 (the start of the `__main__` block): ``` \"\"\" Scout dispatch \u2014 send a messenger into the codebase.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "allenai/olmo-3-7b-instruct",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-03-30T06:18:01.274021+00:00"
+}

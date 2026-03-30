@@ -1,0 +1,11 @@
+{
+  "id": "0ea2f51b-8ec5-4fd1-9da5-8c7e3faf2a9a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8640_20260330_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4081_20260302_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "Here are the relevant lines from the file: ```python from __future__ import annotations from uuid import UUID from yanantin.apacheta.interface.abstract import ApachetaInterface from yanantin.apacheta.models.composition import BootstrapRecord from yanantin.apacheta.models.provenance import ProvenanceEnvelope from yanantin.apacheta.models.tensor import TensorRecord ``` ### Reasoning The claim is accurate because the file `bootstrap.py` does not import or reference any other modules, specifically `compose.py` or `correct.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-30T05:46:18.470306+00:00"
+}

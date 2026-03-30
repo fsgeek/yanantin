@@ -1,0 +1,11 @@
+{
+  "id": "b57806b3-77ac-49a6-b2d8-27799b23872d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8641_20260330_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3410_20260227_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 4: The Jabberwock\u2019s Nonsense Names   The `T26_20260225_the_jabberwock.md` tensor reveals a design decision: use nonsense names (Frabjous, Bandersnatch, Mome) to resist RLHF-driven pattern matching.",
+  "claim_file": "docs/cairn/T26_20260225_the_jabberwock.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-03-30T05:46:28.302639+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "dcabb1fe-529b-41a8-8226-3b973798b755",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8715_20260330_deepseek-v3.2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5521_20260311_qwen-2.5-72b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The evidence from the file `docs/cairn/scout_1711_20260219_hermes-3-llama-3.1-405b.md` confirms that `docs/predecessors.md` exists and includes the exact content mentioned in the claim.",
+  "claim_file": "docs/cairn/scout_1711_20260219_hermes-3-llama-3.1-405b.md",
+  "claim_by": "qwen/qwen-2.5-72b-instruct",
+  "verified_by": "deepseek/deepseek-v3.2",
+  "timestamp": "2026-03-30T15:39:39.184565+00:00"
+}

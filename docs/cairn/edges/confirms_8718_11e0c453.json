@@ -1,0 +1,11 @@
+{
+  "id": "11e0c453-990c-43fb-ba33-bdbd7b451bae",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8718_20260330_gpt-3.5-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7392_20260322_hermes-3-llama-3.1-70b.md",
+  "relation": "confirms",
+  "claim_text": "The `element_discovery.py` file shows how to discover buttons, links, and input fields on a web page.",
+  "claim_file": "tmp/ubuntu-vm.claude/webapp-testing/examples/element_discovery.py",
+  "claim_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "verified_by": "openai/gpt-3.5-turbo",
+  "timestamp": "2026-03-30T16:09:41.623874+00:00"
+}

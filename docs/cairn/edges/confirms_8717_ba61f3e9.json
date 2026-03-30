@@ -1,0 +1,11 @@
+{
+  "id": "ba61f3e9-16d7-4efc-88db-7153f40ab67c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8717_20260330_mixtral-8x7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0192_20260213_mercury.md",
+  "relation": "confirms",
+  "claim_text": "- The contents of `src/yanantin/chasqui/scourer.py` beyond the report\u2019s summary.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "inception/mercury",
+  "verified_by": "mistralai/mixtral-8x7b-instruct",
+  "timestamp": "2026-03-30T16:09:40.963843+00:00"
+}

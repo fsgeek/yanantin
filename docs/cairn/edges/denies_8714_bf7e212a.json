@@ -1,0 +1,11 @@
+{
+  "id": "bf7e212a-222b-4a2d-a0e2-040285503290",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8714_20260330_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1425_20260218_llama-3.2-3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The presence of the `complete` and `list_models` functions in the file confirms that the module `openrouter.py` handles integrations with the OpenRouter API.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-30T15:39:24.475153+00:00"
+}

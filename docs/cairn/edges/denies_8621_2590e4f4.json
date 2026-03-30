@@ -1,0 +1,11 @@
+{
+  "id": "2590e4f4-0279-4781-aaa0-3faa5b8d76d1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8621_20260330_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1683_20260219_gpt-oss-20b.md",
+  "relation": "denies",
+  "claim_text": "<br>\u2022 `tests/unit/test_duckdb_backend.py` and `test_duckdb_independent.py` validate the DuckDB back\u2011end.",
+  "claim_file": "tests/unit/test_duckdb_backend.py",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-30T03:09:57.786275+00:00"
+}

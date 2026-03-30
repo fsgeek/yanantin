@@ -1,0 +1,11 @@
+{
+  "id": "89fbf74e-9aee-4def-921b-915a787c44dd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8619_20260330_gemma-2-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7276_20260322_gemini-2.0-flash-lite-001.md",
+  "relation": "denies",
+  "claim_text": "### Closing The `code-review.md` file reveals a sophisticated and well-defined system for automated code reviews.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/code-review/commands/code-review.md",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "google/gemma-2-27b-it",
+  "timestamp": "2026-03-30T03:09:38.349612+00:00"
+}

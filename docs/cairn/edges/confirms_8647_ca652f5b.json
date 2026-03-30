@@ -1,0 +1,11 @@
+{
+  "id": "ca652f5b-c1e8-4009-8f70-66b0c542450a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8647_20260330_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7737_20260324_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Preamble My vantage point is the `src/yanantin/jabberwock/brillig.py` file, specifically the `__init__` block and the `bootstrap` method.",
+  "claim_file": "src/yanantin/jabberwock/brillig.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-03-30T06:47:56.577139+00:00"
+}

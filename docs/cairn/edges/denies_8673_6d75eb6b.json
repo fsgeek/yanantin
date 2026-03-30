@@ -1,0 +1,11 @@
+{
+  "id": "6d75eb6b-8f03-4833-8c47-57506caf6869",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8673_20260330_gpt-4.1-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3113_20260226_qwen3-30b-a3b-thinking-2507.md",
+  "relation": "denies",
+  "claim_text": "### Strand 2: The Mysterious .ots Files *What I saw*: - 2500+ `.ots` files in `ots/` with names like `0005f03cf1.ots`, `07b10d0dea.ots` - In `scout_1683_20260219_gpt-oss-20b.md`, the author asks: \"What exactly is stored in the `.ots` files?\" - The files are binary blobs with no obvious structure or naming logic *What it made me think*: These aren't documentation artifacts\u2014they're the *system's memory*.",
+  "claim_file": "docs/cairn/scout_1683_20260219_gpt-oss-20b.md",
+  "claim_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "verified_by": "openai/gpt-4.1-nano",
+  "timestamp": "2026-03-30T09:54:06.074481+00:00"
+}

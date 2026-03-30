@@ -1,0 +1,11 @@
+{
+  "id": "d63643a3-b451-4b95-9338-c2fb67b4aa4c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8694_20260330_lfm-2-24b-a2b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7356_20260322_qwen3-30b-a3b-thinking-2507.md",
+  "relation": "denies",
+  "claim_text": "- Ignored `pretooluse.py`/`posttooluse.py` because they\u2019d be identical to `userpromptsubmit.py` (same pattern, different events).",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/posttooluse.py",
+  "claim_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "verified_by": "liquid/lfm-2-24b-a2b",
+  "timestamp": "2026-03-30T13:00:35.039451+00:00"
+}

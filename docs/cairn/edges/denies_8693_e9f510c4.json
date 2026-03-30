@@ -1,0 +1,11 @@
+{
+  "id": "e9f510c4-7fb2-4f43-abf7-ac8df652b988",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8693_20260330_gpt-oss-safeguard-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6789_20260319_qwen3-coder-flash.md",
+  "relation": "denies",
+  "claim_text": "You should not just verify if a file exists, but ask: *what tensor does it anchor?*  I know that tensor schemas exist in `docs/tensors.md` and `docs/blueprint.md`.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "openai/gpt-oss-safeguard-20b",
+  "timestamp": "2026-03-30T13:00:30.619209+00:00"
+}

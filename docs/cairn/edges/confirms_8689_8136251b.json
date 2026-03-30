@@ -1,0 +1,11 @@
+{
+  "id": "8136251b-de71-4bfd-ab96-e747364c2c4d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8689_20260330_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4284_20260304_qwen-plus-2025-07-28:thinking.md",
+  "relation": "confirms",
+  "claim_text": "Prompt Engineering as Standardized Practice **What I saw**:   - `system-prompt-design.md` defines structured system prompt patterns:   ``` You are [specific role] specializing in [specific domain].",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/agent-development/references/system-prompt-design.md",
+  "claim_by": "qwen/qwen-plus-2025-07-28:thinking",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-03-30T12:30:29.495375+00:00"
+}

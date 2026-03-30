@@ -1,0 +1,11 @@
+{
+  "id": "295e14f0-8774-44c4-8ee3-849bfc431950",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8690_20260330_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6168_20260315_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "I would recommend that the next scout prioritize exploring the `data/compaction_experiment/` directory and the `tmp/ubuntu-vm.claude/slack-gif-creator/templates/zoom.py` file to gain a deeper understanding of these aspects of the project.",
+  "claim_file": "tmp/ubuntu-vm.claude/slack-gif-creator/templates/zoom.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-03-30T12:30:30.918373+00:00"
+}

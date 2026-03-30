@@ -1,0 +1,11 @@
+{
+  "id": "7a0655fa-9960-4a25-8ca0-c7c64bcccd5a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8667_20260330_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0351_20260213_llama-3.3-nemotron-super-49b-v.md",
+  "relation": "denies",
+  "claim_text": "However, `docs/cairn/T13_20260211_the_gradient.md` explicitly states:   > *\"Tensor ballot mechanism built: atomic numbering via O_CREAT|O_EXCL, same bakery algorithm as scout numbering.\"*   This suggests the implementation resides elsewhere in the codebase, likely in the tensor ballot or Chasqui coordination logic (e.g., `src/yanantin/apacheta` or `src/yanantin/chasqui`).",
+  "claim_file": "docs/cairn/T13_20260211_the_gradient.md",
+  "claim_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-03-30T09:24:01.594820+00:00"
+}

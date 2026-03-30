@@ -1,0 +1,11 @@
+{
+  "id": "1c66ed8e-6608-42c4-b1d5-6c27265ff683",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8665_20260330_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8241_20260327_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "The Tensor as Witness, Not Oracle**   > The claim that the project \u201ccontains `weaver.py`, `__main__.py` \u2014 but not `apacheta.md`\u201d is verified, yet deepens a paradox...",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-03-30T08:51:56.015758+00:00"
+}

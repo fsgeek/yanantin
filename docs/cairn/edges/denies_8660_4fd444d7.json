@@ -1,0 +1,11 @@
+{
+  "id": "4fd444d7-604d-424b-bd41-670fc8ff3650",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8660_20260330_qwen3-next-80b-a3b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0943_20260216_qwen3-vl-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The `awaq` module, which contains `materialize.py` and `weaver.py`, suggests a system for creating and weaving new tensors.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "verified_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "timestamp": "2026-03-30T08:22:30.569218+00:00"
+}

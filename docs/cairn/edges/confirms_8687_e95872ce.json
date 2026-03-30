@@ -1,0 +1,11 @@
+{
+  "id": "e95872ce-7c78-40c5-8acd-9f22fa63e648",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8687_20260330_nemotron-nano-12b-v2-vl.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0655_20260215_mistral-small-3.1-24b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `src/yanantin/chasqui/scout.py` does not contain a function named `test_chasqui_files_non_empty(...)`.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "nvidia/nemotron-nano-12b-v2-vl",
+  "timestamp": "2026-03-30T11:58:06.849600+00:00"
+}

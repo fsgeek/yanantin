@@ -1,0 +1,11 @@
+{
+  "id": "cd15c16b-901e-4e12-89f3-60792f4918ee",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8683_20260330_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8144_20260326_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file describes the content as: ``` ``` And contains JSON metadata about model costs and token usage, but **nothing** about the claimed tests (`tests/red_bar/test_provenance.py`).",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-03-30T11:29:10.512458+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "93cc1837-ef7b-408b-83d8-ec6b6146ec62",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8685_20260330_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5252_20260309_qwen3-coder-flash.md",
+  "relation": "denies",
+  "claim_text": "The Compositional Operators: A Language of Belief Relations **What I saw:** - In `src/yanantin/apacheta/operators/`, there are several files: `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, `project.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-03-30T11:29:38.495504+00:00"
+}

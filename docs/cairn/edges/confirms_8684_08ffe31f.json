@@ -1,0 +1,11 @@
+{
+  "id": "08ffe31f-38d4-4583-9a09-036c990ba2f4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8684_20260330_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5858_20260313_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "It feels like a self-documenting, self-correcting system in its nascent stages.\", \"strands\": [ { \"name\": \"The Hallucination Gene Pool: Duplicated Falsehoods\", \"observations\": [ \"Scouts `docs/cairn/scout_2539_20260223_gpt-oss-120b:exacto.md` and `docs/cairn/scout_3464_20260227_qwen3-vl-32b-instruct.md` both address a claim about the non-existence of `docs/predecessors.md`.\", \"Scout `scout_2539` correctly DENIED this claim, providing evidence that the file *does* exist.\", \"Scout `scout_3464`, reviewing a *different* file, also mentions that *multiple* scouts (including Gemini-flash and Voxtral-small) issued the same false claim, implying a systemic issue.\", \"Scout `scout_2169` (openai/o1) found a contradiction within its *own* report: it claimed to have not examined `epistemics.py` but then quoted its contents.",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-03-30T11:29:17.178703+00:00"
+}

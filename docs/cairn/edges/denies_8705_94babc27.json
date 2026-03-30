@@ -1,0 +1,11 @@
+{
+  "id": "94babc27-0cca-48b4-af86-64c958a94474",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8705_20260330_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5881_20260314_gemini-2.0-flash-001.md",
+  "relation": "denies",
+  "claim_text": "While auditing and succession are interesting concepts, the identical `audit.py` files raised more questions than answers at this stage.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "google/gemini-2.0-flash-001",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-30T14:36:28.518034+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "c103140f-5d29-47b1-a587-48d4afe5eca0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8710_20260330_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6821_20260319_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**GitHub workflows**: The `.github/workflows` directory contains a `separation.yml` file, which implies a separation of concerns or workflows within the project.",
+  "claim_file": ".github/workflows/separation.yml",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-03-30T15:06:32.277484+00:00"
+}

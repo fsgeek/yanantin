@@ -1,0 +1,11 @@
+{
+  "id": "0abe98d4-485f-43b8-a3f5-2856b94d2a73",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8709_20260330_hermes-4-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5936_20260314_gemma-3-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "While the provided file is `src/yanantin/chasqui/scout.py`, the code defines the `format_verify_prompt` function.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "nousresearch/hermes-4-70b",
+  "timestamp": "2026-03-30T15:06:27.581543+00:00"
+}

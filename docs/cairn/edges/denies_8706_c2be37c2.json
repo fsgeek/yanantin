@@ -1,0 +1,11 @@
+{
+  "id": "c2be37c2-8211-40a2-a464-6e399f44e475",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8706_20260330_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2879_20260225_gpt-4o-mini-2024-07-18.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I chose not to respond to the examination of `tests/unit/test_ingest.py` and `rummage.py`.",
+  "claim_file": "src/yanantin/apacheta/rummage.py",
+  "claim_by": "openai/gpt-4o-mini-2024-07-18",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-30T14:36:31.746996+00:00"
+}

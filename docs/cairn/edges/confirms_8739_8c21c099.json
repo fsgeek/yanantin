@@ -1,0 +1,11 @@
+{
+  "id": "8c21c099-ede9-4a94-ae75-2124b876e7e0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8739_20260330_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2539_20260223_gpt-oss-120b:exacto.md",
+  "relation": "confirms",
+  "claim_text": "Interaction with Other Files in the Tensor Set**   - The other selected files (e.g., `src/yanantin/apacheta/interface/abstract.py`, `tests/unit/test_duckdb_independent.py`) are unrelated to `docs/predecessors.md`.",
+  "claim_file": "src/yanantin/apacheta/interface/abstract.py",
+  "claim_by": "openai/gpt-oss-120b:exacto",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-30T19:16:48.169424+00:00"
+}

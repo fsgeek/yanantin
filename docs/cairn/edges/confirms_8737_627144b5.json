@@ -1,0 +1,11 @@
+{
+  "id": "627144b5-5ef9-4f16-b7ef-32800621a911",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8737_20260330_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0422_20260214_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence Lines 13-18 of `model_selector.py` describe the cost weighting used in the `select()` method: ```python # Inverse cost weighting.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-03-30T18:46:48.868829+00:00"
+}

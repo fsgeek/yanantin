@@ -1,0 +1,11 @@
+{
+  "id": "02a97a4b-dbef-4824-9e09-3cdd0b96f15e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8740_20260330_mistral-small-2603.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1134_20260217_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "(Line 39-53)\", \"Scoring and Verification Mechanisms\": \"The documents `docs/cairn/scout_0137_20260212_mistral-nemo.md` and `docs/cairn/scout_0768_20260215_llama-3.3-nemotron-super-49b-v.md` discuss scoring axes and verification logic, indicating a sophisticated method for evaluating the quality and authenticity of tensors.",
+  "claim_file": "docs/cairn/scout_0768_20260215_llama-3.3-nemotron-super-49b-v.md",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "mistralai/mistral-small-2603",
+  "timestamp": "2026-03-30T19:16:48.258079+00:00"
+}

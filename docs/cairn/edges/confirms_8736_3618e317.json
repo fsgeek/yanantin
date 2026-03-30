@@ -1,0 +1,11 @@
+{
+  "id": "3618e317-c53e-4dd2-8ad8-aeebece36445",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8736_20260330_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1227_20260217_llama-3.2-3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states that the test philosophy is evident in `tests/unit/test_ingest.py` and `tests/unit/test_renderer.py`, where tests validate that renderers produce correct markdown and parsers extract tensors accurately.",
+  "claim_file": "tests/unit/test_ingest.py",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-03-30T18:46:47.203683+00:00"
+}

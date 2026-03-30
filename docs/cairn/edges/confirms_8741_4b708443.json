@@ -1,0 +1,11 @@
+{
+  "id": "4b708443-5669-4e14-a263-a50d07c92cc1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8741_20260330_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7291_20260322_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "It uses the `inventory.py` module to extract text inventory from the presentation and then applies replacements based on a JSON file containing the replacement rules.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/scripts/inventory.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-30T19:17:17.754168+00:00"
+}

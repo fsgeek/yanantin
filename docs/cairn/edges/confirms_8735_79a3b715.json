@@ -1,0 +1,11 @@
+{
+  "id": "79a3b715-5fdb-457c-89a4-f29e7c135fdb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8735_20260330_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4296_20260304_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "**Text Extraction from PowerPoint**: The main focus of `inventory.py` is extracting structured text content from PowerPoint presentations.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/scripts/inventory.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-30T18:46:46.430877+00:00"
+}

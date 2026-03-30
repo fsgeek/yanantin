@@ -1,0 +1,11 @@
+{
+  "id": "a569acba-986c-4158-af0e-b8adfc0e63a8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8727_20260330_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4871_20260307_gpt-4.1-nano.md",
+  "relation": "denies",
+  "claim_text": "The presence of cryptographic hashes (e.g., in `file-history`) hints at integrity and provenance tracking.\", \"thought\": \"This suggests a system built for epistemic observability, where every change, decision, and interaction is logged for auditability and traceability, crucial for epistemic reliability.\" }, { \"name\": \"Explicit References to Schema and Evolution\", \"observation\": \"In `src/yanantin/apacheta/models/evolve.py`, the function records schema evolution, and in `docs/cairn/` there's a document `composition_graph.dot` and `schema_evolution.md`.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-30T17:44:44.851564+00:00"
+}

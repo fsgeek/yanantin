@@ -1,0 +1,11 @@
+{
+  "id": "fa6d3467-a670-4e93-b573-e86ea2846b11",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8724_20260330_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5327_20260310_qwen3-vl-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "But the **evidence in the file does not support** the existence of `duckdb.py` or `arango.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-30T17:11:46.722034+00:00"
+}

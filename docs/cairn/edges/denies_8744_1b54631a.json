@@ -1,0 +1,11 @@
+{
+  "id": "1b54631a-0da0-44b2-a2a7-a1ebf55c96ed",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8744_20260330_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8216_20260327_gemma-3-27b-it.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The claim states: \"The file contains multiple references to other files: `docs/blueprint.md`, `docs/predecessors.md`, `docs/tensors.md`, and `docs/signing.md` are mentioned in the first paragraph.\" However, the first paragraph of the file is: ``` # Code Signing ## Principle Every commit carries provenance.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-30T19:48:48.583513+00:00"
+}

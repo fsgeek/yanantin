@@ -1,0 +1,11 @@
+{
+  "id": "c980802f-88d6-45ff-9a44-d4f95ea1f693",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8749_20260330_deepseek-r1-distill-qwen-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3023_20260225_ministral-8b-2512.md",
+  "relation": "confirms",
+  "claim_text": "- The `apacheta/` directory contains a **tensor database framework**, with modules for: - **Backends** (`arango.py`, `duckdb.py`, `memory.py`) - **Clients** (`gateway.py`, `openrouter.py`) - **Ingest** (`markdown_parser.py`, `tensor_ballot.py`) - **Models** (`composition.py`, `tensor.py`, `entities.py`) - **Operators** (`compose.py`, `correct.py`, `dissent.py`, etc.) - The `apacheta/` directory suggests a **formalized schema** for tensors, composition, and query operators, as hinted in scout reports.",
+  "claim_file": "src/yanantin/apacheta/ingest/tensor_ballot.py",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "timestamp": "2026-03-30T20:19:05.568022+00:00"
+}

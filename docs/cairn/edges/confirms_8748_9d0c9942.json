@@ -1,0 +1,11 @@
+{
+  "id": "9d0c9942-c92f-42a8-9a1f-e8d0c698fc68",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8748_20260330_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4263_20260303_olmo-3.1-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "No evidence is present in this file to suggest that the model did verify `coordinator.py` itself or `tinkuy/succession.py`.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "allenai/olmo-3.1-32b-instruct",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-03-30T20:18:58.915175+00:00"
+}

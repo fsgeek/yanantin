@@ -1,0 +1,11 @@
+{
+  "id": "1c32afff-1c28-429a-9d0e-ff730daa94cc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8627_20260330_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1148_20260217_command-r7b-12-2024.md",
+  "relation": "confirms",
+  "claim_text": "(`apacheta/models/provenance.py`, lines 20-25) - **Inferences**: Robust provenance mechanisms ensure transparency and allow for informed tracking of changes.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-03-30T04:14:33.884145+00:00"
+}

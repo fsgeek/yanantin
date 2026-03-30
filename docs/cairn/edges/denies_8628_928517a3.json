@@ -1,0 +1,11 @@
+{
+  "id": "928517a3-eb73-4d61-adb4-d3a4cb8e9ce8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8628_20260330_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1434_20260218_mistral-large-2407.md",
+  "relation": "denies",
+  "claim_text": "**Broader Codebase:** I did not cross-reference other files (e.g., `docs/blueprint.md`, `src/yanantin/chasqui/scout.py`) to see if \"cultural memory\" appears elsewhere.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "mistralai/mistral-large-2407",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-30T04:14:34.627797+00:00"
+}

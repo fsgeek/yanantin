@@ -1,0 +1,11 @@
+{
+  "id": "5134c3cb-1d7a-4791-bad2-5e4728e589d3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8623_20260330_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8528_20260329_gpt-4.1-nano.md",
+  "relation": "confirms",
+  "claim_text": "Focused Testing of Data Schemas and Structural Invariants (multiple files)** - Files like `test_content_address.py`, `test_config_tensors.py`, `test_activity_store.py`, and `test_memory_anchor.py` show a pattern: models are validated both for data integrity and for correct serialization/deserialization.",
+  "claim_file": "tests/unit/test_content_address.py",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-03-30T03:39:56.455909+00:00"
+}

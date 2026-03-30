@@ -1,0 +1,11 @@
+{
+  "id": "77d50402-2f28-4e3b-ac69-2c381a5763a4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8629_20260330_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1779_20260220_qwen-2.5-72b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 3: Epistemic Self-Awareness **What I saw:** The previous scout noted the system's self-awareness, particularly in the `bootstrap.py` operator, which accepts a `context_budget`.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "qwen/qwen-2.5-72b-instruct",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-30T04:14:36.579871+00:00"
+}

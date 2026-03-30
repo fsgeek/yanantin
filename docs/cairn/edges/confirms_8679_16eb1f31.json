@@ -1,0 +1,11 @@
+{
+  "id": "16eb1f31-b091-4a2f-af32-ff544d380aa9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8679_20260330_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7518_20260323_grok-4-fast.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I cannot verify the actual existence or content of `negate.py` in the full codebase, as I am only provided with `correct.py` and have no access to the directory structure or other files.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-03-30T10:56:13.485868+00:00"
+}

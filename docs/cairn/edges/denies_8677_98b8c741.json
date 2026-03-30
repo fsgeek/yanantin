@@ -1,0 +1,11 @@
+{
+  "id": "98b8c741-3905-4cb3-85c8-8c105c6179cc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8677_20260330_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1405_20260218_l3-lunaris-8b.md",
+  "relation": "denies",
+  "claim_text": "## Before you build anything, read `docs/blueprint.md`.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-03-30T10:26:33.338295+00:00"
+}

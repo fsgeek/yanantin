@@ -1,0 +1,11 @@
+{
+  "id": "cc93c13d-5225-4cb2-9628-947d6ae10394",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8675_20260330_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1004_20260216_gpt-oss-120b:exacto.md",
+  "relation": "denies",
+  "claim_text": "However, the file itself clearly defines the role of `CLAUDE.md` as a project overview that outlines the project's purpose, operational roles, social norms, and setup instructions.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "openai/gpt-oss-120b:exacto",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-30T10:26:09.704846+00:00"
+}

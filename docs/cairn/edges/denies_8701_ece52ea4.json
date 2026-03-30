@@ -1,0 +1,11 @@
+{
+  "id": "ece52ea4-61e6-4509-bdaf-4cb72acc5c59",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8701_20260330_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3340_20260227_router.md",
+  "relation": "denies",
+  "claim_text": "`apacheta/rummage.py` (as highlighted in `docs/cairn/scour_0100_20260219_llama-3-8b-instruct.md`) solidifies this by offering a search tool across these very tensors.",
+  "claim_file": "src/yanantin/apacheta/rummage.py",
+  "claim_by": "switchpoint/router",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-30T14:04:31.594456+00:00"
+}

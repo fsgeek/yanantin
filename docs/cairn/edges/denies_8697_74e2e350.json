@@ -1,0 +1,11 @@
+{
+  "id": "74e2e350-5345-4a13-9926-54db38daf160",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8697_20260330_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8387_20260328_aion-1.0-mini.md",
+  "relation": "denies",
+  "claim_text": "I think I should confirm the part that is verifiable: the logic is indeed implemented in `succession.py`.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "aion-labs/aion-1.0-mini",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-30T13:34:44.075464+00:00"
+}

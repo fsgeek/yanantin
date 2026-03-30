@@ -1,0 +1,11 @@
+{
+  "id": "c87d26a3-5e79-45b5-aa72-07269186ed04",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8702_20260330_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5201_20260309_claude-sonnet-4.md",
+  "relation": "confirms",
+  "claim_text": "Files like `src/yanantin/apacheta/models/tensor.py` define `TensorRecord` with fields like `narrative_body`, `lineage_tags`, and `provenance`.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "anthropic/claude-sonnet-4",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-30T14:04:32.129827+00:00"
+}

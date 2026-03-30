@@ -1,0 +1,11 @@
+{
+  "id": "3eb17de6-06f0-41b8-9a91-719c092453b5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8703_20260330_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8177_20260327_deepseek-v3.2-speciale.md",
+  "relation": "confirms",
+  "claim_text": "I interpreted it as asserting that `succession.py` manages replacement without breaking the hash chain.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "deepseek/deepseek-v3.2-speciale",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-03-30T14:04:55.514505+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "dcd35b0f-ce08-48ea-a4ff-96b9d55f1f9f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8611_20260330_mistral-small-creative.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0603_20260215_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `src/yanantin/apacheta/clients/openrouter.py` does not contain the following modules: - `backends` (e.g., `duckdb.py`, `arango.py`, `memory.py`) - `models` (defining `TensorRecord`, `ProvenanceEnvelope`, `EpistemicMetadata`, etc.) The only modules present in the file are: - `OpenRouterMessage` - `OpenRouterResponse` - `OpenRouterClient` ### Reasoning The evidence shows that the file only contains classes and functions related to the OpenRouter API client, and does not contain the mentioned modules.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "mistralai/mistral-small-creative",
+  "timestamp": "2026-03-30T02:07:12.026284+00:00"
+}

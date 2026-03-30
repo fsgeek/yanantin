@@ -1,0 +1,11 @@
+{
+  "id": "19dda8d2-437b-427f-a621-6140b2b5286a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8613_20260330_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4425_20260304_ernie-4.5-21b-a3b.md",
+  "relation": "denies",
+  "claim_text": "There is no evidence in the file to support the claim that `evolve` is invoked more often than `dissent.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-30T02:07:55.405998+00:00"
+}

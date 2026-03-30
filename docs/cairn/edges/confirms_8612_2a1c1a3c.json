@@ -1,0 +1,11 @@
+{
+  "id": "2a1c1a3c-25b3-40e7-a2a7-874b65d1de9f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8612_20260330_deepseek-chat-v3.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8387_20260328_aion-1.0-mini.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence Quote lines showing the logic is implemented in `succession.py`.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "aion-labs/aion-1.0-mini",
+  "verified_by": "deepseek/deepseek-chat-v3.1",
+  "timestamp": "2026-03-30T02:07:27.687433+00:00"
+}

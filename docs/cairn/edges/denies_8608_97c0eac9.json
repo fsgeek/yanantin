@@ -1,0 +1,11 @@
+{
+  "id": "97c0eac9-a9a8-44a5-a3e5-0b8765e7a089",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8608_20260330_deepseek-v3.2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3241_20260226_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "- Can `structured_reviewer.md` define `scout_reviewer.md`'s *reasoning* rigorously?",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "deepseek/deepseek-v3.2",
+  "timestamp": "2026-03-30T01:34:53.592697+00:00"
+}

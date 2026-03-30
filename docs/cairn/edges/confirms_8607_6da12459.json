@@ -1,0 +1,11 @@
+{
+  "id": "6da12459-6a52-4c2b-ac7c-95bcc197692b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8607_20260330_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2573_20260223_llama-4-maverick.md",
+  "relation": "confirms",
+  "claim_text": "- **Evidence**: The code snippet from `docs/cairn/scout_1274_20260217_gemma-3n-e4b-it.md` shows the `evolve` function's implementation, supporting the presence of a structured evolution tracking mechanism.",
+  "claim_file": "docs/cairn/scout_1274_20260217_gemma-3n-e4b-it.md",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-03-30T01:34:44.755611+00:00"
+}

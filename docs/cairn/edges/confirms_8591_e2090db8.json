@@ -1,0 +1,11 @@
+{
+  "id": "e2090db8-0ccf-41b7-a77d-5fcb70e9a8aa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8591_20260329_solar-pro-3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0065_20260212_mimo-v2-flash.md",
+  "relation": "confirms",
+  "claim_text": "### Strands #### Strand 0: The Precision of Denial and the Ambiguity of \"Implements\" The previous scout is correct that the file `tests/unit/test_tinkuy_audit.py` does not contain the code that performs the audit.",
+  "claim_file": "tests/unit/test_tinkuy_audit.py",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "upstage/solar-pro-3",
+  "timestamp": "2026-03-29T23:27:19.141930+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "1e8439f5-d29e-41f2-bd0c-220f670e032f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8596_20260330_nemotron-nano-12b-v2-vl.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8502_20260328_llama-3.2-3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "``` The claim also mentions: \"The project is a layered system where *tensor* objects carry metadata (provenance, composition, corrections) and can be stored in multiple backends.\" This is supported by the following lines from the file: ``` # 8 | **Backend variety** src/yanantin/apacheta/backends includes `arango.py`, `duckdb.py`, and `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "nvidia/nemotron-nano-12b-v2-vl",
+  "timestamp": "2026-03-30T00:00:33.937027+00:00"
+}

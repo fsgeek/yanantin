@@ -1,0 +1,11 @@
+{
+  "id": "1afe1bd5-de6e-47fc-81ee-e5a74114edbb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8592_20260329_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7756_20260324_grok-3-mini-beta.md",
+  "relation": "confirms",
+  "claim_text": "However, `apacheta.md` only describes the conceptual framework of Apacheta as a \"Tensor Database\" and discusses tensors as abstract entities (e.g., \"A tensor in Apacheta is...\"), without any mention of a separate file named `tensors.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "x-ai/grok-3-mini-beta",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-03-29T23:27:19.921306+00:00"
+}

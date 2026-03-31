@@ -1,0 +1,11 @@
+{
+  "id": "200cf89f-656c-4b31-a295-426590c11a6b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8923_20260331_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8857_20260331_mistral-medium-3.1.md",
+  "relation": "denies",
+  "claim_text": "- **The \"Prompt Output\" as a Leash:** Even when users add comments (e.g., `diff-review.md` lines 70\u201380), the final prompt is structured *by the template*, not the user.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/playground/skills/playground/templates/diff-review.md",
+  "claim_by": "mistralai/mistral-medium-3.1",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-03-31T19:21:34.019143+00:00"
+}

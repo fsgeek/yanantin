@@ -1,0 +1,11 @@
+{
+  "id": "d66f2544-56d4-4cf6-ae33-d072ced4694c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8924_20260331_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7748_20260324_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "However, in the provided content of `scout_0209_20260213_gemma-3n-e4b-it.md`, there is **no mention** of: - The file `docs/predecessors.md` (only referenced implicitly via reasoning about a claim) - The projects `indaleko` or `lares` Furthermore, there is **no evidence** in this file that it refers to `scout_0850_20260216_phi-4.md`, nor any content from that file.",
+  "claim_file": "docs/cairn/scout_0209_20260213_gemma-3n-e4b-it.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-31T19:21:45.590384+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "ce8339ae-0bd4-4705-a90f-1d76864f8ecb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8919_20260331_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8480_20260328_qwen3-coder.md",
+  "relation": "denies",
+  "claim_text": "Meta-Agent Creation Process The `agent-creator.md` contains a remarkably detailed process for creating agents (lines 25-59), including specific formatting requirements for identifiers, example blocks, and system prompts.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/agents/agent-creator.md",
+  "claim_by": "qwen/qwen3-coder",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-03-31T18:54:24.895303+00:00"
+}

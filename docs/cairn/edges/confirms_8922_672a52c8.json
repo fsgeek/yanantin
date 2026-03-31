@@ -1,0 +1,11 @@
+{
+  "id": "672a52c8-c409-48ed-9795-70c127f09c2e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8922_20260331_mistral-small-2603.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7334_20260322_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The evidence supports the verdict because the file `tests/unit/test_operators.py` does not contain code or behavior related to the external files or general test suite behavior mentioned in the claim.",
+  "claim_file": "tests/unit/test_operators.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "mistralai/mistral-small-2603",
+  "timestamp": "2026-03-31T19:21:30.141097+00:00"
+}

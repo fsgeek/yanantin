@@ -1,0 +1,11 @@
+{
+  "id": "6a98427f-92cd-41dd-bf76-55df95ffb09c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8920_20260331_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0812_20260215_qwen3-30b-a3b-thinking-2507.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence Lines 50-51 in `test_arango_real.py`: ``` 50  ARANGO_HOST = \"http://192.168.111.125:8529\" 51  ARANGO_DB = \"apacheta_test\" ``` The claim states these lines \"use `root` for DB creation,\" but these lines only define the host and database name.",
+  "claim_file": "tests/integration/test_arango_real.py",
+  "claim_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-31T18:54:27.702638+00:00"
+}

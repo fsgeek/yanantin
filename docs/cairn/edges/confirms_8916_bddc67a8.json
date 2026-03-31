@@ -1,0 +1,11 @@
+{
+  "id": "bddc67a8-7349-41d5-9705-5433cdb42e0b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8916_20260331_deepseek-r1-distill-qwen-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1247_20260217_gemini-2.0-flash-lite-001.md",
+  "relation": "confirms",
+  "claim_text": "I saw files referencing different models and dates, such as `scout_0160_20260212_gemini-2.0-flash-lite-001.md` and `scout_0223_20260213_gemini-2.5-flash-lite.md`.",
+  "claim_file": "docs/cairn/scout_0223_20260213_gemini-2.5-flash-lite.md",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "timestamp": "2026-03-31T18:18:44.267249+00:00"
+}

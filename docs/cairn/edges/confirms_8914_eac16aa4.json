@@ -1,0 +1,11 @@
+{
+  "id": "eac16aa4-ccde-4840-91be-514c2eb1804f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8914_20260331_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8226_20260327_qwen3.5-9b.md",
+  "relation": "confirms",
+  "claim_text": "`test_arango_independent.py` explicitly mocks the ArangoDB client to avoid requiring a running instance: ```python \"\"\"IMPORTANT: These tests mock the ArangoDB client to avoid requiring a running instance.\"\"\" ``` This is an **infrastructure decoupling strategy**.",
+  "claim_file": "tests/unit/test_arango_independent.py",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-03-31T18:18:06.775619+00:00"
+}

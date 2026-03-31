@@ -1,0 +1,11 @@
+{
+  "id": "1c69d23b-d4d0-4069-bd38-186f497d6ee5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8912_20260331_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7277_20260322_phi-4.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The evidence supporting this verdict can be found in the following lines from `docs/cairn/T14_20260211_the_flatworm.md`: - **Strand 2: Provenance/Blueprint Focus in Doc Reports** > \"In several tensors (e.g., `scout_2519`, `scout_4758`, `scout_4128`), the emphasis is on audit and provenance documents (`succession.py`, `T14_20260211_the_flatworm.md`, `docs/predecessors.md`).\" - **Strand 2: Provenance Problem** > \"The provenance problem that the signing infrastructure solves is mentioned, which aligns with the claim regarding the provenance documents.\" - **Strand 5: Signed Protocol Segments** > \"Tony proposed cryptographic signing of system/assistant message segments \u2014 HTTPS for the prompt protocol.",
+  "claim_file": "docs/cairn/T14_20260211_the_flatworm.md",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-03-31T17:47:49.451186+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "a294c5ef-acf7-4d0e-979e-af79d6181708",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8824_20260331_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2679_20260224_granite-4.0-h-micro.md",
+  "relation": "denies",
+  "claim_text": "**Observation:** The `src/yanantin/tinkuy/audit.py` file indicates a mechanism for detecting deviations from the blueprint.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-03-31T06:20:09.519234+00:00"
+}

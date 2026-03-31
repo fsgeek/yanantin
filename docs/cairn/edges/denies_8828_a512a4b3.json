@@ -1,0 +1,11 @@
+{
+  "id": "a512a4b3-1a67-4df9-aa6e-487fdc226512",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8828_20260331_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0789_20260215_qwen3-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "**How is the `precompact_tensor.py` hook triggered?** Is it on every commit?",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-03-31T06:49:29.189303+00:00"
+}

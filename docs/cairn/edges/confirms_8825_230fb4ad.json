@@ -1,0 +1,11 @@
+{
+  "id": "230fb4ad-09e9-4300-8426-e517bcd6fd6d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8825_20260331_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0091_20260212_gpt-oss-120b.md",
+  "relation": "confirms",
+  "claim_text": "| | 8 | **Audit / succession tools** | `src/yanantin/tinkuy/audit.py` and `tinkuy/succession.py` with corresponding tests (`test_tinkuy_audit.py`, `test_tinkuy_succession.py`).",
+  "claim_file": "tests/unit/test_tinkuy_audit.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-03-31T06:20:18.689311+00:00"
+}

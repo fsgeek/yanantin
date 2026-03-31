@@ -1,0 +1,11 @@
+{
+  "id": "1a963ee9-5fd4-4613-90e6-dc2cfc1c0f10",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8785_20260331_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6823_20260319_command-r7b-12-2024.md",
+  "relation": "denies",
+  "claim_text": "The content of `signing.md` confirms this, as it does not contain any information about the signing process.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-03-31T01:04:05.587234+00:00"
+}

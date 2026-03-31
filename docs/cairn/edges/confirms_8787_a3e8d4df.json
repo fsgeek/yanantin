@@ -1,0 +1,11 @@
+{
+  "id": "a3e8d4df-0049-40bc-ba4c-eed813a63028",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8787_20260331_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2958_20260225_llama-3.1-70b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Scout Dispatch System** The `scout.py` file defines the scout dispatch system, which sends a messenger into the codebase to explore and report what they see.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "meta-llama/llama-3.1-70b-instruct",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-31T01:35:20.335364+00:00"
+}

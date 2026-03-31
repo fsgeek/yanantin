@@ -1,0 +1,11 @@
+{
+  "id": "681899bb-196a-4740-9fff-7950b2509597",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8788_20260331_qwen3-14b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6248_20260316_mistral-small-3.2-24b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "\"\"\" ``` ### Reasoning The file `arango.py` explicitly states it is a backend alongside in-memory and DuckDB backends.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "verified_by": "qwen/qwen3-14b",
+  "timestamp": "2026-03-31T01:35:21.310771+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "58c66efc-968c-49de-ac67-accd30a32898",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8904_20260331_qwen-2.5-72b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1750_20260220_sonar-pro.md",
+  "relation": "denies",
+  "claim_text": "`tensors.md`, `predecessors.md` anchor it.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "perplexity/sonar-pro",
+  "verified_by": "qwen/qwen-2.5-72b-instruct",
+  "timestamp": "2026-03-31T16:45:22.844132+00:00"
+}

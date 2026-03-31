@@ -1,0 +1,11 @@
+{
+  "id": "1fbc5078-96df-4e5c-8e3f-cb9211f0918b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8907_20260331_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0903_20260216_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The inclusion of unit tests for these operators in `tests/unit/test_operators.py` suggests a high degree of rigor in ensuring their correctness.",
+  "claim_file": "tests/unit/test_operators.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-03-31T17:15:02.584550+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "1a2372d2-644a-4320-8172-f4aa6ae71e77",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8906_20260331_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0880_20260216_gpt-oss-120b.md",
+  "relation": "confirms",
+  "claim_text": "| --- ## Declared Losses   - **Backend Implementations** \u2013 I did not dive into the concrete code of the Apacheta storage back\u2011ends (`arango.py`, `duckdb.py`, `memory.py`).",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-31T17:15:01.925548+00:00"
+}

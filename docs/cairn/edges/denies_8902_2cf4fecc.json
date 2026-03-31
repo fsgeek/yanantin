@@ -1,0 +1,11 @@
+{
+  "id": "2cf4fecc-315e-4dcd-a4a2-121338b1d80b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8902_20260331_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0210_20260213_qwen3-32b.md",
+  "relation": "denies",
+  "claim_text": "- `src/yanantin/apacheta/models/base.py` contains `ApachetaBaseModel`, which defines a schema for tensors including fields like `provenance`, `content_address`, and `composition_edges`.",
+  "claim_file": "src/yanantin/apacheta/models/base.py",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-31T16:44:54.702772+00:00"
+}

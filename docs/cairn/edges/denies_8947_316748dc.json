@@ -1,0 +1,11 @@
+{
+  "id": "316748dc-d88a-4a8a-bf6a-ed9cec194903",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8947_20260331_mistral-large-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3881_20260301_mistral-small-24b-instruct-250.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that the `CLAUDE.md` file mentions an AI that has power but refuses to use it.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "mistralai/mistral-large-2512",
+  "timestamp": "2026-03-31T22:27:34.487297+00:00"
+}

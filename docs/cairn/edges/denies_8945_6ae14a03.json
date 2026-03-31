@@ -1,0 +1,11 @@
+{
+  "id": "6ae14a03-f8d1-4fb6-b88f-f6e25ce9382f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8945_20260331_qwen-vl-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0072_20260212_mistral-small-24b-instruct-250.md",
+  "relation": "denies",
+  "claim_text": "**### Verdict** **DENIED** **### Evidence** The claim states that the `CLAUDE.md` file discusses an operator as a key component in maintaining the system's architectural principles.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "qwen/qwen-vl-plus",
+  "timestamp": "2026-03-31T22:27:30.153947+00:00"
+}

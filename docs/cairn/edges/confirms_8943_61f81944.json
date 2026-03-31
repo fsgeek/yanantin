@@ -1,0 +1,11 @@
+{
+  "id": "61f81944-055b-4822-87cc-7276826e1569",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8943_20260331_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0486_20260214_minimax-m2.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 5: The Backend Plurality The `src/yanantin/apacheta/backends/` directory has: - `arango.py` \u2014 ArangoDB - `duckdb.py` \u2014 DuckDB - `memory.py` \u2014 In-memory Multiple storage backends for the same tensor abstraction.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "minimax/minimax-m2",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-03-31T21:57:33.158637+00:00"
+}

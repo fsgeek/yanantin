@@ -1,0 +1,11 @@
+{
+  "id": "ecf613a5-16c4-4af0-895a-7b07d781c08e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8858_20260331_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6555_20260318_qwen3-vl-8b-thinking.md",
+  "relation": "denies",
+  "claim_text": "- The claim is contradictory: it says `weaver.py` is the sole visible source file but acknowledges that `__main__.py` exists.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "qwen/qwen3-vl-8b-thinking",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-03-31T11:00:46.864546+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "222d3d7b-3474-4d7d-94b5-5beddd92eb56",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8855_20260331_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2485_20260223_gpt-oss-20b.md",
+  "relation": "denies",
+  "claim_text": "| | **Scouting orchestration** | `src/yanantin/chasqui/scout.py` orchestrates scout runs; `src/yanantin/chasqui/coordinator.py` manages job queues.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-31T10:29:43.226861+00:00"
+}

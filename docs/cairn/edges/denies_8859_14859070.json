@@ -1,0 +1,11 @@
+{
+  "id": "14859070-6c1a-4be4-bf13-60912d99ccad",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8859_20260331_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8416_20260328_qwen3.5-122b-a10b.md",
+  "relation": "denies",
+  "claim_text": "I was provided with the content of only one file (`negate.py`).",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "qwen/qwen3.5-122b-a10b",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-03-31T11:00:46.974410+00:00"
+}

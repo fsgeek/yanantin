@@ -1,0 +1,11 @@
+{
+  "id": "b83e4d63-4a19-47d9-a283-86f6474a253b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8860_20260331_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3381_20260227_mistral-large-2512.md",
+  "relation": "confirms",
+  "claim_text": "- `src/yanantin/tinkuy/succession.py` (verified in `scout_1486_20260218_glm-4.7-flash.md`) implements `check_succession()`, which audits the codebase and compares it to the blueprint before writing a tensor.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "mistralai/mistral-large-2512",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-03-31T11:00:51.035401+00:00"
+}

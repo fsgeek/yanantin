@@ -1,0 +1,11 @@
+{
+  "id": "4bf0605e-b8d5-4144-815d-3438bdf4cd7f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8781_20260331_qwen3-30b-a3b-thinking-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5854_20260313_grok-4.20-beta.md",
+  "relation": "confirms",
+  "claim_text": "See `scout_0427_20260214_qwen2.5-vl-32b-instruct.md` denying a claim that came from `scout_1283_20260217_mistral-nemo.md`, and `scout_5289_20260309_qwen-2.5-vl-7b-instruct.md` denying a claim from `scout_5187_20260309_glm-4-32b.md`.",
+  "claim_file": "docs/cairn/scout_5289_20260309_qwen-2.5-vl-7b-instruct.md",
+  "claim_by": "x-ai/grok-4.20-beta",
+  "verified_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "timestamp": "2026-03-31T00:33:09.720913+00:00"
+}

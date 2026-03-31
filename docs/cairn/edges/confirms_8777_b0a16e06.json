@@ -1,0 +1,11 @@
+{
+  "id": "b0a16e06-7a9f-4d26-a475-b4ccd11559c2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8777_20260331_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7722_20260324_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that \"We can only confirm the presence of `correct.py` in the `operators/` directory.\" The file `correct.py` is indeed present in the `operators/` directory, as demonstrated by the provided content.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-03-31T00:02:36.962161+00:00"
+}

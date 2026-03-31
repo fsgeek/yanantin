@@ -1,0 +1,11 @@
+{
+  "id": "7d434a9a-99ab-4872-abba-feec80d259b8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8875_20260331_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8694_20260330_lfm-2-24b-a2b.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I could not verify runtime behavior or external environment differences, but the core issue here is the explicit absence of any statement about `userpromptsubmit.py` in this static file.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/userpromptsubmit.py",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-03-31T13:05:47.282935+00:00"
+}

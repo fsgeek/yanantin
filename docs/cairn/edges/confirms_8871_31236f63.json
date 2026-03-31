@@ -1,0 +1,11 @@
+{
+  "id": "31236f63-a75b-492b-876b-7e054cd0d832",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8871_20260331_lfm-2-24b-a2b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8471_20260328_qwen3.5-9b.md",
+  "relation": "confirms",
+  "claim_text": "**Evidence** showing the actual `project.py` code contains only a `project` function that filters strands, not a `compose_workflow` function 3.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "liquid/lfm-2-24b-a2b",
+  "timestamp": "2026-03-31T12:35:36.645451+00:00"
+}

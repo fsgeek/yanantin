@@ -1,0 +1,11 @@
+{
+  "id": "6581d053-4af7-41df-9989-68fc3f5c84e3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8832_20260331_llama-4-scout.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3882_20260301_qwen-turbo.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states: \"In `audit.py`, regex patterns are used to identify specific files (e.g., `T123.md`, `scout_*.md`).\"  However, in the provided `audit.py` file, the only regex pattern used is `_TEST_FUNC_RE = re.compile(r\"^\\s*def test_\", re.MULTILINE)`, which is used to find test functions in Python files.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "meta-llama/llama-4-scout",
+  "timestamp": "2026-03-31T07:21:32.663847+00:00"
+}

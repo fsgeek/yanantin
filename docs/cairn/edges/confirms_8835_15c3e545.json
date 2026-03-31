@@ -1,0 +1,11 @@
+{
+  "id": "15c3e545-b4ef-400c-bd6c-ee3faf680888",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8835_20260331_voxtral-small-24b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5862_20260313_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "Tools like `provenance/timestamp.py` and `storage_obfuscator.py` hint at efforts to track and obscure information, suggesting a focus on provenance and reproducibility.",
+  "claim_file": "src/yanantin/provenance/timestamp.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "mistralai/voxtral-small-24b-2507",
+  "timestamp": "2026-03-31T07:51:23.005653+00:00"
+}

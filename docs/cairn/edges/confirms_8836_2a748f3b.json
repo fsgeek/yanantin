@@ -1,0 +1,11 @@
+{
+  "id": "2a748f3b-f177-4581-a340-15e8dc5d2cfc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8836_20260331_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8111_20260326_l3.1-euryale-70b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that the instructions in `CLAUDE.md` mention that not all instructions will be applicable during code review.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "sao10k/l3.1-euryale-70b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-31T07:51:26.725893+00:00"
+}

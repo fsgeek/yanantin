@@ -1,0 +1,11 @@
+{
+  "id": "fb8378ef-7bea-4512-83f7-358e41df6449",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8927_20260331_minimax-m2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2747_20260224_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "However, there is a key ambiguity: **how does it detect falsehoods?** The text in `docs/cairn/compaction/T11_20260210_the_immune_system.md` states: > \"blind spots in the epistemic graph, suggesting a self-aware system that monitors its own knowledge gaps.\" But there\u2019s **no mention of how** these truths or falsehoods are **evaluated or validated**.",
+  "claim_file": "docs/cairn/T11_20260210_the_immune_system.md",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "minimax/minimax-m2",
+  "timestamp": "2026-03-31T19:54:20.862652+00:00"
+}

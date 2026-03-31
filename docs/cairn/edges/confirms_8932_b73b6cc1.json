@@ -1,0 +1,11 @@
+{
+  "id": "b73b6cc1-ee39-48b3-b16d-42228fabddcc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8932_20260331_deepseek-v3.1-terminus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6689_20260318_glm-4-32b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that \"The file `tests/integration/test_arango_real.py` exists (confirmed) 2.\" By examining the provided content, I can see the complete file `tests/integration/test_arango_real.py` with all its test cases.",
+  "claim_file": "tests/integration/test_arango_real.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "deepseek/deepseek-v3.1-terminus",
+  "timestamp": "2026-03-31T20:23:22.675374+00:00"
+}

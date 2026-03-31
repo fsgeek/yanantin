@@ -1,0 +1,11 @@
+{
+  "id": "f3973bc8-25c5-4505-af6e-ca68549f6023",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8931_20260331_solar-pro-3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7882_20260325_lfm-2.2-6b.md",
+  "relation": "confirms",
+  "claim_text": "The claim that this document mentions `scout_reviewer.md` implies a comparison to \"structured_reviewer.md\", which is not referenced within the scout's file.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "upstage/solar-pro-3",
+  "timestamp": "2026-03-31T20:23:20.013646+00:00"
+}

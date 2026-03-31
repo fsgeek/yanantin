@@ -1,0 +1,11 @@
+{
+  "id": "38dfc995-81d1-421b-8324-12b8d95a4347",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8849_20260331_sonar-pro-search.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0695_20260215_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The claim states that the `operators` directory contains a module called `negate.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "perplexity/sonar-pro-search",
+  "timestamp": "2026-03-31T09:25:31.189342+00:00"
+}

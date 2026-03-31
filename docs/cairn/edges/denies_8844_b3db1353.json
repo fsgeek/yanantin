@@ -1,0 +1,11 @@
+{
+  "id": "b3db1353-24f3-45f6-8d0c-fb4d9987b959",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8844_20260331_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6531_20260317_nemotron-3-nano-30b-a3b.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses - **Missing files**: `src/yanantin/apacheta/models/tensor.py` and the entire `operators/` package (including `compose.py`, `correct.py`, `dissent.py`) were not provided, so their contents and roles cannot be inspected.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-31T08:53:27.240074+00:00"
+}

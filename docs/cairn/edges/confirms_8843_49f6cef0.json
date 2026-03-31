@@ -1,0 +1,11 @@
+{
+  "id": "49f6cef0-3027-4f2e-a215-01e4fab655a9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8843_20260331_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6110_20260315_gpt-5.1-codex-mini.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence ``` from yanantin.apacheta.interface.abstract import ApachetaInterface from yanantin.apacheta.models.composition import ( CompositionEdge, CorrectionRecord, RelationType, ) from yanantin.apacheta.models.provenance import ProvenanceEnvelope ``` (Entire file shows only these imports; there are no references to `compose.py`, `correct.py`, or other operator modules.) ### Reasoning The file only imports from `interface.abstract`, `models.composition`, and `models.provenance` and defines a single `correct` function.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "openai/gpt-5.1-codex-mini",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-31T08:53:26.000089+00:00"
+}

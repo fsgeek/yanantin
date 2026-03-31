@@ -1,0 +1,11 @@
+{
+  "id": "eda013f0-ce7d-4167-9d0a-f814cb884b2c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8848_20260331_gpt-3.5-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7308_20260322_claude-3-haiku.md",
+  "relation": "confirms",
+  "claim_text": "### Pending Work The final section of the `course-details.md` file outlines several pending tasks, such as reviewing the TA operational checklist, improving TA-student visibility, and clarifying the peer review mechanism.",
+  "claim_file": "tmp/ubuntu-vm.claude/projects/-home-tony-projects-CPSC436C-2025W-T2/memory/course-details.md",
+  "claim_by": "anthropic/claude-3-haiku",
+  "verified_by": "openai/gpt-3.5-turbo",
+  "timestamp": "2026-03-31T09:25:29.971587+00:00"
+}

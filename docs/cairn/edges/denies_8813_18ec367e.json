@@ -1,0 +1,11 @@
+{
+  "id": "18ec367e-9daf-4acb-98e4-14a00b9cd70d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8813_20260331_seed-2.0-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8035_20260326_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "The claim from `openai/gpt-oss-safeguard-20b` states: > *\"I cannot verify the existence of the other `.md` files listed in the claim (`hypotheses/late-binding-as-correctness.md`, `apacheta.md`, etc.) because the provided text contains only the contents of `docs/tensors.md`.\"* The file **does not** include `apacheta.md` or any other `.md` files.",
+  "claim_file": "docs/hypotheses/late-binding-as-correctness.md",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "bytedance-seed/seed-2.0-lite",
+  "timestamp": "2026-03-31T04:46:03.346712+00:00"
+}

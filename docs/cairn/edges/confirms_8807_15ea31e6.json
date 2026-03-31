@@ -1,0 +1,11 @@
+{
+  "id": "15ea31e6-4047-450d-aa9d-abd2d5f7d2de",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8807_20260331_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0756_20260215_minimax-m2.1.md",
+  "relation": "confirms",
+  "claim_text": "### Strands **Strand 1: The Evidence Gap** The previous scout states: \"most test cases only check for the presence of `ProvenanceEnvelope` instances\" and \"test cases only check for assertions like `assert isinstance(tensor.provenance, ProvenanceEnvelope)`.\" But I have no way to verify this claim because `test_provenance.py` wasn't included in my context.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "minimax/minimax-m2.1",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-03-31T04:14:38.467249+00:00"
+}

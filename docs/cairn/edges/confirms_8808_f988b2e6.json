@@ -1,0 +1,11 @@
+{
+  "id": "f988b2e6-b529-40a9-8775-f3c8337b7688",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8808_20260331_gemini-2.5-flash-lite-preview-.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3938_20260302_ui-tars-1.5-7b.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses \"The actual validation process is based on filesystem structure rather than `blueprint.md` being parsed programmatically.\"",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "bytedance/ui-tars-1.5-7b",
+  "verified_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "timestamp": "2026-03-31T04:14:45.133527+00:00"
+}

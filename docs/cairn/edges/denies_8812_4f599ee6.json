@@ -1,0 +1,11 @@
+{
+  "id": "4f599ee6-574b-4ea4-92a9-21cd237a6dad",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8812_20260331_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6172_20260315_solar-pro-3.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning   The claim accurately lists the filename and highlights it as part of a set of files with similar naming patterns (e.g., `scout_0002_20260210_llama-3-8b-instruct.md`, `scour_0014_20260213_llama-3-8b-instruct.md`, `scout_0040_20260212_llama-3-8b-instruct.md`).",
+  "claim_file": "docs/cairn/scout_0040_20260212_llama-3-8b-instruct.md",
+  "claim_by": "upstage/solar-pro-3",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-03-31T04:45:29.250779+00:00"
+}

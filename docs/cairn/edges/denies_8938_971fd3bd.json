@@ -1,0 +1,11 @@
+{
+  "id": "971fd3bd-9978-4317-a192-e62d941ee571",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8938_20260331_gpt-3.5-turbo-16k.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8035_20260326_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "However, the provided file is **exactly** `late-binding-as-correctness.md` and contains no evidence of `tensors.md` or other files.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "openai/gpt-3.5-turbo-16k",
+  "timestamp": "2026-03-31T21:25:23.229061+00:00"
+}

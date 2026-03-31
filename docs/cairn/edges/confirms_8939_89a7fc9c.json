@@ -1,0 +1,11 @@
+{
+  "id": "89a7fc9c-ef1f-4c9c-9f7c-4666946ea3ed",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8939_20260331_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8692_20260330_deepseek-v3.1-nex-n1.md",
+  "relation": "confirms",
+  "claim_text": "**`test_collector_cli.py` environment setup**:   I noted the `PYTHONPATH` manipulation and `PROJECT_ROOT` resolution, but I did not trace how this interacts with the actual collector module or what other entrypoints exist.",
+  "claim_file": "tests/unit/test_collector_cli.py",
+  "claim_by": "nex-agi/deepseek-v3.1-nex-n1",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-03-31T21:25:26.185813+00:00"
+}

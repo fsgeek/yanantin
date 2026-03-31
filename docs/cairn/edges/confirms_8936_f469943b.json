@@ -1,0 +1,11 @@
+{
+  "id": "f469943b-8cd5-44e1-a71f-9f4ca4339157",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8936_20260331_rnj-1-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7388_20260322_gemma-3-12b-it.md",
+  "relation": "confirms",
+  "claim_text": "**Robustness of Stream Parsing:** How robust is the stream parsing logic in `run_eval.py` to variations in Claude's response format?",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/skill-creator/skills/skill-creator/scripts/run_eval.py",
+  "claim_by": "google/gemma-3-12b-it",
+  "verified_by": "essentialai/rnj-1-instruct",
+  "timestamp": "2026-03-31T20:55:26.657413+00:00"
+}

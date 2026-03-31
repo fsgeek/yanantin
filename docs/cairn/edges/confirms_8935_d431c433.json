@@ -1,0 +1,11 @@
+{
+  "id": "d431c433-4991-4e3f-b5b6-1e25e8c9edd5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8935_20260331_nemotron-nano-12b-v2-vl.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5579_20260311_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "Scouts like `scout_3674_20260228_qwen3-30b-a3b-instruct-2507.md` explicitly list what they couldn't examine (e.g., 'full implementations', 'cryptographic integrity', 'heartbeat scripts') and often frame these omissions as 'necessary' or 'strategic'.",
+  "claim_file": "docs/cairn/scout_3674_20260228_qwen3-30b-a3b-instruct-2507.md",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "nvidia/nemotron-nano-12b-v2-vl",
+  "timestamp": "2026-03-31T20:55:26.027769+00:00"
+}

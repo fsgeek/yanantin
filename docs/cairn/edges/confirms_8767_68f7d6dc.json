@@ -1,0 +1,11 @@
+{
+  "id": "68f7d6dc-db83-4f4c-828f-2db6436aaa82",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8767_20260330_glm-4.6.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5894_20260314_qwen-plus-2025-07-28.md",
+  "relation": "confirms",
+  "claim_text": "--- ### What I Know   - I know the `README.md` is empty.",
+  "claim_file": "README.md",
+  "claim_by": "qwen/qwen-plus-2025-07-28",
+  "verified_by": "z-ai/glm-4.6",
+  "timestamp": "2026-03-30T22:59:20.218740+00:00"
+}

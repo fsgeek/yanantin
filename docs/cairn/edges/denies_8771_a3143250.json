@@ -1,0 +1,11 @@
+{
+  "id": "a3143250-836d-476a-b8c1-71cfe48804ba",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8771_20260330_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1558_20260219_hermes-3-llama-3.1-70b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The file does not contain the text \"However, it does mention `docs/predecessors.md` is not present\".",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-03-30T23:29:33.363824+00:00"
+}

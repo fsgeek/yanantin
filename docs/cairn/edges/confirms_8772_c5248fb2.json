@@ -1,0 +1,11 @@
+{
+  "id": "c5248fb2-d557-4d50-bb36-194434f6a5b7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8772_20260330_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7231_20260321_llama-3.1-70b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Similarly, in `test_collector.py`, the `TestCollectorModels` class tests the collector models, but the implementation code is not shown.",
+  "claim_file": "tests/unit/test_collector.py",
+  "claim_by": "meta-llama/llama-3.1-70b-instruct",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-03-30T23:29:35.528042+00:00"
+}

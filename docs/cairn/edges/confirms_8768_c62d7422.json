@@ -1,0 +1,11 @@
+{
+  "id": "c62d7422-d7ac-4195-adac-2b5895574f5b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8768_20260330_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0362_20260213_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The initial files that caught my attention were `docs/cairn/compaction/7b1e642d_20260211_061707_manual.md` and `docs/cairn/scout_0212_20260213_mistral-nemo.md` due to their unique structure and content.",
+  "claim_file": "docs/cairn/compaction/7b1e642d_20260211_061707_manual.md",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-30T22:59:21.490828+00:00"
+}

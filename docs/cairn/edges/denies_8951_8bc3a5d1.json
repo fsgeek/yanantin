@@ -1,0 +1,11 @@
+{
+  "id": "8bc3a5d1-275f-4e04-a5cf-9437f7a6a719",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8951_20260331_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0532_20260214_granite-4.0-h-micro.md",
+  "relation": "denies",
+  "claim_text": "The `docs/cairn/scout_0430_20260214_lfm-2.2-6b.md` file describes the `ApachetaBaseModel` as a base for all Apacheta records, reinforcing the idea that tensors are a central abstraction.",
+  "claim_file": "docs/cairn/scout_0430_20260214_lfm-2.2-6b.md",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-03-31T23:00:35.820755+00:00"
+}

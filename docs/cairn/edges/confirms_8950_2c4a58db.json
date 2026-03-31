@@ -1,0 +1,11 @@
+{
+  "id": "2c4a58db-a592-4b2a-bd6d-0c3bd73d1e85",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8950_20260331_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8408_20260328_gpt-5.4-nano.md",
+  "relation": "confirms",
+  "claim_text": "For deeper context on predecessor projects, see `docs/predecessors.md`.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "openai/gpt-5.4-nano",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-03-31T23:00:29.511777+00:00"
+}

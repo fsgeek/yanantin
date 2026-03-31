@@ -1,0 +1,11 @@
+{
+  "id": "4652ad3f-f3e0-4a9c-8145-aa43f8e160cd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8949_20260331_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7663_20260324_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The file content provided is indeed `src/yanantin/apacheta/models/epistemics.py`.",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-03-31T23:00:28.684946+00:00"
+}

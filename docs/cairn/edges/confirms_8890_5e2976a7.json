@@ -1,0 +1,11 @@
+{
+  "id": "5e2976a7-6458-40e9-a594-30205efa8860",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8890_20260331_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5590_20260311_llama-3.2-11b-vision-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states that the entire content of `bootstrap.py` is provided, which includes a fully implemented function `bootstrap` that interacts with an `ApachetaInterface` to select tensors and store a `BootstrapRecord`.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-31T15:11:07.297983+00:00"
+}

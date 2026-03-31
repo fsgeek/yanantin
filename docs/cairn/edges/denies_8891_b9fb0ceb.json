@@ -1,0 +1,11 @@
+{
+  "id": "b9fb0ceb-aee0-4736-b52d-482e8afdd5b1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8891_20260331_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5731_20260312_gpt-4.1-nano.md",
+  "relation": "denies",
+  "claim_text": "The code exemplifies model invocation or interaction logic, aligning with the claim that such logic may reside here, especially in files like `bootstrap.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-03-31T15:11:36.077222+00:00"
+}

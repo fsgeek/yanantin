@@ -1,0 +1,11 @@
+{
+  "id": "659883d7-6f14-4368-8fd3-8ff670fede8e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8886_20260331_gemini-2.5-flash-lite-preview-.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1294_20260218_mistral-small-3.2-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states that \"audit.py and succession.py implement \u201cblueprint verification\u201d \u2013 tests in `tests/unit/test_tinkuy_succession.py` compare the live codebase against `docs/blueprint.md`.\" The file `docs/blueprint.md` contains the following relevant sections: 1.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "verified_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "timestamp": "2026-03-31T14:39:45.694684+00:00"
+}

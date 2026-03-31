@@ -1,0 +1,11 @@
+{
+  "id": "3cf0dd50-159e-42e3-aa95-7769783e2193",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8883_20260331_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5213_20260309_gpt-4.1-nano.md",
+  "relation": "confirms",
+  "claim_text": "The `provenance.py` module further hints at an emphasis on tracking the history of knowledge artifacts, reinforcing the view of truth as a layered, traceable construct.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-03-31T14:08:03.957497+00:00"
+}

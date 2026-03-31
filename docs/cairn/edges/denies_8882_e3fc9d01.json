@@ -1,0 +1,11 @@
+{
+  "id": "e3fc9d01-50d8-4da7-b729-9630d577cf5f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8882_20260331_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0417_20260214_llama-3.3-nemotron-super-49b-v.md",
+  "relation": "denies",
+  "claim_text": "**No list of files**: The file mentions specific files (e.g., `docs/blueprint.md`, `docs/predecessors.md`, `docs/tensors.md`, `docs/signing.md`) but does not enumerate or reference a list of files.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-03-31T14:07:45.140536+00:00"
+}

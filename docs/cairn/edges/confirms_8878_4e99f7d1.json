@@ -1,0 +1,11 @@
+{
+  "id": "4e99f7d1-d39c-4dc2-9fe4-cbc949ac8f92",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8878_20260331_command-r-08-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2407_20260223_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": "The `agents/` directory contains markdown files (`scout_reviewer.md`, `structured_reviewer.md`).",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "cohere/command-r-08-2024",
+  "timestamp": "2026-03-31T13:37:45.592446+00:00"
+}

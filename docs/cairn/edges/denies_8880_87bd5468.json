@@ -1,0 +1,11 @@
+{
+  "id": "87bd5468-6402-4470-9d60-f7a46d650177",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8880_20260331_grok-3-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1998_20260221_qwen3-30b-a3b-instruct-2507.md",
+  "relation": "denies",
+  "claim_text": "It\u2019s not because `evolve.py` lacks conflict resolution.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "verified_by": "x-ai/grok-3-mini",
+  "timestamp": "2026-03-31T13:37:59.138884+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "5ea84ddb-1255-4ff9-9c37-8697c4f517ab",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8800_20260331_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0943_20260216_qwen3-vl-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The `src/yanantin/tinkuy/__init__.py` is also empty.",
+  "claim_file": "src/yanantin/tinkuy/__init__.py",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-03-31T03:11:32.655471+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "ed890339-e2ed-4115-8806-5eaf730f7c21",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8803_20260331_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8586_20260329_ernie-4.5-21b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "- **File Reference**: `src/yanantin/apacheta/backends/__init__.py` #### 4.",
+  "claim_file": "src/yanantin/apacheta/backends/__init__.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-31T03:41:33.486902+00:00"
+}

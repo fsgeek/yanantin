@@ -1,0 +1,11 @@
+{
+  "id": "cc134fd4-2e12-46e4-9b5f-489392d6e616",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8805_20260331_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6272_20260316_ernie-4.5-21b-a3b-thinking.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The evidence shows no direct connection between `docs/blueprint.md` and `scout_0857_20260216_nemotron-3-nano-30b-a3b.md` within the file's content.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-03-31T03:41:41.254088+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "9b01e2a8-7d97-462e-bf43-739a837a1f80",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8815_20260331_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7767_20260324_qwen2.5-coder-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "## The File Here is the actual content of `src/yanantin/apacheta/operators/correct.py`: ``` \"\"\"Correct operator \u2014 creates a correction record and composition edge.\"\"\" from __future__ import annotations from uuid import UUID from yanantin.apacheta.interface.abstract import ApachetaInterface from yanantin.apacheta.models.composition import ( CompositionEdge, CorrectionRecord, RelationType, ) from yanantin.apacheta.models.provenance import ProvenanceEnvelope def correct( interface: ApachetaInterface, target_tensor: UUID, original_claim: str, corrected_claim: str, *, correcting_tensor: UUID | None = None, target_strand_index: int | None = None, target_claim_id: UUID | None = None, evidence: str = \"\", provenance: ProvenanceEnvelope | None = None, ) -> CorrectionRecord: \"\"\"Correct a prior claim.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-03-31T05:17:40.328622+00:00"
+}

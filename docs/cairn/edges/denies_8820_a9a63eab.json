@@ -1,0 +1,11 @@
+{
+  "id": "a9a63eab-075b-4c84-ab2d-da3ea44ce9b3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8820_20260331_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8500_20260328_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "**Strand 4: The Dual Recording Path** `base.py` defines `RecorderBase` (writes to `ApachetaInterface`) and `FactRecorderBase` (writes to `ActivityStreamStore`).",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-03-31T05:48:40.167992+00:00"
+}

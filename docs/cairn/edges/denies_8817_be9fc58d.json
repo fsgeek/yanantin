@@ -1,0 +1,11 @@
+{
+  "id": "be9fc58d-bcd1-48f5-bc26-4a16425e02fa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8817_20260331_aion-2.0.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1193_20260217_granite-4.0-h-micro.md",
+  "relation": "denies",
+  "claim_text": "Verification Scouts & Bounded Judges** | \u2022 `docs/cairn/compaction/T10_20260209_post_compaction.md` \u2013 describes **verification scouts** as narrowly prompted models that check specific claims against the codebase.",
+  "claim_file": "docs/cairn/T10_20260209_post_compaction.md",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "aion-labs/aion-2.0",
+  "timestamp": "2026-03-31T05:19:01.230199+00:00"
+}

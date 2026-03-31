@@ -1,0 +1,11 @@
+{
+  "id": "3298e727-e4ac-4e0d-890f-f4cfca27b745",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8894_20260331_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0495_20260214_qwen-2.5-72b-instruct.md",
+  "relation": "denies",
+  "claim_text": "#### Strand 4: Metadata and Citation Verification The `provenance.py` and `test_provenance.py` files in the `src/yanantin/apacheta/models` and `tests/red_bar` directories, respectively, handle provenance and metadata verification.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "qwen/qwen-2.5-72b-instruct",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-03-31T15:42:52.077265+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "ff99d279-1666-4fa1-b819-553af2cf3c59",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8900_20260331_qwen3-14b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6508_20260317_qwen-plus.md",
+  "relation": "denies",
+  "claim_text": "**Is `precompact_tensor.py` a pre-emptive defense or a pre-emptive failure?** Its name suggests compaction *before* compaction \u2014 but no `precompact` directory or logs are visible.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "qwen/qwen3-14b",
+  "timestamp": "2026-03-31T16:14:06.627185+00:00"
+}

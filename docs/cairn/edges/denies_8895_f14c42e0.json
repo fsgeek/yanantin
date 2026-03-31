@@ -1,0 +1,11 @@
+{
+  "id": "f14c42e0-4e7b-46f1-818a-36756de62344",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8895_20260331_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0039_20260212_gpt-5.1.md",
+  "relation": "denies",
+  "claim_text": "- There are also **scout instructions** in `agents/scout_reviewer.md` & `structured_reviewer.md` (not shown here, but referenced by filename), likely defining the formats scouts must use.",
+  "claim_file": "agents/structured_reviewer.md",
+  "claim_by": "openai/gpt-5.1",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-31T15:42:52.127392+00:00"
+}

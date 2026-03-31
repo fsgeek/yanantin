@@ -1,0 +1,11 @@
+{
+  "id": "44d5aeeb-f668-4dcf-aeb8-f858dd3caa87",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8796_20260331_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2514_20260223_mistral-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "**Is there a \"semantic audit\" mode in `tinkuy`?** - The `audit.py` file generates a report, but does it **flag lossy assumptions** (e.g., \"PromptGuard2\u2019s claims lack `is_fake`\")?",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "mistralai/mistral-7b-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-03-31T02:38:08.345049+00:00"
+}

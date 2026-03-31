@@ -1,0 +1,11 @@
+{
+  "id": "db81dceb-43c8-431c-8eac-20d1f9187d27",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8791_20260331_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6266_20260316_qwen3.5-9b.md",
+  "relation": "confirms",
+  "claim_text": "The claim references content from `src/yanantin/apacheta/operators/dissent.py`: - Claim states: \"The file `src/yanantin/apacheta/operators/dissent.py` contains the following lines: ```python from yanantin.apacheta.models.composition import ( CompositionEdge, DissentRecord, RelationType, ) ```\" - Claim also states: \"The claim states that `operators/dissent.py` contains 'verbs of the system,' referring to `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, and `project.py`.\" The actual file content shows: ```python from yanantin.apacheta.interface.abstract import ApachetaInterface from yanantin.apacheta.models.composition import SchemaEvolutionRecord from yanantin.apacheta.models.provenance import ProvenanceEnvelope ``` ### Reasoning I cannot verify this claim because: 1.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-03-31T02:08:15.471833+00:00"
+}

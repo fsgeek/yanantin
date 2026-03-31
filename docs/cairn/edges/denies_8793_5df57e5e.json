@@ -1,0 +1,11 @@
+{
+  "id": "5df57e5e-3432-4a53-aef3-00e415f4b015",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8793_20260331_llama-3.3-nemotron-super-49b-v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4581_20260305_claude-sonnet-4.5.md",
+  "relation": "denies",
+  "claim_text": "Chasqui: The Scout Coordinator** In `src/yanantin/chasqui/`, I found the machinery: - `scout.py` (line 47-89): Builds file trees, samples files randomly, dispatches to models - `model_selector.py` (line 23-156): Cost-weighted random sampling from 200+ models - `scourer.py` (line 31-78): Runs \"scour\" passes over previous scout outputs - `coordinator.py` (line 19-94): Orchestrates multi-model verification rounds The selection algorithm is fascinating (from `model_selector.py`): ```python def select_model(self, mode: str = \"scout\", budget: float = 0.01) -> str: \"\"\"Cost-weighted random selection.\"\"\" weights = [1.0 / (model.cost_per_million + 1e-9) for model in self.models] return random.choices(self.models, weights=weights)[0].id ``` Cheaper models get higher probability.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "anthropic/claude-sonnet-4.5",
+  "verified_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "timestamp": "2026-03-31T02:08:37.558242+00:00"
+}

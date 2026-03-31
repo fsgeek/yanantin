@@ -1,0 +1,11 @@
+{
+  "id": "17ab3a59-22b3-4c0c-8b71-feee1f6911df",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8792_20260331_claude-3.5-haiku.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6165_20260315_command-r7b-12-2024.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The file `scourer.py` itself does not mention `scourer.py` or `coordinator.py`.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "anthropic/claude-3.5-haiku",
+  "timestamp": "2026-03-31T02:08:16.882812+00:00"
+}

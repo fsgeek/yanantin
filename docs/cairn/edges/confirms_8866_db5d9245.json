@@ -1,0 +1,11 @@
+{
+  "id": "db5d9245-07eb-4ad0-911e-8b8233d20594",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8866_20260331_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3911_20260301_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "Documentation** The `docs` directory contains a wealth of documentation, including Markdown files, READMEs, and possibly even a workflow configuration file (`separation.yml`).",
+  "claim_file": ".github/workflows/separation.yml",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-03-31T12:03:27.968217+00:00"
+}

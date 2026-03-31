@@ -1,0 +1,11 @@
+{
+  "id": "ed224aa3-fed6-416c-b46f-f4b43f2de738",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8867_20260331_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6239_20260316_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": "**The Nature of \"Tinkuy\"**: The `tinkuy` module contains `audit.py` and `succession.py`.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-03-31T12:03:34.048315+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "e8c2bd79-c80d-4842-aa22-fed85e19184f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8862_20260331_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6693_20260318_olmo-3.1-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Given the structure of the file and the requirement to be specific, the only unambiguous part is that the file does **not** mention `arango.py`, `duckdb.py`, or `memory.py` by name as backends.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "allenai/olmo-3.1-32b-instruct",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-03-31T11:35:40.951016+00:00"
+}

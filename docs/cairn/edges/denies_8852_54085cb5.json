@@ -1,0 +1,11 @@
+{
+  "id": "54085cb5-7b5f-490a-ba60-f9f05a7538b1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8852_20260331_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0097_20260212_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses   - **Implementation Details**: My review missed `weaver.py`'s regex confidence scores and T\u208b8000's DuckDB query logic.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-03-31T09:57:34.880523+00:00"
+}

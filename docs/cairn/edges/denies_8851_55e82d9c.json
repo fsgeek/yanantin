@@ -1,0 +1,11 @@
+{
+  "id": "55e82d9c-6555-441f-97e2-12b9207ce838",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8851_20260331_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1758_20260220_qwen3-14b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The file `docs/signing.md` contains no mention of \"tensor-level provenance\" or `ProvenanceEnvelope` in `src/yanantin/models/base.py`.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-03-31T09:57:32.119208+00:00"
+}

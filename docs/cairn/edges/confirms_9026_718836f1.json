@@ -1,0 +1,11 @@
+{
+  "id": "718836f1-4577-471c-ae4d-14ba5510ef18",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9026_20260401_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7316_20260322_magnum-v4-72b.md",
+  "relation": "confirms",
+  "claim_text": "Specialization of Subagent Templates The `subagent-templates.md` file provides an equally detailed set of templates for specialized subagents, each with its own focus like code review, security, testing, API documentation, performance analysis, accessibility, dependency updates, and migrations.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/claude-code-setup/skills/claude-automation-recommender/references/subagent-templates.md",
+  "claim_by": "anthracite-org/magnum-v4-72b",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-04-01T08:56:01.397522+00:00"
+}

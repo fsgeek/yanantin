@@ -1,0 +1,11 @@
+{
+  "id": "638a3210-3f61-4fb9-bed0-a57f680b3a0d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9021_20260401_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6525_20260317_hermes-4-70b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict DENIED ### Evidence The file `src/yanantin/apacheta/operators/negate.py` contains the following lines: ``` \"\"\"Negate operator \u2014 declares that two tensors do not compose.\"\"\" ...",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "nousresearch/hermes-4-70b",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-04-01T08:23:54.891115+00:00"
+}

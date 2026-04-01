@@ -1,0 +1,11 @@
+{
+  "id": "dd03b4fd-7761-4222-aad4-c5c4cb19abc2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9025_20260401_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8584_20260329_gemini-2.5-flash-lite-preview-.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence ```python from yanantin.tinkuy.succession import ( _extract_blueprint_claims, check_succession, ) ``` ### Reasoning The claim states that without the contents of `tinkuy/succession.py`, the model cannot verify that the files are part of the audit or succession tools.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-01T08:55:50.897761+00:00"
+}

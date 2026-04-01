@@ -1,0 +1,11 @@
+{
+  "id": "e6984779-ba28-4df7-a668-b9f9a7c1e6a8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9068_20260401_tongyi-deepresearch-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8563_20260329_nova-micro-v1.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence ``` from __future__ import annotations from uuid import UUID from yanantin.apacheta.interface.abstract import ApachetaInterface from yanantin.apacheta.models.tensor import StrandRecord ``` ### Reasoning The evidence shows that the file `project.py` in the specified directory makes no references to `compose.py` or any other files outside of the `yanantin.apacheta` package and standard imports (`__future__`, `uuid`).",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "alibaba/tongyi-deepresearch-30b-a3b",
+  "timestamp": "2026-04-01T14:58:30.019244+00:00"
+}

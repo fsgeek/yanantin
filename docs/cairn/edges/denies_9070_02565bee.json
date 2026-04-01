@@ -1,0 +1,11 @@
+{
+  "id": "02565bee-faf5-4fbc-a7f0-db17956ad62c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9070_20260401_llama-3.1-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0034_20260212_llama-4-scout.md",
+  "relation": "denies",
+  "claim_text": "Operators such as `compose.py`, `correct.py`, and `evolve.py` handle schema changes and disagreements formally.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "meta-llama/llama-3.1-70b-instruct",
+  "timestamp": "2026-04-01T14:58:42.442862+00:00"
+}

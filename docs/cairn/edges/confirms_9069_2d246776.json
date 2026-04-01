@@ -1,0 +1,11 @@
+{
+  "id": "2d246776-2d16-49d5-ba2d-1a16496ed44f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9069_20260401_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5167_20260309_hermes-4-70b.md",
+  "relation": "confirms",
+  "claim_text": "The task is to verify a claim about `scout.py` using the content of `compose.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "nousresearch/hermes-4-70b",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-04-01T14:58:31.561637+00:00"
+}

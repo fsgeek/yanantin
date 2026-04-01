@@ -1,0 +1,11 @@
+{
+  "id": "c8b11b56-1792-4def-89b3-9288244ca807",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9122_20260401_step-3.5-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8494_20260328_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   DENIED   ### Evidence   The claim states: *\"Terrestrial Duality**   The `midnight-galaxy.md` theme...",
+  "claim_file": "tmp/ubuntu-vm.claude/theme-factory/themes/midnight-galaxy.md",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "stepfun/step-3.5-flash",
+  "timestamp": "2026-04-01T21:45:50.769218+00:00"
+}

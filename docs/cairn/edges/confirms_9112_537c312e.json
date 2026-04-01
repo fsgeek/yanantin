@@ -1,0 +1,11 @@
+{
+  "id": "537c312e-af93-4070-85fe-f3614183979b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9112_20260401_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4183_20260303_deepseek-r1-0528.md",
+  "relation": "confirms",
+  "claim_text": "While the provided evidence confirms the existence of `correct.py`, I have no visibility into the directory's other contents.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "deepseek/deepseek-r1-0528",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-01T20:43:57.976155+00:00"
+}

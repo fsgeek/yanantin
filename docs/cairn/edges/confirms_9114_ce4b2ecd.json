@@ -1,0 +1,11 @@
+{
+  "id": "ce4b2ecd-d61c-4682-a5cc-6b50696cb51a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9114_20260401_deepseek-r1-distill-qwen-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3578_20260228_ministral-14b-2512.md",
+  "relation": "confirms",
+  "claim_text": "- The `compose()` operator\u2019s **non-commutative nature** (`src/yanantin/activity/operators/compose.py`) suggests that the order of predecessors matters.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "timestamp": "2026-04-01T20:44:14.252021+00:00"
+}

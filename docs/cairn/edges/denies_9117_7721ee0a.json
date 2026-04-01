@@ -1,0 +1,11 @@
+{
+  "id": "7721ee0a-9784-427b-bc00-d8dcb8cbc19f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9117_20260401_llama-4-maverick.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6568_20260318_gemini-2.5-flash-lite-preview-.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The claim references the file `test_immutability.py`.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "meta-llama/llama-4-maverick",
+  "timestamp": "2026-04-01T21:16:23.633803+00:00"
+}

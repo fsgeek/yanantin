@@ -1,0 +1,11 @@
+{
+  "id": "3d69c6da-4c9c-4d4b-b7b6-e811d4a6c771",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9120_20260401_hermes-4-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8994_20260401_qwen-plus-2025-07-28.md",
+  "relation": "confirms",
+  "claim_text": "The file `openrouter.py` is not only present but fully implemented.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "qwen/qwen-plus-2025-07-28",
+  "verified_by": "nousresearch/hermes-4-70b",
+  "timestamp": "2026-04-01T21:45:43.541975+00:00"
+}

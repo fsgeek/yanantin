@@ -1,0 +1,11 @@
+{
+  "id": "a60dce3f-05bb-412e-9fa3-c802ee371e6f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9113_20260401_olmo-3.1-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1206_20260217_ministral-8b-2512.md",
+  "relation": "denies",
+  "claim_text": "This invites speculation about: - Whether the \"map\" is dynamically generated during tensor materialization (e.g., via `materialize()` in `awaq/__main__.py`).",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "allenai/olmo-3.1-32b-instruct",
+  "timestamp": "2026-04-01T20:44:01.415654+00:00"
+}

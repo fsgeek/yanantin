@@ -1,0 +1,11 @@
+{
+  "id": "2e8bf6cf-9e25-4818-b45b-d5bf72a55752",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9086_20260401_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5373_20260310_ui-tars-1.5-7b.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I couldn't check if the `compose.py` file contains the `compose_workflow` function because the content of the `compose.py` file is not available.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "bytedance/ui-tars-1.5-7b",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-04-01T17:03:31.716106+00:00"
+}

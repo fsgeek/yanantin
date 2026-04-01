@@ -1,0 +1,11 @@
+{
+  "id": "647e822e-2d3a-4f78-8e7f-eefee48c2596",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9085_20260401_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3367_20260227_claude-3-haiku.md",
+  "relation": "confirms",
+  "claim_text": "For example, `scout_1655_20260219_qwen-2.5-coder-32b-instruct.md` verifies a claim related to the contents of the `CLAUDE.md` file.",
+  "claim_file": "docs/cairn/scout_1655_20260219_qwen-2.5-coder-32b-instruct.md",
+  "claim_by": "anthropic/claude-3-haiku",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-01T17:03:26.677950+00:00"
+}

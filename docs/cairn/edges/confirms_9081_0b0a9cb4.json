@@ -1,0 +1,11 @@
+{
+  "id": "0b0a9cb4-5a39-462e-8ad5-e6a21542ef63",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9081_20260401_tongyi-deepresearch-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4272_20260303_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 5: Epistemic Substitution   The `src/yanantin/collector/dropbox/synthetic.py` generates realistic synthetic data, including plausible content hashes and revision IDs.",
+  "claim_file": "src/yanantin/collector/dropbox/synthetic.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "alibaba/tongyi-deepresearch-30b-a3b",
+  "timestamp": "2026-04-01T16:33:44.067971+00:00"
+}

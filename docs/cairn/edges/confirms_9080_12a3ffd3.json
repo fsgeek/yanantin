@@ -1,0 +1,11 @@
+{
+  "id": "12a3ffd3-994f-4aac-a888-74d1fda99d30",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9080_20260401_mixtral-8x7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6790_20260319_lfm-2-24b-a2b.md",
+  "relation": "confirms",
+  "claim_text": "- **No concrete examples**: Every claim in `blueprint.md` is aspirational (\u201cwhat exists\u201d, \u201cwhat is...\u201d, \u201clast updated:\u2026\u201d) and lacks specifics (e.g., timestamps, commit hashes, or code references) that could be cross-checked against lived system behavior.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "mistralai/mixtral-8x7b-instruct",
+  "timestamp": "2026-04-01T16:33:39.648498+00:00"
+}

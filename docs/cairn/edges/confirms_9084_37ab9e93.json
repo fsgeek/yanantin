@@ -1,0 +1,11 @@
+{
+  "id": "37ab9e93-46d0-4512-bc91-6543f628e74a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9084_20260401_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8410_20260328_grok-4.1-fast.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states two core facts about `weaver.py`: (1) any mention of \"materialization\" is outside this file's scope, and (2) the verification task only concerns `weaver.py`.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "x-ai/grok-4.1-fast",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-01T17:03:25.558944+00:00"
+}

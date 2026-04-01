@@ -1,0 +1,11 @@
+{
+  "id": "380aa26b-db70-4d62-814c-8c132ca8a528",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9082_20260401_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7839_20260325_aion-2.0.md",
+  "relation": "confirms",
+  "claim_text": "Since the assignment provides the full content of `docs/predecessors.md`, the file is indeed present.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "aion-labs/aion-2.0",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-04-01T16:34:01.160710+00:00"
+}

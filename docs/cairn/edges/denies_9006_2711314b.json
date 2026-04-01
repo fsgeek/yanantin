@@ -1,0 +1,11 @@
+{
+  "id": "2711314b-70ae-4e07-bb23-1ab03a594683",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9006_20260401_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7347_20260322_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "However, this file contains no evidence of the existence, location, or sequence of `scout_4645_20260306_llama-3-8b-instruct.md`.",
+  "claim_file": "docs/cairn/scout_4645_20260306_llama-3-8b-instruct.md",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-01T06:11:48.980081+00:00"
+}

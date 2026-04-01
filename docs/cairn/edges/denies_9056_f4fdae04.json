@@ -1,0 +1,11 @@
+{
+  "id": "f4fdae04-0fed-4f9f-a9b8-7e059e33c9e3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9056_20260401_gemini-2.5-flash-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6457_20260317_phi-4.md",
+  "relation": "denies",
+  "claim_text": "The claim specifically references `src/yanantin/apacheta/operators/bootstrap.py` alongside `tests/unit/test_operators.py`, indicating a relationship between these two files within the context of the content provided.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "google/gemini-2.5-flash-lite",
+  "timestamp": "2026-04-01T13:24:20.730378+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "045ef75e-df0b-4d09-b36d-14c0d806905e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9054_20260401_hunyuan-a13b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6326_20260316_ministral-14b-2512.md",
+  "relation": "confirms",
+  "claim_text": "The file is **self-contained** and does **not** refer to or depend on `scour_0742_20260313_qwen3.5-9b.md`.",
+  "claim_file": "docs/cairn/scour_0742_20260313_qwen3.5-9b.md",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "tencent/hunyuan-a13b-instruct",
+  "timestamp": "2026-04-01T12:42:25.535598+00:00"
+}

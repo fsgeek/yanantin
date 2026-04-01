@@ -1,0 +1,11 @@
+{
+  "id": "a0409926-9d58-418b-b178-8be94d314df2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9053_20260401_qwen3-vl-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8336_20260328_phi-4.md",
+  "relation": "denies",
+  "claim_text": "The use of multiple backend options allows for different storage strategies, such as in-memory for testing (`memory.py`), SQL-based persistence with DuckDB (`duckdb.py`), and document-based persistence with ArangoDB (`arango.py`).",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "timestamp": "2026-04-01T12:42:23.426707+00:00"
+}

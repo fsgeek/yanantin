@@ -1,0 +1,11 @@
+{
+  "id": "1a0a9678-06f6-4423-9d94-929a355d3239",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9058_20260401_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8072_20260326_qwen3-vl-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "Moreover, the file `scout.py` does not import anything from `scourer.py` \u2014 there is no such file in the codebase, and no import statement referencing `scourer.py` exists in `scout.py`.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-01T13:24:27.192103+00:00"
+}

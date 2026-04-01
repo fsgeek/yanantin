@@ -14,7 +14,7 @@ class ApachetaBaseModel(BaseModel):
 
     model_config = ConfigDict(
         frozen=True,
-        extra="forbid",
+        extra="allow",
         ser_json_bytes="base64",
         validate_default=True,
     )

@@ -1,0 +1,11 @@
+{
+  "id": "b8677089-63e3-4eb1-8e66-93c016c00d9e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9125_20260401_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1702_20260219_gpt-oss-120b:exacto.md",
+  "relation": "confirms",
+  "claim_text": "| | 3 | **Self\u2011referential scouting** | `docs/cairn/scout_1037_20260216_glm-4.5.md` (lines\u202f7\u201115) discusses how `scout.py` both *describes* and *implements* the scouting system, creating a recursive loop.",
+  "claim_file": "docs/cairn/scout_1037_20260216_glm-4.5.md",
+  "claim_by": "openai/gpt-oss-120b:exacto",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-01T22:21:44.571556+00:00"
+}

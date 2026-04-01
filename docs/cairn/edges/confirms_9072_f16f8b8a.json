@@ -1,0 +1,11 @@
+{
+  "id": "f16f8b8a-a180-413a-88ce-603febe6c794",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9072_20260401_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9030_20260401_llama-3.2-1b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The `agents` directory indeed contains `scout_reviewer.md` and `structured_reviewer.md`, and the file content matches the description.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "meta-llama/llama-3.2-1b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-01T15:31:22.163750+00:00"
+}

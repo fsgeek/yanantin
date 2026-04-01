@@ -1,0 +1,11 @@
+{
+  "id": "a4d4dff5-4e0c-4c35-a36e-a4dc6dcf29f9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9073_20260401_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4989_20260308_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "The content of `negate.py` is irrelevant to the truth of that specific claim, since the claim is about a different file.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-01T15:31:23.694713+00:00"
+}

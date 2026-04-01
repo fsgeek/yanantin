@@ -1,0 +1,11 @@
+{
+  "id": "1b37176b-f12d-4261-9ca5-f0960e760985",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9074_20260401_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0448_20260214_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "**Preamble**   I entered the Yanantin repository from the *chasqui* side\u2011by\u2011side with the `src/yanantin/chasqui/coordinator.py` file \u2013 the heart of the \u201cmessenger scout\u201d system.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-01T15:31:34.514665+00:00"
+}

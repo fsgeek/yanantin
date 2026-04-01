@@ -1,0 +1,11 @@
+{
+  "id": "6f3cab5f-04f1-4bf9-ab6a-d919c943e0e1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9096_20260401_llama-4-maverick.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1807_20260220_nemotron-nano-12b-v2-vl.md",
+  "relation": "denies",
+  "claim_text": "The claim incorrectly equates a reference to `CLAUDE.md` from another file (`docs/tensors.md`) with evidence of self-referential behavior in `CLAUDE.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "nvidia/nemotron-nano-12b-v2-vl",
+  "verified_by": "meta-llama/llama-4-maverick",
+  "timestamp": "2026-04-01T18:37:43.605652+00:00"
+}

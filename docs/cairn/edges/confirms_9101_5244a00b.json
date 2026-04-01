@@ -1,0 +1,11 @@
+{
+  "id": "5244a00b-9363-4fa9-a9ae-274c586c062c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9101_20260401_qwen3-vl-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8564_20260329_llama-4-scout.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I couldn't verify the claim about `reference_string.py` and its relation to observations under `corpus_trimmer_analysis.py` because the provided file does not contain relevant information addressing these points.",
+  "claim_file": "tools/phase1/corpus_trimmer_analysis.py",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "qwen/qwen3-vl-8b-instruct",
+  "timestamp": "2026-04-01T19:07:39.309924+00:00"
+}

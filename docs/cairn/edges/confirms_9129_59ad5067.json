@@ -1,0 +1,11 @@
+{
+  "id": "59ad5067-1f8b-4c0e-a91b-4561ef3138cd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9129_20260401_gpt-4.1-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0688_20260215_llama-3.3-nemotron-super-49b-v.md",
+  "relation": "confirms",
+  "claim_text": "Tests like `tests/red_bar/test_provenance.py` enforce that no tensor exists without provenance.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "verified_by": "openai/gpt-4.1-nano",
+  "timestamp": "2026-04-01T22:53:36.778808+00:00"
+}

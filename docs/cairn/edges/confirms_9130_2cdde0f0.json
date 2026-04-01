@@ -1,0 +1,11 @@
+{
+  "id": "2cdde0f0-07bb-4c31-9bba-98f83ec3b790",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9130_20260401_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3185_20260226_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "Values in `docs/tensors.md` can\u2019t be *verified* without code access.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-04-01T22:53:38.624976+00:00"
+}

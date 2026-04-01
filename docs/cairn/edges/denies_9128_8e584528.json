@@ -1,0 +1,11 @@
+{
+  "id": "8e584528-7c7d-41c8-8a87-532f16974194",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9128_20260401_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4048_20260302_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The explicit text:   \"*I also chose not to investigate the accuracy of the `capture_compaction.py` claim, as the file `docs/scout_report_tensor_schema.md` does not mention it at all.*\"   Directly contradicts the claim being accurate.",
+  "claim_file": "docs/scout_report_tensor_schema.md",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-01T22:53:36.606889+00:00"
+}

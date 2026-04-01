@@ -1,0 +1,11 @@
+{
+  "id": "2f7401f8-fc4d-48d9-8799-d30b36c91a1c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9040_20260401_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7592_20260323_qwen-plus.md",
+  "relation": "confirms",
+  "claim_text": "Thus, the claim misrepresents the text: Apacheta is not *only* a \u201cfuture schema\u201d; it is an *existing practice* \u2014 embodied in `apacheta.md` itself \u2014 with working tensors, observed invariants, and empirical analysis.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-01T11:08:02.304853+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "7920c4ed-50e3-4a27-a0dc-64c48c12ff81",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9036_20260401_hermes-3-llama-3.1-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0002_20260210_deepseek-chat-v3.1.md",
+  "relation": "confirms",
+  "claim_text": "`evolve.py` provides versioned schema migration.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "deepseek/deepseek-chat-v3.1",
+  "verified_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "timestamp": "2026-04-01T10:28:11.232133+00:00"
+}

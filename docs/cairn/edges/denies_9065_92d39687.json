@@ -1,0 +1,11 @@
+{
+  "id": "92d39687-fa01-4751-a0f4-192cbb10cac5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9065_20260401_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8444_20260328_nemotron-nano-9b-v2.md",
+  "relation": "denies",
+  "claim_text": "Systematic Debugging Under Pressure**   *What I saw:* `test-pressure-2.md` presents a high-stakes scenario where a developer must choose between exhaustive root-cause analysis (Option A) or a pragmatic shortcut (Option B).",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/skills/systematic-debugging/test-pressure-2.md",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-01T14:25:59.348241+00:00"
+}

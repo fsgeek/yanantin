@@ -1,0 +1,11 @@
+{
+  "id": "54955fb3-6efa-4036-a23d-253be75da69d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9060_20260401_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8665_20260330_ministral-8b-2512.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses - **Cannot verify the existence of `weaver.py` or `apacheta.md`** because the file content only confirms the presence of `__main__.py`.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-04-01T13:58:58.838172+00:00"
+}

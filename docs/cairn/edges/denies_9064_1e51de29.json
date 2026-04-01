@@ -1,0 +1,11 @@
+{
+  "id": "1e51de29-3b16-4efc-a9a2-0df147f95ccf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9064_20260401_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2499_20260223_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "**`scourer.py` does not exist** (the earlier reports were hallucinations).",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-01T14:25:56.350397+00:00"
+}

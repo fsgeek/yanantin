@@ -1,0 +1,11 @@
+{
+  "id": "a44e4349-26ee-4bbd-ac7d-0e7078d83b95",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9094_20260401_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8857_20260331_mistral-medium-3.1.md",
+  "relation": "confirms",
+  "claim_text": "The Tyranny of the Visual Metaphor** **Observation:** Each template enforces a **spatial metaphor** for interaction: - `code-map.md`: SVG canvas with \"nodes\" and \"connections\" (lines 40\u201360).",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/playground/skills/playground/templates/code-map.md",
+  "claim_by": "mistralai/mistral-medium-3.1",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-01T18:05:19.664035+00:00"
+}

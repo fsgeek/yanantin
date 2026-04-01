@@ -1,0 +1,11 @@
+{
+  "id": "2e313301-d3dc-479b-aad0-c047b1105aea",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9089_20260401_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0062_20260212_llama-3.2-1b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The evidence supports the verdict because the `schema_version` field is added to `TensorRecord`, but the `migrate()` hook is not added to `evolve.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "meta-llama/llama-3.2-1b-instruct",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-04-01T17:35:29.277101+00:00"
+}

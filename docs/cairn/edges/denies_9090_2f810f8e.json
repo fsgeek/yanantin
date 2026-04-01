@@ -1,0 +1,11 @@
+{
+  "id": "2f810f8e-3c03-42b7-8cc2-c4c0404f9bd4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9090_20260401_qwen3-next-80b-a3b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5113_20260308_kimi-k2-thinking.md",
+  "relation": "denies",
+  "claim_text": "The `agents/scout_reviewer.md` template suggests human review, but the sheer volume (5,000+ reports) makes comprehensive human oversight impossible.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "moonshotai/kimi-k2-thinking",
+  "verified_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "timestamp": "2026-04-01T17:35:39.314033+00:00"
+}

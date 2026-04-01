@@ -1,0 +1,11 @@
+{
+  "id": "5d8f20e8-4692-4e1f-96bc-8c16c224b4af",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9093_20260401_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2254_20260222_nemotron-nano-9b-v2.md",
+  "relation": "denies",
+  "claim_text": "However, the provided file (`compose.py`) does not contain any references to the other files mentioned in the claim.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-01T18:05:18.982735+00:00"
+}

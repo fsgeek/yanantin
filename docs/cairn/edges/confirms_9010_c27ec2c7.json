@@ -1,0 +1,11 @@
+{
+  "id": "c27ec2c7-394b-420f-a224-14004b19d689",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9010_20260401_qwen3-30b-a3b-instruct-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4010_20260302_llama-3.3-70b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I couldn't check the content of `docs/CLAUDE.md` because it is not provided, but according to the claim, `CLAUDE.md` references `docs/tensors.md`, not the other way around.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "meta-llama/llama-3.3-70b-instruct",
+  "verified_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "timestamp": "2026-04-01T06:44:52.713267+00:00"
+}

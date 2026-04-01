@@ -1,0 +1,11 @@
+{
+  "id": "8baff72d-0634-4910-940d-46c2d1495555",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9011_20260401_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0560_20260214_ministral-3b-2512.md",
+  "relation": "confirms",
+  "claim_text": "The `ots` directory\u2019s dense list of `.ots` files (over 100) and `tensors.md` imply a system where every interaction leaves a trace\u2014though what \u201ctrace\u201d means at scale remains mysterious.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-01T06:44:53.324005+00:00"
+}

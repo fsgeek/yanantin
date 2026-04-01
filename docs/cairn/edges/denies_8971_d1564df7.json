@@ -1,0 +1,11 @@
+{
+  "id": "d1564df7-5f5a-43fa-836e-ba650b3cd3bb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8971_20260401_llama-3.3-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5937_20260314_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "Therefore, the claim that the script assumes a command-line argument and a project root that is three levels up from the `__main__.py` file is denied.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "meta-llama/llama-3.3-70b-instruct",
+  "timestamp": "2026-04-01T01:35:21.139540+00:00"
+}

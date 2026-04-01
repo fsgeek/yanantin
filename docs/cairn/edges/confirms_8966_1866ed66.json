@@ -1,0 +1,11 @@
+{
+  "id": "1866ed66-72ee-46a6-a477-c663adff3a2c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8966_20260401_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4581_20260305_claude-sonnet-4.5.md",
+  "relation": "confirms",
+  "claim_text": "Tensor Infrastructure: Apacheta** The `src/yanantin/apacheta/` module is the core abstraction: - `models/tensor.py` (line 34-156): Defines `TensorRecord` with `provenance`, `epistemic`, `composition_equation` - `models/provenance.py` (line 18-89): Immutable provenance chain - `operators/compose.py` (line 23-112): Tensor composition algebra - `operators/dissent.py` (line 15-78): Tracks disagreement between models - `backends/` has `memory.py`, `duckdb.py`, `arango.py`\u2014three storage backends From `models/tensor.py`: ```python class TensorRecord(BaseModel): id: UUID provenance: ProvenanceMetadata epistemic: EpistemicMetadata strands: tuple[StrandRecord, ...] composition_equation: Optional[str] = None ``` Tensors are **immutable by design**.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "anthropic/claude-sonnet-4.5",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-01T01:04:22.911332+00:00"
+}

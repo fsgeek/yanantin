@@ -1,0 +1,11 @@
+{
+  "id": "13fd3d27-fe78-4c2b-a3b0-6e4edcca5d31",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8965_20260401_hunyuan-a13b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8388_20260328_qwen-2.5-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Rule Evaluation Mechanism** - Each script (`posttooluse.py`, `pretooluse.py`, `userpromptsubmit.py`, `stop.py`) contains a similar workflow: reading input from stdin, loading rules, evaluating those rules using a `RuleEngine`, and then outputting the results as JSON.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/userpromptsubmit.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "tencent/hunyuan-a13b-instruct",
+  "timestamp": "2026-04-01T01:04:22.855992+00:00"
+}

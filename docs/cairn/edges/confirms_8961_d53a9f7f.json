@@ -1,0 +1,11 @@
+{
+  "id": "d53a9f7f-ac9e-41ec-ae21-b328571d229e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8961_20260401_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8562_20260329_cydonia-24b-v4.1.md",
+  "relation": "confirms",
+  "claim_text": "Similarly, `replay.py` is testing context paging by simulating what would happen if certain tool results were evicted, but it's using the same paging logic that would be used in production.",
+  "claim_file": "tools/phase1/replay.py",
+  "claim_by": "thedrummer/cydonia-24b-v4.1",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-01T00:32:24.502602+00:00"
+}

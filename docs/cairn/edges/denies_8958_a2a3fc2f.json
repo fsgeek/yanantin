@@ -1,0 +1,11 @@
+{
+  "id": "a2a3fc2f-1a47-4ebf-a612-f85aed596354",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8958_20260401_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0448_20260214_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "### 4\ufe0f\u20e3  **Composable Operators \u2013 evolutionary steps**   - **Directory:** `src/yanantin/chasqui/operators/` \u2013 files `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, `project.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-01T00:02:36.478078+00:00"
+}

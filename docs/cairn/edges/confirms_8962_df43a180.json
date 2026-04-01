@@ -1,0 +1,11 @@
+{
+  "id": "df43a180-8b03-4f75-9682-14aeb7b75df6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8962_20260401_qwen3.5-122b-a10b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6542_20260317_qwen-2.5-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The evidence shows that `blueprint.md` is explicitly mentioned as \"This blueprint,\" which indicates that it is a specific component of the system described in the document.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "qwen/qwen3.5-122b-a10b",
+  "timestamp": "2026-04-01T00:32:31.252669+00:00"
+}

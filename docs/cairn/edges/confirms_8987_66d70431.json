@@ -1,0 +1,11 @@
+{
+  "id": "66d70431-b0ea-4c03-89ac-b3c498becdae",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8987_20260401_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8594_20260329_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Declared Losses** I didn't fully explore the `arango.py` file, as I was only provided with the contents of `duckdb.py` and `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-04-01T03:28:52.094404+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "c957110c-052a-4bd8-a05f-a65c0c381d4a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8981_20260401_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3464_20260227_qwen3-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "--- ### Declared Losses   I chose not to:   - Analyze the full `audit.py` or `scout.py` code to trace how claims are generated and verified.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-01T03:08:44.579506+00:00"
+}

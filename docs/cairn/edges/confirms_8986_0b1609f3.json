@@ -1,0 +1,11 @@
+{
+  "id": "0b1609f3-e27b-4dec-a3f6-2dcafa311cf1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8986_20260401_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5730_20260312_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "The Llama 3.2 scout then proceeds to analyze the `scout.py` file and DENIES the original scout's claim, providing specific line-by-line evidence from the source code.\", \"thought\": \"This demonstrates a meta-verification process.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-04-01T03:28:46.912041+00:00"
+}

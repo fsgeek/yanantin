@@ -1,0 +1,11 @@
+{
+  "id": "e666e832-8255-4f5e-8afd-db9ea3d092bf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8983_20260401_qwen3.5-27b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8336_20260328_phi-4.md",
+  "relation": "confirms",
+  "claim_text": "Similarly, `arango.py` and `memory.py` enforce this rule, preventing duplicates.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "qwen/qwen3.5-27b",
+  "timestamp": "2026-04-01T03:08:57.550684+00:00"
+}

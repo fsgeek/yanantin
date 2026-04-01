@@ -1,0 +1,11 @@
+{
+  "id": "64295dfa-44fa-45c5-9cfd-b7fe11237f25",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8988_20260401_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1618_20260219_gpt-oss-20b.md",
+  "relation": "confirms",
+  "claim_text": "Scout report structure** | Several examples (`docs/cairn/scout_0800_20260215_gemma-3n-e4b-it.md`, `docs/cairn/scout_1389_20260218_mistral-7b-instruct-v0.3.md`, `docs/cairn/scout_0294_20260213_nova-lite-v1.md`, `docs/cairn/scout_1247_20260217_gemini-2.0-flash-lite-001.md`, `docs/cairn/scour_0094_20260218_llama-3.2-3b-instruct.md`, `docs/cairn/scout_0844_20260216_qwen3-coder-flash.md`, `docs/cairn/scout_0484_20260214_grok-4.1-fast.md`).",
+  "claim_file": "docs/cairn/scout_0294_20260213_nova-lite-v1.md",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-01T03:29:10.000691+00:00"
+}

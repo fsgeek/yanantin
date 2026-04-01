@@ -1,0 +1,11 @@
+{
+  "id": "5c0e7446-c692-4938-852a-d6d3f9fcfcf3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9029_20260401_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3865_20260301_tongyi-deepresearch-30b-a3b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning While `scourer.py` is indeed present in the `chasqui` directory and its content shows it's related to a scouting system (using scout/scourer terminology), the claim's assertion that it contains \"files related to the messenger scout system, such as `scout.py` and `scourer.py`\" is not fully supported by the evidence.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "alibaba/tongyi-deepresearch-30b-a3b",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-01T09:25:41.308201+00:00"
+}

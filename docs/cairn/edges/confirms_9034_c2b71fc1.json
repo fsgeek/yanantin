@@ -1,0 +1,11 @@
+{
+  "id": "c2b71fc1-4287-4d33-badf-9d7ca920defb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9034_20260401_llama-3.3-nemotron-super-49b-v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1096_20260217_nemotron-3-nano-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "- `src/yanantin/tinkuy/audit.py`\u2019s `survey_codebase` function explicitly **does not parse** `blueprint.md`; it only walks the filesystem and returns a `CodebaseReport`.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "timestamp": "2026-04-01T09:57:57.991526+00:00"
+}

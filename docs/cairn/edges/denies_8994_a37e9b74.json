@@ -1,0 +1,11 @@
+{
+  "id": "a37e9b74-0a6f-41c5-8058-fffe6b5b48bf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8994_20260401_qwen-plus-2025-07-28.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3594_20260228_gpt-4.1-nano.md",
+  "relation": "denies",
+  "claim_text": "The mention of `openrouter.py` is not present in the file, but the claim only asserts that such modules handle integrations *like* `arango.py`, not that they are the same or that `arango.py` is responsible for all such modules.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "qwen/qwen-plus-2025-07-28",
+  "timestamp": "2026-04-01T04:07:29.779045+00:00"
+}

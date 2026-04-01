@@ -1,0 +1,11 @@
+{
+  "id": "1ea2314b-a98c-4ff1-b178-6bec494b231a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8993_20260401_mistral-small-creative.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7399_20260322_lfm2-8b-a1b.md",
+  "relation": "confirms",
+  "claim_text": "Additionally, `config.py` stores configuration as immutable `ConfigTensor` records with `enterprise-level lineage`, and `storage_obfuscator.py` implements the `StorageObfuscator` Protocol, enabling label anonymization \u2014 fulfilling the \u201cconfig-as-tensors\u201d and obfuscation claims.",
+  "claim_file": "src/yanantin/apacheta/config.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "mistralai/mistral-small-creative",
+  "timestamp": "2026-04-01T04:07:28.953604+00:00"
+}

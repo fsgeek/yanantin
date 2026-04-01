@@ -1,0 +1,11 @@
+{
+  "id": "060d9126-43eb-4d37-ba81-11d240a0ad1f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9104_20260401_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8371_20260328_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence - Lines 6, 20, and 28 of `compose.py`: ```python from yanantin.apacheta.models.provenance import ProvenanceEnvelope provenance: ProvenanceEnvelope | None = None, provenance=provenance or ProvenanceEnvelope(), ``` ### Reasoning The evidence shows that `ProvenanceEnvelope` is indeed imported from `yanantin.apacheta.models.provenance` (line 6) and used as the type for the `provenance` parameter in the `compose` function (lines 20 and 28).",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-01T19:43:45.338830+00:00"
+}

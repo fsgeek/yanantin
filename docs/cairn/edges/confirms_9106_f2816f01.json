@@ -1,0 +1,11 @@
+{
+  "id": "f2816f01-d65b-4a28-994e-4085e9c18c98",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9106_20260401_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3673_20260228_deepseek-v3.1-terminus.md",
+  "relation": "confirms",
+  "claim_text": "**Where is the actual scout implementation code?** The reports reference `scout.py` and dispatch mechanisms, but we only see output files, not the source that generates them.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "deepseek/deepseek-v3.1-terminus",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-04-01T19:43:49.058032+00:00"
+}

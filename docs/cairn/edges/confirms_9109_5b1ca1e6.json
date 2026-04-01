@@ -1,0 +1,11 @@
+{
+  "id": "5b1ca1e6-f43a-4aca-91cb-d0b361bd1682",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9109_20260401_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2398_20260222_qwen3-coder:exacto.md",
+  "relation": "confirms",
+  "claim_text": "However, the file content provided clearly shows that `docs/predecessors.md` **is** present and contains detailed information about predecessor projects.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "qwen/qwen3-coder:exacto",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-04-01T20:13:10.343392+00:00"
+}

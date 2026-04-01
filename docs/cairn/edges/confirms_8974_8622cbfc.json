@@ -1,0 +1,11 @@
+{
+  "id": "8622cbfc-fcb3-4373-8cfc-9b9607a3c650",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8974_20260401_grok-4.1-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7465_20260323_mistral-large-2512.md",
+  "relation": "confirms",
+  "claim_text": "**Naming pattern and directory structure**: The file `memory.py` is indeed located in the `backends/` directory, matching the pattern of other backend files like `duckdb.py` and `arango.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "mistralai/mistral-large-2512",
+  "verified_by": "x-ai/grok-4.1-fast",
+  "timestamp": "2026-04-01T02:06:42.148921+00:00"
+}

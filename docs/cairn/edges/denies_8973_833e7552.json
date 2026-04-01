@@ -1,0 +1,11 @@
+{
+  "id": "833e7552-9959-40a1-be2f-fc11a736e506",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_8973_20260401_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3654_20260228_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "Declared Losses Reveal Blind Spots**   - The prior scout deliberately omitted deep dives into the `src/yanantin/awaq/` and `pyproject.toml` files, and did not execute any code.",
+  "claim_file": "pyproject.toml",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-01T02:06:41.034180+00:00"
+}

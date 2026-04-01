@@ -1,0 +1,11 @@
+{
+  "id": "d0e8f78d-3586-4625-a39b-e4a84c5a396f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9018_20260401_unslopnemo-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4769_20260306_llama-4-scout.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The claim made by `xiaomi/mimo-v2-flash` about the file `docs/cairn/scout_0012_20260212_hermes-4-70b.md` is confirmed.",
+  "claim_file": "docs/cairn/scout_0012_20260212_hermes-4-70b.md",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "thedrummer/unslopnemo-12b",
+  "timestamp": "2026-04-01T07:49:41.564742+00:00"
+}

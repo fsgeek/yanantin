@@ -1,0 +1,11 @@
+{
+  "id": "dd3b693a-31ec-41e5-bcb0-969d32a42f19",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9014_20260401_solar-pro-3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3381_20260227_mistral-large-2512.md",
+  "relation": "denies",
+  "claim_text": "- `docs/cairn/scout_3035_20260225_qwen-2.5-7b-instruct.md` and `scout_2955_20260225_qwen3-14b.md` demonstrate a verification pipeline where claims are explicitly confirmed or denied, with evidence cited from source files.",
+  "claim_file": "docs/cairn/scout_2955_20260225_qwen3-14b.md",
+  "claim_by": "mistralai/mistral-large-2512",
+  "verified_by": "upstage/solar-pro-3",
+  "timestamp": "2026-04-01T07:18:54.040613+00:00"
+}

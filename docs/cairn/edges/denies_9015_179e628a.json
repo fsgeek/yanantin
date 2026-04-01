@@ -1,0 +1,11 @@
+{
+  "id": "179e628a-d112-437f-9e17-517532125318",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9015_20260401_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5346_20260310_gpt-oss-120b:exacto.md",
+  "relation": "denies",
+  "claim_text": "The content of `scout_2741_20260224_ernie-4.5-21b-a3b.md` is not provided, and I have no access to it in the current context.",
+  "claim_file": "docs/cairn/scout_2741_20260224_ernie-4.5-21b-a3b.md",
+  "claim_by": "openai/gpt-oss-120b:exacto",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-04-01T07:18:54.738773+00:00"
+}

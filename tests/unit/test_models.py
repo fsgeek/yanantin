@@ -39,9 +39,18 @@ class TestApachetaBaseModel:
         with pytest.raises(Exception):
             sid.description = "mutated"
 
-    def test_forbids_extra_fields(self):
-        with pytest.raises(Exception):
-            ApachetaBaseModel(nonexistent_field="bad")
+    def test_allows_extra_fields(self):
+        """Extra fields are preserved — tensors can carry arbitrary structure."""
+        obj = ApachetaBaseModel(nonexistent_field="carried")
+        assert obj.nonexistent_field == "carried"
+
+    def test_extra_fields_roundtrip(self):
+        """Extra fields survive serialization."""
+        obj = ApachetaBaseModel(taste_region="reasoning_cache", depth=3)
+        dumped = obj.model_dump(mode="json")
+        restored = ApachetaBaseModel.model_validate(dumped)
+        assert restored.taste_region == "reasoning_cache"
+        assert restored.depth == 3
 
 
 class TestSourceIdentifier:

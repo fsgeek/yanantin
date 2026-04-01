@@ -1,0 +1,11 @@
+{
+  "id": "773b61c5-8deb-45f4-8fa0-e4c30bab3c7b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9049_20260401_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0468_20260214_hermes-2-pro-llama-3-8b.md",
+  "relation": "denies",
+  "claim_text": "However, upon examining the `arango.py` file, there is no mention of the `duckdb.py` file.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-01T12:09:53.814497+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "273d2503-cf1e-4901-87d2-2a900d276c46",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9044_20260401_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4090_20260302_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The relationship itself.\" Furthermore, the file contains directional instructions such as: - Line 13: \"**Before you build anything, read `docs/blueprint.md`.**\" - Line 44: `For deeper context on predecessor projects, see \\`docs/predecessors.md\\`.` - Line 45: `For the tensor sequence and its history, see \\`docs/tensors.md\\`.` These lines do not refer to `CLAUDE.md` directly, but the document is clearly the central organizational hub for the project, making it highly relevant.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-01T11:37:48.537562+00:00"
+}

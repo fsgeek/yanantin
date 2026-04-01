@@ -1,0 +1,11 @@
+{
+  "id": "5294b34b-4997-446d-976b-6ab109978ce9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9050_20260401_mistral-small-creative.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7879_20260325_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "## What This Is Not - Not a pass/fail judgment - Not a code review (that's the structured reviewer's job) - Not a summary (summaries flatten; you're preserving observation topology) ``` ### Reasoning The claim made by model `nousresearch/hermes-2-pro-llama-3-8b` states: > \"The `agents` directory contains `scout_reviewer.md` and `structured_reviewer.md`, hinting at the presence of various agents within the Yanantin project.\" The file `agents/scout_reviewer.md` **does** contain the text for the Scout Reviewer Agent, as shown in the evidence.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "mistralai/mistral-small-creative",
+  "timestamp": "2026-04-01T12:09:54.750367+00:00"
+}

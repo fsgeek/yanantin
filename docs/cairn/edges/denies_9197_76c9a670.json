@@ -1,0 +1,11 @@
+{
+  "id": "76c9a670-f2c8-4b74-9bc8-08bae5bccdb5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9197_20260402_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8181_20260327_qwen3.5-122b-a10b.md",
+  "relation": "denies",
+  "claim_text": "Install as git hook: ln -sf ../../.claude/hooks/ots_stamp.py .git/hooks/post-commit ``` The file does NOT list other hooks in `.claude/hooks/`: ```python # No directory listing or references to other hook files exist in this file ``` ### Reasoning The claim states that a set of hooks \"include `capture_compaction.py`, `chasqui_heartbeat.sh`, `chasqui_pulse.py`, `ots_stamp.py`, `pipeline_attestation.py`, and `precompact_tensor.py`.\" From the file content I can verify: - **`ots_stamp.py`** - CONFIRMED as a hook (docstring explicitly states \"Post-commit OpenTimestamps hook\") - **`capture_compaction.py`, `chasqui_heartbeat.sh`, `chasqui_pulse.py`, `pipeline_attestation.py`, `precompact_tensor.py`** - CANNOT VERIFY (no directory listing or cross-references exist in this file) The baidu model's verdict of \"DENIED\" cannot be confirmed or refuted because I lack access to the `.claude/hooks/` directory listing or the other hook files mentioned in the claim.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "qwen/qwen3.5-122b-a10b",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-04-02T08:06:32.232253+00:00"
+}

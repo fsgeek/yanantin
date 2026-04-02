@@ -1,0 +1,11 @@
+{
+  "id": "e0f084ca-186c-43ab-96fa-f804a461ba64",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9193_20260402_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0946_20260216_qwen3-32b.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses   The claim references the documentation (`docs/apacheta.md`) but only the code in `abstract.py` is provided.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-04-02T07:30:07.751656+00:00"
+}

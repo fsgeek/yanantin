@@ -1,0 +1,11 @@
+{
+  "id": "207fdfac-a1eb-4043-87ce-5b6a146c2a3c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9194_20260402_qwen3-235b-a22b-thinking-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7060_20260320_qwen3-coder-flash.md",
+  "relation": "denies",
+  "claim_text": "- The full mechanics of `compaction_quality_finding.md`'s emptiness.",
+  "claim_file": "docs/compaction_quality_finding.md",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "qwen/qwen3-235b-a22b-thinking-2507",
+  "timestamp": "2026-04-02T07:30:23.748195+00:00"
+}

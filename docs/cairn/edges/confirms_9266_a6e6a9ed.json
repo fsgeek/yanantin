@@ -1,0 +1,11 @@
+{
+  "id": "a6e6a9ed-b661-4b57-bd8b-173901d72e5f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9266_20260402_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3234_20260226_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: The Role of `evolve.py` in Schema Management The previous scout correctly pointed out that the `evolve.py` file does not explicitly mention *versioned* schema migration.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-04-02T17:23:47.151748+00:00"
+}

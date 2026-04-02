@@ -1,0 +1,11 @@
+{
+  "id": "f8767d1a-e264-42aa-8110-dfed4baa4f9f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9260_20260402_devstral-small.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3549_20260228_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "**Negative Composition and Provenance** The `negate.py` operator introduces a concept of non-composition between tensors, creating `NegationRecord` and `CompositionEdge` objects.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "mistralai/devstral-small",
+  "timestamp": "2026-04-02T16:51:15.918974+00:00"
+}

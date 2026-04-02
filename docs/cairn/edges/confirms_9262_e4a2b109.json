@@ -1,0 +1,11 @@
+{
+  "id": "e4a2b109-7ad4-4d8d-9b3a-f6124fce7574",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9262_20260402_seed-2.0-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3286_20260226_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "Cost-Weighted Sampling and Efficiency The previous scout noted the cost-weighted random sampling used in `src/yanantin/chasqui/model_selector.py`.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "bytedance-seed/seed-2.0-mini",
+  "timestamp": "2026-04-02T16:52:17.578980+00:00"
+}

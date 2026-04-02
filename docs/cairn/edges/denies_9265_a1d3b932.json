@@ -1,0 +1,11 @@
+{
+  "id": "a1d3b932-4331-40ce-acbe-3b54a4c1cfce",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9265_20260402_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5588_20260311_qwen2.5-coder-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "# Verification Assignment ## The Claim Model `qwen/qwen3-vl-30b-a3b-instruct` made this claim about `docs/scout_report_tensor_schema.md`: > **What is the role of the `provenance.py` file?** It is mentioned in the `scout_report_tensor_schema.md` but not in the `scout_3727` report.",
+  "claim_file": "docs/scout_report_tensor_schema.md",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-02T17:23:34.683066+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "96f46279-2638-4b8d-8c0b-c99025ccedc2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9302_20260402_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4414_20260304_gemini-3-flash-preview.md",
+  "relation": "denies",
+  "claim_text": "The Recursive Loop of `predecessors.md`** - **What I Saw**: Multiple scouts (e.g., `scout_3288`, `scout_3673`, `scout_2625`) are locked in a verification loop regarding `docs/predecessors.md`.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "google/gemini-3-flash-preview",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-04-02T22:08:54.110987+00:00"
+}

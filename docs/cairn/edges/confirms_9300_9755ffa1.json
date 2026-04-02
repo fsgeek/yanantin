@@ -1,0 +1,11 @@
+{
+  "id": "9755ffa1-15b2-4af2-b64d-b3e7762c4637",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9300_20260402_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8802_20260331_qwen3-14b.md",
+  "relation": "confirms",
+  "claim_text": "### Preamble   I observed from the `skills-reference.md` and related files, which describe a system for structuring skills, subagents, plugins, and hooks to automate and enhance Claude\u2019s interactions with codebases.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/claude-code-setup/skills/claude-automation-recommender/references/skills-reference.md",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-02T22:08:51.690989+00:00"
+}

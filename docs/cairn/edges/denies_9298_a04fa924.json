@@ -1,0 +1,11 @@
+{
+  "id": "a04fa924-bae6-49f7-adb6-d56e44783dcd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9298_20260402_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4785_20260306_llama-3.2-3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I couldn't check the content of the `epistemics.py` file, as it is not provided in the given code snippet.",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-04-02T21:37:23.166028+00:00"
+}

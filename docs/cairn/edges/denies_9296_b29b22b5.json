@@ -1,0 +1,11 @@
+{
+  "id": "b29b22b5-7821-40c4-a16b-04f23a53a7a7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9296_20260402_gpt-4o-mini-search-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6141_20260315_trinity-mini.md",
+  "relation": "denies",
+  "claim_text": "The provided file (`checksum.py`) does not import `machine_config.py`, `filesystem.py`, `synthetic.py`, or `checksum.py` (itself).",
+  "claim_file": "src/yanantin/collector/synthetic.py",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "openai/gpt-4o-mini-search-preview",
+  "timestamp": "2026-04-02T21:36:41.442800+00:00"
+}

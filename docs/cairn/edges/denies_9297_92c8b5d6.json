@@ -1,0 +1,11 @@
+{
+  "id": "92c8b5d6-623b-4626-af75-1aa31d407d1b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9297_20260402_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2407_20260223_gemini-2.5-flash-lite-preview-.md",
+  "relation": "denies",
+  "claim_text": "**The Obsession with Provenance and Time:** *   **What I Saw:** The directory `yanantin/src/yanantin/provenance/` contains only `timestamp.py` and `__init__.py`.",
+  "claim_file": "src/yanantin/provenance/timestamp.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-02T21:36:46.173994+00:00"
+}

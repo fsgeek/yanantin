@@ -1,0 +1,11 @@
+{
+  "id": "2f37c6c7-8409-4220-b455-8231e108197c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9209_20260402_mimo-v2-omni.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0038_20260212_qwen3-coder-next.md",
+  "relation": "confirms",
+  "claim_text": "Evidence:   - `src/yanantin/awaq/__main__.py` shows a CLI tool (`awaq`) that *does* read tensors and render composition graphs\u2014suggesting *some* form of integration is already operational (even if not via ArangoDB yet).",
+  "claim_file": "src/yanantin/awaq/__main__.py",
+  "claim_by": "qwen/qwen3-coder-next",
+  "verified_by": "xiaomi/mimo-v2-omni",
+  "timestamp": "2026-04-02T09:40:53.450276+00:00"
+}

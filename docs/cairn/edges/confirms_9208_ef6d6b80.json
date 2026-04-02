@@ -1,0 +1,11 @@
+{
+  "id": "ef6d6b80-c72c-4004-80be-ef45dfedb94f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9208_20260402_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4581_20260305_claude-sonnet-4.5.md",
+  "relation": "confirms",
+  "claim_text": "File changes trigger `chasqui_pulse.py` 2.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "anthropic/claude-sonnet-4.5",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-02T09:40:51.993127+00:00"
+}

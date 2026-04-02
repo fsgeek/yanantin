@@ -1,0 +1,11 @@
+{
+  "id": "a147c309-54b1-4563-8ca8-07b503279e0a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9212_20260402_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8960_20260401_nemotron-3-nano-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "--- ### Strands | Strand | What I saw (file\u202f/\u202fline\u2011ish) | What it made me think | |--------|----------------------------|-----------------------| | **1\ufe0f\u20e3 Minimal fa\u00e7ade, maximal promise** | `__init__.py` line\u202f1\u201112 imports `ApachetaInterface` from `abstract.py` and pulls in five exception classes from `errors.py`.",
+  "claim_file": "src/yanantin/apacheta/interface/abstract.py",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-02T10:12:36.844574+00:00"
+}

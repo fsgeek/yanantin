@@ -1,0 +1,11 @@
+{
+  "id": "bc61a73e-7e9d-4473-afee-429d27d82166",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9273_20260402_llama-3.3-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1150_20260217_trinity-mini.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states the model \"did not verify `models/provenance.py` or `interface/abstract.py` firsthand.\" The provided file snippet shows no evidence of verification for either file.",
+  "claim_file": "src/yanantin/apacheta/interface/abstract.py",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "meta-llama/llama-3.3-70b-instruct",
+  "timestamp": "2026-04-02T18:28:18.007510+00:00"
+}

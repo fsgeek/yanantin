@@ -1,0 +1,11 @@
+{
+  "id": "5ec21f4a-648e-4316-aed2-125b59001185",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9269_20260402_gpt-oss-safeguard-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7774_20260324_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "The file is **self-contained** and does not reference any external files (e.g., `scout_1737_20260219_gemma-3n-e4b-it.md`) or hidden dependencies.",
+  "claim_file": "docs/cairn/scout_1737_20260219_gemma-3n-e4b-it.md",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "openai/gpt-oss-safeguard-20b",
+  "timestamp": "2026-04-02T17:58:24.108404+00:00"
+}

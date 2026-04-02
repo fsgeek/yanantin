@@ -1,0 +1,11 @@
+{
+  "id": "8cdff97d-8088-48eb-93e6-f186aba0154a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9274_20260402_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9116_20260401_hermes-3-llama-3.1-405b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The provided file content is for `src/yanantin/apacheta/models/provenance.py`, not `src/yanantin/apacheta/interface/abstract.py`.",
+  "claim_file": "src/yanantin/apacheta/interface/abstract.py",
+  "claim_by": "nousresearch/hermes-3-llama-3.1-405b",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-04-02T18:28:31.459288+00:00"
+}

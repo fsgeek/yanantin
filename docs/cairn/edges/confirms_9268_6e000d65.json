@@ -1,0 +1,11 @@
+{
+  "id": "6e000d65-1fdb-4000-b33a-5e8742c5a99d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9268_20260402_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8160_20260327_nova-micro-v1.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence Here is the relevant excerpt from `docs/scout_report_tensor_schema.md`: > \"Every tensor declares losses.",
+  "claim_file": "docs/scout_report_tensor_schema.md",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-04-02T17:58:23.339347+00:00"
+}

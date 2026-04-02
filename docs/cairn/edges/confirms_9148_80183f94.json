@@ -1,0 +1,11 @@
+{
+  "id": "80183f94-3878-4606-8b0f-aae15dab330c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9148_20260402_reka-edge.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5413_20260310_mistral-small-3.2-24b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that `docs/blueprint.md` is a blueprint for `docs/tensors.md` and that it references `docs/tensors.md` as a required read before building.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "verified_by": "rekaai/reka-edge",
+  "timestamp": "2026-04-02T01:31:51.413044+00:00"
+}

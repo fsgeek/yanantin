@@ -1,0 +1,11 @@
+{
+  "id": "bb403aea-61bf-4a3d-8d01-6536c07746e6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9241_20260402_rocinante-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7556_20260323_qwen3-235b-a22b.md",
+  "relation": "denies",
+  "claim_text": "The mention of \"materialization\" is outside this file's scope (pertains to `materialize.py`), but the verification task only concerns `weaver.py`.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "qwen/qwen3-235b-a22b",
+  "verified_by": "thedrummer/rocinante-12b",
+  "timestamp": "2026-04-02T14:15:20.053705+00:00"
+}

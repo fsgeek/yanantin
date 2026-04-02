@@ -1,0 +1,11 @@
+{
+  "id": "5c31a8da-0bbf-4db0-985a-96ea757ddc52",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9242_20260402_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4691_20260306_grok-code-fast-1.md",
+  "relation": "confirms",
+  "claim_text": "For instance, `scout_1423_20260218_gpt-oss-120b:exacto.md` confirms that `src/yanantin/apacheta/backends/arango.py` lacks references to `openrouter.py`, and `scout_3701_20260228_molmo-2-8b.md` affirms that `src/yanantin/awaq/weaver.py` parses tensors for composition declarations.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "x-ai/grok-code-fast-1",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-02T14:17:06.270256+00:00"
+}

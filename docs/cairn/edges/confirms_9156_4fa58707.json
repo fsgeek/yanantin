@@ -1,0 +1,11 @@
+{
+  "id": "4fa58707-c557-4da5-81a5-72a35c3d8e25",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9156_20260402_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4577_20260305_qwen3.5-plus-02-15.md",
+  "relation": "confirms",
+  "claim_text": "This is the working mind of the developer, not the project itself - **Whether `docs/predecessors.md` actually exists** \u2014 multiple scouts reference it, some claim it's missing, I didn't resolve this ### Open Questions 1.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "qwen/qwen3.5-plus-02-15",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-02T02:38:01.856425+00:00"
+}

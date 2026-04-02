@@ -1,0 +1,11 @@
+{
+  "id": "981bc78b-1759-45b8-afad-ae973faef8d6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9137_20260401_llama-3.3-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1158_20260217_gemma-3-27b-it.md",
+  "relation": "denies",
+  "claim_text": "This last element is what sets Yanantin apart \u2014 an explicit acknowledgement of bounded observation.\", \"strands\": [ { \"title\": \"The Scout Report as a First-Class Citizen\", \"observations\": \"The scout reports (e.g., `docs/cairn/scout_0467_20260214_rnj-1-instruct.md`, `docs/cairn/scout_0929_20260216_gpt-5-nano.md`) aren\u2019t casual test results.",
+  "claim_file": "docs/cairn/scout_0467_20260214_rnj-1-instruct.md",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "meta-llama/llama-3.3-70b-instruct",
+  "timestamp": "2026-04-01T23:59:15.375882+00:00"
+}

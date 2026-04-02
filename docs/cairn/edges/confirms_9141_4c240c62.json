@@ -1,0 +1,11 @@
+{
+  "id": "4c240c62-de1c-4d66-b6b1-2223f471544a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9141_20260402_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2075_20260221_phi-4.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states: > `src/yanantin/tinkuy/audit.py`: a Python file containing code for the project's audit tool The file `src/yanantin/tinkuy/audit.py` contains the following description in its docstring: ```python \"\"\"Codebase audit tool \u2014 generates ground truth from the filesystem.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-04-02T00:30:27.963538+00:00"
+}

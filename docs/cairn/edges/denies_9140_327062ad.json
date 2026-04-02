@@ -1,0 +1,11 @@
+{
+  "id": "327062ad-a5ac-4b09-b6d7-9391692304d2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9140_20260402_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4867_20260307_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "*   **Runtime Behavior:** I did not run `chasqui_pulse.py` or `precompact_tensor.py`.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-04-02T00:30:11.966281+00:00"
+}

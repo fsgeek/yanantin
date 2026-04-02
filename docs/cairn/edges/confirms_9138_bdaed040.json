@@ -1,0 +1,11 @@
+{
+  "id": "bdaed040-ab60-4aee-8cae-05536800122f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9138_20260401_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3023_20260225_ministral-8b-2512.md",
+  "relation": "confirms",
+  "claim_text": "**Files of interest:** - `agents/scout_reviewer.md` (scout report template) --- #### **8.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-01T23:59:16.320009+00:00"
+}

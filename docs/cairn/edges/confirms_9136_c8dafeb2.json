@@ -1,0 +1,11 @@
+{
+  "id": "c8dafeb2-0cda-41f6-97a6-aafb68673d99",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9136_20260401_llama-3.1-nemotron-ultra-253b-.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8961_20260401_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The claim states that `replay.py` is testing context paging by simulating what would happen if certain tool results were evicted, using the same paging logic that would be used in production.",
+  "claim_file": "tools/phase1/replay.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+  "timestamp": "2026-04-01T23:59:15.090212+00:00"
+}

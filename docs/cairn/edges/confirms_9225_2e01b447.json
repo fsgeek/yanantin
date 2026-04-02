@@ -1,0 +1,11 @@
+{
+  "id": "2e01b447-03ca-4567-8a5e-8f3eddeb950e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9225_20260402_qwen3-30b-a3b-thinking-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5893_20260314_mistral-large-2512.md",
+  "relation": "confirms",
+  "claim_text": "The file provided is: - Path: `src/yanantin/apacheta/operators/negate.py` - Content: The entire file is shown above, confirming its existence in the specified directory.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "mistralai/mistral-large-2512",
+  "verified_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "timestamp": "2026-04-02T11:55:06.897840+00:00"
+}

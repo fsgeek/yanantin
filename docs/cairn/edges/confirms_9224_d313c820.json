@@ -1,0 +1,11 @@
+{
+  "id": "d313c820-298f-45a7-8398-f17b6572cab6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9224_20260402_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8224_20260327_mistral-small-3.1-24b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Specific quotes from the file: - The file header specifically states: \"It does NOT parse the blueprint or any other documentation.\" - There is no mention of `tinkuy/audit.py` anywhere in the file.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-02T11:54:58.921182+00:00"
+}

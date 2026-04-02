@@ -1,0 +1,11 @@
+{
+  "id": "c1675834-d103-44c6-9f76-27ff473b9338",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9177_20260402_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1909_20260220_mistral-7b-instruct-v0.2.md",
+  "relation": "denies",
+  "claim_text": "- **Evidence of runtime**: The `CLAUDE.md` file\u2019s reference to \"tensor sequence (T0-T7)\" (see `scour_0306_*`) is not just documentation\u2014it is an **operational artifact** that connects past and present scouts.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "mistralai/mistral-7b-instruct-v0.2",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-04-02T05:22:24.510671+00:00"
+}

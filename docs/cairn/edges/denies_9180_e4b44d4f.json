@@ -1,0 +1,11 @@
+{
+  "id": "e4b44d4f-eaa0-4660-b324-67327e5c5c11",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9180_20260402_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3476_20260227_llama-3.3-70b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that \"Each package contains `__init__.py` and domain\u2011specific modules.\" However, the provided file `tests/__init__.py` does not contain any information about domain-specific modules or even acknowledge its own presence as an `__init__.py` file.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "meta-llama/llama-3.3-70b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-02T05:51:34.430667+00:00"
+}

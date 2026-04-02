@@ -1,0 +1,11 @@
+{
+  "id": "ef06bdb6-7b54-4b4f-9e38-2b8e0844a331",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9181_20260402_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7644_20260324_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim made by `cohere/command-r7b-12-2024` states that the model \"didn\u2019t explore `audit.py` or `succession.py`\u2019s interaction with the broader system.\" The evidence provided to deny this claim was that `succession.py` imports functions from `audit.py`.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-02T05:51:34.603843+00:00"
+}

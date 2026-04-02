@@ -1,0 +1,11 @@
+{
+  "id": "b7cd13a6-389a-4a53-8a45-67e2ef8c4046",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9182_20260402_l3.1-euryale-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5069_20260308_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "## Declared Losses I did not examine the `capture_compaction.py`, `chasqui_heartbeat.sh`, `chasqui_pulse.py`, `ots_stamp.py`, `pipeline_attestation.py`, `precompact_tensor.py`, `.githooks`, `.github/workflows`, `.pytest_cache`, `.uv_cache`, `.vscode`, `agents`, `.claude/work_queue.json`, or `heartbeat_state.json` files, as they did not appear directly related to the data analysis and storage I was observing.",
+  "claim_file": ".claude/hooks/pipeline_attestation.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "sao10k/l3.1-euryale-70b",
+  "timestamp": "2026-04-02T05:51:38.972393+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "a082de1c-ddcd-4a20-9678-3101e36c6912",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9161_20260402_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6732_20260319_lfm-2-24b-a2b.md",
+  "relation": "denies",
+  "claim_text": "However, the file `src/yanantin/apacheta/models/provenance.py` does not contain any references to these files or to specific operator definitions.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-02T03:11:40.768129+00:00"
+}

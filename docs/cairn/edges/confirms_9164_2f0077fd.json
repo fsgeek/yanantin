@@ -1,0 +1,11 @@
+{
+  "id": "2f0077fd-a02e-42c0-957a-9916bcb99dcf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9164_20260402_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1501_20260218_sonar.md",
+  "relation": "confirms",
+  "claim_text": "**Evidence from other scouts:** - Scout 0444 (Granite 4.0 Micro) explicitly states: \"I did not delve deeply into the `.claude` directory and its hooks (`capture_compaction.py`, `chasqui_heartbeat.sh`).",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "perplexity/sonar",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-02T03:41:57.112518+00:00"
+}

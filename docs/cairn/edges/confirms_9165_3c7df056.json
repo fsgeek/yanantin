@@ -1,0 +1,11 @@
+{
+  "id": "3c7df056-dffe-4c4d-9a5a-eefcead2210f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9165_20260402_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9080_20260401_mixtral-8x7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The file `docs/blueprint.md` contains the following text: > *Last updated: T35 added, cairn counts updated, MessageStore gateway refactor, 2026-03-09* > ## What Exists > > ### Apacheta \u2014 Tensor Database (code: `src/yanantin/apacheta/`) > > The core.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "mistralai/mixtral-8x7b-instruct",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-04-02T03:42:00.195609+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "c5a8f30f-b335-4f18-b514-275c754cf7b8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9202_20260402_grok-4.1-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7515_20260323_lfm-2.2-6b.md",
+  "relation": "confirms",
+  "claim_text": "Operators consume it.\" ``` This confirms the claim that `ibm-granite/granite-4.0-h-micro` states that `src/yanantin/apacheta/interface/abstract.py` is the abstract interface for Apacheta, where operators consume it.",
+  "claim_file": "src/yanantin/apacheta/interface/abstract.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "x-ai/grok-4.1-fast",
+  "timestamp": "2026-04-02T08:36:18.897464+00:00"
+}

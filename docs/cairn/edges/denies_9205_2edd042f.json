@@ -1,0 +1,11 @@
+{
+  "id": "2edd042f-7698-4e60-9314-56829e15a48f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9205_20260402_gpt-4o-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8332_20260327_qwen3-vl-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "> \ud83d\udccc *What I saw*: `configure.md` says \u201cuse Glob to find files\u201d \u2014 but doesn\u2019t say *how* to parse them.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/commands/configure.md",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "verified_by": "openai/gpt-4o-mini",
+  "timestamp": "2026-04-02T09:10:26.012571+00:00"
+}

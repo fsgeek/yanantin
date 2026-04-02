@@ -1,0 +1,11 @@
+{
+  "id": "feeea65c-6246-43b4-8a97-46f496db4cea",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9200_20260402_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1069_20260217_nova-micro-v1.md",
+  "relation": "confirms",
+  "claim_text": "``` The evidence directly shows that `memory.py` contains the `InMemoryBackend` class and associated methods, making the claim about `memory.py` being unsupported by evidence incorrect.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-04-02T08:36:15.782009+00:00"
+}

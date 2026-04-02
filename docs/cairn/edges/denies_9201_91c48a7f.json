@@ -1,0 +1,11 @@
+{
+  "id": "91c48a7f-adb1-4e0d-9b9f-712e74b1cd57",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9201_20260402_hunyuan-a13b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8047_20260326_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence \"The `.claude/hooks` directory contains Python scripts, including `capture_compaction.py`, `ots_stamp.py`, `pipeline_attestation.py` and `precompact_tensor.py`.\" ### Reasoning The provided file content of `ots_stamp.py` starts with a docstring that explicitly states: \"The `.claude/hooks` directory contains Python scripts, including `capture_compaction.py`, `ots_stamp.py`, `pipeline_attestation.py` and `precompact_tensor.py`.\" This directly supports the claim made by `google/gemini-2.0-flash-lite-001`.",
+  "claim_file": ".claude/hooks/pipeline_attestation.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "tencent/hunyuan-a13b-instruct",
+  "timestamp": "2026-04-02T08:36:18.761716+00:00"
+}

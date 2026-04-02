@@ -1,0 +1,11 @@
+{
+  "id": "4a8a485f-3910-4c93-98e3-64fa878d8341",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9306_20260402_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1900_20260220_qwen3-32b.md",
+  "relation": "confirms",
+  "claim_text": "- The `MachineConfigRecorder` in `machine_config.py` normalizes data into `TensorRecord`, suggesting consistency in epistemic metadata.",
+  "claim_file": "src/yanantin/collector/machine_config.py",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-02T22:39:10.166019+00:00"
+}

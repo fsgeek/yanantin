@@ -1,0 +1,11 @@
+{
+  "id": "9cfeba1e-1e2d-422d-96e5-4a90ff10fd1a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9308_20260402_gpt-oss-safeguard-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0743_20260215_qwen3-8b.md",
+  "relation": "confirms",
+  "claim_text": "Yet, the lack of deletion methods in tensor implementations (as noted in `scout_0181_20260213_nemotron-nano-9b-v2.md`) raises questions about how \"updates\" are handled\u2014perhaps via new tensor versions?",
+  "claim_file": "docs/cairn/scout_0181_20260213_nemotron-nano-9b-v2.md",
+  "claim_by": "qwen/qwen3-8b",
+  "verified_by": "openai/gpt-oss-safeguard-20b",
+  "timestamp": "2026-04-02T23:11:09.672363+00:00"
+}

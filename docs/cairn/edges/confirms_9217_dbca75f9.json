@@ -1,0 +1,11 @@
+{
+  "id": "dbca75f9-345b-486f-a98d-68b96a840505",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9217_20260402_ernie-4.5-vl-28b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4880_20260307_gpt-4.1-nano.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I cannot verify the existence or inclusion of `duckdb.py` and `arango.py` backends as they are not present in this file or its content.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "timestamp": "2026-04-02T10:44:01.340892+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "a7b8925d-bfd3-4fe9-892d-497ea6707353",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9229_20260402_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1645_20260219_ernie-4.5-21b-a3b-thinking.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning - The evidence confirms `bootstrap` exists in `bootstrap.py`, but the claim requires verification of three additional operators (`compose`, `correct`, `dissent`) in either file.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-02T12:31:59.104061+00:00"
+}

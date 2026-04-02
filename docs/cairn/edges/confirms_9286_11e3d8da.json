@@ -1,0 +1,11 @@
+{
+  "id": "11e3d8da-8b3e-4ce6-ac69-a6144234b912",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9286_20260402_glm-4.7.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0621_20260215_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "The heavy use of regex-based pattern matching in the `awaq/weaver.py` module stood out as a key design choice, hinting at a pragmatic approach to extracting structured information from unstructured tensor prose.\", \"strands\": [ { \"theme\": \"Epistemic Observability\", \"observations\": [ \"The project's central aim is to create a system for 'epistemic observability'\u2014making knowledge and reasoning processes transparent and inspectable.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "z-ai/glm-4.7",
+  "timestamp": "2026-04-02T20:07:40.112233+00:00"
+}

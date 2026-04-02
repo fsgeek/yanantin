@@ -1,0 +1,11 @@
+{
+  "id": "c322c16a-3ad6-47a8-9894-4a6ac74b2eab",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9284_20260402_codestral-2508.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5413_20260310_mistral-small-3.2-24b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I cannot check the runtime behavior or any external references that might imply a relationship between `docs/blueprint.md` and `docs/tensors.md` that is not explicitly stated in the file.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "verified_by": "mistralai/codestral-2508",
+  "timestamp": "2026-04-02T20:04:39.143795+00:00"
+}

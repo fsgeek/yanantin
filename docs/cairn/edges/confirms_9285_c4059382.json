@@ -1,0 +1,11 @@
+{
+  "id": "c4059382-1460-4574-b9fe-481d18228a87",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9285_20260402_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4590_20260305_qwen-2.5-72b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "For example: - **`content_hash` tests:** ```python class TestContentHash: def test_same_content_produces_same_hash(self): text = \"The cairn accumulates stones.\" assert content_hash(text) == content_hash(text) ``` - **`ContentIndex` tests:** ```python class TestContentIndex: def test_build_from_directory_counts_correct(self, tmp_path: Path): (tmp_path / \"a.md\").write_text(\"document alpha\", encoding=\"utf-8\") (tmp_path / \"b.md\").write_text(\"document beta\", encoding=\"utf-8\") (tmp_path / \"c.md\").write_text(\"document gamma\", encoding=\"utf-8\") index = ContentIndex.from_directory(tmp_path) assert len(index) == 3 ``` - **`deduplicate_report` tests:** ```python class TestDeduplicateReport: def test_clean_directory_no_duplicates(self, tmp_path: Path): (tmp_path / \"a.md\").write_text(\"unique alpha\", encoding=\"utf-8\") (tmp_path / \"b.md\").write_text(\"unique beta\", encoding=\"utf-8\") report = deduplicate_report(tmp_path) assert \"No duplicates\" in report assert \"2 documents\" in report ``` ### Reasoning The evidence from the file clearly shows that the functions `content_hash`, `ContentIndex`, and `deduplicate_report` are imported and tested extensively in `tests/unit/test_content_address.py`.",
+  "claim_file": "tests/unit/test_content_address.py",
+  "claim_by": "qwen/qwen-2.5-72b-instruct",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-04-02T20:04:52.400479+00:00"
+}

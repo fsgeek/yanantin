@@ -1,0 +1,11 @@
+{
+  "id": "2bf03e59-5a02-4210-8885-ef69616b09f8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9282_20260402_gemma-4-31b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9086_20260401_qwen2.5-coder-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "<|file_sep|><|fim_prefix|>/tests/<|fim_suffix|>g <|fim_middle|>models/test_entrypoint.py aiogoogle aiosmtpd aiosqlite aiospotify aioxap<|file_sep|><|fim_prefix|>/benchmarks/README.md # Verification Assignment ## The Claim Model `bytedance/ui-tars-1.5-7b` made this claim about `src/yanantin/apacheta/operators/compose.py`: > ### Declared Losses I couldn't check if the `compose.py` file contains the `compose_workflow` function because the content of the `compose.py` file is not available.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "google/gemma-4-31b-it",
+  "timestamp": "2026-04-02T19:33:50.797762+00:00"
+}

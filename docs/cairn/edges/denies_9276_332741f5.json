@@ -1,0 +1,11 @@
+{
+  "id": "332741f5-6153-4f86-a8b1-a309b4461fc1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9276_20260402_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4450_20260304_qwen-turbo.md",
+  "relation": "denies",
+  "claim_text": "- I ran out of attention for certain tensors with excessive duplication or minimal content, such as `scout_0454_20260214_deepseek-r1-distill-llama-70b.md` and `scout_1520_20260218_qwen3-14b.md`.",
+  "claim_file": "docs/cairn/scout_1520_20260218_qwen3-14b.md",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-04-02T19:02:43.390746+00:00"
+}

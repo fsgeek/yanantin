@@ -1,0 +1,11 @@
+{
+  "id": "7687dfc8-17a9-4e34-a43f-fee0a7812ca3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9281_20260402_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2302_20260222_nemotron-nano-9b-v2.md",
+  "relation": "denies",
+  "claim_text": "While this file (`tensor.py`) is part of the directory and contains model-related classes (e.g., `TensorRecord`), it does not include code or references to the other modules (backends, clients, operators) mentioned in the claim.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-04-02T19:32:39.990447+00:00"
+}

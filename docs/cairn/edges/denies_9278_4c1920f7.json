@@ -1,0 +1,11 @@
+{
+  "id": "4c1920f7-01e7-4f88-a30f-279be64ed3aa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9278_20260402_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0448_20260214_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "### 5\ufe0f\u20e3  **Backend\u2011agnostic Persistence**   - **Backends:** `src/yanantin/apacheta/backends/` \u2013 `arango.py`, `duckdb.py`, `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-02T19:03:05.329313+00:00"
+}

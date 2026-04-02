@@ -1,0 +1,11 @@
+{
+  "id": "1642e68f-7d3f-48e0-96cb-b60ac247b9ab",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9174_20260402_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4637_20260306_grok-4-fast.md",
+  "relation": "confirms",
+  "claim_text": "Playful honesty: it's elegant Inca-road modular, but no `main.py`\u2014entry via `__main__.py` per module?",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-02T04:44:58.754339+00:00"
+}

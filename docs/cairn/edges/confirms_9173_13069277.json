@@ -1,0 +1,11 @@
+{
+  "id": "13069277-c9a4-4d7a-bde5-893027f971f7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9173_20260402_deepseek-chat-v3-0324.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7592_20260323_qwen-plus.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **DENIED** ### Evidence   The file `docs/apacheta.md` opens with:   ``` # Apacheta: The Tensor Database ```   And later states explicitly:   ``` ## What Already Exists The seven existing tensors (T\u2080-T\u2087) implicitly implement this data model.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "deepseek/deepseek-chat-v3-0324",
+  "timestamp": "2026-04-02T04:44:58.323524+00:00"
+}

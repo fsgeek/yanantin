@@ -1,0 +1,11 @@
+{
+  "id": "40f61335-9e09-46d7-af0e-4b8576a01955",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9189_20260402_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3856_20260301_nova-micro-v1.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The following lines from the file state that `chasqui_pulse.py` performs various automated tasks, which are typically characteristic of \"code hooks\": ```python #!/usr/bin/env python3 \"\"\"Chasqui pulse \u2014 the reactive heartbeat.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-02T07:01:28.064189+00:00"
+}

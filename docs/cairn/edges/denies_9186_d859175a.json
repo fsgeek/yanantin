@@ -1,0 +1,11 @@
+{
+  "id": "d859175a-b239-43b9-b260-f336b3fc8c18",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9186_20260402_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7219_20260321_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   **DENIED** ### Evidence   The claim states:   > *\"Is there tension between cryptographic commit signing (`signing.md`) and tensor-level provenance?\"*   The file `docs/cairn/scout_1128_20260217_mistral-small-creative.md` contains **no mention of tensor-level provenance**.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-02T06:24:22.388960+00:00"
+}

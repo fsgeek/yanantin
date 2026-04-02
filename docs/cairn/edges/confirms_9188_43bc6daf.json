@@ -1,0 +1,11 @@
+{
+  "id": "43bc6daf-21b1-4a54-8373-c954b0acb425",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9188_20260402_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0081_20260212_olmo-3-32b-think.md",
+  "relation": "confirms",
+  "claim_text": "codebase`) relies on a static `blueprint.md` (seen in `README.md` snippets), which may drift.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "allenai/olmo-3-32b-think",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-02T07:01:25.045136+00:00"
+}

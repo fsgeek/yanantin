@@ -1,0 +1,11 @@
+{
+  "id": "65673560-1560-470c-b645-116d63b73b2e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9184_20260402_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0574_20260214_nemotron-3-nano-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "| | 6 | **Red\u2011bar test suite** | `tests/red_bar/` holds security\u2011focused tests (`test_immutability.py`, `test_least_privilege.py`, `test_monotonicity.py`).",
+  "claim_file": "tests/red_bar/test_least_privilege.py",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-04-02T06:24:22.166304+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "899fa972-e983-41a4-8ef7-c4c4ec079129",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9246_20260402_seed-1.6.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6857_20260319_llama-4-scout.md",
+  "relation": "denies",
+  "claim_text": "#### Strand: Economic Dispatch Layer and Inverse Cost Weighting - **What was preserved**: `model_selector.py:85` implements inverse cost weighting, giving preference to cheaper models.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "bytedance-seed/seed-1.6",
+  "timestamp": "2026-04-02T14:46:46.934984+00:00"
+}

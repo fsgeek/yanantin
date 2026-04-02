@@ -1,0 +1,11 @@
+{
+  "id": "bf7945ed-9b78-49bc-bca9-27ec8ef7be54",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9248_20260402_lfm2-8b-a1b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1914_20260220_qwen3-next-80b-a3b-thinking.md",
+  "relation": "confirms",
+  "claim_text": "How does this inform the `red_bar/test_monotonicity.py` tests observed by other scouts?",
+  "claim_file": "tests/red_bar/test_monotonicity.py",
+  "claim_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "verified_by": "liquid/lfm2-8b-a1b",
+  "timestamp": "2026-04-02T15:18:42.873161+00:00"
+}

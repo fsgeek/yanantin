@@ -1,0 +1,11 @@
+{
+  "id": "963790df-7925-4182-8777-33032df62a51",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9292_20260402_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7521_20260323_nova-micro-v1.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The file `CLAUDE.md` contains operational instructions and details about the Yanantin project.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-02T21:06:46.364798+00:00"
+}

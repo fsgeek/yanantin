@@ -1,0 +1,11 @@
+{
+  "id": "6be4690b-949f-46a0-8c1e-48d463089663",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9289_20260402_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4212_20260303_qwen-plus.md",
+  "relation": "denies",
+  "claim_text": "The `scout.py` entrypoint (line 145) dispatches to `verify`, `correct`, `dissent`, or `project` \u2014 all defined in `operators/`.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-04-02T20:34:42.825430+00:00"
+}

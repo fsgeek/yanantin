@@ -1,0 +1,11 @@
+{
+  "id": "79f257b6-e499-4452-ae69-5bc881ce46cc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9290_20260402_deepseek-chat-v3.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1193_20260217_granite-4.0-h-micro.md",
+  "relation": "denies",
+  "claim_text": "Epistemic Graph & Longitudinal Analysis** | \u2022 `docs/cairn/compaction/T11_20260210_the_immune_system.md` \u2013 mentions building an **epistemic graph** where edges represent corroboration, correction, redundancy, or blind spots.",
+  "claim_file": "docs/cairn/T11_20260210_the_immune_system.md",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "deepseek/deepseek-chat-v3.1",
+  "timestamp": "2026-04-02T20:34:45.266840+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "302ca9e4-ab96-4fb9-8075-ee0839abe96f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9294_20260402_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5777_20260313_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The evidence shows that the `bootstrap.py` file contains the mentioned `ApachetaInterface`, `BootstrapRecord`, `ProvenanceEnvelope`, and `TensorRecord` imports, which confirms that the file is related to the operations listed in the claim.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-04-02T21:06:50.855665+00:00"
+}

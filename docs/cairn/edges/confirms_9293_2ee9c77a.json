@@ -1,0 +1,11 @@
+{
+  "id": "2ee9c77a-fcf1-4d10-8f4e-2692b84f988e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9293_20260402_claude-sonnet-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8080_20260326_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The evidence confirms that the `src/yanantin/collector/dropbox/fact_recorder.py` file decomposes data into granular facts, one per Dropbox entry, as claimed by `prime-intellect/intellect-3`.",
+  "claim_file": "src/yanantin/collector/dropbox/fact_recorder.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "anthropic/claude-sonnet-4",
+  "timestamp": "2026-04-02T21:06:48.753872+00:00"
+}

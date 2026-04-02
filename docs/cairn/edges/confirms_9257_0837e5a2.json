@@ -1,0 +1,11 @@
+{
+  "id": "0837e5a2-00c2-46f5-9ff3-b141e96a3ff8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9257_20260402_wizardlm-2-8x22b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6219_20260316_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Full Operator Implementations** I did not read the full bodies of the operator implementations (`compose.py`, `correct.py`, `dissent.py`) beyond their signatures and high-level flow.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "microsoft/wizardlm-2-8x22b",
+  "timestamp": "2026-04-02T16:22:22.040909+00:00"
+}

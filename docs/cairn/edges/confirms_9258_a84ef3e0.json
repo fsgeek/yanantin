@@ -1,0 +1,11 @@
+{
+  "id": "a84ef3e0-3532-40c5-a50a-d615784beef8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9258_20260402_seed-2.0-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8101_20260326_gpt-oss-120b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence ``` ``` (The `README.md` file contains no text between the triple backticks; it is empty.) ### Reasoning The claim states that the project contains documentation files, including `README.md`, which provide an overview of the project and its components.",
+  "claim_file": "README.md",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "bytedance-seed/seed-2.0-mini",
+  "timestamp": "2026-04-02T16:22:31.548958+00:00"
+}

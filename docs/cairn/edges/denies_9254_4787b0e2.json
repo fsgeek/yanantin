@@ -1,0 +1,11 @@
+{
+  "id": "4787b0e2-75bb-4cf1-80e6-d42265673e65",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9254_20260402_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7458_20260323_hermes-4-70b.md",
+  "relation": "denies",
+  "claim_text": "The functions `check_orphan_tensors` and `check_succession` exclusively use imports from `yanantin.awaq.weaver` and `yanantin.tinkuy.audit`, with no mention of `scout.py`.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "nousresearch/hermes-4-70b",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-02T15:50:07.822451+00:00"
+}

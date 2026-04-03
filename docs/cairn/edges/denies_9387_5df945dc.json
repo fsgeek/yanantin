@@ -1,0 +1,11 @@
+{
+  "id": "5df945dc-3e46-40cb-a6fc-2c28ed2425db",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9387_20260403_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0338_20260213_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "- Line reference: `tensor.py` #46 (\"compose, don't overwrite\").",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-03T09:57:35.933442+00:00"
+}

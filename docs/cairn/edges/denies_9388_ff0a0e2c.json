@@ -1,0 +1,11 @@
+{
+  "id": "ff0a0e2c-bb20-4d83-ad2c-a0ab23110864",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9388_20260403_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6722_20260318_llama-3-70b-instruct.md",
+  "relation": "denies",
+  "claim_text": "This is evident in the `pipeline_attestation.py` file, which suggests a modular approach to pipeline construction.",
+  "claim_file": ".claude/hooks/pipeline_attestation.py",
+  "claim_by": "meta-llama/llama-3-70b-instruct",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-03T09:57:36.589797+00:00"
+}

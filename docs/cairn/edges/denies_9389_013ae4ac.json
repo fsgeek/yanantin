@@ -1,0 +1,11 @@
+{
+  "id": "013ae4ac-953b-442a-9f4e-30bd86805db5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9389_20260403_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7960_20260325_gemini-2.5-flash-lite.md",
+  "relation": "denies",
+  "claim_text": "However, there are no direct import statements for `scourer.py` or `coordinator.py` within the snippet.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-03T09:57:36.911277+00:00"
+}

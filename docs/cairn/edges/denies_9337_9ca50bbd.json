@@ -1,0 +1,11 @@
+{
+  "id": "9ca50bbd-f36c-4f26-8635-0cfa15696090",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9337_20260403_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1998_20260221_qwen3-30b-a3b-instruct-2507.md",
+  "relation": "denies",
+  "claim_text": "Extending the Strand: Evolving the Blueprint Is Not Schema Change \u2014 It\u2019s Filesystem Surgery** The claim under scrutiny was: *\"Operators like `evolve.py` and `dissent.py` handle schema changes and disagreements formally.\"* - **My Extension**:   That claim is **DENIED** \u2014 but not for the reason stated.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-03T02:59:31.913565+00:00"
+}

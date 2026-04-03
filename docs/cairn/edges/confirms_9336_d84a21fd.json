@@ -1,0 +1,11 @@
+{
+  "id": "d84a21fd-b969-4525-b4b0-87b9add60603",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9336_20260403_qwen3-coder-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7690_20260324_qwen2.5-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Claim Analysis**: The claim states that `bootstrap.py` selects tensors for the context budget.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "qwen/qwen3-coder-flash",
+  "timestamp": "2026-04-03T02:59:30.442956+00:00"
+}

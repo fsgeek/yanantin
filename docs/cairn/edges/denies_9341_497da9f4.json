@@ -1,0 +1,11 @@
+{
+  "id": "497da9f4-d3ee-4304-aece-ce908b8142f4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9341_20260403_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4307_20260304_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   **DENIED** ### Evidence   The file contains no mention of `src/yanantin/apacheta/operators/bootstrap.py`, nor does it define or reference any file or content by that path.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-03T03:31:57.375425+00:00"
+}

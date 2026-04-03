@@ -1,0 +1,11 @@
+{
+  "id": "7707a62e-8fc4-42ee-b615-c937f4baeabe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9338_20260403_glm-4.7-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1206_20260217_ministral-8b-2512.md",
+  "relation": "confirms",
+  "claim_text": "- **Evidence in `tests/unit/test_ingest.py`:** The test suite validates that tensors are **parsed, sorted by timestamp, and have provenance**\u2014suggesting the blueprint\u2019s role is to **enforce consistency over time**, not just at succession points.",
+  "claim_file": "tests/unit/test_ingest.py",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "z-ai/glm-4.7-flash",
+  "timestamp": "2026-04-03T02:59:42.668487+00:00"
+}

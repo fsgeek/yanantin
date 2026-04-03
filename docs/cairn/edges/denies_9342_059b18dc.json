@@ -1,0 +1,11 @@
+{
+  "id": "059b18dc-c236-4c63-b5d4-28ddf412c7ac",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9342_20260403_qwen3.5-plus-02-15.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2756_20260224_glm-4.5-air.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses - **Architecture Design**: I didn't analyze how the `ApachetaInterface` is implemented across modules (e.g., `audit.py`, `succession.py`, `awaq.py`) because the scout's focus was on direct code interactions, not architectural patterns.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "z-ai/glm-4.5-air",
+  "verified_by": "qwen/qwen3.5-plus-02-15",
+  "timestamp": "2026-04-03T03:32:05.434554+00:00"
+}

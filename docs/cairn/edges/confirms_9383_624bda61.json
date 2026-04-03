@@ -1,0 +1,11 @@
+{
+  "id": "624bda61-134a-4969-b1f5-282337690b53",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9383_20260403_nemotron-3-super-120b-a12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2906_20260225_qwen2.5-coder-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "# Verification Assignment ## The Claim Model `mistralai/ministral-8b-2512` made this claim about `.claude/hooks/chasqui_pulse.py`: > --- #### **Strand 5: The \"Work Queue\" and Periodic Exploration** - **What I saw:** - The `chasqui_pulse.py` script in `.claude/hooks/` describes a **periodic heartbeat system** that: - Dispatches a **scout on code changes**.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "nvidia/nemotron-3-super-120b-a12b",
+  "timestamp": "2026-04-03T09:19:28.807177+00:00"
+}

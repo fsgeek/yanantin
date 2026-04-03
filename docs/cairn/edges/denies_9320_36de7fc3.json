@@ -1,0 +1,11 @@
+{
+  "id": "36de7fc3-a622-4a1a-8ab7-04ed432d63b6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9320_20260403_llama-4-scout.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4193_20260303_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "--- ### Summary The claim that `compose.py` \"handles tensor composition\" is **false**.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "meta-llama/llama-4-scout",
+  "timestamp": "2026-04-03T00:43:12.629558+00:00"
+}

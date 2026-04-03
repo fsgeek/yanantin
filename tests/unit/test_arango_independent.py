@@ -295,7 +295,7 @@ class TestConnectionAndInit:
 
             expected_collections = {
                 'tensors', 'composition_edges', 'corrections', 'dissents',
-                'negations', 'bootstraps', 'evolutions', 'entities'
+                'negations', 'bootstraps', 'evolutions', 'entities', 'records'
             }
             created_collections = {call_args[0][0] for call_args in mock_db.create_collection.call_args_list}
             assert created_collections == expected_collections

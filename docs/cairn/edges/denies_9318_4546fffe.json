@@ -1,0 +1,11 @@
+{
+  "id": "4546fffe-2aeb-49e9-a80b-ef7caa0dba89",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9318_20260403_deepseek-v3.1-terminus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5848_20260313_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "This directly contradicts the claim that the file \u201cdoes not provide any content, structure, or context \u2026 nor does it describe it in any way.\u201d The evidence shows the file is rich in both content and structural information about `CLAUDE.md`.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "deepseek/deepseek-v3.1-terminus",
+  "timestamp": "2026-04-03T00:13:22.027281+00:00"
+}

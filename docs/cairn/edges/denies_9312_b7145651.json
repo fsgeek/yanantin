@@ -1,0 +1,11 @@
+{
+  "id": "b7145651-1418-4e48-8ab7-2cd5efcea2d7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9312_20260402_lfm-2-24b-a2b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7719_20260324_ernie-4.5-vl-424b-a47b.md",
+  "relation": "denies",
+  "claim_text": "However, after reviewing the content of `docs/cairn/scout_1283_20260217_mistral-nemo.md`, there is no mention of `scout_0427_20260214_qwen2.5-vl-32b-instruct.md` or `scout_5289_20260309_qwen-2.5-vl-7b-instruct.md`.",
+  "claim_file": "docs/cairn/scout_0427_20260214_qwen2.5-vl-32b-instruct.md",
+  "claim_by": "baidu/ernie-4.5-vl-424b-a47b",
+  "verified_by": "liquid/lfm-2-24b-a2b",
+  "timestamp": "2026-04-02T23:41:05.680458+00:00"
+}

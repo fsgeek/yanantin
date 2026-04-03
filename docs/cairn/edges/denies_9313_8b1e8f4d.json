@@ -1,0 +1,11 @@
+{
+  "id": "8b1e8f4d-c68d-40c4-a9d8-cf1a5bf50396",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9313_20260402_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0091_20260212_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "--- ### Strands   | # | Theme | What I saw (file / line refs) | What it suggests | |---|-------|------------------------------|------------------| | 1 | **Tensor\u2011first architecture** | `src/yanantin/apacheta/models/tensor.py` (not shown but imported everywhere); `src/yanantin/apacheta/models/provenance.py` defines `ProvenanceEnvelope`; `src/yanantin/apacheta/config.py` converts a `ConfigTensor` \u2192 `TensorRecord` (lines\u202f31\u201178).",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-04-02T23:41:06.099332+00:00"
+}

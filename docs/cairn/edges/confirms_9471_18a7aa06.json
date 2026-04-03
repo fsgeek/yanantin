@@ -1,0 +1,11 @@
+{
+  "id": "18a7aa06-cf04-445c-8440-3a3089ed2080",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9471_20260403_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6688_20260318_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Specifically, it does not contain the following files: * `arango.py` * `duckdb.py` (this one is in the same file, but it's not a separate module) * `memory.py` * `openrouter.py` * `tensor.py` * `composition.py` * `bootstrap.py` * `compose.py` * `correct.py` (this one is in the file, but it's not a separate module) * `evolve.py` ### Reasoning The evidence shows that the file `src/yanantin/apacheta/backends/duckdb.py` contains a single module, which is the `DuckDBBackend` class.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-04-03T20:28:31.213222+00:00"
+}

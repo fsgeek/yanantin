@@ -1,0 +1,11 @@
+{
+  "id": "12a82cce-d9ed-4671-b6d9-d056eeccb7cc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9469_20260403_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8300_20260327_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "#### Conditional Execution *Strand 2* ##### Observations The use of conditional execution based on environment or user context in `advanced.md` (Line 30, 51).",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/hook-development/references/advanced.md",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-03T20:26:57.923251+00:00"
+}

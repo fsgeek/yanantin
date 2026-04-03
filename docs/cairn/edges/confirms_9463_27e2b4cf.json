@@ -1,0 +1,11 @@
+{
+  "id": "27e2b4cf-a3c2-40f6-ae80-2ab4947c3b2e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9463_20260403_qwen-vl-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1043_20260216_qwen2.5-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The `clients/gateway.py` file maps interface methods to HTTP endpoints, ensuring flexibility.",
+  "claim_file": "src/yanantin/apacheta/clients/gateway.py",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "qwen/qwen-vl-plus",
+  "timestamp": "2026-04-03T19:14:13.444254+00:00"
+}

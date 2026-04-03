@@ -1,0 +1,11 @@
+{
+  "id": "4313de2f-0ac3-40ca-a035-d73f3628da17",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9462_20260403_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2053_20260221_mistral-large-2407.md",
+  "relation": "denies",
+  "claim_text": "**Evidence**: - `src/yanantin/apacheta/interfaces.py` defines `ApachetaInterface`, which both `InMemoryBackend` and `DuckDBBackend` implement.",
+  "claim_file": ".venv/lib/python3.14/site-packages/httpcore/_async/interfaces.py",
+  "claim_by": "mistralai/mistral-large-2407",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-03T19:14:09.460069+00:00"
+}

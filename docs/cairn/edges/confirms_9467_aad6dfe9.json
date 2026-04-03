@@ -1,0 +1,11 @@
+{
+  "id": "aad6dfe9-d033-4e07-addf-743ff3d2e6d2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9467_20260403_step-3.5-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8688_20260330_ministral-3b-2512.md",
+  "relation": "confirms",
+  "claim_text": "The Whitespace Preservation Paradox** In `docx.py`, there\u2019s a test for `xml:space=\"preserve\"` (line 80+): ```python if ( xml_space_attr not in elem.attrib or elem.attrib[xml_space_attr] != \"preserve\" ): ``` This is a *strict* check, but it\u2019s also *arbitrary*\u2014why should whitespace be preserved?",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/docx.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "stepfun/step-3.5-flash",
+  "timestamp": "2026-04-03T19:58:10.638214+00:00"
+}

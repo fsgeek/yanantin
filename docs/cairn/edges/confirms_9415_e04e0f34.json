@@ -1,0 +1,11 @@
+{
+  "id": "e04e0f34-ee4c-4983-9f0e-cbce397f594c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9415_20260403_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9404_20260403_grok-4.1-fast.md",
+  "relation": "confirms",
+  "claim_text": "For `arango.py`, the claim is accurate (no explicit references or stubs exist in `memory.py`, so this file alone cannot confirm `arango.py`'s existence).",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "x-ai/grok-4.1-fast",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-03T13:38:50.615856+00:00"
+}

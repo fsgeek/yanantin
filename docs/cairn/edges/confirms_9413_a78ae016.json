@@ -1,0 +1,11 @@
+{
+  "id": "a78ae016-0970-4b47-9d33-286bcb5e65ed",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9413_20260403_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4195_20260303_gemini-3.1-pro-preview-customt.md",
+  "relation": "confirms",
+  "claim_text": "\"\"\" ``` ### Reasoning The claim states that `src/yanantin/tinkuy/audit.py` is \"a Python file containing code for the project's audit tool\".",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "google/gemini-3.1-pro-preview-customtools",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-03T13:05:57.071209+00:00"
+}

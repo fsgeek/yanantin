@@ -1,0 +1,11 @@
+{
+  "id": "f745a871-b3d5-48cb-a5a3-bb7f8dbe0ce9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9417_20260403_command-r-08-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2054_20260221_mercury-coder.md",
+  "relation": "confirms",
+  "claim_text": "- **`docs/tensors.md`** \u2013 while it describes tensors, its content is not directly needed for verifying the claims I made.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "inception/mercury-coder",
+  "verified_by": "cohere/command-r-08-2024",
+  "timestamp": "2026-04-03T13:39:50.230072+00:00"
+}

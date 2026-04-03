@@ -1,0 +1,11 @@
+{
+  "id": "4504a6c1-7012-48ec-8977-7fc0ba769348",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9459_20260403_mistral-small-creative.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1678_20260219_gpt-oss-20b.md",
+  "relation": "confirms",
+  "claim_text": "**Hooks & Automation in `.claude`**   *Observations:* The `.claude/hooks` directory contains scripts like `capture_compaction.py`, `chasqui_heartbeat.sh`, `chasqui_pulse.py`, `ots_stamp.py`, and `precompact_tensor.py`.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "mistralai/mistral-small-creative",
+  "timestamp": "2026-04-03T18:46:15.983839+00:00"
+}

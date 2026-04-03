@@ -1,0 +1,11 @@
+{
+  "id": "d5e3ab78-f7d1-4479-9761-7d5172a0477c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9456_20260403_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4691_20260306_grok-code-fast-1.md",
+  "relation": "confirms",
+  "claim_text": "`scour_0323_20260303_gpt-oss-20b.md` notes cost-weighted sampling in `model_selector.py` (line 1-73), excluding certain models and using nominal costs to avoid division by zero.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "x-ai/grok-code-fast-1",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-03T18:12:34.243305+00:00"
+}

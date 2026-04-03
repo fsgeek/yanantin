@@ -1,0 +1,11 @@
+{
+  "id": "64a2bfba-77be-4042-9369-cc2ec32309a3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9455_20260403_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4399_20260304_voxtral-small-24b-2507.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim does not provide specific details or references to the content of `tinkuy/succession.py` that can be verified.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "mistralai/voxtral-small-24b-2507",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-04-03T18:12:26.334004+00:00"
+}

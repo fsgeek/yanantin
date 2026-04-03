@@ -101,7 +101,7 @@ def mock_arango_client():
 
         # Create all required collections
         for name in ('tensors', 'composition_edges', 'corrections', 'dissents',
-                     'negations', 'bootstraps', 'evolutions', 'entities'):
+                     'negations', 'bootstraps', 'evolutions', 'entities', 'records'):
             make_collection(name)
 
         # Wire up the mocks — backend now connects directly to target db

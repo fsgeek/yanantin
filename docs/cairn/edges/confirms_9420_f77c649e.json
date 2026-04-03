@@ -1,0 +1,11 @@
+{
+  "id": "f77c649e-a989-4331-ac29-21adc25482e5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9420_20260403_gpt-5-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7047_20260320_lfm-2.2-6b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence ``` \"\"\"Dissent operator \u2014 formal disagreement with a prior tensor or claim.\"\"\" ``` This indicates that the `dissent.py` file describes a \"dissent operator\" which aligns with the claim's assertion that such an operator exists.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "openai/gpt-5-nano",
+  "timestamp": "2026-04-03T14:08:07.225018+00:00"
+}

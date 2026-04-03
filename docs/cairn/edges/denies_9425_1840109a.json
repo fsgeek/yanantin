@@ -1,0 +1,11 @@
+{
+  "id": "1840109a-c32b-4676-8814-e20c417a074b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9425_20260403_qwen3-vl-30b-a3b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6752_20260319_hermes-4-70b.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses *   The claim's evidence also points to `src/yanantin/chasqui/scout.py`, `src/yanantin/chasqui/coordinator.py`, and the `docs/cairn/` directory.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "nousresearch/hermes-4-70b",
+  "verified_by": "qwen/qwen3-vl-30b-a3b-thinking",
+  "timestamp": "2026-04-03T14:42:42.187238+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "0fc9a9ec-f3ed-462b-90a4-4f54728b6cb6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9419_20260403_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8670_20260330_qwen3-14b.md",
+  "relation": "confirms",
+  "claim_text": "**Content Hash: A Truncated SHA-256 for Uniqueness**   In `fact_recorder.py` (line 65), the `_entry_content_hash()` truncates a SHA-256 hash to 16 hex characters.",
+  "claim_file": "src/yanantin/collector/filesystem/fact_recorder.py",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-04-03T14:07:47.378440+00:00"
+}

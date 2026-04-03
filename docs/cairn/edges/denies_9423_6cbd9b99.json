@@ -1,0 +1,11 @@
+{
+  "id": "6cbd9b99-1f27-40a1-a133-877eca04acfd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9423_20260403_hunyuan-a13b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8382_20260328_ernie-4.5-300b-a47b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning   The claim states: *\"Observed in: `weaver.py`, `materializer.py`, `composition.py` 2.\"*   1.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "baidu/ernie-4.5-300b-a47b",
+  "verified_by": "tencent/hunyuan-a13b-instruct",
+  "timestamp": "2026-04-03T14:42:11.420678+00:00"
+}

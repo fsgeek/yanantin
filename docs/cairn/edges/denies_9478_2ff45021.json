@@ -1,0 +1,11 @@
+{
+  "id": "2ff45021-3f01-46d0-93da-b976aa57eed8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9478_20260403_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0984_20260216_kimi-k2-0905.md",
+  "relation": "denies",
+  "claim_text": "Only the question \"What is the purpose of `docs/tensors.md`?\" was shown, not the model's actual response/claim about the file's purpose.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "moonshotai/kimi-k2-0905",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-04-03T21:30:49.875011+00:00"
+}

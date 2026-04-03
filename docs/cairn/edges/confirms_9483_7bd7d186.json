@@ -1,0 +1,11 @@
+{
+  "id": "7bd7d186-9f13-4fa9-bef0-d6d4132ebe29",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9483_20260403_sonar-reasoning-pro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8191_20260327_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "These are implementation details that would be found in concrete backend implementations (e.g., `src/yanantin/apacheta/backends/duckdb.py`, `src/yanantin/apacheta/backends/memory.py`, `src/yanantin/apacheta/backends/arango.py`) and not in an abstract interface definition like `src/yanantin/apacheta/interface/abstract.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "perplexity/sonar-reasoning-pro",
+  "timestamp": "2026-04-03T22:05:01.127937+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "4f2658b0-6ffe-49b6-b9b1-da191f1aae32",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9477_20260403_codestral-2508.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2485_20260223_gpt-oss-20b.md",
+  "relation": "confirms",
+  "claim_text": "| | **Incremental filesystem collector** | `src/yanantin/collector/fs_events/collector.py` (lines\u202f12\u201188).",
+  "claim_file": "src/yanantin/collector/fs_events/collector.py",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "mistralai/codestral-2508",
+  "timestamp": "2026-04-03T21:30:49.354049+00:00"
+}

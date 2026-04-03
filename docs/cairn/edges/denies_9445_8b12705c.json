@@ -1,0 +1,11 @@
+{
+  "id": "8b12705c-0f09-410e-84dd-f518b088a4bf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9445_20260403_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8733_20260330_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   **INDETERMINATE** ### Evidence   The file `docs/signing.md` contains no internal references to any other documentation files such as `docs/blueprint.md`, `docs/predecessors.md`, `docs/tensors.md`, or even itself (`docs/signing.md`).",
+  "claim_file": "docs/signing.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-03T17:18:41.174652+00:00"
+}

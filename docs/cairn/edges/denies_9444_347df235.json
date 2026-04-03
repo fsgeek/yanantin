@@ -1,0 +1,11 @@
+{
+  "id": "347df235-47e5-4abb-903a-e0906b1d34eb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9444_20260403_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2021_20260221_qwen3-next-80b-a3b-thinking.md",
+  "relation": "denies",
+  "claim_text": "All file processing in `survey_codebase` only handles: - `.py` files in Apacheta layers, Chasqui, tests, and scripts - `.md` files in docs/cairn ### Reasoning The claim states that `audit.py` \"relies on filesystem structure to validate existence of files like `.pulse.lock` and `heartbeat_state.json`\".",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-03T17:18:35.039681+00:00"
+}

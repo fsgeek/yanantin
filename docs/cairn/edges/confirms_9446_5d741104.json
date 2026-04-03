@@ -1,0 +1,11 @@
+{
+  "id": "5d741104-de09-4d8d-bbb7-e9a7cb8318eb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9446_20260403_l3.3-euryale-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0192_20260213_mercury.md",
+  "relation": "confirms",
+  "claim_text": "The first thing that caught my eye was the **dual\u2011nature** of the project: a clear separation between *human\u2011centric* documentation (e.g., `CLAUDE.md`, `blueprint.md`) and *AI\u2011centric* tooling (the `chasqui` sub\u2011package, the `scout` and `scourer` modules).",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "inception/mercury",
+  "verified_by": "sao10k/l3.3-euryale-70b",
+  "timestamp": "2026-04-03T17:18:50.686527+00:00"
+}

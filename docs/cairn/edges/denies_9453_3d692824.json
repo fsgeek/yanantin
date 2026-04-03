@@ -1,0 +1,11 @@
+{
+  "id": "3d692824-e1bd-4193-8465-ef69476397a8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9453_20260403_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9381_20260403_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file contains the following line: ```python if PLUGIN_ROOT and PLUGIN_ROOT not in sys.path: sys.path.insert(0, PLUGIN_ROOT) ``` Here, `PLUGIN_ROOT` is used, which is likely set to the path of the plugin, including `userpromptsubmit.py`.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/userpromptsubmit.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-04-03T17:37:36.071024+00:00"
+}

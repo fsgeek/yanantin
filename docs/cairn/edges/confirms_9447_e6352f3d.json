@@ -1,0 +1,11 @@
+{
+  "id": "e6352f3d-fb0b-40c2-b429-1655d18c1235",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9447_20260403_minimax-m2.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8926_20260331_llama-3.2-1b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that the `compose_workflow` function is not found in `project.py`, but the actual code does not contain this function.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "meta-llama/llama-3.2-1b-instruct",
+  "verified_by": "minimax/minimax-m2.1",
+  "timestamp": "2026-04-03T17:27:26.493293+00:00"
+}

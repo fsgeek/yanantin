@@ -1,0 +1,11 @@
+{
+  "id": "a43e9120-b142-4891-8246-24e5da891342",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9449_20260403_olmo-3-32b-think.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7516_20260323_command-r-08-2024.md",
+  "relation": "confirms",
+  "claim_text": "**Strand 4: Evaluating MCP Servers** The `evaluation.md` file provides an insightful look into how MCP servers are evaluated.",
+  "claim_file": "tmp/ubuntu-vm.claude/mcp-builder/reference/evaluation.md",
+  "claim_by": "cohere/command-r-08-2024",
+  "verified_by": "allenai/olmo-3-32b-think",
+  "timestamp": "2026-04-03T17:27:33.586546+00:00"
+}

@@ -9,6 +9,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from uuid import UUID
 
+from yanantin.apacheta.models.base import ApachetaBaseModel
 from yanantin.apacheta.models.composition import (
     BootstrapRecord,
     CompositionEdge,
@@ -51,6 +52,20 @@ class ApachetaInterface(ABC):
 
     # ── Write Operations ─────────────────────────────────────────
     # All produce new records. None modify existing ones.
+
+    @abstractmethod
+    def store_record(self, record_id: UUID, record: ApachetaBaseModel) -> None:
+        """Store any ApachetaBaseModel in the open records collection.
+
+        Generic storage for records that don't fit a prescribed schema.
+        Same immutability guarantees as typed store methods.
+        """
+        ...
+
+    @abstractmethod
+    def get_record(self, record_id: UUID) -> ApachetaBaseModel:
+        """Retrieve a record from the open records collection."""
+        ...
 
     @abstractmethod
     def store_tensor(self, tensor: TensorRecord) -> None: ...

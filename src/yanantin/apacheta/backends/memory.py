@@ -12,6 +12,7 @@ from uuid import UUID
 
 from yanantin.apacheta.interface.abstract import ApachetaInterface
 from yanantin.apacheta.interface.errors import AccessDeniedError, ImmutabilityError, NotFoundError
+from yanantin.apacheta.models.base import ApachetaBaseModel
 from yanantin.apacheta.models.composition import (
     BootstrapRecord,
     CompositionEdge,
@@ -41,6 +42,7 @@ class InMemoryBackend(ApachetaInterface):
         self._bootstraps: dict[UUID, BootstrapRecord] = {}
         self._evolutions: dict[UUID, SchemaEvolutionRecord] = {}
         self._entities: dict[UUID, EntityResolution] = {}
+        self._records: dict[UUID, ApachetaBaseModel] = {}
 
     # ── Internal ──────────────────────────────────────────────────
 
@@ -55,6 +57,25 @@ class InMemoryBackend(ApachetaInterface):
     def _deep_copy(record):
         """Deep-copy a record via serialize/deserialize roundtrip."""
         return type(record).model_validate(record.model_dump(mode="python"))
+
+    # ── Generic Operations ────────────────────────────────────────
+
+    def store_record(self, record_id: UUID, record: ApachetaBaseModel) -> None:
+        with self._lock:
+            self._enforce_access("system", "store_record", record_id)
+            if record_id in self._records:
+                raise ImmutabilityError(
+                    f"Record {record_id} already exists. "
+                    "Records are immutable — compose, don't overwrite."
+                )
+            self._records[record_id] = self._deep_copy(record)
+
+    def get_record(self, record_id: UUID) -> ApachetaBaseModel:
+        with self._lock:
+            self._enforce_access("system", "get_record", record_id)
+            if record_id not in self._records:
+                raise NotFoundError(f"Record {record_id} not found.")
+            return self._deep_copy(self._records[record_id])
 
     # ── Write Operations ─────────────────────────────────────────
 
@@ -426,4 +447,5 @@ class InMemoryBackend(ApachetaInterface):
                 "bootstraps": len(self._bootstraps),
                 "evolutions": len(self._evolutions),
                 "entities": len(self._entities),
+                "records": len(self._records),
             }

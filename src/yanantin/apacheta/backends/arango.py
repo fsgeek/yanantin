@@ -33,6 +33,7 @@ from yanantin.apacheta.interface.errors import (
     ImmutabilityError,
     NotFoundError,
 )
+from yanantin.apacheta.models.base import ApachetaBaseModel
 from yanantin.apacheta.models.composition import (
     BootstrapRecord,
     CompositionEdge,
@@ -60,6 +61,7 @@ _SEMANTIC_COLLECTIONS = (
     "bootstraps",
     "evolutions",
     "entities",
+    "records",
 )
 
 _SEMANTIC_MODEL = {
@@ -189,6 +191,45 @@ class ArangoDBBackend(ApachetaInterface):
         mapped = self._map.collection_name(collection_name)
         collection = self._db.collection(mapped)
         return [self._from_doc(model_cls, doc) for doc in collection.all()]
+
+    # ── Generic Operations ────────────────────────────────────────
+
+    def _to_generic_doc(self, record_id: UUID, record: ApachetaBaseModel) -> dict:
+        """Convert a generic record (no assumed 'id' field) to ArangoDB doc."""
+        data = record.model_dump(mode="json")
+        data.pop("id", None)  # Remove id if present — _key is authoritative
+        data["_key"] = str(record_id)
+        return self._map.obfuscate_document(data)
+
+    def _from_generic_doc(self, doc: dict) -> ApachetaBaseModel:
+        """Convert an ArangoDB document back to an ApachetaBaseModel."""
+        deobfuscated = self._map.deobfuscate_document(doc)
+        data = {k: v for k, v in deobfuscated.items() if not k.startswith("_")}
+        data["id"] = doc["_key"]
+        return ApachetaBaseModel.model_validate(data)
+
+    def store_record(self, record_id: UUID, record: ApachetaBaseModel) -> None:
+        with self._lock:
+            self._enforce_access("system", "store_record", record_id)
+            mapped = self._map.collection_name("records")
+            collection = self._db.collection(mapped)
+            key = str(record_id)
+            if collection.has(key):
+                raise ImmutabilityError(
+                    f"Record {record_id} already exists. "
+                    "Records are immutable — compose, don't overwrite."
+                )
+            collection.insert(self._to_generic_doc(record_id, record))
+
+    def get_record(self, record_id: UUID) -> ApachetaBaseModel:
+        with self._lock:
+            self._enforce_access("system", "get_record", record_id)
+            mapped = self._map.collection_name("records")
+            collection = self._db.collection(mapped)
+            doc = collection.get(str(record_id))
+            if doc is None:
+                raise NotFoundError(f"Record {record_id} not found.")
+            return self._from_generic_doc(doc)
 
     # ── Write Operations ─────────────────────────────────────────
 
@@ -529,6 +570,7 @@ class ArangoDBBackend(ApachetaInterface):
                 "bootstraps": "bootstraps",
                 "evolutions": "evolutions",
                 "entities": "entities",
+                "records": "records",
             }
             return {
                 key: self._db.collection(self._map.collection_name(table)).count()

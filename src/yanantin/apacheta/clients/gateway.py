@@ -19,6 +19,7 @@ from yanantin.apacheta.interface.errors import (
     InterfaceVersionError,
     NotFoundError,
 )
+from yanantin.apacheta.models.base import ApachetaBaseModel
 from yanantin.apacheta.models.composition import (
     BootstrapRecord,
     CompositionEdge,
@@ -101,6 +102,21 @@ class ApachetaGatewayClient(ApachetaInterface):
     def check_access(self, caller: str, operation: str, target: UUID | None = None) -> bool:
         """Always returns True — access control is handled by Pukara."""
         return True
+
+    # ── Generic Operations ────────────────────────────────────────
+
+    def store_record(self, record_id: UUID, record: ApachetaBaseModel) -> None:
+        data = record.model_dump(mode="json")
+        data["id"] = str(record_id)
+        response = self._client.post("/api/v1/records", json=data)
+        if response.status_code != 201:
+            self._handle_error(response)
+
+    def get_record(self, record_id: UUID) -> ApachetaBaseModel:
+        response = self._client.get(f"/api/v1/records/{record_id}")
+        if response.status_code != 200:
+            self._handle_error(response)
+        return ApachetaBaseModel.model_validate(response.json())
 
     # ── Write Operations ─────────────────────────────────────────
 

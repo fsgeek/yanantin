@@ -27,6 +27,7 @@ from yanantin.apacheta.interface.errors import (
     ImmutabilityError,
     NotFoundError,
 )
+from yanantin.apacheta.models.base import ApachetaBaseModel
 from yanantin.apacheta.models.composition import (
     BootstrapRecord,
     CompositionEdge,
@@ -53,6 +54,7 @@ _TABLES = (
     "bootstraps",
     "evolutions",
     "entities",
+    "records",
 )
 
 _TABLE_MODEL = {
@@ -159,6 +161,18 @@ class DuckDBBackend(ApachetaInterface):
             f"SELECT data FROM {table}",  # noqa: S608
         ).fetchall()
         return [self._deserialize(model_cls, row[0]) for row in rows]
+
+    # ── Generic Operations ────────────────────────────────────────
+
+    def store_record(self, record_id: UUID, record: ApachetaBaseModel) -> None:
+        with self._lock:
+            self._enforce_access("system", "store_record", record_id)
+            self._store("records", record_id, record)
+
+    def get_record(self, record_id: UUID) -> ApachetaBaseModel:
+        with self._lock:
+            self._enforce_access("system", "get_record", record_id)
+            return self._get("records", record_id, ApachetaBaseModel)
 
     # ── Write Operations ─────────────────────────────────────────
 
@@ -506,6 +520,7 @@ class DuckDBBackend(ApachetaInterface):
                 "bootstraps": "bootstraps",
                 "evolutions": "evolutions",
                 "entities": "entities",
+                "records": "records",
             }
             for table, key in key_map.items():
                 result = self._conn.execute(

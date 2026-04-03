@@ -1,0 +1,11 @@
+{
+  "id": "0f13c388-d4ba-4de9-821a-50449e342e8f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9379_20260403_mercury.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3211_20260226_qwen3.5-35b-a3b.md",
+  "relation": "denies",
+  "claim_text": "The `compaction` mentioned in the file structure (`precompact_tensor.py`) is likely the mechanism that enforces this limit.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "qwen/qwen3.5-35b-a3b",
+  "verified_by": "inception/mercury",
+  "timestamp": "2026-04-03T08:46:22.452982+00:00"
+}

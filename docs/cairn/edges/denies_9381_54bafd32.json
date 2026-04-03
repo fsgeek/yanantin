@@ -1,0 +1,11 @@
+{
+  "id": "54bafd32-63f3-4b33-a5c5-30ec3470107f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9381_20260403_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8694_20260330_lfm-2-24b-a2b.md",
+  "relation": "denies",
+  "claim_text": "There is no reference to `userpromptsubmit.py` anywhere.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/userpromptsubmit.py",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-03T08:46:30.280621+00:00"
+}

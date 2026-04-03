@@ -1,0 +1,11 @@
+{
+  "id": "bc0cde3e-d843-450d-bd4c-f0266b07afcd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9376_20260403_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6489_20260317_nemotron-3-nano-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "[build-system] requires = [\"hatchling\"] build-backend = \"hatchling.build\" ``` This shows that `pyproject.toml` is **central** to the project\u2019s build system, not a peripheral artifact that was ignored.",
+  "claim_file": "pyproject.toml",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-03T08:16:28.791950+00:00"
+}

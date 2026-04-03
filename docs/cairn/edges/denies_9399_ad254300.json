@@ -1,0 +1,11 @@
+{
+  "id": "ad254300-86bc-4ce6-86a9-b9b238bfa0cd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9399_20260403_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8316_20260327_sonar-pro.md",
+  "relation": "denies",
+  "claim_text": "`inventory.py` screamed \"epistemic cartographer\" \u2014 mapping text with positions, overflows, overlaps \u2014 while `replace.py` imports it directly, revealing a pipeline not just for editing slides, but for *observing and intervening* in presentation cognition.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/scripts/inventory.py",
+  "claim_by": "perplexity/sonar-pro",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-03T11:29:46.680354+00:00"
+}

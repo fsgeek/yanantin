@@ -1,0 +1,11 @@
+{
+  "id": "6fa64b11-12ac-4fe0-ae66-3fa803bda8c6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9395_20260403_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6164_20260315_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "Files like `base.py`, `composition.py`, `entities.py`, `epistemics.py`, `provenance.py`, and `tensor.py` in the `models` subdirectory hint at a complex data model built around tensor structures.",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-04-03T10:57:52.739049+00:00"
+}

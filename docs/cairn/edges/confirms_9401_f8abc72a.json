@@ -1,0 +1,11 @@
+{
+  "id": "f8abc72a-f46d-47c1-b82d-1c48784dd902",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9401_20260403_qwen3-235b-a22b-thinking-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9316_20260403_gemma-3-12b-it.md",
+  "relation": "confirms",
+  "claim_text": "\"\"\" ``` ### Reasoning The provided code for `src/yanantin/apacheta/backends/arango.py` explicitly mentions \"the third backend alongside in-memory and DuckDB.\" It also states, \"Three architecturally different backends (dict, SQL, document/graph) keep the interface honest.\" This demonstrates the presence of multiple backends, fulfilling the claim's assertion about modularity and adaptation to different storage/processing environments.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "google/gemma-3-12b-it",
+  "verified_by": "qwen/qwen3-235b-a22b-thinking-2507",
+  "timestamp": "2026-04-03T11:30:19.484854+00:00"
+}

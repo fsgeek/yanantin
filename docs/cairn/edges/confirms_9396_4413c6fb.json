@@ -1,0 +1,11 @@
+{
+  "id": "4413c6fb-0745-4f3f-b8e3-4853ffcd84fb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9396_20260403_rnj-1-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2485_20260223_gpt-oss-20b.md",
+  "relation": "confirms",
+  "claim_text": "The tests (`tests/unit/test_collector_checksum.py`) verify that a checksum is derived from the file contents, hinting at signed commits.",
+  "claim_file": "tests/unit/test_collector_checksum.py",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "essentialai/rnj-1-instruct",
+  "timestamp": "2026-04-03T10:57:53.671204+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "527290af-e0c1-4b79-bdbb-821497a500cb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9333_20260403_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6399_20260317_gemma-3-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that the `agents/` directory contains both `scout_reviewer.md` and `structured_reviewer.md`.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-04-03T02:27:14.965247+00:00"
+}

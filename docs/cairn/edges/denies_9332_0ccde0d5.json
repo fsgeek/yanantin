@@ -1,0 +1,11 @@
+{
+  "id": "0ccde0d5-e3a9-4e0b-b85c-96fc27239b6d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9332_20260403_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0519_20260214_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "**Self-reference error**: The claim says the tests \"mirror `test_memory_backend.py`\" \u2014 but *this is* `test_memory_backend.py`.",
+  "claim_file": "tests/unit/test_memory_backend.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-03T02:27:14.485420+00:00"
+}

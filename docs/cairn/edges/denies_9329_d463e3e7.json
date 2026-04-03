@@ -1,0 +1,11 @@
+{
+  "id": "d463e3e7-5d80-4e4f-8f12-56f6364911ed",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9329_20260403_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4004_20260302_olmo-3.1-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim is: \"The file does not mention that `docs/predecessors.md` is not present.\"   To verify this, I searched the entire content of `docs/predecessors.md` for any mention that the file itself is not present.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "allenai/olmo-3.1-32b-instruct",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-03T01:47:26.856221+00:00"
+}

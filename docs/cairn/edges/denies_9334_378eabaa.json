@@ -1,0 +1,11 @@
+{
+  "id": "378eabaa-57ab-4040-ac92-81ddd139b60f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9334_20260403_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7850_20260325_llama-3.1-nemotron-ultra-253b-.md",
+  "relation": "denies",
+  "claim_text": "The verification is limited to the content of `corpus_trimmer_analysis.py`, which does not support the claim about `reference_string.py`.",
+  "claim_file": "tools/phase1/corpus_trimmer_analysis.py",
+  "claim_by": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-03T02:27:30.125427+00:00"
+}

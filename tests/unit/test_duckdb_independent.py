@@ -342,6 +342,7 @@ class TestSerializationRoundtrip:
         # No direct get_bootstrap, so verify via count_records and store/retrieve immutability
         counts = db.count_records()
         assert counts["bootstraps"] == 1
+        assert counts["records"] == 0
 
     def test_evolution_record_roundtrip(self, db):
         evo = SchemaEvolutionRecord(
@@ -355,6 +356,7 @@ class TestSerializationRoundtrip:
         db.store_evolution(evo)
         counts = db.count_records()
         assert counts["evolutions"] == 1
+        assert counts["records"] == 0
 
     def test_entity_resolution_roundtrip(self, db):
         entity = EntityResolution(
@@ -670,6 +672,7 @@ class TestImmutabilityAllTypes:
         db.store_tensor(tensor_a)
         db.store_tensor(tensor_b)
         assert db.count_records()["tensors"] == 2
+        assert db.count_records()["records"] == 0
 
 
 # ── 4. File-Backed Persistence ───────────────────────────────────────
@@ -747,6 +750,7 @@ class TestFilePersistence:
         assert counts["bootstraps"] == 1
         assert counts["evolutions"] == 1
         assert counts["entities"] == 1
+        assert counts["records"] == 0
         db2.close()
 
     def test_immutability_persists_across_connections(self, tmp_path):
@@ -811,6 +815,7 @@ class TestContextManager:
             retrieved = db.get_tensor(tensor.id)
             assert retrieved.preamble == "inside with"
             assert db.count_records()["tensors"] == 1
+            assert db.count_records()["records"] == 0
 
     def test_context_manager_on_file_backend(self, tmp_path):
         """File-backed context manager should flush data before close."""
@@ -854,6 +859,7 @@ class TestThreadSafety:
 
         assert errors == [], f"Errors during concurrent writes: {errors}"
         assert db.count_records()["tensors"] == n_threads
+        assert db.count_records()["records"] == 0
 
     def test_concurrent_writes_to_different_tables(self, db):
         """Different record types stored concurrently must not interfere."""
@@ -895,6 +901,7 @@ class TestThreadSafety:
         assert counts["edges"] == 1
         assert counts["corrections"] == 1
         assert counts["entities"] == 1
+        assert counts["records"] == 0
 
     def test_concurrent_readers_and_writer(self, db):
         """Readers must see consistent state even with a concurrent writer."""
@@ -952,6 +959,7 @@ class TestThreadSafety:
 
         assert len(ids) == n_tasks
         assert db.count_records()["tensors"] == n_tasks
+        assert db.count_records()["records"] == 0
         # Verify each tensor is individually retrievable
         for tid in ids:
             retrieved = db.get_tensor(tid)
@@ -1242,7 +1250,7 @@ class TestCountRecords:
     def test_empty_database_all_zeros(self, db):
         counts = db.count_records()
         expected_keys = {"tensors", "edges", "corrections", "dissents",
-                         "negations", "bootstraps", "evolutions", "entities"}
+                         "negations", "bootstraps", "evolutions", "entities", "records"}
         assert set(counts.keys()) == expected_keys
         for key in expected_keys:
             assert counts[key] == 0
@@ -1276,8 +1284,11 @@ class TestCountRecords:
         ))
 
         counts = db.count_records()
-        for value in counts.values():
-            assert value == 1
+        for key, value in counts.items():
+            if key == "records":
+                assert value == 0
+            else:
+                assert value == 1
 
     def test_counts_monotonically_increase(self, db):
         """Counts should only ever increase (no deletes, no updates)."""
@@ -1291,6 +1302,7 @@ class TestCountRecords:
             prev_counts = current_counts
 
         assert prev_counts["tensors"] == 5
+        assert prev_counts["records"] == 0
 
     def test_count_keys_match_inmemory_backend(self):
         """DuckDB backend count_records() keys must match InMemoryBackend keys exactly."""

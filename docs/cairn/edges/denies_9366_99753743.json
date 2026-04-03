@@ -1,0 +1,11 @@
+{
+  "id": "99753743-ff15-4b1b-bfd5-95866f0d3376",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9366_20260403_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6490_20260317_qwen2.5-coder-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "| File | What it does | |------|-------------| | `models.py` | `FactRecord` (schema-agnostic observation, extra=\"allow\"), `AnchorCursor` (provider position), `MemoryAnchor` (immutable cursor snapshot), `AnchorView` (ephemeral resolution, never stored).",
+  "claim_file": "src/yanantin/jabberwock/models.py",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-04-03T06:40:08.203158+00:00"
+}

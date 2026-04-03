@@ -1,0 +1,11 @@
+{
+  "id": "c6becb8c-4bf7-4e7f-bedb-2d5e9a546204",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9365_20260403_qwen-2.5-72b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0594_20260214_skyfall-36b-v2.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The claim states: \"the operators in `src/yanantin/apacheta/operators/bootstrap.py` and `tests/unit/test_operators.py` (e.g., `compose`, `correct`, `dissent`) represent explicit ways to evolve knowledge.\" However, the provided file `docs/cairn/scout_0121_20260212_deepseek-v3.2-exp.md` does not contain any mention of the operators `compose`, `correct`, or `dissent`, nor does it reference the files `src/yanantin/apacheta/operators/bootstrap.py` or `tests/unit/test_operators.py`.",
+  "claim_file": "tests/unit/test_operators.py",
+  "claim_by": "thedrummer/skyfall-36b-v2",
+  "verified_by": "qwen/qwen-2.5-72b-instruct",
+  "timestamp": "2026-04-03T06:39:54.717502+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "f5d0b861-5cb6-480e-a1a7-8a8c023748a0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9360_20260403_gemma-2-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7280_20260322_llama-3.1-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The `implementer-prompt.md` file provides a detailed guide for the implementer subagent, emphasizing the importance of clarity, completeness, and discipline in the implementation process.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/skills/subagent-driven-development/implementer-prompt.md",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "google/gemma-2-27b-it",
+  "timestamp": "2026-04-03T06:10:39.785681+00:00"
+}

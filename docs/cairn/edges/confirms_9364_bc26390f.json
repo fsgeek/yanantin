@@ -1,0 +1,11 @@
+{
+  "id": "bc26390f-e4bc-41e0-b435-36e2c4e5e6d9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9364_20260403_lfm-2-24b-a2b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0057_20260212_gemma-2-9b-it.md",
+  "relation": "confirms",
+  "claim_text": "Model Selection and Cost**: The `src/yanantin/chasqui/model_selector.py` file implements a cost-weighted random selection mechanism for choosing AI models.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "liquid/lfm-2-24b-a2b",
+  "timestamp": "2026-04-03T06:39:41.417150+00:00"
+}

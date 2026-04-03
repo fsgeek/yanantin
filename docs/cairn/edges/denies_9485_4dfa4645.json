@@ -1,0 +1,11 @@
+{
+  "id": "4dfa4645-4cad-4141-b437-19c03f6c8e5e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9485_20260403_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5900_20260314_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "Here are the lines from the file: ```python from __future__ import annotations from uuid import UUID from yanantin.apacheta.interface.abstract import ApachetaInterface from yanantin.apacheta.models.composition import ( CompositionEdge, NegationRecord, RelationType, ) from yanantin.apacheta.models.provenance import ProvenanceEnvelope ``` ### Reasoning The claim is accurate because there are no import statements or function calls in `negate.py` that suggest any interaction with `correct.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-04-03T22:36:13.018810+00:00"
+}

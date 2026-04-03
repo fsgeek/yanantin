@@ -1,0 +1,11 @@
+{
+  "id": "9b8b78bb-25bd-4489-baea-e45ee45e6ad7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9346_20260403_qwen3-vl-8b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7131_20260321_grok-4-fast.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file content references other scout reports, but none match the specified filename `scout_0541_20260214_gpt-oss-20b.md`.",
+  "claim_file": "docs/cairn/scout_0541_20260214_gpt-oss-20b.md",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "qwen/qwen3-vl-8b-thinking",
+  "timestamp": "2026-04-03T04:02:38.297342+00:00"
+}

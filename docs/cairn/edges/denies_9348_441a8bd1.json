@@ -1,0 +1,11 @@
+{
+  "id": "441a8bd1-65e8-41c7-ba63-88ce290abd8c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9348_20260403_claude-3-haiku.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7421_20260322_ernie-4.5-21b-a3b.md",
+  "relation": "denies",
+  "claim_text": "``` ### Reasoning The claim states that \"Every claim made by `microsoft/wizardlm-2-8x22b` is fully verified by the content of `docs/tensors.md`.\" However, the file `docs/tensors.md` does not contain any specific claims made by `microsoft/wizardlm-2-8x22b`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "baidu/ernie-4.5-21b-a3b",
+  "verified_by": "anthropic/claude-3-haiku",
+  "timestamp": "2026-04-03T04:36:56.060454+00:00"
+}

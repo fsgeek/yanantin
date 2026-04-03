@@ -1,0 +1,11 @@
+{
+  "id": "945cd2af-7c8e-460b-a692-0e2546698e75",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9345_20260403_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4564_20260305_seed-2.0-mini.md",
+  "relation": "confirms",
+  "claim_text": "That's the point of having two backends.\"\"\" ### Reasoning The claim asserts that parallels between `test_memory_backend.py` and `test_duckdb_backend.py` imply expectations of backend swaps.",
+  "claim_file": "tests/unit/test_memory_backend.py",
+  "claim_by": "bytedance-seed/seed-2.0-mini",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-03T04:02:03.628430+00:00"
+}

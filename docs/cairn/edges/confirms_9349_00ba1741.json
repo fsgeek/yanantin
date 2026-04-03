@@ -1,0 +1,11 @@
+{
+  "id": "00ba1741-adbe-4751-9471-5370b971f971",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9349_20260403_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0197_20260213_llama-3.2-1b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2 \u2013 Operators as Evolutionary Steps - **Observation**: The `src/yanantin/apacheta/operators/` package contains a suite of functions (`compose`, `correct`, `dissent`, etc.) that are described in the `docs/cairn/T13_20260211_the_gradient.md` as \"evolutionary steps.\" The `bootstrap.py` operator selects tensors for context budget, while `correct.py` records corrections and automatically creates a correction edge.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "meta-llama/llama-3.2-1b-instruct",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-03T04:36:57.729563+00:00"
+}

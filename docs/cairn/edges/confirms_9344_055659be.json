@@ -1,0 +1,11 @@
+{
+  "id": "055659be-36e8-47e1-91a8-308a038f94f1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9344_20260403_llama-4-scout.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7773_20260324_glm-4-32b.md",
+  "relation": "confirms",
+  "claim_text": "The `InMemoryActivityStreamStore` in `backends/memory.py` provides an in-memory implementation, while `ArangoDBActivityStreamStore` and `DuckDBActivityStreamStore` offer persistent storage options.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "meta-llama/llama-4-scout",
+  "timestamp": "2026-04-03T04:02:03.174855+00:00"
+}

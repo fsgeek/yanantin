@@ -1,0 +1,11 @@
+{
+  "id": "f4c4f9b6-8e14-4df1-a01a-b65baf89c890",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9437_20260403_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0347_20260213_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "**The Apacheta for Tensor Infrastructure**: The `yanantin/apacheta` directory seems to be the heart of the \"composable tensor infrastructure.\" It contains modules for backends (`arango.py`, `duckdb.py`, `memory.py`), clients (`openrouter.py`), models (`tensor.py`, `composition.py`), and operators (`bootstrap.py`, `compose.py`, `correct.py`, `evolve.py`).",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-03T16:17:07.810657+00:00"
+}

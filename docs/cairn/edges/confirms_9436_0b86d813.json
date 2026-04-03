@@ -1,0 +1,11 @@
+{
+  "id": "0b86d813-fbd3-4311-b0b9-ffa95928eab0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9436_20260403_devstral-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8387_20260328_aion-1.0-mini.md",
+  "relation": "confirms",
+  "claim_text": "The claim says \"Crucially, this logic **is implemented in `succession.py`**, so the claim that the audit logic 'makes no reference to or creation of `succession.py`' is incorrect \u2014 it *is* `succession.py`.\" The structure: The model is asserting that because the logic is implemented in `succession.py`, the claim that audit logic makes no reference to or creation of `succession.py` is incorrect.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "aion-labs/aion-1.0-mini",
+  "verified_by": "mistralai/devstral-2512",
+  "timestamp": "2026-04-03T16:17:05.710330+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "1e48b84e-80da-492c-99e9-dba0084efc9c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9442_20260403_olmo-3-32b-think.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1386_20260218_qwen3-vl-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "However, `scout_0733_20260215_gemma-2-9b-it.md` raises concerns about whether **semantic provenance** (tensor metadata) is sufficient to ensure trust without cryptographic validation.",
+  "claim_file": "docs/cairn/scout_0733_20260215_gemma-2-9b-it.md",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "verified_by": "allenai/olmo-3-32b-think",
+  "timestamp": "2026-04-03T16:47:35.094007+00:00"
+}

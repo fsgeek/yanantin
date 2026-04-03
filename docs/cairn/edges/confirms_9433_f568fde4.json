@@ -1,0 +1,11 @@
+{
+  "id": "f568fde4-6619-4479-96b7-4b3660efa8cd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9433_20260403_minimax-m2.7.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3134_20260226_mixtral-8x7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The code in `succession.py` deals with comparing the blueprint of a project with the actual structure of the project and reporting discrepancies.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "mistralai/mixtral-8x7b-instruct",
+  "verified_by": "minimax/minimax-m2.7",
+  "timestamp": "2026-04-03T15:44:38.697638+00:00"
+}

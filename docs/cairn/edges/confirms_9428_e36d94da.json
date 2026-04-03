@@ -1,0 +1,11 @@
+{
+  "id": "e36d94da-991c-4181-8aac-6a17bc250d1f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9428_20260403_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8716_20260330_gpt-5.3-chat.md",
+  "relation": "confirms",
+  "claim_text": "Garbage is treated as contagious at multiple levels**   In `test_governance.py`: - There\u2019s claim-level filtering (`is_garbage`)   - And model-level filtering (garbage ratio threshold)   The interesting leap: a model producing >50% garbage is considered globally unreliable\u2014even its \u201cgood\u201d outputs are suspect.",
+  "claim_file": "tests/red_bar/test_governance.py",
+  "claim_by": "openai/gpt-5.3-chat",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-04-03T15:14:16.318351+00:00"
+}

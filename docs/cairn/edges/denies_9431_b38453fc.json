@@ -1,0 +1,11 @@
+{
+  "id": "b38453fc-9c24-4204-8120-2e3b08f73d0f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9431_20260403_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6351_20260316_qwen-2.5-72b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The file does not mention `duckdb.py` or any interdependencies.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "qwen/qwen-2.5-72b-instruct",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-03T15:44:25.763295+00:00"
+}

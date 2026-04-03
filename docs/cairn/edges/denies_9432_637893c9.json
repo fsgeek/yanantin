@@ -1,0 +1,11 @@
+{
+  "id": "637893c9-444c-43b5-9f3b-44f57b0e92ac",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9432_20260403_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1363_20260218_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states:   > > ### Declared Losses I cannot check the content of `tests/unit/test_renderer.py` to verify the claim about markdown rendering.",
+  "claim_file": "tests/unit/test_renderer.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-03T15:44:29.781991+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "3930fbd8-4fbb-45cd-8435-21d233776041",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9369_20260403_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8698_20260330_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "Each report (e.g., `scout_0151_20260212_gpt-4o-mini.md`) begins with a tensor header: model, cost, usage, and timestamp.",
+  "claim_file": "docs/cairn/scout_0151_20260212_gpt-4o-mini.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-03T07:14:43.211899+00:00"
+}

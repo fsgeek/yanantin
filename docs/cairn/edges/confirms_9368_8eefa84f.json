@@ -1,0 +1,11 @@
+{
+  "id": "8eefa84f-ec7f-4585-8ef5-98196c53422f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9368_20260403_nova-2-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1279_20260217_mistral-saba.md",
+  "relation": "confirms",
+  "claim_text": "May return duplicates.\"\"\" return [self.select() for _ in range(n)] def stats(self) -> dict[str, Any]: \"\"\"Summary statistics about the model pool.\"\"\" if not self.models: return {\"count\": 0} costs = [m.total_cost_per_million for m in self.models] free_count = sum(1 for c in costs if c <= 0) return { \"count\": len(self.models), \"free\": free_count, \"min_cost\": min(c for c in costs if c > 0) if any(c > 0 for c in costs) else 0, \"max_cost\": max(costs), \"median_cost\": sorted(costs)[len(costs) // 2], } ``` ### Reasoning The claim states that the content of `model_selector.py` is provided, and indeed, the entire content of the file is shown.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "mistralai/mistral-saba",
+  "verified_by": "amazon/nova-2-lite-v1",
+  "timestamp": "2026-04-03T07:14:27.295511+00:00"
+}

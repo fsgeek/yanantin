@@ -1,0 +1,11 @@
+{
+  "id": "f84ed6e6-5e09-4bbd-9a44-6f02997319a2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9373_20260403_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7774_20260324_mistral-small-creative.md",
+  "relation": "confirms",
+  "claim_text": "- **External reference indeterminate**: Cannot verify `scout_1737_20260219_gemma-3n-e4b-it.md` without its content.",
+  "claim_file": "docs/cairn/scout_1737_20260219_gemma-3n-e4b-it.md",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-03T07:44:43.999158+00:00"
+}

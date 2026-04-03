@@ -1,0 +1,11 @@
+{
+  "id": "1c9c219e-a0d9-442e-a6f0-9c8c1d8e172e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9372_20260403_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1043_20260216_qwen2.5-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "**Full Implementation of Models**: While `models/tensor.py` and `models/composition.py` were referenced, I did not deeply explore their full implementations.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-03T07:44:29.875373+00:00"
+}

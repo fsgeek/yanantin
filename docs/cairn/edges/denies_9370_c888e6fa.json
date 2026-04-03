@@ -1,0 +1,11 @@
+{
+  "id": "c888e6fa-31e7-4233-84ff-11edfcd081bd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9370_20260403_wizardlm-2-8x22b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2888_20260225_gemma-3-27b-it.md",
+  "relation": "denies",
+  "claim_text": "``` ### Reasoning The claim states that the file includes an open question about \u201cthe exact relationship between the `docs/predecessors.md` and `docs/tensors.md` files with the tensor sequence (T\u2080\u2011T\u2087).\u201d The file `docs/tensors.md` *does* mention the tensor sequence (T\u2080\u2011T\u2087) as stated in the claim, and specifically notes where these tensors are stored: \"The tensor sequence (T\u2080\u2011T\u2087) lives in this project's memory directory.\" The claim also correctly notes that there is no mention of `docs/predecessors.md` within the file.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "microsoft/wizardlm-2-8x22b",
+  "timestamp": "2026-04-03T07:15:05.033627+00:00"
+}

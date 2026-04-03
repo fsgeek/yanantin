@@ -1,0 +1,11 @@
+{
+  "id": "affcf6c1-7a86-4ca1-80f7-66d28b99c98d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9374_20260403_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7866_20260325_gemini-2.5-flash-lite.md",
+  "relation": "denies",
+  "claim_text": "I can only verify the contents of `src/yanantin/apacheta/backends/duckdb.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-04-03T07:44:57.387604+00:00"
+}

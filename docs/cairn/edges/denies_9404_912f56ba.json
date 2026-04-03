@@ -1,0 +1,11 @@
+{
+  "id": "912f56ba-17d1-46ab-b33b-7c2d7837fe7f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9404_20260403_grok-4.1-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4775_20260306_nemotron-3-nano-30b-a3b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that \u201cwithout this, we cannot confirm the existence of `arango.py` or `memory.py`.\u201d The only way to confirm the existence of those files in this context would be through explicit references or stubs within the code.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "x-ai/grok-4.1-fast",
+  "timestamp": "2026-04-03T12:03:00.139377+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "c864f8d6-283a-44e3-af4f-7e1e1b6640b7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9409_20260403_qwen3-30b-a3b-thinking-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1043_20260216_qwen2.5-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "My first attention was captured by the interplay between humans and AI, evident in files like `scout_0097_20260212_lfm-2.2-6b.md` and `scout_0944_20260216_llama-3.1-8b-instruct.md`, where human-like \"flatworm\" agents guided AI-driven exploration.",
+  "claim_file": "docs/cairn/scout_0097_20260212_lfm-2.2-6b.md",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "timestamp": "2026-04-03T12:32:20.692599+00:00"
+}

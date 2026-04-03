@@ -1,0 +1,11 @@
+{
+  "id": "ebf72004-c382-46c2-8061-3020dfe1c2c0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9408_20260403_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0578_20260214_qwen3-next-80b-a3b-thinking.md",
+  "relation": "confirms",
+  "claim_text": "Check the `ProvenanceEnvelope` fields in tensors, the content hash linkage in `test_content_address.py`,",
+  "claim_file": "tests/unit/test_content_address.py",
+  "claim_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-03T12:31:52.059592+00:00"
+}

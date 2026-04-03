@@ -1,0 +1,11 @@
+{
+  "id": "c08ff0c0-5613-4f4c-9560-459af47fc4c7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9407_20260403_gemini-2.5-flash-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0467_20260214_rnj-1-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim incorrectly assumes that `predecessors.md` exists or is relevant to the content of `apacheta.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "essentialai/rnj-1-instruct",
+  "verified_by": "google/gemini-2.5-flash-lite",
+  "timestamp": "2026-04-03T12:31:40.502453+00:00"
+}

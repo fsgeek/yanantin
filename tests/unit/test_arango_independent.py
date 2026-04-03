@@ -819,7 +819,7 @@ class TestCountRecords:
 
     def test_empty_database_all_zeros(self, db):
         counts = db.count_records()
-        expected_keys = {"tensors", "edges", "corrections", "dissents",
+        expected_keys = {"records", "tensors", "edges", "corrections", "dissents",
                          "negations", "bootstraps", "evolutions", "entities"}
         assert set(counts.keys()) == expected_keys
         for value in counts.values():
@@ -854,8 +854,12 @@ class TestCountRecords:
         ))
 
         counts = db.count_records()
-        for value in counts.values():
-            assert value == 1
+        for key, value in counts.items():
+            if key == "records":
+                assert value == 0, "no plain record was stored"
+            else:
+                assert value == 1
+        assert "records" in counts
 
     def test_counts_monotonically_increase(self, db):
         """Counts should only ever increase."""

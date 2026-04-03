@@ -1,0 +1,11 @@
+{
+  "id": "82be460b-27c6-4879-b148-dd6c14096b3e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9353_20260403_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8972_20260401_command-r7b-12-2024.md",
+  "relation": "confirms",
+  "claim_text": "* The `__main__.py` file interacts heavily with other modules like `coordinator.py`, `attestation.py`, and `gleaner.py`.",
+  "claim_file": "src/yanantin/chasqui/attestation.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-04-03T05:09:46.694308+00:00"
+}

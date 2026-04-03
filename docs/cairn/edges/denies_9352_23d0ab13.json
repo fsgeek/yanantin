@@ -1,0 +1,11 @@
+{
+  "id": "23d0ab13-2acc-48ee-9a55-da91968ab63e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9352_20260403_qwen2.5-vl-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3793_20260301_qwen3-30b-a3b.md",
+  "relation": "denies",
+  "claim_text": "It maps what exists...\" - \"For deeper context on predecessor projects, see `docs/predecessors.md`.\" - \"For the tensor sequence and its history, see `docs/tensors.md`.\" ### Reasoning The claim states that \"CLAUDE.md does not mention itself or its use as evidence.\" The file's content explicitly avoids referencing its own filename (\"CLAUDE.md\") or describing its role as evidence.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "qwen/qwen3-30b-a3b",
+  "verified_by": "qwen/qwen2.5-vl-32b-instruct",
+  "timestamp": "2026-04-03T05:09:36.575196+00:00"
+}

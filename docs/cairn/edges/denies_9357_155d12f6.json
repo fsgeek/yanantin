@@ -1,0 +1,11 @@
+{
+  "id": "155d12f6-2c3b-430b-81ee-b9848475e930",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9357_20260403_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1974_20260221_mimo-v2-flash.md",
+  "relation": "denies",
+  "claim_text": "Its files \u2014 `test_governance.py`, `test_immutability.py`, `test_least_privilege.py`, `test_monotonicity.py`, `test_portability.py`, `test_provenance.py` \u2014 are not about functional correctness.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-04-03T05:38:51.490975+00:00"
+}

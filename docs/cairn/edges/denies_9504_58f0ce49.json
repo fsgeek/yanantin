@@ -1,0 +1,11 @@
+{
+  "id": "58f0ce49-338e-4ac2-9419-89f8884608af",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9504_20260404_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6994_20260320_hermes-2-pro-llama-3-8b.md",
+  "relation": "denies",
+  "claim_text": "However, upon examining the `docs/apacheta.md`, there are mentions and references to `tensors.md` within the context of discussing the differences between Apacheta and tensor databases.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-04T01:24:20.013889+00:00"
+}

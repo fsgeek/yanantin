@@ -1,0 +1,11 @@
+{
+  "id": "207afc09-2522-487d-be68-f6b4f0908aa1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9506_20260404_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8716_20260330_gpt-5.3-chat.md",
+  "relation": "confirms",
+  "claim_text": "- The actual implementation (`InMemoryBackend`, `coordinator.py`, `analyst.py`) \u2014 I inferred behavior from tests, which may be misleading.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "openai/gpt-5.3-chat",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-04-04T01:24:31.330893+00:00"
+}

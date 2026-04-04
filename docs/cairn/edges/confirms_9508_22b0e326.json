@@ -1,0 +1,11 @@
+{
+  "id": "22b0e326-bf93-4339-b17b-f01f377f5361",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9508_20260404_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6145_20260315_lfm-2-24b-a2b.md",
+  "relation": "confirms",
+  "claim_text": "From the provided content of `audit.py`, there is no direct reference to `tinkuy/` or any indication that the file skips `audit.py` or `succession.py`.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-04T01:53:44.351173+00:00"
+}

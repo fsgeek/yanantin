@@ -1,0 +1,11 @@
+{
+  "id": "1588d017-7f50-41ad-ba20-2d9cb020c95d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9510_20260404_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8665_20260330_ministral-8b-2512.md",
+  "relation": "denies",
+  "claim_text": "- The claim explicitly states that `apacheta.md` is **not** present, which cannot be verified from this file alone.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-04-04T01:54:13.161989+00:00"
+}

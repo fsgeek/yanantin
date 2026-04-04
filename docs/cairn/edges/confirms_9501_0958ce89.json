@@ -1,0 +1,11 @@
+{
+  "id": "0958ce89-7496-4815-8d47-41631b78ee18",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9501_20260404_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8332_20260327_qwen3-vl-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**The \"Immediate Effect\" Lie**   Both `configure.md` and `list.md` say: \u201cChanges take effect immediately \u2014 no restart needed.\u201d But this is *only true* if the hook system is *dynamically reloading* rules on every tool use.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/commands/configure.md",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-04T00:51:19.363543+00:00"
+}

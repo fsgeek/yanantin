@@ -1,0 +1,11 @@
+{
+  "id": "fb9249a0-8491-4f4f-ad22-22786410456b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9502_20260404_deepseek-r1t2-chimera.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4043_20260302_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "`scout_3988_20260302_qwen-turbo.md` says **DENIED** regarding a claim about `CLAUDE.md` self-references.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "tngtech/deepseek-r1t2-chimera",
+  "timestamp": "2026-04-04T00:51:40.365683+00:00"
+}

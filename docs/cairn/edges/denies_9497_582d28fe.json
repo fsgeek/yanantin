@@ -1,0 +1,11 @@
+{
+  "id": "582d28fe-acb1-4e41-b5ae-9b02c4688b11",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9497_20260404_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6912_20260320_qwen3-30b-a3b-instruct-2507.md",
+  "relation": "denies",
+  "claim_text": "The only file explicitly referenced is `docs/apacheta.md`, which is cited in the \"Evidence\" section.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-04-04T00:19:24.003799+00:00"
+}

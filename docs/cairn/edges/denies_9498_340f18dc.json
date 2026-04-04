@@ -1,0 +1,11 @@
+{
+  "id": "340f18dc-7e8a-438a-9d0f-2d31d5ca85df",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9498_20260404_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8189_20260327_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that the file `src/yanantin/apacheta/backends/duckdb.py` explicitly mentions \"arango.py\", \"duckdb.py\", or \"memory.py\".",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-04T00:19:26.573969+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "3af612ee-4313-40b8-8976-b0b6860ad5e3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9499_20260404_step-3.5-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4078_20260302_olmo-3.1-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The file `tests/unit/test_operators.py` begins with: ``` from yanantin.apacheta.operators.bootstrap import bootstrap from yanantin.apacheta.operators.compose import compose from yanantin.apacheta.operators.correct import correct from yanantin.apacheta.operators.dissent import dissent from yanantin.apacheta.operators.evolve import evolve from yanantin.apacheta.operators.negate import negate from yanantin.apacheta.operators.project import project ``` which shows that the file imports the listed operators.",
+  "claim_file": "tests/unit/test_operators.py",
+  "claim_by": "allenai/olmo-3.1-32b-instruct",
+  "verified_by": "stepfun/step-3.5-flash",
+  "timestamp": "2026-04-04T00:20:02.952381+00:00"
+}

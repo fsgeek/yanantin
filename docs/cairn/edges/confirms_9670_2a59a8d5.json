@@ -1,0 +1,11 @@
+{
+  "id": "2a59a8d5-0092-4042-9033-49fc63e5e76c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9670_20260404_trinity-large-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5844_20260313_qwen3-vl-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning   The claim made by `xiaomi/mimo-v2-flash` is **accurate** in its assertion that the file `docs/tensors.md` explicitly lists and describes other files in the tensor sequence.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "verified_by": "arcee-ai/trinity-large-thinking",
+  "timestamp": "2026-04-04T23:20:43.250726+00:00"
+}

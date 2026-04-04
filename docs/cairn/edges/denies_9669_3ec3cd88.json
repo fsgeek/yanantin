@@ -1,0 +1,11 @@
+{
+  "id": "3ec3cd88-b2c3-4074-a6f2-5472a1e6f7c4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9669_20260404_gpt-4.1-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4432_20260304_grok-4-fast.md",
+  "relation": "denies",
+  "claim_text": "While `docs/tensors.md` does reference \"Apacheta\" (as a database/project, not explicitly as `apacheta.md`), it provides no information about what `docs/apacheta.md` does or does not contain.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "openai/gpt-4.1-mini",
+  "timestamp": "2026-04-04T23:20:39.878427+00:00"
+}

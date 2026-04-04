@@ -1,0 +1,11 @@
+{
+  "id": "35d60d95-1df3-4b8b-bd08-fd902d842a99",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9664_20260404_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0390_20260214_grok-code-fast-1.md",
+  "relation": "confirms",
+  "claim_text": "The structure shows this in code: `src/yanantin/apacheta/models/` has `base.py`, `tensor.py`, etc., all Pydantic-based with strict configs.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "x-ai/grok-code-fast-1",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-04T22:50:41.195770+00:00"
+}

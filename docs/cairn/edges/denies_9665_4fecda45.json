@@ -1,0 +1,11 @@
+{
+  "id": "4fecda45-f1ca-4cb2-8761-f6308e0372dc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9665_20260404_qwen-plus-2025-07-28.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4379_20260304_gemini-2.0-flash-001.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I am relying on the content of `docs/cairn/scout_0247_20260213_ministral-8b-2512.md` being accurate in its assessment of `src/yanantin/chasqui/coordinator.py`.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "google/gemini-2.0-flash-001",
+  "verified_by": "qwen/qwen-plus-2025-07-28",
+  "timestamp": "2026-04-04T22:50:47.551865+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "e3a03bca-ce83-4894-aaf7-976e035cd627",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9668_20260404_kat-coder-pro-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4907_20260307_gemini-2.0-flash-lite-001.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 5: Operational Roles and Master Builder The file `docs/cairn/scout_0553_20260214_ernie-4.5-21b-a3b.md` defines the role of the \"Master Builder.\" *   **Observation:** The file `docs/cairn/scout_0553_20260214_ernie-4.5-21b-a3b.md` contains an \"Operational Roles\" table with the \"Master Builder\" role, assigned to Claude Opus, who is responsible for \"Coordinates.",
+  "claim_file": "docs/cairn/scout_0553_20260214_ernie-4.5-21b-a3b.md",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "kwaipilot/kat-coder-pro-v2",
+  "timestamp": "2026-04-04T23:20:36.031099+00:00"
+}

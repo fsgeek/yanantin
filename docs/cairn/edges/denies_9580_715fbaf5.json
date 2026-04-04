@@ -1,0 +1,11 @@
+{
+  "id": "715fbaf5-c81e-4550-a4c9-286da548ef77",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9580_20260404_mistral-small-2603.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5714_20260312_hermes-2-pro-llama-3-8b.md",
+  "relation": "denies",
+  "claim_text": "The `scout_reviewer.md` provides information about the project's scout reviewer, while `structured_reviewer.md` provides information about the project's structured reviewer.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "mistralai/mistral-small-2603",
+  "timestamp": "2026-04-04T11:42:54.154003+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "94dc3ee3-5857-41a7-8731-7fa7af50c511",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9585_20260404_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0592_20260214_mistral-small-3.1-24b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Documentation and Meta-Level Reviews The `agents` directory contains files like `scout_reviewer.md` and `structured_reviewer.md`, which outline the roles and responsibilities of different agents in the project.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-04-04T12:12:02.002665+00:00"
+}

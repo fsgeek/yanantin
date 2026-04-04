@@ -1,0 +1,11 @@
+{
+  "id": "5f1f194f-c968-4ad0-b073-8fc1bede3ad9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9661_20260404_sonar-deep-research.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7554_20260323_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "Yet the claim **\"In the 'Strands' section: Evidence: `src/yanantin/apacheta/interface/abstract.py` and `src/yanantin/chasqui/model_selector.py`\"**\u2014this is absurd because **the latter doesn't exist in the text** (it's a conflation).",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "perplexity/sonar-deep-research",
+  "timestamp": "2026-04-04T22:18:48.239303+00:00"
+}

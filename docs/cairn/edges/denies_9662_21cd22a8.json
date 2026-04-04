@@ -1,0 +1,11 @@
+{
+  "id": "21cd22a8-9879-42c9-a9cc-2ac0365795c8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9662_20260404_mistral-large-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2327_20260222_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "The assertion that \"only `weaver.py` and `__main__.py` are mentioned\" warrants deeper inspection, revealing nuanced implications.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "mistralai/mistral-large-2512",
+  "timestamp": "2026-04-04T22:18:48.998166+00:00"
+}

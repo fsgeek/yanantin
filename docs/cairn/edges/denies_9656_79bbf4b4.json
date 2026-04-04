@@ -1,0 +1,11 @@
+{
+  "id": "79bbf4b4-58b1-4df5-a644-3826b0a37807",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9656_20260404_mistral-small-2603.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5449_20260310_nemotron-nano-12b-v2-vl.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim asserts that `provenance.py` explicitly declares an inability to verify the absence of proof loops in other files.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "nvidia/nemotron-nano-12b-v2-vl",
+  "verified_by": "mistralai/mistral-small-2603",
+  "timestamp": "2026-04-04T21:46:41.192282+00:00"
+}

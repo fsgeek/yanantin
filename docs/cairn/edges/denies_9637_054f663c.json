@@ -1,0 +1,11 @@
+{
+  "id": "054f663c-f501-47c5-bee1-138b9aa71281",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9637_20260404_unslopnemo-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4577_20260305_qwen3.5-plus-02-15.md",
+  "relation": "denies",
+  "claim_text": "The Gleaner Extracts Claims Deterministically `src/yanantin/chasqui/gleaner.py` (scoured in `scour_0299_20260302_granite-4.0-h-micro.md`) uses regex patterns to extract claims from scout reports: - `_PATH_PATTERN` \u2014 backticked file paths - `_SCOUT_HEADER` \u2014 model provenance from markdown comments - Confidence scoring based on definitive vs.",
+  "claim_file": "docs/cairn/scour_0299_20260302_granite-4.0-h-micro.md",
+  "claim_by": "qwen/qwen3.5-plus-02-15",
+  "verified_by": "thedrummer/unslopnemo-12b",
+  "timestamp": "2026-04-04T19:10:06.098183+00:00"
+}

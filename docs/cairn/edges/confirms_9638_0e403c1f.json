@@ -1,0 +1,11 @@
+{
+  "id": "0e403c1f-63d8-4618-a2f4-42ca5461ae78",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9638_20260404_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1362_20260218_llama-3.2-11b-vision-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The claim states: \"The `.claude/hooks` directory contains scripts like `chasqui_pulse.py`, `chasqui_heartbeat.sh`, and `precompact_tensor.py`.\" The file `.claude/hooks/precompact_tensor.py` contains the line: ``` #!/usr/bin/env python3 \"\"\"PreCompact tensor hook: capture session work history before context dies.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-04T19:10:07.376314+00:00"
+}

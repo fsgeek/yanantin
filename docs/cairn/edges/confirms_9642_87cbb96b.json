@@ -1,0 +1,11 @@
+{
+  "id": "87cbb96b-a031-4fbe-8183-48fb48ea217e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9642_20260404_gpt-5-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4819_20260307_llama-3-70b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "* What is the purpose of the `pipeline_attestation.py` script in `.claude/hooks`?",
+  "claim_file": ".claude/hooks/pipeline_attestation.py",
+  "claim_by": "meta-llama/llama-3-70b-instruct",
+  "verified_by": "openai/gpt-5-nano",
+  "timestamp": "2026-04-04T19:40:50.916287+00:00"
+}

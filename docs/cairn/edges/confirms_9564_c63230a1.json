@@ -1,0 +1,11 @@
+{
+  "id": "c63230a1-3172-4318-a497-5523c9d63cbc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9564_20260404_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4359_20260304_glm-4.5-air.md",
+  "relation": "confirms",
+  "claim_text": "This indicates that the code in `synthetic.py` depends on and references code in `yanantin/collector/base.py`.",
+  "claim_file": "src/yanantin/collector/synthetic.py",
+  "claim_by": "z-ai/glm-4.5-air",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-04-04T09:34:58.473054+00:00"
+}

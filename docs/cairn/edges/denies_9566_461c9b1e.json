@@ -1,0 +1,11 @@
+{
+  "id": "461c9b1e-28b8-45f3-a83e-c8f79783be03",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9566_20260404_qwen-2.5-coder-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1498_20260218_voxtral-small-24b-2507.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The claim states that `capture_compaction.py` \"uses regex and keyword matching to extract composition declarations from tensor prose.\" However, the file does not contain any usage of regex or keyword matching for extracting composition declarations.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "mistralai/voxtral-small-24b-2507",
+  "verified_by": "qwen/qwen-2.5-coder-32b-instruct",
+  "timestamp": "2026-04-04T09:35:02.960977+00:00"
+}

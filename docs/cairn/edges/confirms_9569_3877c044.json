@@ -1,0 +1,11 @@
+{
+  "id": "3877c044-ddfa-4dd5-bf4b-96773cc0f8d2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9569_20260404_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6817_20260319_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "There are also files like `codex_scout_architecture.md` and `design-context-protocol.md`.\", \"thought\": \"The `T<number>_` prefix is particularly intriguing.",
+  "claim_file": "docs/cairn/codex_scout_architecture.md",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-04T10:07:07.225726+00:00"
+}

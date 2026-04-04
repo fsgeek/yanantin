@@ -1,0 +1,11 @@
+{
+  "id": "aa4a8b10-b7d6-4c21-8e31-68ee083a5e95",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9561_20260404_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7589_20260323_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "For example, in `test_activity_store.py`, we see assertions like `assert len(activities) == 0`.",
+  "claim_file": "tests/unit/test_activity_store.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-04-04T09:01:58.772778+00:00"
+}

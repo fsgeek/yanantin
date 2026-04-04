@@ -1,0 +1,11 @@
+{
+  "id": "ef5f88d7-92c5-48b6-94b4-3840ffa71ce6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9556_20260404_o4-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2047_20260221_qwen2.5-coder-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 5: Context and Loss In `docs/cairn/T13_20260211_the_gradient.md`, the narrative admits \"declared losses\" (e.g., \"The founding tensors T0-T7: Fourth instance carrying the same loss\") and notes that some work remains undone (\"Tinkuy and Choquequirao: Still names without code\").",
+  "claim_file": "docs/cairn/T13_20260211_the_gradient.md",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "openai/o4-mini",
+  "timestamp": "2026-04-04T08:30:54.595600+00:00"
+}

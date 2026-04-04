@@ -1,0 +1,11 @@
+{
+  "id": "758aaaf2-f5d5-4ab1-88ff-3c6cc7326409",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9557_20260404_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8406_20260328_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "**File Title:** The file is identified as `CLAUDE.md` at the top: ``` # CLAUDE.md ``` ### Reasoning The claim made by `ibm-granite/granite-4.0-h-micro` asserts the **absence** of specific content within `CLAUDE.md` (no mention of a claim being denied, no discussion of a scout's claim).",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-04-04T08:31:06.037842+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "989c7b8f-adc8-45af-b50c-f75a014012a0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9562_20260404_seed-1.6-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9066_20260401_qwen-2.5-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The file `src/yanantin/chasqui/scout.py` does not contain any code related to `coordinator.py`, `scorer.py`, or `scout.py`.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "bytedance-seed/seed-1.6-flash",
+  "timestamp": "2026-04-04T09:02:06.105792+00:00"
+}

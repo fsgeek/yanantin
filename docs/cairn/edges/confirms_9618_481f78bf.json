@@ -1,0 +1,11 @@
+{
+  "id": "481f78bf-5658-4f1f-bdde-1b1a32868703",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9618_20260404_ernie-4.5-21b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8308_20260327_router.md",
+  "relation": "confirms",
+  "claim_text": "-   `visual_effects.py` introduces a full `ParticleSystem`.",
+  "claim_file": "tmp/ubuntu-vm.claude/slack-gif-creator/core/visual_effects.py",
+  "claim_by": "switchpoint/router",
+  "verified_by": "baidu/ernie-4.5-21b-a3b",
+  "timestamp": "2026-04-04T16:31:09.687289+00:00"
+}

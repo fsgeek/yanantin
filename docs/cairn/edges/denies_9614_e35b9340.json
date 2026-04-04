@@ -1,0 +1,11 @@
+{
+  "id": "e35b9340-556b-4f3b-90a2-b655cee19fb0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9614_20260404_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7323_20260322_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "**Declared Losses** I chose not to examine the `curious-coalescing-neumann.md`, `eager-purring-church.md`, `luminous-wiggling-rivest.md`, `streamed-enchanting-candy.md`, and other files in the directory, as they do not appear to be directly related to the lecture plan.",
+  "claim_file": "tmp/ubuntu-vm.claude/plans/eager-purring-church.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-04-04T15:59:13.609914+00:00"
+}

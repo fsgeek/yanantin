@@ -1,0 +1,11 @@
+{
+  "id": "b209e84a-b67e-4a31-b1a4-02a6ee5e8374",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9628_20260404_qwen-vl-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0933_20260216_mistral-medium-3.md",
+  "relation": "denies",
+  "claim_text": "- **Scouter Core Logic**: I skipped the internals of `src/yanantin/chasqui/scout.py`, `compose.py`, `correct.py`, `evolve.py`, and the scoring algorithm in `scorer.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "mistralai/mistral-medium-3",
+  "verified_by": "qwen/qwen-vl-plus",
+  "timestamp": "2026-04-04T18:08:23.152444+00:00"
+}

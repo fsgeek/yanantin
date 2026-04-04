@@ -1,0 +1,11 @@
+{
+  "id": "735020a7-0e81-4ad7-aea3-6685ecf943e4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9633_20260404_reka-edge.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5358_20260310_qwen3-coder-plus.md",
+  "relation": "confirms",
+  "claim_text": "The `docs/cairn/scout_5072_20260308_mistral-nemo.md` references \"cryptographic signing for message segments\" though implementation may be missing.",
+  "claim_file": "docs/cairn/scout_5072_20260308_mistral-nemo.md",
+  "claim_by": "qwen/qwen3-coder-plus",
+  "verified_by": "rekaai/reka-edge",
+  "timestamp": "2026-04-04T18:38:17.447401+00:00"
+}

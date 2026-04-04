@@ -1,0 +1,11 @@
+{
+  "id": "cf16f8cc-6e40-4825-be34-06ae0e2e8744",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9629_20260404_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1884_20260220_inflection-3-pi.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The provided text does not mention `docs/predecessors.md` being absent or present.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "inflection/inflection-3-pi",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-04T18:08:23.918539+00:00"
+}

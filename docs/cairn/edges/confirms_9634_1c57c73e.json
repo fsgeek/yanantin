@@ -1,0 +1,11 @@
+{
+  "id": "1c57c73e-f9a4-452b-abf6-adbb1cbf6ac2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9634_20260404_llama-3-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1900_20260220_qwen3-32b.md",
+  "relation": "confirms",
+  "claim_text": "--- ### Declared Losses   - **No access to `test_renderer.py`** (mentioned in Scout 1227\u2019s partial evidence).",
+  "claim_file": "tests/unit/test_renderer.py",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "meta-llama/llama-3-70b-instruct",
+  "timestamp": "2026-04-04T18:39:17.042027+00:00"
+}

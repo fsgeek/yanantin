@@ -1,0 +1,11 @@
+{
+  "id": "ce1e2ed4-7cf1-426c-a283-181a6a78a42f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9605_20260404_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2304_20260222_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The claim states that `src/yanantin/collector/filesystem/recorder.py` implements a `FileSystemCollector` that creates a two-strand tensor.",
+  "claim_file": "src/yanantin/collector/filesystem/recorder.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-04T14:57:18.103454+00:00"
+}

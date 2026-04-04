@@ -1,0 +1,11 @@
+{
+  "id": "f0955c7c-08fd-4513-814f-8e5b9bf617b0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9609_20260404_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3453_20260227_grok-3-mini.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I could not directly verify the contents of `weaver.py`, as only `materialize.py` was provided.",
+  "claim_file": "src/yanantin/awaq/materialize.py",
+  "claim_by": "x-ai/grok-3-mini",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-04-04T15:27:42.081934+00:00"
+}

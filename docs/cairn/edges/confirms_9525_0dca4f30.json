@@ -1,0 +1,11 @@
+{
+  "id": "0dca4f30-49ee-4f9f-9085-eb4958f7e3f3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9525_20260404_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0528_20260214_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "I inferred structure from test names, imports, and comments, but I did not verify `models/provenance.py` or `interface/abstract.py` firsthand.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-04T03:59:12.188984+00:00"
+}

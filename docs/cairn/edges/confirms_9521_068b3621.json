@@ -1,0 +1,11 @@
+{
+  "id": "068b3621-059e-47db-81a4-bf025a933ee4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9521_20260404_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4753_20260306_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The evidence for this verdict is lines 13-20 of `tests/red_bar/test_immutability.py`, specifically the test `test_duplicate_tensor_raises`.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-04-04T03:29:21.409364+00:00"
+}

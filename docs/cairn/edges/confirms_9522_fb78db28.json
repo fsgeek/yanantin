@@ -1,0 +1,11 @@
+{
+  "id": "fb78db28-9856-4489-ba23-2d67d67b770c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9522_20260404_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0002_20260210_deepseek-chat-v3.1.md",
+  "relation": "confirms",
+  "claim_text": "**Strand 2: Immutability as First Principle** The test suite (`tests/unit/test_memory_backend.py`) reveals deep commitment to immutability.",
+  "claim_file": "tests/unit/test_memory_backend.py",
+  "claim_by": "deepseek/deepseek-chat-v3.1",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-04-04T03:29:26.616621+00:00"
+}

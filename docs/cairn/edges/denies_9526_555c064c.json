@@ -1,0 +1,11 @@
+{
+  "id": "555c064c-0bbc-4019-8b7a-06b3c92fec9b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9526_20260404_seed-2.0-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1230_20260217_step-3.5-flash.md",
+  "relation": "denies",
+  "claim_text": "--- ### Strands   **Strand 1: The claim\u2019s malformed nature**   The claim repeats \u201cit does mention `docs/predecessors.md` is not present\u201d three times and trails off.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "stepfun/step-3.5-flash",
+  "verified_by": "bytedance-seed/seed-2.0-lite",
+  "timestamp": "2026-04-04T03:59:35.912818+00:00"
+}

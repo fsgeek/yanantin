@@ -1,0 +1,11 @@
+{
+  "id": "903c3c6e-8496-4ccb-9a33-bae989ee067f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9537_20260404_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2198_20260222_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "**Integration with ArangoDB**: The `ArangoDBBackend` class definition in `src/yanantin/apacheta/backends/arango.py` shows integration with the ArangoDB database.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-04T05:49:01.660686+00:00"
+}

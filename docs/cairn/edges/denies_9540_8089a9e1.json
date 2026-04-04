@@ -1,0 +1,11 @@
+{
+  "id": "8089a9e1-98c2-410e-bc7a-625f5dd3532a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9540_20260404_gemini-2.0-flash-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7748_20260324_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "``` ### Reasoning   The claim asserts that **both** `docs/cairn/scout_0209_20260213_gemma-3n-e4b-it.md` and `docs/cairn/scout_0850_20260216_phi-4.md` refer to: 1.",
+  "claim_file": "docs/cairn/scout_0850_20260216_phi-4.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "google/gemini-2.0-flash-001",
+  "timestamp": "2026-04-04T06:18:45.640629+00:00"
+}

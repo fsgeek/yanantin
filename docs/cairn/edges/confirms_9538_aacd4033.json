@@ -1,0 +1,11 @@
+{
+  "id": "aacd4033-1c32-4dfd-8650-e1b39e62cd4b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9538_20260404_trinity-large-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7028_20260320_qwen3-vl-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning   The claim states:   > \"The `.claude` directory contains scripts like `chasqui_heartbeat.sh` and `chasqui_pulse.py`, which appear to be monitoring and coordination tools.\"   This is confirmed by:   - The file `chasqui_pulse.py` is in `.claude/hooks/`, which is part of the `.claude` directory.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "verified_by": "arcee-ai/trinity-large-thinking",
+  "timestamp": "2026-04-04T05:49:02.770896+00:00"
+}

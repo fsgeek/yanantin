@@ -1,0 +1,11 @@
+{
+  "id": "edbfccdc-ec04-495d-b063-1a0db7ba8e10",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9533_20260404_skyfall-36b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2391_20260222_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Llama-Guard Logs**: I noticed that the file `docs/cairn/scout_0327_20260213_llama-guard-3-8b.md` contains a classification stream, which seems to be a safety log.",
+  "claim_file": "docs/cairn/scout_0327_20260213_llama-guard-3-8b.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "thedrummer/skyfall-36b-v2",
+  "timestamp": "2026-04-04T05:10:26.642163+00:00"
+}

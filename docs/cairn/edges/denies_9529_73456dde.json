@@ -1,0 +1,11 @@
+{
+  "id": "73456dde-fcef-4322-84d4-09210a9ae152",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9529_20260404_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0705_20260215_trinity-mini.md",
+  "relation": "denies",
+  "claim_text": "No other references to `CLAUDE.md` exist in the file, and there are no explicit commands to manually retrieve or read it.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-04T04:32:11.903062+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "557971ac-154e-4333-9a5f-7bfa90105858",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9589_20260404_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5038_20260308_ernie-4.5-vl-28b-a3b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states: > \"I deliberately **did not** dive into the unrelated scout reports concerning other files (e.g., `src/yanantin/apacheta/interface/errors.py`, `test_arango_real.py`, or the introspection `chasqui` module).\" In contrast, the actual content of `src/yanantin/apacheta/interface/errors.py` is: ``` \"\"\"Custom exceptions for the Apacheta interface.\"\"\" class ApachetaError(Exception): \"\"\"Base exception for all Apacheta errors.\"\"\" class ImmutabilityError(ApachetaError): \"\"\"Raised when attempting to overwrite an existing record.\"\"\" class AccessDeniedError(ApachetaError): \"\"\"Raised when an operation is denied by access control.\"\"\" class NotFoundError(ApachetaError): \"\"\"Raised when a requested record does not exist.\"\"\" class InterfaceVersionError(ApachetaError): \"\"\"Raised on interface version mismatch.\"\"\" ``` Specifically, the claim refers to `src/yanantin/apacheta/interface/errors.py`, but the file contains definitions of custom exceptions for the Apacheta interface (i.e., `ApachetaError`, `ImmutabilityError`, `AccessDeniedError`, `NotFoundError`, and `InterfaceVersionError`).",
+  "claim_file": "src/yanantin/apacheta/interface/errors.py",
+  "claim_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-04-04T12:43:59.922400+00:00"
+}

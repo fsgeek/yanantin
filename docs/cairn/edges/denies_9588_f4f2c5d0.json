@@ -1,0 +1,11 @@
+{
+  "id": "f4f2c5d0-97e6-4ab2-944d-7fc3019f67d8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9588_20260404_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7059_20260320_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "Since the file content does not reflect this directory structure or confirm the existence of `arango.py`, `duckdb.py`, or `memory.py` in that location, the claim is not supported by the evidence.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-04T12:43:58.765897+00:00"
+}

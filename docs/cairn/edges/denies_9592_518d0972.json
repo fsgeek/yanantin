@@ -1,0 +1,11 @@
+{
+  "id": "518d0972-f244-49fa-b77a-b9d9a702db22",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9592_20260404_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0843_20260216_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "**I did not verify the actual content of `src/yanantin/tinkuy/succession.py`** \u2014 it wasn\u2019t provided, only claims about it.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-04T13:20:04.444871+00:00"
+}

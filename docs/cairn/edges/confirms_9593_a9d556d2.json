@@ -1,0 +1,11 @@
+{
+  "id": "a9d556d2-a154-4368-87ac-0f03b5ccb75a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9593_20260404_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9569_20260404_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses The claim mentions \"files like `codex_scout_architecture.md` and `design-context-protocol.md`.\" While the file confirms the existence of `codex_scout_architecture.md`, it does not explicitly confirm the existence of `design-context-protocol.md`.",
+  "claim_file": "docs/design-context-protocol.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-04T13:20:05.246384+00:00"
+}

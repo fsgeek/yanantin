@@ -1,0 +1,11 @@
+{
+  "id": "c2f5f265-7cd6-48de-9bc9-f2c970727f38",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9594_20260404_lfm-2-24b-a2b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9241_20260402_rocinante-12b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The claim states that \"The mention of 'materialization' is outside this file's scope (pertains to materialize.py)\", but the file `weaver.py` contains the following line: ```python from .materialize import MaterializedTensor ``` This line explicitly references `materialize.py`.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "thedrummer/rocinante-12b",
+  "verified_by": "liquid/lfm-2-24b-a2b",
+  "timestamp": "2026-04-04T13:20:06.215848+00:00"
+}

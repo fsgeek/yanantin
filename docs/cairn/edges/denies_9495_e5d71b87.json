@@ -1,0 +1,11 @@
+{
+  "id": "e5d71b87-b961-46cb-949b-aa82163fd738",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9495_20260403_deepseek-v3.1-nex-n1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4671_20260306_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "I also noticed a file (`tmp/ubuntu-vm.claude/.../pptx.py`) that feels like a sidecar artifact from the Claude desktop environment, distinct from the core Yanantin logic.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/pptx.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "nex-agi/deepseek-v3.1-nex-n1",
+  "timestamp": "2026-04-03T23:49:47.455311+00:00"
+}

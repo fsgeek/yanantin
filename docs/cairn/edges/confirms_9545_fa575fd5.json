@@ -1,0 +1,11 @@
+{
+  "id": "fa575fd5-816e-4dec-ba22-7d592e5637a9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9545_20260404_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5001_20260308_step-3.5-flash.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `scripts/ingest_cairn.py` does not contain any reference to `model_selector.py` or `coordinator.py`.",
+  "claim_file": "scripts/ingest_cairn.py",
+  "claim_by": "stepfun/step-3.5-flash",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-04-04T06:52:58.028909+00:00"
+}

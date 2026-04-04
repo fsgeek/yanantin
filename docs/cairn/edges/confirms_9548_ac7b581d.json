@@ -1,0 +1,11 @@
+{
+  "id": "ac7b581d-5750-42b7-937e-4cc1bafe109a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9548_20260404_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0532_20260214_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "- **Evidence**: The `src/yanantin/chasqui/model_selector.py` file defines a `ModelSelector` class with methods to select models based on criteria like minimum context length and exclusion patterns.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-04-04T07:22:54.194451+00:00"
+}

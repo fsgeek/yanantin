@@ -1,0 +1,11 @@
+{
+  "id": "1456ea4b-8f22-400c-9a62-c27061d53866",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9518_20260404_gemma-2-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1216_20260217_gemini-2.5-flash-lite-preview-.md",
+  "relation": "denies",
+  "claim_text": "Specifically, the filenames, which are all dated to mid-February 2026 (e.g., `scout_0595_20260214_mistral-small-24b-instruct-250.md`), suggest an intense, high-frequency evaluation process that leaves behind massive documentation artifacts.",
+  "claim_file": "docs/cairn/scout_0595_20260214_mistral-small-24b-instruct-250.md",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "google/gemma-2-27b-it",
+  "timestamp": "2026-04-04T02:55:51.282956+00:00"
+}

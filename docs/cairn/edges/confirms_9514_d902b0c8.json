@@ -1,0 +1,11 @@
+{
+  "id": "d902b0c8-9b2d-4ed2-aedb-b3c569615b2b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9514_20260404_qwen3-vl-8b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5854_20260313_grok-4.20-beta.md",
+  "relation": "confirms",
+  "claim_text": "Look at `scout_2890_20260225_mistral-nemo.md` (empty except for the header) sitting next to `scout_1349_20260218_gemma-3n-e4b-it.md` which contains a clean, well-reasoned denial of a claim that the model invocation logic lives outside `scout.py`.",
+  "claim_file": "docs/cairn/scout_2890_20260225_mistral-nemo.md",
+  "claim_by": "x-ai/grok-4.20-beta",
+  "verified_by": "qwen/qwen3-vl-8b-thinking",
+  "timestamp": "2026-04-04T02:25:55.830535+00:00"
+}

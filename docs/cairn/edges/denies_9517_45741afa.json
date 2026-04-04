@@ -1,0 +1,11 @@
+{
+  "id": "45741afa-4c9d-453c-8497-408d8f13fffd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9517_20260404_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5764_20260312_grok-4-fast.md",
+  "relation": "denies",
+  "claim_text": "Human traces (`.claude/`, `CLAUDE.md`) peek through like Easter eggs in a machine dream.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-04T02:55:46.902850+00:00"
+}

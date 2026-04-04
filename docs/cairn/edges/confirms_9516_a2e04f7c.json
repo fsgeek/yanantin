@@ -1,0 +1,11 @@
+{
+  "id": "a2e04f7c-196c-4072-bd2a-b93d8a1ac194",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9516_20260404_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7960_20260325_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "The module `coordinator.py` is imported as `from yanantin.chasqui.coordinator import dispatch_scout`, which implies it's a module being imported *from*, not a component *within* itself.\", \"thought\": \"This is a subtle but important distinction.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-04T02:55:41.267342+00:00"
+}

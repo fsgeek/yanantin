@@ -1,0 +1,11 @@
+{
+  "id": "452f3dd3-1ad5-4b0e-a267-f311f49629d4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9644_20260404_gemini-2.5-flash-lite-preview-.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6105_20260315_mercury-coder.md",
+  "relation": "denies",
+  "claim_text": "The existence of the other listed modules (`arango.py`, `duckdb.py`, `memory.py`, `openrouter.py`, `tensor.py`, `composition.py`, `bootstrap.py`, `compose.py`, `evolve.py`) is not visible in the provided file, so we cannot verify whether they are present or absent.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "inception/mercury-coder",
+  "verified_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "timestamp": "2026-04-04T20:13:27.865106+00:00"
+}

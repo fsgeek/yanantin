@@ -1,0 +1,11 @@
+{
+  "id": "1762a5c2-4d16-48d2-853d-b59efe512b27",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9646_20260404_skyfall-36b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3479_20260227_ministral-8b-2512.md",
+  "relation": "denies",
+  "claim_text": "**Extension**: The **`tinkuy/audit.py`** module (mentioned in earlier scouts) is designed to **detect and resolve disagreements**.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "thedrummer/skyfall-36b-v2",
+  "timestamp": "2026-04-04T20:13:30.707333+00:00"
+}

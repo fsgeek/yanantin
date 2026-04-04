@@ -1,0 +1,11 @@
+{
+  "id": "572e6330-c009-4321-999d-d39f1d19ec51",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9624_20260404_gpt-4o-mini-2024-07-18.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0039_20260212_gpt-5.1.md",
+  "relation": "confirms",
+  "claim_text": "That likely lives in `src/yanantin/apacheta/models/tensor.py`, which I haven\u2019t inspected.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "openai/gpt-5.1",
+  "verified_by": "openai/gpt-4o-mini-2024-07-18",
+  "timestamp": "2026-04-04T17:34:11.689255+00:00"
+}

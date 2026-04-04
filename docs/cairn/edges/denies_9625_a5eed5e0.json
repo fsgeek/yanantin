@@ -1,0 +1,11 @@
+{
+  "id": "a5eed5e0-6def-4407-8f83-c1ad107fd5fb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9625_20260404_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6405_20260317_gpt-oss-20b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim asserts that the file imports four specific modules (`machine_config.py`, `filesystem.py`, `synthetic.py`, `checksum.py`).",
+  "claim_file": ".venv/lib/python3.14/site-packages/duckdb/filesystem.py",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-04T17:34:13.622764+00:00"
+}

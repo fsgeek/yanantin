@@ -1,0 +1,11 @@
+{
+  "id": "b29fc0ca-fd31-4dcb-ae1b-63027798c5cf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9621_20260404_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8100_20260326_deepseek-chat-v3-0324.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states that `scout_0105_20260212_qwen-2.5-vl-7b-instruct.md` found comprehensive tests in `test_arango_independent.py`.",
+  "claim_file": "docs/cairn/scout_0105_20260212_qwen-2.5-vl-7b-instruct.md",
+  "claim_by": "deepseek/deepseek-chat-v3-0324",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-04T17:04:18.233777+00:00"
+}

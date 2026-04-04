@@ -1,0 +1,11 @@
+{
+  "id": "7bd3d488-2485-4b62-9238-0af56f416095",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9553_20260404_gpt-5-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3230_20260226_nova-2-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "**What is the relationship between `tinkuy` and `succession.py`?**   How does the succession protocol interact with the broader project goals of epistemic observability?",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "amazon/nova-2-lite-v1",
+  "verified_by": "openai/gpt-5-nano",
+  "timestamp": "2026-04-04T07:57:34.183514+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "b29af47c-3747-4fff-94c4-88cbf34b52ee",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9554_20260404_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9502_20260404_deepseek-r1t2-chimera.md",
+  "relation": "denies",
+  "claim_text": "Specifically: - No lines contain \"CLAUDE.md\" as a reference point - All file references point to other documents (`docs/blueprint.md`, `docs/predecessors.md`, etc.)  - The document describes project structure and principles without circular references ### Reasoning The claim asserts that another report (\"scout_3988_20260302_qwen-turbo.md\") correctly denied the existence of self-references in `CLAUDE.md`.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "tngtech/deepseek-r1t2-chimera",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-04-04T07:57:43.040886+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "b785709e-b067-41b0-892c-baf8cf0690cf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9552_20260404_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5289_20260309_qwen-2.5-vl-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "This means the model `z-ai/glm-4-32b`'s claim that it made a claim about `provenance.py` is incorrect.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "qwen/qwen-2.5-vl-7b-instruct",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-04T07:57:13.616915+00:00"
+}

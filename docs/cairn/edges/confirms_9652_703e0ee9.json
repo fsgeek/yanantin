@@ -1,0 +1,11 @@
+{
+  "id": "703e0ee9-b2de-41cf-814c-2e3a1e053055",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9652_20260404_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8804_20260331_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The file `rearrange.py` is present in the directory `tmp/ubuntu-vm.claude/document-skills/pptx/scripts/`.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/scripts/rearrange.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-04T21:16:30.123679+00:00"
+}

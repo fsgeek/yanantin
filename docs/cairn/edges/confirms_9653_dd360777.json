@@ -1,0 +1,11 @@
+{
+  "id": "dd360777-1ee5-479a-b44d-688fdab805e2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9653_20260404_qwen3-vl-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0182_20260213_mistral-7b-instruct-v0.3.md",
+  "relation": "confirms",
+  "claim_text": "- `test_least_privilege.py` tests that credentials *are never hardcoded* (e.g., ArangoDB tests use fixtures, not root passwords).",
+  "claim_file": "tests/red_bar/test_least_privilege.py",
+  "claim_by": "mistralai/mistral-7b-instruct-v0.3",
+  "verified_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "timestamp": "2026-04-04T21:16:32.094226+00:00"
+}

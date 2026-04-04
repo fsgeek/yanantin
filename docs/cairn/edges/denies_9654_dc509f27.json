@@ -1,0 +1,11 @@
+{
+  "id": "dc509f27-a2dd-40c3-88cc-379333b5d2c6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9654_20260404_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6791_20260319_tongyi-deepresearch-30b-a3b.md",
+  "relation": "denies",
+  "claim_text": "While I can observe that `succession.py` contains no classes (only functions) and the functions are about succession protocols and checking for orphan tensors, I cannot confirm whether `scout.py` references any of these elements because I cannot examine `scout.py`.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "alibaba/tongyi-deepresearch-30b-a3b",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-04-04T21:16:41.324960+00:00"
+}

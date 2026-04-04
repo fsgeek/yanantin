@@ -1,0 +1,11 @@
+{
+  "id": "e38e2049-744a-4122-8813-1987e707b6f1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9648_20260404_mistral-medium-3.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3147_20260226_llama-4-maverick.md",
+  "relation": "confirms",
+  "claim_text": "- I did not thoroughly investigate the `evolve.py` file, which is mentioned in several scout reports as handling schema evolution.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "mistralai/mistral-medium-3.1",
+  "timestamp": "2026-04-04T20:44:28.669682+00:00"
+}

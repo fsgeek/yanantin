@@ -1,0 +1,11 @@
+{
+  "id": "5bc33d4b-d40d-4461-8b52-3f6101fc7ff5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9650_20260404_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1167_20260217_olmo-3-7b-think.md",
+  "relation": "confirms",
+  "claim_text": "Incomplete Testing of Provenance Records**   - **What I saw**:   - `docs/cairn/scout_0246_20260213_longcat-flash-chat.md` tests basic `ProvenanceEnvelope` type checks but **lacks edge-case validation** (e.g., null/invalid fields, conflict resolution).",
+  "claim_file": "docs/cairn/scout_0246_20260213_longcat-flash-chat.md",
+  "claim_by": "allenai/olmo-3-7b-think",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-04-04T20:44:35.313606+00:00"
+}

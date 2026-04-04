@@ -1,0 +1,11 @@
+{
+  "id": "664c334d-d7a6-46ce-adf3-05cba529a67c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9572_20260404_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5581_20260311_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses The claim does not reference any runtime behavior or specific functionality of the `weaver.py` module beyond its imports.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-04-04T10:37:57.839018+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "9a8b69a3-76ab-42fc-94fe-871f55cccdde",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9577_20260404_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5093_20260308_qwen-plus.md",
+  "relation": "confirms",
+  "claim_text": "- The `agents/` directory contains only `scout_reviewer.md` and `structured_reviewer.md` \u2014 no `awaq_reviewer.md`.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-04-04T11:07:57.078141+00:00"
+}

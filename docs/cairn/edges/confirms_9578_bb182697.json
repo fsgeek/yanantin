@@ -1,0 +1,11 @@
+{
+  "id": "bb182697-5e46-4a5e-b31f-d756982c05d5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9578_20260404_llama-3.3-nemotron-super-49b-v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1828_20260220_gpt-4.1-nano.md",
+  "relation": "confirms",
+  "claim_text": "### Strands **Strand 1: Tensor & Metadata Verification**   I observed multiple claims embedded within markdown files, referencing specific lines or ranges (e.g., `scout_0790_20260215_ministral-3b-2512.md` and the assertion that no explicit lines exist at 1200\u20131220 in `config.py`).",
+  "claim_file": "docs/cairn/scout_0790_20260215_ministral-3b-2512.md",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "timestamp": "2026-04-04T11:08:19.577560+00:00"
+}

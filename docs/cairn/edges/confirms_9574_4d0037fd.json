@@ -1,0 +1,11 @@
+{
+  "id": "4d0037fd-1961-41e8-bd12-4384dad2f1a4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9574_20260404_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4979_20260308_devstral-small.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses The claim also mentions `docs/blueprint.md`, `docs/predecessors.md`, and `docs/signing.md`, but I cannot verify these as I only have access to `docs/tensors.md`.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "mistralai/devstral-small",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-04T10:38:01.765078+00:00"
+}

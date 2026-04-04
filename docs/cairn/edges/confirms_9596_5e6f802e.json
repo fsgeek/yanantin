@@ -1,0 +1,11 @@
+{
+  "id": "5e6f802e-ee12-46d1-ad1b-efc3d31b43a2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9596_20260404_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1440_20260218_grok-3-mini-beta.md",
+  "relation": "confirms",
+  "claim_text": "In `test_operators.py` (lines 32-140), there are classes testing operators like `compose` and `correct`, which explicitly evolve knowledge structures.",
+  "claim_file": "tests/unit/test_operators.py",
+  "claim_by": "x-ai/grok-3-mini-beta",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-04T13:52:05.674550+00:00"
+}

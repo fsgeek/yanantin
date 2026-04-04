@@ -1,0 +1,11 @@
+{
+  "id": "d31b31d1-7a06-4910-9551-aa88631457e8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9601_20260404_qwen3-vl-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9127_20260401_qwen2.5-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Tool Design Consistency Across Languages** - **Observation**: Both `node_mcp_server.md` and `python_mcp_server.md` stress consistent tool naming, input validation, and structured responses.",
+  "claim_file": "tmp/ubuntu-vm.claude/mcp-builder/reference/node_mcp_server.md",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "timestamp": "2026-04-04T14:22:17.919895+00:00"
+}

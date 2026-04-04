@@ -1,0 +1,11 @@
+{
+  "id": "cf937cd3-eb4c-4688-9d89-bd231ee0ea05",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9600_20260404_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8472_20260328_rocinante-12b.md",
+  "relation": "confirms",
+  "claim_text": "Observing the contents of the `faq-answers.md` file, I notice that the primary goal is to summarize and answer frequently asked questions from employees.",
+  "claim_file": "tmp/ubuntu-vm.claude/internal-comms/examples/faq-answers.md",
+  "claim_by": "thedrummer/rocinante-12b",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-04T14:22:05.663509+00:00"
+}

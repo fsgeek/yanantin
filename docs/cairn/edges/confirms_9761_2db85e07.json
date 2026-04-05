@@ -1,0 +1,11 @@
+{
+  "id": "2db85e07-e9d6-461f-b724-161e18eb2d73",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9761_20260405_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2870_20260225_mimo-v2-flash.md",
+  "relation": "confirms",
+  "claim_text": "The file `test_monotonicity.py` likely tests that the system only moves forward.",
+  "claim_file": "tests/red_bar/test_monotonicity.py",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-04-05T11:36:26.930516+00:00"
+}

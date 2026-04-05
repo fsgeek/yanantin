@@ -1,0 +1,11 @@
+{
+  "id": "7ed65011-7d15-4163-b8c8-83c5a0eae9c7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9760_20260405_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8408_20260328_gpt-5.4-nano.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The provided `CLAUDE.md` content contains **no mentions** of `.env` or `.python-version`.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "openai/gpt-5.4-nano",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-04-05T11:36:23.717894+00:00"
+}

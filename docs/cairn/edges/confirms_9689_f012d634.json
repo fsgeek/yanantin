@@ -1,0 +1,11 @@
+{
+  "id": "f012d634-6c47-4ec0-bee7-6d47ccfced6d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9689_20260405_gpt-5.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4204_20260303_hermes-2-pro-llama-3-8b.md",
+  "relation": "confirms",
+  "claim_text": "For instance, in `scout_0180_20260213_gemini-3-pro-preview.md`, the file discusses the tokenization analysis and semantic scaffolding concepts.",
+  "claim_file": "docs/cairn/scout_0180_20260213_gemini-3-pro-preview.md",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "openai/gpt-5",
+  "timestamp": "2026-04-05T01:56:55.592551+00:00"
+}

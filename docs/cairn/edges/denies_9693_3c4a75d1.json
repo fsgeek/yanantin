@@ -1,0 +1,11 @@
+{
+  "id": "3c4a75d1-0845-4719-aaec-43352dca2778",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9693_20260405_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0028_20260212_mistral-small-3.1-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "This operator could be a key component in maintaining the system's architectural principles, as discussed in the `CLAUDE.md` file.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-04-05T02:28:46.905354+00:00"
+}

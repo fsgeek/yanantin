@@ -1,0 +1,11 @@
+{
+  "id": "f2558606-73ac-4c5b-bb1e-50989eb3412c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9692_20260405_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9152_20260402_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence ```python # Line 7: Backend variety src/yanantin/apacheta/backends includes `arango.py`, `duckdb.py`, and `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-04-05T02:28:46.244225+00:00"
+}

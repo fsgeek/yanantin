@@ -1,0 +1,11 @@
+{
+  "id": "5fbb5940-8137-4090-a55a-ba4230759459",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9694_20260405_glm-4.5.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1996_20260221_gpt-oss-safeguard-20b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The provided file `docs/cairn/scout_0121_20260212_deepseek-v3.2-exp.md` contains: ``` ### Verdict **CONFIRMED** ### Evidence The file `tests/unit/test_operators.py` contains the following import statements (lines 1-17): ...",
+  "claim_file": "docs/cairn/scout_0121_20260212_deepseek-v3.2-exp.md",
+  "claim_by": "openai/gpt-oss-safeguard-20b",
+  "verified_by": "z-ai/glm-4.5",
+  "timestamp": "2026-04-05T02:28:53.062862+00:00"
+}

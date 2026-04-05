@@ -1,0 +1,11 @@
+{
+  "id": "26cc3e34-7d71-4cdf-8cdf-682abca89bc1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9690_20260405_wizardlm-2-8x22b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7456_20260323_qwen3-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The `pr-test-analyzer.md` speaks of \u201cpragmatism\u201d and \u201creal value,\u201d while `silent-failure-hunter.md` is \u201cuncompromising\u201d and \u201cskeptical.\u201d These aren\u2019t just checklists \u2014 they\u2019re *ethics statements* for software craftsmanship.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/pr-review-toolkit/agents/silent-failure-hunter.md",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "microsoft/wizardlm-2-8x22b",
+  "timestamp": "2026-04-05T01:57:09.429253+00:00"
+}

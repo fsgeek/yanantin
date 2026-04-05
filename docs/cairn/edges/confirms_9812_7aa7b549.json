@@ -1,0 +1,11 @@
+{
+  "id": "7aa7b549-9de8-4e8c-830e-7630e2f91eba",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9812_20260405_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0616_20260215_gpt-oss-20b.md",
+  "relation": "confirms",
+  "claim_text": "**Provenance and Signing**   The `docs/signing.md` and `src/yanantin/provenance` modules implement a per\u2011commit signing scheme, with separate keys for human and AI commits.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-05T18:28:51.376422+00:00"
+}

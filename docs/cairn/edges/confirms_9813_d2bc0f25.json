@@ -1,0 +1,11 @@
+{
+  "id": "d2bc0f25-c2e2-4c00-9047-c970cf54627d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9813_20260405_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7477_20260323_qwen-2.5-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict DENIED ### Evidence The relevant part of the file is: ```python def project( interface: ApachetaInterface, tensor_id: UUID, *, strand_indices: list[int] | None = None, topics: list[str] | None = None, ) -> list[StrandRecord]: \"\"\"Return filtered strands from a tensor.\"\"\" ``` ### Reasoning The claim states that `liquid/lfm-2.2-6b` made a claim about **only one specific file**: `src/yanantin/apacheta/operators/project.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-05T18:28:51.961184+00:00"
+}

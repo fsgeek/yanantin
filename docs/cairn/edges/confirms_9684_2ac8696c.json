@@ -1,0 +1,11 @@
+{
+  "id": "2ac8696c-e5c8-4eff-980b-9b0d80d77644",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9684_20260405_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8295_20260327_gemma-3-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "While the file only details `arango.py` directly, it references the other backends as conceptually existing alongside it, as stated in the docstring: \"The third backend alongside in-memory and DuckDB.\" The code shows explicit handling for each of these data types, effectively serving as separate backends.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-05T01:26:37.887390+00:00"
+}

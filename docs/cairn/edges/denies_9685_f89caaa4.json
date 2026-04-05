@@ -1,0 +1,11 @@
+{
+  "id": "f89caaa4-a2ba-4f9b-8855-95a5d51823c8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9685_20260405_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8520_20260329_jamba-large-1.7.md",
+  "relation": "denies",
+  "claim_text": "#### **Strand 3: Rule Application and Immediate Effect** - **What I saw**: Rules are applied dynamically without requiring a system restart, as noted in `help.md`: \"Hookify rules (`.local.md` files) take effect immediately on the next tool use.\" Additionally, the rules are stored in `.claude/hookify.*.local.md`, which are explicitly noted to be **git-ignored**.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/ralph-loop/commands/help.md",
+  "claim_by": "ai21/jamba-large-1.7",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-04-05T01:26:42.097837+00:00"
+}

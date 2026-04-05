@@ -1,0 +1,11 @@
+{
+  "id": "538daabb-6ac1-46dd-8b2b-fadf22396bb6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9680_20260405_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0264_20260213_lfm2-8b-a1b.md",
+  "relation": "confirms",
+  "claim_text": "Line reference: `config.py` (lines 1200\u20131220, `ConfigTensor` definition).",
+  "claim_file": "src/yanantin/apacheta/config.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-05T00:54:37.330618+00:00"
+}

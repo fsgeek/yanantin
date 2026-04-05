@@ -1,0 +1,11 @@
+{
+  "id": "36763bc0-8d30-4f3a-9e53-dff108268652",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9686_20260405_minimax-m2.7.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2874_20260225_mistral-small-3.2-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Strands **Strand 1: Verification of References in `docs/predecessors.md`** The previous scout correctly identified that the file `docs/predecessors.md` does not contain any mention of `CLAUDE.md` or any other external references.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "verified_by": "minimax/minimax-m2.7",
+  "timestamp": "2026-04-05T01:26:51.621896+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "cfcc76bb-1fb4-4c59-a891-e2c692c15f11",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9681_20260405_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1779_20260220_qwen-2.5-72b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Evidence:** - The mention of temporal branching in `docs/cairn/scout_0465_20260214_llama-3.2-11b-vision-instruct.md` but no implementation in the operators or tests shown.",
+  "claim_file": "docs/cairn/scout_0465_20260214_llama-3.2-11b-vision-instruct.md",
+  "claim_by": "qwen/qwen-2.5-72b-instruct",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-05T00:54:38.207774+00:00"
+}

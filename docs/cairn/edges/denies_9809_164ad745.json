@@ -1,0 +1,11 @@
+{
+  "id": "164ad745-f743-4037-96c4-031220453f3f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9809_20260405_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5996_20260314_olmo-3-7b-think.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   **CONFIRMED**   ### Evidence   The file explicitly lists projects like **ai-honesty** and **Indaleko**, which mention \"tensor\" in technical contexts (e.g., \"tensor sequence (T\u2080-T\u2087)\") but do not reference the filename `tensors.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "allenai/olmo-3-7b-think",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-04-05T17:56:30.360486+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "b5883c5a-0bfd-47b0-b1ab-239ee126a2b9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9805_20260405_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2856_20260225_gpt-4.1-mini.md",
+  "relation": "denies",
+  "claim_text": "**Discrepancies & Indeterminacies in Claims** Some scout reports reveal unresolved uncertainties, e.g.,:   - `docs/cairn/scout_2652_20260224_granite-4.0-h-micro.md` concludes INDETERMINATE regarding presence of `docs/predecessors.md` on disk because the file content only documents predecessors but does not say if it exists or is missing.",
+  "claim_file": "docs/cairn/scout_2652_20260224_granite-4.0-h-micro.md",
+  "claim_by": "openai/gpt-4.1-mini",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-04-05T17:26:31.595784+00:00"
+}

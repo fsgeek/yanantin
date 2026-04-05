@@ -1,0 +1,11 @@
+{
+  "id": "02b4f1a2-4fbb-4a67-bea8-3806207feb3f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9806_20260405_claude-haiku-4.5.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0105_20260212_qwen-2.5-vl-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The `test_arango_independent.py` file includes the following tests: - **Serialization roundtrip fidelity through JSON/documents** (TestSerializationRoundtrip) - **Edge cases in UUID/datetime/tuple/enum handling through ArangoDB** (TestDocumentConversion) - **Immutability enforcement on ALL record types** (TestImmutabilityAllTypes) - **Connection lifecycle and context manager protocol** (TestConnectionAndInit) - **Thread safety under real contention** (TestThreadSafety) - **Query operations with realistic multi-tensor data** (TestQueryOperations) - **count_records() accuracy** (TestCountRecords) - **Behavioral equivalence with the in-memory backend** (TestBehavioralEquivalence) - **Access control hook** (TestAccessControl) - **list_tensors() returns all tensors** (TestListTensors) ### Reasoning The evidence from the tests in the `test_arango_independent.py` file supports the claim that the `test_arango_independent.py` file includes tests for various operators to ensure they function correctly under various conditions.",
+  "claim_file": "tests/unit/test_arango_independent.py",
+  "claim_by": "qwen/qwen-2.5-vl-7b-instruct",
+  "verified_by": "anthropic/claude-haiku-4.5",
+  "timestamp": "2026-04-05T17:26:37.699593+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "40661d38-6003-4e70-ae5b-a4986b53dae2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9720_20260405_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8449_20260328_trinity-mini.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states: \"However, a review of the provided `__main__.py` file does not include any import statement for `weaver.py`.\" However, the file provided for verification is `src/yanantin/awaq/weaver.py`, not `__main__.py`.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-05T06:15:00.967908+00:00"
+}

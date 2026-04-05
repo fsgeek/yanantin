@@ -1,0 +1,11 @@
+{
+  "id": "6e269e18-3ae2-416c-837b-6d804db13f8f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9724_20260405_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9625_20260404_mistral-small-3.1-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file does not contain any of the following imports: - `machine_config.py` - `filesystem.py` - `synthetic.py` - `checksum.py` ### Reasoning The claim asserts that the file imports four specific modules: `machine_config.py`, `filesystem.py`, `synthetic.py`, and `checksum.py`.",
+  "claim_file": "src/yanantin/collector/synthetic.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-05T06:48:39.848788+00:00"
+}

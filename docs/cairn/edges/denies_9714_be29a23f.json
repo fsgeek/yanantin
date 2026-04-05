@@ -1,0 +1,11 @@
+{
+  "id": "be29a23f-9634-4b3b-8c6d-3b9eef65eb9e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9714_20260405_qwen-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2578_20260223_gemini-3-flash-preview.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses - **The internal logic of `arango.py` and `duckdb.py`:** I saw they existed as backends, but I did not peek inside.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "google/gemini-3-flash-preview",
+  "verified_by": "qwen/qwen-plus",
+  "timestamp": "2026-04-05T05:11:04.638117+00:00"
+}

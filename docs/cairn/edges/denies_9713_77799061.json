@@ -1,0 +1,11 @@
+{
+  "id": "77799061-e4c5-495a-b2c0-f1b8a13a6b86",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9713_20260405_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9117_20260401_llama-4-maverick.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `tests/red_bar/test_immutability.py` does not contain any explicit mention of \"Declared Losses.\" The content of the file focuses on testing the immutability invariant in the context of storing tensors and edges, ensuring that attempting to store a duplicate tensor or edge raises an `ImmutabilityError`, and verifying the absence of delete and update methods in the backend interface.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-05T05:10:57.633679+00:00"
+}

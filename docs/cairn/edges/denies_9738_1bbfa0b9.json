@@ -1,0 +1,11 @@
+{
+  "id": "1bbfa0b9-b94d-4e75-8945-ea742609593e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9738_20260405_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7992_20260326_minimax-m2.md",
+  "relation": "denies",
+  "claim_text": "There is no section about documentation structure, no mention of `blueprint.md` or `predecessors.md`, and no statement that any files \"provide high-level overviews.\" The claim appears to be fabricated or incorrectly attributed to this file.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "minimax/minimax-m2",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-04-05T08:21:09.876829+00:00"
+}

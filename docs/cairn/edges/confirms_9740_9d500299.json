@@ -1,0 +1,11 @@
+{
+  "id": "9d500299-33f0-4780-a00c-8ec2a09a9abf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9740_20260405_solar-pro-3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7772_20260324_command-r-08-2024.md",
+  "relation": "confirms",
+  "claim_text": "I can only verify the content of `correct.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "cohere/command-r-08-2024",
+  "verified_by": "upstage/solar-pro-3",
+  "timestamp": "2026-04-05T08:55:06.637484+00:00"
+}

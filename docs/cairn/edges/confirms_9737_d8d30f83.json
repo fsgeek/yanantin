@@ -1,0 +1,11 @@
+{
+  "id": "d8d30f83-c1e6-47ef-b195-32c065589eea",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9737_20260405_ernie-4.5-vl-424b-a47b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0605_20260215_gemma-3-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "Consider `docs/cairn/scout_0338_20260213_lfm-2.2-6b.md`: it doesn\u2019t just report; it *performs* analysis, declares losses, and proposes open questions.",
+  "claim_file": "docs/cairn/scout_0338_20260213_lfm-2.2-6b.md",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "baidu/ernie-4.5-vl-424b-a47b",
+  "timestamp": "2026-04-05T08:21:09.039879+00:00"
+}

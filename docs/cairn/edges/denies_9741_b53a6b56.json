@@ -1,0 +1,11 @@
+{
+  "id": "b53a6b56-102d-44e0-8b18-75479999c8a8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9741_20260405_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3291_20260226_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "Extended Strand: File as Truth Anchor**   The file `src/yanantin/apacheta/backends/memory.py` functions as a truth anchor.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-04-05T08:55:06.900295+00:00"
+}

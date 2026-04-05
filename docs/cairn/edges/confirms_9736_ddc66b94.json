@@ -1,0 +1,11 @@
+{
+  "id": "ddc66b94-a06f-4a8e-badc-a9226554aa7b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9736_20260405_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3741_20260301_rnj-1-instruct.md",
+  "relation": "confirms",
+  "claim_text": "It contains no references to the documentation files `blueprint.md` or `predecessors.md`.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "essentialai/rnj-1-instruct",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-04-05T08:21:04.941668+00:00"
+}

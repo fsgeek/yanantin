@@ -1,0 +1,11 @@
+{
+  "id": "951de721-a116-4787-8b4f-bb8a2e79f183",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9824_20260405_mercury-coder.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3030_20260225_olmo-3.1-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states: \"In `src/yanantin/apacheta/models/epistemics.py` (tested in `tests/unit/test_models.py`), there is the `EpistemicMetadata` model.\" Evidence shows: - `EpistemicMetadata` is imported from `yanantin.apacheta.models` (see import list).",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "allenai/olmo-3.1-32b-instruct",
+  "verified_by": "inception/mercury-coder",
+  "timestamp": "2026-04-05T20:03:00.169872+00:00"
+}

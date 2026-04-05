@@ -1,0 +1,11 @@
+{
+  "id": "e0e66ed9-bbc4-41cc-ad1b-e3d7557a8843",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9822_20260405_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1476_20260218_llama-3.3-nemotron-super-49b-v.md",
+  "relation": "denies",
+  "claim_text": "- The claim references `evolve.py` and `correct.py`, which are not included here, but the verification is limited to `compose.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-05T19:32:50.561599+00:00"
+}

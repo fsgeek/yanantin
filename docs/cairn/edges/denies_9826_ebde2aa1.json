@@ -1,0 +1,11 @@
+{
+  "id": "ebde2aa1-0c6e-49fe-b36f-532eb00cc3ee",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9826_20260405_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2485_20260223_gpt-oss-20b.md",
+  "relation": "denies",
+  "claim_text": "**Inspect the `ots_stamp.py` and `.ots` files** to understand the external ledger integration.",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-04-05T20:03:02.985885+00:00"
+}

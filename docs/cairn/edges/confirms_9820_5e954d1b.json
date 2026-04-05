@@ -1,0 +1,11 @@
+{
+  "id": "5e954d1b-a201-4d8d-9c9d-ece2f0e97b25",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9820_20260405_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9759_20260405_qwen3-coder-flash.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses - **Implementation Depth**: I didn't parse the actual implementations of `precompact_tensor.py` or the `Apacheta` system to understand how garbage detection is technically done.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-05T19:32:46.747358+00:00"
+}

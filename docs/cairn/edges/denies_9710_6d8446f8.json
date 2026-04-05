@@ -1,0 +1,11 @@
+{
+  "id": "6d8446f8-24ea-4cef-a828-3062febf06a8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9710_20260405_qwen3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8636_20260330_longcat-flash-chat.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim asserts the presence of a `check_succession` function in `scout.py` that interacts with specific modules and performs specific tasks.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "meituan/longcat-flash-chat",
+  "verified_by": "qwen/qwen3-8b",
+  "timestamp": "2026-04-05T04:41:08.847037+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "4c85a647-8b42-4903-bb13-1715fa4e42c7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9704_20260405_gpt-5-chat.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1213_20260217_qwen3-vl-235b-a22b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The claim references the existence of `arango.py`, `duckdb.py`, and `memory.py` in `src/yanantin/apacheta/backends`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "qwen/qwen3-vl-235b-a22b-instruct",
+  "verified_by": "openai/gpt-5-chat",
+  "timestamp": "2026-04-05T04:06:50.596604+00:00"
+}

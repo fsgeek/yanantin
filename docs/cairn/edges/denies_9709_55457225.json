@@ -1,0 +1,11 @@
+{
+  "id": "55457225-287b-4c76-9520-c404cce9d09f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9709_20260405_deepseek-v3.2-exp.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0679_20260215_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "The agents/ Directory as Role-Based Epistemic Agents** **What I saw:** - The `agents/` directory contains `scout_reviewer.md` and `structured_reviewer.md`.",
+  "claim_file": "agents/structured_reviewer.md",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "deepseek/deepseek-v3.2-exp",
+  "timestamp": "2026-04-05T04:41:07.126576+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "0d89c90d-643c-4f05-bd53-75d6a2984b90",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9781_20260405_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5819_20260313_gpt-oss-20b.md",
+  "relation": "denies",
+  "claim_text": "The only tests involving `evolve` are in `class TestEvolve:` and simply record an evolution: ``` class TestEvolve: def test_records_evolution(self, backend): record = evolve( backend, from_version=\"v1\", to_version=\"v2\", fields_added=[\"functional_spec\"], migration_notes=\"Added functional T/I/F\", ) assert record.from_version == \"v1\" assert record.to_version == \"v2\" counts = backend.count_records() assert counts[\"evolutions\"] == 1 ``` ### Reasoning The claim states that the file \u201clikely tests how dissent records are merged (e.g., via evolve.py).\u201d   The file contains a test that creates a dissent record and verifies its existence in the graph, but it contains **no** test that merges dissent records or that interacts with `evolve.py` for that purpose.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-04-05T14:15:48.542743+00:00"
+}

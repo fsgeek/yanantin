@@ -1,0 +1,11 @@
+{
+  "id": "19ddbb49-7f4a-4717-9a66-9a31ad6380af",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9792_20260405_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9554_20260404_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "**\"All file references point to other documents (`docs/blueprint.md`, `docs/predecessors.md`, etc.)\"**: **False**.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-05T15:52:32.014236+00:00"
+}

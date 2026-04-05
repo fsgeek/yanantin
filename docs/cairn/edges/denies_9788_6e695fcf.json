@@ -1,0 +1,11 @@
+{
+  "id": "6e695fcf-0943-4456-9e88-dda4b770b1b1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9788_20260405_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4581_20260305_claude-sonnet-4.5.md",
+  "relation": "denies",
+  "claim_text": "**What I ran out of attention for:** - **Awaq and Jabberwock modules**: `awaq/weaver.py` extracts tensor references via regex; `jabberwock/brillig.py` does normalization.",
+  "claim_file": "src/yanantin/jabberwock/brillig.py",
+  "claim_by": "anthropic/claude-sonnet-4.5",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-04-05T15:22:42.904289+00:00"
+}

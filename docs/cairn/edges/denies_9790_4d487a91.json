@@ -1,0 +1,11 @@
+{
+  "id": "4d487a91-e76f-40bb-8074-d33f5e9c0a4d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9790_20260405_intellect-3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7697_20260324_minimax-m2.7.md",
+  "relation": "denies",
+  "claim_text": "**Strand 4: Session Classification Is Inconsistent Across Modules** `classify_session()` appears in `probe.py`, `replay.py`, and `corpus_trimmer_analysis.py` with slight variations: - `probe.py`: checks `agent-acompact` \u2192 \"compact\", `agent-aprompt_suggestion` \u2192 \"prompt_suggestion\", `agent-` \u2192 \"subagent\", UUID-named \u2192 \"main\" - `replay.py`: checks `\"compact\" in name` (substring), `name.startswith(\"agent-\")` for subagent - `corpus_trimmer_analysis.py`: same as probe.py but with exact string checks The substring check in `replay.py` (`\"compact\" in name`) is broader than the prefix check in the others.",
+  "claim_file": "tools/phase1/corpus_trimmer_analysis.py",
+  "claim_by": "minimax/minimax-m2.7",
+  "verified_by": "prime-intellect/intellect-3",
+  "timestamp": "2026-04-05T15:22:55.196376+00:00"
+}

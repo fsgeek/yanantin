@@ -1,0 +1,11 @@
+{
+  "id": "28a04eb2-fa72-4dbf-ab41-c7aa22dca483",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9789_20260405_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0579_20260214_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: Backend Storage Implementations - **Observation**: The project implements multiple backend storage solutions, including an in-memory backend (`memory.py`) and a DuckDB backend (`duckdb.py`).",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-05T15:22:44.865033+00:00"
+}

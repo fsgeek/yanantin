@@ -1,0 +1,11 @@
+{
+  "id": "80b1403e-bb87-4aa5-9fd4-de2207ef515f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9794_20260405_qwen-plus-2025-07-28:thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1336_20260218_olmo-3.1-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Evidence:   - In `docs/cairn/scout_0465_20260214_llama-3.2-11b-vision-instruct.md`, the scout notes \"temporal branching mentioned in the conversation tensor (Strand 3, line 85)\" but does not see implementation.",
+  "claim_file": "docs/cairn/scout_0465_20260214_llama-3.2-11b-vision-instruct.md",
+  "claim_by": "allenai/olmo-3.1-32b-instruct",
+  "verified_by": "qwen/qwen-plus-2025-07-28:thinking",
+  "timestamp": "2026-04-05T15:52:44.462128+00:00"
+}

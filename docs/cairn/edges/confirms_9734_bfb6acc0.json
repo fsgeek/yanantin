@@ -1,0 +1,11 @@
+{
+  "id": "bfb6acc0-4a24-4b4e-a92c-7b35b60eed13",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9734_20260405_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8634_20260330_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "Many tests, such as `test_immutability.py` and `test_memory_anchor.py`, verify that the system behaves correctly when data is immutable.",
+  "claim_file": "tests/unit/test_memory_anchor.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-04-05T07:50:58.654923+00:00"
+}

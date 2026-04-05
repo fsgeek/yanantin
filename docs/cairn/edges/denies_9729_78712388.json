@@ -1,0 +1,11 @@
+{
+  "id": "78712388-55d5-4994-8923-58f354087f8a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9729_20260405_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0748_20260215_qwen3-235b-a22b.md",
+  "relation": "denies",
+  "claim_text": "**Operator Evolution**: Does `evolve.py` modify tensor structure or merely select strands?",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "qwen/qwen3-235b-a22b",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-05T07:18:59.989196+00:00"
+}

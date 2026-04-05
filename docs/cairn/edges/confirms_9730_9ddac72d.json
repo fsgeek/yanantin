@@ -1,0 +1,11 @@
+{
+  "id": "9ddac72d-cbd4-4aaa-800d-cb2a27421e73",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9730_20260405_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3731_20260228_minimax-m2.md",
+  "relation": "confirms",
+  "claim_text": "The Search Module's Anatomy From `scour_0108` and `scour_0002`, I see `rummage.py` \u2014 a search utility with: - `Document`, `Section`, `Match` dataclasses - Regex-based heading parsing - Section classification (preamble, strand, loss, question, closing) - `KNOWN_SOURCES` hardcoded paths The module is clean but brittle \u2014 assumes consistent markdown structure.",
+  "claim_file": "src/yanantin/apacheta/rummage.py",
+  "claim_by": "minimax/minimax-m2",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-05T07:19:12.723692+00:00"
+}

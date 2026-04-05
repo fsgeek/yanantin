@@ -1,0 +1,11 @@
+{
+  "id": "340e4397-fca2-40c1-8c06-c52ff73c4867",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9733_20260405_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8082_20260326_qwen3.5-9b.md",
+  "relation": "confirms",
+  "claim_text": "The `complete-agent-examples.md` contains a file literally named `agents/code-reviewer.md`.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/feature-dev/agents/code-reviewer.md",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-04-05T07:50:52.173447+00:00"
+}

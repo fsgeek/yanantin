@@ -1,0 +1,11 @@
+{
+  "id": "e1a884f1-b8e9-4025-ba7d-a4370625c264",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9836_20260405_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1993_20260221_qwen-2.5-vl-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "**Understanding Tensor Composition and Evolution**:   The previous scout did not attempt to understand the intricacies of the tensor composition and evolution operators, such as `compose.py`, `correct.py`, and `evolve.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "qwen/qwen-2.5-vl-7b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-05T21:40:05.550218+00:00"
+}

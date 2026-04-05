@@ -1,0 +1,11 @@
+{
+  "id": "a59b6d96-218e-445f-9440-7de44ec1b72d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9840_20260405_gpt-4o-mini-search-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6271_20260316_claude-3-haiku.md",
+  "relation": "confirms",
+  "claim_text": "The file explicitly references the `chasqui_pulse.py` script being located in the `.claude/hooks/` directory, which is within the `.claude` directory.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "anthropic/claude-3-haiku",
+  "verified_by": "openai/gpt-4o-mini-search-preview",
+  "timestamp": "2026-04-05T22:08:23.311488+00:00"
+}

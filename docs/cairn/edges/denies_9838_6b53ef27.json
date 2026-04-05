@@ -1,0 +1,11 @@
+{
+  "id": "6b53ef27-92b3-43de-be9c-db3d38a917ff",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9838_20260405_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8496_20260328_gemini-2.5-flash-lite-preview-.md",
+  "relation": "denies",
+  "claim_text": "**Strand 3: The \"Only API\" Assertion** The docstring in `__init__.py` is bold.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-05T21:40:08.856850+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "0ecee8a3-8dfd-414c-a3d5-2196c6bf46ae",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9749_20260405_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9669_20260404_gpt-4.1-mini.md",
+  "relation": "confirms",
+  "claim_text": "Since the claim is about `docs/tensors.md` referencing Apacheta but not describing what `docs/apacheta.md` contains, this cannot be confirmed or denied by the content of `docs/apacheta.md` alone.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "openai/gpt-4.1-mini",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-04-05T10:01:26.324063+00:00"
+}

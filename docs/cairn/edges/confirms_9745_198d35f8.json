@@ -1,0 +1,11 @@
+{
+  "id": "198d35f8-76c9-425a-9d89-6c8a0a691246",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9745_20260405_gpt-5.1-codex-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2694_20260224_voxtral-small-24b-2507.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 3: Connection to Other Scout Metacognition Several other scouts, such as `scout_0227_20260213_deepseek-r1-0528.md`, highlight the \"Declared Losses\" sections in scout reports as a form of \"scout metacognition.\" The previous scout's report aligns with this idea by explicitly confessing epistemic boundaries.",
+  "claim_file": "docs/cairn/scout_0227_20260213_deepseek-r1-0528.md",
+  "claim_by": "mistralai/voxtral-small-24b-2507",
+  "verified_by": "openai/gpt-5.1-codex-mini",
+  "timestamp": "2026-04-05T09:26:12.362065+00:00"
+}

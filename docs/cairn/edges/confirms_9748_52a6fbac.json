@@ -1,0 +1,11 @@
+{
+  "id": "52a6fbac-c929-4aa1-8897-a62f78f0d66c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9748_20260405_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6330_20260316_mercury-2.md",
+  "relation": "confirms",
+  "claim_text": "- \u201cFor deeper context on predecessor projects, see `docs/predecessors.md`.\u201d - \u201cFor the tensor sequence and its history, see `docs/tensors.md`.\u201d - \u201cAI commits use the project's AI signing key (see `docs/signing.md`).\u201d No line in the file contains the string `docs/CLAUDE.md`.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "inception/mercury-2",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-04-05T10:01:23.745613+00:00"
+}

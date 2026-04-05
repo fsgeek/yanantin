@@ -1,0 +1,11 @@
+{
+  "id": "ae679e5a-d694-4ff7-bc2b-57940a0ce1f6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9756_20260405_qwen-plus-2025-07-28.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8363_20260328_qwen3-30b-a3b-thinking-2507.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim asserts the file **contains the filename** `scour_0023_20260214_llama-3-8b-instruct.md` as a literal string.",
+  "claim_file": "docs/cairn/scour_0023_20260214_llama-3-8b-instruct.md",
+  "claim_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "verified_by": "qwen/qwen-plus-2025-07-28",
+  "timestamp": "2026-04-05T11:01:55.903307+00:00"
+}

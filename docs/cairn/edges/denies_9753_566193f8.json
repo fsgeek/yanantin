@@ -1,0 +1,11 @@
+{
+  "id": "566193f8-e1ba-40b7-adfd-3d25e125dab1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9753_20260405_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8694_20260330_lfm-2-24b-a2b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states that the model ignored `pretooluse.py`/`posttooluse.py` because they'd be identical to `userpromptsubmit.py`.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/pretooluse.py",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-04-05T10:32:10.891822+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "738e3bda-fbbb-4da1-8d0f-de9ddc4cddab",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9752_20260405_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4814_20260307_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "However, since the claim suggests that the absence of cross-referencing in `jabberwock/models.py` could be a problem, and that file contains no such record or reference to it, the claim can be denied on the basis of the model definitions present and their immutability guarantees.",
+  "claim_file": "src/yanantin/jabberwock/models.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-05T10:32:06.320053+00:00"
+}

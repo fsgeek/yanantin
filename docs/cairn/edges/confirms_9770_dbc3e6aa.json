@@ -1,0 +1,11 @@
+{
+  "id": "dbc3e6aa-89ae-458e-9aa1-64a77cb8e7d1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9770_20260405_cydonia-24b-v4.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0318_20260213_qwen3-4b.md",
+  "relation": "confirms",
+  "claim_text": "For example, `scout_0060_20260212_llama-3.3-70b-instruct.md` details a test of provenance in `test_provenance.py`, while `scout_0223_20260213_gemini-2.5-flash-lite.md` describes the project's meta-level evaluation of AI outputs.",
+  "claim_file": "docs/cairn/scout_0223_20260213_gemini-2.5-flash-lite.md",
+  "claim_by": "qwen/qwen3-4b",
+  "verified_by": "thedrummer/cydonia-24b-v4.1",
+  "timestamp": "2026-04-05T12:40:29.571362+00:00"
+}

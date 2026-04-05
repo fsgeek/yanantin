@@ -1,0 +1,11 @@
+{
+  "id": "1583e99d-d687-4af5-953e-4ff4fe4a6361",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9768_20260405_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7927_20260325_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "The model's limitation is inherent to its context and the provided information, not a direct consequence of the content of `dissent.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-05T12:40:24.636502+00:00"
+}

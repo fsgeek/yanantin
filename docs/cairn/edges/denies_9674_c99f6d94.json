@@ -1,0 +1,11 @@
+{
+  "id": "c99f6d94-f739-4d4d-8906-ea7669e2ba6c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9674_20260404_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9450_20260403_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "The Ghost Record (`scout_2443_20260223_llama-guard-2-8b.md`)** *   **What I saw:** The file content is nearly empty.",
+  "claim_file": "docs/cairn/scout_2443_20260223_llama-guard-2-8b.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-04-04T23:52:33.638910+00:00"
+}

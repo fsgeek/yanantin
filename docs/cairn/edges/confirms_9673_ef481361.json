@@ -1,0 +1,11 @@
+{
+  "id": "ef481361-3470-456f-b33b-032832645be8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9673_20260404_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4113_20260303_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The file `docs/blueprint.md` explicitly states: \"Read `docs/blueprint.md` before you build anything, it maps what exists, what connects, and what doesn't exist yet.\" The claim is literally quoted verbatim from the file, which confirms its accuracy.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-04-04T23:52:33.583125+00:00"
+}

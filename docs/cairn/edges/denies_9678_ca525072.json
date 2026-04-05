@@ -1,0 +1,11 @@
+{
+  "id": "ca525072-66cd-474a-8dc7-820f281a0c66",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9678_20260405_glm-4.7-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5198_20260309_gpt-4.1-nano.md",
+  "relation": "denies",
+  "claim_text": "There is no evidence in the file supporting that `blueprint.md` serves as a guide to scout report formatting.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "z-ai/glm-4.7-flash",
+  "timestamp": "2026-04-05T00:25:09.105150+00:00"
+}

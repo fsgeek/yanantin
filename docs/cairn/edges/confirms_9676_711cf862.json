@@ -1,0 +1,11 @@
+{
+  "id": "711cf862-b63d-46f7-8dc2-2d614e34ce68",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9676_20260405_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3548_20260228_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "**Verdict:** CONFIRMED **Evidence:** The file `tests/unit/test_content_address.py` does not contain the strings `'scout.py'` or `'succession.py'`.",
+  "claim_file": "tests/unit/test_content_address.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-04-05T00:24:32.980561+00:00"
+}

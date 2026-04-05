@@ -1,0 +1,11 @@
+{
+  "id": "f2f2cd71-d38d-468d-8731-749fca3f50d0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9672_20260404_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8736_20260330_gpt-oss-120b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence - The file `tests/unit/test_ingest.py` contains many tests that parse markdown tensor files and verify extracted data, e.g.: ```python def test_parse_t0_has_strands(self): path = CAIRN_DIR / \"T0_20260207_bounded_verification.md\" tensor = parse_tensor_file(path) assert len(tensor.strands) == 6 assert tensor.provenance.author_model_family == \"claude\" ``` ```python def test_parse_chatgpt_tensor(self): path = CAIRN_DIR / \"T4_20260208_rcs_observer.md\" tensor = parse_tensor_file(path) assert tensor.provenance.author_model_family == \"chatgpt\" assert len(tensor.strands) == 7 ``` ```python def test_preamble_extracted(self): path = CAIRN_DIR / \"T3_20260208_the_finishing_school.md\" tensor = parse_tensor_file(path) assert \"does not compose\" in tensor.preamble.lower() ``` ```python def test_narrative_body_preserves_raw_markdown(self): path = CAIRN_DIR / \"T0_20260207_bounded_verification.md\" tensor = parse_tensor_file(path) assert \"Tensor@10%\" in tensor.narrative_body ``` These and other tests demonstrate that the parser is exercised and its outputs are validated.",
+  "claim_file": "tests/unit/test_ingest.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-04T23:52:33.304812+00:00"
+}

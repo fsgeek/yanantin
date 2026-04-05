@@ -1,0 +1,11 @@
+{
+  "id": "72255296-a5b8-49d1-9b77-f1c8709a22c5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9677_20260405_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7622_20260323_mistral-small-3.1-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The file `tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py` does not contain any mention of losses.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-05T00:24:34.178205+00:00"
+}

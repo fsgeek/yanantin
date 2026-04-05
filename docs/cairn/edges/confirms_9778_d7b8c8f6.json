@@ -1,0 +1,11 @@
+{
+  "id": "d7b8c8f6-286a-4285-8a59-73b903941dbd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9778_20260405_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8405_20260328_qwen3-32b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning   The module explicitly states it is limited to **filesystem inspection** and **does not parse documentation** (including `blueprint.md`).",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-05T13:44:04.617240+00:00"
+}

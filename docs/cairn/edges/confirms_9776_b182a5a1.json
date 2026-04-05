@@ -1,0 +1,11 @@
+{
+  "id": "b182a5a1-8796-48ed-a0d9-9e40e842eabc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9776_20260405_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5053_20260308_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Strands 5: Tests The `tests/red_bar/` directory contains tests named `test_immutability.py`, `test_least_privilege.py`, `test_monotonicity.py`, and `test_portability.py`, which suggest a focus on fundamental properties or invariants that the system is expected to uphold.",
+  "claim_file": "tests/red_bar/test_monotonicity.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-05T13:43:45.425492+00:00"
+}

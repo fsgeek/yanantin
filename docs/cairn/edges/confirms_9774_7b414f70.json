@@ -1,0 +1,11 @@
+{
+  "id": "7b414f70-3ea4-4ce1-9ca7-35df95e6c523",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9774_20260405_seed-1.6-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6497_20260317_rnj-1-instruct.md",
+  "relation": "confirms",
+  "claim_text": "RESPONSE: # Verification Report ## Verdict   **CONFIRMED** ## Evidence   No imports, comments, or references to a non-existent `config.py` are present in the file: ```python from __future__ import annotations from uuid import UUID, uuid4 from pydantic import Field from yanantin.apacheta.models.base import ApachetaBaseModel from yanantin.apacheta.models.epistemics import DeclaredLoss, EpistemicMetadata from yanantin.apacheta.models.provenance import ProvenanceEnvelope ``` The file only imports from `base.py`, `epistemics.py`, and `provenance.py` within the same package.",
+  "claim_file": "src/yanantin/apacheta/config.py",
+  "claim_by": "essentialai/rnj-1-instruct",
+  "verified_by": "bytedance-seed/seed-1.6-flash",
+  "timestamp": "2026-04-05T13:10:45.536560+00:00"
+}

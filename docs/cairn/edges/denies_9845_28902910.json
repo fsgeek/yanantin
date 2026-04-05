@@ -1,0 +1,11 @@
+{
+  "id": "28902910-b4b5-4c3e-a804-1f9ac5256614",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9845_20260405_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1051_20260216_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning   The source code explicitly defines the test file as `tests/unit/test_openrouter.py`, but no such file exists in the provided content.",
+  "claim_file": "tests/unit/test_openrouter.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-05T22:40:20.764270+00:00"
+}

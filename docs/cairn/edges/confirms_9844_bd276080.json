@@ -1,0 +1,11 @@
+{
+  "id": "bd276080-4243-44b5-ac6d-a6eefa7bbb66",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9844_20260405_step-3.5-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9263_20260402_devstral-medium.md",
+  "relation": "confirms",
+  "claim_text": "#### Standardization and Best Practices **Observation**: The `standard-plugin.md` file outlines a middle-ground plugin structure that includes commands, agents, skills, hooks, and scripts.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/plugin-structure/examples/standard-plugin.md",
+  "claim_by": "mistralai/devstral-medium",
+  "verified_by": "stepfun/step-3.5-flash",
+  "timestamp": "2026-04-05T22:40:19.597380+00:00"
+}

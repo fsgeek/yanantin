@@ -1,0 +1,11 @@
+{
+  "id": "7335416f-e62d-4fa9-9ba5-95fcbe9e8201",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9848_20260405_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1716_20260219_nemotron-nano-9b-v2.md",
+  "relation": "denies",
+  "claim_text": "There is no textual evidence suggesting `tensors.md` exists or should replace `apacheta.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-04-05T23:10:07.303826+00:00"
+}

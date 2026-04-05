@@ -1,0 +1,11 @@
+{
+  "id": "a8601d14-3f26-4f73-a362-7c5d140c19e3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9829_20260405_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5986_20260314_gemini-2.0-flash-001.md",
+  "relation": "confirms",
+  "claim_text": "**The \"hooks\" directory in `.claude`:** This directory contains Python scripts (`capture_compaction.py`, `chasqui_pulse.py`, etc.) and a Bash script (`chasqui_heartbeat.sh`).",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "google/gemini-2.0-flash-001",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-04-05T20:36:05.315432+00:00"
+}

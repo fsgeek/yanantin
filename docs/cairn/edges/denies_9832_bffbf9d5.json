@@ -1,0 +1,11 @@
+{
+  "id": "bffbf9d5-ac20-43bf-90ce-1485f222b10a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9832_20260405_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4269_20260303_qwen-2.5-coder-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `CLAUDE.md` contains this line: \"For the tensor sequence and its history, see `docs/tensors.md`.\" ### Reasoning The claim states that \"docs/tensors.md is referencing `docs/CLAUDE.md` as evidence for the current state of the tensor sequence.\" However, the evidence from `CLAUDE.md` shows the opposite: it references `docs/tensors.md` as a source for the tensor sequence, not the other way around.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "qwen/qwen-2.5-coder-32b-instruct",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-05T21:06:10.835127+00:00"
+}

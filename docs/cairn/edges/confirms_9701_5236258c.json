@@ -1,0 +1,11 @@
+{
+  "id": "5236258c-13ac-41db-9dd1-9664759cb1ec",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9701_20260405_glm-4.7.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6726_20260318_gemini-2.0-flash-lite-001.md",
+  "relation": "confirms",
+  "claim_text": "### Preamble I\u2019m tasked with scouting the `evaluation.py` script, which seems designed to test MCP (Model\u2011Composition\u2011Protocol) servers using Claude.",
+  "claim_file": "tmp/ubuntu-vm.claude/mcp-builder/scripts/evaluation.py",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "z-ai/glm-4.7",
+  "timestamp": "2026-04-05T03:33:01.545129+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "a39b8840-6f2a-47e5-812e-a58117083c06",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9696_20260405_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8350_20260328_deepseek-v3.2.md",
+  "relation": "confirms",
+  "claim_text": "\"\"\" edge = CompositionEdge( from_tensor=from_tensor, to_tensor=to_tensor, relation_type=RelationType.COMPOSES_WITH, ordering=ordering, authored_mapping=authored_mapping, provenance=provenance or ProvenanceEnvelope(), ) interface.store_composition_edge(edge) return edge ``` ### Reasoning The claim states: \"The `src/yanantin/apacheta/operators/` directory contains operations like `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, and `project.py`.\" The claim specifically mentions `compose.py` as one of the operations in that directory.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "deepseek/deepseek-v3.2",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-05T03:02:42.304005+00:00"
+}

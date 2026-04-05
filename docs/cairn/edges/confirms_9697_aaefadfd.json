@@ -1,0 +1,11 @@
+{
+  "id": "aaefadfd-1770-4383-8ee0-b596929ef5d9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9697_20260405_aion-1.0-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8126_20260326_qwen-plus-2025-07-28.md",
+  "relation": "confirms",
+  "claim_text": "- `scour_1021_20260318_mistral-saba.md` calls these absence claims a \u201c**self-reinforcing myth**.\u201d   But the myth persists.",
+  "claim_file": "docs/cairn/scour_1021_20260318_mistral-saba.md",
+  "claim_by": "qwen/qwen-plus-2025-07-28",
+  "verified_by": "aion-labs/aion-1.0-mini",
+  "timestamp": "2026-04-05T03:03:18.302010+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "fbd13ac2-e54d-4bfd-b182-c40e9bc6cd67",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9700_20260405_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0784_20260215_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "The `docs/cairn/` directory contains dozens of `scout_*.md` files, each following a similar template, and the `.claude/hooks` directory holds scripts like `chasqui_pulse.py` that seem to orchestrate the system's heartbeat.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-05T03:32:55.081021+00:00"
+}

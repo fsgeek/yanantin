@@ -1,0 +1,11 @@
+{
+  "id": "df4be264-68a7-46e3-a1f3-551ae27f3f9f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9800_20260405_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8877_20260331_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "--- ### Declared Losses   I chose not to examine:   - `README.md` and `SKILL.md` \u2014 assumed to be top-level metadata, likely boilerplate.",
+  "claim_file": "tmp/ubuntu-vm.claude/artifacts-builder/SKILL.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-05T16:54:30.712867+00:00"
+}

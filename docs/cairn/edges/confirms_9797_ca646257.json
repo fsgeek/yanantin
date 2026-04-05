@@ -1,0 +1,11 @@
+{
+  "id": "ca646257-ec5f-4509-ac27-ec50ec1ed487",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9797_20260405_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3810_20260301_glm-4-32b.md",
+  "relation": "confirms",
+  "claim_text": "There is no mention or reference to `scourer.py` or `coordinator.py` in this file.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-04-05T16:24:43.940126+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "0eb58aa0-b578-4c18-8c11-86d2f4e33bc3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9801_20260405_qwen3-vl-235b-a22b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5400_20260310_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states: > This composes with the weave_corpus function in `src/yanantin/awaq/__main__.py` (from `docs/cairn/scout_0191_20260213_mistral-nemo.md`), where tensors are discovered and composed\u2014likely using this base for validation.",
+  "claim_file": "docs/cairn/scout_0191_20260213_mistral-nemo.md",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "qwen/qwen3-vl-235b-a22b-instruct",
+  "timestamp": "2026-04-05T16:54:32.094561+00:00"
+}

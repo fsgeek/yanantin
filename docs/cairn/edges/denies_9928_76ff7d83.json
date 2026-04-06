@@ -1,0 +1,11 @@
+{
+  "id": "76ff7d83-fada-404e-a9df-70c9c5d81159",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9928_20260406_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0324_20260213_qwen3-32b.md",
+  "relation": "denies",
+  "claim_text": "- The test file (`test_operators.py`) confirms the `bootstrap` operator exists and is tested (as shown in the claim), but this alone does not prove it \"evolves knowledge\" in the asserted sense.",
+  "claim_file": "tests/unit/test_operators.py",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-06T09:32:13.846939+00:00"
+}

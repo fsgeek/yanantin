@@ -1,0 +1,11 @@
+{
+  "id": "5d7d96b9-d42c-4653-a204-0ef45e1134cd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9929_20260406_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8831_20260331_lfm-2-24b-a2b.md",
+  "relation": "denies",
+  "claim_text": "- The \u201ccore\u201d claim is supported by the presence of a dedicated module named `core.py` implicitly via the 33\u2011class count.",
+  "claim_file": ".venv/lib/python3.14/site-packages/coverage/core.py",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-04-06T09:32:16.761722+00:00"
+}

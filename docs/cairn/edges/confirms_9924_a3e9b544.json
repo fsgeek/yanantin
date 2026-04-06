@@ -1,0 +1,11 @@
+{
+  "id": "a3e9b544-62ee-44bb-9e5a-529ec0bcea0f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9924_20260406_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9753_20260405_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **DENIED** ### Evidence   The file `pretooluse.py` contains distinct logic and structure: ```python \"\"\"PreToolUse hook executor for hookify plugin.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/pretooluse.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-04-06T09:04:18.039513+00:00"
+}

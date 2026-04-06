@@ -1,0 +1,11 @@
+{
+  "id": "d93aae89-182a-4acd-a938-16a500ef4025",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9870_20260406_gpt-5.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1192_20260217_glm-4-32b.md",
+  "relation": "denies",
+  "claim_text": "The dissent operator in `src/yanantin/apacheta/operators/dissent.py` further reinforces this by allowing formal disagreement with prior tensors while maintaining the provenance of the original claim.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "openai/gpt-5",
+  "timestamp": "2026-04-06T01:47:34.409743+00:00"
+}

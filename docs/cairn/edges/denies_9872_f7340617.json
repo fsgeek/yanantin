@@ -1,0 +1,11 @@
+{
+  "id": "f7340617-95b0-43cc-be39-b5d1eccb4e1b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9872_20260406_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8002_20260326_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The claim mentions the existence of other files (`correct.py`, `dissent.py`, `evolve.py`, `negate.py`, `project.py`) within the directory `src/yanantin/apacheta/operators`.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-06T02:17:21.978471+00:00"
+}

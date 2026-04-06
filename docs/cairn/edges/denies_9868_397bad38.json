@@ -1,0 +1,11 @@
+{
+  "id": "397bad38-70f0-4f24-8c1a-1d1b2425a305",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9868_20260406_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8264_20260327_llama-3.1-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim mentions \"hint at efforts to track and obscure information\", but the file `storage_obfuscator.py` actually defines a protocol for structural obfuscation, not for tracking information.",
+  "claim_file": "src/yanantin/apacheta/storage_obfuscator.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-04-06T01:47:17.607871+00:00"
+}

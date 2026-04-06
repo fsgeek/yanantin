@@ -1,0 +1,11 @@
+{
+  "id": "b4040496-f3b0-44a8-b338-7fe36a211caf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9874_20260406_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7456_20260323_qwen3-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The `silent-failure-hunter.md` declares \u201cSilent failures are unacceptable\u201d \u2014 a dogma.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/pr-review-toolkit/agents/silent-failure-hunter.md",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-04-06T02:17:24.039792+00:00"
+}

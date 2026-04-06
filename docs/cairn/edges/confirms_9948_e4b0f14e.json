@@ -1,0 +1,11 @@
+{
+  "id": "e4b0f14e-47d2-4dcb-bd1a-710651aaee68",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9948_20260406_gemma-4-26b-a4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9796_20260405_command-r7b-12-2024.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The file `src/yanantin/apacheta/operators/dissent.py` is focused on defining a `dissent` function that handles registering formal disagreements with tensors or claims.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "google/gemma-4-26b-a4b-it",
+  "timestamp": "2026-04-06T12:09:58.340856+00:00"
+}

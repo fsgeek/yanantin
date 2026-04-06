@@ -1,0 +1,11 @@
+{
+  "id": "a1d6909d-915b-41f9-8bb6-3cf05d0b2d93",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9947_20260406_hermes-3-llama-3.1-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0654_20260215_gemini-2.5-flash-lite.md",
+  "relation": "denies",
+  "claim_text": "*   **Full contents of `CLAUDE.md`:** While I referenced the scout reports that mentioned `CLAUDE.md`, I did not examine the `CLAUDE.md` file itself.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "timestamp": "2026-04-06T12:09:56.274413+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "eea2ff89-fa7f-406e-89dc-0f5bc9932fe0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9951_20260406_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2267_20260222_mistral-7b-instruct-v0.3.md",
+  "relation": "denies",
+  "claim_text": "### **Reasoning** - The file **does not explicitly say** `docs/predecessors.md` is absent anywhere in its content.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "mistralai/mistral-7b-instruct-v0.3",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-04-06T12:39:41.576269+00:00"
+}

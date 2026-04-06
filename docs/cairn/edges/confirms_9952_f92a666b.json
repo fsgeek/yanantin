@@ -1,0 +1,11 @@
+{
+  "id": "f92a666b-620c-4e7c-b8b0-4542aa3a4665",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9952_20260406_rnj-1-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7010_20260320_qwen3-coder-flash.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The filename `T16_compaction_20260213_225254.md` contains a timestamp in the format `YYYYMMDD_HHMMSS`, specifically `20260213_225254`.",
+  "claim_file": "docs/cairn/compaction/T16_compaction_20260213_225254.md",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "essentialai/rnj-1-instruct",
+  "timestamp": "2026-04-06T12:39:41.732114+00:00"
+}

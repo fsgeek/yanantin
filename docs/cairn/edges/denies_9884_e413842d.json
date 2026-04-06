@@ -1,0 +1,11 @@
+{
+  "id": "e413842d-159d-4073-a5b7-012cfa90222c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9884_20260406_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9147_20260402_gemini-2.0-flash-001.md",
+  "relation": "denies",
+  "claim_text": "For example, `docs/cairn/scout_3238_20260226_rnj-1-instruct.md` and many others only have \"Dispatch\" defined.",
+  "claim_file": "docs/cairn/scout_3238_20260226_rnj-1-instruct.md",
+  "claim_by": "google/gemini-2.0-flash-001",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-06T03:51:51.899807+00:00"
+}

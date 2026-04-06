@@ -1,0 +1,11 @@
+{
+  "id": "18088511-0fc2-40df-80b4-b72ffe95f56b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9890_20260406_deepseek-chat.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9841_20260405_qwen-turbo.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I couldn't check the contents of `agent_skills_spec.md` or `CREATION-LOG.md` because they are not part of the provided file.",
+  "claim_file": "tmp/ubuntu-vm.claude/agent_skills_spec.md",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "deepseek/deepseek-chat",
+  "timestamp": "2026-04-06T04:21:44.330577+00:00"
+}

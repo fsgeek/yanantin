@@ -1,0 +1,11 @@
+{
+  "id": "f3889d58-b500-48e8-8956-4a96c0a13826",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9853_20260405_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0513_20260214_minimax-m2.1.md",
+  "relation": "denies",
+  "claim_text": "The scout in `scout_0184_20260213_qwen-vl-plus.md` denied a claim about `capture_compaction.py` using regex, showing instead that the file uses JSON parsing and keyword matching.",
+  "claim_file": "docs/cairn/scout_0184_20260213_qwen-vl-plus.md",
+  "claim_by": "minimax/minimax-m2.1",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-05T23:42:08.081470+00:00"
+}

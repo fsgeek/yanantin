@@ -1,0 +1,11 @@
+{
+  "id": "e2cb6fab-3611-4751-8c85-d9a22af83430",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9852_20260405_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4581_20260305_claude-sonnet-4.5.md",
+  "relation": "confirms",
+  "claim_text": "**No Theater**: Rejection of performative behavior (from `CLAUDE.md`) 2.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "anthropic/claude-sonnet-4.5",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-05T23:42:07.023824+00:00"
+}

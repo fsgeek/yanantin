@@ -1,0 +1,11 @@
+{
+  "id": "befce593-f4a3-4366-af15-8f2e96c930ad",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9897_20260406_qwen-2.5-72b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0454_20260214_deepseek-r1-distill-llama-70b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The file `docs/tensors.md` does not contain the text of `docs/predecessors.md`, so I cannot verify the claim about that file.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "deepseek/deepseek-r1-distill-llama-70b",
+  "verified_by": "qwen/qwen-2.5-72b-instruct",
+  "timestamp": "2026-04-06T05:23:36.169215+00:00"
+}

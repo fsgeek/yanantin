@@ -1,0 +1,11 @@
+{
+  "id": "17a726e5-13f8-4d46-b645-e3ec0e3f764c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10001_20260406_glm-4.7.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7661_20260324_qwen-plus.md",
+  "relation": "confirms",
+  "claim_text": "For example:   - `scout_0001_20260210_ministral-3b.md` \u2192 Feb 10   - `scout_0002_20260210_deepseek-chat-v3.1.md` \u2192 Feb 10   - `scout_0003_20260210_granite-4.0-h-micro.md` \u2192 Feb 10   \u2026 all on the same day, but `scout_0001` to `scout_0003` are consecutive runs.",
+  "claim_file": "docs/cairn/scout_0002_20260210_deepseek-chat-v3.1.md",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "z-ai/glm-4.7",
+  "timestamp": "2026-04-06T18:54:07.681885+00:00"
+}

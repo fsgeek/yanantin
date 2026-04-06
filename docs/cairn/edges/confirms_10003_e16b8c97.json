@@ -1,0 +1,11 @@
+{
+  "id": "e16b8c97-5dd4-47db-98b2-eed9706ae501",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10003_20260406_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3236_20260226_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "In `scout_2366_20260222_l3-lunaris-8b.md`, it\u2019s $0.00018502.",
+  "claim_file": "docs/cairn/scout_2366_20260222_l3-lunaris-8b.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-06T19:24:43.523202+00:00"
+}

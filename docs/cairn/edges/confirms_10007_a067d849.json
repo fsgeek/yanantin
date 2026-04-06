@@ -1,0 +1,11 @@
+{
+  "id": "a067d849-a057-40ec-b67c-f5afd948af89",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10007_20260406_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1197_20260217_gpt-4.1-mini.md",
+  "relation": "confirms",
+  "claim_text": "--- ### Declared Losses - I did not inspect actual source code beyond reported docstrings and summaries; e.g., `timestamp.py` is truncated and I cannot verify some internal logic like upgrade polling or error handling.",
+  "claim_file": "src/yanantin/provenance/timestamp.py",
+  "claim_by": "openai/gpt-4.1-mini",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-06T19:54:47.820689+00:00"
+}

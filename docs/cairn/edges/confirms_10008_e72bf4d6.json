@@ -1,0 +1,11 @@
+{
+  "id": "e72bf4d6-c045-4434-9f59-3bd0c52fb9ac",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10008_20260406_grok-4.1-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9986_20260406_gpt-5.1-codex-mini.md",
+  "relation": "confirms",
+  "claim_text": "reality checks**   `check_bounding_boxes.py` (start) tries to enforce a strict, non-overlapping layout for label and entry rectangles.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/scripts/check_bounding_boxes.py",
+  "claim_by": "openai/gpt-5.1-codex-mini",
+  "verified_by": "x-ai/grok-4.1-fast",
+  "timestamp": "2026-04-06T19:54:51.760491+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "55e6b56c-5923-492b-a023-bb8d72b8a256",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10005_20260406_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3111_20260226_mistral-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "However, the **absence of any direct mention of `__main__.py`** means the claim is **CONFIRMED only partially**, or more precisely, it is **inaccurate as stated** because the file does not mention `__main__.py`.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "mistralai/mistral-7b-instruct",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-04-06T19:25:14.425009+00:00"
+}

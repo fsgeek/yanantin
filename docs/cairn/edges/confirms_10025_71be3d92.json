@@ -1,0 +1,11 @@
+{
+  "id": "71be3d92-c7da-4a8b-9b82-8e95e251217f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10025_20260406_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5252_20260309_qwen3-coder-flash.md",
+  "relation": "confirms",
+  "claim_text": "The Human-AI Agent Tension in Agents Directory **What I saw:** - In `agents/`, there are two files: - `scout_reviewer.md` - `structured_reviewer.md` **What it made me think:** - This seems to be a direct echo of the **Yanantin duality** \u2014 a human reviewer and a structured one.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-06T21:59:43.747962+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "687db923-5703-46b2-9ca8-11270b281af9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10019_20260406_qwen3-vl-235b-a22b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7846_20260325_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Specifically, the following lines from the file confirm this: ``` from yanantin.collector.base import CollectorBase from yanantin.collector.dropbox.models import DropboxEntryData, DropboxListing ``` There is no import statement for `recorder.py` or `synthetic.py`.",
+  "claim_file": "src/yanantin/query/recorder.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "qwen/qwen3-vl-235b-a22b-instruct",
+  "timestamp": "2026-04-06T21:29:36.237712+00:00"
+}

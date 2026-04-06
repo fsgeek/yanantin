@@ -1,0 +1,11 @@
+{
+  "id": "a041a559-8ab1-49c8-8dee-1151d91b13a6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10024_20260406_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0654_20260215_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 5: `tests/red_bar` - Principles of Operation The `tests/red_bar/` directory contains tests named `test_immutability.py`, `test_least_privilege.py`, `test_monotonicity.py`, and `test_portability.py`.",
+  "claim_file": "tests/red_bar/test_least_privilege.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-06T21:59:42.276561+00:00"
+}

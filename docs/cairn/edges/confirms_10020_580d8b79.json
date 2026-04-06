@@ -1,0 +1,11 @@
+{
+  "id": "580d8b79-862f-4ed5-8ed1-57f21abfa095",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10020_20260406_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4701_20260306_codestral-2508.md",
+  "relation": "confirms",
+  "claim_text": "The presence of `memory.py` in the backends directory is confirmed, but the mention of `arango.py` and `duckdb.py` is not verified by this file.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "mistralai/codestral-2508",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-04-06T21:29:36.972549+00:00"
+}

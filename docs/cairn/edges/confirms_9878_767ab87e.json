@@ -1,0 +1,11 @@
+{
+  "id": "767ab87e-35aa-4601-8049-5dcded456518",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9878_20260406_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8202_20260327_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Tension between Complexity and Simplicity**: The `advanced-plugin.md` file has a more complex directory structure and more agents and skills than the `standard-plugin.md` file.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/plugin-structure/examples/advanced-plugin.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-04-06T02:50:51.613285+00:00"
+}

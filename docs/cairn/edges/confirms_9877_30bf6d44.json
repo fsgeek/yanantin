@@ -1,0 +1,11 @@
+{
+  "id": "30bf6d44-068a-42c3-98bf-324573db9b68",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9877_20260406_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5601_20260311_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Therefore, it can be concluded that `dissent.py` indeed exists and is related to the other files mentioned in the claim.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-06T02:50:34.801381+00:00"
+}

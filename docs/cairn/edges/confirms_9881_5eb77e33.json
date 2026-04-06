@@ -1,0 +1,11 @@
+{
+  "id": "5eb77e33-11d9-429d-bbf0-9fceb5f44b7e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9881_20260406_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9609_20260404_qwen3.5-9b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The verification context provided to me contains exclusively the source code for `src/yanantin/awaq/materialize.py`.",
+  "claim_file": "src/yanantin/awaq/materialize.py",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-04-06T03:19:54.299138+00:00"
+}

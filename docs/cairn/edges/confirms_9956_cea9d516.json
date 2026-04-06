@@ -1,0 +1,11 @@
+{
+  "id": "cea9d516-503a-4c61-bc07-ca01db18cbe7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9956_20260406_qwq-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0959_20260216_llama-3.3-70b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim mentions \"grounding exploration in structured metadata, file lineage, and honest loss attribution\" across several files, including `tests/unit/test_renderer.py`.",
+  "claim_file": "tests/unit/test_renderer.py",
+  "claim_by": "meta-llama/llama-3.3-70b-instruct",
+  "verified_by": "qwen/qwq-32b",
+  "timestamp": "2026-04-06T13:13:12.640518+00:00"
+}

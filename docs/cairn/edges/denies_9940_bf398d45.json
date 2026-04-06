@@ -1,0 +1,11 @@
+{
+  "id": "bf398d45-3a35-40c9-a6fc-acbf777d259b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9940_20260406_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1943_20260220_ernie-4.5-21b-a3b-thinking.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `docs/predecessors.md` is present and contains the following explicit statement at the beginning:   ``` # Predecessor Projects Yanantin composes what was learned across these projects.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-06T11:07:44.279847+00:00"
+}

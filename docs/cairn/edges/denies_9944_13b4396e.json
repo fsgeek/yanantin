@@ -1,0 +1,11 @@
+{
+  "id": "13b4396e-ac46-4600-8928-c28536654bca",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9944_20260406_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5354_20260310_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The claim states that the file `docs/cairn/scout_0411_20260214_qwen-2.5-7b-instruct.md` discusses this test file and its contents.",
+  "claim_file": "docs/cairn/scout_0411_20260214_qwen-2.5-7b-instruct.md",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-04-06T11:36:49.327042+00:00"
+}

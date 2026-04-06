@@ -1,0 +1,11 @@
+{
+  "id": "c3c95ba3-c0bd-4caf-ad67-3e7cbf41be59",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9941_20260406_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1346_20260218_glm-4.7.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 4: The \"Casual Tensor\" As noted by the Gemma model in `docs/cairn/scout_0313_20260213_gemma-3-27b-it.md`, there is a concept of a \"casual tensor\" emerging from status summaries.",
+  "claim_file": "docs/cairn/scout_0313_20260213_gemma-3-27b-it.md",
+  "claim_by": "z-ai/glm-4.7",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-06T11:07:45.466515+00:00"
+}

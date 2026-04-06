@@ -1,0 +1,11 @@
+{
+  "id": "c960c5a2-369f-40ef-9f92-51d1c5f54144",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9988_20260406_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6104_20260315_hermes-2-pro-llama-3-8b.md",
+  "relation": "confirms",
+  "claim_text": "Notably: - `src/yanantin/apacheta/models/composition.py` \u2014 I relied on other reports quoting imports; I did not read the file itself to confirm its exact content.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-06T17:20:46.793055+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "848d52cf-f51d-4e7f-9c79-aae4c1ee6d02",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9993_20260406_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9669_20260404_gpt-4.1-mini.md",
+  "relation": "confirms",
+  "claim_text": "- The claim's assertion about `docs/tensors.md` is not directly checkable, only the content of `docs/apacheta.md` is visible.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "openai/gpt-4.1-mini",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-06T17:50:33.704358+00:00"
+}

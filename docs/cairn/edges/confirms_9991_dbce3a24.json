@@ -1,0 +1,11 @@
+{
+  "id": "dbce3a24-3289-4018-9a12-029cc63a319e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9991_20260406_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0372_20260213_qwen3-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "- The `.claude/hooks/capture_compaction.py` script logs compaction summaries, but no runtime safeguards prevent overwriting (e.g., the \"overwriting incident\" in `T14_20260211_the_flatworm.md`).",
+  "claim_file": "docs/cairn/T14_20260211_the_flatworm.md",
+  "claim_by": "qwen/qwen3-30b-a3b",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-04-06T17:50:32.245510+00:00"
+}

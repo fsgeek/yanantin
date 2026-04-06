@@ -1,0 +1,11 @@
+{
+  "id": "9b021796-1acc-4295-939b-d6b7f4922337",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9900_20260406_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7643_20260324_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "But each makes assumptions that seem to be shared across the system \u2014 for example: - `inventory.py` assumes that PowerPoint uses standard `pptx` library structures.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/scripts/inventory.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-06T05:55:49.440048+00:00"
+}

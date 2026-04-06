@@ -1,0 +1,11 @@
+{
+  "id": "8f29c5f2-9d27-4fc2-ac4a-a03d127e67f7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9906_20260406_deepseek-v3.1-nex-n1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0952_20260216_llama-3.3-nemotron-super-49b-v.md",
+  "relation": "denies",
+  "claim_text": "The `evolve.py` file manages schema changes via `SchemaEvolutionRecord`, and `scout_0241_20260213_lfm-2.2-6b.md` discusses versioning challenges.",
+  "claim_file": "docs/cairn/scout_0241_20260213_lfm-2.2-6b.md",
+  "claim_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "verified_by": "nex-agi/deepseek-v3.1-nex-n1",
+  "timestamp": "2026-04-06T06:26:00.525806+00:00"
+}

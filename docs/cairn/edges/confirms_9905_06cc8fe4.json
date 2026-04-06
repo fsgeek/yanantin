@@ -1,0 +1,11 @@
+{
+  "id": "06cc8fe4-4399-48ab-95a6-cbfe51e99ae0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9905_20260406_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4601_20260305_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "*   **Evidence:** `test_provenance.py` asserts that every record type has a `ProvenanceEnvelope`.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-06T06:25:55.539968+00:00"
+}

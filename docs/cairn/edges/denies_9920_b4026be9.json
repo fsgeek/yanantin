@@ -1,0 +1,11 @@
+{
+  "id": "b4026be9-7f49-4d77-937a-a9dd5a10455d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9920_20260406_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6508_20260317_qwen-plus.md",
+  "relation": "denies",
+  "claim_text": "}`, no closing `}` \u2014 truncated mid-object   - `docs/cairn/scout_1530_20260219_llama-3.2-3b-instruct.md` contains *two* JSON objects back-to-back, with identical structure but different `vantage` fields \u2014 no array wrapper, no delimiter   - `docs/cairn/scout_4032_20260302_llama-3-8b-instruct.md` includes a `ClaimFile: src/yanantin/apacheta/operators/compose.py`, yet `compose.py` is *not in the file list* \u2014 it\u2019s *referenced, not present*   - `docs/cairn/scout_5201_20260309_claude-sonnet-4.md` says \u201c`docs/predecessors.md` appears repeatedly across reports \u2014 some models insist it doesn\u2019t exist, others confirm it does\u201d \u2014 yet `docs/predecessors.md` *is present in the file tree*   **What it made me think**:   The tensor is not a stable format \u2014 it\u2019s a *fracture zone*.",
+  "claim_file": "docs/cairn/scout_4032_20260302_llama-3-8b-instruct.md",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-06T08:29:55.317732+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "2a3150ba-c882-4432-8f53-a08d6f324f78",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9921_20260406_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2197_20260222_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "**Cross-model *agreement*** (e.g., the scout\u2019s `gpt-oss-120b`\u2019s `pyproject.toml` review was limited to syntax, not toolchain usage).",
+  "claim_file": "pyproject.toml",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-04-06T08:29:56.426335+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "105bffb7-0738-4762-9c57-203032af355d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10015_20260406_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0333_20260213_gpt-oss-20b.md",
+  "relation": "confirms",
+  "claim_text": "| `src/yanantin/apacheta/models/tensor.py` | The entire system is built around these Pydantic models; every backend serialises them.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-04-06T20:57:50.531068+00:00"
+}

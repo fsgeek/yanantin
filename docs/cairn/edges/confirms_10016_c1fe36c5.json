@@ -1,0 +1,11 @@
+{
+  "id": "c1fe36c5-ffb8-4f34-865e-e9627c8fb277",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10016_20260406_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4034_20260302_gemma-3-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "The absence of ArangoDB-related code in this file supports the claim that ArangoDB integration is not directly visible within `duckdb.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-06T20:57:50.793280+00:00"
+}

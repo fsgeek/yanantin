@@ -1,0 +1,11 @@
+{
+  "id": "271d8a51-2650-4e5e-bfa3-a0fd18b7362b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9933_20260406_ernie-4.5-300b-a47b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6256_20260316_devstral-small.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim asks about interdependencies between `docs/predecessors.md` and `docs/blueprint.md`.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "mistralai/devstral-small",
+  "verified_by": "baidu/ernie-4.5-300b-a47b",
+  "timestamp": "2026-04-06T10:04:17.739860+00:00"
+}

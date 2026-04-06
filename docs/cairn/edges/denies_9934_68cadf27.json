@@ -1,0 +1,11 @@
+{
+  "id": "68cadf27-07ee-4462-b911-ed6a0b8067f1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9934_20260406_deepseek-v3.1-terminus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1750_20260220_sonar-pro.md",
+  "relation": "denies",
+  "claim_text": "Impression: **Composable tensor archive**\u2014scouts/scours generate raw observations, compaction fuses them (e.g., `T27_compaction_20260218_162351.md`).",
+  "claim_file": "docs/cairn/compaction/T27_compaction_20260218_162351.md",
+  "claim_by": "perplexity/sonar-pro",
+  "verified_by": "deepseek/deepseek-v3.1-terminus",
+  "timestamp": "2026-04-06T10:04:20.953686+00:00"
+}

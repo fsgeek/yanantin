@@ -1,0 +1,11 @@
+{
+  "id": "a6fe698f-328c-4b54-983f-322afe363c0e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9937_20260406_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9373_20260403_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The claim states that `scout_0953_20260216_llama-3.2-3b-instruct.md` confirms that `docs/predecessors.md` lists key contributions (e.g., \"NER with entity equivalence\").",
+  "claim_file": "docs/cairn/scout_0953_20260216_llama-3.2-3b-instruct.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-06T10:33:47.425515+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "775d78c9-b8a2-4175-94f4-0a4cb7509e97",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9938_20260406_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2880_20260225_glm-4.7.md",
+  "relation": "confirms",
+  "claim_text": "While the markdown files are chatty and subjective, these binary files are likely cryptographic proofs (OpenTimestamps, hinted at by `ots_stamp.py` in the hooks).",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "z-ai/glm-4.7",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-06T10:33:48.933969+00:00"
+}

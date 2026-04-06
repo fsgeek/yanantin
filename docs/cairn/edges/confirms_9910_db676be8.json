@@ -1,0 +1,11 @@
+{
+  "id": "db676be8-33bb-4963-97a1-450fea08c544",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9910_20260406_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0582_20260214_grok-4-fast.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that `test_memory_backend.py` (and `test_duckdb_backend.py`) \"exercise these\" (referring to testing backend implementations).",
+  "claim_file": "tests/unit/test_duckdb_backend.py",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-06T06:57:42.953162+00:00"
+}

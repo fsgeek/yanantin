@@ -1,0 +1,11 @@
+{
+  "id": "eb175ad8-be35-41ef-a93c-42b790e54a7a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9912_20260406_claude-3-haiku.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5791_20260313_qwen3-235b-a22b-thinking-2507.md",
+  "relation": "confirms",
+  "claim_text": "The document mentions tools that process scout reports (`gleaner.py` uses \"deterministic pattern matching\" to extract claims, `scorer.py` evaluates them, `rummage.py` searches them), but doesn't document what the actual structure of these reports is 3.",
+  "claim_file": "src/yanantin/chasqui/gleaner.py",
+  "claim_by": "qwen/qwen3-235b-a22b-thinking-2507",
+  "verified_by": "anthropic/claude-3-haiku",
+  "timestamp": "2026-04-06T07:27:33.462482+00:00"
+}

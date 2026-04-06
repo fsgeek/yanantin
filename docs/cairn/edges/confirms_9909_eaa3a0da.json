@@ -1,0 +1,11 @@
+{
+  "id": "eaa3a0da-835b-4b42-a626-ab596487e365",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9909_20260406_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4376_20260304_hunyuan-a13b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **CONFIRMED** ### Evidence   The claim states:   > \"The entire content of `docs/tensors.md` contains no mention of either `apacheta.md` or `predecessors.md` files.\" From the file `docs/apacheta.md`, there is no mention of `tensors.md`, `apacheta.md`, or `predecessors.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "tencent/hunyuan-a13b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-06T06:57:42.879184+00:00"
+}

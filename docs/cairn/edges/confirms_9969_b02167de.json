@@ -1,0 +1,11 @@
+{
+  "id": "b02167de-d3ed-404a-a749-7e023ede9381",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9969_20260406_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6145_20260315_lfm-2-24b-a2b.md",
+  "relation": "confirms",
+  "claim_text": "Since the file does not contain any mention of `tinkuy/`, `audit.py`, or `succession.py`, we cannot verify whether or not they were skipped.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-04-06T14:44:23.844082+00:00"
+}

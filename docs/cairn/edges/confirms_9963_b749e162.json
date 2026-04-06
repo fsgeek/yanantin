@@ -1,0 +1,11 @@
+{
+  "id": "b749e162-8e54-4d4f-8898-6503d9a39eea",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9963_20260406_mixtral-8x7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3789_20260301_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "However, the absence of explicit references in `config.py` does support the claim.",
+  "claim_file": "src/yanantin/apacheta/config.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "mistralai/mixtral-8x7b-instruct",
+  "timestamp": "2026-04-06T14:14:04.383764+00:00"
+}

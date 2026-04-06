@@ -1,0 +1,11 @@
+{
+  "id": "e3468f79-6818-48ad-86ab-61ef4e271bd6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9861_20260406_relace-search.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9067_20260401_nemotron-nano-9b-v2.md",
+  "relation": "denies",
+  "claim_text": "The conflicting prior claims about `openrouter.py` are a critical unresolved tension.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "relace/relace-search",
+  "timestamp": "2026-04-06T00:44:29.807262+00:00"
+}

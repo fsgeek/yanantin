@@ -1,0 +1,11 @@
+{
+  "id": "46e7c335-4fee-4a4c-8036-182b81fad5c3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9860_20260406_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4792_20260306_devstral-small.md",
+  "relation": "denies",
+  "claim_text": "The content of those lines is: ``` source: SourceIdentifier = Field(default_factory=SourceIdentifier) timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc)) author_model_family: str = \"\" author_instance_id: str = \"\" context_budget_at_write: float | None = None predecessors_in_scope: tuple[UUID, ...] = Field(default_factory=tuple) interface_version: str = \"v1\" ``` ### Reasoning The claim states that the content of `docs/cairn/T14_20260211_the_flatworm.md` explicitly describes Strand 5 as cryptographic signing proposals for message segments and mentions linking to `src/yanantin/apacheta/models/provenance.py`, line numbers 10-20, or \"UTC love\".",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "mistralai/devstral-small",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-04-06T00:44:29.115361+00:00"
+}

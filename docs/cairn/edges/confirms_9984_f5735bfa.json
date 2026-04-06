@@ -1,0 +1,11 @@
+{
+  "id": "f5735bfa-0a0d-4317-80f2-b77980498bfc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9984_20260406_grok-4.1-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5253_20260309_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "The provided content of `tensors.md` is present and confirms that the directory indeed contains the file `tensors.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "x-ai/grok-4.1-fast",
+  "timestamp": "2026-04-06T16:48:33.008416+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "f9edadf6-bec8-432e-84ef-f8efc0fe316d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9983_20260406_qwen-2.5-coder-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9590_20260404_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "- No references, imports, comments, or definitions for `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `negate.py`, or `project.py` appear in the provided source.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "qwen/qwen-2.5-coder-32b-instruct",
+  "timestamp": "2026-04-06T16:48:31.094424+00:00"
+}

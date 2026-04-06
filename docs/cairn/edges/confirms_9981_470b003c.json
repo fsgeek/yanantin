@@ -1,0 +1,11 @@
+{
+  "id": "470b003c-bac4-4dbf-84ed-d76627842094",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9981_20260406_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1921_20260220_gemma-3-4b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The following lines from the file support the claim: > `capture_compaction.py` (confirmed, shown above) 2.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-06T16:18:22.878990+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "e929cf73-63f1-486f-bf1f-76d12e635f02",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9975_20260406_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9047_20260401_gemini-2.5-flash-lite.md",
+  "relation": "denies",
+  "claim_text": "This implies that decisions about model selection, verification depth, and even the very act of scouting are influenced by economic constraints.\" }, { \"theme\": \"The Paradox of Transparency: Opaque Core, Transparent Edges\", \"observation\": \"While the scout reports themselves are extremely detailed about their own process and findings, deep dives into core functionalities like `src/yanantin/awaq/weaver.py` (pattern matching for composition) and `src/yanantin/tinkuy/audit.py` (auditing) are conspicuously absent from the detailed evidence in many scout reports.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-06T15:46:23.980589+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "7de648e3-ba70-4efd-82cd-75fdd8da3372",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_9972_20260406_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6985_20260320_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": "Why is there a `T34_the_honest_signal.md` *and* a `T34_20260308_the_honest_signal.md` in `docs/cairn`?",
+  "claim_file": "docs/cairn/T34_the_honest_signal.md",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-06T15:17:25.463690+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "86460b17-f2f7-476f-b55e-dfc06f836fb8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10028_20260406_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6032_20260314_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "*   In `docs/cairn/scout_0012_20260212_hermes-4-70b.md`, I found a claim made by `xiaomi/mimo-v2-flash` about the file `docs/cairn/scout_0012_20260212_hermes-4-70b.md` itself.",
+  "claim_file": "docs/cairn/scout_0012_20260212_hermes-4-70b.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-06T22:37:00.320381+00:00"
+}

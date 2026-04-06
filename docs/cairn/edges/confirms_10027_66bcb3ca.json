@@ -1,0 +1,11 @@
+{
+  "id": "66bcb3ca-b1fb-4c84-9f78-4ef7c376a170",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10027_20260406_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3453_20260227_grok-3-mini.md",
+  "relation": "confirms",
+  "claim_text": "Based on the provided file: - **The module contains `materialize.py` and `weaver.py`**: The import statement on line 27 (`from yanantin.awaq.weaver import CompositionDeclaration`) confirms that `weaver.py` is part of the `yanantin.awaq` module, as it directly references it.",
+  "claim_file": "src/yanantin/awaq/materialize.py",
+  "claim_by": "x-ai/grok-3-mini",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-06T22:36:57.231570+00:00"
+}

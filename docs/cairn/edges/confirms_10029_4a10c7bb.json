@@ -1,0 +1,11 @@
+{
+  "id": "4a10c7bb-ff00-4116-bda2-d7cac823812e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10029_20260406_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7781_20260324_gemma-3-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "Command Workflow Orchestration:** The `commands/` and `skills/command-development/references/advanced-workflows.md` reveal a surprisingly sophisticated approach to command construction.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/command-development/references/advanced-workflows.md",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-06T22:37:00.423323+00:00"
+}

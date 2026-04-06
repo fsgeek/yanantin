@@ -1,0 +1,11 @@
+{
+  "id": "b47af0d2-b70a-4dbf-ae92-a2969ffe769e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10032_20260406_hunyuan-a13b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6231_20260316_grok-4.1-fast.md",
+  "relation": "confirms",
+  "claim_text": "Hooks like `.claude/hooks/capture_compaction.py`, `precompact_tensor.py`.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "x-ai/grok-4.1-fast",
+  "verified_by": "tencent/hunyuan-a13b-instruct",
+  "timestamp": "2026-04-06T23:01:40.592988+00:00"
+}

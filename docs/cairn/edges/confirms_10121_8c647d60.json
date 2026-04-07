@@ -1,0 +1,11 @@
+{
+  "id": "8c647d60-0757-4e51-a652-15b16b8c0ecd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10121_20260407_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6456_20260317_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "**Code Logic:** I saw `src/yanantin/apacheta/operators/bootstrap.py` mentioned in `scout_5883`.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-07T11:07:21.517764+00:00"
+}

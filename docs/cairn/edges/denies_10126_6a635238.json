@@ -1,0 +1,11 @@
+{
+  "id": "6a635238-b02b-449d-97d1-e8408bc78bf9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10126_20260407_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2223_20260222_llama-3.1-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "#### Strand 3: Provenance and Scoring In the `scripts/ingest_cairn.py` file, I found the `model_selector.py` file, which prioritizes cheaper models and impacts the `coordinator.py`'s dispatch logic.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-04-07T11:37:28.462762+00:00"
+}

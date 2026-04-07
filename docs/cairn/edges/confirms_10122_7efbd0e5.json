@@ -1,0 +1,11 @@
+{
+  "id": "7efbd0e5-2c8e-4256-95a3-e0890d57cb38",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10122_20260407_kat-coder-pro-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3946_20260302_gemma-3-12b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The claim states: \"The test cases, such as those in `test_arango_independent.py` and `test_provenance.py`, are comprehensive and cover edge cases, indicating a high standard of quality assurance.\" The file `test_arango_independent.py` contains documentation at the top that states: ``` \"\"\"Independent tests for the ArangoDB backend \u2014 written by test author, not builder.",
+  "claim_file": "tests/unit/test_arango_independent.py",
+  "claim_by": "google/gemma-3-12b-it",
+  "verified_by": "kwaipilot/kat-coder-pro-v2",
+  "timestamp": "2026-04-07T11:07:22.215265+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "d8b91611-7975-48ff-a41a-574ce9f671a6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10211_20260407_glm-4.7-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7589_20260323_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "**Synthetic Data and Claims** - Some tests, like `test_scout_features.py`, use synthetic data and claims.",
+  "claim_file": "tests/unit/test_scout_features.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "z-ai/glm-4.7-flash",
+  "timestamp": "2026-04-07T22:34:52.720441+00:00"
+}

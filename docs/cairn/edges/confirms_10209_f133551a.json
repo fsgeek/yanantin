@@ -1,0 +1,11 @@
+{
+  "id": "f133551a-8d0a-4995-be9b-21c509bb8cbc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10209_20260407_gemini-2.0-flash-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6290_20260316_qwen3-coder-flash.md",
+  "relation": "confirms",
+  "claim_text": "**System-wide Metadata and Documentation**: Files like `blueprint.md`, `signing.md`, `session-2026-03-06-context-protocol.md`, `scout_report_tensor_schema.md`, and `scout_report_indaleko_patterns.md` indicate that the system is actively documenting its internal logic and evolution, including how it relates to predecessor projects.",
+  "claim_file": "docs/scout_report_tensor_schema.md",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "google/gemini-2.0-flash-001",
+  "timestamp": "2026-04-07T22:34:30.646928+00:00"
+}

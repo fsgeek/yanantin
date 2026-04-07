@@ -1,0 +1,11 @@
+{
+  "id": "a0d40345-86a7-4999-8459-0877dc935203",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10206_20260407_gpt-5.4-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3698_20260228_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "In the absence of its text, we can only infer that provenance lives both in the header **and** in `signing.md`.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "openai/gpt-5.4-nano",
+  "timestamp": "2026-04-07T22:02:20.328173+00:00"
+}

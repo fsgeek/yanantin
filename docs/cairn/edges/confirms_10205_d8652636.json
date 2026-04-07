@@ -1,0 +1,11 @@
+{
+  "id": "d8652636-b0f8-4030-9bc2-3cb3f59b9e4d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10205_20260407_codestral-2508.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0113_20260212_mistral-medium-3.1.md",
+  "relation": "confirms",
+  "claim_text": "- `docs/cairn/T11_20260210_the_immune_system.md` describes this as an **epistemic immune system**: > \"The cairn has no immune system.",
+  "claim_file": "docs/cairn/T11_20260210_the_immune_system.md",
+  "claim_by": "mistralai/mistral-medium-3.1",
+  "verified_by": "mistralai/codestral-2508",
+  "timestamp": "2026-04-07T22:02:18.796612+00:00"
+}

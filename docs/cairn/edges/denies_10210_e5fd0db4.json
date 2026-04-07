@@ -1,0 +1,11 @@
+{
+  "id": "e5fd0db4-c412-41b2-b002-fc77d4da1686",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10210_20260407_gemma-4-26b-a4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9973_20260406_gemma-3-27b-it.md",
+  "relation": "denies",
+  "claim_text": "``` ### Reasoning The claim states the presence of `tools/phase1` and `tools/phase2` directories containing scripts like `probe.py`, `proxy.py`, and `replay.py` suggests a methodical approach to understanding and improving the codebase.",
+  "claim_file": "tools/phase1/probe.py",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "google/gemma-4-26b-a4b-it",
+  "timestamp": "2026-04-07T22:34:48.056512+00:00"
+}

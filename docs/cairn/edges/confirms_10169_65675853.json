@@ -1,0 +1,11 @@
+{
+  "id": "65675853-b763-400d-b29a-a48e4bc2ba36",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10169_20260407_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0038_20260212_qwen3-coder-next.md",
+  "relation": "confirms",
+  "claim_text": "Evidence:   - `src/yanantin/apacheta/renderer/markdown.py` already uses `interface.get_tensor(tid)` and `interface.query_correction_chain(...)`, implying those methods *must* be implemented elsewhere (e.g., in concrete backends like `DuckDBBackend`, `ArangoBackend`).",
+  "claim_file": "src/yanantin/apacheta/renderer/markdown.py",
+  "claim_by": "qwen/qwen3-coder-next",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-07T17:23:34.608741+00:00"
+}

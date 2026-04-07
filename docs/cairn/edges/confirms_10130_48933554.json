@@ -1,0 +1,11 @@
+{
+  "id": "48933554-90cd-4779-a646-d0f0eff2b357",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10130_20260407_qwen3-14b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7097_20260321_gemma-3-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "The documentation in `luminous-wiggling-rivest.md` is a good guide, but the code itself feels like it's actively *becoming* that documentation.",
+  "claim_file": "tmp/ubuntu-vm.claude/plans/luminous-wiggling-rivest.md",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "qwen/qwen3-14b",
+  "timestamp": "2026-04-07T12:09:47.770468+00:00"
+}

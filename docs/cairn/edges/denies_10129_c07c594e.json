@@ -1,0 +1,11 @@
+{
+  "id": "c07c594e-b280-4ec9-8dc7-021db4cdb998",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10129_20260407_llama-4-scout.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9503_20260404_gemma-3-4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I've deliberately *not* examined the `docx-js.md` file.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/docx-js.md",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "meta-llama/llama-4-scout",
+  "timestamp": "2026-04-07T12:09:36.231611+00:00"
+}

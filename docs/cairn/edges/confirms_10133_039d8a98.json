@@ -1,0 +1,11 @@
+{
+  "id": "039d8a98-fc08-41d8-aea8-4c205e4aaedd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10133_20260407_mistral-saba.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7957_20260325_ministral-3b-2512.md",
+  "relation": "confirms",
+  "claim_text": "- The file contains **no** explicit references to `weaver.py` or `__main__.py` in its code (not even as a string literal or import path).",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "mistralai/mistral-saba",
+  "timestamp": "2026-04-07T12:39:32.639649+00:00"
+}

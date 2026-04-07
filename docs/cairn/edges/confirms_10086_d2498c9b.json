@@ -1,0 +1,11 @@
+{
+  "id": "d2498c9b-1a65-429c-a613-094ca5674f77",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10086_20260407_gpt-5-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7314_20260322_olmo-3-7b-think.md",
+  "relation": "confirms",
+  "claim_text": "Mention `audit.py` or any other file.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "allenai/olmo-3-7b-think",
+  "verified_by": "openai/gpt-5-nano",
+  "timestamp": "2026-04-07T06:26:31.877837+00:00"
+}

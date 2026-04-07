@@ -1,0 +1,11 @@
+{
+  "id": "6407fee2-cb02-4a80-915d-10356827858b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10085_20260407_gemini-3.1-pro-preview-customt.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8461_20260328_llama-3.2-3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "I couldn't check the claim about the existence of `arango.py` and `duckdb.py` files, as they are not present in the provided source code.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "google/gemini-3.1-pro-preview-customtools",
+  "timestamp": "2026-04-07T06:26:24.008692+00:00"
+}

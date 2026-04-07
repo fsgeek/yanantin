@@ -1,0 +1,11 @@
+{
+  "id": "78d0d5da-a258-44ad-bdf8-e2a4ca05f1fe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10082_20260407_seed-2.0-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6457_20260317_phi-4.md",
+  "relation": "denies",
+  "claim_text": "The claim specifically references `src/yanantin/apacheta/operators/bootstrap.py` alongside `tests/unit/test_operators.py`, indicating a relationship between these two files within the context of the content provided.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "bytedance-seed/seed-2.0-mini",
+  "timestamp": "2026-04-07T05:53:46.213506+00:00"
+}

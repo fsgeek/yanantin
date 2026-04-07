@@ -1,0 +1,11 @@
+{
+  "id": "66432bd3-7447-47d4-baa1-614637d4d834",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10052_20260407_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2871_20260225_qwen3-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The file is self-contained and does not include any text that says: \u201cFor deeper context on predecessor projects, see `docs/predecessors.md`.\u201d The claim specifically references `CLAUDE.md` as containing this text, but **this content does not exist in the provided file**.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-04-07T01:43:12.096396+00:00"
+}

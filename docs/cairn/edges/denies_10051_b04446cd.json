@@ -1,0 +1,11 @@
+{
+  "id": "b04446cd-ba92-4c23-a84e-6ced95db708f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10051_20260407_rocinante-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7423_20260322_qwen3.5-9b.md",
+  "relation": "denies",
+  "claim_text": "Contains **no imports** of `yanantin/collector/base.py` 3.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "thedrummer/rocinante-12b",
+  "timestamp": "2026-04-07T01:43:09.620071+00:00"
+}

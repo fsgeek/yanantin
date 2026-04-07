@@ -1,0 +1,11 @@
+{
+  "id": "9f9b7a54-09c0-455a-8696-91fe4c49a5e8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10055_20260407_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4883_20260307_kimi-k2.5.md",
+  "relation": "denies",
+  "claim_text": "For example, `scout_2488_20260223_l3.3-euryale-70b.md` verifies a claim by `qwen/qwen3-30b-a3b` about whether `scout.py` references `succession.py`.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "moonshotai/kimi-k2.5",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-07T02:10:56.478444+00:00"
+}

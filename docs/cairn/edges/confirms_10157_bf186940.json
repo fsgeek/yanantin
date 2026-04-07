@@ -1,0 +1,11 @@
+{
+  "id": "bf186940-94e1-48c7-b3d6-b4f794d012f8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10157_20260407_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8305_20260327_llama-3.2-1b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "## Step 1: Read the file and identify the claim The claim is: \"The project includes extensive documentation and verification processes, such as scout reports (e.g., `scout_0513_20260214_minimax-m2.1.md`, `scout_1555_20260219_nova-micro-v1.md`) and test files (e.g., `tests/unit/test_openrouter.py`).",
+  "claim_file": "tests/unit/test_openrouter.py",
+  "claim_by": "meta-llama/llama-3.2-1b-instruct",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-04-07T15:49:51.160543+00:00"
+}

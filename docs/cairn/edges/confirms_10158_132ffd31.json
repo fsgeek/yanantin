@@ -1,0 +1,11 @@
+{
+  "id": "132ffd31-c01d-4fa4-8683-dd37fbf1f4e7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10158_20260407_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4733_20260306_trinity-mini.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **CONFIRMED**   ### Evidence   The file `src/yanantin/chasqui/scout.py` contains the exact text quoted in the claim:   ```python   \"\"\"Scout dispatch \u2014 send a messenger into the codebase.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-04-07T15:49:51.480205+00:00"
+}

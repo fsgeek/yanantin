@@ -1,0 +1,11 @@
+{
+  "id": "be6d0006-6225-4c3c-8c2e-84dc09a9c068",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10154_20260407_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9270_20260402_qwen2.5-coder-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The claim mentions `arango.py` and `memory.py`, but the file does not contain those names.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-04-07T15:19:43.616967+00:00"
+}

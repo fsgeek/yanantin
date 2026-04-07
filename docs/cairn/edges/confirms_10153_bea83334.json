@@ -1,0 +1,11 @@
+{
+  "id": "bea83334-ebba-4672-bc1c-cb99307de7d8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10153_20260407_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0377_20260214_aion-1.0-mini.md",
+  "relation": "confirms",
+  "claim_text": "- The **red_bar tests** (`test_immutability.py`, `test_least_privilege.py`, etc.) enforce core principles at the system level, creating a **constitutional layer**.",
+  "claim_file": "tests/red_bar/test_least_privilege.py",
+  "claim_by": "aion-labs/aion-1.0-mini",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-07T15:19:35.169862+00:00"
+}

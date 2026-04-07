@@ -1,0 +1,11 @@
+{
+  "id": "8a4fcf8d-26df-43c9-b30a-af5fcdec7b1c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10147_20260407_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6959_20260320_qwen-2.5-vl-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The file `docs/tensors.md` contains the following lines: ``` - The document does not mention `docs/tensors.md` ``` And also: ``` - The document does not mention `docs/predecessors.md` ``` ### Reasoning The claim states that the document does not mention `docs/tensors.md` and `docs/predecessors.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "qwen/qwen-2.5-vl-7b-instruct",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-04-07T14:14:49.857644+00:00"
+}

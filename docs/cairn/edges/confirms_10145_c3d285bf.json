@@ -1,0 +1,11 @@
+{
+  "id": "c3d285bf-3383-4beb-afdb-4f0acfd728b3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10145_20260407_mercury-2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8733_20260330_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "- Cannot confirm whether other files reference `docs/signing.md` \u2014 the claim is about mutual or networked references, but we only have one node of the graph.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "inception/mercury-2",
+  "timestamp": "2026-04-07T14:14:35.506389+00:00"
+}

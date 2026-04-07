@@ -1,0 +1,11 @@
+{
+  "id": "d2aa84be-ecdc-4b6a-a78e-0cd97a42fa44",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10151_20260407_gpt-4o-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8143_20260326_llama-3.1-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The evidence shows that the file imports and uses functions and classes from `arango.py`, which means it does reference `arango.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "openai/gpt-4o-mini",
+  "timestamp": "2026-04-07T14:47:45.873025+00:00"
+}

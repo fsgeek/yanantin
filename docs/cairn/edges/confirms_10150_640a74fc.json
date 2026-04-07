@@ -1,0 +1,11 @@
+{
+  "id": "640a74fc-cb5e-4a9d-913e-22392a82ab71",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10150_20260407_deepseek-v3.2-exp.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7195_20260321_qwen3-coder-flash.md",
+  "relation": "confirms",
+  "claim_text": "AI commits use the project's AI signing key (see `docs/signing.md`).\" None of these lines refer to `docs/CLAUDE.md` itself.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "deepseek/deepseek-v3.2-exp",
+  "timestamp": "2026-04-07T14:47:45.689022+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "e283756f-4f4e-41d9-88f5-0712dd9d082a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10146_20260407_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2293_20260222_granite-4.0-h-micro.md",
+  "relation": "denies",
+  "claim_text": "Additionally, I did not examine the specifics of the markdown parser implementation in `src/yanantin/apacheta/ingest/markdown_parser.py`, as this area falls outside my expertise.",
+  "claim_file": "src/yanantin/apacheta/ingest/markdown_parser.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-07T14:14:37.920466+00:00"
+}

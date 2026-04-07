@@ -1,0 +1,11 @@
+{
+  "id": "36f12c70-a653-4938-a214-cdb6b197abeb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10149_20260407_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8520_20260329_jamba-large-1.7.md",
+  "relation": "confirms",
+  "claim_text": "For example: - In `hookify.md`, Step 2 presents findings to the user and asks them to select behaviors to \"hookify\" and decide whether to block or warn for each.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/commands/hookify.md",
+  "claim_by": "ai21/jamba-large-1.7",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-07T14:47:36.884313+00:00"
+}

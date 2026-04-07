@@ -1,0 +1,11 @@
+{
+  "id": "c2186dba-9011-4dce-8e29-f39254a5aead",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10203_20260407_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9819_20260405_llama-3.1-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I chose not to examine `arctic-frost.md` and `golden-hour.md` due to time constraints.",
+  "claim_file": "tmp/ubuntu-vm.claude/theme-factory/themes/arctic-frost.md",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-07T21:32:19.322880+00:00"
+}

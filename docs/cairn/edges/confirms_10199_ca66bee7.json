@@ -1,0 +1,11 @@
+{
+  "id": "ca66bee7-1f8d-4304-8868-919516fc82ee",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10199_20260407_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3938_20260302_ui-tars-1.5-7b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence \"In the initial validation phase, `blueprint.md` is referenced in the `scout_1386_20260218_qwen3-vl-30b-a3b-instruct.md` file as a 'living state' of rules for the system.",
+  "claim_file": "docs/cairn/scout_1386_20260218_qwen3-vl-30b-a3b-instruct.md",
+  "claim_by": "bytedance/ui-tars-1.5-7b",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-04-07T21:00:07.564584+00:00"
+}

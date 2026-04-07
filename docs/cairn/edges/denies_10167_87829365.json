@@ -1,0 +1,11 @@
+{
+  "id": "87829365-c6b7-4653-ae84-0f786c9623c2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10167_20260407_o4-mini-high.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0433_20260214_grok-4-fast.md",
+  "relation": "denies",
+  "claim_text": "In `docs/cairn/scout_0050_20260212_claude-sonnet-4.5.md`, tests for provenance in `test_provenance.py` are critiqued as basic, but they complement this base by ensuring tensors (potentially including ML-derived ones) can't be altered post-creation.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "openai/o4-mini-high",
+  "timestamp": "2026-04-07T16:51:43.616916+00:00"
+}

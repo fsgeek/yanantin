@@ -1,0 +1,11 @@
+{
+  "id": "56878a90-fcfb-4310-b0fe-639668562f3f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10165_20260407_nova-2-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1022_20260216_nemotron-3-nano-30b-a3b.md",
+  "relation": "denies",
+  "claim_text": "- No content for `docs/predecessors.md` or `docs/tensors.md` was supplied, and none of the enumerated source listings mention those files explicitly.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "amazon/nova-2-lite-v1",
+  "timestamp": "2026-04-07T16:51:35.238199+00:00"
+}

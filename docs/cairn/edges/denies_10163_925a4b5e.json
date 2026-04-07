@@ -1,0 +1,11 @@
+{
+  "id": "925a4b5e-2c8b-46c2-b069-b0ee01aa3cad",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10163_20260407_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3352_20260227_deepseek-r1-distill-qwen-32b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The relevant lines from the file are: **Line 78**: \"These emerged from failures across predecessor projects.\" **Line 89**: \"For deeper context on predecessor projects, see `docs/predecessors.md`.\" ### Reasoning The claim specifies that `docs/predecessors.md` is referenced on line 78 of `CLAUDE.md`.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-04-07T16:22:14.244633+00:00"
+}

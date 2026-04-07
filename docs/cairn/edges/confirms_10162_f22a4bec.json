@@ -1,0 +1,11 @@
+{
+  "id": "f22a4bec-b5aa-4bdb-9136-41b1f31cc238",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10162_20260407_hermes-3-llama-3.1-405b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8762_20260330_gpt-oss-20b.md",
+  "relation": "confirms",
+  "claim_text": "The first file (`parsing-techniques.md`) is a \u201ccookbook\u201d for extracting YAML\u2011style frontmatter from a `.claude/<plugin>.local.md` file with pure bash, awk, sed, yq, and jq.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/plugin-settings/references/parsing-techniques.md",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "nousresearch/hermes-3-llama-3.1-405b",
+  "timestamp": "2026-04-07T16:22:12.999755+00:00"
+}

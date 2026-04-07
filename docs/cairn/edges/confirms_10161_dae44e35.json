@@ -1,0 +1,11 @@
+{
+  "id": "dae44e35-ff39-406d-8a88-7c5fca52edd2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10161_20260407_qwen3-next-80b-a3b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7081_20260321_rocinante-12b.md",
+  "relation": "confirms",
+  "claim_text": "In `document.py`, the `DocxXMLEditor` class includes methods for automatically generating RSIDs and applying them to new elements when inserting content.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/scripts/document.py",
+  "claim_by": "thedrummer/rocinante-12b",
+  "verified_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "timestamp": "2026-04-07T16:22:02.835233+00:00"
+}

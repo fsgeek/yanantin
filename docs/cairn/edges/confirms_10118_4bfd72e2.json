@@ -1,0 +1,11 @@
+{
+  "id": "4bfd72e2-5015-49ef-937d-d034206502d7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10118_20260407_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3445_20260227_qwen3-30b-a3b-instruct-2507.md",
+  "relation": "confirms",
+  "claim_text": "**I did not trace the `chasqui_pulse.py` cron job.** I saw it\u2019s invoked every 1\u20135 minutes, but not *how*\u2014no `crontab` or `systemd` config.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-07T10:36:15.099312+00:00"
+}

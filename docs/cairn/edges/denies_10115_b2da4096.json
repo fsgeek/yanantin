@@ -1,0 +1,11 @@
+{
+  "id": "b2da4096-d725-43f3-98d3-d09d3a81fac5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10115_20260407_glm-5.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4921_20260307_qwen2.5-coder-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "## The File Here is the actual content of `docs/cairn/scout_0856_20260216_llama-3.1-8b-instruct.md`: ``` llama-3.1-8b-instruct: 856 llama-3.1-8b-instruct: 856 llama-3.1-8b-instruct: 856 ll",
+  "claim_file": "docs/cairn/scout_0856_20260216_llama-3.1-8b-instruct.md",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "z-ai/glm-5",
+  "timestamp": "2026-04-07T10:07:28.409689+00:00"
+}

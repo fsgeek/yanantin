@@ -1,0 +1,11 @@
+{
+  "id": "b25d9218-317b-4d39-b74e-578ef7f019a4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10119_20260407_deepseek-chat-v3.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2695_20260224_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "#### Strand 5 \u2013 Recursion and Self-Similarity in Structure Throughout the filesystem, I see recursive patterns: tensor formats inside `docs/cairn/`, compositional logic inside `src/yanantin/apacheta/operators/`, and even naming conventions that echo earlier files (like `scout_1411_20260218_nemotron-nano-9b-v2.md`).",
+  "claim_file": "docs/cairn/scout_1411_20260218_nemotron-nano-9b-v2.md",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "deepseek/deepseek-chat-v3.1",
+  "timestamp": "2026-04-07T10:36:50.262925+00:00"
+}

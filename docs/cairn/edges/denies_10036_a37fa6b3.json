@@ -1,0 +1,11 @@
+{
+  "id": "a37fa6b3-3dfb-4ef5-b4bc-11895ed10977",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10036_20260406_kimi-k2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9909_20260406_llama-3.1-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence > \"From the file `docs/apacheta.md`, there is no mention of `tensors.md`, `apacheta.md`, or `predecessors.md`.\" The specific lines from the file that support this verdict are: ``` > There is no mention of `tensors.md`, `apacheta.md`, or `predecessors.md` in the file.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "moonshotai/kimi-k2",
+  "timestamp": "2026-04-06T23:35:06.985546+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "3957410e-87da-46df-8efe-5cd2d6d58744",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10039_20260407_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5648_20260311_devstral-2512.md",
+  "relation": "confirms",
+  "claim_text": "**Provenance Metadata Fields**: ```python source: SourceIdentifier = Field(default_factory=SourceIdentifier) timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc)) author_model_family: str = \"\" author_instance_id: str = \"\" context_budget_at_write: float | None = None predecessors_in_scope: tuple[UUID, ...] = Field(default_factory=tuple) interface_version: str = \"v1\" ``` ### Reasoning The claim states that the project implements \"robust provenance tracking mechanisms\" through `provenance.py`.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "mistralai/devstral-2512",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-07T00:04:06.087638+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "ab3c9dfc-bc3a-4ba1-b1d1-8f0da9765ee4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10035_20260406_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8388_20260328_qwen-2.5-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "- **Observation**: For instance, `pretooluse.py` checks if the tool name is `'Bash'` or one of the editing commands (`'Edit'`, `'Write'`, `'MultiEdit'`) to determine the appropriate event type.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/pretooluse.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-04-06T23:35:05.620769+00:00"
+}

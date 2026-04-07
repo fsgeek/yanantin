@@ -1,0 +1,11 @@
+{
+  "id": "b9d29edb-ac6a-49e7-8f86-7940c138e76c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10048_20260407_gemma-4-26b-a4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7533_20260323_qwen3-30b-a3b-instruct-2507.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   **DENIED** ### Evidence   The claim states:   > \"mistralai/ministral-8b-2512\" synthesizes observations from a previous scout's tensor about `src/yanantin/tinkuy/succession.py` and the broader Yanantin project.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "verified_by": "google/gemma-4-26b-a4b-it",
+  "timestamp": "2026-04-07T01:06:16.937177+00:00"
+}

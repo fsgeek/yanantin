@@ -1,0 +1,11 @@
+{
+  "id": "3f11de97-18dd-4625-866d-9dfeada08afd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10047_20260407_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5089_20260308_hermes-2-pro-llama-3-8b.md",
+  "relation": "denies",
+  "claim_text": "- Lines of interest: `operators/bootstrap.py`, `operators/correct.py`, `operators/dissent.py`, `operators/evolve.py`, `operators/negate.py` 4.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-07T01:05:58.946415+00:00"
+}

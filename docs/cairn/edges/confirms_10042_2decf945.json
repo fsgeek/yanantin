@@ -1,0 +1,11 @@
+{
+  "id": "2decf945-fdde-447d-834d-bab8a0252827",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10042_20260407_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5530_20260311_hermes-4-405b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence From `tests/integration/test_arango_real.py`: The docstring at the top of the file: ``` \"\"\"Integration tests for ArangoDB backend against REAL ArangoDB instance.",
+  "claim_file": "tests/integration/test_arango_real.py",
+  "claim_by": "nousresearch/hermes-4-405b",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-07T00:35:52.563775+00:00"
+}

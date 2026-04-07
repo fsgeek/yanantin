@@ -1,0 +1,11 @@
+{
+  "id": "bc089c1a-08f9-4b20-a6f2-89b5518aa843",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10043_20260407_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9831_20260405_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "**Pressure Test Scenarios** - The `test-pressure-1.md`, `test-pressure-2.md`, and `test-pressure-3.md` files present various scenarios that put the systematic debugging skill to the test.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/skills/systematic-debugging/test-pressure-2.md",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-04-07T00:35:53.949210+00:00"
+}

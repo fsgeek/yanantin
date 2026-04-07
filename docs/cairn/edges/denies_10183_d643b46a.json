@@ -1,0 +1,11 @@
+{
+  "id": "d643b46a-d4be-48c7-9513-60031a859fac",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10183_20260407_qwen3-vl-235b-a22b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4429_20260304_rocinante-12b.md",
+  "relation": "denies",
+  "claim_text": "However, these functions are not explicitly called or referenced in the provided `succession.py` file.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "thedrummer/rocinante-12b",
+  "verified_by": "qwen/qwen3-vl-235b-a22b-instruct",
+  "timestamp": "2026-04-07T18:55:56.560478+00:00"
+}

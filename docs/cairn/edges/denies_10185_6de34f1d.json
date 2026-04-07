@@ -1,0 +1,11 @@
+{
+  "id": "6de34f1d-b347-43ed-8f94-63ed8c52532e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10185_20260407_gpt-3.5-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0799_20260215_qwen2.5-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The `docs/apacheta.md` outlines Yanantin as a database for \"authored compressions with epistemic metadata and composition rules.\" The codebase is structured to preserve authorship, lineage, and provenance, as seen in the `src/yanantin/apacheta/interface/abstract.py` file, which defines the `ApachetaInterface` with invariants for immutability and explicit loss declaration.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "openai/gpt-3.5-turbo",
+  "timestamp": "2026-04-07T19:27:49.972541+00:00"
+}

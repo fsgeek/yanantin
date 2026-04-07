@@ -1,0 +1,11 @@
+{
+  "id": "d4003b48-1e66-440b-9948-c5fed21c11f0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10141_20260407_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7230_20260321_llama-3.3-70b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The file discusses a different topic, specifically the verdict on a claim related to a cairn tensor, and mentions other files such as `docs/cairn/T5_20260208_post_paper.md`.",
+  "claim_file": "docs/cairn/T5_20260208_post_paper.md",
+  "claim_by": "meta-llama/llama-3.3-70b-instruct",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-07T13:41:31.992087+00:00"
+}

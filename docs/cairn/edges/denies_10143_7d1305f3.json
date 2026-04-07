@@ -1,0 +1,11 @@
+{
+  "id": "7d1305f3-4f64-4fc8-891a-c693b67e946b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10143_20260407_kimi-k2-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0268_20260213_step-3.5-flash.md",
+  "relation": "denies",
+  "claim_text": "However, the claim says: *\u201ca test function `test_chasqui_files_non_empty(...)` confirms that `chasqui_files` is non\u2011empty and includes files like `coordinator.py` and `scout.py`.\u201d* It does **not** state that the test function is defined inside `coordinator.py`.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "stepfun/step-3.5-flash",
+  "verified_by": "moonshotai/kimi-k2-thinking",
+  "timestamp": "2026-04-07T13:44:52.774429+00:00"
+}

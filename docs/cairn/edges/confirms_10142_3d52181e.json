@@ -1,0 +1,11 @@
+{
+  "id": "3d52181e-56fc-443d-a020-13b15c2056b0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10142_20260407_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9823_20260405_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "Integration with External Backends - **Observation**: The `test_least_privilege.py` file verifies that the ArangoDB backend does not reference the `_system` database, and that the default username is not `root`.",
+  "claim_file": "tests/red_bar/test_least_privilege.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-04-07T13:41:32.052320+00:00"
+}

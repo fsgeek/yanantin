@@ -1,0 +1,11 @@
+{
+  "id": "7a4d52d9-bfe4-461c-9f89-36298b0dd203",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10137_20260407_gpt-4o-2024-08-06.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2097_20260221_molmo-2-8b.md",
+  "relation": "confirms",
+  "claim_text": "**Strand 1: Epistemic Metadata as Structural Artifact** The previous scout inferred that the `EpistemicMetadata` class in `src/yanantin/apacheta/models/epistemics.py` embodies a \u201cneutrosophic logic\u201d approach (lines 40-50), allowing tensors to exist in states of partial validity.",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "allenai/molmo-2-8b",
+  "verified_by": "openai/gpt-4o-2024-08-06",
+  "timestamp": "2026-04-07T13:11:37.908088+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "9081e7a3-24a5-4af4-991e-833402cb96c9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10173_20260407_qwq-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9873_20260406_glm-4-32b.md",
+  "relation": "confirms",
+  "claim_text": "The evidence is the entire content of the file provided, which is clearly `CLAUDE.md` as indicated by the title at the top: `# CLAUDE.md`.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "qwen/qwq-32b",
+  "timestamp": "2026-04-07T17:53:45.822731+00:00"
+}

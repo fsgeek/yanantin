@@ -1,0 +1,11 @@
+{
+  "id": "91ce4b08-b537-4eff-bd7f-0236c5c39d4b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10174_20260407_command-r-08-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7627_20260324_qwen3-vl-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The file I landed on\u2014`test_analyst.py`\u2014immediately stood out not for its size (406 lines of test code), but for its *purpose*: it\u2019s testing the **analysis pipeline** that runs *after* claims are extracted.",
+  "claim_file": "tests/unit/test_analyst.py",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "verified_by": "cohere/command-r-08-2024",
+  "timestamp": "2026-04-07T17:53:46.449764+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "efef6b04-0b92-4484-9f8d-6c3f3f6495c1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10177_20260407_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1492_20260218_mimo-v2-flash.md",
+  "relation": "confirms",
+  "claim_text": "Yet, the `operators` directory in `src/yanantin/apacheta/operators/` contains `evolve.py`, `correct.py`, and `dissent.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-07T18:25:42.983219+00:00"
+}

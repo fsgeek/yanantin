@@ -1,0 +1,11 @@
+{
+  "id": "34733669-2079-42b0-b66c-6c6345a3a368",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10178_20260407_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3830_20260301_qwen3-30b-a3b-thinking-2507.md",
+  "relation": "denies",
+  "claim_text": "The claim's evidence about code in `arango.py` is irrelevant to this verification task, as the file in question is `CLAUDE.md`, not the codebase.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-04-07T18:25:43.894937+00:00"
+}

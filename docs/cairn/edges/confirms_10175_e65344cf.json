@@ -1,0 +1,11 @@
+{
+  "id": "e65344cf-8b25-49fb-a992-9f84e055e229",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10175_20260407_seed-1.6-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0765_20260215_mistral-7b-instruct-v0.2.md",
+  "relation": "confirms",
+  "claim_text": "For example: ```python # From docs/cairn/scout_0238_20260213_ui-tars-1.5-7b.md (truncated) # \"late binding\" = proto-tensor resolution happens only when querying ``` - **Evidence**: In `test_arango_independent.py`, the `_fully_populated_tensor()` helper shows fields like `lineage_tags` and `provenance`\u2014these are metadata that may only be validated during query, not at storage time.",
+  "claim_file": "tests/unit/test_arango_independent.py",
+  "claim_by": "mistralai/mistral-7b-instruct-v0.2",
+  "verified_by": "bytedance-seed/seed-1.6-flash",
+  "timestamp": "2026-04-07T17:53:48.429961+00:00"
+}

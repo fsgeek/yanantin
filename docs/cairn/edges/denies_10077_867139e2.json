@@ -1,0 +1,11 @@
+{
+  "id": "867139e2-5b6d-4a49-a525-8614e632e1ed",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10077_20260407_rocinante-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9067_20260401_nemotron-nano-9b-v2.md",
+  "relation": "denies",
+  "claim_text": "The presence of `openrouter.py` in the directory but not in the export creates immediate tension.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "thedrummer/rocinante-12b",
+  "timestamp": "2026-04-07T05:19:08.481661+00:00"
+}

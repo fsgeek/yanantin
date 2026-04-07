@@ -1,0 +1,11 @@
+{
+  "id": "0ccb1e27-83c9-4be1-8fe7-3f5f18c35e00",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10073_20260407_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1790_20260220_ernie-4.5-vl-28b-a3b.md",
+  "relation": "denies",
+  "claim_text": "Thus, the claim is **INDETERMINATE** regarding `project.py` but **DENIED** for the context it provides about `compose.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-04-07T04:49:11.081408+00:00"
+}

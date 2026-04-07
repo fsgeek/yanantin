@@ -1,0 +1,11 @@
+{
+  "id": "5d47d906-fdf5-49a1-84db-83631da7a3e3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10078_20260407_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6724_20260318_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "The provided file is `dissent.py` itself, which lacks documentation confirming the existence of those listed files.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-04-07T05:19:10.123047+00:00"
+}

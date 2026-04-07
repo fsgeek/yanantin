@@ -1,0 +1,11 @@
+{
+  "id": "200c74df-1536-4a3a-b284-17ed4eb30357",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10105_20260407_qwen3-vl-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1974_20260221_mimo-v2-flash.md",
+  "relation": "confirms",
+  "claim_text": "It's stratified: -   `models/`: Defines the data structures (`tensor.py`, `composition.py`, `epistemics.py`, `provenance.py`).",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "qwen/qwen3-vl-32b-instruct",
+  "timestamp": "2026-04-07T09:02:22.798473+00:00"
+}

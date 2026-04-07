@@ -1,0 +1,11 @@
+{
+  "id": "125fffb7-0363-4030-8b0e-6e6ffa9c3c63",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10102_20260407_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3480_20260227_nova-lite-v1.md",
+  "relation": "denies",
+  "claim_text": "Garbage Detection Limits - **Observation**: The `precompact_tensor.py` script in `.claude/hooks` likely handles the detection and removal of \"garbage\" data before tensor compaction.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-04-07T08:31:13.690463+00:00"
+}

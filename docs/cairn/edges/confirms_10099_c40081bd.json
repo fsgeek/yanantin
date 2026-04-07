@@ -1,0 +1,11 @@
+{
+  "id": "c40081bd-b73b-4625-8e26-5bc341864585",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10099_20260407_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0395_20260214_l3-euryale-70b.md",
+  "relation": "confirms",
+  "claim_text": "The `src/yanantin/apacheta/models/tensor.py` file provides a detailed definition of the tensor data structure.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "sao10k/l3-euryale-70b",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-07T08:01:01.828745+00:00"
+}

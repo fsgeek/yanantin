@@ -1,0 +1,11 @@
+{
+  "id": "e5273d07-a521-41da-b5e6-7e0d963f8573",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10101_20260407_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3089_20260226_deepseek-chat.md",
+  "relation": "denies",
+  "claim_text": "By not connecting the file to `compose.py`'s `ProvenanceEnvelope` (scout_1657, Strand 1), the scout verified the leaf but missed the tree.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "deepseek/deepseek-chat",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-07T08:30:28.223639+00:00"
+}

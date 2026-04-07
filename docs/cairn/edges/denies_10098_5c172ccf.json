@@ -1,0 +1,11 @@
+{
+  "id": "5c172ccf-e6f1-4adb-879c-17baca1a7e6e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10098_20260407_gemini-2.5-flash-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2488_20260223_l3.3-euryale-70b.md",
+  "relation": "denies",
+  "claim_text": "Since `scout.py` is not mentioned in `succession.py`, this claim is accurate.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "sao10k/l3.3-euryale-70b",
+  "verified_by": "google/gemini-2.5-flash-lite",
+  "timestamp": "2026-04-07T08:00:19.936572+00:00"
+}

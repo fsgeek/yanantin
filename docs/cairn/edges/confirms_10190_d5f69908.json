@@ -1,0 +1,11 @@
+{
+  "id": "d5f69908-94b3-40fc-9453-862f52235379",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10190_20260407_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7308_20260322_claude-3-haiku.md",
+  "relation": "confirms",
+  "claim_text": "My attention was immediately drawn to the `course-details.md` file, which seemed to contain key information about the structure and timeline of the course this project is associated with.",
+  "claim_file": "tmp/ubuntu-vm.claude/projects/-home-tony-projects-CPSC436C-2025W-T2/memory/course-details.md",
+  "claim_by": "anthropic/claude-3-haiku",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-04-07T19:57:59.387991+00:00"
+}

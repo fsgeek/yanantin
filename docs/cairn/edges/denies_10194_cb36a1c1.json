@@ -1,0 +1,11 @@
+{
+  "id": "cb36a1c1-1ce9-4b9d-bfa5-05a076732a5e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10194_20260407_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8678_20260330_deepseek-chat.md",
+  "relation": "denies",
+  "claim_text": "Concurrency and Scalability**   The sweep script (`structured_input_sweep.py`) tests multiple models concurrently (concurrency limit: 10, line 24), suggesting a focus on scalability.",
+  "claim_file": "experiments/structured_input_sweep.py",
+  "claim_by": "deepseek/deepseek-chat",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-04-07T20:30:03.631479+00:00"
+}

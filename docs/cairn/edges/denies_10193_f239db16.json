@@ -1,0 +1,11 @@
+{
+  "id": "f239db16-aa8e-4b26-9305-cf14b7385d6d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10193_20260407_grok-4.20.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8204_20260327_seed-1.6-flash.md",
+  "relation": "denies",
+  "claim_text": "Specifically, it includes lines 11, 27, 47, and 57 with imports from `machine_config.py`, `filesystem.py`, `synthetic.py`, and `checksum.py`, which directly contradict the claim that the file \"only mentions `weaver.py` and `__main__.py`\".",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "x-ai/grok-4.20",
+  "timestamp": "2026-04-07T20:30:03.182451+00:00"
+}

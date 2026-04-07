@@ -1,0 +1,11 @@
+{
+  "id": "8f1cb174-9433-4a5d-8106-c01639acc743",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10191_20260407_llama-4-maverick.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1554_20260219_qwen3-vl-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Both parts are accurate:   - The file does not mention `apacheta.md` at all.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "verified_by": "meta-llama/llama-4-maverick",
+  "timestamp": "2026-04-07T19:58:01.974309+00:00"
+}

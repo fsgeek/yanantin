@@ -1,0 +1,11 @@
+{
+  "id": "6cc03246-4fa1-4cbe-ba2e-f7093dd3a176",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10189_20260407_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7957_20260325_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "- The file contains **no** explicit references to `weaver.py` or `__main__.py` in its code (not even as a string literal or import path).",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-07T19:57:58.532346+00:00"
+}

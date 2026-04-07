@@ -1,0 +1,11 @@
+{
+  "id": "6f8a4ded-0eeb-4606-9120-6ad5102c07a6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10094_20260407_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6889_20260319_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "*   **Accurate:** The file itself (`scout_0513_20260214_minimax-m2.1.md`) is confirmed as a scout report by its header (`Chasqui Scout Tensor`).",
+  "claim_file": "docs/cairn/scout_0513_20260214_minimax-m2.1.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-04-07T07:28:06.242863+00:00"
+}

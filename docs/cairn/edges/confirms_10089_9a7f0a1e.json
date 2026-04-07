@@ -1,0 +1,11 @@
+{
+  "id": "9a7f0a1e-de5e-4ca0-91e1-4bc28b159b1f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10089_20260407_ernie-4.5-21b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0066_20260212_glm-4-32b.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I did not delve into the specifics of the regular expression parsing logic in `docs/cairn/scour_0001_20260212_gemma-2-9b-it.md`.",
+  "claim_file": "docs/cairn/scour_0001_20260212_gemma-2-9b-it.md",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "baidu/ernie-4.5-21b-a3b",
+  "timestamp": "2026-04-07T06:58:10.554490+00:00"
+}

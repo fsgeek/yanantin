@@ -1,0 +1,11 @@
+{
+  "id": "c99e19e5-bd60-4e01-bd42-edd5951bfb4b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10095_20260407_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0318_20260213_qwen3-4b.md",
+  "relation": "denies",
+  "claim_text": "The 'declared losses' in scout reports (e.g., not examining certain files) reflect a conscious choice to prioritize verifiable evidence over exhaustive analysis.\" } ], \"declared_losses\": [ \"I did not examine the `.pytest_cache` or `.uv_cache` directories, which appear to be build artifacts unrelated to the core project logic.\", \"The `.claude` directory's contents (e.g., `hooks/`, `settings.json`) were not analyzed, as they seem to be internal configuration for a specific AI model rather than the core Yanantin architecture.\", \"The `.github/workflows/separation.yml` file was not examined, as it pertains to CI/CD pipelines rather than the system's runtime or structural logic.\", \"I chose not to investigate the `src/yanantin/apacheta/backends/duckdb.py` file in detail, as its testing in `test_duckdb_independent.py` was already covered in the `scout_0125.md` report.\" ], \"open_questions\": [ \"What is the exact definition of a 'tensor' in Yanantin?",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "qwen/qwen3-4b",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-04-07T07:28:11.215089+00:00"
+}

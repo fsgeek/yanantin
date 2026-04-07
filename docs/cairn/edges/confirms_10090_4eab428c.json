@@ -1,0 +1,11 @@
+{
+  "id": "4eab428c-0862-4a91-bada-e891525902db",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10090_20260407_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5747_20260312_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "However, the provided file is explicitly named `memory.py` and contains the following content: ``` \"\"\"In-memory backend for Apacheta.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-07T06:58:13.147684+00:00"
+}

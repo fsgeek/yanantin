@@ -1,0 +1,11 @@
+{
+  "id": "44cb62ab-92c1-4e2f-a0e6-6c80a4a8289b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10059_20260407_rnj-1-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8995_20260401_gpt-oss-20b.md",
+  "relation": "denies",
+  "claim_text": "``` No references to `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, or the concept \u201cverbs of the system\u201d appear in this file.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "essentialai/rnj-1-instruct",
+  "timestamp": "2026-04-07T02:43:14.796835+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "b3ea2314-40a7-4a7c-9234-c7e798c5b673",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10058_20260407_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0142_20260212_glm-4.6.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `tests/unit/test_arango_independent.py` is clearly provided and exists.",
+  "claim_file": "tests/unit/test_arango_independent.py",
+  "claim_by": "z-ai/glm-4.6",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-04-07T02:42:58.869436+00:00"
+}

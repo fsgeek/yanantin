@@ -1,0 +1,11 @@
+{
+  "id": "9ec0e723-de3b-40aa-b3f8-56190f0fd2a7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10063_20260407_qwen3-30b-a3b-thinking-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8421_20260328_olmo-3.1-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The comment and code state: ``` correction = CorrectionRecord(...) interface.store_correction(correction) if correcting_tensor is not None: edge = CompositionEdge( ..., relation_type=RelationType.CORRECTS, provenance=prov, ) interface.store_composition_edge(edge) ``` This directly supports the claim that operators such as `correct.py` \"handle ...",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "allenai/olmo-3.1-32b-instruct",
+  "verified_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "timestamp": "2026-04-07T03:14:03.772471+00:00"
+}

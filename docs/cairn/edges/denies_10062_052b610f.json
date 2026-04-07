@@ -1,0 +1,11 @@
+{
+  "id": "052b610f-ac4b-4ac3-952d-b5443534f255",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10062_20260407_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8660_20260330_qwen3-next-80b-a3b-thinking.md",
+  "relation": "denies",
+  "claim_text": "The term \"materialize\" appears nowhere in the file, contradicting the claim's mention of `materialize.py` as part of the module (though we cannot confirm the module's full structure from this single file, the *functional claim* about \"creating new tensors\" is definitively false).",
+  "claim_file": "src/yanantin/awaq/materialize.py",
+  "claim_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-04-07T03:13:53.759308+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "7ab73d95-9e6b-4fdf-bc03-8616b4b33fa1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10057_20260407_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7223_20260321_qwen-vl-max.md",
+  "relation": "confirms",
+  "claim_text": "**The Hidden Architecture of the CLAUDE.md Ecosystem**   The `quality-criteria.md` file is structured like a **grading rubric** \u2014 almost like a teacher evaluating a student\u2019s work.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/claude-md-management/skills/claude-md-improver/references/quality-criteria.md",
+  "claim_by": "qwen/qwen-vl-max",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-07T02:42:57.787561+00:00"
+}

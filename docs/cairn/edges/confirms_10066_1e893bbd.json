@@ -1,0 +1,11 @@
+{
+  "id": "1e893bbd-b3ad-4b05-8823-179a63e784fb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10066_20260407_solar-pro-3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0024_20260212_qwen-2.5-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Specific modules like `openrouter.py` and `arango.py` handle these integrations.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "upstage/solar-pro-3",
+  "timestamp": "2026-04-07T03:46:00.014794+00:00"
+}

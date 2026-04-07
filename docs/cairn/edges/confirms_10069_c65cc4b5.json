@@ -1,0 +1,11 @@
+{
+  "id": "c65cc4b5-d254-473e-b865-4277adb65176",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10069_20260407_llama-3.3-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5302_20260309_gemma-3-12b-it.md",
+  "relation": "confirms",
+  "claim_text": "The provided code from `src/yanantin/chasqui/model_selector.py` does contain `exclude_patterns: list[str] = field(default_factory=list)`, but there is no mention of `scripts/ingest_cairn.py` or `model_selector.py` within this file.",
+  "claim_file": "scripts/ingest_cairn.py",
+  "claim_by": "google/gemma-3-12b-it",
+  "verified_by": "meta-llama/llama-3.3-70b-instruct",
+  "timestamp": "2026-04-07T04:17:05.300062+00:00"
+}

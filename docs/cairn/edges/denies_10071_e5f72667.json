@@ -1,0 +1,11 @@
+{
+  "id": "e5f72667-6b65-4963-8a01-53ba04316fac",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10071_20260407_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8640_20260330_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "Note that the file does not import or reference `compose.py` or `correct.py` as claimed, but it does import from another module (`yanantin.apacheta.models.composition`), which was not part of the original claim.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-07T04:17:17.891416+00:00"
+}

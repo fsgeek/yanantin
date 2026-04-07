@@ -1,0 +1,11 @@
+{
+  "id": "bce3fd25-c79a-4953-98b4-7a9998222693",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10067_20260407_deepseek-v3.2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1697_20260219_llama-3.2-3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I chose not to examine the actual source code files in `src/yanantin/` (e.g., not diving into `apacheta/models/composition.py` beyond the snippet in `scout_1056`), because the task says \"What catches your attention is data,\" and the scout reports are the primary data\u2014examining code directly would be like cheating on my role.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "deepseek/deepseek-v3.2",
+  "timestamp": "2026-04-07T03:46:04.944162+00:00"
+}

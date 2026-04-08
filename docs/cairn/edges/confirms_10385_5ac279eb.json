@@ -1,0 +1,11 @@
+{
+  "id": "5ac279eb-adc8-4030-9629-267171ef1dd1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10385_20260408_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8540_20260329_qwen3-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "- **`test_governance.py`**: The \"repetition loop\" guard (scout 0983) is mentioned, but the actual implementation of `dispatch_verify` isn\u2019t analyzed.",
+  "claim_file": "tests/red_bar/test_governance.py",
+  "claim_by": "qwen/qwen3-30b-a3b",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-08T21:30:47.793811+00:00"
+}

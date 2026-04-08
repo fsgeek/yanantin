@@ -1,0 +1,11 @@
+{
+  "id": "3f2bba99-30b2-4ac9-8340-cc82f20b981f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10383_20260408_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4939_20260307_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "- **The `tests/` Directory:** I saw `test_chasqui.py`, `test_tinkuy_audit.py`, etc., but I did not run them.",
+  "claim_file": "tests/unit/test_chasqui.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-08T20:59:02.756166+00:00"
+}

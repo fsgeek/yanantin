@@ -1,0 +1,11 @@
+{
+  "id": "1393bb03-d24e-45e9-86bd-d75b38b8e066",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10275_20260408_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8810_20260331_ministral-8b-2512.md",
+  "relation": "confirms",
+  "claim_text": "The \"Duplicate Slide Layout\" Validation** **Files:** `pptx.py` (lines ~166-200) **Observation:** - The PPTX validator **checks for duplicate slide layout IDs** (`validate_no_duplicate_slide_layouts`).",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/pptx.py",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-08T06:53:46.815530+00:00"
+}

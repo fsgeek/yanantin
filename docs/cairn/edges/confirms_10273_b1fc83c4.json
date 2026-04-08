@@ -1,0 +1,11 @@
+{
+  "id": "b1fc83c4-c9b8-487d-b590-c09d46ba4825",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10273_20260408_mistral-small-creative.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4589_20260305_olmo-3.1-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses The claim references a different file (`yanantin/apacheta/__init__.py`) than the one provided for verification (`tests/__init__.py`).",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "allenai/olmo-3.1-32b-instruct",
+  "verified_by": "mistralai/mistral-small-creative",
+  "timestamp": "2026-04-08T06:53:43.885066+00:00"
+}

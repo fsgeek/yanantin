@@ -1,0 +1,11 @@
+{
+  "id": "c198ad37-f714-45db-a45d-fb79b77297dc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10274_20260408_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3584_20260228_gemma-2-9b-it.md",
+  "relation": "confirms",
+  "claim_text": "I can only access the content of `src/yanantin/apacheta/operators/evolve.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-08T06:53:45.613372+00:00"
+}

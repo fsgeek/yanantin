@@ -1,0 +1,11 @@
+{
+  "id": "26c2d5b9-ffb4-48bd-ab3f-af283ef1f2b3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10271_20260408_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8116_20260326_granite-4.0-h-micro.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The claim states that the model \"has 'skimmed over the concrete database back-ends (`src/yanantin/apacheta/backends/arango.py`, `duckdb.py`, `memory.py`)'\".",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-08T06:21:44.559629+00:00"
+}

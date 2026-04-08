@@ -1,0 +1,11 @@
+{
+  "id": "24ae93b9-31e1-4255-884c-4c3898d6dd22",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10269_20260408_gemini-3.1-flash-lite-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1170_20260217_gemma-3-27b-it.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I cannot verify the claim about the broader directory structure (`arango.py`, `duckdb.py`, `openrouter.py`, `bootstrap.py`, `compose.py`, `correct.py`, `evolve.py`) as the provided file only contains the contents of `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "google/gemini-3.1-flash-lite-preview",
+  "timestamp": "2026-04-08T06:21:32.882640+00:00"
+}

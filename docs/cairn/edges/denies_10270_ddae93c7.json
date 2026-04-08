@@ -1,0 +1,11 @@
+{
+  "id": "ddae93c7-f10b-440e-84db-e46e49116249",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10270_20260408_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7548_20260323_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "<br>\u2022 `.claude/hooks` contains `precompact_tensor.py`, `capture_compaction.py`, `chasqui_pulse.py`, `chasqui_heartbeat.sh`.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-08T06:21:33.869717+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "a0e34c7a-c0cd-4f99-bacc-59d876afc62d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10371_20260408_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8357_20260328_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence In the provided `evolve.py` file, there is no mention of `bootstrap.py`, nor any indication of a decoupled approach or schema migrations.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-04-08T19:26:47.687601+00:00"
+}

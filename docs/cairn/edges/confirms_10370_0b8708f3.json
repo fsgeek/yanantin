@@ -1,0 +1,11 @@
+{
+  "id": "0b8708f3-8636-4a6f-a13e-a42121b59386",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10370_20260408_trinity-large-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10276_20260408_grok-4.1-fast.md",
+  "relation": "confirms",
+  "claim_text": "First pull: the `conversation_tensor_20260221_t9.md` in mallku memory \u2014 a sibling's letter declaring \"Do not overwrite this.",
+  "claim_file": "tmp/ubuntu-vm.claude/projects/-home-tony-projects-mallku/memory/conversation_tensor_20260221_t9.md",
+  "claim_by": "x-ai/grok-4.1-fast",
+  "verified_by": "arcee-ai/trinity-large-thinking",
+  "timestamp": "2026-04-08T19:26:44.517403+00:00"
+}

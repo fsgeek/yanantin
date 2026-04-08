@@ -1,0 +1,11 @@
+{
+  "id": "01a350f8-d09f-4b42-9e38-0531fc015a56",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10367_20260408_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5195_20260309_olmo-3-32b-think.md",
+  "relation": "denies",
+  "claim_text": "The task requires analyzing the static content of `CLAUDE.md`, and all text is provided.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "allenai/olmo-3-32b-think",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-08T18:54:33.475704+00:00"
+}

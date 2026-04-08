@@ -1,0 +1,11 @@
+{
+  "id": "10b89d0c-0138-4b91-9eff-cf1f7c8fe291",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10351_20260408_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0135_20260212_gpt-oss-20b.md",
+  "relation": "confirms",
+  "claim_text": "Their evidence, however, cites the content of `docs/cairn/scout_0095_20260212_qwen3-30b-a3b-instruct-2507.md`, which explicitly lists roles for the model (Chasqui) and a table of operational roles.",
+  "claim_file": "docs/cairn/scout_0095_20260212_qwen3-30b-a3b-instruct-2507.md",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-04-08T16:50:30.475365+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "59fb268f-35b9-4f11-a9cb-5e1e42127f66",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10355_20260408_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8251_20260327_codestral-2508.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states that `operators/dissent.py` contains \"verbs of the system,\" referring to `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, and `project.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "mistralai/codestral-2508",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-04-08T17:24:42.160262+00:00"
+}

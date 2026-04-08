@@ -1,0 +1,11 @@
+{
+  "id": "5bc58448-b838-4c9a-b14e-9ff4ed51964e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10350_20260408_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9754_20260405_qwen3-coder-next.md",
+  "relation": "confirms",
+  "claim_text": "The only imports are: ```python from yanantin.apacheta.models.composition import ( CompositionEdge, DissentRecord, RelationType, ) ``` There is no file named `compose.py` referenced, imported, or discussed.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "qwen/qwen3-coder-next",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-04-08T16:50:25.851330+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "14a073d6-ecbb-4db8-8133-f2f842856c5b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10329_20260408_gemini-2.5-flash-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8875_20260331_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "The filename `userpromptsubmit.py` is not written anywhere in the code 2.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/userpromptsubmit.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "google/gemini-2.5-flash-lite",
+  "timestamp": "2026-04-08T14:15:00.267461+00:00"
+}

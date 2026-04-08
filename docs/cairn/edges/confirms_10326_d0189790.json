@@ -1,0 +1,11 @@
+{
+  "id": "d0189790-2391-4617-84cc-da04969bde37",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10326_20260408_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6439_20260317_qwen3-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "Three architecturally different backends (dict, SQL, document/graph) keep the interface honest.\" This explicitly references \"in-memory\" and \"DuckDB\" as backends but does **not** mention `arango.py`, `duckdb.py`, or `memory.py` by name.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "qwen/qwen3-30b-a3b",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-08T13:41:53.141041+00:00"
+}

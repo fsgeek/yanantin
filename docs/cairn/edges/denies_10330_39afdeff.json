@@ -1,0 +1,11 @@
+{
+  "id": "39afdeff-101a-4b04-a39a-d06a629f5225",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10330_20260408_rocinante-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4690_20260306_ernie-4.5-vl-28b-a3b.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I could not check whether `scout_0313` discussed \"declared losses\" as negative evidence because:   - The file (`T12_20260210_the_fortress.md`) does not reference `scout_0313` or its methodology.",
+  "claim_file": "docs/cairn/T12_20260210_the_fortress.md",
+  "claim_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "verified_by": "thedrummer/rocinante-12b",
+  "timestamp": "2026-04-08T14:15:03.812516+00:00"
+}

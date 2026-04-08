@@ -1,0 +1,11 @@
+{
+  "id": "917bf41c-b86a-44c9-a9ad-bbe404fa603d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10325_20260408_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0789_20260215_qwen3-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The \u201cblue-bar\u201d tests, mentioned in `docs/cairn/scout_0386_20260214_hermes-2-pro-llama-3-8b.md`, seem to be more exploratory, verifying behavior in edge cases.",
+  "claim_file": "docs/cairn/scout_0386_20260214_hermes-2-pro-llama-3-8b.md",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-04-08T13:41:52.349588+00:00"
+}

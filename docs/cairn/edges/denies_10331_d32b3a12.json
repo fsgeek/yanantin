@@ -1,0 +1,11 @@
+{
+  "id": "d32b3a12-79e1-4bba-ad4a-d01f7d078bcf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10331_20260408_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9481_20260403_voxtral-small-24b-2507.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states that the `bootstrap.py` file is about \"Declared Losses I can only analyze the content of the provided `bootstrap.py` file.\" The file content provided matches this description.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "mistralai/voxtral-small-24b-2507",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-04-08T14:15:12.175312+00:00"
+}

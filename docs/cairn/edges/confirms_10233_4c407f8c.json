@@ -1,0 +1,11 @@
+{
+  "id": "4c407f8c-945d-426c-abf5-d5e2b0f456fb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10233_20260408_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8325_20260327_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `src/yanantin/chasqui/model_selector.py` is complete and contains all the mentioned modules: ``` from __future__ import annotations import random from dataclasses import dataclass, field from typing import Any # ...",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-08T01:43:36.585205+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "1f81cce1-659a-4aae-94f1-7060089a71d3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10234_20260408_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6442_20260317_ernie-4.5-vl-28b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states:   > \"The file explicitly lists `docs/apacheta.md` for deeper context (item #5)\" However, the actual file `docs/tensors.md` contains no mention of `docs/apacheta.md` at any point.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-08T01:43:37.244134+00:00"
+}

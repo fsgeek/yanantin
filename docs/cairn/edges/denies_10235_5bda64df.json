@@ -1,0 +1,11 @@
+{
+  "id": "5bda64df-82d3-4b36-acd4-36dcae589b77",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10235_20260408_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10088_20260407_qwen3-vl-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "> In `test_collector_isomorphism.py`, the `CollectorIsomorphism` stores tensors \u2014 it expects inputs to be predictable \u2014 because truth must be verifiable.",
+  "claim_file": "tests/unit/test_collector_isomorphism.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-08T01:43:37.522846+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "5cc81f76-5788-4dc3-8fd6-4ae992beb59b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10242_20260408_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3544_20260228_qwen3-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "**Extending the Role of Content Addressing**   - The `content_address.py` file\u2019s use of SHA-256 hashes for deduplication and identity is well-documented.",
+  "claim_file": "src/yanantin/apacheta/content_address.py",
+  "claim_by": "qwen/qwen3-30b-a3b",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-08T02:45:41.663856+00:00"
+}

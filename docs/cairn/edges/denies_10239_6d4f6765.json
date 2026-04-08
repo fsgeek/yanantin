@@ -1,0 +1,11 @@
+{
+  "id": "6d4f6765-51bf-4e08-9522-1e721fde45e4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10239_20260408_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3945_20260302_granite-4.0-h-micro.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The file `src/yanantin/apacheta/operators/dissent.py` contains the following lines: ```python from yanantin.apacheta.models.composition import ( CompositionEdge, DissentRecord, RelationType, ) ``` The claim states that `operators/dissent.py` contains \"verbs of the system,\" referring to `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, and `project.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-04-08T02:14:51.741359+00:00"
+}

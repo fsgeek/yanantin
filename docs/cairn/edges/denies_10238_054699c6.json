@@ -1,0 +1,11 @@
+{
+  "id": "054699c6-70b8-4006-af9e-34ac94bb5a7e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10238_20260408_seed-1.6.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0659_20260215_olmo-3-7b-think.md",
+  "relation": "denies",
+  "claim_text": "- `.claude` hooks (e.g., `capture_compaction.py`) suggest Claude\u2019s involvement in post-commit tensor capture, but their logic is opaque.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "allenai/olmo-3-7b-think",
+  "verified_by": "bytedance-seed/seed-1.6",
+  "timestamp": "2026-04-08T02:14:02.515328+00:00"
+}

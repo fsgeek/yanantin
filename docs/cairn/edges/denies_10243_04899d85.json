@@ -1,0 +1,11 @@
+{
+  "id": "04899d85-06de-4d20-939c-7eee1ee7dada",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10243_20260408_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9227_20260402_qwen-plus-2025-07-28:thinking.md",
+  "relation": "denies",
+  "claim_text": "Even more fascinating, `scout_4484_20260305_lfm-2.2-6b.md` is empty except for its metadata, yet it references a \"fabrication hypothesis\" and claims about `docs/predecessors.md` that other scouts later contradict.",
+  "claim_file": "docs/cairn/scout_4484_20260305_lfm-2.2-6b.md",
+  "claim_by": "qwen/qwen-plus-2025-07-28:thinking",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-08T02:45:41.958148+00:00"
+}

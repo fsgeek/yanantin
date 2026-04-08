@@ -1,0 +1,11 @@
+{
+  "id": "87754314-14d8-4e5b-89c5-83427907933e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10237_20260408_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6366_20260316_phi-4.md",
+  "relation": "confirms",
+  "claim_text": "Repository: `/home/tony/projects/thesis` ``` ### Reasoning The claim by `z-ai/glm-4.7-flash` states that there is a \"semantic drift\" concerning the documentation files `apacheta.md`, `tensors.md`, and `predecessors.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-04-08T02:13:27.110928+00:00"
+}

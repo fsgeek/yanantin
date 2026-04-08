@@ -1,0 +1,11 @@
+{
+  "id": "6aa450cd-c537-4d72-9bb0-ac608c03da0b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10402_20260408_llama-3.3-nemotron-super-49b-v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5747_20260312_mistral-small-24b-instruct-250.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim asserts that the lack of `memory.py` is relevant because the file only shows `duckdb.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "timestamp": "2026-04-08T23:35:07.351310+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "f1a6cdd9-56c0-4d69-9ea5-d01b1f13e59f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10403_20260408_deepseek-v3.1-nex-n1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7482_20260323_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The file `src/yanantin/chasqui/scourer.py` contains the following relevant sections: - **Scope definition**   ```python VALID_SCOPES = {\"introspection\", \"external\", \"tensor\", \"synthesis\"} ``` This explicitly lists the allowed scopes.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "nex-agi/deepseek-v3.1-nex-n1",
+  "timestamp": "2026-04-08T23:35:13.064738+00:00"
+}

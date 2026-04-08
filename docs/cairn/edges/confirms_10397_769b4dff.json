@@ -1,0 +1,11 @@
+{
+  "id": "769b4dff-58d8-4e7e-8ff7-5c4caaf7c0aa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10397_20260408_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8240_20260327_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I could not determine what specific instruction or claim was referred to by \"1.\" in the original claim, as it is not present in the provided `CLAUDE.md` file.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-04-08T23:02:51.932207+00:00"
+}

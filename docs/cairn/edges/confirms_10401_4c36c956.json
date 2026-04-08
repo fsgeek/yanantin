@@ -1,0 +1,11 @@
+{
+  "id": "4c36c956-3a51-442b-b77c-09dbe72d9463",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10401_20260408_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2494_20260223_llama-3.2-3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I chose not to respond to the following aspects of the previous report: * The implementation details of the `ingest_cairn.py` script in `src/yanantin/apacheta/ingest/tensor_ballot.py` and `src/yanantin/apacheta/clients/openrouter.py` due to their complexity and my limited attention span.",
+  "claim_file": "scripts/ingest_cairn.py",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-08T23:34:51.920741+00:00"
+}

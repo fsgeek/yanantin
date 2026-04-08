@@ -1,0 +1,11 @@
+{
+  "id": "a2a0a9a6-ba25-4206-afed-f89fe32c0de2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10398_20260408_mistral-small-creative.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8120_20260326_gpt-4o-mini-2024-07-18.md",
+  "relation": "denies",
+  "claim_text": "Therefore, there is indeed no evidence that `succession.py` enforces any constraints against claims dispatched by `scout.py`.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "openai/gpt-4o-mini-2024-07-18",
+  "verified_by": "mistralai/mistral-small-creative",
+  "timestamp": "2026-04-08T23:02:57.863552+00:00"
+}

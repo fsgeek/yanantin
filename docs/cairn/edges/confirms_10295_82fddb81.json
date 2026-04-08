@@ -1,0 +1,11 @@
+{
+  "id": "82fddb81-8504-4ca3-bec3-e8489da5d295",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10295_20260408_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8634_20260330_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "- Some tests, like `test_collector_cli.py` and `test_scout_features.py`, seem to be more integration-focused, testing how different components interact.",
+  "claim_file": "tests/unit/test_collector_cli.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-08T09:31:06.327712+00:00"
+}

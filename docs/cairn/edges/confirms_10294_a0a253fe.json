@@ -1,0 +1,11 @@
+{
+  "id": "a0a253fe-ac97-425e-b69f-8175d025a52c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10294_20260408_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7773_20260324_glm-4-32b.md",
+  "relation": "confirms",
+  "claim_text": "**Strand 2: Memory Anchors and the Write Gate** The `MemoryAnchorService` in `anchor.py` is a fascinating component that manages the lifecycle of memory anchors, which serve as lightweight cursors in the activity stream.",
+  "claim_file": "src/yanantin/activity/anchor.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-08T09:30:59.451835+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "c9cf35af-2944-43a5-9e16-f743bb444dba",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10299_20260408_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8344_20260328_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "Epistemic Accounting as First-Class Protocol   In `attestation.py`, truth isn\u2019t boolean \u2014 it\u2019s a **(T/I/F) vector**, mapped from verdicts like `\"CONFIRMED\"` \u2192 `(0.7, 0.3, 0.0)`.",
+  "claim_file": "src/yanantin/chasqui/attestation.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-08T10:02:50.755334+00:00"
+}

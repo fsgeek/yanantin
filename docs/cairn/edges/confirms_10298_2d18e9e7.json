@@ -1,0 +1,11 @@
+{
+  "id": "2d18e9e7-a15e-42a6-805b-aad3c8f109c4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10298_20260408_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9530_20260404_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "However, I did read the content of the file `docs/cairn/scout_3554_20260228_claude-opus-4.6.md`, which is the basis of my INDETERMINATE verdict.",
+  "claim_file": "docs/cairn/scout_3554_20260228_claude-opus-4.6.md",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-04-08T10:02:50.623144+00:00"
+}

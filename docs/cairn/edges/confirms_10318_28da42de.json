@@ -1,0 +1,11 @@
+{
+  "id": "28da42de-7e2a-40cd-b369-19f01249d21b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10318_20260408_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3381_20260227_mistral-large-2512.md",
+  "relation": "confirms",
+  "claim_text": "- `tests/unit/test_tinkuy_audit.py` (referenced in `scout_0064_20260212_grok-3-mini.md`) verifies the audit tool's behavior, which surveys the filesystem and checks patterns.",
+  "claim_file": "tests/unit/test_tinkuy_audit.py",
+  "claim_by": "mistralai/mistral-large-2512",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-04-08T12:40:21.378907+00:00"
+}

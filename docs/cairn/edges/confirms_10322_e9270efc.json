@@ -1,0 +1,11 @@
+{
+  "id": "e9270efc-9814-4d74-accc-052bc87b0ffe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10322_20260408_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4860_20260307_voxtral-small-24b-2507.md",
+  "relation": "confirms",
+  "claim_text": "However, the provided file `src/yanantin/apacheta/operators/evolve.py` does not include any testing code or references to `test_operators.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "mistralai/voxtral-small-24b-2507",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-08T13:11:50.550240+00:00"
+}

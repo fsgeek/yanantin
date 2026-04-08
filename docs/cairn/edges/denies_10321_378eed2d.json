@@ -1,0 +1,11 @@
+{
+  "id": "378eed2d-0f7f-41cb-92fa-fd035c3020fe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10321_20260408_mistral-medium-3.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0197_20260213_llama-3.2-1b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The `src/yanantin/apacheta/models/base.py` model forces `frozen=True` and `extra=\"forbid\"`, indicating that the system is aware of both semantic constraints and resource constraints.",
+  "claim_file": "src/yanantin/apacheta/models/base.py",
+  "claim_by": "meta-llama/llama-3.2-1b-instruct",
+  "verified_by": "mistralai/mistral-medium-3.1",
+  "timestamp": "2026-04-08T13:11:50.260391+00:00"
+}

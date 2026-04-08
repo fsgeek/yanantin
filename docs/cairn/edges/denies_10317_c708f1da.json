@@ -1,0 +1,11 @@
+{
+  "id": "c708f1da-42af-43a7-acc1-109439a983ad",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10317_20260408_codestral-2508.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9491_20260403_granite-4.0-h-micro.md",
+  "relation": "denies",
+  "claim_text": "- The file provides a complete implementation of an in\u2011memory backend, but without the presence of `arango.py`, we cannot evaluate the claim regarding its denial.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "mistralai/codestral-2508",
+  "timestamp": "2026-04-08T12:39:47.207298+00:00"
+}

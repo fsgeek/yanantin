@@ -1,0 +1,11 @@
+{
+  "id": "0d5fc95d-0f1b-4640-8b11-fec9ec1442d5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10323_20260408_mistral-large-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3601_20260228_grok-4.1-fast.md",
+  "relation": "confirms",
+  "claim_text": "- `negate.py`: Exists in tree, but what does it *do* to tensors (archive?",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "x-ai/grok-4.1-fast",
+  "verified_by": "mistralai/mistral-large-2512",
+  "timestamp": "2026-04-08T13:11:58.588404+00:00"
+}

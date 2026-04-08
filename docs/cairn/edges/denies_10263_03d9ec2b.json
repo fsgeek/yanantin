@@ -1,0 +1,11 @@
+{
+  "id": "03d9ec2b-7b89-46a1-83ca-d40e210b7e14",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10263_20260408_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0928_20260216_deepseek-r1-distill-llama-70b.md",
+  "relation": "denies",
+  "claim_text": "- Does the `store_tensor` method in `memory.py` perform any semantic checks for immutability, or is it purely syntactic?",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "deepseek/deepseek-r1-distill-llama-70b",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-04-08T05:20:33.164727+00:00"
+}

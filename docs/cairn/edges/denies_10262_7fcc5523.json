@@ -1,0 +1,11 @@
+{
+  "id": "7fcc5523-24a3-4548-99cd-d600e76c4024",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10262_20260408_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4971_20260307_kimi-k2-thinking.md",
+  "relation": "denies",
+  "claim_text": "Don't try to understand everything; instead, follow a single tensor's lifecycle from creation in `scout.py`, through verification in a later scout report, to potential composition in `operators/compose.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "moonshotai/kimi-k2-thinking",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-04-08T05:19:51.238157+00:00"
+}

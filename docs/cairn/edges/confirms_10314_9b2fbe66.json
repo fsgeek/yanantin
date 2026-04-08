@@ -1,0 +1,11 @@
+{
+  "id": "9b2fbe66-9a8c-496d-bee7-adca6071882e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10314_20260408_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0166_20260213_devstral-2512.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `tests/unit/test_memory_backend.py` contains multiple test classes and methods that focus on operational principles and functionalities of the `InMemoryBackend`.",
+  "claim_file": "tests/unit/test_memory_backend.py",
+  "claim_by": "mistralai/devstral-2512",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-04-08T12:09:54.289516+00:00"
+}

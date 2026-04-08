@@ -1,0 +1,11 @@
+{
+  "id": "467d2ec2-c545-4024-9ac8-19b154fcccee",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10311_20260408_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4246_20260303_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "However, the content of `tests/red_bar/test_least_privilege.py` does not mention or reference `test_immutability.py` or any other files listed in the claim.",
+  "claim_file": "tests/red_bar/test_least_privilege.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-04-08T11:35:11.776827+00:00"
+}

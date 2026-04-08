@@ -1,0 +1,11 @@
+{
+  "id": "fa3729ec-c5f5-4f3d-8005-dafecf6db8eb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10313_20260408_voxtral-small-24b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5696_20260312_llama-4-maverick.md",
+  "relation": "confirms",
+  "claim_text": "\"The presence of a `precompact_tensor.py` hook, which writes compaction tensors, suggests the project actively manages context limits.\" 2.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "mistralai/voxtral-small-24b-2507",
+  "timestamp": "2026-04-08T12:09:52.314241+00:00"
+}

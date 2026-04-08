@@ -1,0 +1,11 @@
+{
+  "id": "ecd91028-f32b-4a6e-82b9-86ae516992f7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10310_20260408_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3817_20260301_nova-micro-v1.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `docs/signing.md` does not contain any references to external documents such as `CLAUDE.md`, `docs/blueprint.md`, `docs/predecessors.md`, `docs/tensors.md`, and `docs/signing.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-08T11:34:53.686015+00:00"
+}

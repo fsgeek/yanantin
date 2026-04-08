@@ -1,0 +1,11 @@
+{
+  "id": "3b0eb5d7-a7e0-4fd1-bdde-5a489f0e28ac",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10257_20260408_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9381_20260403_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that there is no reference to `userpromptsubmit.py` anywhere in the file.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/userpromptsubmit.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-08T04:49:52.203706+00:00"
+}

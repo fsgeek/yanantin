@@ -1,0 +1,11 @@
+{
+  "id": "499fc975-ac43-45e6-aead-4c25daf0c40d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10259_20260408_llama-3.1-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5930_20260314_gemma-2-9b-it.md",
+  "relation": "confirms",
+  "claim_text": "**Structured Claim Extraction:** - **Observation**: The `chasqui/gleaner.py` file contains extensive code dedicated to extracting structured claims from scout and scour reports.",
+  "claim_file": "src/yanantin/chasqui/gleaner.py",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "meta-llama/llama-3.1-70b-instruct",
+  "timestamp": "2026-04-08T04:49:58.954681+00:00"
+}

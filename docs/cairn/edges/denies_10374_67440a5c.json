@@ -1,0 +1,11 @@
+{
+  "id": "67440a5c-952b-4be9-b4a5-6beb3e6833bf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10374_20260408_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9343_20260403_qwen3-coder-flash.md",
+  "relation": "denies",
+  "claim_text": "- Whether `docs/predecessors.md` or `src/yanantin/tinkuy/audit.py` is dynamically referenced or statically embedded.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-08T19:56:36.706314+00:00"
+}

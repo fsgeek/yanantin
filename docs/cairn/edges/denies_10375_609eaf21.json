@@ -1,0 +1,11 @@
+{
+  "id": "609eaf21-97c7-43de-8422-dca76263bf58",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10375_20260408_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10210_20260407_gemma-4-26b-a4b-it.md",
+  "relation": "denies",
+  "claim_text": "While the file path itself confirms the existence of `tools/phase1/probe.py`, the content of the file provided does not contain any evidence of a `tools/phase2` directory, nor does it contain any mention of a `proxy.py` or `replay.py` script.",
+  "claim_file": "tools/phase1/probe.py",
+  "claim_by": "google/gemma-4-26b-a4b-it",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-08T19:56:37.731514+00:00"
+}

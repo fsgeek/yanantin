@@ -1,0 +1,11 @@
+{
+  "id": "6eb8fd2a-78e7-4154-9fa1-ec5407757e17",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10373_20260408_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9857_20260406_llama-3.2-1b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "## Tensor Report: Yanantin - Excel Recalculation ### Preamble My vantage point is `tmp/ubuntu-vm.claude/document-skills/xlsx/recalc.py`.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/xlsx/recalc.py",
+  "claim_by": "meta-llama/llama-3.2-1b-instruct",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-08T19:56:36.578865+00:00"
+}

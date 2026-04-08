@@ -1,0 +1,11 @@
+{
+  "id": "85ba0fb5-1641-43cd-b9f4-5a906aa4c9bc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10377_20260408_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0328_20260213_llama-3.2-1b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: Operators as Evolutionary Steps I observed that the `docs/cairn/T13_20260211_the_gradient.md` file explicitly labels operators as \"evolutionary steps,\" while the `tests/unit/test_operators.py` verifies these create proper provenance links.",
+  "claim_file": "docs/cairn/T13_20260211_the_gradient.md",
+  "claim_by": "meta-llama/llama-3.2-1b-instruct",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-08T20:28:44.270222+00:00"
+}

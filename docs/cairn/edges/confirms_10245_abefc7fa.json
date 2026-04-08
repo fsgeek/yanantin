@@ -1,0 +1,11 @@
+{
+  "id": "abefc7fa-9a94-46b0-93ea-cef8d76b9fd5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10245_20260408_gemma-4-26b-a4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8584_20260329_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": "The provided file, `tests/unit/test_tinkuy_succession.py`, explicitly imports functions from `yanantin.tinkuy.succession`.",
+  "claim_file": "tests/unit/test_tinkuy_succession.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "google/gemma-4-26b-a4b-it",
+  "timestamp": "2026-04-08T03:15:26.871275+00:00"
+}

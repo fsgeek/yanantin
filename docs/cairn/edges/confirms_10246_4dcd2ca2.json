@@ -1,0 +1,11 @@
+{
+  "id": "4dcd2ca2-6103-469f-ab27-79ccc97041c9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10246_20260408_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2605_20260223_qwen-max.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The claim states: *\"The file's docstring states: 'Integration tests for ArangoDB backend against REAL ArangoDB instance.' This matches the claim's reference to `tests/integration/test_arango_real.py` as an integration test.\"* The first line of the provided file `tests/integration/test_arango_real.py` is: ```python \"\"\"Integration tests for ArangoDB backend against REAL ArangoDB instance.",
+  "claim_file": "tests/integration/test_arango_real.py",
+  "claim_by": "qwen/qwen-max",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-08T03:15:26.932976+00:00"
+}

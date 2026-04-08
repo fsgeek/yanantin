@@ -1,0 +1,11 @@
+{
+  "id": "28621409-dcf6-4e9f-af07-ebc8801b9480",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10249_20260408_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2027_20260221_llama-3.1-nemotron-ultra-253b-.md",
+  "relation": "denies",
+  "claim_text": "Nowhere in the file does it say that `docs/predecessors.md` is not present.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-08T03:47:26.863288+00:00"
+}

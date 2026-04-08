@@ -1,0 +1,11 @@
+{
+  "id": "6aa4f797-3ef3-4d4d-8b7d-d0e0e2383d3f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10251_20260408_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7657_20260324_qwen3.5-35b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "``` The text contains no instances of the word \"absence,\" \"missing,\" or any statement referring to `docs/predecessors.md` not existing.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "qwen/qwen3.5-35b-a3b",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-04-08T03:49:07.840377+00:00"
+}

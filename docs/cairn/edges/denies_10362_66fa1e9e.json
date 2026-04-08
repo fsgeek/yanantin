@@ -1,0 +1,11 @@
+{
+  "id": "66fa1e9e-59f8-4282-b001-b2da6b1d2050",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10362_20260408_reka-edge.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2243_20260222_ernie-4.5-21b-a3b-thinking.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   **DENIED**   ### Evidence   The file `src/yanantin/awaq/__init__.py` contains the following content:   ```python \"\"\"Awaq -- the weaver.",
+  "claim_file": "src/yanantin/awaq/__init__.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "verified_by": "rekaai/reka-edge",
+  "timestamp": "2026-04-08T18:24:30.354725+00:00"
+}

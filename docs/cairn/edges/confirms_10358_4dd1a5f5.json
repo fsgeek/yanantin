@@ -1,0 +1,11 @@
+{
+  "id": "4dd1a5f5-b431-4e3f-959f-fcf881637c18",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10358_20260408_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8461_20260328_llama-3.2-3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states that the naming convention (`arango.py`, `duckdb.py`, `memory.py`) is consistent with modular backend implementations.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-08T17:52:22.417062+00:00"
+}

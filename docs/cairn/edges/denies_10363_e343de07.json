@@ -1,0 +1,11 @@
+{
+  "id": "e343de07-badf-4f4d-9182-71c26b084a96",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10363_20260408_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3056_20260225_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "**Evidence:** - `docs/cairn/scout_0258_20260213_ernie-4.5-21b-a3b-thinking.md`: \"The project builds composable tensor infrastructure for epistemic observability.\" - `src/yanantin/tinkuy/__init__.py`: `def compose(tensor_a, tensor_b, ordering=None): ...` and `def decompose(tensor, ordering=None): ...` #### 2.",
+  "claim_file": "src/yanantin/tinkuy/__init__.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-08T18:24:30.902593+00:00"
+}

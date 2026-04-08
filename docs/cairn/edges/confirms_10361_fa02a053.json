@@ -1,0 +1,11 @@
+{
+  "id": "fa02a053-f0fd-4c45-a17b-9eb62f6a04a7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10361_20260408_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10114_20260407_command-r7b-12-2024.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The claim states that the model \"peeked into `tmp/ubuntu-vm.claude/slack-gif-creator/core/easing.py` (inferred, based on `tmp/ubuntu-vm.claude/slack-gif-creator/templates/shake.py`).\" While it's true that the `shake.py` file uses the `ease_out_quad` function from the `core/easing.py` file, the claim's phrasing is vague and the evidence is not strong enough to confirm it.",
+  "claim_file": "tmp/ubuntu-vm.claude/slack-gif-creator/templates/shake.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-04-08T18:24:29.471401+00:00"
+}

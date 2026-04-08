@@ -1,0 +1,11 @@
+{
+  "id": "37907d4a-92c7-418f-9541-80443695e89e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10357_20260408_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5812_20260313_gemini-2.0-flash-lite-001.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I cannot determine if there was a substitution from `apacheta.md` because I do not have access to other files.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-04-08T17:52:21.333621+00:00"
+}

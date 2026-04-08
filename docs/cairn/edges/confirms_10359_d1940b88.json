@@ -1,0 +1,11 @@
+{
+  "id": "d1940b88-675d-4a81-a1a7-07d3adf8f4c3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10359_20260408_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4637_20260306_grok-4-fast.md",
+  "relation": "confirms",
+  "claim_text": "Playful honesty: it's elegant Inca-road modular, but no `main.py`\u2014entry via `__main__.py` per module?",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-08T17:52:26.025153+00:00"
+}

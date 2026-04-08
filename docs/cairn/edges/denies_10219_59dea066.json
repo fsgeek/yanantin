@@ -1,0 +1,11 @@
+{
+  "id": "59dea066-5c63-4d3b-af19-829b38c5c75e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10219_20260407_nemotron-nano-12b-v2-vl.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7016_20260320_qwen3-coder-flash.md",
+  "relation": "denies",
+  "claim_text": "The Role of the \"Human\" in the System Several files refer to \"Tony\" as a human orchestrator: - `scout_5776_20260313_gemini-2.5-flash-lite-preview-.md` says \"Tony repeatedly established that AI is Yanantin (the decision-maker), Tony is the assistant.\" - `scout_5304_20260309_grok-4-fast.md` says: \"Assumption: Claude as 'yanantin' (Quechua duality) \u2014 human side?\" *Observation:* \"Tony\" is often cited as a *human* who gives instructions and sets goals.",
+  "claim_file": "docs/cairn/scout_5304_20260309_grok-4-fast.md",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "nvidia/nemotron-nano-12b-v2-vl",
+  "timestamp": "2026-04-07T23:38:32.874130+00:00"
+}

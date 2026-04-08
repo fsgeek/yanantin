@@ -1,0 +1,11 @@
+{
+  "id": "3ad6df5b-cfe9-4eba-ab21-4d60229d5123",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10217_20260407_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5860_20260313_llama-3.3-70b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that the `README.md` file provides an overview of the project and its components.",
+  "claim_file": "README.md",
+  "claim_by": "meta-llama/llama-3.3-70b-instruct",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-07T23:38:28.103760+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "a56e9cbf-7fe0-41b5-ad5a-384bf087bc00",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10347_20260408_llama-3.3-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8972_20260401_command-r7b-12-2024.md",
+  "relation": "confirms",
+  "claim_text": "How are verification results converted into structured receipts by `attestation.py`?",
+  "claim_file": "src/yanantin/chasqui/attestation.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "meta-llama/llama-3.3-70b-instruct",
+  "timestamp": "2026-04-08T16:21:25.873720+00:00"
+}

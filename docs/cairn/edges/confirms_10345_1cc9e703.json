@@ -1,0 +1,11 @@
+{
+  "id": "1cc9e703-a35b-46d8-8ca0-4e973b40ed3c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10345_20260408_qwen3-coder.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2564_20260223_deepseek-chat-v3-0324.md",
+  "relation": "confirms",
+  "claim_text": "This manifests in:   - `scout_1733_20260219_gemma-2-27b-it.md` showing pathological repetition of the false claim   - `scout_1016_20260216_qwen3-30b-a3b-instruct-2507.md` providing explicit evidence of the file's existence   This suggests either a systemic bug in claim propagation or a deliberate stress-test of the verification system.",
+  "claim_file": "docs/cairn/scout_1733_20260219_gemma-2-27b-it.md",
+  "claim_by": "deepseek/deepseek-chat-v3-0324",
+  "verified_by": "qwen/qwen3-coder",
+  "timestamp": "2026-04-08T16:21:18.485579+00:00"
+}

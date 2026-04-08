@@ -1,0 +1,11 @@
+{
+  "id": "5d514bc9-ff89-414d-889d-25936ca852e8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10343_20260408_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4637_20260306_grok-4-fast.md",
+  "relation": "denies",
+  "claim_text": "- `agents/scout_reviewer.md`\u2014meta-docs, but I prioritized code/docs over reviewer prompts.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-08T15:49:40.125215+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "61de9aea-6da8-4343-9e90-cdbd68866a66",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10342_20260408_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5938_20260314_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "`succession.py` parses `blueprint.md` with \"brittle regexes\".",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-08T15:48:20.531217+00:00"
+}

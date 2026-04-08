@@ -1,0 +1,11 @@
+{
+  "id": "005e51fb-4ed0-4c6e-86e9-ae5165179859",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10341_20260408_devstral-small.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1332_20260218_ministral-3b-2512.md",
+  "relation": "confirms",
+  "claim_text": "For example, `docs/cairn/scout_0340_20260213_mistral-medium-3.md` **confirmed** that `tests/red_bar/test_provenance.py` verifies provenance, but it didn\u2019t **examine the broader implications** of this testing strategy.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "mistralai/devstral-small",
+  "timestamp": "2026-04-08T15:48:17.511938+00:00"
+}

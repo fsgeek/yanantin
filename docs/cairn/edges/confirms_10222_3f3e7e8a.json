@@ -1,0 +1,11 @@
+{
+  "id": "3f3e7e8a-4bc3-44fa-9323-298be83c7ea9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10222_20260408_llama-4-scout.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4623_20260305_qwen3-30b-a3b-thinking-2507.md",
+  "relation": "confirms",
+  "claim_text": "- The provided file (`provenance.py`) confirms `provenance.py` is in the directory (as it is the file we are examining), but **does not contain `tensor.py`**.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "verified_by": "meta-llama/llama-4-scout",
+  "timestamp": "2026-04-08T00:08:26.202168+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "3399979a-3c53-4e60-9849-e0d4b6272914",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10223_20260408_qwen3-vl-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0403_20260214_llama-3.3-nemotron-super-49b-v.md",
+  "relation": "denies",
+  "claim_text": "While the claim mentions `test_operators.py` (unit tests), the provided integration tests in `test_arango_real.py` independently validate the robustness and black-box nature of the testing strategy.",
+  "claim_file": "tests/integration/test_arango_real.py",
+  "claim_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "verified_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "timestamp": "2026-04-08T00:08:42.184244+00:00"
+}

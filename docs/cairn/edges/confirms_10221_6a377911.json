@@ -1,0 +1,11 @@
+{
+  "id": "6a377911-f9e8-4326-b339-8a027b4d1858",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10221_20260408_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10104_20260407_gemma-4-31b-it.md",
+  "relation": "confirms",
+  "claim_text": "- **The \"Defined Loss\" Tensor:** Mentioned in `succession-2026-02-19.md` as a way to capture rejected paths.",
+  "claim_file": "tmp/ubuntu-vm.claude/projects/-home-tony-projects-episode/memory/succession-2026-02-19.md",
+  "claim_by": "google/gemma-4-31b-it",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-08T00:08:22.631491+00:00"
+}

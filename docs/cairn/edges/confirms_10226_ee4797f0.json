@@ -1,0 +1,11 @@
+{
+  "id": "ee4797f0-faa7-4362-ac95-a38563ad71a8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10226_20260408_llama-3.1-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6994_20260320_hermes-2-pro-llama-3-8b.md",
+  "relation": "confirms",
+  "claim_text": "For example: > \"The file `docs/tensors.md` does not reference `apacheta.md` as a substitution for `tensors.md`.\" This statement is found in the evidence supporting the claim.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "meta-llama/llama-3.1-70b-instruct",
+  "timestamp": "2026-04-08T00:40:25.141124+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "dd1a89db-c512-4d25-bfd5-4cd027bd76a2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10277_20260408_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2335_20260222_cydonia-24b-v4.1.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The file `test_tinkuy_audit.py` contains tests that verify the audit tool's functionality in multiple ways: 1.",
+  "claim_file": "tests/unit/test_tinkuy_audit.py",
+  "claim_by": "thedrummer/cydonia-24b-v4.1",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-04-08T07:23:34.995500+00:00"
+}

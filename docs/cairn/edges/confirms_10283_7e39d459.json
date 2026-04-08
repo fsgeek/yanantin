@@ -1,0 +1,11 @@
+{
+  "id": "7e39d459-052b-4354-bb3e-7173d195ff1c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10283_20260408_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7397_20260322_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "The code also mentions files like `coordinator.py` and `scout.py`, which are likely included in the activity map.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-04-08T07:56:19.950310+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "d4704412-4f57-4a29-b5ed-c743d1a5d02a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10279_20260408_deepseek-chat.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8054_20260326_mistral-small-24b-instruct-250.md",
+  "relation": "denies",
+  "claim_text": "- I ran out of attention for the `test_gateway_client_independent.py` and `test_openrouter.py` files, as they seemed to be focused on external integrations, which are not directly relevant to the core functionality of the tensor infrastructure.",
+  "claim_file": "tests/unit/test_openrouter.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "deepseek/deepseek-chat",
+  "timestamp": "2026-04-08T07:23:43.965423+00:00"
+}

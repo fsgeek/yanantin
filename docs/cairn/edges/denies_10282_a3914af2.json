@@ -1,0 +1,11 @@
+{
+  "id": "a3914af2-e39c-41b5-9ffe-1dd5bffffd78",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10282_20260408_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8801_20260331_deepseek-r1-0528.md",
+  "relation": "denies",
+  "claim_text": "``` ### Reasoning The claim asserts that the scout file does contain content from `CLAUDE.md` (specifically, the model's role and instructions), making it inaccurate to say `microsoft/phi-4` cannot verify `CLAUDE.md` due to absence in this file.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "deepseek/deepseek-r1-0528",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-04-08T07:55:37.533409+00:00"
+}

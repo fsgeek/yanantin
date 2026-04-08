@@ -1,0 +1,11 @@
+{
+  "id": "5bea13fc-8d67-4c8c-9994-3a82d6f3fa5c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10303_20260408_qwen3-235b-a22b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1162_20260217_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I chose not to respond to the files `models/epistemics.py`, `operators/dissent.py`, `operators/evolve.py`, `renderer/markdown.py`, `models/entities.py`, and `models/provenance.py` as they were not provided in the contents.",
+  "claim_file": "src/yanantin/apacheta/renderer/markdown.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "qwen/qwen3-235b-a22b",
+  "timestamp": "2026-04-08T10:32:41.508371+00:00"
+}

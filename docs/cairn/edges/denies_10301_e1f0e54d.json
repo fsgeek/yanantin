@@ -1,0 +1,11 @@
+{
+  "id": "e1f0e54d-e994-4392-a43c-d179af15b6bf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10301_20260408_mixtral-8x7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6753_20260319_gemma-2-9b-it.md",
+  "relation": "denies",
+  "claim_text": "- **Missing Documentation:** The `agents/scout_reviewer.md` file describes the scout's role but lacks specifics about the expected outputs and their analysis.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "mistralai/mixtral-8x7b-instruct",
+  "timestamp": "2026-04-08T10:32:32.206937+00:00"
+}

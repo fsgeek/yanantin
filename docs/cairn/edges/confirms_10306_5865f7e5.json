@@ -1,0 +1,11 @@
+{
+  "id": "5865f7e5-bd9f-4104-af34-e7c50e5594cd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10306_20260408_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4043_20260302_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "**Runtime Behavior**: I saw `src/yanantin/tinkuy/__main__.py` in the tree, which defines CLI commands (`--check`, `--check-orphans`).",
+  "claim_file": "src/yanantin/tinkuy/__main__.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-08T11:04:42.856269+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "07afda7f-570d-49b5-8c06-3a30b6a26d50",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10305_20260408_claude-3-haiku.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7443_20260322_gemma-3-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "\"\"\" ``` ### Reasoning The claim states that `arango.py`, `duckdb.py`, and `memory.py` are present in the specified directory, contrary to prior claims.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "anthropic/claude-3-haiku",
+  "timestamp": "2026-04-08T11:04:41.854134+00:00"
+}

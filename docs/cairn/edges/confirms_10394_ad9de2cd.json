@@ -1,0 +1,11 @@
+{
+  "id": "ad9de2cd-65ff-4020-8412-b88eba5f9952",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10394_20260408_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9335_20260403_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": "| | 4 | **The \"T\" Tensors: Chronological Narrative** | Files prefixed with 'T' (e.g., `T0_20260207_bounded_verification.md`, `T37_20260328_the_cost_curve.md`) seem to be narrative documents, possibly internal design memos or session summaries, dated chronologically.",
+  "claim_file": "docs/cairn/T0_20260207_bounded_verification.md",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-04-08T22:32:57.052023+00:00"
+}

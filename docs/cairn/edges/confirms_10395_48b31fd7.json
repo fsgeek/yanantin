@@ -1,0 +1,11 @@
+{
+  "id": "48b31fd7-0bd3-4ebb-9080-a4f7dd351838",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10395_20260408_qwen3.5-35b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8082_20260326_qwen3.5-9b.md",
+  "relation": "confirms",
+  "claim_text": "The `model: inherit` Ghost** Every agent definition in `complete-agent-examples.md` contains `model: inherit`.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/agent-development/examples/complete-agent-examples.md",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "qwen/qwen3.5-35b-a3b",
+  "timestamp": "2026-04-08T22:33:09.934619+00:00"
+}

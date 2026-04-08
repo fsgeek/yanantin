@@ -1,0 +1,11 @@
+{
+  "id": "8eea8035-0246-4a15-bb45-fabd7932918f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10393_20260408_mistral-small-2603.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5195_20260309_olmo-3-32b-think.md",
+  "relation": "confirms",
+  "claim_text": "- All cross-references point to external files or directories (e.g., `blueprint.md`, `predecessors.md`), not to the file itself.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "allenai/olmo-3-32b-think",
+  "verified_by": "mistralai/mistral-small-2603",
+  "timestamp": "2026-04-08T22:32:53.243910+00:00"
+}

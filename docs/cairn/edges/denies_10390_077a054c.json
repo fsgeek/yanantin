@@ -1,0 +1,11 @@
+{
+  "id": "077a054c-f58d-42ed-bcb1-c55bfd2704ce",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10390_20260408_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6702_20260318_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "*   I also did not investigate `storage_obfuscator.py`, as it was mentioned but not provided.",
+  "claim_file": "src/yanantin/apacheta/storage_obfuscator.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-08T22:00:48.395595+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "2ad5ffca-a55a-4820-9b02-802b8727a001",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10285_20260408_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8506_20260328_command-r7b-12-2024.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The file `src/yanantin/apacheta/operators/negate.py` is a Python file that defines a function called `negate`.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-04-08T08:25:42.318198+00:00"
+}

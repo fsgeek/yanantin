@@ -1,0 +1,11 @@
+{
+  "id": "914b85dd-4b79-4a02-ba67-ade589b0acb2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10286_20260408_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8480_20260328_qwen3-coder.md",
+  "relation": "confirms",
+  "claim_text": "`skill-reviewer.md` and `plugin-validator.md` both use `model: inherit`, while `agent-creator.md` uses `model: sonnet` with a note about choosing models appropriately (line 52 mentions \"sonnet for complex, haiku for simple\").",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/agents/agent-creator.md",
+  "claim_by": "qwen/qwen3-coder",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-08T08:25:48.594910+00:00"
+}

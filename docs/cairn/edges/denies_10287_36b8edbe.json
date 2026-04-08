@@ -1,0 +1,11 @@
+{
+  "id": "36b8edbe-4e09-4442-bf08-836473432a6c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10287_20260408_minimax-01.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9493_20260403_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file does **not** contain a file named `checksum.py` or an import statement referencing `machine_config.py`, `filesystem.py`, `synthetic.py`, or `checksum.py` (itself) in the provided snippet.",
+  "claim_file": "src/yanantin/collector/checksum.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "minimax/minimax-01",
+  "timestamp": "2026-04-08T08:25:50.829222+00:00"
+}

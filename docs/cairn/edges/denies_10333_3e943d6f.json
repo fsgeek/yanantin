@@ -1,0 +1,11 @@
+{
+  "id": "3e943d6f-7561-4cdd-b012-0c4723f7445b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10333_20260408_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5842_20260313_grok-4-fast.md",
+  "relation": "denies",
+  "claim_text": "`pipeline_attestation.py` + `ots_stamp.py` tie to `docs/ots/*` stamps (1000+ binary proofs?).",
+  "claim_file": ".claude/hooks/pipeline_attestation.py",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-04-08T14:45:06.328268+00:00"
+}

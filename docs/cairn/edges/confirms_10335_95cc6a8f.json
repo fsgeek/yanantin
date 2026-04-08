@@ -1,0 +1,11 @@
+{
+  "id": "95cc6a8f-7708-43e9-98cf-9abfb9daa723",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10335_20260408_grok-4.1-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10072_20260407_nemotron-nano-9b-v2.md",
+  "relation": "confirms",
+  "claim_text": "- **Specifics**: Line 12 of `init_skill.py` defines `SKILL_TEMPLATE` with `[TODO]` in critical sections.",
+  "claim_file": "tmp/ubuntu-vm.claude/skill-creator/scripts/init_skill.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "x-ai/grok-4.1-fast",
+  "timestamp": "2026-04-08T14:45:09.440187+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "38928cad-2ffc-4553-b6c8-2a69ef07ac5b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10337_20260408_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4043_20260302_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "It notes `audit.py` performs filesystem inspection using regexes to compare the \"territory\" (codebase) against the \"map\" (`docs/blueprint.md`).",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-08T15:18:05.892475+00:00"
+}

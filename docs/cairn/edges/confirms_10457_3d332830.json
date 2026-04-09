@@ -1,0 +1,11 @@
+{
+  "id": "3d332830-6607-4387-9a7a-68677ce524b2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10457_20260409_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6112_20260315_grok-4.1-fast.md",
+  "relation": "confirms",
+  "claim_text": "`CLAUDE.md` mandates `docs/predecessors.md`, `blueprint.md`.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "x-ai/grok-4.1-fast",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-09T06:50:16.164577+00:00"
+}

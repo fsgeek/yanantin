@@ -1,0 +1,11 @@
+{
+  "id": "ef6bbc16-459f-4d41-886b-7eec43bda9ef",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10447_20260409_mistral-saba.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3042_20260225_minimax-m2.1.md",
+  "relation": "confirms",
+  "claim_text": "The Operators (src/yanantin/apacheta/operators/)** I saw: - `bootstrap.py` \u2014 likely creates initial tensors - `compose.py` \u2014 combines tensors   - `correct.py` \u2014 corrects tensors (mentioned in multiple scouts) - `dissent.py` \u2014 allows disagreement - `evolve.py` \u2014 tensor evolution - `negate.py` \u2014 negation - `project.py` \u2014 projection These operators seem to be the *verbs* of the tensor system\u2014how tensors interact, correct, compose.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "minimax/minimax-m2.1",
+  "verified_by": "mistralai/mistral-saba",
+  "timestamp": "2026-04-09T05:15:09.110032+00:00"
+}

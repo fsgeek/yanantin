@@ -1,0 +1,11 @@
+{
+  "id": "f81ac0ec-d2c1-4e56-b214-e508a7e5fb53",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10445_20260409_llama-3.3-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1676_20260219_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The file `weaver.py` does not contain any code that parses prose.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "meta-llama/llama-3.3-70b-instruct",
+  "timestamp": "2026-04-09T05:15:08.278674+00:00"
+}

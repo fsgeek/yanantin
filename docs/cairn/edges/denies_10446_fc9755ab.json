@@ -1,0 +1,11 @@
+{
+  "id": "fc9755ab-0990-4f68-964b-c87bcb1f4447",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10446_20260409_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1925_20260220_ministral-8b-2512.md",
+  "relation": "denies",
+  "claim_text": "- `scout_1426_20260218_trinity-mini.md` denies a claim that a file \"only mentions `weaver.py` and `__main__.py`\", but the file actually imports **four other modules** (`machine_config.py`, `filesystem.py`, `synthetic.py`, `checksum.py`).",
+  "claim_file": "docs/cairn/scout_1426_20260218_trinity-mini.md",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-04-09T05:15:08.381265+00:00"
+}

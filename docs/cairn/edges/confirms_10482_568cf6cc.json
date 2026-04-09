@@ -1,0 +1,11 @@
+{
+  "id": "568cf6cc-d761-42a0-bda7-2dcbb9bcb40f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10482_20260409_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5115_20260308_ernie-4.5-vl-28b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "- The file is explicitly named `tensor.py` and resides at `src/yanantin/apacheta/models/tensor.py`, as shown in the `from ...",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-09T09:56:17.117345+00:00"
+}

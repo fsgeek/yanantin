@@ -1,0 +1,11 @@
+{
+  "id": "f2d5cc54-2cac-4fc7-b141-b1a0d2d4a4e6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10478_20260409_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8051_20260326_glm-4.6.md",
+  "relation": "confirms",
+  "claim_text": "I was able to fully examine the file and verify the claim.### Verdict **CONFIRMED** ### Evidence The entire content of `docs/tensors.md` has been examined.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "z-ai/glm-4.6",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-09T09:24:01.388666+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "8d44f74b-ab4e-40b4-bd7d-43822a730bbe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10479_20260409_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7698_20260324_gemma-2-9b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict DENIED ### Evidence >\"The file does not reference `scout_report_tensor_schema.md` or any schema file at all.\"  The file itself is named `scout_report_tensor_schema.md`.",
+  "claim_file": "docs/scout_report_tensor_schema.md",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-09T09:24:03.346145+00:00"
+}

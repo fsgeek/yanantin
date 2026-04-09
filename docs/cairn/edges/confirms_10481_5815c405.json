@@ -1,0 +1,11 @@
+{
+  "id": "5815c405-3972-4ef5-a6d0-c7814632d756",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10481_20260409_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3978_20260302_llama-3.2-3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "## The File Here is the actual content of `docs/cairn/scout_0161_20260212_qwen3-vl-8b-instruct.md`: ``` ### Verdict **CONFIRMED** ### Evidence ``` ### No Theater Don't fake functionality.",
+  "claim_file": "docs/cairn/scout_0161_20260212_qwen3-vl-8b-instruct.md",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-04-09T09:56:16.869615+00:00"
+}

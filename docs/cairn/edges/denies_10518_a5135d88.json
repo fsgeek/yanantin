@@ -1,0 +1,11 @@
+{
+  "id": "a5135d88-f688-45e9-ae05-bdf89bdd4abe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10518_20260409_qwen3-next-80b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2416_20260223_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "- **How does `SchemaEvolutionRecord` interact with `negate.py`?** Does evolution trigger automatic correction renewal?",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "qwen/qwen3-next-80b-a3b-instruct",
+  "timestamp": "2026-04-09T14:38:23.863108+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "15cbfc4e-0a79-44eb-9a46-cb4a83fa5a78",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10502_20260409_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9638_20260404_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The claim states: \"The `.claude/hooks` directory contains scripts like `chasqui_pulse.py`, `chasqui_heartbeat.sh`, and `precompact_tensor.py`.\" The file `.claude/hooks/chasqui_pulse.py` contains the line: ``` #!/usr/bin/env python3 \"\"\"Chasqui pulse \u2014 the reactive heartbeat.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-04-09T12:31:26.472825+00:00"
+}

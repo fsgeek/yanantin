@@ -1,0 +1,11 @@
+{
+  "id": "cdbe66a6-931e-4733-8c1d-05f1124a4ee8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10505_20260409_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2108_20260221_mimo-v2-flash.md",
+  "relation": "confirms",
+  "claim_text": "**The `scorer.py` and `scourer.py` implementation details**: I noted their existence but did not examine their code to understand the scoring algorithms.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-09T13:04:28.827706+00:00"
+}

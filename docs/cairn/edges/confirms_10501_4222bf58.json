@@ -1,0 +1,11 @@
+{
+  "id": "4222bf58-61f3-48cc-9933-cc0e9c865364",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10501_20260409_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7737_20260324_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "(Files: `src/yanantin/jabberwock/models.py`, `src/yanantin/jabberwock/brillig.py`, Lines: 30-37) 3.",
+  "claim_file": "src/yanantin/jabberwock/brillig.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-09T12:31:21.082077+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "17ee4041-fa10-4b78-b5f7-859649c0535d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10503_20260409_qwen-vl-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8117_20260326_seed-1.6-flash.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim asserts that the file holds heartbeat scripts including `chasqui_pulse.py`, but the specific evidence line (which purports to confirm this) is not found in the file.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "qwen/qwen-vl-plus",
+  "timestamp": "2026-04-09T12:31:28.639732+00:00"
+}

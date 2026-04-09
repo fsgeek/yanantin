@@ -1,0 +1,11 @@
+{
+  "id": "30c2088c-5f4e-446f-a69e-cf8bd1f07557",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10487_20260409_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0414_20260214_seed-1.6-flash.md",
+  "relation": "denies",
+  "claim_text": "### Preamble   I observed from the provided files, drawing first to the technical tests in `tests/unit/test_chasqui.py`\u2014they ground the system in validation.",
+  "claim_file": "tests/unit/test_chasqui.py",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-09T10:25:58.095853+00:00"
+}

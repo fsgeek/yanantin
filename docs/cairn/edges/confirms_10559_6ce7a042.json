@@ -1,0 +1,11 @@
+{
+  "id": "6ce7a042-2f9b-485d-9197-4455fcd3d3b4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10559_20260409_llama-3.3-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3472_20260227_mistral-small-creative.md",
+  "relation": "confirms",
+  "claim_text": "However, the provided file (`test_tinkuy_audit.py`) does **not** reference or interact with `scout_0046_qwen2.5-coder-7b-instruct.md`.",
+  "claim_file": "tests/unit/test_tinkuy_audit.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "meta-llama/llama-3.3-70b-instruct",
+  "timestamp": "2026-04-09T20:23:13.522107+00:00"
+}

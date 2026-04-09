@@ -1,0 +1,11 @@
+{
+  "id": "1bb537e3-ff5e-41d4-a57f-065f083822b3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10556_20260409_glm-4.7-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8488_20260328_ministral-14b-2512.md",
+  "relation": "denies",
+  "claim_text": "**Core Concepts First** (`SKILL.md`): The \"what\" and \"why\" of plugin structure.",
+  "claim_file": "tmp/ubuntu-vm.claude/artifacts-builder/SKILL.md",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "z-ai/glm-4.7-flash",
+  "timestamp": "2026-04-09T19:50:17.178417+00:00"
+}

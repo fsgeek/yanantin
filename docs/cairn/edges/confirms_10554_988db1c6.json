@@ -1,0 +1,11 @@
+{
+  "id": "988db1c6-5f73-4b08-9db9-9044b760786a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10554_20260409_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10320_20260408_gemma-3-12b-it.md",
+  "relation": "confirms",
+  "claim_text": "`materialize.py` focuses on *storing* them.",
+  "claim_file": "src/yanantin/awaq/materialize.py",
+  "claim_by": "google/gemma-3-12b-it",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-09T19:50:05.047423+00:00"
+}

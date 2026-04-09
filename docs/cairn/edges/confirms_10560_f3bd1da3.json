@@ -1,0 +1,11 @@
+{
+  "id": "f3bd1da3-301d-4ad5-a082-c1ddc0e8f297",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10560_20260409_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5840_20260313_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses The claim mentions three backends (`memory.py`, `duckdb.py`, and `arango.py`).",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-09T20:24:12.273912+00:00"
+}

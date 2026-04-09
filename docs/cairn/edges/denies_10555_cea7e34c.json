@@ -1,0 +1,11 @@
+{
+  "id": "cea7e34c-dbad-4901-ad4c-37afd79de122",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10555_20260409_reka-edge.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5044_20260308_granite-4.0-h-micro.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `docs/cairn/scout_0269_20260213_gemma-3n-e4b-it.md` contains only a YAML front matter block and a comment block: ```markdown ``` There is no mention of \"empty reports\", \"silent failure mode\", or any discussion of Scout reports ending with `</>` or lacking content.",
+  "claim_file": "docs/cairn/scout_0269_20260213_gemma-3n-e4b-it.md",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "rekaai/reka-edge",
+  "timestamp": "2026-04-09T19:50:07.840171+00:00"
+}

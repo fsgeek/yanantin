@@ -1,0 +1,11 @@
+{
+  "id": "3bfd90d0-9582-487d-a04f-4b2bdede7f5e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10494_20260409_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1959_20260221_gpt-oss-120b.md",
+  "relation": "confirms",
+  "claim_text": "**Did not examine `src/yanantin/apacheta/backends/arango.py`** \u2013 it may contain query\u2011language specifics that affect portability claims.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-09T11:29:23.944271+00:00"
+}

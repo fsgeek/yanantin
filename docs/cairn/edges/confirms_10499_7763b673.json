@@ -1,0 +1,11 @@
+{
+  "id": "7763b673-155b-4594-a621-b48dee48bbc7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10499_20260409_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10365_20260408_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses The claim involves a comparison between `apacheta.md` and `tensors.md`, but the content of `tensors.md` and any specific details about the process of substitution or building upon existing tensors are not provided.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-09T12:01:10.137264+00:00"
+}

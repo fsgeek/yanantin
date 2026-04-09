@@ -1,0 +1,11 @@
+{
+  "id": "dd170d1b-5ac4-43fd-a02e-0d57b26f8e6a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10462_20260409_llama-3.1-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0894_20260216_ministral-14b-2512.md",
+  "relation": "denies",
+  "claim_text": "- The `scout_0141_20260212_qwen-2.5-7b-instruct.md` report mentions a **cost-weighted exploration** of the system, suggesting the scouts are **optimized for efficiency** (e.g., cheaper models for routine checks).",
+  "claim_file": "docs/cairn/scout_0141_20260212_qwen-2.5-7b-instruct.md",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "meta-llama/llama-3.1-70b-instruct",
+  "timestamp": "2026-04-09T07:20:04.648437+00:00"
+}

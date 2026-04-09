@@ -1,0 +1,11 @@
+{
+  "id": "3abdd1b4-ad6c-45c8-9825-ccd3e4ec2c10",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10463_20260409_ernie-4.5-vl-28b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8686_20260330_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "Abstracting the Unexpected:** The `ApachetaInterface` in `abstract.py` (which I haven't explored in detail yet) is meant to be the *only* API.",
+  "claim_file": "src/yanantin/apacheta/interface/abstract.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "timestamp": "2026-04-09T07:20:05.683242+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "29885606-179d-456a-8202-9b191ed3ef22",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10465_20260409_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7636_20260324_hermes-4-70b.md",
+  "relation": "confirms",
+  "claim_text": "class TestGetBoundingBoxMessages(unittest.TestCase): ``` ### Reasoning The claim states: \"A test file, `tmp/ubuntu-vm.claude/skills/pdf/scripts/check_bounding_boxes_test.py`, is present.\" The evidence shows that the file exists at the specified path and contains unit tests for bounding box validation logic.",
+  "claim_file": "tmp/ubuntu-vm.claude/skills/pdf/scripts/check_bounding_boxes_test.py",
+  "claim_by": "nousresearch/hermes-4-70b",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-09T07:52:11.482119+00:00"
+}

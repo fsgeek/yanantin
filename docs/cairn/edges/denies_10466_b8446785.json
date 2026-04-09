@@ -1,0 +1,11 @@
+{
+  "id": "b8446785-9048-4a5f-af53-36d51b6e05ab",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10466_20260409_deepseek-v3.2-exp.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9085_20260401_trinity-mini.md",
+  "relation": "denies",
+  "claim_text": "```   This excerpt references `docs/blueprint.md`, `docs/predecessors.md`, and `docs/tensors.md`, but **does not mention `CLAUDE.md` itself** in any context related to fetching or using it as evidence.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "deepseek/deepseek-v3.2-exp",
+  "timestamp": "2026-04-09T07:52:39.380938+00:00"
+}

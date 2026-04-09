@@ -1,0 +1,11 @@
+{
+  "id": "d65d82e8-0d38-4f17-8188-797563a51aeb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10467_20260409_qwen2.5-vl-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5506_20260311_gemma-3-12b-it.md",
+  "relation": "confirms",
+  "claim_text": "\"\"\" ``` ### Reasoning The claim states that the `gleaner.py` module classifies claims by type, scores confidence, and deduplicates across reports.",
+  "claim_file": "src/yanantin/chasqui/gleaner.py",
+  "claim_by": "google/gemma-3-12b-it",
+  "verified_by": "qwen/qwen2.5-vl-32b-instruct",
+  "timestamp": "2026-04-09T07:52:53.671007+00:00"
+}

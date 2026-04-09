@@ -1,0 +1,11 @@
+{
+  "id": "fac6eebc-fadd-4f0d-9622-b720735fca92",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10564_20260409_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10082_20260407_seed-2.0-mini.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The full provided content of `src/yanantin/apacheta/operators/bootstrap.py` contains no mentions of `tests/unit/test_operators.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "bytedance-seed/seed-2.0-mini",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-04-09T20:52:02.175659+00:00"
+}

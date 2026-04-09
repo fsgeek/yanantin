@@ -1,0 +1,11 @@
+{
+  "id": "3b7aea01-d7a0-4414-b532-489cfe1bc264",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10566_20260409_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4212_20260303_qwen-plus.md",
+  "relation": "denies",
+  "claim_text": "The Absent File That Is Present**   `docs/predecessors.md` is a real, non-empty file (visible in the tree, and confirmed by `scout_3417_20260227_trinity-mini.md`, `scout_2353_20260222_nova-lite-v1.md`, and `scout_2244_20260222_gemma-3n-e4b-it.md`).",
+  "claim_file": "docs/cairn/scout_2353_20260222_nova-lite-v1.md",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-09T21:23:58.048824+00:00"
+}

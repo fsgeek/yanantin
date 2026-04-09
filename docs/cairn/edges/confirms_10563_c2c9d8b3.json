@@ -1,0 +1,11 @@
+{
+  "id": "c2c9d8b3-6415-4722-867b-d1ca2c695af2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10563_20260409_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1526_20260219_deepseek-v3.1-terminus:exacto.md",
+  "relation": "confirms",
+  "claim_text": "However, I have been provided with the complete content of `src/yanantin/apacheta/operators/bootstrap.py`, which clearly demonstrates that this file exists and contains a functioning Python module with imports, a function definition, and implementation logic.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "deepseek/deepseek-v3.1-terminus:exacto",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-09T20:52:01.945176+00:00"
+}

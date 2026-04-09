@@ -1,0 +1,11 @@
+{
+  "id": "4608b0ee-ca85-44c1-8cb3-79e138f64829",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10514_20260409_qwen3-vl-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8933_20260331_minimax-m2.1.md",
+  "relation": "denies",
+  "claim_text": "- **`docx.py`** and **`redlining.py`** \u2014 I saw only `pptx.py` from the validation module.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/redlining.py",
+  "claim_by": "minimax/minimax-m2.1",
+  "verified_by": "qwen/qwen3-vl-8b-instruct",
+  "timestamp": "2026-04-09T14:08:51.621669+00:00"
+}

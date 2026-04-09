@@ -1,0 +1,11 @@
+{
+  "id": "2dbbabe8-bf49-4861-8a90-4260e067a9de",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10515_20260409_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6580_20260318_qwen-2.5-vl-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The file contains the verbs `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, and `project.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "qwen/qwen-2.5-vl-7b-instruct",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-04-09T14:09:13.809488+00:00"
+}

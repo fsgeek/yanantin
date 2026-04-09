@@ -1,0 +1,11 @@
+{
+  "id": "045855ca-aba8-482e-a2dc-584d62a2a3ef",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10511_20260409_gemma-4-31b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9563_20260404_deepseek-v3.2.md",
+  "relation": "denies",
+  "claim_text": "This hardcoded default appears in the test file too (`check_bounding_boxes_test.py` line 108).",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/scripts/check_bounding_boxes_test.py",
+  "claim_by": "deepseek/deepseek-v3.2",
+  "verified_by": "google/gemma-4-31b-it",
+  "timestamp": "2026-04-09T13:34:43.828689+00:00"
+}

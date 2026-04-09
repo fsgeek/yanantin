@@ -1,0 +1,11 @@
+{
+  "id": "0fd677e9-e63f-4651-afa3-13d2d056fa3e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10509_20260409_mistral-medium-3.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7098_20260321_devstral-small.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The file is dedicated to the DuckDB backend for Apacheta, with no mentions of `arango.py` or any ArangoDB components.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "mistralai/devstral-small",
+  "verified_by": "mistralai/mistral-medium-3.1",
+  "timestamp": "2026-04-09T13:34:26.165792+00:00"
+}

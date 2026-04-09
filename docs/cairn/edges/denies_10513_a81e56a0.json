@@ -1,0 +1,11 @@
+{
+  "id": "a81e56a0-c6e6-4993-9432-0b2854d20c61",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10513_20260409_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8638_20260330_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "### Strands #### #1: Bounding Box Validation as a False Guarantee   The `check_bounding_boxes.py` script treats bounding box intersections as a definitive check for valid form fields.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/scripts/check_bounding_boxes.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-04-09T14:08:50.337067+00:00"
+}

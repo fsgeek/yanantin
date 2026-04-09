@@ -1,0 +1,11 @@
+{
+  "id": "0d666ac0-a7cd-49be-9c3d-0b408de17073",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10525_20260409_deepseek-chat-v3.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4417_20260304_gemma-3-27b-it.md",
+  "relation": "denies",
+  "claim_text": "The provided file is `evolve.py`, but the file contents do not provide information about the presence or absence of the other named files within that directory.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "deepseek/deepseek-chat-v3.1",
+  "timestamp": "2026-04-09T15:41:01.796539+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "3e94b9a7-3023-4a63-a4b2-08c969567f99",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10528_20260409_olmo-3.1-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8515_20260328_nemotron-nano-12b-v2-vl.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **CONFIRMED**   ### Evidence   The file `src/yanantin/apacheta/models/provenance.py` does not contain any references to the model `z-ai/glm-4-32b` or any claims about the `provenance.py` file itself.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "nvidia/nemotron-nano-12b-v2-vl",
+  "verified_by": "allenai/olmo-3.1-32b-instruct",
+  "timestamp": "2026-04-09T16:12:56.260610+00:00"
+}

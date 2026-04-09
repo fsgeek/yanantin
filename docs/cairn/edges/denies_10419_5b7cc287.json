@@ -1,0 +1,11 @@
+{
+  "id": "5b7cc287-e8e9-4c6a-98c8-e4f584faed65",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10419_20260409_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4456_20260304_qwen3-next-80b-a3b-thinking.md",
+  "relation": "denies",
+  "claim_text": "The existence of the file (`docs/predecessors.md`) being present is irrelevant to verifying the *wording* of the \"original claim\" that xiaomi/mimo-v2-flash is describing.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-09T01:38:51.304671+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "d0371281-3c2e-4f9a-b2ba-206821af231e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10548_20260409_rocinante-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4267_20260303_gemma-3-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence There is no evidence within `src/yanantin/apacheta/operators/negate.py` supporting or denying the claim about the model's \"architectural intent\" as revealed by other files (`backends/memory.py`, `backends/duckdb.py`, and the scour report).",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "thedrummer/rocinante-12b",
+  "timestamp": "2026-04-09T18:48:13.732168+00:00"
+}

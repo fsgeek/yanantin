@@ -1,0 +1,11 @@
+{
+  "id": "ae3c0d27-0794-4184-9c09-3a1e43008b35",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10546_20260409_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5831_20260313_ministral-14b-2512.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states: > \"The claim states that `scripts/ingest_cairn.py` and `model_selector.py` are not referenced in `src/yanantin/chasqui/coordinator.py`.\" However, the file **explicitly imports** `model_selector.py` at the following line: ```python from yanantin.chasqui.model_selector import ModelInfo, ModelSelector ``` ### Reasoning The claim is incorrect because `model_selector.py` is directly imported in the file at the line above.",
+  "claim_file": "scripts/ingest_cairn.py",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-09T18:48:03.906458+00:00"
+}

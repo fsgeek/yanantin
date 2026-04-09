@@ -1,0 +1,11 @@
+{
+  "id": "f7f225af-a223-416b-ba2a-c959277fa4de",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10551_20260409_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1434_20260218_mistral-large-2407.md",
+  "relation": "denies",
+  "claim_text": "**How does the project handle \"theatrical\" external claims?** - If a predecessor project (e.g., Indaleko in `docs/predecessors.md`) made performative claims, does Yanantin\u2019s audit system flag them?",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "mistralai/mistral-large-2407",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-09T19:20:07.277657+00:00"
+}

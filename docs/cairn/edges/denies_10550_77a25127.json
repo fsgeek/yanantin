@@ -1,0 +1,11 @@
+{
+  "id": "77a25127-d479-45ab-9ae0-94e16809d613",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10550_20260409_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8863_20260331_nemotron-3-super-120b-a12b.md",
+  "relation": "denies",
+  "claim_text": "**Verdict:** DENIED   **Evidence:**   The file `CLAUDE.md` contains an \u201cOperational Roles\u201d table, e.g.: ``` | **Master Builder** | Claude Opus (human-facing) | Coordinates.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "nvidia/nemotron-3-super-120b-a12b",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-09T19:20:07.183506+00:00"
+}

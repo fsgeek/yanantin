@@ -1,0 +1,11 @@
+{
+  "id": "35ae297f-e803-4ce0-80c1-3ebd78172a8f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10537_20260409_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8078_20260326_qwen3-coder-flash.md",
+  "relation": "confirms",
+  "claim_text": "Look at Scout 1031's verification of `src/yanantin/apacheta/models/tensor.py` (line 24 in `scout_1031_20260216_seed-1.6-flash.md`) versus Scout 6657's indeterminate verdict on its own reading habits (line 18 in `scout_6657_20260318_grok-3-mini.md`).",
+  "claim_file": "docs/cairn/scout_1031_20260216_seed-1.6-flash.md",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-04-09T17:16:04.663345+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "114bf456-1f5c-4e30-bba4-5a3cfd7d424e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10536_20260409_llama-guard-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8524_20260329_mistral-small-2603.md",
+  "relation": "confirms",
+  "claim_text": "The docs are **half-finished** (missing `advanced.md`), the **interpolation surface is wide open to injection**, and the **hooks are so powerful they can trap users**.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/hook-development/references/advanced.md",
+  "claim_by": "mistralai/mistral-small-2603",
+  "verified_by": "meta-llama/llama-guard-3-8b",
+  "timestamp": "2026-04-09T17:15:55.551677+00:00"
+}

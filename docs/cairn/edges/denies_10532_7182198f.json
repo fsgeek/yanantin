@@ -1,0 +1,11 @@
+{
+  "id": "7182198f-b143-4d77-9abe-eaef7a7251a8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10532_20260409_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0446_20260214_command-r7b-12-2024.md",
+  "relation": "denies",
+  "claim_text": "## Reasoning The file `src/yanantin/chasqui/scout.py` does not contain any code related to the `scout.py` template.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-09T16:44:06.955920+00:00"
+}

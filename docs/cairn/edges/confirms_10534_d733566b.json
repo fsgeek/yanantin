@@ -1,0 +1,11 @@
+{
+  "id": "d733566b-28af-404c-a622-cc59d585746a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10534_20260409_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7169_20260321_seed-1.6-flash.md",
+  "relation": "confirms",
+  "claim_text": "For example, both check SDK installation, environment setup, security (`.env` in `.gitignore`), and adherence to documentation via \"WebFetch.\" But the Python version references `requirements.txt`/`pyproject.toml` instead of `package.json`, and the TypeScript one checks `tsconfig.json` for ES modules.",
+  "claim_file": "pyproject.toml",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-04-09T16:44:13.582766+00:00"
+}

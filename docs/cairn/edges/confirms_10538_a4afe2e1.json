@@ -1,0 +1,11 @@
+{
+  "id": "a4afe2e1-5a38-4c32-834f-15e74cbf947d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10538_20260409_gpt-4.1-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9777_20260405_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "The provided file is indeed named `composition.py`, which suggests that it should contain the content related to `composition.py`.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "openai/gpt-4.1-mini",
+  "timestamp": "2026-04-09T17:16:05.742591+00:00"
+}

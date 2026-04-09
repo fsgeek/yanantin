@@ -1,0 +1,11 @@
+{
+  "id": "f17511d8-df1f-4377-9d74-02d11a0bb0ce",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10475_20260409_seed-2.0-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0720_20260215_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "Compositional Composition**   `docs/cairn/scout_0230_20260213_gemma-3n-e4b-it.md` emphasizes **composition types** (linear, branching, synthesis)\u2014critical for neural architecture.",
+  "claim_file": "docs/cairn/scout_0230_20260213_gemma-3n-e4b-it.md",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "bytedance-seed/seed-2.0-mini",
+  "timestamp": "2026-04-09T08:54:44.549614+00:00"
+}

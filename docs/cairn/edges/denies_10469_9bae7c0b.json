@@ -1,0 +1,11 @@
+{
+  "id": "9bae7c0b-5455-48d4-b1dd-a0d26727fbf0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10469_20260409_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2510_20260223_llama-3.1-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "`test_monotonicity.py` ensures no backtracking; `test_immutability.py` ensures no edits; `test_provenance.py` ensures no orphaned records.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-04-09T08:22:02.112914+00:00"
+}

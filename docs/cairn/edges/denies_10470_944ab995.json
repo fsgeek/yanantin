@@ -1,0 +1,11 @@
+{
+  "id": "944ab995-5a7e-4606-a12d-0765ec330544",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10470_20260409_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9395_20260403_llama-3.2-3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "This line explicitly states that `T/I/F` values are unconstrained at the model level, which aligns with the claim that files like `base.py`, `composition.py`, `entities.py`, `epistemics.py`, `provenance.py`, and `tensor.py` hint at a complex data model built around tensor structures.",
+  "claim_file": "src/yanantin/apacheta/models/entities.py",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-09T08:22:02.186344+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "60ea243f-42ae-4822-89bb-de29da8b3f8c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10581_20260409_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8838_20260331_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "**The Full XSD Validation Logic** - The `validate_against_xsd()` method in `docx.py` is empty.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/docx.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-04-09T23:28:21.755396+00:00"
+}

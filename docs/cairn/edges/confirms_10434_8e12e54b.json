@@ -1,0 +1,11 @@
+{
+  "id": "8e12e54b-2ffd-4dfd-a833-449d03dca1a1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10434_20260409_mistral-small-creative.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8704_20260330_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "**Error Detection and Mitigation** - **File(s):** `test_governance.py` - **Observation:** Several tests in `test_governance.py` are aimed at ensuring that corrupted output is detected and dealt with appropriately.",
+  "claim_file": "tests/red_bar/test_governance.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "mistralai/mistral-small-creative",
+  "timestamp": "2026-04-09T03:43:09.716883+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "e99f88c3-aa1c-4720-81a7-3da9e7130653",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10431_20260409_deepseek-chat.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1561_20260219_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": "Scout reports like `scout_0760_20260215_llama-3.2-3b-instruct.md` contain detailed metadata on prompt/completion tokens and cost.\", \"Reflection\": \"This is the core mechanism for 'epistemic observability.' The system is constantly recording how different 'minds' (models) interpret and respond to data, cataloging not just the output but the cost and token usage.",
+  "claim_file": "docs/cairn/scout_0760_20260215_llama-3.2-3b-instruct.md",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "deepseek/deepseek-chat",
+  "timestamp": "2026-04-09T03:11:19.952250+00:00"
+}

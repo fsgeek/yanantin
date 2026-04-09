@@ -1,0 +1,11 @@
+{
+  "id": "e4014c29-2a00-44cf-a7bb-ffd3bfd14b8f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10435_20260409_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2207_20260222_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Open Questions New questions that arose from reading the previous report include: * What is the exact mechanism for tracking data transformations in the `provenance.py` file?",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-09T03:43:10.574203+00:00"
+}

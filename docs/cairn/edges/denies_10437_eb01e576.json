@@ -1,0 +1,11 @@
+{
+  "id": "eb01e576-e862-4a11-abcd-fbf1bfc47c7b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10437_20260409_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4043_20260302_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "*Reference*: `docs/cairn/scout_3988_20260302_qwen-turbo.md`, `docs/cairn/scout_2708_20260224_lfm2-8b-a1b.md`.",
+  "claim_file": "docs/cairn/scout_3988_20260302_qwen-turbo.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-09T04:13:02.654351+00:00"
+}

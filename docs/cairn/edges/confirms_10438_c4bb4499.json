@@ -1,0 +1,11 @@
+{
+  "id": "c4bb4499-c997-45ee-9e95-cfb2b8d363e6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10438_20260409_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6988_20260320_gpt-4o-mini.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `tests/unit/test_arango_independent.py` begins with the following comment: ```python \"\"\"Independent tests for the ArangoDB backend \u2014 written by test author, not builder.",
+  "claim_file": "tests/unit/test_arango_independent.py",
+  "claim_by": "openai/gpt-4o-mini",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-09T04:13:07.557837+00:00"
+}

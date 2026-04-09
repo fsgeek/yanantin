@@ -1,0 +1,11 @@
+{
+  "id": "b61fbee7-3081-407a-a65f-6c8e82bf8c6e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10443_20260409_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6634_20260318_grok-4-fast.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 3: Operators as Duality Machinery (src/yanantin/apacheta/operators/*) `compose.py` builds `CompositionEdge` (non-commutative: A\u2192B \u2260 B\u2192A), `correct.py`/`dissent.py` forge `CORRECTS`/`DISSES` edges (verified in scout_6077).",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-04-09T04:45:52.041953+00:00"
+}

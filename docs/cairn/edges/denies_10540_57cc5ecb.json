@@ -1,0 +1,11 @@
+{
+  "id": "57cc5ecb-ed5c-4a14-99e0-c1a4beba6916",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10540_20260409_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7411_20260322_qwen3-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "\"\"\" tensor = interface.get_tensor(tensor_id) if strand_indices is None and topics is None: return list(tensor.strands) results = [] for strand in tensor.strands: if strand_indices and strand.strand_index in strand_indices: results.append(strand) elif topics and any(t in strand.topics for t in topics): if strand not in results: results.append(strand) return results ``` ### Reasoning The claim states that `operators/dissent.py` contains \"verbs of the system,\" and lists `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, and `project.py` as such verbs.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-04-09T17:46:24.227037+00:00"
+}

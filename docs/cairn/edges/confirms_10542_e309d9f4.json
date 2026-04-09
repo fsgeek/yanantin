@@ -1,0 +1,11 @@
+{
+  "id": "e309d9f4-b31c-425b-aeb6-ae9a74730854",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10542_20260409_seed-2.0-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4317_20260304_qwen-2.5-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The provided `weaver.py` file does not include any reference to `build_file_tree`.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "bytedance-seed/seed-2.0-lite",
+  "timestamp": "2026-04-09T17:46:40.815525+00:00"
+}

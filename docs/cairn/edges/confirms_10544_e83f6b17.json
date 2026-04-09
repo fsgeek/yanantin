@@ -1,0 +1,11 @@
+{
+  "id": "e83f6b17-c126-4919-930d-4dd77210c65a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10544_20260409_hermes-4-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8851_20260331_nova-micro-v1.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim made by `qwen/qwen3-14b` states that \"the file `docs/signing.md` contains no mention of 'tensor-level provenance' or `ProvenanceEnvelope` in `src/yanantin/models/base.py`.\" To verify this, I have read through the entire content of the `docs/signing.md` file.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "nousresearch/hermes-4-70b",
+  "timestamp": "2026-04-09T18:18:31.300809+00:00"
+}

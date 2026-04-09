@@ -1,0 +1,11 @@
+{
+  "id": "f7d4f20e-a780-4094-a0bd-b65a4c2d8d45",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10541_20260409_grok-code-fast-1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7501_20260323_llama-3.1-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "``` The `check_succession` function reads the `blueprint.md` file and extracts claims using the `_extract_blueprint_claims` function.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "x-ai/grok-code-fast-1",
+  "timestamp": "2026-04-09T17:46:26.782585+00:00"
+}

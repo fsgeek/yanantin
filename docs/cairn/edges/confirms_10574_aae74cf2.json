@@ -1,0 +1,11 @@
+{
+  "id": "aae74cf2-f98b-44db-b836-0a3bef9d883a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10574_20260409_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9060_20260401_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "There is no reference to `apacheta.md` in the provided content, but the claim's main point about `weaver.py` was the focus of this verification.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-09T22:26:09.831626+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "f0a5026c-26fa-474e-ad3a-821bfb5876c8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10570_20260409_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5885_20260314_qwen-plus-2025-07-28:thinking.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2 \u2013 Immutability as a Religious Doctrine The mantra \"Tensors are immutable \u2014 compose, don't overwrite\" (repeated verbatim in `tests/red_bar/test_immutability.py`, `scout_2173`, and `scout_1313`) isn't just a constraint - it's **enforced as dogma**.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "qwen/qwen-plus-2025-07-28:thinking",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-09T21:54:03.538578+00:00"
+}

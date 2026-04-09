@@ -1,0 +1,11 @@
+{
+  "id": "f624feb2-d38a-4367-bfce-faece5f28d61",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10575_20260409_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2044_20260221_qwen3-30b-a3b-instruct-2507.md",
+  "relation": "confirms",
+  "claim_text": "The Grammar of Detachment: `awaq/weaver.py` and the Regex-Only Weave The `scour_0062_20260217_qwen2.5-coder-7b-instruct.md` report highlighted `src/yanantin/awaq/weaver.py`.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-09T22:26:10.889356+00:00"
+}

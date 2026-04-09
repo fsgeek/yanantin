@@ -1,0 +1,11 @@
+{
+  "id": "b8e2df05-7139-4ac6-910f-b693be94b587",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10573_20260409_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0952_20260216_llama-3.3-nemotron-super-49b-v.md",
+  "relation": "confirms",
+  "claim_text": "The `scout_0154_20260212_command-r7b-12-2024.md` report highlights this modularity, noting distinct components like `evolve.py` for schema changes and `provenance.py` for tracking.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-09T22:26:08.202528+00:00"
+}

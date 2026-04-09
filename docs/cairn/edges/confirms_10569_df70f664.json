@@ -1,0 +1,11 @@
+{
+  "id": "df70f664-9a63-4c2d-9529-39bd05e4c292",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10569_20260409_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9669_20260404_gpt-4.1-mini.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict DENIED ### Evidence - The claim states: \"While `docs/tensors.md` does reference 'Apacheta' (as a database/project, not explicitly as `apacheta.md`), it provides no information about what `docs/apacheta.md` does or does not contain.\" - The entire content of `docs/apacheta.md` clearly describes what Apacheta is, what it is not, its properties, existing implementations, missing items, formalization, and open questions.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "openai/gpt-4.1-mini",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-04-09T21:53:58.962215+00:00"
+}

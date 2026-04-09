@@ -1,0 +1,11 @@
+{
+  "id": "04fd1414-06bb-44a4-b3f6-3e545e4ec272",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10410_20260409_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2870_20260225_mimo-v2-flash.md",
+  "relation": "denies",
+  "claim_text": "The `scout_reviewer.md` likely contains instructions for reviewing scout reports (e.g., \"check for hallucinations\").",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-09T00:38:22.587729+00:00"
+}

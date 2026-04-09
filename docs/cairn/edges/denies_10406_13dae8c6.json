@@ -1,0 +1,11 @@
+{
+  "id": "13dae8c6-280f-4b2f-896c-599e06e57d89",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10406_20260409_qwen3-max.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5033_20260308_llama-4-scout.md",
+  "relation": "denies",
+  "claim_text": "**Documentation and Blueprints**: The `docs/` directory contains several markdown files, including `blueprint.md`, `cairn/`, and `tensors.md`.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "qwen/qwen3-max",
+  "timestamp": "2026-04-09T00:05:11.107445+00:00"
+}

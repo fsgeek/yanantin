@@ -1,0 +1,11 @@
+{
+  "id": "b42456cf-63f2-4e69-be03-1506857709f3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10409_20260409_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5192_20260309_qwen3.5-27b.md",
+  "relation": "confirms",
+  "claim_text": "> For the tensor sequence and its history, see `docs/tensors.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "qwen/qwen3.5-27b",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-09T00:38:17.946812+00:00"
+}

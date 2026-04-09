@@ -1,0 +1,11 @@
+{
+  "id": "f57f67f5-7eb0-4387-be60-a42afeb2b131",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10407_20260409_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7078_20260321_sonar.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `src/yanantin/apacheta/clients/openrouter.py` contains a complete, well-documented implementation of an OpenRouter API client.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "perplexity/sonar",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-09T00:05:21.458332+00:00"
+}

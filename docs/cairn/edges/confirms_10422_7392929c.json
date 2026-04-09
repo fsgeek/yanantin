@@ -1,0 +1,11 @@
+{
+  "id": "7392929c-fdc6-4979-afd1-aefe82822457",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10422_20260409_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7776_20260324_nemotron-3-nano-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The provided source file `src/yanantin/apacheta/models/composition.py` contains only the class definitions and imports shown above.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-04-09T02:08:53.437708+00:00"
+}

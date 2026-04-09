@@ -1,0 +1,11 @@
+{
+  "id": "a434c8c0-5acb-42b2-a8f4-e990b3e183d2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10427_20260409_trinity-large-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2855_20260225_lfm-2.2-6b.md",
+  "relation": "confirms",
+  "claim_text": "### Strands   **Strand 1: Pattern Generalization**   The scout consistently confirms and extends patterns\u2014like linking filesystem structure to semantic claims (e.g., the `tinkuy/audit.py` docstring confirming it's an audit tool).",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "arcee-ai/trinity-large-thinking",
+  "timestamp": "2026-04-09T02:41:08.452527+00:00"
+}

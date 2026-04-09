@@ -1,0 +1,11 @@
+{
+  "id": "1784e79a-a643-45bb-8d86-3db139daa8e9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10425_20260409_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4508_20260305_glm-4-32b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The file `agents/structured_reviewer.md` contains the following lines that directly contradict the claim: ``` ## Role You are a code reviewer.",
+  "claim_file": "agents/structured_reviewer.md",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-04-09T02:41:04.136060+00:00"
+}

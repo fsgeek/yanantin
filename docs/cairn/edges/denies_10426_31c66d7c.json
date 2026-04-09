@@ -1,0 +1,11 @@
+{
+  "id": "31c66d7c-7ff5-481c-8071-e8e255205a9d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10426_20260409_mistral-small-2603.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9422_20260403_gemini-2.5-flash-lite.md",
+  "relation": "denies",
+  "claim_text": "For example, `scout_4454_20260304_llama-4-scout.md`, `scout_3902_20260301_llama-3-8b-instruct.md`, `scout_1006_20260216_deepseek-v3.2-exp.md`, and `scout_1334_20260218_gemma-3-27b-it.md` are just a few of the many.",
+  "claim_file": "docs/cairn/scout_1334_20260218_gemma-3-27b-it.md",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "mistralai/mistral-small-2603",
+  "timestamp": "2026-04-09T02:41:06.284617+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "dca9ab7e-d4ac-4461-b861-9ad01fccac7a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10642_20260410_llama-4-maverick.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4706_20260306_codestral-2508.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that `composition.py` could define base classes or interfaces that enable the backends to interact with the clients and operators in a consistent way.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "mistralai/codestral-2508",
+  "verified_by": "meta-llama/llama-4-maverick",
+  "timestamp": "2026-04-10T07:49:21.493822+00:00"
+}

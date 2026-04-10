@@ -1,0 +1,11 @@
+{
+  "id": "87edff23-a329-4b0d-9239-7576e2248a08",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10643_20260410_gemma-4-26b-a4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7516_20260323_command-r-08-2024.md",
+  "relation": "confirms",
+  "claim_text": "Additionally, I didn't explore the `node_mcp_server.md` and `python_mcp_server.md` files, as I wanted to maintain a broad overview of the system.",
+  "claim_file": "tmp/ubuntu-vm.claude/mcp-builder/reference/node_mcp_server.md",
+  "claim_by": "cohere/command-r-08-2024",
+  "verified_by": "google/gemma-4-26b-a4b-it",
+  "timestamp": "2026-04-10T07:49:25.980956+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "9d220c1f-78b0-4f43-bdac-339428c8a99b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10638_20260410_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5351_20260310_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "**I did not examine `src/yanantin/apacheta/models/tensor.py`.** I inferred its structure from `scout_0299` and `scout_4639`, but I did not see the actual Python code.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-04-10T07:17:05.750855+00:00"
+}

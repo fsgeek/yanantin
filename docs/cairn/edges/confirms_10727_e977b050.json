@@ -1,0 +1,11 @@
+{
+  "id": "e977b050-e0c3-4dd5-824f-88e4e5781d9e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10727_20260410_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10520_20260409_llama-4-maverick.md",
+  "relation": "confirms",
+  "claim_text": "**Root Cause Tracing** - The `root-cause-tracing.md` file describes a process for tracing bugs back to their original cause, rather than fixing symptoms.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/skills/systematic-debugging/root-cause-tracing.md",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-10T18:44:04.026541+00:00"
+}

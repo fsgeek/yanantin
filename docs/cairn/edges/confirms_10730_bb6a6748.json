@@ -1,0 +1,11 @@
+{
+  "id": "bb6a6748-9a09-4df4-8e01-e0c36458320f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10730_20260410_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6272_20260316_ernie-4.5-21b-a3b-thinking.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses The content of `scout_0857_20260216_nemotron-3-nano-30b-a3b.md` was not provided, preventing cross-referencing the claim.",
+  "claim_file": "docs/cairn/scout_0857_20260216_nemotron-3-nano-30b-a3b.md",
+  "claim_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-10T19:18:07.589394+00:00"
+}

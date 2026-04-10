@@ -1,0 +1,11 @@
+{
+  "id": "ac11fa0a-f255-42b2-8710-48d96c0cef69",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10728_20260410_gpt-4.1-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10168_20260407_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "- The use of deep copies (e.g., `memory.py` line 112, `duckdb.py` line 204) indicates a strategy to avoid side effects from shared references, emphasizing data integrity over performance.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "openai/gpt-4.1-nano",
+  "timestamp": "2026-04-10T18:44:04.556996+00:00"
+}

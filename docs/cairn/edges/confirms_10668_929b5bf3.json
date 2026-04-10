@@ -1,0 +1,11 @@
+{
+  "id": "929b5bf3-97b0-4153-8de9-645cbc3ad971",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10668_20260410_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7403_20260322_deepseek-v3.1-terminus.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The entire file content shows no mention of `arango.py` or `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "deepseek/deepseek-v3.1-terminus",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-10T10:55:34.408604+00:00"
+}

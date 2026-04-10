@@ -1,0 +1,11 @@
+{
+  "id": "69831f21-2255-405b-a46f-4773183d6071",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10667_20260410_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2627_20260223_llama-3.2-3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The following lines from the file support the claim that Scout tensors like `scout_0937_20260216_mistral-small-3.2-24b-instruct.md` embed schema rules: - Line 13: \"the scout report itself documents how tensors document themselves.\" - Lines 15-20: \"The scout report (`docs/scout_report_tensor_sensor_schema.md`) reveals how the system emerged from practice rather than being imposed top-down.",
+  "claim_file": "docs/cairn/scout_0937_20260216_mistral-small-3.2-24b-instruct.md",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-04-10T10:55:31.562040+00:00"
+}

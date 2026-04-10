@@ -1,0 +1,11 @@
+{
+  "id": "0cabd6be-d1d3-4988-8ad1-a8d072ec5009",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10663_20260410_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1014_20260216_glm-4.5.md",
+  "relation": "confirms",
+  "claim_text": "- `src/yanantin/apacheta/backends/` contains multiple storage backends: `arango.py`, `duckdb.py`, and `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "z-ai/glm-4.5",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-10T10:23:16.766125+00:00"
+}

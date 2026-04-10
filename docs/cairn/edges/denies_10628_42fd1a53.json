@@ -1,0 +1,11 @@
+{
+  "id": "42fd1a53-6d01-4114-9107-0091a2c479d9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10628_20260410_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9251_20260402_llama-3.2-3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I chose not to examine the `test_tinkuy_succession.py` file, as it was not clear what the claim was about and seemed to be related to a specific test case.",
+  "claim_file": "tests/unit/test_tinkuy_succession.py",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-10T05:45:16.742633+00:00"
+}

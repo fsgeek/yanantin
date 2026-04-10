@@ -1,0 +1,11 @@
+{
+  "id": "f528f6e3-bcf3-4aaf-a704-7e5b38cb5964",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10622_20260410_gemini-2.5-flash-lite-preview-.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9855_20260406_grok-3-mini.md",
+  "relation": "confirms",
+  "claim_text": "- **Strand 1: Pressure as a Crutch**   In `examples/CLAUDE_MD_TESTING.md` (lines 10-30), scenarios like \"Production is bleeding money\" pit instant action against skill-checking, assuming AI agents default to shortcuts under stress.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/skills/writing-skills/examples/CLAUDE_MD_TESTING.md",
+  "claim_by": "x-ai/grok-3-mini",
+  "verified_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "timestamp": "2026-04-10T05:13:25.611866+00:00"
+}

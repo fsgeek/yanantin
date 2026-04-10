@@ -1,0 +1,11 @@
+{
+  "id": "0d781c44-dce2-4661-870e-3603c87fd928",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10627_20260410_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0597_20260215_mistral-7b-instruct-v0.2.md",
+  "relation": "confirms",
+  "claim_text": "The \"building inspector\" analogy (from `succession.py`) is fascinating\u2014it frames the AI as a temporary steward of the project, leaving a \"map\" for the next instance.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "mistralai/mistral-7b-instruct-v0.2",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-10T05:45:14.733544+00:00"
+}

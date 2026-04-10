@@ -1,0 +1,11 @@
+{
+  "id": "515ebab6-8318-4468-9a23-77f828211ea6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10626_20260410_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6456_20260317_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "#### Strand 2: The Predecessors Dispute (Epistemic Conflict) **Files:** `docs/cairn/scout_2027_20260221_llama-3.1-nemotron-ultra-253b-.md`, `docs/cairn/scout_5883_20260314_glm-4-32b.md`, `docs/cairn/scour_0168_20260223_gemini-2.5-flash-lite-preview-.md` **Observation:** There is a specific, recurring verification task regarding `docs/predecessors.md`.",
+  "claim_file": "docs/cairn/scout_2027_20260221_llama-3.1-nemotron-ultra-253b-.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-10T05:45:13.920357+00:00"
+}

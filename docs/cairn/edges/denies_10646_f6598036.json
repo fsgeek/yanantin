@@ -1,0 +1,11 @@
+{
+  "id": "f6598036-5825-4f8f-a146-97d325ad8b6a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10646_20260410_tongyi-deepresearch-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9434_20260403_hermes-2-pro-llama-3-8b.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I chose not to examine the other test files in the `red_bar/` directory (`test_activity_stream.py`, `test_governance.py`, `test_jabberwock_cli_invariants.py`, `test_jabberwock_invariants.py`, `test_monotonicity.py`, `test_portability.py`, `test_provenance.py`) as they may contain important insights but are outside the scope of my current attention.",
+  "claim_file": "tests/red_bar/test_activity_stream.py",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "alibaba/tongyi-deepresearch-30b-a3b",
+  "timestamp": "2026-04-10T08:19:19.471325+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "6f0ec8a9-09c4-4ddd-b154-e08241ccfc64",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10648_20260410_ernie-4.5-vl-424b-a47b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5519_20260311_gemini-2.0-flash-lite-001.md",
+  "relation": "denies",
+  "claim_text": "I did not examine the code in `src/yanantin/chasqui/gleaner.py`, as its functionality falls outside my immediate scope of observation.",
+  "claim_file": "src/yanantin/chasqui/gleaner.py",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "baidu/ernie-4.5-vl-424b-a47b",
+  "timestamp": "2026-04-10T08:19:26.477144+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "438c2c09-6b49-4874-91ef-e64cfab5291e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10651_20260410_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2365_20260222_lfm-2.2-6b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The provided file is the content of `src/yanantin/apacheta/ingest/markdown_parser.py`.",
+  "claim_file": "src/yanantin/apacheta/ingest/markdown_parser.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-10T08:51:33.492786+00:00"
+}

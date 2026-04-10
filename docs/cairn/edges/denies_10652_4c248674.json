@@ -1,0 +1,11 @@
+{
+  "id": "4c248674-f6f0-4361-8a32-de959cc9b17f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10652_20260410_wizardlm-2-8x22b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3909_20260301_command-r7b-12-2024.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The file `src/yanantin/apacheta/operators/correct.py` does not contain any functions or classes called `compose.py`, `correct.py`, or `evolve.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "microsoft/wizardlm-2-8x22b",
+  "timestamp": "2026-04-10T08:52:20.122053+00:00"
+}

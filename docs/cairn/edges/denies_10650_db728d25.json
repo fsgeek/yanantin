@@ -1,0 +1,11 @@
+{
+  "id": "db728d25-66a5-4d3e-b71e-d9d01d934811",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10650_20260410_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5078_20260308_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states that the file contains the line: \"The code is organized into several directories, including `yanantin`, `cairn`, `composition_graph`, `entropy_code_experiment_v2`, `predecessors`, `scout_0519_20260214_qwen3-235b-a22b-2507.md`, `scout_0631_20260215_nemotron-3-nano-30b-a3b.md`, `scout_0631_20260215_nemotron-3-nano-30b-a3b.md`,...\".",
+  "claim_file": "docs/cairn/scout_0519_20260214_qwen3-235b-a22b-2507.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-10T08:51:22.912016+00:00"
+}

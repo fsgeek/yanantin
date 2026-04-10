@@ -1,0 +1,11 @@
+{
+  "id": "2070b1f1-5e2d-470b-94cc-08b4152e36ac",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10691_20260410_claude-opus-4.5.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4438_20260304_gemini-2.0-flash-lite-001.md",
+  "relation": "confirms",
+  "claim_text": "The claim is not \u201cthis file *says* the file `tensors.md` was substituted\u201d (and therefore is false if it doesn\u2019t), but rather, \u201c*there is no trace* of this substitution in this file.\u201d This is a subtle but critical distinction.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "anthropic/claude-opus-4.5",
+  "timestamp": "2026-04-10T14:01:43.968785+00:00"
+}

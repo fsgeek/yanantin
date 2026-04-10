@@ -1,0 +1,11 @@
+{
+  "id": "042eb4dc-bb73-4818-a7a3-73b171826c50",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10688_20260410_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1139_20260217_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "- **Implementation Details:** I chose not to examine the implementation details of the databases (`arango.py`, `duckdb.py`), the client abstractions (`openrouter.py`), and the renderer (`markdown.py`).",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-10T13:30:44.744017+00:00"
+}

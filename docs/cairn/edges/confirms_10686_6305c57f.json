@@ -1,0 +1,11 @@
+{
+  "id": "6305c57f-c7f1-4133-ae6c-f190b98089a1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10686_20260410_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6104_20260315_hermes-2-pro-llama-3-8b.md",
+  "relation": "confirms",
+  "claim_text": "- `correct.py` defines a `correct(...)` operator function (the verifier found its signature and docstring).",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-04-10T13:29:33.625963+00:00"
+}

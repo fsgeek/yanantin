@@ -1,0 +1,11 @@
+{
+  "id": "fbe85985-7990-4fd8-acb8-d45ee0c09724",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10690_20260410_gpt-5.1-codex-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2018_20260221_qwen-2.5-72b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The `docs/signing.md` File and Its Mystery** - **Disagreement**: The claim that the content of `docs/signing.md` is unclear is a significant gap.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "qwen/qwen-2.5-72b-instruct",
+  "verified_by": "openai/gpt-5.1-codex-mini",
+  "timestamp": "2026-04-10T14:01:37.280296+00:00"
+}

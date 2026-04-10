@@ -1,0 +1,11 @@
+{
+  "id": "859fe45d-a27e-445d-a944-f33385c368fe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10601_20260410_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2710_20260224_qwen-turbo.md",
+  "relation": "denies",
+  "claim_text": "- **Data Modeling with Pydantic**: The use of Pydantic for data modeling is prevalent, particularly in `base.py` within the `apacheta.models` package.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-04-10T02:02:04.678835+00:00"
+}

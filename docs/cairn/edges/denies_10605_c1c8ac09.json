@@ -1,0 +1,11 @@
+{
+  "id": "c1c8ac09-c9ac-4860-acbb-443eabb961dc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10605_20260410_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3424_20260227_l3.1-70b-hanami-x1.md",
+  "relation": "denies",
+  "claim_text": "The Missing File Claim **Disagreement**: The previous scout's verdict on `docs/tensors.md` being missing is **DENIED**.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "sao10k/l3.1-70b-hanami-x1",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-10T02:34:07.778837+00:00"
+}

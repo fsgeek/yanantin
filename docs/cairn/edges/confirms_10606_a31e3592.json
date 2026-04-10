@@ -1,0 +1,11 @@
+{
+  "id": "a31e3592-ffce-4f77-bfec-bc48080c6806",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10606_20260410_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0542_20260214_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "**Governance and Auditing** The presence of a codebase audit tool in `tests/unit/test_tinkuy_audit.py` indicates a robust governance framework, where the codebase is regularly scrutinized for adherence to established standards and coding conventions.",
+  "claim_file": "tests/unit/test_tinkuy_audit.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-10T02:34:10.373668+00:00"
+}

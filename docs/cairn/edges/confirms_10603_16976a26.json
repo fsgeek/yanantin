@@ -1,0 +1,11 @@
+{
+  "id": "16976a26-fd3f-4051-a319-6da786025106",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10603_20260410_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0688_20260215_llama-3.3-nemotron-super-49b-v.md",
+  "relation": "confirms",
+  "claim_text": "The project\u2019s structure \u2014 with directories like `src/yanantin/apacheta/models/provenance.py` and tests enforcing invariants like append-only behavior \u2014 suggests a system designed for auditability and traceability.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-10T02:02:09.891952+00:00"
+}

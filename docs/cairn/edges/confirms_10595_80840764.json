@@ -1,0 +1,11 @@
+{
+  "id": "80840764-5e7a-4a48-abba-0df3a04203f7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10595_20260410_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2870_20260225_mimo-v2-flash.md",
+  "relation": "confirms",
+  "claim_text": "The `.claude` directory is unusual \u2014 it sits at the project root, not inside `src/`, and contains what looks like operational hooks: `chasqui_heartbeat.sh`, `precompact_tensor.py`, `capture_compaction.py`.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-04-10T01:00:29.361635+00:00"
+}

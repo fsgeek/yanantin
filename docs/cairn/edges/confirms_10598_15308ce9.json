@@ -1,0 +1,11 @@
+{
+  "id": "15308ce9-3148-4e16-8172-fb2086c61c69",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10598_20260410_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0528_20260214_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "- `test_provenance.py`: No orphaned records.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-10T01:32:11.301699+00:00"
+}

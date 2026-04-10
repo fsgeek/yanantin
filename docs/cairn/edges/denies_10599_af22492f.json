@@ -1,0 +1,11 @@
+{
+  "id": "af22492f-e66f-490e-9915-af47ea7721e3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10599_20260410_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2470_20260223_llama-4-scout.md",
+  "relation": "denies",
+  "claim_text": "- **Files Referenced**: `src/yanantin/apacheta/models/tensor.py`, `src/yanantin/apacheta/operators/compose.py` - **Thoughts**: The emphasis on immutability and composable operators suggests a serious attempt to tame epistemic complexity at scale.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-04-10T01:32:22.610085+00:00"
+}

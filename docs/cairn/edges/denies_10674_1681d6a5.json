@@ -1,0 +1,11 @@
+{
+  "id": "1681d6a5-b03b-428b-a6b1-4cc7e8d13aa2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10674_20260410_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9022_20260401_qwen2.5-coder-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "# Verification Assignment ## The Claim Model `microsoft/phi-4` made this claim about `src/yanantin/collector/checksum.py`: > ``` ### Reasoning The claim states that `src/yanantin/collector/checksum.py` imports four additional modules: `machine_config.py`, `filesystem.py`, `synthetic.py`, and `checksum.py`.",
+  "claim_file": "src/yanantin/collector/machine_config.py",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-10T11:57:14.739089+00:00"
+}

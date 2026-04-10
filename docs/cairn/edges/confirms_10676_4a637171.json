@@ -1,0 +1,11 @@
+{
+  "id": "4a637171-4f5f-4b37-bd65-a4cbb992467e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10676_20260410_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7222_20260321_gpt-oss-20b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The statement that the file content is provided for `src/yanantin/apacheta/operators/correct.py` directly indicates that a file named `correct.py` exists within a directory path `src/yanantin/apacheta/operators`.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-10T11:57:21.845187+00:00"
+}

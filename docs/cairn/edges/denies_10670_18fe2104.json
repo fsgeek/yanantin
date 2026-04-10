@@ -1,0 +1,11 @@
+{
+  "id": "18fe2104-0601-4d20-9724-c5c670d77aa9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10670_20260410_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10319_20260408_qwen3-14b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The provided file includes a \"## Context\" section before defining the task: ``` ## Context - Current git status: !`git status` - Current git diff (staged and unstaged changes): !`git diff HEAD` - Current branch: !`git branch --show-current` ``` ### Reasoning The claim asserts that **both** `commit.md` and `commit-push-pr.md` provide context before defining the task.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/commit-commands/commands/commit.md",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-10T11:25:25.640769+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "b253c977-cdcf-42e0-a858-b131f5d0cb72",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10672_20260410_hermes-4-405b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0546_20260214_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "**Evidence**: The scouts\u2019 `scout_0493` report mentions that the audit tool does *not* parse `blueprint.md`, but it does not rule out a separate schema file.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "nousresearch/hermes-4-405b",
+  "timestamp": "2026-04-10T11:25:33.025098+00:00"
+}

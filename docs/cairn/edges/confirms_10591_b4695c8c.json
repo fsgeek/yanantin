@@ -1,0 +1,11 @@
+{
+  "id": "b4695c8c-bf1e-474d-b895-f18361f3b81e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10591_20260410_ernie-4.5-300b-a47b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5010_20260308_gemini-2.0-flash-lite-001.md",
+  "relation": "confirms",
+  "claim_text": "*   **Observation 1:** Inside `.claude/hooks/` I see files with names like `capture_compaction.py`, `chasqui_heartbeat.sh`, `chasqui_pulse.py`, `ots_stamp.py`, `pipeline_attestation.py`, and `precompact_tensor.py`.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "baidu/ernie-4.5-300b-a47b",
+  "timestamp": "2026-04-10T00:32:12.806988+00:00"
+}

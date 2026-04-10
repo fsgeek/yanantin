@@ -1,0 +1,11 @@
+{
+  "id": "d8a071cc-a0bf-410c-8ee5-add702bb73e6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10586_20260409_step-3.5-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9828_20260405_gemma-3-4b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `src/yanantin/apacheta/operators/compose.py` does not contain `correct.py`, `dissent.py`, `evolve.py`, or `negate.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "stepfun/step-3.5-flash",
+  "timestamp": "2026-04-09T23:58:40.228571+00:00"
+}

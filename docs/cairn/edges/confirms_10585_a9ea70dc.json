@@ -1,0 +1,11 @@
+{
+  "id": "a9ea70dc-3cb3-4e4e-b1bb-c04e068d6cc7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10585_20260409_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3817_20260301_nova-micro-v1.md",
+  "relation": "confirms",
+  "claim_text": "``` The claim from `qwen/qwen2.5-vl-32b-instruct` does not match the contents of `docs/signing.md` as the file doesn't refer to `CLAUDE.md` or any other documents specified in the claim.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-09T23:58:38.152477+00:00"
+}

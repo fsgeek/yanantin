@@ -1,0 +1,11 @@
+{
+  "id": "ce38d4a3-a51a-4764-91a6-1a396fa07ea0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10660_20260410_gpt-5-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7747_20260324_gemma-3-4b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The following lines from `src/yanantin/tinkuy/audit.py` support the claim: *   `\"\"\"Codebase audit tool \u2014 generates ground truth from the filesystem.\"\"\"` *   `\"\"\"This module surveys the actual project directory structure and produces a structured report of what exists.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "openai/gpt-5-nano",
+  "timestamp": "2026-04-10T09:53:47.906516+00:00"
+}

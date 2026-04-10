@@ -1,0 +1,11 @@
+{
+  "id": "6ba93379-2180-4840-95f1-78114e7bdc4f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10654_20260410_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0634_20260215_ministral-8b-2512.md",
+  "relation": "confirms",
+  "claim_text": "**Dissent as a Formal Operation**: The `DissentRecord` (in `test_models.py`) has a `disagreement_type` field (e.g., `DEFINITIONAL`, `CONTEXTUAL`).",
+  "claim_file": "tests/unit/test_models.py",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-10T09:21:23.838657+00:00"
+}

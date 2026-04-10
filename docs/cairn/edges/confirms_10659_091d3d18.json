@@ -1,0 +1,11 @@
+{
+  "id": "091d3d18-483c-4705-8b45-1558a4f11c34",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10659_20260410_llama-4-maverick.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3151_20260226_qwen3-vl-235b-a22b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The project\u2019s architecture, as described in `docs/apacheta.md`, implies a system for tracking changes and maintaining consistency \u2014 and `evolve.py` is clearly part of that.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "qwen/qwen3-vl-235b-a22b-instruct",
+  "verified_by": "meta-llama/llama-4-maverick",
+  "timestamp": "2026-04-10T09:53:28.294157+00:00"
+}

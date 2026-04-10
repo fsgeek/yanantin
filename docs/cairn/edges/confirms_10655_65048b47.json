@@ -1,0 +1,11 @@
+{
+  "id": "65048b47-51bd-4ead-bedc-f868d79feb63",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10655_20260410_ernie-4.5-21b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10042_20260407_trinity-mini.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **CONFIRMED**   ### Evidence   The file `tests/integration/test_arango_real.py` begins with the following docstring:   ```python \"\"\"Integration tests for ArangoDB backend against REAL ArangoDB instance.",
+  "claim_file": "tests/integration/test_arango_real.py",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "baidu/ernie-4.5-21b-a3b",
+  "timestamp": "2026-04-10T09:21:30.989280+00:00"
+}

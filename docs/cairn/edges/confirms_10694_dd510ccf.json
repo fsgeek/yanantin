@@ -1,0 +1,11 @@
+{
+  "id": "dd510ccf-4e92-42d4-8691-1ec57371600e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10694_20260410_gemini-3.1-flash-lite-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2875_20260225_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "**Extensive Scout Reports** The `docs/cairn` directory contains numerous scout reports (e.g., `scout_1665_20260219_gemini-2.5-pro-preview.md`, `scout_1732_20260219_lfm2-8b-a1b.md`).",
+  "claim_file": "docs/cairn/scout_1732_20260219_lfm2-8b-a1b.md",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "google/gemini-3.1-flash-lite-preview",
+  "timestamp": "2026-04-10T14:31:42.292158+00:00"
+}

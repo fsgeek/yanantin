@@ -1,0 +1,11 @@
+{
+  "id": "2a1275db-b7a4-46e4-8f20-c75843119b42",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10698_20260410_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6292_20260316_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "While the declaration that \u201cit does not require truth, indeterminacy, and falsity to sum to 1.0\u201d is quoted from `tests/unit/test_chasqui.py` (lines 100\u2013110), the actual mechanism\u2014whether philosophical, probabilistic, or structural\u2014is not revealed.",
+  "claim_file": "tests/unit/test_chasqui.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-04-10T15:03:55.891418+00:00"
+}

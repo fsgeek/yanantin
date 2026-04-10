@@ -1,0 +1,11 @@
+{
+  "id": "42e14f06-ae91-4fe1-8274-40f7a9ce3d3f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10695_20260410_grok-3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2559_20260223_qwen3.5-397b-a17b.md",
+  "relation": "confirms",
+  "claim_text": "*   *Observation:* In `scout_1760_20260220_command-r7b-12-2024.md`, the model explicitly discusses \"Data-Driven Structure\" and \"Provenance.\" It seems aware it is part of a larger loop.",
+  "claim_file": "docs/cairn/scout_1760_20260220_command-r7b-12-2024.md",
+  "claim_by": "qwen/qwen3.5-397b-a17b",
+  "verified_by": "x-ai/grok-3",
+  "timestamp": "2026-04-10T14:31:49.771563+00:00"
+}

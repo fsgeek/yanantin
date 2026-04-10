@@ -1,0 +1,11 @@
+{
+  "id": "b7d6b102-0fec-4e98-8af3-4fc15e257d67",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10700_20260410_deepseek-v3.2-exp.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4288_20260304_grok-4-fast.md",
+  "relation": "denies",
+  "claim_text": "`compose.py` L10-25 bridges tensors immutably.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "deepseek/deepseek-v3.2-exp",
+  "timestamp": "2026-04-10T15:04:08.539864+00:00"
+}

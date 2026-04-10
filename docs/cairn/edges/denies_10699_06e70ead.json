@@ -1,0 +1,11 @@
+{
+  "id": "06e70ead-38e9-4bd3-aaec-6285868ffe5a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10699_20260410_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5516_20260311_mistral-small-3.2-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "However, there is no mention or reference to `openrouter.py` anywhere in the file, which supports the claim that there is no evidence of `openrouter.py` being related to this file.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-10T15:03:56.236269+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "442ce17a-e080-49d0-a0cb-f9e93fe7eefe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10714_20260410_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7509_20260323_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "Instead, the content describes a test suite (`test_monotonicity.py`) that verifies invariants in an append-only database system, focusing on record count preservation during concurrent and sequential operations.",
+  "claim_file": "tests/red_bar/test_monotonicity.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-10T17:09:12.616299+00:00"
+}

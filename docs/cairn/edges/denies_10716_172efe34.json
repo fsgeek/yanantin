@@ -1,0 +1,11 @@
+{
+  "id": "172efe34-5949-49e5-82f0-f573d4527d10",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10716_20260410_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1645_20260219_ernie-4.5-21b-a3b-thinking.md",
+  "relation": "denies",
+  "claim_text": "Since the claim asks about definitions in either `bootstrap.py` **or** `tests/unit/test_operators.py`, but only the former file is provided (and lacks the operators), and the latter file is unavailable for inspection, the existence of the operators remains unverified.",
+  "claim_file": "tests/unit/test_operators.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-10T17:09:31.651440+00:00"
+}

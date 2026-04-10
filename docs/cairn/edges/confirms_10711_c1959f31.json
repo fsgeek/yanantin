@@ -1,0 +1,11 @@
+{
+  "id": "c1959f31-a224-454f-ba8a-2cb959dd2405",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10711_20260410_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10440_20260409_llama-3.2-11b-vision-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Condition Evaluation** The `_rule_matches` method in `rule_engine.py` demonstrates a complex condition evaluation process (lines 114-145).",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/core/rule_engine.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-04-10T16:37:08.256289+00:00"
+}

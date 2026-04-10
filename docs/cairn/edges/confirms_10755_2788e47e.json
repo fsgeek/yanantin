@@ -1,0 +1,11 @@
+{
+  "id": "2788e47e-2603-4ebb-88d7-7103144408d0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10755_20260410_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0833_20260216_lfm2-8b-a1b.md",
+  "relation": "confirms",
+  "claim_text": "| The `weaver.py` doc confirms deterministic, non-LLaMA-based matching.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-10T22:23:31.053141+00:00"
+}

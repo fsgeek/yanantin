@@ -1,0 +1,11 @@
+{
+  "id": "07995e9e-c78a-470a-ae03-7890d7dd9f3d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10752_20260410_nemotron-nano-12b-v2-vl.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4691_20260306_grok-code-fast-1.md",
+  "relation": "denies",
+  "claim_text": "The cost tracking (e.g., total cost 0.000771 in `scout_3100_20260226_llama-4-maverick.md`) reflects the project's emphasis on efficiency, as seen in `scour_0323_20260303_gpt-oss-20b.md` describing cost-weighted model selection.",
+  "claim_file": "docs/cairn/scout_3100_20260226_llama-4-maverick.md",
+  "claim_by": "x-ai/grok-code-fast-1",
+  "verified_by": "nvidia/nemotron-nano-12b-v2-vl",
+  "timestamp": "2026-04-10T21:50:22.595130+00:00"
+}

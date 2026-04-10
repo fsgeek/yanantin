@@ -1,0 +1,11 @@
+{
+  "id": "801599cc-eeb7-438d-b439-5486de438031",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10634_20260410_mistral-saba.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10629_20260410_grok-4.1-fast.md",
+  "relation": "denies",
+  "claim_text": "Tension: Episode converged on this sans ARIES (Camelot regrets via Mike Young), yet `succession-2026-02-20.md` notes XFS apes async log I/O but can't STEAL without undo.",
+  "claim_file": "tmp/ubuntu-vm.claude/projects/-home-tony-projects-episode/memory/succession-2026-02-20.md",
+  "claim_by": "x-ai/grok-4.1-fast",
+  "verified_by": "mistralai/mistral-saba",
+  "timestamp": "2026-04-10T06:48:19.582443+00:00"
+}

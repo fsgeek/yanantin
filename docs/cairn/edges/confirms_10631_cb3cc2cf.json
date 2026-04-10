@@ -1,0 +1,11 @@
+{
+  "id": "cb3cc2cf-72e5-47e0-aed3-47b639c468a4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10631_20260410_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10220_20260407_olmo-3.1-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Environment Guarding in Subprocesses In `run_eval.py`, the script removes the `CLAUDECODE` environment variable when spawning the `claude -p` subprocess.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/skill-creator/skills/skill-creator/scripts/run_eval.py",
+  "claim_by": "allenai/olmo-3.1-32b-instruct",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-04-10T06:15:39.241195+00:00"
+}

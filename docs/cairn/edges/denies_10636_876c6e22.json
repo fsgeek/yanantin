@@ -1,0 +1,11 @@
+{
+  "id": "876c6e22-9724-4ee6-9297-f97ad1b8563b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10636_20260410_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8886_20260331_gemini-2.5-flash-lite-preview-.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that \"`audit.py` and `succession.py` implement \u201cblueprint verification\u201d \u2013 tests in `tests/unit/test_tinkuy_succession.py` compare the live codebase against `docs/blueprint.md`.\" While the file clearly defines the purpose of a tool named **Tinkuy** (`src/yanantin/tinkuy/`) as a \"Blueprint audit tool\" and mentions running succession checks (`uv run python -m yanantin.tinkuy --check`), it does not name the specific files `audit.py` and `succession.py` as the implementers.",
+  "claim_file": "tests/unit/test_tinkuy_succession.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-10T06:49:10.926301+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "d8d03b49-dc6b-49ae-8957-5b98f1bf92be",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10635_20260410_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3211_20260226_qwen3.5-35b-a3b.md",
+  "relation": "denies",
+  "claim_text": "`scout_2390_20260222_phi-4.md` denies a claim about `project.py` chaining operators.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "qwen/qwen3.5-35b-a3b",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-04-10T06:48:56.465378+00:00"
+}

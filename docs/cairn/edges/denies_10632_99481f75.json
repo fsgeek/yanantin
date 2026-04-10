@@ -1,0 +1,11 @@
+{
+  "id": "99481f75-4056-4c8e-8139-c0b9308559c9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10632_20260410_qwen-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5869_20260313_grok-4.1-fast.md",
+  "relation": "denies",
+  "claim_text": "The appended reasoning references `src/yanantin/tinkuy/succession.py` as \"the provided file\" and asserts no mention of *this* scout file within it, but this cannot be evaluated from *this* file alone (see Declared Losses), and misidentifies the subject file.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "x-ai/grok-4.1-fast",
+  "verified_by": "qwen/qwen-plus",
+  "timestamp": "2026-04-10T06:15:40.219802+00:00"
+}

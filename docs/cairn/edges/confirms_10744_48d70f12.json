@@ -1,0 +1,11 @@
+{
+  "id": "48d70f12-a3b4-4428-8bb7-356de415a419",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10744_20260410_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1182_20260217_ernie-4.5-21b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "### Strands #### Strand 1: Verification of `arango.py` Backends The previous scout denied the claim that `arango.py` defines three backends (dict, SQL, document/graph), stating that only the ArangoDB backend is defined.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-10T20:48:39.609757+00:00"
+}

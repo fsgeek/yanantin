@@ -1,0 +1,11 @@
+{
+  "id": "f4240b08-f943-4fa1-9dee-55963feed300",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10748_20260410_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2530_20260223_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "- `scout_1776_20260220_llama-3.1-nemotron-70b-instruc.md` denies a claim from `gemma-3n-e4b-it`.",
+  "claim_file": "docs/cairn/scout_1776_20260220_llama-3.1-nemotron-70b-instruc.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-04-10T21:20:29.135192+00:00"
+}

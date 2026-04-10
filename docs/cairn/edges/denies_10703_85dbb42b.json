@@ -1,0 +1,11 @@
+{
+  "id": "85dbb42b-c7b5-4ea5-aa16-e5f99f7ea3a5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10703_20260410_mistral-small-creative.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5156_20260309_olmo-3-7b-think.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The file contains the following import statements, which contradict the claim that it only imports `weaver.py` and `__main__.py` and instead include four other modules not listed in the claim: ```python import json  # Actual import 1 import re    # Actual import 2 from dataclasses import asdict, dataclass  # Actual import 3 from pathlib import Path  # Actual import 4 ``` ### Reasoning The claim asserts that `weaver.py` imports `machine_config.py`, `filesystem.py`, `synthetic.py`, and `checksum.py`.",
+  "claim_file": "src/yanantin/collector/checksum.py",
+  "claim_by": "allenai/olmo-3-7b-think",
+  "verified_by": "mistralai/mistral-small-creative",
+  "timestamp": "2026-04-10T15:34:05.124923+00:00"
+}

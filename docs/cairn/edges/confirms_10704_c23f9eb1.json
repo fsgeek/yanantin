@@ -1,0 +1,11 @@
+{
+  "id": "c23f9eb1-6ebd-4205-aa09-249ed606267f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10704_20260410_qwen3-14b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8289_20260327_command-r7b-12-2024.md",
+  "relation": "confirms",
+  "claim_text": "It does not contain any information about the model `z-ai/glm-4-32b` or its claims about the `provenance.py` file.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "qwen/qwen3-14b",
+  "timestamp": "2026-04-10T15:34:13.251242+00:00"
+}

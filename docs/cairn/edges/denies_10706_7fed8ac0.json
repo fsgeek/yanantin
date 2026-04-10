@@ -1,0 +1,11 @@
+{
+  "id": "7fed8ac0-5227-4d1d-b875-664f3cb629aa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10706_20260410_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8685_20260330_mistral-small-3.1-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states: > - In `src/yanantin/apacheta/operators/`, there are several files: `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, `project.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-10T16:06:07.557970+00:00"
+}

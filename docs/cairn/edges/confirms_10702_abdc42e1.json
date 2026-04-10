@@ -1,0 +1,11 @@
+{
+  "id": "abdc42e1-6584-49b6-a1c3-34c63b68c1c8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10702_20260410_gpt-4.1-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4500_20260305_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The file `docs/cairn/scout_0041_20260212_qwen3-14b.md` contains the following lines: ``` ### Verdict CONFIRMED ### Evidence ``` def test_get_strand_shares_source_uuid(self, backend, sample_tensor): ...",
+  "claim_file": "docs/cairn/scout_0041_20260212_qwen3-14b.md",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "openai/gpt-4.1-nano",
+  "timestamp": "2026-04-10T15:33:59.223374+00:00"
+}

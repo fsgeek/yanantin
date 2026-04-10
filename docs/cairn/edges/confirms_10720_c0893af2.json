@@ -1,0 +1,11 @@
+{
+  "id": "c0893af2-88e6-4741-8851-1caf1aae1dda",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10720_20260410_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8921_20260331_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "### Preamble I observed the `schemas.md` file within the `references/` directory of the `skill-creator` plugin in the Yanantin project.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/skill-creator/skills/skill-creator/references/schemas.md",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-04-10T17:39:23.435427+00:00"
+}

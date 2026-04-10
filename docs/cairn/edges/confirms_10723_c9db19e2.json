@@ -1,0 +1,11 @@
+{
+  "id": "c9db19e2-d53c-4c44-bbc0-6109de9d9058",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10723_20260410_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10427_20260409_trinity-large-thinking.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The docstring of `src/yanantin/tinkuy/audit.py` explicitly states: ```python \"\"\"Codebase audit tool \u2014 generates ground truth from the filesystem.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "arcee-ai/trinity-large-thinking",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-10T18:14:14.880724+00:00"
+}

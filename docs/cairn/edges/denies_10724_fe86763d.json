@@ -1,0 +1,11 @@
+{
+  "id": "fe86763d-a918-48c2-9d00-1e9c0dee6ea7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10724_20260410_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10172_20260407_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "*   `design-playground.md`: \"Update the card to feel soft...\" *   `data-explorer.md`: \"Write a SQL query that joins...\" *   `code-map.md`: \"Feedback on specific components...\" The AI is never given the raw state.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/playground/skills/playground/templates/data-explorer.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-10T18:14:18.317503+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "cf4d42b9-f7eb-4b0e-9b3b-5a5bec3d7103",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10722_20260410_gemini-2.5-flash-lite-preview-.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5241_20260309_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": "It's a fossil record of model introspection, suggesting that **observability isn't just about the tensors being processed, but about the observers themselves.** ### Strands #### Strand 1: The Ecology of Observation in `docs/cairn/` The `docs/cairn/` directory is an archive of *scout reports*, each named after the model that generated it (e.g., `scout_2255_20260222_gemma-3-4b-it.md`, `scout_0688_20260215_llama-3.3-nemotron-super-49b-v.md`).",
+  "claim_file": "docs/cairn/scout_0688_20260215_llama-3.3-nemotron-super-49b-v.md",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "timestamp": "2026-04-10T18:14:13.340505+00:00"
+}

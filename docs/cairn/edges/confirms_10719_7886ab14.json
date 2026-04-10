@@ -1,0 +1,11 @@
+{
+  "id": "7886ab14-d132-4dea-afde-1f74f259c757",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10719_20260410_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3381_20260227_mistral-large-2512.md",
+  "relation": "confirms",
+  "claim_text": "Safety & Epistemic Humility** - **What I saw**: - `docs/cairn/scout_0279_20260213_llama-guard-4-12b.md` and `scout_0580_20260214_llama-guard-3-8b.md` show models defaulting to \"safe\" or \"INDETERMINATE\" responses when uncertain.",
+  "claim_file": "docs/cairn/scout_0279_20260213_llama-guard-4-12b.md",
+  "claim_by": "mistralai/mistral-large-2512",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-10T17:39:22.359145+00:00"
+}

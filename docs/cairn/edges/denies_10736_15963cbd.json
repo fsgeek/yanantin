@@ -1,0 +1,11 @@
+{
+  "id": "15963cbd-2a40-4e8a-8b84-2c6191734c73",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10736_20260410_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9656_20260404_mistral-small-2603.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim asserts that `provenance.py` explicitly declares an inability to verify the absence of proof loops in other files.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "mistralai/mistral-small-2603",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-10T19:46:23.324840+00:00"
+}

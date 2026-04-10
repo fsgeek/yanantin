@@ -1,0 +1,11 @@
+{
+  "id": "f7b40372-8da0-43f9-941e-a93327d7ca33",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10740_20260410_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6504_20260317_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "* The ` ClaimFile` and `ClaimBy` metadata in various files, such as `docs/cairn/scout_1318_20260218_gpt-oss-20b.md`, indicate that the system is using some form of model verification or validation.",
+  "claim_file": "docs/cairn/scout_1318_20260218_gpt-oss-20b.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-10T20:19:00.139891+00:00"
+}

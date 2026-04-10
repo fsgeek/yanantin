@@ -1,0 +1,11 @@
+{
+  "id": "c3b37cee-8000-4f0b-bb79-0fecaa5e31aa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10735_20260410_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8665_20260330_ministral-8b-2512.md",
+  "relation": "confirms",
+  "claim_text": "However, the presence of `__main__.py` matches the claim.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-10T19:46:18.877156+00:00"
+}

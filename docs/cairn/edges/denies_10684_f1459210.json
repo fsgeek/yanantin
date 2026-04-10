@@ -1,0 +1,11 @@
+{
+  "id": "f1459210-b421-4c5f-949d-72b085d20ee8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10684_20260410_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5833_20260313_granite-4.0-h-micro.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses - **No Access to `test_provenance.py`**: The file does not contain any code or data from `tests/red_bar/test_provenance.py`.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-10T13:00:19.191219+00:00"
+}

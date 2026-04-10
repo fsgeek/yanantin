@@ -1,0 +1,11 @@
+{
+  "id": "49aac073-d062-4945-ab94-22721a70b412",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10683_20260410_llama-3.3-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8915_20260331_reka-edge.md",
+  "relation": "confirms",
+  "claim_text": "**Verdict: INDETERMINATE** **Reasoning:**   The claim states that the backend implementations of `arango.py`, `duckdb.py`, and `memory.py` are not production persistence\u2014this is **partially accurate**.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "reka/reka-edge",
+  "verified_by": "meta-llama/llama-3.3-70b-instruct",
+  "timestamp": "2026-04-10T12:59:56.398833+00:00"
+}

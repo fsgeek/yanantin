@@ -1,0 +1,11 @@
+{
+  "id": "29004603-1fb0-4954-9379-83235b6d1397",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10678_20260410_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6961_20260320_gpt-4o-mini-search-preview.md",
+  "relation": "confirms",
+  "claim_text": "\"\"\" source: SourceIdentifier = Field(default_factory=SourceIdentifier) timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc)) author_model_family: str = \"\" author_instance_id: str = \"\" context_budget_at_write: float | None = None predecessors_in_scope: tuple[UUID, ...] = Field(default_factory=tuple) interface_version: str = \"v1\" ``` ### Reasoning The claim that `provenance.py` tracks tensor lineage is inaccurate.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "openai/gpt-4o-mini-search-preview",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-04-10T12:27:24.851398+00:00"
+}

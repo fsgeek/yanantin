@@ -1,0 +1,11 @@
+{
+  "id": "04bcb0dd-5916-425d-a2d6-54bc290361e6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10610_20260410_qwen3-vl-30b-a3b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10525_20260409_deepseek-chat-v3.1.md",
+  "relation": "denies",
+  "claim_text": "Line 7: `from yanantin.apacheta.models.provenance import ProvenanceEnvelope` - confirms the existence of `provenance.py` in the `models` directory These import statements explicitly reference the presence of other files in the codebase, specifically indicating that `abstract.py`, `composition.py`, and `provenance.py` exist in their respective directories.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "deepseek/deepseek-chat-v3.1",
+  "verified_by": "qwen/qwen3-vl-30b-a3b-thinking",
+  "timestamp": "2026-04-10T03:04:24.118118+00:00"
+}

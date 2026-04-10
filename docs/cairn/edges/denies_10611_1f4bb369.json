@@ -1,0 +1,11 @@
+{
+  "id": "1f4bb369-d7cf-42de-8265-36c9161892b3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10611_20260410_gpt-5-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0193_20260213_gpt-4.1-nano.md",
+  "relation": "denies",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The claim states: \"The file `CLAUDE.md` contains the following text: `# CLAUDE.md Welcome to Yanantin.`\"   The actual file content begins with:   ``` # CLAUDE.md Welcome to Yanantin.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "openai/gpt-5-nano",
+  "timestamp": "2026-04-10T03:04:46.255619+00:00"
+}

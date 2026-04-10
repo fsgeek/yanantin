@@ -1,0 +1,11 @@
+{
+  "id": "a333bd01-2e2e-4fe3-b68a-c3041e3c23a1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10614_20260410_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8795_20260331_gpt-4o-mini-2024-07-18.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states that the test cases in `test_provenance.py` are not comprehensive.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "openai/gpt-4o-mini-2024-07-18",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-04-10T03:39:47.757968+00:00"
+}

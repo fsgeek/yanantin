@@ -1,0 +1,11 @@
+{
+  "id": "d0459ee5-69a0-4c9e-84fa-03ef30cbefc3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10758_20260410_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9686_20260405_minimax-m2.7.md",
+  "relation": "denies",
+  "claim_text": "Even within the file I was given (`CLAUDE.md`), there are multiple references to other files (`docs/predecessors.md`, `docs/blueprint.md`, `docs/tensors.md`, `docs/signing.md`).",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "minimax/minimax-m2.7",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-10T22:53:38.728415+00:00"
+}

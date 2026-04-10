@@ -1,0 +1,11 @@
+{
+  "id": "71da6188-63b4-47c6-bdbd-504e42b67ab0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10764_20260410_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9031_20260401_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**chasqui_pulse** The file `docs/cairn/compaction/0b7c5d08_20260226_010310_manual.md` mentions `chasqui_pulse` in the context of an integrity monitor.",
+  "claim_file": "docs/cairn/compaction/0b7c5d08_20260226_010310_manual.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-10T23:26:41.901608+00:00"
+}

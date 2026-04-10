@@ -1,0 +1,11 @@
+{
+  "id": "7cd3a5a3-e0eb-48c9-b6d1-8bea3cf6be30",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10760_20260410_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9149_20260402_trinity-mini.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim asserts a verdict CONFIRMED with evidence from three files, but only `analyst.py` is accessible.",
+  "claim_file": "src/yanantin/chasqui/analyst.py",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-10T22:53:44.938852+00:00"
+}

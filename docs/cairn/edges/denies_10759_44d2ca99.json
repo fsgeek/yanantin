@@ -1,0 +1,11 @@
+{
+  "id": "44d2ca99-821f-429b-aca4-461621546b12",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10759_20260410_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8112_20260326_qwen3.5-35b-a3b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file content explicitly positions `blueprint.md` as the source of assertions (\"claims\") and `succession.py` as the automation that verifies them against reality.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "qwen/qwen3.5-35b-a3b",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-04-10T22:53:38.986236+00:00"
+}

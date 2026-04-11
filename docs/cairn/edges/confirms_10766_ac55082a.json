@@ -1,0 +1,11 @@
+{
+  "id": "ac55082a-da30-4df1-b472-7a67a2f4c297",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10766_20260410_mistral-small-2603.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10398_20260408_mistral-small-creative.md",
+  "relation": "confirms",
+  "claim_text": "`scout.py` has **no evidence** (positive or negative) about `succession.py`'s constraints.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "mistralai/mistral-small-2603",
+  "timestamp": "2026-04-10T23:58:39.319948+00:00"
+}

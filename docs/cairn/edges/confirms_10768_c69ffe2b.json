@@ -1,0 +1,11 @@
+{
+  "id": "c69ffe2b-4271-4d1e-8e42-99a0de982649",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10768_20260410_trinity-large-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7258_20260322_step-3.5-flash.md",
+  "relation": "confirms",
+  "claim_text": "--- ### Declared Losses I did not examine: - `check_bounding_boxes.py`, `check_fillable_fields.py`: Likely validation utilities.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/scripts/check_fillable_fields.py",
+  "claim_by": "stepfun/step-3.5-flash",
+  "verified_by": "arcee-ai/trinity-large-thinking",
+  "timestamp": "2026-04-10T23:58:40.552738+00:00"
+}

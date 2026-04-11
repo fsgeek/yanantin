@@ -1,0 +1,11 @@
+{
+  "id": "c2603557-52eb-46e5-8577-dcb16e05f098",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10767_20260410_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4478_20260305_gemma-2-9b-it.md",
+  "relation": "denies",
+  "claim_text": "The Scout's Chorus: Understanding `cairn/scout_*` Files The `cairn` directory is filled with scout reports (e.g., `scout_2133_20260221_gemma-3-27b-it.md`).",
+  "claim_file": "docs/cairn/scout_2133_20260221_gemma-3-27b-it.md",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-10T23:58:39.945820+00:00"
+}

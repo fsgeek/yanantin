@@ -1,0 +1,11 @@
+{
+  "id": "0237e493-08c6-4229-bbe9-9b9a1f03f43f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10770_20260411_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3600_20260228_gpt-4o-mini-search-preview.md",
+  "relation": "confirms",
+  "claim_text": "The `docs/predecessors.md` file does not directly reference `apacheta.md` or `tensors.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "openai/gpt-4o-mini-search-preview",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-11T00:30:27.712527+00:00"
+}

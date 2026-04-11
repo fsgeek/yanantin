@@ -1,0 +1,11 @@
+{
+  "id": "e8f640d2-e5b2-4ab9-a221-4cf31db58af0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10790_20260411_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10618_20260410_deepseek-chat.md",
+  "relation": "confirms",
+  "claim_text": "**Scouting and Coverage Weighting** - **Observation**: `test_scout_features.py` tests how scout-related helpers pick vantage directories and select files based on coverage weights.",
+  "claim_file": "tests/unit/test_scout_features.py",
+  "claim_by": "deepseek/deepseek-chat",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-11T03:04:41.855899+00:00"
+}

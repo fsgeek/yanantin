@@ -1,0 +1,11 @@
+{
+  "id": "1eea4473-094e-41d2-a92a-a164acfd05a1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10794_20260411_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4957_20260307_gpt-4.1-mini.md",
+  "relation": "denies",
+  "claim_text": "``` ### Reasoning The claim to verify is: \"The same pattern appears in `scout_2026_20260221_mistral-nemo.md` and `scout_1931_20260220_gemma-3-4b-it.md`.\" The provided file is `scout_2026_20260221_mistral-nemo.md`.",
+  "claim_file": "docs/cairn/scout_2026_20260221_mistral-nemo.md",
+  "claim_by": "openai/gpt-4.1-mini",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-11T03:36:53.283175+00:00"
+}

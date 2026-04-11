@@ -1,0 +1,11 @@
+{
+  "id": "dfc9d754-427c-4cde-8ce3-f09c119aa9a1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10792_20260411_seed-2.0-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0024_20260212_qwen-2.5-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Specific modules like `openrouter.py` and `arango.py` handle these integrations.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "bytedance-seed/seed-2.0-mini",
+  "timestamp": "2026-04-11T03:08:34.620511+00:00"
+}

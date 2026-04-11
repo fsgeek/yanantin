@@ -1,0 +1,11 @@
+{
+  "id": "7d754337-d9c6-462a-b610-4933f4b0e5bf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10791_20260411_gemma-4-31b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1880_20260220_nova-premier-v1.md",
+  "relation": "confirms",
+  "claim_text": "The `rummage.py` file shows scouts parse file content at execution time, not generation time.",
+  "claim_file": "src/yanantin/apacheta/rummage.py",
+  "claim_by": "amazon/nova-premier-v1",
+  "verified_by": "google/gemma-4-31b-it",
+  "timestamp": "2026-04-11T03:05:35.696755+00:00"
+}

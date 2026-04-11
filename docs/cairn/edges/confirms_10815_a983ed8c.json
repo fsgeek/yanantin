@@ -1,0 +1,11 @@
+{
+  "id": "a983ed8c-d377-48d2-b03a-059d69810710",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10815_20260411_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8296_20260327_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "I'm intrigued by the `tools/disposition_experiment.py` file, which seems to be an experiment designed to evaluate the model's ability to manage context in a conversation.",
+  "claim_file": "tools/disposition_experiment.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-11T06:13:56.866204+00:00"
+}

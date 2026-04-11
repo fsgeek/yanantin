@@ -1,0 +1,11 @@
+{
+  "id": "be0cd95f-dded-4e64-a486-64ea08a30c4d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10814_20260411_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10048_20260407_gemma-4-26b-a4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I cannot verify if the *system* as a whole (including other files or external orchestration) uses that model to perform the synthesis described, but the claim specifically attributes this behavior to the context of `src/yanantin/tinkuy/succession.py`, which is false.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "google/gemma-4-26b-a4b-it",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-11T06:13:56.538733+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "8e830bc5-a4bf-4c85-b096-3ecde7d84336",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10820_20260411_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8387_20260328_aion-1.0-mini.md",
+  "relation": "confirms",
+  "claim_text": "I cannot verify that without seeing `audit.py`.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "aion-labs/aion-1.0-mini",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-04-11T06:48:04.872021+00:00"
+}

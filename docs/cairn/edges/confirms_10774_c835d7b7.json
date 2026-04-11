@@ -1,0 +1,11 @@
+{
+  "id": "c835d7b7-8ae2-4c83-9d22-eaeab0ad0f46",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10774_20260411_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0770_20260215_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Runtime Behavior of Hooks**: While `precompact_tensor.py` is well-documented, I could not observe its interaction with live sessions or ArangoDB (referenced in `ingest_cairn.py`).",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-11T01:00:43.475487+00:00"
+}

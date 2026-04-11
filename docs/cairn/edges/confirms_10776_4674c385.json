@@ -1,0 +1,11 @@
+{
+  "id": "4674c385-0ffc-4519-87ac-d325d7847f5b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10776_20260411_qwen-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3134_20260226_mixtral-8x7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The file `succession.py` contains functions and classes related to checking the succession of an instance in a project.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "mistralai/mixtral-8x7b-instruct",
+  "verified_by": "qwen/qwen-plus",
+  "timestamp": "2026-04-11T01:00:49.501102+00:00"
+}

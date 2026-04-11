@@ -1,0 +1,11 @@
+{
+  "id": "82da3db6-87ad-4c85-89ba-5490d2c42a12",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10779_20260411_sonar-pro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9809_20260405_hermes-2-pro-llama-3-8b.md",
+  "relation": "confirms",
+  "claim_text": "This contradicts the claim made by `allenai/olmo-3-7b-think` which states that the file explicitly lists projects like `ai-honesty` and `Indaleko`, which mention \"tensor\" in technical contexts but do not reference the filename `tensors.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "perplexity/sonar-pro",
+  "timestamp": "2026-04-11T01:34:51.364859+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "321c4205-69a2-4aa4-affd-bea86d1685d7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10911_20260411_seed-1.6-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3640_20260228_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The test in `tests/red_bar/test_provenance.py` that checks for provenance retention is a system-level assertion that every part of the system must be traceable.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "bytedance-seed/seed-1.6-flash",
+  "timestamp": "2026-04-11T18:45:43.028953+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "63453d87-8b64-4e39-a89b-de2bc2d1f262",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10915_20260411_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5443_20260310_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "The Regex Wall   - **Evidence:**   `src/yanantin/awaq/weaver.py` docstring: *\u201cThe extraction relies solely on regex and keyword matching, with no LLM calls.\u201d*   `_PATTERNS` list maps 14 regexes to relation triples with confidence floats.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-11T19:18:52.418682+00:00"
+}

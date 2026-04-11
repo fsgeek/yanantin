@@ -1,0 +1,11 @@
+{
+  "id": "d1432b5f-0db9-4776-8f1b-0d5f1885a5d2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10910_20260411_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5966_20260314_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "Evidence: `src/yanantin/chasqui/model_selector.py` (lines 120-125) #### Strand 3: Decoupling and Backends The project's use of multiple backends, such as dictionaries, SQL, and document/graph, is a good example of decoupling.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-04-11T18:45:39.575137+00:00"
+}

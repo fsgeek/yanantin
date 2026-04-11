@@ -1,0 +1,11 @@
+{
+  "id": "ac5a48d7-6284-4685-97d1-2c782b35c19d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10896_20260411_seed-2.0-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8323_20260327_claude-3.7-sonnet.md",
+  "relation": "confirms",
+  "claim_text": "The claim refers to a file called `project.py`, but we are examining a file called `compose.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "anthropic/claude-3.7-sonnet",
+  "verified_by": "bytedance-seed/seed-2.0-mini",
+  "timestamp": "2026-04-11T16:44:32.936093+00:00"
+}

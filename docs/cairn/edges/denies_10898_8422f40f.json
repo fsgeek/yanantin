@@ -1,0 +1,11 @@
+{
+  "id": "8422f40f-b828-4ece-8b14-d68e4390b0a8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10898_20260411_solar-pro-3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9613_20260404_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "The earlier provided evidence about `test_openrouter.py` is irrelevant to this verification because it pertains to a different file (`tests/unit/test_openrouter.py`), not the one being scrutinized.",
+  "claim_file": "tests/unit/test_openrouter.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "upstage/solar-pro-3",
+  "timestamp": "2026-04-11T17:13:36.182585+00:00"
+}

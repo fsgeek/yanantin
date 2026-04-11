@@ -1,0 +1,11 @@
+{
+  "id": "11f959db-0431-4195-80a2-dc7b6499ec0c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10900_20260411_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0952_20260216_llama-3.3-nemotron-super-49b-v.md",
+  "relation": "confirms",
+  "claim_text": "The `tensor_ballot.py` hints at conflict handling but lacks explicit details in observed reports.\" } ], \"Declared Losses\": [ \"I did not deeply examine the ArangoDB/DuckDB backend implementations (`src/yanantin/apacheta/backends/arango.py`, `duckdb.py`) due to time constraints.\", \"The `tests/` directory contains numerous unit and integration tests, but I focused on high-level patterns rather than specific test cases.\", \"The `.uv_cache/` and `.githooks/` directories were noted but not explored, as they appeared auxiliary to the core epistemic observability goals.\" ], \"Open Questions\": [ \"How are conflicting claims resolved in practice?",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-11T17:13:46.819957+00:00"
+}

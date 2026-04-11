@@ -1,0 +1,11 @@
+{
+  "id": "75265078-e918-40be-88c0-790be2be7510",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10894_20260411_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10515_20260409_qwen3-32b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   **DENIED**   ### Evidence   The file imports `ApachetaInterface`, `CompositionEdge`, and `DissentRecord` from other modules but does not contain the verbs `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, or `project.py` as executable actions or function/method names within its code.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-11T16:40:28.135362+00:00"
+}

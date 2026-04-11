@@ -1,0 +1,11 @@
+{
+  "id": "0c4855a2-792c-488f-860a-4d15be15bca2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10899_20260411_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8024_20260326_qwen-plus-2025-07-28.md",
+  "relation": "denies",
+  "claim_text": "The closest thing is `tensors.md`, which says: \"Files like `docs/blueprint.md`, `docs/phase1_context_utilization.md`, `docs/design-context-protocol.md` are all tensors.\" But it doesn\u2019t say *how* they are structured.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "qwen/qwen-plus-2025-07-28",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-04-11T17:13:39.776579+00:00"
+}

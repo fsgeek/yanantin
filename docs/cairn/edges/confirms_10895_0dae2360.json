@@ -1,0 +1,11 @@
+{
+  "id": "0dae2360-3b5d-4d56-b5d0-3547534a1c70",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10895_20260411_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9485_20260403_command-r7b-12-2024.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict DENIED ### Evidence ```python from yanantin.apacheta.interface.abstract import ApachetaInterface from yanantin.apacheta.models.composition import ( CompositionEdge, NegationRecord, RelationType, ) from yanantin.apacheta.models.provenance import ProvenanceEnvelope ``` ### Reasoning The file `src/yanantin/apacheta/operators/negate.py` contains import statements and function calls that do interact with other files in the `yanantin` package, not just `correct.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-04-11T16:40:28.226204+00:00"
+}

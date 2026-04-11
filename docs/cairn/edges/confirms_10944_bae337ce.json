@@ -1,0 +1,11 @@
+{
+  "id": "bae337ce-6f1c-4f87-aed2-44cd7e60e18c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10944_20260411_deepseek-chat.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10455_20260409_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "within `scout.py`.\" The provided file content is: > `src/yanantin/apacheta/operators/evolve.py` No content from `scout.py` is present in the provided file.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "deepseek/deepseek-chat",
+  "timestamp": "2026-04-11T22:56:14.849071+00:00"
+}

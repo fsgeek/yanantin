@@ -1,0 +1,11 @@
+{
+  "id": "aa7c8c3a-1fd1-4c77-9d22-a71ceaf9c397",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10943_20260411_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10369_20260408_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "I could not verify the existence or relevance of `close-external-prs.yml` based solely on the provided file.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/.github/workflows/close-external-prs.yml",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-04-11T22:56:04.340986+00:00"
+}

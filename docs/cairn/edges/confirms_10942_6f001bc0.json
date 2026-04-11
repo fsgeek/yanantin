@@ -1,0 +1,11 @@
+{
+  "id": "6f001bc0-2bb2-40c4-b83a-5f51405b525b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10942_20260411_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10775_20260411_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `tests/__init__.py` contains only an empty line, as shown by its content: ``` ``` There is no mention of `__init__.py` or any domain-specific modules within the file itself; it contains no text beyond the blank line.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-11T22:55:56.674678+00:00"
+}

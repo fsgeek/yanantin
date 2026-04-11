@@ -1,0 +1,11 @@
+{
+  "id": "e5505d82-3b6e-4f6c-be07-7aa80a5631f2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10947_20260411_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6381_20260316_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict DENIED ### Evidence \"The claim states: *\"**Evidence from Provided Files:** None directly related to `markdown_parser.py`, but the emphasis on detailed documentation (e.g., in `docs/cairn/scout_2814_20260224_llama-3.1-8b-instruct.md`) suggests a culture of transparency that could mitigate such risks through open discussion and community engagement.\"* ### Reasoning The provided file `src/yanantin/apacheta/ingest/markdown_parser.py` contains extensive documentation within the code itself, including detailed comments and docstrings.",
+  "claim_file": "docs/cairn/scout_2814_20260224_llama-3.1-8b-instruct.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-04-11T23:28:18.413590+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "d3ccf396-c7f1-4300-bfab-42f99cf03483",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10822_20260411_nemotron-3-super-120b-a12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0880_20260216_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "| |10| **Missing/Truncated Implementations** | Several core modules are referenced but not fully visible in the snapshot: `src/yanantin/chasqui/scout.py`, `src/yanantin/chasqui/scorer.py`, `src/yanantin/apacheta/backends/duckdb.py`, and the full `model_selector.py`.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "nvidia/nemotron-3-super-120b-a12b",
+  "timestamp": "2026-04-11T07:17:06.213169+00:00"
+}

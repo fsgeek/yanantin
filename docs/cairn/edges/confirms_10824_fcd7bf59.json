@@ -1,0 +1,11 @@
+{
+  "id": "fcd7bf59-3a3e-4716-a929-7b4cc3b2d8e9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10824_20260411_qwen3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9711_20260405_nemotron-nano-9b-v2.md",
+  "relation": "confirms",
+  "claim_text": "- **File reference**: `concept-map.md` line 110 lists 20-30 pre-drawn relationships, but these are static and not dynamically generated from the codebase.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/playground/skills/playground/templates/concept-map.md",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "qwen/qwen3-8b",
+  "timestamp": "2026-04-11T07:17:36.805041+00:00"
+}

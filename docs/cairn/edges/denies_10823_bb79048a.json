@@ -1,0 +1,11 @@
+{
+  "id": "bb79048a-caa9-49b6-9bb2-e226f2a6c36a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10823_20260411_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8952_20260331_minimax-m2.1.md",
+  "relation": "denies",
+  "claim_text": "--- ### Strand 4: Attestation's Hardcoded Epistemic Numbers **Location:** `attestation.py` (`_VERDICT_EPISTEMICS`, ~line 70) ```python _VERDICT_EPISTEMICS: dict[str, tuple[float, float, float]] = { \"CONFIRMED\":    (0.7, 0.3, 0.0), \"DENIED\":       (0.0, 0.2, 0.7), \"INDETERMINATE\": (0.0, 0.9, 0.0), \"MODEL_FAILURE\": (0.0, 1.0, 0.0), } ``` These T/I/F (truth/indeterminacy/falsity) tuples are the epistemic foundation of Willay receipts.",
+  "claim_file": "src/yanantin/chasqui/attestation.py",
+  "claim_by": "minimax/minimax-m2.1",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-04-11T07:17:08.156080+00:00"
+}

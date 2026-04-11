@@ -1,0 +1,11 @@
+{
+  "id": "a293349c-438c-4f26-b8bb-5488b61750f9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10828_20260411_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4272_20260303_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "The `tensor.py` in `src/yanantin/apacheta/models/` defines a `TensorRecord` class, which includes fields like `id`, `provenance`, and `epistemic`.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-04-11T07:48:54.901107+00:00"
+}

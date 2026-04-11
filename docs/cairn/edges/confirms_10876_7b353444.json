@@ -1,0 +1,11 @@
+{
+  "id": "7b353444-6983-411c-8458-e498c3a4bd46",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10876_20260411_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9257_20260402_wizardlm-2-8x22b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states: \"I did not read the full bodies of the operator implementations (`compose.py`, `correct.py`, `dissent.py`) beyond their signatures and high-level flow.\" Looking at `src/yanantin/apacheta/operators/correct.py`, we see a function `correct` with a clear signature and a straightforward flow: it creates a `CorrectionRecord`, stores it via `interface.store_correction`, optionally creates and stores a `CompositionEdge` if `correcting_tensor` is provided, and returns the correction.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "microsoft/wizardlm-2-8x22b",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-11T14:06:46.568069+00:00"
+}

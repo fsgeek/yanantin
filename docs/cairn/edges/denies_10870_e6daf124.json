@@ -1,0 +1,11 @@
+{
+  "id": "e6daf124-51cf-421f-a08d-18a168b34248",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10870_20260411_codestral-2508.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2499_20260223_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "**The `scourer.py` mystery** is **unresolvable with the given files**\u2014future scouts should **search for it explicitly** or **confirm its absence**.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "mistralai/codestral-2508",
+  "timestamp": "2026-04-11T13:34:21.108470+00:00"
+}

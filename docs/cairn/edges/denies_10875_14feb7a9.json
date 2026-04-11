@@ -1,0 +1,11 @@
+{
+  "id": "14feb7a9-ae95-4027-8e47-980f6863bbde",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10875_20260411_command-r-08-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7524_20260323_nova-micro-v1.md",
+  "relation": "denies",
+  "claim_text": "There is no evidence within the `memory.py` file of the existence of `duckdb.py` or `arango.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "cohere/command-r-08-2024",
+  "timestamp": "2026-04-11T14:06:34.835973+00:00"
+}

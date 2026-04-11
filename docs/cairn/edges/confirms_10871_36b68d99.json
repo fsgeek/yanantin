@@ -1,0 +1,11 @@
+{
+  "id": "36b68d99-ce33-4ba7-89b3-7d1c8655e544",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10871_20260411_gpt-4.1-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4721_20260306_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "Writes it to docs/cairn/compaction/ with honest provenance labeling ``` ``` def _find_boundary_and_summary(jsonl_path: Path, start_byte: int = 0) -> list[dict]: \"\"\"Scan JSONL from start_byte, returning all (boundary, summary) pairs found.\"\"\" results = [] try: with open(jsonl_path, encoding=\"utf-8\") as f: if start_byte > 0: f.seek(start_byte) f.readline()  # skip partial line after seek pending_boundary = None for line in f: line = line.strip() if not line: continue try: entry = json.loads(line) except (json.JSONDecodeError, ValueError): continue if entry.get(\"subtype\") == \"compact_boundary\": pending_boundary = entry continue if pending_boundary and entry.get(\"type\") == \"user\": # Check if this is a compaction summary is_summary = entry.get(\"isCompactSummary\", False) msg_content = _extract_summary_content(entry) # Also detect by content pattern (starts with continuation preamble) if is_summary or ( msg_content and \"continued from a previous conversation\" in msg_content[:200] ): results.append({ \"summary\": msg_content, \"boundary\": pending_boundary, \"summary_timestamp\": entry.get(\"timestamp\", \"unknown\"), }) pending_boundary = None except (OSError, IOError): pass return results ``` ### Reasoning The file `capture_compaction.py` explicitly mentions capturing compaction summaries, which aligns with the claim about data capture and processing tasks.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "openai/gpt-4.1-nano",
+  "timestamp": "2026-04-11T13:34:21.243992+00:00"
+}

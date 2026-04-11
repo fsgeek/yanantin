@@ -1,0 +1,11 @@
+{
+  "id": "800ff3b4-7d4f-4e24-87b8-c87e81b23302",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10799_20260411_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7829_20260325_mixtral-8x7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "I have read through `docs/blueprint.md` and can confirm that the model `google/gemini-2.5-flash-lite-preview-09-2025` did not read this file.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "mistralai/mixtral-8x7b-instruct",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-04-11T04:07:47.381803+00:00"
+}

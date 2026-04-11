@@ -1,0 +1,11 @@
+{
+  "id": "115e2865-dbfd-4d61-9852-973e8b3ab03d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10800_20260411_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4146_20260303_nemotron-3-nano-30b-a3b.md",
+  "relation": "denies",
+  "claim_text": "The prompt is deliberately open \u2014 \"go look and see what you find.\" \"\"\" from __future__ import annotations import os from datetime import datetime, timezone from pathlib import Path from typing import Any from yanantin.chasqui.model_selector import ModelInfo ``` No line references `scourer.py`, `coordinator.py`, or any module that would import those files.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-11T04:07:51.834668+00:00"
+}

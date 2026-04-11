@@ -1,0 +1,11 @@
+{
+  "id": "ae7e9c4d-a654-43c5-9a2a-f129415a57f9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10804_20260411_deepseek-v3.2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5128_20260308_qwen2.5-coder-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "## The File Here is the actual content of `src/yanantin/awaq/weaver.py`: ``` \"\"\"Weaver \u2014 extract composition declarations from tensor prose.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "deepseek/deepseek-v3.2",
+  "timestamp": "2026-04-11T04:40:03.561913+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "2d8f0df9-f15d-435e-aff2-f7c366c8607e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10803_20260411_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8210_20260327_qwen3.5-plus-02-15.md",
+  "relation": "confirms",
+  "claim_text": "The Meta-Reference** In `tech-innovation.md` (line 12), the \"Best Used For\" section explicitly lists \"AI/ML presentations.\" *Thought:* This is a system about human/AI duality (Yanantin) generating themes for AI presentations.",
+  "claim_file": "tmp/ubuntu-vm.claude/theme-factory/themes/tech-innovation.md",
+  "claim_by": "qwen/qwen3.5-plus-02-15",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-11T04:39:55.507841+00:00"
+}

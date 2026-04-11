@@ -1,0 +1,11 @@
+{
+  "id": "efb25358-8b09-4a83-8fef-71175a4df083",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10802_20260411_gpt-oss-safeguard-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8051_20260326_glm-4.6.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim being verified is that \"In `docs/tensors.md`, there is no mention of `apacheta.md`.\" After examining the entire file, I can confirm that there is indeed no mention of a file named `apacheta.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "z-ai/glm-4.6",
+  "verified_by": "openai/gpt-oss-safeguard-20b",
+  "timestamp": "2026-04-11T04:39:52.645706+00:00"
+}

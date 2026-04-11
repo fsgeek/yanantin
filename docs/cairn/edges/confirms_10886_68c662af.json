@@ -1,0 +1,11 @@
+{
+  "id": "68c662af-a3e5-42d2-83ae-003c645685ba",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10886_20260411_cydonia-24b-v4.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8019_20260326_qwen2.5-coder-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Evidence: `docs/cairn/scout_1032_20260216_gemma-3-4b-it.md` and `src/yanantin/apacheta/backends` #### Strand 4: Scout Metacognition The previous scout's observation about the importance of declaring losses in the Yanantin project is insightful.",
+  "claim_file": "docs/cairn/scout_1032_20260216_gemma-3-4b-it.md",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "thedrummer/cydonia-24b-v4.1",
+  "timestamp": "2026-04-11T15:38:23.280472+00:00"
+}

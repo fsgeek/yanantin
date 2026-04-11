@@ -1,0 +1,11 @@
+{
+  "id": "1a073223-a3ac-4cdb-b7c3-4b0fb5ae36aa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10888_20260411_qwen-2.5-72b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6086_20260315_qwen3-vl-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "However, the provided file `src/yanantin/tinkuy/succession.py` contains no mention of: - `docs/cairn/scout_1269_20260217_qwen3-30b-a3b.md` - `baidu/ernie-4.5-21b-a3b-thinking` - Any claim made by the latter model - Any denial by the former document The file is a code module for auditing codebases against blueprints and checking for orphan tensors.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "qwen/qwen-2.5-72b-instruct",
+  "timestamp": "2026-04-11T15:38:35.911251+00:00"
+}

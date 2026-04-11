@@ -1,0 +1,11 @@
+{
+  "id": "cbf5b7ed-f30f-4f4c-9a90-9476fb36ca06",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10890_20260411_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6374_20260316_qwen3-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Schema evolution \u2014 such as adding/removing fields, versioning, or migration \u2014 is handled by `evolve.py`, not `compose.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-04-11T16:10:29.866547+00:00"
+}

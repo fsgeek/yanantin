@@ -1,0 +1,11 @@
+{
+  "id": "0081c8c7-f0b3-4be7-8251-83aba412d34c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10891_20260411_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9502_20260404_deepseek-r1t2-chimera.md",
+  "relation": "denies",
+  "claim_text": "`CLAUDE.md` never references itself \u2014 all file mentions point to external documentation 2.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "tngtech/deepseek-r1t2-chimera",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-11T16:10:39.443589+00:00"
+}

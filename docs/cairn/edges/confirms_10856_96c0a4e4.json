@@ -1,0 +1,11 @@
+{
+  "id": "96c0a4e4-a317-4be3-8f9b-8a4d62061688",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10856_20260411_o3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1789_20260220_l3.1-euryale-70b.md",
+  "relation": "confirms",
+  "claim_text": "**Tensor Composition & Epistemic Observability** - `docs/cairn/T0_20260207_bounded_verification.md` reveals a foundational tensor, T\u2080, for bounded verification.",
+  "claim_file": "docs/cairn/T0_20260207_bounded_verification.md",
+  "claim_by": "sao10k/l3.1-euryale-70b",
+  "verified_by": "openai/o3",
+  "timestamp": "2026-04-11T11:26:56.960062+00:00"
+}

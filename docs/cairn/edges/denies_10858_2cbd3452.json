@@ -1,0 +1,11 @@
+{
+  "id": "2cbd3452-6bc3-426c-b55b-fb11dc0395bc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10858_20260411_gemini-2.5-flash-lite-preview-.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7467_20260323_granite-4.0-h-micro.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The primary loss in verifying this claim is the lack of direct access to the `markdown_parser.py` file itself.",
+  "claim_file": "src/yanantin/apacheta/ingest/markdown_parser.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "timestamp": "2026-04-11T12:01:55.141242+00:00"
+}

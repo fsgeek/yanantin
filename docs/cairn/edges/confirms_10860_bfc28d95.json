@@ -1,0 +1,11 @@
+{
+  "id": "bfc28d95-6d03-43b8-964e-63283cdf082d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10860_20260411_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8516_20260329_qwen3-30b-a3b-thinking-2507.md",
+  "relation": "confirms",
+  "claim_text": "**Strand 3: The Flagged State**   `test_memory_anchor.py` uses internal flags `_referenced` and `_updated` to gate `flush()`, rather than explicit state management.",
+  "claim_file": "tests/unit/test_memory_anchor.py",
+  "claim_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-04-11T12:01:59.093822+00:00"
+}

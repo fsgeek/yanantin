@@ -1,0 +1,11 @@
+{
+  "id": "1c73be10-0a6a-49d9-b3c4-d709aa379b68",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10852_20260411_l3-euryale-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8987_20260401_qwen3-32b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `memory.py` does **not** mention `arango.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "sao10k/l3-euryale-70b",
+  "timestamp": "2026-04-11T10:57:08.429395+00:00"
+}

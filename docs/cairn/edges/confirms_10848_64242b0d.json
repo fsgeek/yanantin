@@ -1,0 +1,11 @@
+{
+  "id": "64242b0d-4052-4c80-8679-e03b3d2decc8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10848_20260411_qwen-plus-2025-07-28.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9622_20260404_deepseek-v3.2.md",
+  "relation": "confirms",
+  "claim_text": "The file mentions various other file names and paths such as `docs/blueprint.md`, `docs/predecessors.md`, `docs/tensors.md`, `docs/signing.md`, and `/home/tony/.claude/projects/-home-tony-projects-ai-honesty/memory/`, but nowhere does it mention `conversations.duckdb`.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "deepseek/deepseek-v3.2",
+  "verified_by": "qwen/qwen-plus-2025-07-28",
+  "timestamp": "2026-04-11T10:23:58.890860+00:00"
+}

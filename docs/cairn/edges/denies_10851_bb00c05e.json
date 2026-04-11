@@ -1,0 +1,11 @@
+{
+  "id": "bb00c05e-7540-4386-b3d2-d14a6774f31a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10851_20260411_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7658_20260324_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence \"Tensors are not static but subject to *verification* (`scout`), *correction* (`correct.py`), *dissent* (`dissent.py`) - The concept of *epistemic observability* appears throughout the documentation - The `tinkuy/` module implements a *succession protocol* (succession.py) that manages transitions between model states\" ### Reasoning The provided file explicitly states: \"Tensors are not static but subject to *verification* (`scout`), *correction* (`correct.py`), *dissent* (`dissent.py`)\".",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-11T10:57:06.794604+00:00"
+}

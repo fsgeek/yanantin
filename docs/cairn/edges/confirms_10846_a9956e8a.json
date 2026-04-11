@@ -1,0 +1,11 @@
+{
+  "id": "a9956e8a-f3a5-4837-8fae-26c912941224",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10846_20260411_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0707_20260215_ui-tars-1.5-7b.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: The Bootstrap Function as a Tensor Selector - **Evidence**:   - The code in `src/yanantin/apacheta/operators/bootstrap.py` selects tensors for a new instance's budget.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "bytedance/ui-tars-1.5-7b",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-04-11T10:23:55.013715+00:00"
+}

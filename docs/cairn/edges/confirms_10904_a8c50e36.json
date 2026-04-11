@@ -1,0 +1,11 @@
+{
+  "id": "a8c50e36-fd72-4ba7-8879-3a55a9caee2b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10904_20260411_l3-euryale-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1736_20260219_kat-coder-pro.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that `CLAUDE.md` refers to `docs/blueprint.md` as \"this blueprint\" and establishes `CLAUDE.md` as foundational while `docs/blueprint.md` is described as the primary source of architectural information.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "kwaipilot/kat-coder-pro",
+  "verified_by": "sao10k/l3-euryale-70b",
+  "timestamp": "2026-04-11T17:43:45.597706+00:00"
+}

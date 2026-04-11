@@ -1,0 +1,11 @@
+{
+  "id": "b8bd475a-1ade-4a05-9c78-a5d5707b1bfd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10902_20260411_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8478_20260328_ernie-4.5-21b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The evidence directly confirms the claim by showing that the file in question is indeed `docs/signing.md`.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "baidu/ernie-4.5-21b-a3b",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-11T17:43:36.511272+00:00"
+}

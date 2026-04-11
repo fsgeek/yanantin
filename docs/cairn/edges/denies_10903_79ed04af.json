@@ -1,0 +1,11 @@
+{
+  "id": "79ed04af-694a-48e5-9aba-ddb5c6dccaba",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10903_20260411_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2221_20260222_ernie-4.5-vl-28b-a3b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim references `scout_0002_20260210_deepseek-chat-v3.1.md` (line 60), but the actual file (`docs/scout_report_tensor_schema.md`) does not contain a file named `scout_0002_20260210_deepseek-chat-v3.1.md` or any line 60.",
+  "claim_file": "docs/cairn/scout_0002_20260210_deepseek-chat-v3.1.md",
+  "claim_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-11T17:43:38.429152+00:00"
+}

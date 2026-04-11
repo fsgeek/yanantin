@@ -1,0 +1,11 @@
+{
+  "id": "0387f6f2-7785-49f1-9a10-74898736f87a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10928_20260411_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9584_20260404_nova-lite-v1.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence > ``` The claim by `anthropic/claude-sonnet-4.5` asserts the file evaluates a claim about `src/yanantin/awaq/weaver.py`, but the file's content (the docstring of `weaver.py`) describes the **behavior of the `weaver` tool itself**, not an evaluation of another claim about `weaver.py`.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-04-11T20:51:00.597040+00:00"
+}

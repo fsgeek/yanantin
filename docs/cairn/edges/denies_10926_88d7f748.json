@@ -1,0 +1,11 @@
+{
+  "id": "88d7f748-249c-4583-8043-0782fe01bb7f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10926_20260411_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8842_20260331_llama-3.2-3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I chose not to examine the `eager-purring-church.md` file, as it appears to be a collection of lecture notes and project plans that are not directly related to the `curious-coalescing-neumann.md` file.",
+  "claim_file": "tmp/ubuntu-vm.claude/plans/curious-coalescing-neumann.md",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-11T20:49:43.384176+00:00"
+}

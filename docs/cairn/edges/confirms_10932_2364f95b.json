@@ -1,0 +1,11 @@
+{
+  "id": "2364f95b-0bff-4dcf-ae52-889c2083337f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10932_20260411_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10689_20260410_qwen3.5-9b.md",
+  "relation": "confirms",
+  "claim_text": "**The `flip.py` 3D Simulation** ```python if angle < 90: # Front side visible scale_factor = math.cos(math.radians(angle)) else: # Back side visible scale_factor = abs(math.cos(math.radians(angle))) ``` They simulate 3D rotation by **scaling the object** based on the angle.",
+  "claim_file": "tmp/ubuntu-vm.claude/slack-gif-creator/templates/flip.py",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-11T21:23:52.632418+00:00"
+}

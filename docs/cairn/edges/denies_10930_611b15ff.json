@@ -1,0 +1,11 @@
+{
+  "id": "611b15ff-08e8-43e7-b78a-136490a9e006",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10930_20260411_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8958_20260401_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The claim refers to files `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, and `project.py` being in the `src/yanantin/chasqui/operators/` directory.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-04-11T21:23:50.051056+00:00"
+}

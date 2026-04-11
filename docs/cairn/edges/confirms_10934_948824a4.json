@@ -1,0 +1,11 @@
+{
+  "id": "948824a4-c695-478a-a3a1-0fd9faee702a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10934_20260411_mercury.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1284_20260217_llama-3.2-11b-vision-instruct.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 3: Integration and Ingestion The `scripts/ingest_cairn.py` script demonstrates the integration of the tensor infrastructure with external systems.",
+  "claim_file": "scripts/ingest_cairn.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "inception/mercury",
+  "timestamp": "2026-04-11T21:53:58.053292+00:00"
+}

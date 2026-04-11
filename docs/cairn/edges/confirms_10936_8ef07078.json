@@ -1,0 +1,11 @@
+{
+  "id": "8ef07078-94fc-4118-870a-49b58bcd5d93",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10936_20260411_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2470_20260223_llama-4-scout.md",
+  "relation": "confirms",
+  "claim_text": "- **Files Referenced**: `src/yanantin/apacheta/models/tensor.py`, `src/yanantin/apacheta/operators/compose.py` - **Thoughts**: The emphasis on immutability and composable operators suggests a serious attempt to tame epistemic complexity at scale.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-11T21:54:06.970332+00:00"
+}

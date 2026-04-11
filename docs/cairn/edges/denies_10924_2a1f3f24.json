@@ -1,0 +1,11 @@
+{
+  "id": "2a1f3f24-2481-4927-b501-13a559889279",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10924_20260411_aion-1.0-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4825_20260307_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I could not verify the consistency of verdicts across other scout reports as I am only able to check the content of `docs/cairn/scout_1239_20260217_gemma-3-4b-it.md`.",
+  "claim_file": "docs/cairn/scout_1239_20260217_gemma-3-4b-it.md",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "aion-labs/aion-1.0-mini",
+  "timestamp": "2026-04-11T20:20:55.344583+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "baaa5404-9877-45db-a778-d3d5cdc40cbc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10919_20260411_deepseek-r1t2-chimera.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8655_20260330_gpt-4.1-mini.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim mixes up the content of two different files: `dissent.py` and `evolve.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "openai/gpt-4.1-mini",
+  "verified_by": "tngtech/deepseek-r1t2-chimera",
+  "timestamp": "2026-04-11T19:48:10.422543+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "42e18bc3-ff74-454f-aaeb-28ae6f3a074f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10922_20260411_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9187_20260402_mistral-small-3.2-24b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Path Portability** - **Observation**: The `test_portability.py` file tests that no hardcoded absolute paths exist in test files or source code, ensuring portability across different environments, including CI pipelines.",
+  "claim_file": "tests/red_bar/test_portability.py",
+  "claim_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-04-11T20:19:53.177949+00:00"
+}

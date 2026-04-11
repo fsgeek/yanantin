@@ -1,0 +1,11 @@
+{
+  "id": "58291e8d-4f92-4ffc-b086-dbc0be1ad260",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10920_20260411_qwen-plus-2025-07-28:thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2897_20260225_olmo-3-32b-think.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **DENIED**   ### Evidence   The file `docs/predecessors.md` explicitly exists and contains substantial content, including the line:   > \"# Predecessor Projects\"   This is the first line of the provided file content, confirming its presence.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "allenai/olmo-3-32b-think",
+  "verified_by": "qwen/qwen-plus-2025-07-28:thinking",
+  "timestamp": "2026-04-11T19:48:25.234936+00:00"
+}

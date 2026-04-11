@@ -1,0 +1,11 @@
+{
+  "id": "84242130-71b7-4bb2-ab7c-b8eea1b5db71",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10787_20260411_gemma-4-31b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10432_20260409_mimo-v2-flash.md",
+  "relation": "confirms",
+  "claim_text": "### Strands **Strand 1: Typography Inconsistencies and Font Assumptions**   I noticed that themes like `golden-hour.md`, `forest-canopy.md`, `midnight-galaxy.md`, and `desert-rose.md` all use **FreeSans** for body text, but headers vary: `golden-hour` and `midnight-galaxy` use FreeSans Bold, while `forest-canopy` uses FreeSerif Bold.",
+  "claim_file": "tmp/ubuntu-vm.claude/theme-factory/themes/forest-canopy.md",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "google/gemma-4-31b-it",
+  "timestamp": "2026-04-11T02:34:50.751900+00:00"
+}

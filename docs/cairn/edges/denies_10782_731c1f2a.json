@@ -1,0 +1,11 @@
+{
+  "id": "731c1f2a-1aba-496a-ae08-d2166b8f1de9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10782_20260411_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3528_20260227_gemma-3-27b-it.md",
+  "relation": "denies",
+  "claim_text": "The reference to `docs/predecessors.md` suggests the existence of a `README.md` file in the root directory.",
+  "claim_file": "README.md",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-11T02:02:46.362537+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "73e143dd-ffa3-4338-b850-55001cdc4aaf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10784_20260411_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10231_20260408_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The `_enforce_access` method, tensor operations, and query methods contain no internal references to `memory.py`, `arango.py`, or `duckdb.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-11T02:02:56.314989+00:00"
+}

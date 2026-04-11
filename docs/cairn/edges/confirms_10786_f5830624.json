@@ -1,0 +1,11 @@
+{
+  "id": "f5830624-0c55-456f-8295-4d44cc66f47d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10786_20260411_gemini-2.5-flash-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8708_20260330_qwq-32b.md",
+  "relation": "confirms",
+  "claim_text": "#### **Strand 4: Backend Mocks as Singletons**   - **Observed**: In `test_arango_independent.py`, the mock Arango client uses a shared `collections` dict (line 50).",
+  "claim_file": "tests/unit/test_arango_independent.py",
+  "claim_by": "qwen/qwq-32b",
+  "verified_by": "google/gemini-2.5-flash-lite",
+  "timestamp": "2026-04-11T02:34:50.233399+00:00"
+}

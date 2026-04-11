@@ -1,0 +1,11 @@
+{
+  "id": "a6d613b7-c66f-4d44-95d5-4c494b52a787",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10834_20260411_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2796_20260224_minimax-m2-her.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The file describes a backend implementation and does not contain any assertion about files `arango.py` or `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "minimax/minimax-m2-her",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-04-11T08:51:53.811970+00:00"
+}

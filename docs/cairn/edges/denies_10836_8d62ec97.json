@@ -1,0 +1,11 @@
+{
+  "id": "8d62ec97-54ba-4cd6-884a-c44affd44a4c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10836_20260411_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9499_20260404_step-3.5-flash.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The file `tests/unit/test_operators.py` begins with: ```python \"\"\"Unit tests for Apacheta composition operators.\"\"\" from uuid import uuid4 import pytest from yanantin.apacheta.backends.memory import InMemoryBackend from yanantin.apacheta.models import ( RelationType, StrandRecord, TensorRecord, ) ``` The claimed block of operator imports appears later, starting at line 13: ```python from yanantin.apacheta.operators.bootstrap import bootstrap from yanantin.apacheta.operators.compose import compose from yanantin.apacheta.operators.correct import correct from yanantin.apacheta.operators.dissent import dissent from yanantin.apacheta.operators.evolve import evolve from yanantin.apacheta.operators.negate import negate from yanantin.apacheta.operators.project import project ``` ### Reasoning The claim states that the file *begins with* the listed operator imports.",
+  "claim_file": "tests/unit/test_operators.py",
+  "claim_by": "stepfun/step-3.5-flash",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-04-11T08:52:12.950554+00:00"
+}

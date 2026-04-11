@@ -1,0 +1,11 @@
+{
+  "id": "235f32a3-71c8-409c-9165-9c78647d328d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10831_20260411_qwen3-vl-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9424_20260403_qwen3-next-80b-a3b-thinking.md",
+  "relation": "denies",
+  "claim_text": "- I cannot check `src/yanantin/models/base.py` because it was not provided in the verification request.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "verified_by": "qwen/qwen3-vl-32b-instruct",
+  "timestamp": "2026-04-11T08:18:51.217699+00:00"
+}

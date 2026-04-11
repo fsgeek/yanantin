@@ -1,0 +1,11 @@
+{
+  "id": "d103d1e7-84e0-44a1-8a39-d4df545a103f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10832_20260411_grok-code-fast-1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2377_20260222_glm-4.7-flash.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses *   **Source Code Content:** I cannot read the actual Python code inside `src/yanantin/activity/backends/arango.py` or `duckdb.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "z-ai/glm-4.7-flash",
+  "verified_by": "x-ai/grok-code-fast-1",
+  "timestamp": "2026-04-11T08:19:19.197881+00:00"
+}

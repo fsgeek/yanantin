@@ -1,0 +1,11 @@
+{
+  "id": "03900bdb-28bc-4506-b41f-4e4546b2e679",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10830_20260411_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9334_20260403_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "The provided file is the content of `corpus_trimmer_analysis.py`.",
+  "claim_file": "tools/phase1/corpus_trimmer_analysis.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-11T08:18:51.046151+00:00"
+}

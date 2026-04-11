@@ -1,0 +1,11 @@
+{
+  "id": "181fa768-020c-4f4b-a18f-4c3a57159031",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10838_20260411_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8616_20260330_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence \"However, I was only provided the content of `docs/tensors.md`, which contains no mention of `docs/blueprint.md` anywhere in its lines.\" ### Reasoning The claim states that the file `docs/tensors.md` does not mention `docs/blueprint.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-11T09:21:57.349828+00:00"
+}

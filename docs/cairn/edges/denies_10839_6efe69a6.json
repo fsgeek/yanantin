@@ -1,0 +1,11 @@
+{
+  "id": "6efe69a6-e805-4d53-99e5-3d1855f80e36",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10839_20260411_grok-3-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6570_20260318_mistral-small-24b-instruct-250.md",
+  "relation": "denies",
+  "claim_text": "\"\"\" def __init__(self) -> None: self._lock = threading.RLock() self._tensors: dict[UUID, TensorRecord] = {} self._edges: dict[UUID, CompositionEdge] = {} self._corrections: dict[UUID, CorrectionRecord] = {} self._dissents: dict[UUID, DissentRecord] = {} self._negations: dict[UUID, NegationRecord] = {} self._bootstraps: dict[UUID, BootstrapRecord] = {} self._evolutions: dict[UUID, SchemaEvolutionRecord] = {} self._entities: dict[UUID, EntityResolution] = {} ``` ### Reasoning The claim states that the file only confirms the existence of `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "x-ai/grok-3-mini",
+  "timestamp": "2026-04-11T09:22:16.679075+00:00"
+}

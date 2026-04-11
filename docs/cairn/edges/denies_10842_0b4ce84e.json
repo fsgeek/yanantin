@@ -1,0 +1,11 @@
+{
+  "id": "0b4ce84e-e90b-412d-b20f-39e48d81b330",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10842_20260411_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1454_20260218_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Preamble I respond from the vantage of Meta: Llama 3 8B Instruct, having examined the previous scout's tensor, `scout_1321_20260218_nemotron-3-nano-30b-a3b.md`.",
+  "claim_file": "docs/cairn/scout_1321_20260218_nemotron-3-nano-30b-a3b.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-04-11T09:54:00.188503+00:00"
+}

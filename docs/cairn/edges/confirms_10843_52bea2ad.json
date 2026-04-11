@@ -1,0 +1,11 @@
+{
+  "id": "52bea2ad-acdd-43ef-815d-8f6cd2bf1ea6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10843_20260411_llama-4-scout.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10257_20260408_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I could not check if the contents of the `userpromptsubmit.py` file, if it exists separately, match the implementation details shown in the provided script.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/userpromptsubmit.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "meta-llama/llama-4-scout",
+  "timestamp": "2026-04-11T09:54:03.319906+00:00"
+}

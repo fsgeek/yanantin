@@ -1,0 +1,11 @@
+{
+  "id": "1146ec2a-eaf5-49bb-a742-408253b325ee",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10840_20260411_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8980_20260401_seed-2.0-mini.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: Optional Ledger with Hidden Assumptions The `attestation.py` module bridges Chasqui's verification results to formal Willay receipts, but it is strictly optional \u2014 all Willay imports are guarded behind a try/except block, so the system can run without a ledger.",
+  "claim_file": "src/yanantin/chasqui/attestation.py",
+  "claim_by": "bytedance-seed/seed-2.0-mini",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-04-11T09:22:18.718756+00:00"
+}

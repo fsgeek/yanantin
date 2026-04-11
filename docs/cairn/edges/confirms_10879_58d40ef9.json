@@ -1,0 +1,11 @@
+{
+  "id": "58d40ef9-c216-4f59-b8e5-71e45ba9cc59",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10879_20260411_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10227_20260408_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning   The claim asserts that `scourer.py` does **not** contain references to `scourer.py` or `coordinator.py` \u2014 which is **true**.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-11T14:36:13.201486+00:00"
+}

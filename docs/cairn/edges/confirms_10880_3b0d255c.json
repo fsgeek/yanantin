@@ -1,0 +1,11 @@
+{
+  "id": "3b0d255c-742f-4f91-8d4e-3405976a8913",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10880_20260411_qwen3.5-plus-02-15.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7174_20260321_nova-micro-v1.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The relevant parts of the `bootstrap.py` file are as follows: ``` def bootstrap( interface: ApachetaInterface, instance_id: str, context_budget: float, *, task: str = \"\", tensor_ids: list[UUID] | None = None, strand_indices: list[int] | None = None, what_was_omitted: str = \"\", provenance: ProvenanceEnvelope | None = None, ) -> tuple[BootstrapRecord, list[TensorRecord]]: \"\"\"Select tensors for a new instance's context budget.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "qwen/qwen3.5-plus-02-15",
+  "timestamp": "2026-04-11T14:36:39.148058+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "b3e0d015-d0cd-4878-b77a-fa5a2dcc04d0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10884_20260411_ernie-4.5-21b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8877_20260331_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "**Frontmatter as Contract** The `documentation-patterns.md` file reveals that YAML frontmatter is not optional metadata \u2014 it\u2019s a **capability contract**.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/command-development/references/documentation-patterns.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "baidu/ernie-4.5-21b-a3b",
+  "timestamp": "2026-04-11T15:08:15.677722+00:00"
+}

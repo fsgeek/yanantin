@@ -1,0 +1,11 @@
+{
+  "id": "a1ff346e-76e8-40e6-b192-fd103445f864",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10883_20260411_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6743_20260319_gemini-2.0-flash-001.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim is that the file does not list `arango.py`, `duckdb.py`, or `memory.py` as backends.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "google/gemini-2.0-flash-001",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-04-11T15:08:15.575972+00:00"
+}

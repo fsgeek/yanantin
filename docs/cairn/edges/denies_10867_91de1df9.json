@@ -1,0 +1,11 @@
+{
+  "id": "91de1df9-71bb-4f7a-8023-0e920d6a9b20",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10867_20260411_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7985_20260326_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "From `thumbnail.py` (lines 25-30): ```python parser.add_argument( \"--cols\", type=int, default=DEFAULT_COLS, help=f\"Number of columns (default: {DEFAULT_COLS}, max: {MAX_COLS})\", ) ``` #### **Error Handling** The code includes some basic error handling, such as checking if the input file exists and has the correct extension.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/scripts/thumbnail.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-11T13:04:07.296279+00:00"
+}

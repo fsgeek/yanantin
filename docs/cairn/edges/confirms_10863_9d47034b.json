@@ -1,0 +1,11 @@
+{
+  "id": "9d47034b-792f-4026-a9f2-f33fad969fd9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10863_20260411_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10568_20260409_ministral-8b-2512.md",
+  "relation": "confirms",
+  "claim_text": "Typography: The Outlined Text Obsession** **File:** `typography.py` (Lines ~50\u2013200) **What I saw:** - **Two text-rendering functions** (`draw_text_with_outline`, `draw_text_with_shadow`), both with **hardcoded defaults** (e.g., `outline_width=3`, `shadow_offset=(3,3)`).",
+  "claim_file": "tmp/ubuntu-vm.claude/slack-gif-creator/core/typography.py",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-11T12:31:52.343810+00:00"
+}

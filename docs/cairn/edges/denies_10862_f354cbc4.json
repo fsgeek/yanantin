@@ -1,0 +1,11 @@
+{
+  "id": "f354cbc4-a0c7-4d9f-833a-462ddd7b5240",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10862_20260411_voxtral-small-24b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5202_20260309_mimo-v2-flash.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file contains multiple references to `scourer.py`: - Line 34: `from yanantin.chasqui.scourer import VALID_SCOPES, format_scour_prompt` - Line 359: `def _claim_scour_number(cairn_dir: Path, model_short: str) -> tuple[int, Path]:` - Line 388: `def write_scour_to_cairn(` - Line 417: `async def dispatch_scour(` The file also references `coordinator.py` by filename in the docstring: - Line 16: `from yanantin.chasqui.coordinator import dispatch_scout` ### Reasoning The claim states that the file contains no mention of `scourer.py` or `coordinator.py` by filename or import path.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "mistralai/voxtral-small-24b-2507",
+  "timestamp": "2026-04-11T12:31:51.296600+00:00"
+}

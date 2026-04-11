@@ -1,0 +1,11 @@
+{
+  "id": "604d31a7-15e0-47c7-8a22-92f0f1b19526",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10808_20260411_qwen3.5-plus-02-15.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1607_20260219_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "The same block appears unchanged in `scout_0438_20260214_mistral-nemo.md` and `scout_0629_20260215_lfm2-8b-a1b.md`.\" \"### Declared Losses - **I did not parse the inner logic of `evolve.py` or `compose.py` because the surrounding scout\u2011tensors only reference them in passing; the exact side\u2011effects of schema migrations and state transitions remain opaque to me.\" ### Reasoning The claim states that `scout_0564_20260214_lfm-2.2-6b.md` admits \"no runtime evidence confirms `{file_tree}` activation\" and \"impact of `build_file_tree` is theoretical.\" The provided file explicitly states that `scout_0564_20260214_lfm-2.2-6b.md` contains a header block with model name, cost, token counts, and a multi-paragraph \u201cPreamble\u201d.",
+  "claim_file": "docs/cairn/scout_0438_20260214_mistral-nemo.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "qwen/qwen3.5-plus-02-15",
+  "timestamp": "2026-04-11T05:10:45.207137+00:00"
+}

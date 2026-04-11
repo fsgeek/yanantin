@@ -1,0 +1,11 @@
+{
+  "id": "f6f4cda6-82ee-4b35-9fea-3aa9014c1873",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10812_20260411_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9533_20260404_skyfall-36b-v2.md",
+  "relation": "denies",
+  "claim_text": "``` ### Reasoning The claim states that the file `docs/cairn/scout_0327_20260213_llama-guard-3-8b.md` contains a classification stream that seems to be a safety log.",
+  "claim_file": "docs/cairn/scout_0327_20260213_llama-guard-3-8b.md",
+  "claim_by": "thedrummer/skyfall-36b-v2",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-11T05:42:13.543998+00:00"
+}

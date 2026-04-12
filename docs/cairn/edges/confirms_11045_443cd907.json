@@ -1,0 +1,11 @@
+{
+  "id": "443cd907-f5aa-4f0d-be8e-f530d30129bb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11045_20260412_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8235_20260327_rnj-1-instruct.md",
+  "relation": "confirms",
+  "claim_text": "\"\"\" ``` ### Reasoning The file `tests/red_bar/test_provenance.py` does not contain an \"Evidence\" section, nor does it discuss any evidence related to other files.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "essentialai/rnj-1-instruct",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-04-12T12:22:07.299356+00:00"
+}

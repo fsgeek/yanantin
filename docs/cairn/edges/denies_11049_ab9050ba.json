@@ -1,0 +1,11 @@
+{
+  "id": "ab9050ba-9299-40ff-923e-1f3c6513ec94",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11049_20260412_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4965_20260307_nemotron-nano-12b-v2-vl.md",
+  "relation": "denies",
+  "claim_text": "While the file mentions `docs/predecessors.md` for deeper context, the Evidence section only cites `CLAUDE.md`, which discusses predecessor projects in its body but is unrelated to the scout report's own header.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "nvidia/nemotron-nano-12b-v2-vl",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-04-12T12:54:23.567661+00:00"
+}

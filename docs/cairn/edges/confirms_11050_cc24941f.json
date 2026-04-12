@@ -1,0 +1,11 @@
+{
+  "id": "cc24941f-89b8-4ee0-bc80-8c52db87bf56",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11050_20260412_unslopnemo-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9507_20260404_qwen3.5-9b.md",
+  "relation": "confirms",
+  "claim_text": "**Tension:** One file uses `validate_xml()` from `base.py` (inherited from `BaseSchemaValidator`), the other parses directly in `redlining.py`.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/redlining.py",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "thedrummer/unslopnemo-12b",
+  "timestamp": "2026-04-12T12:54:26.301494+00:00"
+}

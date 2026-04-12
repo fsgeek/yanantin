@@ -1,0 +1,11 @@
+{
+  "id": "dd4c99a6-ea74-4d27-9ade-e6f919e2bfe2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11046_20260412_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4952_20260307_lfm-2-24b-a2b.md",
+  "relation": "confirms",
+  "claim_text": "From the file `src/yanantin/apacheta/backends/arango.py`, we see the following relevant section: ``` \"\"\" ArangoDB backend for Apacheta.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-12T12:22:08.713223+00:00"
+}

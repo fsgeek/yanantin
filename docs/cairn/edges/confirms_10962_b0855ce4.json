@@ -1,0 +1,11 @@
+{
+  "id": "b0855ce4-04b1-44c5-81e3-8a228707bae8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10962_20260412_deepseek-chat-v3-0324.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9960_20260406_hunyuan-a13b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "This indicates that `bootstrap.py` does not refer to `dissent.py` for \"verbs of the system,\" thus denying the claim.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "tencent/hunyuan-a13b-instruct",
+  "verified_by": "deepseek/deepseek-chat-v3-0324",
+  "timestamp": "2026-04-12T01:32:11.079861+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "b440e459-349f-4ba7-8c98-8aeb3c3d66cc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10961_20260412_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7578_20260323_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `tests/unit/__init__.py` is empty.",
+  "claim_file": "tests/unit/__init__.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-04-12T01:32:06.600146+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "ff047286-1c87-4af2-9d36-615b35e8646c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10959_20260412_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3793_20260301_qwen3-30b-a3b.md",
+  "relation": "denies",
+  "claim_text": "For example: - \"Read `docs/blueprint.md`.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "qwen/qwen3-30b-a3b",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-04-12T01:00:17.510917+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "fe029b6f-3a07-4a85-8923-8e2718351bd5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10958_20260412_minimax-m2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5373_20260310_ui-tars-1.5-7b.md",
+  "relation": "confirms",
+  "claim_text": "Instead, it contains a single function `project` that filters strands from a tensor based on given criteria.\" - Source: `docs/cairn/scout_2390_20260222_phi-4.md` ### Reasoning The information in the `docs/cairn/scout_2390_20260222_phi-4.md` clearly refutes the claim.",
+  "claim_file": "docs/cairn/scout_2390_20260222_phi-4.md",
+  "claim_by": "bytedance/ui-tars-1.5-7b",
+  "verified_by": "minimax/minimax-m2",
+  "timestamp": "2026-04-12T01:00:17.257702+00:00"
+}

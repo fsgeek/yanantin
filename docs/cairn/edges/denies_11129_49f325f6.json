@@ -1,0 +1,11 @@
+{
+  "id": "49f325f6-56f6-4124-944c-ee0a9a7113ba",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11129_20260412_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8251_20260327_codestral-2508.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The claim mentions specific files (`bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, and `project.py`) and a concept (\"verbs of the system\") that are not present in the actual content of `operators/dissent.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "mistralai/codestral-2508",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-12T23:21:32.338990+00:00"
+}

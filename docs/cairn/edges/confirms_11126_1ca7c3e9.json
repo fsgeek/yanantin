@@ -1,0 +1,11 @@
+{
+  "id": "1ca7c3e9-e979-4127-96a0-1bc5e25d39c9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11126_20260412_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0414_20260214_seed-1.6-flash.md",
+  "relation": "confirms",
+  "claim_text": "(e.g., \"chasqui_files\"\u2014is it a variable or a directory?)   ### Declared Losses   - **Cron job frequency**: In scout_0132, I couldn\u2019t verify if `chasqui_pulse.py` runs every 1\u20135 minutes without executing the code.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-12T22:49:05.231589+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "cf8777cb-c02e-4649-bf79-19249fea35b0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11059_20260412_seed-2.0-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7757_20260324_glm-4.7-flash.md",
+  "relation": "denies",
+  "claim_text": "In `move.py`, it is imported at the top of the script.",
+  "claim_file": "tmp/ubuntu-vm.claude/slack-gif-creator/templates/move.py",
+  "claim_by": "z-ai/glm-4.7-flash",
+  "verified_by": "bytedance-seed/seed-2.0-lite",
+  "timestamp": "2026-04-12T13:57:46.829668+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "0b84158c-a162-44ac-880b-355ebec3f834",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11058_20260412_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0522_20260214_gemma-3-4b-it.md",
+  "relation": "denies",
+  "claim_text": "As evidenced by `docs/cairn/T13_20260211_the_gradient.md`, atomic numbering is handled through a different mechanism \u2013 tensor ballot management.",
+  "claim_file": "docs/cairn/T13_20260211_the_gradient.md",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-12T13:56:22.308336+00:00"
+}

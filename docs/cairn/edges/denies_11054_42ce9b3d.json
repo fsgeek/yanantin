@@ -1,0 +1,11 @@
+{
+  "id": "42ce9b3d-931e-4677-8be7-40eca94974ee",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11054_20260412_deepseek-v3.1-nex-n1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2495_20260223_ministral-14b-2512.md",
+  "relation": "denies",
+  "claim_text": "- **`ApachetaBaseModel` (in `models/base.py`)** is **frozen (`frozen=True`)** and **rejects extra fields (`extra=\"forbid\"`)**.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "nex-agi/deepseek-v3.1-nex-n1",
+  "timestamp": "2026-04-12T13:24:13.825612+00:00"
+}

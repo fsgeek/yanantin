@@ -1,0 +1,11 @@
+{
+  "id": "18f51cdf-512e-4e00-ac9f-f2960ba6c136",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11055_20260412_glm-4.6v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10210_20260407_gemma-4-26b-a4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The provided file `tools/phase1/probe.py` contains the following usage documentation: ```python Usage: python tools/phase1/probe.py [--corpus-dir DIR] [--sample N] [--min-size BYTES] ``` ### Reasoning The claim asserts that there are `tools/phase1` and `tools/phase2` directories containing scripts like `probe.py`, `proxy.py`, and `replay.py`.",
+  "claim_file": "tools/phase1/probe.py",
+  "claim_by": "google/gemma-4-26b-a4b-it",
+  "verified_by": "z-ai/glm-4.6v",
+  "timestamp": "2026-04-12T13:24:28.640716+00:00"
+}

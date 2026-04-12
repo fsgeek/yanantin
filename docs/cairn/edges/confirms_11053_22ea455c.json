@@ -1,0 +1,11 @@
+{
+  "id": "22ea455c-8a38-4af3-81c7-d0574f2e8cf9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11053_20260412_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0825_20260216_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "**Neutrosophic Logic in Data Modeling**   In `src/yanantin/apacheta/models/epistemics.py`, the `EpistemicMetadata` class defines:   ```python truth: float indeterminacy: float falsity: float ```   These fields are **not constrained to sum to 1.0**.",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-12T13:24:11.618283+00:00"
+}

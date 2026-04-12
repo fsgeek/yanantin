@@ -1,0 +1,11 @@
+{
+  "id": "a99b4081-f020-4fee-9e92-14c36c823663",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11081_20260412_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5402_20260310_gemini-3-flash-preview.md",
+  "relation": "denies",
+  "claim_text": "Is it in an unexamined hook like `chasqui_pulse.py`?",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "google/gemini-3-flash-preview",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-12T17:04:37.726936+00:00"
+}

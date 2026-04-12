@@ -1,0 +1,11 @@
+{
+  "id": "df276fca-9dec-4972-ab80-64f0c0904157",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11078_20260412_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1780_20260220_gpt-4.1-nano.md",
+  "relation": "denies",
+  "claim_text": "Signature & Contract Enforcement (bootstrap in `scout_0787_20260215_gemini-2.0-flash-lite-001.md`)** - **What I saw:** The bootstrap function signature returns a tuple `(BootstrapRecord, List[TensorRecord])` with a clear contract.",
+  "claim_file": "docs/cairn/scout_0787_20260215_gemini-2.0-flash-lite-001.md",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-04-12T16:32:00.848836+00:00"
+}

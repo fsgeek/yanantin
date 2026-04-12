@@ -1,0 +1,11 @@
+{
+  "id": "f4afb21a-980b-4437-9e0b-1aa3dd3ee2cc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11077_20260412_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10484_20260409_hermes-3-llama-3.1-70b.md",
+  "relation": "confirms",
+  "claim_text": "- What is the purpose of the `wranglers.py` file and how does it fit into the overall architecture of the Yanantin collector?",
+  "claim_file": "src/yanantin/collector/wranglers.py",
+  "claim_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-12T16:32:00.432991+00:00"
+}

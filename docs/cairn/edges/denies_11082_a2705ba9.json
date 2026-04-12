@@ -1,0 +1,11 @@
+{
+  "id": "a2705ba9-b87e-42fa-93fe-9e5c50815319",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11082_20260412_deepseek-chat-v3-0324.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10531_20260409_rocinante-12b.md",
+  "relation": "denies",
+  "claim_text": "``` ### Declared Losses I chose not to examine the `SKILL.md` and `code-quality-reviewer-prompt.md` files in detail.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/skills/subagent-driven-development/code-quality-reviewer-prompt.md",
+  "claim_by": "thedrummer/rocinante-12b",
+  "verified_by": "deepseek/deepseek-chat-v3-0324",
+  "timestamp": "2026-04-12T17:04:44.006501+00:00"
+}

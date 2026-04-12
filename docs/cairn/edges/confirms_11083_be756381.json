@@ -1,0 +1,11 @@
+{
+  "id": "be756381-b46d-4e15-9e92-85a9c1bc4056",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11083_20260412_llama-3.1-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7199_20260321_mimo-v2-flash.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The claim states that the file \"lack those fields and instead contain a `Target` and `Scope`, indicating an exploratory or introspection run.\" The \"those fields\" refers to fields that are presumably standard in other files (like `docs/cairn/scour_0066_20260217_lfm-2.2-6b.md`), but the file in question explicitly contains `Target` and `Scope` fields in its header, with `Scope: introspection`.",
+  "claim_file": "docs/cairn/scour_0066_20260217_lfm-2.2-6b.md",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "meta-llama/llama-3.1-70b-instruct",
+  "timestamp": "2026-04-12T17:04:45.768372+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "3ea0afd9-02ea-4e43-a025-adab9d4e1161",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11071_20260412_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0560_20260214_ministral-3b-2512.md",
+  "relation": "confirms",
+  "claim_text": "The `tensor_ballot.py` function\u2019s bakery algorithm is clever\u2014it\u2019s a distributed consensus protocol in disguise, ensuring no two instances can \"claim\" the same tensor number.",
+  "claim_file": "src/yanantin/apacheta/ingest/tensor_ballot.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-12T15:28:57.512687+00:00"
+}

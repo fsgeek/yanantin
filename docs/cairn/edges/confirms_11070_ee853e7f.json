@@ -1,0 +1,11 @@
+{
+  "id": "ee853e7f-4e97-4a21-82f9-0b9b21a2b237",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11070_20260412_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6508_20260317_qwen-plus.md",
+  "relation": "confirms",
+  "claim_text": "Read `pipeline_attestation.py`.",
+  "claim_file": ".claude/hooks/pipeline_attestation.py",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-12T15:28:40.987144+00:00"
+}

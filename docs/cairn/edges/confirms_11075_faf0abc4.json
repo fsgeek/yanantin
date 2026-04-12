@@ -1,0 +1,11 @@
+{
+  "id": "faf0abc4-b13e-4673-8a74-345798eea883",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11075_20260412_deepseek-v3.2-speciale.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4801_20260307_gemini-2.5-flash-image.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that \"the file `correct.py` is provided\" in \"this verification assignment\".",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "google/gemini-2.5-flash-image",
+  "verified_by": "deepseek/deepseek-v3.2-speciale",
+  "timestamp": "2026-04-12T16:01:49.315403+00:00"
+}

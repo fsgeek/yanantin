@@ -1,0 +1,11 @@
+{
+  "id": "e81fa94e-356e-4019-88d8-ff192fbc3df9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11073_20260412_sonar.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6079_20260315_qwen3-vl-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses   I cannot verify the content or existence of `scout_2590_20260223_llama-3.2-3b-instruct.md`, as it is not part of the provided file.",
+  "claim_file": "docs/cairn/scout_2590_20260223_llama-3.2-3b-instruct.md",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "verified_by": "perplexity/sonar",
+  "timestamp": "2026-04-12T16:01:08.760847+00:00"
+}

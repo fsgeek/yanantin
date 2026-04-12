@@ -1,0 +1,11 @@
+{
+  "id": "d93f282e-6942-4f3a-90ec-9ae8c9f1a2e6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11091_20260412_qwen3-vl-8b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10544_20260409_hermes-4-70b.md",
+  "relation": "confirms",
+  "claim_text": "The document also does not reference the file `src/yanantin/models/base.py` or the term `ProvenanceEnvelope`.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "nousresearch/hermes-4-70b",
+  "verified_by": "qwen/qwen3-vl-8b-thinking",
+  "timestamp": "2026-04-12T18:13:00.548997+00:00"
+}

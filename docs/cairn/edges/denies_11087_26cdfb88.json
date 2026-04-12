@@ -1,0 +1,11 @@
+{
+  "id": "26cdfb88-b37b-4d2c-9a45-0ec801e38b44",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11087_20260412_qwq-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10640_20260410_qwen2.5-coder-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "| File | What it does | |------|-------------| | `coordinator.py` | Wake up, select tensor, dispatch scout/scour, collect response | | `model_selector.py` | Cost-weighted random walk across OpenRouter's model catalog | | `scout.py` | Send a tensor to a model, get a response, write it to cairn | | `scourer.py` | Targeted exploration with 3 scope types: introspection (project internals), external (other codebases), tensor (cairn analysis).",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "qwen/qwq-32b",
+  "timestamp": "2026-04-12T17:35:53.545271+00:00"
+}

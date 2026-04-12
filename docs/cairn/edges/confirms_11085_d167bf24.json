@@ -1,0 +1,11 @@
+{
+  "id": "d167bf24-ddb3-4470-b290-c7d33097305d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11085_20260412_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1505_20260218_mistral-7b-instruct-v0.3.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses - I cannot check if the actual **judge logic** (the model\u2019s verification behavior) is implemented elsewhere (e.g., `scout.py`, `model_selector.py`, or analytical systems).",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "mistralai/mistral-7b-instruct-v0.3",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-12T17:34:58.161505+00:00"
+}

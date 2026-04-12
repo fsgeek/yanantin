@@ -1,0 +1,11 @@
+{
+  "id": "09c2a20c-85d3-4f9a-ad74-dc1239c4058a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11086_20260412_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0797_20260215_kimi-k2-0905.md",
+  "relation": "denies",
+  "claim_text": "The file contains no specific instructions about how the Chasqui (or any role) should handle `CLAUDE.md`.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "moonshotai/kimi-k2-0905",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-12T17:35:12.559432+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "5fd754d5-4cfc-402a-b8d9-618e4d8be3b2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11089_20260412_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6648_20260318_lfm-2-24b-a2b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim incorrectly asserts the presence of two files (\"scout_reviewer.md\" and \"structured_reviewer.md\"), while the file actually exists only once (`agents/structured_reviewer.md`).",
+  "claim_file": "agents/structured_reviewer.md",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-04-12T18:11:51.709027+00:00"
+}

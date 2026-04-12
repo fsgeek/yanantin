@@ -1,0 +1,11 @@
+{
+  "id": "a095a058-6e11-4552-ab2d-cc26f5e48aa8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10955_20260412_l3.1-euryale-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7957_20260325_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "The file is explicitly named `weaver.py`, and no references to `weaver.py` or `__main__.py` exist.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "sao10k/l3.1-euryale-70b",
+  "timestamp": "2026-04-12T00:30:22.681039+00:00"
+}

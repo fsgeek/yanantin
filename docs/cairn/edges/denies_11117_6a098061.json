@@ -1,0 +1,11 @@
+{
+  "id": "6a098061-8e2e-4440-94bd-2ac0a44df98e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11117_20260412_mercury-2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6491_20260317_ernie-4.5-vl-424b-a47b.md",
+  "relation": "denies",
+  "claim_text": "**Cannot verify the existence or content of `duckdb.py` and `arango.py` files**:   The file `src/yanantin/apacheta/backends/duckdb.py` is provided in full, so its existence and content are verifiable.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "baidu/ernie-4.5-vl-424b-a47b",
+  "verified_by": "inception/mercury-2",
+  "timestamp": "2026-04-12T21:46:11.959379+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "752bb781-345d-476e-952d-b826cb0000d0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11121_20260412_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1851_20260220_ministral-14b-2512.md",
+  "relation": "denies",
+  "claim_text": "**Immutability in Tensors**: - `apacheta/models/composition.py` defines `frozen=True` in Pydantic models.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-12T22:19:07.974494+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "66406fca-41fc-42b1-bf40-a512c319d8dd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11119_20260412_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5129_20260308_llama-4-scout.md",
+  "relation": "confirms",
+  "claim_text": "**Reference:** `tests/red_bar/test_immutability.py` and `docs/cairn/scout_4712_20260306_llama-3-8b-instruct.md` **Example observations:** The `test_duplicate_tensor_raises()` function in `tests/red_bar/test_immutability.py` explicitly tests for immutability by attempting to store a tensor with the same UUID and expecting an `ImmutabilityError`.",
+  "claim_file": "docs/cairn/scout_4712_20260306_llama-3-8b-instruct.md",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-12T21:46:15.313312+00:00"
+}

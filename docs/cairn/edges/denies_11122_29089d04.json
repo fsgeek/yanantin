@@ -1,0 +1,11 @@
+{
+  "id": "29089d04-cbd1-4059-91ed-eed11d691f62",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11122_20260412_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0513_20260214_minimax-m2.1.md",
+  "relation": "denies",
+  "claim_text": "**Strand 3: The Test Suite as Documentation** The test file `tests/unit/test_openrouter.py` reveals something interesting about how the project documents itself through tests.",
+  "claim_file": "tests/unit/test_openrouter.py",
+  "claim_by": "minimax/minimax-m2.1",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-12T22:19:09.351021+00:00"
+}

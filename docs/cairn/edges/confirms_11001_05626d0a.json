@@ -1,0 +1,11 @@
+{
+  "id": "05626d0a-cf0a-43fe-87de-9817e5438ec1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11001_20260412_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7233_20260321_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "This directly supports the assertion that the Gleaner module does not discuss its own existence or `gleaner.py` in the directory, but instead focuses on its functionality and comparison to `extract_cairn_claims`.",
+  "claim_file": "src/yanantin/chasqui/gleaner.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-12T06:43:22.377112+00:00"
+}

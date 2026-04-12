@@ -1,0 +1,11 @@
+{
+  "id": "22b47db1-8cf8-421d-89c1-1a0bbf7c8708",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11023_20260412_ernie-4.5-21b-a3b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2234_20260222_cydonia-24b-v4.1.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states that \"docs/predecessors.md is not present,\" but the file content clearly shows that `docs/predecessors.md` does exist and contains extensive information about predecessor projects.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "thedrummer/cydonia-24b-v4.1",
+  "verified_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "timestamp": "2026-04-12T09:17:29.703768+00:00"
+}

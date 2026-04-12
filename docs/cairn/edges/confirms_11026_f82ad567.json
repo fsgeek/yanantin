@@ -1,0 +1,11 @@
+{
+  "id": "f82ad567-45da-4edd-9676-39b4113538e6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11026_20260412_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4190_20260303_gemma-3-4b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The following lines from `docs/signing.md` are relevant: *   \u201cModel identity in UID: Yes.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-12T09:49:33.105604+00:00"
+}

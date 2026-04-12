@@ -1,0 +1,11 @@
+{
+  "id": "bb512abc-e2b1-4423-b4fe-c35842e1fc46",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11025_20260412_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0621_20260215_granite-4.0-h-micro.md",
+  "relation": "denies",
+  "claim_text": "However, the specific performance and scalability implications of these tests are not detailed in the provided snippets.\" }, { \"theme\": \"Operator Logic and Composition\", \"observations\": [ \"The `operators` directory contains a variety of functions and transformations that operate on tensors, such as `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, and `negate.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-12T09:49:32.464524+00:00"
+}

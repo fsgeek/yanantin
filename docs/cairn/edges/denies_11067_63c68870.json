@@ -1,0 +1,11 @@
+{
+  "id": "63c68870-873d-4664-8442-fb990ce2252b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11067_20260412_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6613_20260318_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   **DENIED** ### Evidence   The claim references \"lines 15-20 in `models/tensor.py` and `interface/errors.py`\", but the file `interface/errors.py` contains no such numbered line references.",
+  "claim_file": "src/yanantin/apacheta/interface/errors.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-04-12T14:58:39.814859+00:00"
+}

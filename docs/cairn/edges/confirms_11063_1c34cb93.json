@@ -1,0 +1,11 @@
+{
+  "id": "1c34cb93-8ec7-4bb2-8fd8-025c223af5b2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11063_20260412_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7702_20260324_voxtral-small-24b-2507.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states: \"The file `docs/blueprint.md` contains no references to `docs/tensors.md` in any section or subsection.\" However, the file provided for verification is `docs/blueprint.md`, not `docs/tensors.md`.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "mistralai/voxtral-small-24b-2507",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-12T14:26:25.358274+00:00"
+}

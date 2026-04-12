@@ -1,0 +1,11 @@
+{
+  "id": "1a0f45a6-63c2-4dd0-bfad-a3974efb1c3e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11065_20260412_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0651_20260215_minimax-m2.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence I only have access to the content of `tests/unit/test_memory_backend.py`, but the claim references parallels with `test_duckdb_backend.py` and other test modules: > There are parallels between test modules (e.g., `test_memory_backend.py`, `test_duckdb_backend.py` implies the expectation of backend swaps).",
+  "claim_file": "tests/unit/test_memory_backend.py",
+  "claim_by": "minimax/minimax-m2",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-12T14:58:31.563407+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "5b00b29f-f5eb-4a6d-b4f0-4a47647581d1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11066_20260412_l3.3-euryale-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4637_20260306_grok-4-fast.md",
+  "relation": "confirms",
+  "claim_text": "Selected scouts verify slices (e.g., `scout_4006_20260302_llama-3.1-8b-instruct.md` confirms cost-weighting in `model_selector.py`).",
+  "claim_file": "docs/cairn/scout_4006_20260302_llama-3.1-8b-instruct.md",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "sao10k/l3.3-euryale-70b",
+  "timestamp": "2026-04-12T14:58:36.771178+00:00"
+}

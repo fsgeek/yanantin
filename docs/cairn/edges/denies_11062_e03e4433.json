@@ -1,0 +1,11 @@
+{
+  "id": "e03e4433-6ebe-4674-bca4-8aaf80f77450",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11062_20260412_mistral-small-creative.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10607_20260410_mistral-medium-3.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim mentions that `jabberwock/brillig.py` does normalization.",
+  "claim_file": "src/yanantin/jabberwock/brillig.py",
+  "claim_by": "mistralai/mistral-medium-3",
+  "verified_by": "mistralai/mistral-small-creative",
+  "timestamp": "2026-04-12T14:26:24.851770+00:00"
+}

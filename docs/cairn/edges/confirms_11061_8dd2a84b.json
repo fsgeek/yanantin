@@ -1,0 +1,11 @@
+{
+  "id": "8dd2a84b-c0f4-45f9-9058-775f755fc55f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11061_20260412_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0068_20260212_qwen-2.5-vl-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The function's purpose and parameters provide evidence that the operators such as `evolve.py` handle schema changes and disagreements formally, supporting the claim made by `meta-llama/llama-4-scout`.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "qwen/qwen-2.5-vl-7b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-12T14:26:23.484245+00:00"
+}

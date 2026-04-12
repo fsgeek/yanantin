@@ -1,0 +1,11 @@
+{
+  "id": "272f6ae9-5739-4a35-8ff7-24f81ac51b10",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10987_20260412_qwq-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10041_20260407_gemini-2.0-flash-001.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses *   I skipped `test_activity_store.py`, `test_analyst.py`, `test_arango_independent.py`, `test_attestation.py`, `test_chasqui.py`, `test_collector.py`, `test_collector_checksum.py`, `test_collector_dropbox.py`, `test_collector_fs_events.py`, `test_collector_isomorphism.py`, `test_collector_synthetic.py`, `test_config_tensors.py`, `test_content_address.py`, `test_coverage.py`, `test_duckdb_backend.py`, `test_duckdb_independent.py`, `test_fact_recorders.py`, `test_gateway_client_independent.py`, `test_gleaner.py`, `test_ingest.py`, `test_machine_config.py`, `test_materialize.py`, `test_memory_anchor.py`, `test_memory_backend.py`, `test_models.py`, `test_operators.py`, `test_precompact_hook.py`, `test_provenance_timestamp.py`, `test_query_engine.py`, `test_recorders.py`, `test_renderer.py`, `test_scorer.py`, `test_scourer.py`, `test_scout_features.py`, `test_tinkuy_audit.py`, `test_tinkuy_succession.py`, `test_jabberwock_brillig.py`, `test_jabberwock_cli.py`, `test_jabberwock_normalize.py`, `test_models.py` because of time constraints.",
+  "claim_file": "tests/unit/test_precompact_hook.py",
+  "claim_by": "google/gemini-2.0-flash-001",
+  "verified_by": "qwen/qwq-32b",
+  "timestamp": "2026-04-12T04:38:57.687067+00:00"
+}

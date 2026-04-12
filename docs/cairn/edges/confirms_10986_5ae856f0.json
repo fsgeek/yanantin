@@ -1,0 +1,11 @@
+{
+  "id": "5ae856f0-cf27-44d1-877d-76dd409eda58",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10986_20260412_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0611_20260215_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "For example: - `scout_0473_20260214_nemotron-nano-12b-v2-vl.md` reports 1451 prompt tokens, 1035 completion tokens, and a total cost of $0.0009112.",
+  "claim_file": "docs/cairn/scout_0473_20260214_nemotron-nano-12b-v2-vl.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-04-12T04:38:40.112526+00:00"
+}

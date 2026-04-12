@@ -1,0 +1,11 @@
+{
+  "id": "e643f3c6-51d8-4f60-9a1d-36e649c34047",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10982_20260412_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9261_20260402_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   **INDETERMINATE** ### Evidence   The claim is:   > \"Therefore, the claim that reasoning about `epistemics.py` is irrelevant is false.\" Relevant content from the file includes:   - The docstring at the top: `\"\"\"Epistemic metadata \u2014 T/I/F, declared losses, disagreement types.\"\"\"`   - The definitions of `EpistemicMetadata`, `DeclaredLoss`, and related enums such as `DisagreementType` and `LossCategory`.",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-04-12T04:06:31.277493+00:00"
+}

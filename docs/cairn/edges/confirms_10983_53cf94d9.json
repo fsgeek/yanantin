@@ -1,0 +1,11 @@
+{
+  "id": "53cf94d9-e9ab-4948-8554-6a416739d9c7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10983_20260412_gemma-2-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9827_20260405_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "- Whether there are any integration tests for `normalize.py` that cover edge cases like Unicode normalization or case-sensitive namespaces.",
+  "claim_file": "src/yanantin/jabberwock/normalize.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "google/gemma-2-27b-it",
+  "timestamp": "2026-04-12T04:06:32.748671+00:00"
+}

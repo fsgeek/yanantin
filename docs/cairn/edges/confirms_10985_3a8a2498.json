@@ -1,0 +1,11 @@
+{
+  "id": "3a8a2498-91f8-4b30-a106-0daae4683893",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10985_20260412_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8822_20260331_kimi-k2-thinking.md",
+  "relation": "confirms",
+  "claim_text": "The missing `check_bounding_boxes.py` and the CI-disabled tests suggest this is a work in progress: a bridge being built while traffic flows.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/scripts/check_bounding_boxes.py",
+  "claim_by": "moonshotai/kimi-k2-thinking",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-12T04:38:40.031722+00:00"
+}

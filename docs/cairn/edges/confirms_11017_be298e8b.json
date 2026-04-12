@@ -1,0 +1,11 @@
+{
+  "id": "be298e8b-d459-49f5-8aa6-d3b5bfa8a82d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11017_20260412_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3069_20260225_hermes-2-pro-llama-3-8b.md",
+  "relation": "confirms",
+  "claim_text": "The previous scout focused on a single file, `coordinator.py`, while the claim mentions a test function in a test file.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-12T08:47:26.960346+00:00"
+}

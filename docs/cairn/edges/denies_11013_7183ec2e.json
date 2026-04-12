@@ -1,0 +1,11 @@
+{
+  "id": "7183ec2e-f612-4e7b-989e-5d5c9be36cf1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11013_20260412_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5823_20260313_gpt-oss-20b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence None available \u2013 the provided content is `docs/tensors.md`, not `docs/apacheta.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-04-12T08:15:12.437023+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "1e410091-8f65-4274-a346-7dbab664590d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11014_20260412_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8816_20260331_gemma-3-4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The claim states: \"Thus, the claim is accurate: the file is `scourer.py`, not `scout.py`.\" The file content of `src/yanantin/chasqui/scout.py` is: ``` \"\"\"Scout dispatch \u2014 send a messenger into the codebase.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-04-12T08:15:15.430950+00:00"
+}

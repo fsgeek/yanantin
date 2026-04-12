@@ -1,0 +1,11 @@
+{
+  "id": "309db849-7def-42d6-82b6-91c5103a0d84",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11018_20260412_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6701_20260318_mistral-large-2512.md",
+  "relation": "confirms",
+  "claim_text": "**Governance Infrastructure**: The docstring in `succession.py` describes its role as ensuring \"orderly transition between mortal instances\" and maintaining an \"accurate map\" for the project.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "mistralai/mistral-large-2512",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-04-12T08:47:28.358788+00:00"
+}

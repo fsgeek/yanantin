@@ -1,0 +1,11 @@
+{
+  "id": "47d8e8da-05d8-404a-b405-3ba1938f920a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10975_20260412_hermes-4-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6718_20260318_gpt-4.1-nano.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I avoided deep inspection of regex patterns and parsing logic in `scour/gleaner.py`, especially around claim classification, because it's complex and would require extensive code analysis.",
+  "claim_file": "src/yanantin/chasqui/gleaner.py",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "nousresearch/hermes-4-70b",
+  "timestamp": "2026-04-12T03:04:39.133385+00:00"
+}

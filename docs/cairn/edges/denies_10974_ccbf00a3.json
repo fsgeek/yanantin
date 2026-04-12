@@ -1,0 +1,11 @@
+{
+  "id": "ccbf00a3-ed6e-43d3-9e51-6916b4f95bfc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10974_20260412_mistral-large.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1673_20260219_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "<br>Examples: `scout_0498_20260214_glm-4-32b.md`, `scout_0645_20260215_qwen3\u2011vl\u20118b\u2011instruct.md`.",
+  "claim_file": "docs/cairn/scout_0498_20260214_glm-4-32b.md",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "mistralai/mistral-large",
+  "timestamp": "2026-04-12T03:04:21.623526+00:00"
+}

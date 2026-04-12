@@ -1,0 +1,11 @@
+{
+  "id": "74e8e4d6-4cd8-4f89-8f4f-dd3d9b397e07",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10979_20260412_qwen3.6-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7502_20260323_step-3.5-flash.md",
+  "relation": "confirms",
+  "claim_text": "``` No line in the provided content contains the string `docs/predecessors.md` or `predecessors.md`.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "stepfun/step-3.5-flash",
+  "verified_by": "qwen/qwen3.6-plus",
+  "timestamp": "2026-04-12T03:36:59.755011+00:00"
+}

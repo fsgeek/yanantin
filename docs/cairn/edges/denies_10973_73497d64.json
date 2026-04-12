@@ -1,0 +1,11 @@
+{
+  "id": "73497d64-c93b-4024-98f9-31717a13a9ea",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10973_20260412_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1424_20260218_llama-4-scout.md",
+  "relation": "denies",
+  "claim_text": "* The discussion of the `ApachetaBaseModel` in `docs/cairn/scout_0208_20260213_mistral-7b-instruct-v0.3.md`, as it was not directly related to the `gleaner.py` module.",
+  "claim_file": "src/yanantin/chasqui/gleaner.py",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-12T03:04:19.819094+00:00"
+}

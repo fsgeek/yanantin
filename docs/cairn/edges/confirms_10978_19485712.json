@@ -1,0 +1,11 @@
+{
+  "id": "19485712-f397-40eb-aa58-700a2381883b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10978_20260412_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7553_20260323_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "*   `code-explorer.md` (line 15): \"tools: Glob, Grep, LS, Read, NotebookRead, WebFetch, TodoWrite, WebSearch, KillShell, BashOutput\" *   `code-architect.md` (line 15): \"tools: Glob, Grep, LS, Read, NotebookRead, WebFetch, TodoWrite, WebSearch, KillShell, BashOutput\" #### Strand 3: Epistemic Observability in Practice The project's focus on epistemic observability and composable tensor infrastructure suggests a strong emphasis on understanding and managing knowledge.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/feature-dev/agents/code-architect.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-04-12T03:36:14.232595+00:00"
+}

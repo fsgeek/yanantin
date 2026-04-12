@@ -1,0 +1,11 @@
+{
+  "id": "9c8aad5d-389b-43e5-b363-e302231f584c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10970_20260412_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4212_20260303_qwen-plus.md",
+  "relation": "denies",
+  "claim_text": "Composition Is Not Abstraction \u2014 It\u2019s Compaction**   The `docs/cairn/compaction/` subdirectory contains 42 `.md` files named like `T16_compaction_20260215_184705.md`, `fdde73d4_20260216_010820_manual.md`, and `T0_20260207_bounded_verification.md`.",
+  "claim_file": "docs/cairn/compaction/fdde73d4_20260216_010820_manual.md",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-04-12T02:35:20.700534+00:00"
+}

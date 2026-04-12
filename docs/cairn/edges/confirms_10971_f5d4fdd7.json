@@ -1,0 +1,11 @@
+{
+  "id": "f5d4fdd7-d269-496f-9f73-cb73941bd1c2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10971_20260412_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5477_20260310_qwen-2.5-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence No relevant code in `coordinator.py` directly addresses the distribution of verification tasks based on model lineage or lineage mismatches between scouts and claims.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-04-12T02:35:23.114042+00:00"
+}

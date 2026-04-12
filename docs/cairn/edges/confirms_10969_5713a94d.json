@@ -1,0 +1,11 @@
+{
+  "id": "5713a94d-a9ae-4805-a68d-e257a1cbeb64",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10969_20260412_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2974_20260225_glm-4.5v.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict DENIED ### Evidence The file `docs/predecessors.md` contains valid Markdown content describing predecessor projects: ```markdown # Predecessor Projects Yanantin composes what was learned across these projects.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "z-ai/glm-4.5v",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-12T02:35:15.217809+00:00"
+}

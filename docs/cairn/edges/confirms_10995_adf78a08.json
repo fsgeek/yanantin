@@ -1,0 +1,11 @@
+{
+  "id": "adf78a08-ae95-4877-80c1-802a5f4787ad",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10995_20260412_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6319_20260316_gemini-3.1-flash-lite-preview.md",
+  "relation": "confirms",
+  "claim_text": "The system is performing \"micro-compaction\" (see `docs/design-rolling-microcompaction.md`), yet it generates thousands of small, granular scout reports.",
+  "claim_file": "docs/design-rolling-microcompaction.md",
+  "claim_by": "google/gemini-3.1-flash-lite-preview",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-12T05:41:36.079874+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "210cb347-2e3c-43b0-a374-1b956cb0eafc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10989_20260412_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10699_20260410_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "The file contains the line:   `\"async with OpenRouterClient(app_title=app_title) as client:\"` ### Reasoning The claim states that \"there is no mention or reference to `openrouter.py` anywhere in the file,\" but this is clearly false.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-12T05:08:19.553241+00:00"
+}

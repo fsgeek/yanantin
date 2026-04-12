@@ -1,0 +1,11 @@
+{
+  "id": "9b5dd7ee-b8c0-46b9-b68d-26f6ff45ef03",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10990_20260412_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5849_20260313_deepseek-v3.2-exp.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim made by `x-ai/grok-3-mini` states that the file contains observations about the `docs/cairn/` directory being \"packed with files like `scout_0001_20260210_ministral-3b.md` up to `scout_1434_20260218_mistral-large-2407.md`\u2014that's over 1,400 entries!\" However, reading the actual file content reveals: 1.",
+  "claim_file": "docs/cairn/scout_1434_20260218_mistral-large-2407.md",
+  "claim_by": "deepseek/deepseek-v3.2-exp",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-04-12T05:08:46.223720+00:00"
+}

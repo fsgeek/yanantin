@@ -1,0 +1,11 @@
+{
+  "id": "5bd4f8eb-cd46-42be-b8d5-615271610485",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_10993_20260412_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8020_20260326_glm-4.5-air.md",
+  "relation": "confirms",
+  "claim_text": "The Template as Cognitive Lens Each template embodies a distinct way of seeing and interacting with code: - `code-map.md` treats code as a graph of relationships (nodes as components, edges as data flow) - `data-explorer.md` sees code through the lens of structured transformation (SQL/API/pipeline patterns) - `concept-map.md` frames code as a knowledge domain to be explored and mapped - `document-critique.md` and `diff-review.md` both focus on evaluation but through different mechanisms\u2014structured suggestions vs.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/playground/skills/playground/templates/concept-map.md",
+  "claim_by": "z-ai/glm-4.5-air",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-12T05:41:16.717783+00:00"
+}

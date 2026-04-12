@@ -1,0 +1,11 @@
+{
+  "id": "72f8c198-c1bd-42d1-9713-6fa1f3fb178e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11094_20260412_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9893_20260406_mistral-small-2603.md",
+  "relation": "denies",
+  "claim_text": "**Reasoning in File**: > The claim states that there are no explicit references to `succession.py`'s classes, methods, or protocols related to mediation or ownership in the provided `scout.py` code.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "mistralai/mistral-small-2603",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-12T18:40:11.777153+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "778cbed2-fe5a-4ba9-8fb8-564c3e57f17c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11098_20260412_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3285_20260226_glm-4-32b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The file `.claude/hooks/ots_stamp.py` is shown, but the claim references other files (`chasqui_heartbeat.sh`, `capture_compaction.py`, `chasqui_pulse.py`, `precompact_tensor.py`) that are not present in the provided content.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-12T19:12:45.122091+00:00"
+}

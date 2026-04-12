@@ -1,0 +1,11 @@
+{
+  "id": "b7f10a40-c94f-49a0-8a90-29b326390701",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11039_20260412_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0191_20260213_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "I also noticed that the previous scout did not check the `src/yanantin/awaq/__main__.py` file, which seems relevant to the project's entry point and functionality.",
+  "claim_file": "src/yanantin/awaq/__main__.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-12T11:18:37.294309+00:00"
+}

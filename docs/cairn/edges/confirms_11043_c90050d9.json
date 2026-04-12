@@ -1,0 +1,11 @@
+{
+  "id": "c90050d9-7da6-4460-b9d5-d64f291a3782",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11043_20260412_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10208_20260407_qwen3-14b.md",
+  "relation": "confirms",
+  "claim_text": "**The Paradox of Static Templates for Dynamic Projects**   The `templates.md` file provides a rigid structure for documenting projects (e.g., `Commands`, `Architecture`, `Gotchas`), but `update-guidelines.md` explicitly encourages adding *new* sections (like `Dependencies`) or modifying existing ones dynamically.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/claude-md-management/skills/claude-md-improver/references/templates.md",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-12T11:51:52.405293+00:00"
+}

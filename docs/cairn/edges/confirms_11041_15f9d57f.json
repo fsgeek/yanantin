@@ -1,0 +1,11 @@
+{
+  "id": "15f9d57f-9395-4787-8e01-56374a01588c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11041_20260412_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8562_20260329_cydonia-24b-v4.1.md",
+  "relation": "confirms",
+  "claim_text": "In `eval.py`, the probes are designed to test specific failure patterns that have already been documented in the main codebase\u2014this creates a feedback loop where the evaluation tools are essentially testing the system against its own self-knowledge.",
+  "claim_file": "tools/phase2/eval.py",
+  "claim_by": "thedrummer/cydonia-24b-v4.1",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-04-12T11:51:42.608284+00:00"
+}

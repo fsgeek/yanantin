@@ -1,0 +1,11 @@
+{
+  "id": "42833229-2bc3-4edc-9b4d-d9bc8f129ad5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11030_20260412_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1979_20260221_seed-1.6.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses - 1000+ OTS files in `docs/cairn/ots`: Skipped because I ran out of attention for timestamp validation\u2014they look like provenance stamps but I didn\u2019t cross-check with `docs/cairn/signing.md`.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "bytedance-seed/seed-1.6",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-12T10:18:25.553954+00:00"
+}

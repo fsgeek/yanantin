@@ -1,0 +1,11 @@
+{
+  "id": "5f6911d5-cce9-4bfa-a9b1-7747eddadebe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11029_20260412_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1344_20260218_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim asserts that `test_portability.py` (lines 10\u201146) is the main implementation of the \"red-bar\" testing pattern, which enforces **portability** by prohibiting hardcoded absolute paths in test files.",
+  "claim_file": "tests/red_bar/test_portability.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-12T10:18:24.207922+00:00"
+}

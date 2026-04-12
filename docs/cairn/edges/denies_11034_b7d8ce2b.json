@@ -1,0 +1,11 @@
+{
+  "id": "b7d8ce2b-c036-42e1-b119-c8f5bab067f3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11034_20260412_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9998_20260406_gemma-3-4b-it.md",
+  "relation": "denies",
+  "claim_text": "**Declared Losses:** I deliberately did not investigate the `easing.py` file.",
+  "claim_file": "tmp/ubuntu-vm.claude/slack-gif-creator/core/easing.py",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-12T10:48:59.326502+00:00"
+}

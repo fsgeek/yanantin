@@ -1,0 +1,11 @@
+{
+  "id": "17e644f2-afb0-4f9e-adc5-9c40dd764444",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11031_20260412_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0798_20260215_glm-4.5.md",
+  "relation": "denies",
+  "claim_text": "Instead, it provides the framework and interfaces that enable these separate components to work together as a \"composable tensor infrastructure.\" The evidence from scout reports shows that: - Backends like `arango.py`, `duckdb.py`, and `memory.py` exist as separate modules (as confirmed by integration tests mentioned in T13) - Clients like `openrouter.py` are indeed separate implementations (as confirmed in `scout_0137_20260212_mistral-nemo.md`) - Operators like `bootstrap.py`, `compose.py`, `correct.py`, and `evolve.py` are distinct modules that perform specific transformation operations #### Strand 2: The Composable Tensor Infrastructure The \"composable tensor infrastructure\" isn't a single file but an architectural pattern.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "z-ai/glm-4.5",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-12T10:18:28.307204+00:00"
+}

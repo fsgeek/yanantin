@@ -1,0 +1,11 @@
+{
+  "id": "257deaa5-6206-4089-ae4d-d56d70013b5e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11006_20260412_olmo-3.1-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1193_20260217_granite-4.0-h-micro.md",
+  "relation": "denies",
+  "claim_text": "<br>\u2022 `docs/cairn/compaction/T10_20260209_post_compaction.md` \u2013 discusses **verification scouts** as a way to separate original observations from verification meta\u2011claims.",
+  "claim_file": "docs/cairn/T10_20260209_post_compaction.md",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "allenai/olmo-3.1-32b-instruct",
+  "timestamp": "2026-04-12T07:13:21.457567+00:00"
+}

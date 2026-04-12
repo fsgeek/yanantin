@@ -1,0 +1,11 @@
+{
+  "id": "237ba7f0-0316-4a1f-9c39-9bb9011e6e39",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11005_20260412_ernie-4.5-21b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2477_20260223_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim is true because the file header clearly states the claim itself: \"The file contents clearly indicate that the specified file only contains the `test_precompact_hook.py` content, and there is no mention of `test_scourer.py` in the file.\" There is no actual code or content related to `test_scourer.py` in the file.",
+  "claim_file": "tests/unit/test_precompact_hook.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "baidu/ernie-4.5-21b-a3b",
+  "timestamp": "2026-04-12T07:13:20.497513+00:00"
+}

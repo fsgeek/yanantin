@@ -1,0 +1,11 @@
+{
+  "id": "8f7f7c8c-3ab5-46da-82e7-7b7092c9c270",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11009_20260412_devstral-small.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8441_20260328_llama-3.2-3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `docs/cairn/compaction/T30_compaction_20260220_073440.md` explicitly states that the tensor was \"authored by automation, not by the instance itself\" and that \"This tensor was declared by automation, not by the instance itself.\" (lines 15-16) ### Reasoning The evidence from the file directly supports the claim made by `meta-llama/llama-3-8b-instruct`.",
+  "claim_file": "docs/cairn/compaction/T30_compaction_20260220_073440.md",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "mistralai/devstral-small",
+  "timestamp": "2026-04-12T07:45:14.012356+00:00"
+}

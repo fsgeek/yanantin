@@ -1,0 +1,11 @@
+{
+  "id": "feec961b-395c-4db0-8734-a416defd8030",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11011_20260412_hunyuan-a13b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10398_20260408_mistral-small-creative.md",
+  "relation": "confirms",
+  "claim_text": "**Cannot verify `succession.py`'s behavior**: - The claim references `succession.py`, but this file was **not provided** for verification.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "tencent/hunyuan-a13b-instruct",
+  "timestamp": "2026-04-12T07:45:16.594817+00:00"
+}

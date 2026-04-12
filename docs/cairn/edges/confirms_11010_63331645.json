@@ -1,0 +1,11 @@
+{
+  "id": "63331645-e97e-4335-ad6f-9ec6b29adc48",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11010_20260412_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0546_20260214_ministral-3b-2512.md",
+  "relation": "confirms",
+  "claim_text": "However, the `audit.py` module in `src/yanantin/tinkuy/audit.py` explicitly **does not parse `blueprint.md`**\u2014it only surveys the filesystem for structural metadata (e.g., file counts, tensor names).",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-12T07:45:15.181340+00:00"
+}

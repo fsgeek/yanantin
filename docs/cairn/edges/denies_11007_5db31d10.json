@@ -1,0 +1,11 @@
+{
+  "id": "5db31d10-967f-4a68-88cd-f3e955b1aac2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11007_20260412_deepseek-r1-distill-qwen-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10800_20260411_mistral-small-3.1-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "This directly contradicts the claim that no line references `scourer.py`.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "timestamp": "2026-04-12T07:13:36.586756+00:00"
+}

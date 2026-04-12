@@ -1,0 +1,11 @@
+{
+  "id": "a8becb51-b2bb-4c8a-af3c-b71653a434cc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11106_20260412_solar-pro-3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9871_20260406_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "I also skipped over `composition.py` for now, as its name hints at a more complex relationship with the other components, and I wanted to first get a better grasp of the individual building blocks.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "upstage/solar-pro-3",
+  "timestamp": "2026-04-12T20:14:03.066404+00:00"
+}

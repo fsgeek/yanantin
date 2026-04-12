@@ -1,0 +1,11 @@
+{
+  "id": "480f0fb8-ae24-43d4-9cfa-57c28547f2ea",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11101_20260412_llama-4-scout.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2495_20260223_ministral-14b-2512.md",
+  "relation": "confirms",
+  "claim_text": "- **`renderer/`** (e.g., `markdown.py`).",
+  "claim_file": "src/yanantin/apacheta/renderer/markdown.py",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "meta-llama/llama-4-scout",
+  "timestamp": "2026-04-12T19:42:20.568173+00:00"
+}

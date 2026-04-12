@@ -1,0 +1,11 @@
+{
+  "id": "0825f145-e2bd-4b39-bf9d-438ff84971f6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11103_20260412_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7398_20260322_qwen2.5-coder-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "## The File Here is the actual content of `docs/cairn/scout_0008_20260212_mistral-nemo.md`: ``` ### Verdict CONFIRMED ### Evidence The docstring of the `bootstrap` function in `src/yanantin/apacheta/operators/bootstrap.py` states: \"Returns the bootstrap record and the selected tensors.\" (Line 29) ### Reasoning The claim accurately describes the return value of the `bootstrap` function in the given file.",
+  "claim_file": "docs/cairn/scout_0008_20260212_mistral-nemo.md",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-12T19:42:24.552420+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "cc644579-ba4d-4228-8445-58bc4897a5c9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11107_20260412_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9256_20260402_tongyi-deepresearch-30b-a3b.md",
+  "relation": "denies",
+  "claim_text": "That the system explicitly rejects unstructured data based on a test in `test_models.py` I cannot verify either assertion because: - The `ProvenanceEnvelope` class is not present in the provided content of `models.py` - I don't have access to `test_models.py` to verify the existence of the `test_forbids_extra_fields` test Without access to either the `ProvenanceEnvelope` implementation or the test file referenced in the claim, I cannot determine whether the system explicitly rejects unstructured data or how conflicting provenance records would be resolved.",
+  "claim_file": "tests/unit/test_models.py",
+  "claim_by": "alibaba/tongyi-deepresearch-30b-a3b",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-04-12T20:14:33.984864+00:00"
+}

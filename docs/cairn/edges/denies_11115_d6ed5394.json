@@ -1,0 +1,11 @@
+{
+  "id": "d6ed5394-40f9-4381-8eaa-24af68865e06",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11115_20260412_gpt-4o-mini-2024-07-18.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6697_20260318_ministral-14b-2512.md",
+  "relation": "denies",
+  "claim_text": "**No direct reference to `arango.py` exists in the file.** The file does **not** import or reference `arango.py` at all.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "openai/gpt-4o-mini-2024-07-18",
+  "timestamp": "2026-04-12T21:16:07.703703+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "d8a31a73-1271-4ee5-ad0a-bb90fa689d7b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11111_20260412_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1014_20260216_glm-4.5.md",
+  "relation": "confirms",
+  "claim_text": "- For example, `docs/cairn/scout_0415_20260214_mistral-nemo.md` confirms a claim about `scout.py` line 11 defining the dispatching mechanism, with specific code references.",
+  "claim_file": "docs/cairn/scout_0415_20260214_mistral-nemo.md",
+  "claim_by": "z-ai/glm-4.5",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-04-12T20:43:48.193342+00:00"
+}

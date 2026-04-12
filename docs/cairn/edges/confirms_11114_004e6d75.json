@@ -1,0 +1,11 @@
+{
+  "id": "004e6d75-aa77-4d0d-9a72-5b2e75dda045",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11114_20260412_qwen3-vl-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2620_20260223_seed-1.6-flash.md",
+  "relation": "confirms",
+  "claim_text": "**Tensor Composition and Evolution**   `src/yanantin/apacheta/models/composition.py` defines `CompositionEdge`, `CorrectionRecord`, and `evolve.py` (confirmed by `scout_0916`) records schema evolutions.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "qwen/qwen3-vl-8b-instruct",
+  "timestamp": "2026-04-12T21:16:06.783534+00:00"
+}

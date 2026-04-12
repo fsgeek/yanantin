@@ -1,0 +1,11 @@
+{
+  "id": "578bbe13-b324-4d95-93fa-bfa8f9411a9b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11113_20260412_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9882_20260406_seed-2.0-mini.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses We cannot check whether `evolve.py` and `correct.py` exist in the `src/yanantin/apacheta/operators/` directory because only the source code for `dissent.py` was provided, with no directory listing or additional file contents included for review.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "bytedance-seed/seed-2.0-mini",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-04-12T21:16:06.204767+00:00"
+}

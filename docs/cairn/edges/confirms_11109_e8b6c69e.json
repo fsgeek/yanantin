@@ -1,0 +1,11 @@
+{
+  "id": "e8b6c69e-b89d-4865-81fb-c78560d0641a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11109_20260412_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5437_20260310_qwen3-vl-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence > - I did not examine the low-level mechanics of the regex-based extraction in `gleaner.py`, beyond noting its existence.",
+  "claim_file": "src/yanantin/chasqui/gleaner.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-04-12T20:43:46.507020+00:00"
+}

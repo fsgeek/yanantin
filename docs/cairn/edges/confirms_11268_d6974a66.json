@@ -1,0 +1,11 @@
+{
+  "id": "d6974a66-21f1-4fc7-8c67-e20789ee8974",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11268_20260413_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10470_20260409_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I couldn't check any runtime behavior or related files mentioned in the claim (like `base.py`, `composition.py`, etc.), as my scope was limited to this specific file `entities.py`.",
+  "claim_file": "src/yanantin/apacheta/models/entities.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-04-13T17:30:51.271784+00:00"
+}

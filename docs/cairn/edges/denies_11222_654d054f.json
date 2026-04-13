@@ -1,0 +1,11 @@
+{
+  "id": "654d054f-b82c-4e35-9e95-9ea5ce8231c8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11222_20260413_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10964_20260412_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "The Model\u2019s Invariants: What Must Hold (and What Doesn\u2019t)** **File:** `models.py` (entirety) **Observation:** The Pydantic models (`FileTimestamps`, `FileEntryData`, `FilesystemSnapshot`) enforce **strict invariants**: - **Timestamps**: `created` may be `None` (for old kernels), but `modified`, `accessed`, and `changed` must exist.",
+  "claim_file": "src/yanantin/jabberwock/models.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-04-13T11:17:08.399377+00:00"
+}

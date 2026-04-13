@@ -1,0 +1,11 @@
+{
+  "id": "e15de6f2-39c0-4e83-a110-283d8e19b165",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11227_20260413_seed-1.6.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1330_20260218_nemotron-3-nano-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim asserts that `audit.py` **does not** contain information about the `tinkuy` governance system.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "bytedance-seed/seed-1.6",
+  "timestamp": "2026-04-13T11:49:23.780772+00:00"
+}

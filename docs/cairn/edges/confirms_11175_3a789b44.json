@@ -1,0 +1,11 @@
+{
+  "id": "3a789b44-a049-483b-8718-1811ca165f7c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11175_20260413_gpt-5-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1918_20260220_olmo-3-7b-think.md",
+  "relation": "confirms",
+  "claim_text": "The claim also asserts there is \"no similar instruction to read or fetch `CLAUDE.md`,\" which is **CONFIRMED** (the file does not reference `CLAUDE.md`).",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "allenai/olmo-3-7b-think",
+  "verified_by": "openai/gpt-5-nano",
+  "timestamp": "2026-04-13T05:03:21.269917+00:00"
+}

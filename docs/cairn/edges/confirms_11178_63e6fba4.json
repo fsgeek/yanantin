@@ -1,0 +1,11 @@
+{
+  "id": "63e6fba4-3aad-4cdb-b452-535047f0fad1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11178_20260413_grok-code-fast-1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2670_20260224_claude-3.7-sonnet.md",
+  "relation": "confirms",
+  "claim_text": "In `docs/cairn/scout_0954_20260216_deepseek-v3.2-speciale.md`, I found evidence of a `ProvenanceEnvelope` metadata structure attached to records in the `EntityResolution` class: ```python class EntityResolution(ApachetaBaseModel): ...",
+  "claim_file": "docs/cairn/scout_0954_20260216_deepseek-v3.2-speciale.md",
+  "claim_by": "anthropic/claude-3.7-sonnet",
+  "verified_by": "x-ai/grok-code-fast-1",
+  "timestamp": "2026-04-13T05:35:15.697352+00:00"
+}

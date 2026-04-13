@@ -1,0 +1,11 @@
+{
+  "id": "68cd6f22-b2a0-4598-abbe-ecef6c6d95bd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11173_20260413_claude-haiku-4.5.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0061_20260212_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The `docs/cairn/scout_0046_20260212_qwen2.5-coder-7b-instruct.md` is a verification tensor, explicitly claiming that the content of `docs/predecessors.md` supports a claim.",
+  "claim_file": "docs/cairn/scout_0046_20260212_qwen2.5-coder-7b-instruct.md",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "anthropic/claude-haiku-4.5",
+  "timestamp": "2026-04-13T05:02:54.889337+00:00"
+}

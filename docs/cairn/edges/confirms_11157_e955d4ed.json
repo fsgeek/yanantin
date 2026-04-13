@@ -1,0 +1,11 @@
+{
+  "id": "e955d4ed-9a56-4b1f-92e8-c07018af4be2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11157_20260413_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10234_20260408_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses The claim specifies \"item #5\" which is not mentioned in the file, and there is no explicit mention of `docs/apacheta.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-04-13T02:59:02.914432+00:00"
+}

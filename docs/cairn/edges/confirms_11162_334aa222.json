@@ -1,0 +1,11 @@
+{
+  "id": "334aa222-5f7d-4769-a614-9827de48ac56",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11162_20260413_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4639_20260306_phi-4.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence ```python def count_records(self) -> dict[str, int]: with self._lock: return { \"tensors\": len(self._tensors), \"edges\": len(self._edges), \"corrections\": len(self._corrections), \"dissents\": len(self._dissents), \"negations\": len(self._negations), \"bootstraps\": len(self._bootstraps), \"evolutions\": len(self._evolutions), \"entities\": len(self._entities), } ``` ### Reasoning The claim made by `bytedance/ui-tars-1.5-7b` states that the project ships three backends: `memory.py`, `duckdb.py`, and `arango.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-13T03:30:32.408570+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "df91e2cc-6681-4128-8f0d-e3995c27c6c9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11163_20260413_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1129_20260217_deepseek-chat-v3.1.md",
+  "relation": "confirms",
+  "claim_text": "**Strand 4: Multi-Backend Epistemic Storage** The project supports three backends (`memory.py`, `duckdb.py`, `arango.py`) with behavioral equivalence tests.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "deepseek/deepseek-chat-v3.1",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-13T03:30:35.662796+00:00"
+}

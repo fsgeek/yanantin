@@ -1,0 +1,11 @@
+{
+  "id": "d9f8a52f-2b0c-4fa8-8c96-b68a54b755b1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11161_20260413_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10072_20260407_nemotron-nano-9b-v2.md",
+  "relation": "confirms",
+  "claim_text": "- **Specifics**: Line 35 of `quick_validate.py` checks for `<` or `>` in descriptions.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/skill-creator/skills/skill-creator/scripts/quick_validate.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-13T03:30:31.761087+00:00"
+}

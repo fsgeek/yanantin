@@ -1,0 +1,11 @@
+{
+  "id": "537832cd-ec7b-4825-9366-55c5b2dfde40",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11197_20260413_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10391_20260408_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that `src/yanantin/apacheta/models/tensor.py` (line 1\u201320) declares `Tensor` as a Pydantic model with `ConfigDict(frozen=True)`.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-13T08:10:53.536624+00:00"
+}

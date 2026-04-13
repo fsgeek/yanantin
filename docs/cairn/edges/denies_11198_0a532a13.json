@@ -1,0 +1,11 @@
+{
+  "id": "0a532a13-d422-4ad6-a41c-7891d3142727",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11198_20260413_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3963_20260302_qwen-plus-2025-07-28:thinking.md",
+  "relation": "denies",
+  "claim_text": "Scouts like `scout_3870_20260301_olmo-3.1-32b-instruct.md` confirm this by verifying the mechanism that catches blueprint staleness before instance death.",
+  "claim_file": "docs/cairn/scout_3870_20260301_olmo-3.1-32b-instruct.md",
+  "claim_by": "qwen/qwen-plus-2025-07-28:thinking",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-04-13T08:10:55.421955+00:00"
+}

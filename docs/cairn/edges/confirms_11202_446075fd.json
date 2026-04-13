@@ -1,0 +1,11 @@
+{
+  "id": "446075fd-c9f7-4d3b-b453-b5854560de7b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11202_20260413_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11116_20260412_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "It feels\u2026 deliberate.\", \"Strands\": [ { \"Title\": \"Console Whispers and Hidden Intentions\", \"Observations\": \"In `console_logging.py`, the act of capturing console logs during automated browser actions feels almost like eavesdropping.",
+  "claim_file": "tmp/ubuntu-vm.claude/webapp-testing/examples/console_logging.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-13T08:44:10.932976+00:00"
+}

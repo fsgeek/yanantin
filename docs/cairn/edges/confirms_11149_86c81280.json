@@ -1,0 +1,11 @@
+{
+  "id": "86c81280-cb81-4db5-90d6-fd98da3b9d8d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11149_20260413_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0080_20260212_mistral-small-3.1-24b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The test cases in `tests/red_bar/test_provenance.py` are designed to verify the presence of provenance information in specific data structures, but they do not provide any information about how the data will be used once it is verified.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-13T01:57:24.448952+00:00"
+}

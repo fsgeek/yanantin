@@ -1,0 +1,11 @@
+{
+  "id": "b5df91b4-6c88-4569-ae96-141da73d7682",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11153_20260413_rnj-1-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5119_20260308_gemma-3-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `docs/tensors.md` does not reference `docs/CLAUDE.md` at all.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "essentialai/rnj-1-instruct",
+  "timestamp": "2026-04-13T02:29:32.358881+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "d22f78df-f1d8-44b7-a7cb-fe1f8a1e3e61",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11205_20260413_gpt-5.4-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5762_20260312_molmo-2-8b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence ```python from __future__ import annotations import fcntl import json import os import subprocess import sys import time from datetime import datetime, timezone from pathlib import Path ``` ### Reasoning The claim states that four specific files (`chasqui_heartbeat.sh`, `chasqui_pulse.py`, `ots_stamp.py`, `precompact_tensor.py`) are **not shown** in the provided evidence.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "allenai/molmo-2-8b",
+  "verified_by": "openai/gpt-5.4-nano",
+  "timestamp": "2026-04-13T09:13:07.901443+00:00"
+}

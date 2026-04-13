@@ -1,0 +1,11 @@
+{
+  "id": "871550e6-b298-4fd0-ac15-ad379bd12616",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11209_20260413_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6694_20260318_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "- Are there formal processes or tools in place to validate the completeness of \"full\" code modules, such as `rummage.py`?",
+  "claim_file": "src/yanantin/apacheta/rummage.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-13T09:45:06.781010+00:00"
+}

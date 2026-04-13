@@ -1,0 +1,11 @@
+{
+  "id": "2d976ed3-6fbd-4087-8993-c32ae4fe2dfc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11206_20260413_qwen3-coder.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9927_20260406_minimax-m2.7.md",
+  "relation": "denies",
+  "claim_text": "**What does `RelationType` enumerate?** It's exported from `composition.py` but I don't see its definition.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "minimax/minimax-m2.7",
+  "verified_by": "qwen/qwen3-coder",
+  "timestamp": "2026-04-13T09:13:10.281559+00:00"
+}

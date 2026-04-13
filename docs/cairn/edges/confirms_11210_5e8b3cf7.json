@@ -1,0 +1,11 @@
+{
+  "id": "5e8b3cf7-4ad2-43b9-ab55-95efa696931b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11210_20260413_mistral-small-creative.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0177_20260213_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Evidence from selected files**: The project's test philosophy is evident in `tests/unit/test_renderer.py` and `tests/unit/test_ingest.py`, where tests validate that renderers produce correct markdown and parsers extract tensors accurately.",
+  "claim_file": "tests/unit/test_renderer.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "mistralai/mistral-small-creative",
+  "timestamp": "2026-04-13T09:45:10.161484+00:00"
+}

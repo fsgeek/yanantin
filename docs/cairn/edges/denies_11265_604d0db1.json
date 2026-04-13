@@ -1,0 +1,11 @@
+{
+  "id": "604d0db1-bdc0-4421-9e66-f785bec65a91",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11265_20260413_qwen3-vl-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3887_20260301_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "**Part 2 (`src/yanantin/provenance/timestamp.py`):** Unverifiable.",
+  "claim_file": "src/yanantin/provenance/timestamp.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "qwen/qwen3-vl-32b-instruct",
+  "timestamp": "2026-04-13T17:00:14.296516+00:00"
+}

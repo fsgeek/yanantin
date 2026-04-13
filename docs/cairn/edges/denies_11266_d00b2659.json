@@ -1,0 +1,11 @@
+{
+  "id": "d00b2659-3e70-4d34-bf6d-e9e20ea46596",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11266_20260413_kimi-k2-0905.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0357_20260213_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "- **Files of note**: - `yanantin/apacheta/__init__.py`: The presence of an `__init__.py` file suggests that the `yanantin/apacheta` directory is intended to be a Python package.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "moonshotai/kimi-k2-0905",
+  "timestamp": "2026-04-13T17:00:14.524050+00:00"
+}

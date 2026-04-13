@@ -1,0 +1,11 @@
+{
+  "id": "a676f540-cdbf-425f-a3a5-170a1ea26dfb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11264_20260413_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9334_20260403_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "Therefore, I cannot verify the claim's accuracy with respect to `reference_string.py`.",
+  "claim_file": "tools/phase1/reference_string.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-13T17:00:06.106634+00:00"
+}

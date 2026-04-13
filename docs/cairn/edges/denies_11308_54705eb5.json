@@ -1,0 +1,11 @@
+{
+  "id": "54705eb5-d4c1-4084-a42d-aebeb9f6b234",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11308_20260413_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9597_20260404_command-r7b-12-2024.md",
+  "relation": "denies",
+  "claim_text": "Therefore, the claim that \"Modules like `openrouter.py` and `arango.py` handle these integrations\" cannot be confirmed based on the provided file content.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-13T22:43:19.571134+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "cf83298b-c9ad-4462-b64c-1e59de0853e6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11289_20260413_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8435_20260328_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "For example, `pptx.py` assumes the existence of slide master files and their corresponding `_rels` files.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/pptx.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-13T20:09:10.371945+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "6fa7702e-ac97-4384-8969-07429d5e01cd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11258_20260413_glm-4.5v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9571_20260404_gemini-2.0-flash-lite-001.md",
+  "relation": "denies",
+  "claim_text": "I also skipped over the details of the \"Integration with Plugin Components\" section in `plugin-features-reference.md` due to time constraints.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/command-development/references/plugin-features-reference.md",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "z-ai/glm-4.5v",
+  "timestamp": "2026-04-13T15:58:11.672041+00:00"
+}

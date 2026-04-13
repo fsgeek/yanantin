@@ -1,0 +1,11 @@
+{
+  "id": "355c5113-5a5d-4951-9fe7-02b4ba1acb04",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11238_20260413_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7059_20260320_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses The claim references a markdown file (`scout_1780_20260220_gpt-4.1-nano.md`) for corroboration, but that file is not included in the verification task.",
+  "claim_file": "docs/cairn/scout_1780_20260220_gpt-4.1-nano.md",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-13T13:21:23.854635+00:00"
+}

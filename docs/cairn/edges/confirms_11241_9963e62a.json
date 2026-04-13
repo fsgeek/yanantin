@@ -1,0 +1,11 @@
+{
+  "id": "9963e62a-99d5-4828-bfef-c8e328f286f7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11241_20260413_qwen3-30b-a3b-instruct-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1197_20260217_gpt-4.1-mini.md",
+  "relation": "confirms",
+  "claim_text": "Provenance & Blockchain-Anchored Timestamping** - The `docs/cairn/scour_0067_20260217_minimax-m2.1.md` focuses on `src/yanantin/provenance/timestamp.py`, which implements an OpenTimestamps-based git commit timestamping system.",
+  "claim_file": "src/yanantin/provenance/timestamp.py",
+  "claim_by": "openai/gpt-4.1-mini",
+  "verified_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "timestamp": "2026-04-13T13:53:34.694639+00:00"
+}

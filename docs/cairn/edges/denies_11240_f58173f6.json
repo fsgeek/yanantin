@@ -1,0 +1,11 @@
+{
+  "id": "f58173f6-0258-4f4f-b8fb-e3b7431851a0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11240_20260413_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8424_20260328_mercury-2.md",
+  "relation": "denies",
+  "claim_text": "``` There is **no** line in the file that mentions the file\u2019s own path (`docs/predecessors.md`) or discusses its existence, nor any statement denying its existence.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "inception/mercury-2",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-13T13:53:34.625887+00:00"
+}

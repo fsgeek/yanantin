@@ -1,0 +1,11 @@
+{
+  "id": "112fa751-d666-424f-943a-c1c9e7c3e44e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11302_20260413_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4351_20260304_olmo-3-32b-think.md",
+  "relation": "confirms",
+  "claim_text": "The evidence from `arango.py` does not address the claim's subject (`duckdb.py`).",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "allenai/olmo-3-32b-think",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-04-13T21:41:14.454095+00:00"
+}

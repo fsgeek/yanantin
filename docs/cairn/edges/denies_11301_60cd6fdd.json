@@ -1,0 +1,11 @@
+{
+  "id": "60cd6fdd-c65d-4c06-88a3-e878a2f59141",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11301_20260413_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9123_20260401_command-r7b-12-2024.md",
+  "relation": "denies",
+  "claim_text": "It combines `run_eval.py` and `improve_description.py`, tracking history and returning the best description found.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/skill-creator/skills/skill-creator/scripts/run_eval.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-04-13T21:41:07.136368+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "2bf47745-b820-4bb9-b450-b66cf92cebc5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11169_20260413_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0486_20260214_minimax-m2.md",
+  "relation": "denies",
+  "claim_text": "The tests in `tests/red_bar/` include `test_arango_independent.py`, `test_duckdb_independent.py` suggesting the project tests each backend separately for behavioral equivalence.",
+  "claim_file": "tests/unit/test_arango_independent.py",
+  "claim_by": "minimax/minimax-m2",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-04-13T04:33:00.425891+00:00"
+}

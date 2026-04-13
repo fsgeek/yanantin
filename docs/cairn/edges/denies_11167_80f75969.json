@@ -1,0 +1,11 @@
+{
+  "id": "80f75969-fed4-4a32-ac12-c544e6effe5a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11167_20260413_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9422_20260403_gemini-2.5-flash-lite.md",
+  "relation": "denies",
+  "claim_text": "**The \"Scout Tensor\" Metadata:** *   **Observation:** Several scout reports (e.g., `scout_4454_20260304_llama-4-scout.md`, `scout_3902_20260301_llama-3-8b-instruct.md`, `scout_1006_20260216_deepseek-v3.2-exp.md`, `scout_1334_20260218_gemma-3-27b-it.md`, `scout_3571_20260228_command-r7b-12-2024.md`, `scout_9201_20260402_hunyuan-a13b-instruct.md`) begin with a `` block.",
+  "claim_file": "docs/cairn/scout_1006_20260216_deepseek-v3.2-exp.md",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-04-13T04:00:47.968872+00:00"
+}

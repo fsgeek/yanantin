@@ -1,0 +1,11 @@
+{
+  "id": "f658ec27-ba4a-4acb-bba1-8341c07dbdfe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11293_20260413_gemini-2.0-flash-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3070_20260225_gemini-2.5-flash.md",
+  "relation": "confirms",
+  "claim_text": "**What is the role of the `ots_stamp.py` hook and the numerous `.ots` files?** How do these contribute to the \"epistemic observability\" and provenance tracking?",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "google/gemini-2.5-flash",
+  "verified_by": "google/gemini-2.0-flash-001",
+  "timestamp": "2026-04-13T20:39:00.978474+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "cd04743a-05b6-4d2f-b5e4-4bff1a3699f1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11280_20260413_gemini-2.5-flash-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10398_20260408_mistral-small-creative.md",
+  "relation": "confirms",
+  "claim_text": "- The claim **presumes** that `scout.py` would have evidence of `succession.py`'s constraints, which is unfounded.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "google/gemini-2.5-flash-lite",
+  "timestamp": "2026-04-13T19:05:20.603876+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "51b57c7b-7c36-4f64-b964-e8cea5e393bf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11214_20260413_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1988_20260221_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "*   **Specifics:** The `tests/integration/test_openrouter.py` file demonstrates testing of API key requirements, as mentioned in the scout report for `scout_0462_20260214_llama-3.2-11b-vision-instruct.md`.",
+  "claim_file": "docs/cairn/scout_0462_20260214_llama-3.2-11b-vision-instruct.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-13T10:15:07.362924+00:00"
+}

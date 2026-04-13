@@ -1,0 +1,11 @@
+{
+  "id": "f422cb4a-2a6c-4dff-ae4a-3c46ad7e2c3e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11219_20260413_seed-1.6.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10179_20260407_nemotron-3-super-120b-a12b.md",
+  "relation": "denies",
+  "claim_text": "The claim also mentions a second file, `chasqui_pulse.py`, and a connection to \u201cheartbeat.\u201d Those aspects cannot be verified from this file alone, but the claim uses \u201csuch as,\u201d presenting the two filenames as examples.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "nvidia/nemotron-3-super-120b-a12b",
+  "verified_by": "bytedance-seed/seed-1.6",
+  "timestamp": "2026-04-13T10:49:30.380254+00:00"
+}

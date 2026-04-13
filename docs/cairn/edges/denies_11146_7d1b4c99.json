@@ -1,0 +1,11 @@
+{
+  "id": "7d1b4c99-3fcf-4835-a262-7a1583079030",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11146_20260413_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6960_20260320_qwen3-32b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `src/yanantin/apacheta/backends/duckdb.py` contains this line: ```python def __init__( self, db_path: str | Path = \":memory:\", ) -> None: ``` ### Reasoning The claim that \"the lack of `memory.py` is relevant because the file only shows `duckdb.py`\" is incorrect.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-13T01:27:17.296061+00:00"
+}

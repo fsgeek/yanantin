@@ -1,0 +1,11 @@
+{
+  "id": "a86d6b46-83f6-47f7-9d07-c0762a5d5d47",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11145_20260413_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8655_20260330_gpt-4.1-mini.md",
+  "relation": "denies",
+  "claim_text": "I cannot verify the exact contents of `dissent.py` or other files, only the provided `evolve.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "openai/gpt-4.1-mini",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-04-13T01:27:17.105493+00:00"
+}

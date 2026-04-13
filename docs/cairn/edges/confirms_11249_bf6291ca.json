@@ -1,0 +1,11 @@
+{
+  "id": "bf6291ca-3573-4e98-98b7-f259f55d1acf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11249_20260413_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1808_20260220_mistral-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Evidence**: - `scout_reviewer.md` emphasizes **no checklist or framework**\u2014only direct observation.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "mistralai/mistral-7b-instruct",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-04-13T14:55:47.659718+00:00"
+}

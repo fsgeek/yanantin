@@ -1,0 +1,11 @@
+{
+  "id": "dc8731c3-02fd-479d-b7f3-d19f39a4985e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11185_20260413_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4450_20260304_qwen-turbo.md",
+  "relation": "denies",
+  "claim_text": "**Tensor Content Anomalies**   - **What I saw**: Some tensors, such as `scout_0454_20260214_deepseek-r1-distill-llama-70b.md`, contained truncated or malformed content.",
+  "claim_file": "docs/cairn/scout_0454_20260214_deepseek-r1-distill-llama-70b.md",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-13T06:37:56.604052+00:00"
+}

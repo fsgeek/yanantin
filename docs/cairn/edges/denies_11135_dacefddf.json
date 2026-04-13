@@ -1,0 +1,11 @@
+{
+  "id": "dacefddf-9eb1-4a1a-ad76-97216bc3c4ec",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11135_20260412_qwen3-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5497_20260311_qwen-2.5-coder-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "However, the file does mention `weaver.py` in the docstring at the top of the file, and it does contain a `__main__` block, which is a common entry point in Python scripts, effectively acting as `__main__.py` for this script.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "qwen/qwen-2.5-coder-32b-instruct",
+  "verified_by": "qwen/qwen3-30b-a3b",
+  "timestamp": "2026-04-12T23:52:47.672618+00:00"
+}

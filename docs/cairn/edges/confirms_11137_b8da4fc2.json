@@ -1,0 +1,11 @@
+{
+  "id": "b8da4fc2-281d-4f90-8a9e-70ba57114641",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11137_20260413_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5467_20260310_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "**Safety & Indeterminacy**: Several scout reports, such as `docs/cairn/scout_0282_20260213_llama-guard-2-8b.md` and `docs/cairn/scout_0580_20260214_llama-guard-3-8b.md`, discuss the importance of safe refusal to answer under uncertainty.",
+  "claim_file": "docs/cairn/scout_0580_20260214_llama-guard-3-8b.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-04-13T00:25:23.827204+00:00"
+}

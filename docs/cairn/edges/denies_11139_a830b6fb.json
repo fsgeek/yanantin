@@ -1,0 +1,11 @@
+{
+  "id": "a830b6fb-583c-42c5-99e2-7def16996fd5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11139_20260413_qwen3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1874_20260220_kimi-k2.5.md",
+  "relation": "denies",
+  "claim_text": "PhD project for personal data finding...\" - **Mallku**: \"LLM community with Fire Circle consensus...\" - **ai-honesty**: \"SOSP 2026 paper on epistemic observability...\" - **PromptGuard / PromptGuard2**: \"Prompt conflict detection...\" - **GPN**, **Lares**, and **Thesis** sections ### Reasoning The claim asserts that `docs/predecessors.md` \"is not present\" (repeated numerous times in a generation loop).",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "moonshotai/kimi-k2.5",
+  "verified_by": "qwen/qwen3-8b",
+  "timestamp": "2026-04-13T00:25:33.788250+00:00"
+}

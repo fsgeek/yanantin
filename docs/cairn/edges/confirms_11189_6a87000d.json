@@ -1,0 +1,11 @@
+{
+  "id": "6a87000d-4c70-40f8-98d7-5c64605d6abb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11189_20260413_mimo-v2-pro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1355_20260218_mistral-small-creative.md",
+  "relation": "confirms",
+  "claim_text": "--- #### **Strand 4: The \"Predecessor\" Label as a Compositional Gap** **Observation:** In `scout_0746_20260215_lfm2-8b-a1b.md`, the scout denies a claim that `docs/predecessors.md` is \"clearly present\" because the file lacks explicit labels for the projects as \"predecessors.\" This reveals a **compositional gap**: the file describes projects (Indaleko, Mallku, etc.) but does not formally *label* them as predecessors.",
+  "claim_file": "docs/cairn/scout_0746_20260215_lfm2-8b-a1b.md",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "xiaomi/mimo-v2-pro",
+  "timestamp": "2026-04-13T07:07:54.792781+00:00"
+}

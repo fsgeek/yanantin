@@ -1,0 +1,11 @@
+{
+  "id": "233bf5a4-94df-438e-b5fc-bb30d140b72d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11191_20260413_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7081_20260321_rocinante-12b.md",
+  "relation": "denies",
+  "claim_text": "- How does the `XMLEditor` class in `utilities.py` determine the encoding of the input XML files?",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/scripts/utilities.py",
+  "claim_by": "thedrummer/rocinante-12b",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-13T07:08:06.123280+00:00"
+}

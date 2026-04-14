@@ -1,0 +1,11 @@
+{
+  "id": "96adbb35-bd43-4f87-9808-0c7b3a9a57eb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11460_20260414_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10585_20260409_gpt-oss-20b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `docs/signing.md` contains the following excerpts showing no reference to `CLAUDE.md` or any other document name: ``` ## Current Keys ### Human (Tony Mason) ...",
+  "claim_file": "docs/signing.md",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-14T18:33:18.855156+00:00"
+}

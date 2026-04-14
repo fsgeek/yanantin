@@ -1,0 +1,11 @@
+{
+  "id": "b3ba1693-34fd-4312-8dcd-db6cded1e9ad",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11438_20260414_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8987_20260401_qwen3-32b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `memory.py` does **not** mention `arango.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-14T15:58:12.449600+00:00"
+}

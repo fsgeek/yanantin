@@ -1,0 +1,11 @@
+{
+  "id": "82fdecde-7a6a-40d7-bd09-e7523c9bbc3b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11440_20260414_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9446_20260403_l3.3-euryale-70b.md",
+  "relation": "confirms",
+  "claim_text": "The file `docs/blueprint.md` provides a clear overview of the project's structure and components, and it distinguishes between human-facing documentation and AI-related tooling.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "sao10k/l3.3-euryale-70b",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-04-14T15:58:33.868285+00:00"
+}

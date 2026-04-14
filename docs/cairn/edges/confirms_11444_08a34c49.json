@@ -1,0 +1,11 @@
+{
+  "id": "08a34c49-a60e-4961-8cd4-8fb80b2a0a28",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11444_20260414_qwen-plus-2025-07-28.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8435_20260328_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "Assumptions about Document Structure** - **Observation**: Both `pptx.py` and `docx.py` make assumptions about the structure of PowerPoint and Word documents, such as the presence of specific files and elements.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/docx.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "qwen/qwen-plus-2025-07-28",
+  "timestamp": "2026-04-14T16:28:16.180171+00:00"
+}

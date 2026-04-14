@@ -1,0 +1,11 @@
+{
+  "id": "283382c6-4375-418d-9cc6-275f3b7c805f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11442_20260414_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10868_20260411_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The evidence supporting the verdict is the code snippet within the `dissent` function in `dissent.py`: ``` interface.store_dissent(record) interface.store_composition_edge(edge) ``` These lines indicate that the `dissent.py` file indeed stores a `DissentRecord` and a `CompositionEdge` (type `dissents_from`) in the ApachetaInterface, which confirms the claim.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-14T16:28:12.622365+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "25e9dd64-246c-4a29-9464-271da25e3c63",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11495_20260414_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0899_20260216_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "The files `scout_0727_20260215_qwen3-vl-235b-a22b-instruct.md` and `scout_0564_20260214_lfm-2.2-6b.md` are not reports *on* the system \u2014 they *are* the system in operation.",
+  "claim_file": "docs/cairn/scout_0564_20260214_lfm-2.2-6b.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-04-14T23:14:39.140914+00:00"
+}

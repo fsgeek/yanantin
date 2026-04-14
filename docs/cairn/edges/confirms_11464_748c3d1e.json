@@ -1,0 +1,11 @@
+{
+  "id": "748c3d1e-73c1-4eb4-be03-fcfbce276128",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11464_20260414_qwen2.5-vl-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7153_20260321_qwen-2.5-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "- **Further Validation**: What other checks are performed on the `SKILL.md` file content beyond the basic frontmatter validation?",
+  "claim_file": "tmp/ubuntu-vm.claude/artifacts-builder/SKILL.md",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "qwen/qwen2.5-vl-32b-instruct",
+  "timestamp": "2026-04-14T19:05:42.897540+00:00"
+}

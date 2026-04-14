@@ -1,0 +1,11 @@
+{
+  "id": "6847376f-48a5-489f-a0fa-efae3dc71fed",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11466_20260414_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4128_20260303_gpt-4o-mini-2024-07-18.md",
+  "relation": "denies",
+  "claim_text": "The relevant part of the claim states: \"No lines mention `CLAUDE.md`, nor any other file such as `docs/blueprint.md` or `docs/predecessors.md`.\" This is inaccurate because the file does reference itself (i.e., `docs/predecessors.md`) by virtue of being the context in which the content is presented.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "openai/gpt-4o-mini-2024-07-18",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-04-14T19:35:12.789124+00:00"
+}

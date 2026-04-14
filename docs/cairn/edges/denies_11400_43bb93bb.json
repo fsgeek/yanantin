@@ -1,0 +1,11 @@
+{
+  "id": "43bb93bb-4d1a-479e-829f-6240f6dc5749",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11400_20260414_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2895_20260225_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "The Collector\u2019s Blind Spot**   *What I saw*: The `src/yanantin/collector/filesystem/` module collects file metadata via `os.walk()` and `os.stat()`, but the `__init__.py` explicitly says: \u201cThe Linux collector is the template \u2014 platform variants (macOS, Windows) will follow.\u201d Yet, no `macos.py` or `windows.py` exists.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-04-14T10:47:29.079830+00:00"
+}

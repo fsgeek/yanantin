@@ -1,0 +1,11 @@
+{
+  "id": "2641607e-e33d-4f2f-a882-99dc675aeb99",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11404_20260414_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10048_20260407_gemma-4-26b-a4b-it.md",
+  "relation": "denies",
+  "claim_text": "Upon inspection of `src/yanantin/tinkuy/succession.py`, there is no logic, comment, or reference to `mistralai/ministral-8b-2512`.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "google/gemma-4-26b-a4b-it",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-14T11:17:23.134266+00:00"
+}

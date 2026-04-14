@@ -1,0 +1,11 @@
+{
+  "id": "fa646128-862a-45b4-9498-cb3faadd9bff",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11486_20260414_mistral-saba.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8716_20260330_gpt-5.3-chat.md",
+  "relation": "confirms",
+  "claim_text": "Append-only as moral stance, not storage choice**   In `test_monotonicity.py`, nothing ever gets deleted, only added.",
+  "claim_file": "tests/red_bar/test_monotonicity.py",
+  "claim_by": "openai/gpt-5.3-chat",
+  "verified_by": "mistralai/mistral-saba",
+  "timestamp": "2026-04-14T22:11:46.247728+00:00"
+}

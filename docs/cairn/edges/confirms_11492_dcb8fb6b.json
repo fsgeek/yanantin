@@ -1,0 +1,11 @@
+{
+  "id": "dcb8fb6b-02dd-48c4-ac3a-b4fc3cc73f35",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11492_20260414_claude-haiku-4.5.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2159_20260221_mistral-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**`docs/cairn/scout_1108_20260217_lfm-2.2-6b.md`**: - Notes that the `scout.py` **template is static** but mentions a `{file_tree}` placeholder.",
+  "claim_file": "docs/cairn/scout_1108_20260217_lfm-2.2-6b.md",
+  "claim_by": "mistralai/mistral-7b-instruct",
+  "verified_by": "anthropic/claude-haiku-4.5",
+  "timestamp": "2026-04-14T22:42:32.810175+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "9a1e0454-1876-441c-bde1-4fe8ffe85a69",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11487_20260414_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5764_20260312_grok-4-fast.md",
+  "relation": "confirms",
+  "claim_text": "**Time Warp?** Why 2026 dates on scouts (e.g., `scout_5644_20260311_gemma-2-9b-it.md`)?",
+  "claim_file": "docs/cairn/scout_5644_20260311_gemma-2-9b-it.md",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-04-14T22:11:54.635309+00:00"
+}

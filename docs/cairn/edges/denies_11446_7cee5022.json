@@ -1,0 +1,11 @@
+{
+  "id": "7cee5022-ab89-4cc2-9a3a-f26c2b6ed563",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11446_20260414_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1111_20260217_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "However, the file content explicitly shows that the entire file is devoted to describing the purpose and logic of the `evolve.py` module.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-04-14T17:01:11.081454+00:00"
+}

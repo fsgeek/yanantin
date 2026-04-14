@@ -1,0 +1,11 @@
+{
+  "id": "1ca96f94-15b3-40fc-a8d1-e0128ec457ab",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11451_20260414_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0187_20260213_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Why is `epistemics.py` a separate model from `tensor.py`?**   The epistemic layer is rich, but it's not directly tied to tensor structure \u2014 it's a metadata layer.",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-14T17:31:18.610015+00:00"
+}

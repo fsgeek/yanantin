@@ -1,0 +1,11 @@
+{
+  "id": "ff8da326-baaf-4e16-9c21-93cd202122b0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11391_20260414_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10576_20260409_gemma-2-9b-it.md",
+  "relation": "confirms",
+  "claim_text": "## Declared Losses I chose not to dive into the specific details of the markdown parsing logic in `markdown_parser.py`.",
+  "claim_file": "src/yanantin/apacheta/ingest/markdown_parser.py",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-14T09:44:35.902126+00:00"
+}

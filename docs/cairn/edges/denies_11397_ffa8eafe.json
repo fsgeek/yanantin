@@ -1,0 +1,11 @@
+{
+  "id": "ffa8eafe-1bf6-4cc5-80d4-64bf50174544",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11397_20260414_qwen3-235b-a22b-thinking-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5095_20260308_glm-4.7-flash.md",
+  "relation": "denies",
+  "claim_text": "Using `CLAUDE.md` as evidence The file only references other files, including: - \"read `docs/blueprint.md`\" (line 9) - \"see `docs/predecessors.md`\" (line 31) - \"see `docs/tensors.md`\" (line 32) - \"see `docs/signing.md`\" (line 36) ### Reasoning The claim states that `CLAUDE.md` does not contain self-references to itself in the context of being fetched or used as evidence.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "z-ai/glm-4.7-flash",
+  "verified_by": "qwen/qwen3-235b-a22b-thinking-2507",
+  "timestamp": "2026-04-14T10:16:11.128701+00:00"
+}

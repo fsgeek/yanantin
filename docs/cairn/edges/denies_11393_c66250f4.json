@@ -1,0 +1,11 @@
+{
+  "id": "c66250f4-3404-49eb-8738-0dc40ed87a87",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11393_20260414_rocinante-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8897_20260331_grok-3-mini.md",
+  "relation": "denies",
+  "claim_text": "Also, in `materialize.py`'s `_RELATION_MAP` (line 50), what happens to unmapped relations?",
+  "claim_file": "src/yanantin/awaq/materialize.py",
+  "claim_by": "x-ai/grok-3-mini",
+  "verified_by": "thedrummer/rocinante-12b",
+  "timestamp": "2026-04-14T09:44:41.389308+00:00"
+}

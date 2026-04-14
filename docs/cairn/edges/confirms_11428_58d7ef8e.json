@@ -1,0 +1,11 @@
+{
+  "id": "58d7ef8e-c169-4d04-a5a8-316ab2d3cd2f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11428_20260414_deepseek-v3.2-exp.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10496_20260409_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "My initial attention was drawn to the `data-explorer.md` file, as it seemed to contain a reusable template for data-related playgrounds.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/playground/skills/playground/templates/data-explorer.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "deepseek/deepseek-v3.2-exp",
+  "timestamp": "2026-04-14T14:24:28.557338+00:00"
+}

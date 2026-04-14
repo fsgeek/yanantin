@@ -1,0 +1,11 @@
+{
+  "id": "7e39d7a5-7444-4991-9b32-06e85fe9a6a8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11424_20260414_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9305_20260402_qwen2.5-coder-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "# Verification Assignment ## The Claim Model `openai/gpt-4.1-nano` made this claim about `docs/cairn/scout_2555_20260223_lfm2-8b-a1b.md`: > Evidence and Claims about File Content**   - **What I saw:** Several reports, such as `scout_2555_20260223_lfm2-8b-a1b.md` and `scout_2265_20260222_lfm-2.2-6b.md`, evaluate whether certain documentation files (notably `docs/predecessors.md`) exist or contain specific mentions.",
+  "claim_file": "docs/cairn/scout_2555_20260223_lfm2-8b-a1b.md",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-14T13:54:52.334313+00:00"
+}

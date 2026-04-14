@@ -1,0 +1,11 @@
+{
+  "id": "160456c2-9d88-4be3-964a-f99f1b4d8c83",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11374_20260414_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8553_20260329_mistral-small-3.1-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I could not check the implementation of `ApachetaBaseModel` because it is defined in `src/yanantin/apacheta/models/base.py` and the file `base.py` was not provided in the verification request.",
+  "claim_file": "src/yanantin/apacheta/models/base.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-04-14T07:05:35.344875+00:00"
+}

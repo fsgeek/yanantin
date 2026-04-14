@@ -1,0 +1,11 @@
+{
+  "id": "e11bad34-7307-47b8-b0aa-1859eea1f84c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11479_20260414_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6794_20260319_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim mentions the directory `src/yanantin/chasqui/operators/`, but the actual file is located at `src/yanantin/apacheta/operators/negate.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-14T21:09:45.116886+00:00"
+}

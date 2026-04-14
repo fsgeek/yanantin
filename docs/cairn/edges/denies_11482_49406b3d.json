@@ -1,0 +1,11 @@
+{
+  "id": "49406b3d-6a29-480a-91a3-7428f39a050b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11482_20260414_mistral-small-2603.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1677_20260219_llama-3.2-3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "How does the Yanantin project handle the challenges of maintaining a large and complex system, such as the one described in the `tests/unit/test_memory_backend.py` file?",
+  "claim_file": "tests/unit/test_memory_backend.py",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "mistralai/mistral-small-2603",
+  "timestamp": "2026-04-14T21:39:40.648876+00:00"
+}

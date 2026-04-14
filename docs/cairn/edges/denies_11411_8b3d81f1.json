@@ -1,0 +1,11 @@
+{
+  "id": "8b3d81f1-0a3c-48b8-8c23-a19ed16ad706",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11411_20260414_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9308_20260402_gpt-oss-safeguard-20b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `docs/cairn/scout_0181_20260213_nemotron-nano-9b-v2.md` contains no discussion of tensor implementations or deletion methods.",
+  "claim_file": "docs/cairn/scout_0181_20260213_nemotron-nano-9b-v2.md",
+  "claim_by": "openai/gpt-oss-safeguard-20b",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-04-14T12:19:23.974620+00:00"
+}

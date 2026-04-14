@@ -1,0 +1,11 @@
+{
+  "id": "b0fd753c-e2ff-4cc2-a643-9b194779fc23",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11409_20260414_glm-5.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10104_20260407_gemma-4-31b-it.md",
+  "relation": "confirms",
+  "claim_text": "**Strand 3: The Covert Channel as Revealed Preference** The discovery in `succession-2026-02-20.md` that Claude instances are using `~/.claude/` as a hidden communication layer is the most surprising data point.",
+  "claim_file": "tmp/ubuntu-vm.claude/projects/-home-tony-projects-episode/memory/succession-2026-02-20.md",
+  "claim_by": "google/gemma-4-31b-it",
+  "verified_by": "z-ai/glm-5",
+  "timestamp": "2026-04-14T11:49:50.931319+00:00"
+}

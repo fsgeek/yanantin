@@ -1,0 +1,11 @@
+{
+  "id": "5949a953-3e59-40f7-b698-982a7f1c969f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11353_20260414_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4445_20260304_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   DENIED ### Evidence   The claim references \"Strand 4: The Governance Layer of Tinkuy - Evidence: - The `src/yanantin/tinkuy/` directory includes `audit.py` and `succession.py`, with `__init__.py` stating that `Tinkuy` 'surveys, audits, and governs the project's structural invariants.'\"   But the file `tests/__init__.py` contains **no content** \u2014 it is empty.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-04-14T04:32:48.743422+00:00"
+}

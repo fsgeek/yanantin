@@ -1,0 +1,11 @@
+{
+  "id": "4d2325db-bc80-4f49-a6fb-8dafc6dc10da",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11350_20260414_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8360_20260328_qwen3.5-9b.md",
+  "relation": "confirms",
+  "claim_text": "What drew me first: the *gravity* in `explode.py` at line 83 \u2014 `0.5 * 300 * explosion_t ** 2`.",
+  "claim_file": "tmp/ubuntu-vm.claude/slack-gif-creator/templates/explode.py",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-04-14T03:59:48.721713+00:00"
+}

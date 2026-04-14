@@ -1,0 +1,11 @@
+{
+  "id": "69ff22a2-2642-42ab-8eed-8755b3764513",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11352_20260414_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3075_20260226_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "For example, `docs/cairn/scout_0244_20260213_mistral-nemo.md` reports costs in both tokens and currency, while `docs/cairn/scout_0471_20260218_lfm2-8b-a1b.md` includes detailed token breakdowns.",
+  "claim_file": "docs/cairn/scout_0244_20260213_mistral-nemo.md",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-04-14T04:32:42.989826+00:00"
+}

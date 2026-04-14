@@ -1,0 +1,11 @@
+{
+  "id": "70596b7a-f270-4fa0-aa72-e3bd1f4375a2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11354_20260414_qwen3-vl-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8626_20260330_voxtral-small-24b-2507.md",
+  "relation": "confirms",
+  "claim_text": "### Strands #### Data Integrity and Validation **Observation**: The `models.py` file contains detailed Pydantic models (`DropboxEntryData` and `DropboxListing`) with extensive validation logic.",
+  "claim_file": "src/yanantin/jabberwock/models.py",
+  "claim_by": "mistralai/voxtral-small-24b-2507",
+  "verified_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "timestamp": "2026-04-14T04:32:56.750708+00:00"
+}

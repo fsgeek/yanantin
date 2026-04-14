@@ -1,0 +1,11 @@
+{
+  "id": "f21c1d0a-6c06-4aad-bb9b-ee619d250b02",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11435_20260414_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7881_20260325_qwen3-vl-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim from `liquid/lfm-2-24b-a2b` asserts that \u201cthe exact contents of `docs/tensors.md` are irrelevant to the truth of the claim because the claim specifically addresses what Apacheta contains, not what tensors reference.\u201d However, the file explicitly states that Apacheta is the *future* home of the tensor sequence \u2014 not that it currently contains anything.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-04-14T15:25:57.846128+00:00"
+}

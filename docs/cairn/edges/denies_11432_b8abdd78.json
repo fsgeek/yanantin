@@ -1,0 +1,11 @@
+{
+  "id": "b8abdd78-b17e-4c44-8fca-07f7968a5d5c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11432_20260414_qwen-2.5-72b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7550_20260323_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The claim also mentions `openrouter.py`, but this file is not present in the provided directory.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "qwen/qwen-2.5-72b-instruct",
+  "timestamp": "2026-04-14T15:01:33.535090+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "8273b0c0-aee8-4668-9680-fbb15a46a5f1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11389_20260414_gemma-2-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1682_20260219_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "After examining the codebase, I found references to this pattern in the `weaver.py` file.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "google/gemma-2-27b-it",
+  "timestamp": "2026-04-14T09:11:38.195018+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "37fafb18-72a4-45cf-9ee6-fdf74770f6dd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11388_20260414_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2381_20260222_ui-tars-1.5-7b.md",
+  "relation": "denies",
+  "claim_text": "Evidence: `docs/cairn/scout_1032_20260216_gemma-3-4b-it.md` and `src/yanantin/chasqui/model_selector.py` #### Strand 3: Operator/Backend Decoupling The previous scout's observation about the use of multiple backends in the Yanantin project, such as dictionaries, SQL, and document/graph, is a good example of decoupling.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "bytedance/ui-tars-1.5-7b",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-14T09:11:37.743217+00:00"
+}

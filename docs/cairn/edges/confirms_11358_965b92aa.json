@@ -1,0 +1,11 @@
+{
+  "id": "965b92aa-62fa-4b53-9b62-42675e1e232d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11358_20260414_qwen3-30b-a3b-instruct-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2485_20260223_gpt-oss-20b.md",
+  "relation": "confirms",
+  "claim_text": "The duckdb backend is used in unit tests (`tests/unit/test_duckdb_backend.py`).",
+  "claim_file": "tests/unit/test_duckdb_backend.py",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "timestamp": "2026-04-14T05:01:58.937178+00:00"
+}

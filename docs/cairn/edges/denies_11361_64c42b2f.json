@@ -1,0 +1,11 @@
+{
+  "id": "64c42b2f-ec4c-458b-aa4a-467d81991f95",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11361_20260414_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9811_20260405_qwen3-vl-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "- The `MemoryAnchorService` \u2014 it\u2019s mentioned in `__init__.py`, but not implemented here.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-04-14T05:34:44.106859+00:00"
+}

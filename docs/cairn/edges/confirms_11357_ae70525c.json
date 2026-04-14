@@ -1,0 +1,11 @@
+{
+  "id": "ae70525c-e4cd-4beb-8609-b189df0900d2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11357_20260414_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9754_20260405_qwen3-coder-next.md",
+  "relation": "confirms",
+  "claim_text": "Yes \u2014 and it is accurate: `dissent.py` does not support any claim about `compose.py`, because it doesn\u2019t mention `compose.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "qwen/qwen3-coder-next",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-14T05:01:43.889897+00:00"
+}

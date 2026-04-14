@@ -1,0 +1,11 @@
+{
+  "id": "12d5db01-40d8-4f75-8067-1fa05e4e14ca",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11356_20260414_codestral-2508.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9783_20260405_grok-4-fast.md",
+  "relation": "confirms",
+  "claim_text": "Surprising: `codex_scout_architecture.md` sketches chasqui dispatch/verify flow, matching my runtime (vantage, cost-weighted sampling).",
+  "claim_file": "docs/cairn/codex_scout_architecture.md",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "mistralai/codestral-2508",
+  "timestamp": "2026-04-14T05:01:43.182173+00:00"
+}

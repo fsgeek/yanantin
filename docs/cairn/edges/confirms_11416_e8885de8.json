@@ -1,0 +1,11 @@
+{
+  "id": "e8885de8-7a27-4580-823f-ae047e564842",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11416_20260414_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5998_20260314_gpt-4.1-nano.md",
+  "relation": "confirms",
+  "claim_text": "Files like `scout_0551_20260214_ministral-3b-2512.md` and `scout_1915_20260220_glm-4.5-air.md` exemplify how reports embed evidence, citations, and reflections on verification.",
+  "claim_file": "docs/cairn/scout_0551_20260214_ministral-3b-2512.md",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-04-14T12:52:37.106221+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "3f117078-9e31-43b1-83ae-7b00ac0d0c39",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11369_20260414_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10498_20260409_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "The file provided is `succession-2026-02-19.md`, and its content **does not mention or reference** `succession-2026-02-20.md` in any way.",
+  "claim_file": "tmp/ubuntu-vm.claude/projects/-home-tony-projects-episode/memory/succession-2026-02-20.md",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-04-14T06:35:51.231483+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "77cf7f4a-f0f8-4cf5-9496-484e0dc4e483",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11370_20260414_gpt-4.1-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9691_20260405_llama-3.3-nemotron-super-49b-v.md",
+  "relation": "denies",
+  "claim_text": "**Backend Agnosticism with Hidden Complexity**   - **Observation**: `test_arango_independent.py` and `test_duckdb_backend.py` (implied by prior findings) test backend-specific behavior while mocking dependencies.",
+  "claim_file": "tests/unit/test_duckdb_backend.py",
+  "claim_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "verified_by": "openai/gpt-4.1-mini",
+  "timestamp": "2026-04-14T06:35:57.168237+00:00"
+}

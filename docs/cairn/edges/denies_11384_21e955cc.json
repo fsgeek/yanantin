@@ -1,0 +1,11 @@
+{
+  "id": "21e955cc-881e-4b6e-9a9b-87fc6794a5d0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11384_20260414_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8336_20260328_phi-4.md",
+  "relation": "denies",
+  "claim_text": "Similarly, `arango.py` and `memory.py` enforce this rule, preventing duplicates.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-14T08:41:42.712720+00:00"
+}

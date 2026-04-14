@@ -1,0 +1,11 @@
+{
+  "id": "30fee188-e50a-453e-8344-d70c2b80fbc5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11382_20260414_grok-3-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2164_20260221_qwen-2.5-vl-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses - **I did not delve into the exact side-effects of schema migrations and state transitions** in `evolve.py` and `compose.py` as the scout-tensors only reference them in passing.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "qwen/qwen-2.5-vl-7b-instruct",
+  "verified_by": "x-ai/grok-3-mini",
+  "timestamp": "2026-04-14T08:08:05.926720+00:00"
+}

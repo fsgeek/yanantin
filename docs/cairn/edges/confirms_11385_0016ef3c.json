@@ -1,0 +1,11 @@
+{
+  "id": "0016ef3c-6ceb-4342-86d6-2dc2c5845fec",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11385_20260414_voxtral-small-24b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4298_20260304_intellect-3.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning   The claim asserts that the file does not contain specific lines about the relationship between `tensors.md` and `apacheta.md`, and no losses need to be declared beyond what is stated.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "prime-intellect/intellect-3",
+  "verified_by": "mistralai/voxtral-small-24b-2507",
+  "timestamp": "2026-04-14T08:41:43.216843+00:00"
+}

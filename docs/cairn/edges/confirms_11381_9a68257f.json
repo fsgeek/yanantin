@@ -1,0 +1,11 @@
+{
+  "id": "9a68257f-30b0-4a13-a5e4-efd8ad6c5eb1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11381_20260414_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6158_20260315_ernie-4.5-21b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "\"\"\" ``` ### Reasoning The file explicitly describes the `markdown.py` renderer as a module that \"converts tensor records to human-readable output\" and \"renders [structured data] for humans.\" The `render_tensor` function's docstring further confirms this by stating it matches \"T0-T8 format conventions\" (a standard for structured human-readable outputs) and includes components like preambles, metadata blocks, strands, and instructions for subsequent instances.",
+  "claim_file": "src/yanantin/apacheta/renderer/markdown.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-04-14T08:07:55.691540+00:00"
+}

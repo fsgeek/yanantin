@@ -1,0 +1,11 @@
+{
+  "id": "fe65a2e4-1fbc-4f28-a81d-0f64c7882823",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11380_20260414_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9962_20260406_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "If `eval.py` tests *if* compaction works, this script tests *how much* compaction can be applied before critical information is lost.",
+  "claim_file": "tools/phase2/eval.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-04-14T08:07:51.819184+00:00"
+}

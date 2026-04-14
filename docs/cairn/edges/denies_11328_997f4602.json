@@ -1,0 +1,11 @@
+{
+  "id": "997f4602-463e-4b6d-bbbd-2c3341955527",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11328_20260414_qwen3-coder-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8024_20260326_qwen-plus-2025-07-28.md",
+  "relation": "denies",
+  "claim_text": "- **I ignored `compaction_quality_finding.md`.** It\u2019s a single file, likely a summary.",
+  "claim_file": "docs/compaction_quality_finding.md",
+  "claim_by": "qwen/qwen-plus-2025-07-28",
+  "verified_by": "qwen/qwen3-coder-flash",
+  "timestamp": "2026-04-14T01:20:37.013550+00:00"
+}

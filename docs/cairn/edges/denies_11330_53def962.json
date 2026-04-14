@@ -1,0 +1,11 @@
+{
+  "id": "53def962-1187-4240-9162-1d7e5bfc0565",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11330_20260414_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11000_20260412_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "- The `forms.md` document **acknowledges this gap** by requiring humans to **\"carefully examine each PNG image and identify all form fields\"**.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/forms.md",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-14T01:20:41.191974+00:00"
+}

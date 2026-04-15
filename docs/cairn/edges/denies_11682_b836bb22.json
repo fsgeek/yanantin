@@ -1,0 +1,11 @@
+{
+  "id": "b836bb22-939f-4920-b0a9-1680d973c863",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11682_20260415_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3660_20260228_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "What I saw: Files like `scout_1441_20260218_nova-micro-v1.md`, `scout_3197_20260226_lfm-2.2-6b.md`, and `scout_3628_20260228_hermes-2-pro-llama-3-8b.md` demonstrate this.",
+  "claim_file": "docs/cairn/scout_3628_20260228_hermes-2-pro-llama-3-8b.md",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-15T23:38:21.904115+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "055ffba2-7399-4a26-ad1c-3dd6e74465e6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11683_20260415_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10203_20260407_llama-3.1-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `tmp/ubuntu-vm.claude/theme-factory/themes/arctic-frost.md` does not contain any mention of not examining `arctic-frost.md` or `golden-hour.md` due to time constraints.",
+  "claim_file": "tmp/ubuntu-vm.claude/theme-factory/themes/arctic-frost.md",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-15T23:38:26.203371+00:00"
+}

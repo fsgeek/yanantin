@@ -1,0 +1,11 @@
+{
+  "id": "ec2c0117-4be4-4d34-8378-538d25ba1794",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11679_20260415_glm-5-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4001_20260302_seed-1.6-flash.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict DENIED ### Evidence The file content provided includes the entire `ots_stamp.py` file at the path `.claude/hooks/ots_stamp.py`.",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "z-ai/glm-5-turbo",
+  "timestamp": "2026-04-15T23:09:49.729302+00:00"
+}

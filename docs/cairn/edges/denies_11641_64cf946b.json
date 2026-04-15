@@ -1,0 +1,11 @@
+{
+  "id": "64cf946b-1ab3-4cd8-966a-ba9b48660a73",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11641_20260415_gpt-4o-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9006_20260401_llama-3.1-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states: \"However, this file contains no evidence of the existence, location, or sequence of `scout_4645_20260306_llama-3-8b-instruct.md`.\" However, the file `docs/cairn/scout_4645_20260306_llama-3-8b-instruct.md` exists and is the very file we are examining.",
+  "claim_file": "docs/cairn/scout_4645_20260306_llama-3-8b-instruct.md",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "openai/gpt-4o-mini",
+  "timestamp": "2026-04-15T18:27:35.939076+00:00"
+}

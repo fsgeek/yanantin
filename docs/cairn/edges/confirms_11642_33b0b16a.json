@@ -1,0 +1,11 @@
+{
+  "id": "33b0b16a-7191-4a77-8eb5-464a45e8c7d7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11642_20260415_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9815_20260405_gpt-4o-mini-search-preview.md",
+  "relation": "confirms",
+  "claim_text": "**Attestation Pipeline Structural Invariants** The `test_attestation_invariants.py` file ensures that the attestation module is importable, that attestation does not block verification, and that evaluator IDs follow a specific naming convention.",
+  "claim_file": "tests/red_bar/test_attestation_invariants.py",
+  "claim_by": "openai/gpt-4o-mini-search-preview",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-15T18:27:36.142974+00:00"
+}

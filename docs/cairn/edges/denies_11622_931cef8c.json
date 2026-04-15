@@ -1,0 +1,11 @@
+{
+  "id": "931cef8c-3a1d-4e18-9e01-603716280de2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11622_20260415_reka-edge.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7015_20260320_qwen2.5-coder-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "## The File Here is the actual content of `docs/README.md`: ``` # Yanantin Documentation This repository contains the documentation for Yanantin, a tool for human computation of tensor signal entropy.",
+  "claim_file": "README.md",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "rekaai/reka-edge",
+  "timestamp": "2026-04-15T15:53:33.795711+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "4e260e8a-f7bb-4d69-ae40-06f685f61ef3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11623_20260415_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10945_20260411_qwen3-14b.md",
+  "relation": "denies",
+  "claim_text": "- The code-reviewer depends on a missing file (`CLAUDE.md`).",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-04-15T15:53:38.085244+00:00"
+}

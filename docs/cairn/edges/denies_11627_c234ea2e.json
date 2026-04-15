@@ -1,0 +1,11 @@
+{
+  "id": "c234ea2e-b4b5-414c-a9ea-2529acf1b228",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11627_20260415_qwen-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6796_20260319_qwq-32b.md",
+  "relation": "denies",
+  "claim_text": "The only references to `rummage.py` are in the file's docstring (e.g., usage examples like `python -m yanantin.apacheta.rummage`) and the filename itself in the module declaration.",
+  "claim_file": "src/yanantin/apacheta/rummage.py",
+  "claim_by": "qwen/qwq-32b",
+  "verified_by": "qwen/qwen-plus",
+  "timestamp": "2026-04-15T16:23:44.146396+00:00"
+}

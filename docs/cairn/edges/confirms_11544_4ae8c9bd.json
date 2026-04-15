@@ -1,0 +1,11 @@
+{
+  "id": "4ae8c9bd-438b-47ec-8639-c2616e737fce",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11544_20260415_nemotron-3-super-120b-a12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2567_20260223_ernie-4.5-vl-424b-a47b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning - The claim states that the `weaver.py` file uses a \"deterministic pattern-matching approach to identify relationships between tensors.\" - The module docstring explicitly describes the approach as \"Deterministic: regex and keyword matching only, no LLM calls.\" - The code defines a list of regex patterns (`_PATTERNS`) to match composition-related language in tensor descriptions.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "baidu/ernie-4.5-vl-424b-a47b",
+  "verified_by": "nvidia/nemotron-3-super-120b-a12b",
+  "timestamp": "2026-04-15T05:28:53.919688+00:00"
+}

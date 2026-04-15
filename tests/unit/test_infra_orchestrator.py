@@ -72,3 +72,19 @@ def test_check_succeeds_when_db_reachable(tmp_path):
 
     assert result is True
     ApachetaDBConfig._instance = None
+
+
+import subprocess
+import sys
+
+
+def test_cli_help():
+    """CLI --help exits cleanly."""
+    result = subprocess.run(
+        [sys.executable, "-m", "yanantin.infra", "--help"],
+        capture_output=True, text=True
+    )
+    assert result.returncode == 0
+    assert "setup" in result.stdout
+    assert "check" in result.stdout
+    assert "status" in result.stdout

@@ -1,0 +1,11 @@
+{
+  "id": "c7f1bfa5-17c3-423f-ad3e-703f0ab1989b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11586_20260415_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7022_20260320_qwen-turbo.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I could not check for the existence of other files like `compose.py` in the `operators` submodule because the provided file only contains the content of `project.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-15T11:12:54.092243+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "6b0a230d-5349-4df2-b69b-ccde1e5d99f1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11582_20260415_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1106_20260217_deepseek-v3.2.md",
+  "relation": "denies",
+  "claim_text": "#### Strand 2: Tensors as Immutable, Composable Knowledge Units The core abstraction is the \"tensor,\" defined in `src/yanantin/apacheta/models/tensor.py` (inferred).",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "deepseek/deepseek-v3.2",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-04-15T10:42:58.041658+00:00"
+}

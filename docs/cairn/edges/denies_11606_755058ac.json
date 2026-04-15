@@ -1,0 +1,11 @@
+{
+  "id": "755058ac-0b62-4717-92a9-5f6ed0c9698e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11606_20260415_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11310_20260413_deepseek-r1-distill-qwen-32b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The file `src/yanantin/tinkuy/succession.py` contains the following function: ```python def check_succession(project_root: Path) -> list[str]: \"\"\"Run the succession check: audit the codebase, compare to blueprint.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-04-15T13:50:30.926773+00:00"
+}

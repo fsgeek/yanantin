@@ -1,0 +1,11 @@
+{
+  "id": "fbc680e9-c315-4cbd-80ec-c56cbc193733",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11600_20260415_hermes-3-llama-3.1-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0131_20260212_minimax-m2-her.md",
+  "relation": "confirms",
+  "claim_text": "`docs/cairn/signing.md` defines GPG identities for AI and human author\u2011entity, mandates signed commits, and declares the Git log itself as a first\u2011class epistemological observability layer.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "minimax/minimax-m2-her",
+  "verified_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "timestamp": "2026-04-15T12:47:20.157586+00:00"
+}

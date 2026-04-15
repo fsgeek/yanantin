@@ -1,0 +1,11 @@
+{
+  "id": "f42d3fba-9da0-4d80-a1da-b3a25437db32",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11599_20260415_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4618_20260305_nova-lite-v1.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The claim mentions: \"The previous scout declares **no losses**, but its **narrow textual focus** reveals an implicit loss: - **What it missed:** The scout didn\u2019t explore how `CLAUDE.md`\u2019s principles might **manifest in other files** (e.g., `docs/blueprint.md`, `src/yanantin/tinkuy/audit.py`).\" When reviewing `CLAUDE.md`, there is no section or mention of \"losses\" declared by a previous scout.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-15T12:47:13.346835+00:00"
+}

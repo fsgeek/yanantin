@@ -1,0 +1,11 @@
+{
+  "id": "3db263ef-25de-4ddd-ac8d-b8b4761b1fcc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11558_20260415_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1101_20260217_ministral-8b-2512.md",
+  "relation": "confirms",
+  "claim_text": "**I did not verify the exact content of `tinkuy/succession.py` or `coordinator.py`**.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-04-15T07:35:47.409767+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "f549cb65-3c45-44cd-96fb-dbf1bdd6fbc5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11555_20260415_gemma-4-26b-a4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10984_20260412_gpt-3.5-turbo.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I chose not to delve into the specific implementation details of the `condition-based-waiting-example.ts` file, as it seemed to provide domain-specific examples of the generic polling function outlined in `condition-based-waiting.md`.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/skills/systematic-debugging/condition-based-waiting.md",
+  "claim_by": "openai/gpt-3.5-turbo",
+  "verified_by": "google/gemma-4-26b-a4b-it",
+  "timestamp": "2026-04-15T07:02:50.095605+00:00"
+}

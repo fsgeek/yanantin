@@ -1,0 +1,11 @@
+{
+  "id": "de2e5c2e-581b-4df3-8f78-6ba4f6d71258",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11556_20260415_mistral-small-creative.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7146_20260321_gemini-2.0-flash-lite-001.md",
+  "relation": "denies",
+  "claim_text": "Although the file doesn't explicitly reference `coverage.py`, it does mention the \"cairn\", which is where the scout's output (tensors) are stored, implying a higher-level coordination of the scouting process.",
+  "claim_file": "src/yanantin/chasqui/coverage.py",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "mistralai/mistral-small-creative",
+  "timestamp": "2026-04-15T07:03:21.923604+00:00"
+}

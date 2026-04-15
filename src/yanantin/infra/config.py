@@ -178,7 +178,7 @@ class ApachetaDBConfig:
         path.write_text(content)
         logger.info("Wrote .env to %s (test credentials only).", path)
 
-    def start(self, timeout: int = 60) -> bool:
+    def start(self, timeout: int = 120) -> bool:
         """Poll health endpoint until ArangoDB is ready."""
         import time
         import urllib.request
@@ -191,6 +191,11 @@ class ApachetaDBConfig:
                 req = urllib.request.urlopen(url, timeout=5)
                 if req.status == 200:
                     logger.info("ArangoDB ready at %s", self.host_url)
+                    return True
+            except urllib.error.HTTPError as e:
+                # 401 means ArangoDB is up but requires auth — that's ready
+                if e.code == 401:
+                    logger.info("ArangoDB ready at %s (auth required).", self.host_url)
                     return True
             except (urllib.error.URLError, OSError):
                 pass

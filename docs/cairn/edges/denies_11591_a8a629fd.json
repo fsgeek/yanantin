@@ -1,0 +1,11 @@
+{
+  "id": "a8a629fd-c446-4068-a3be-50102435525e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11591_20260415_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8583_20260329_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "The provided file (`src/yanantin/apacheta/clients/openrouter.py`) **only contains the code for `openrouter.py`**\u2014no other files (e.g., `duckdb.py`, `interface/...`) are visible in the snippet.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-04-15T11:44:50.602700+00:00"
+}

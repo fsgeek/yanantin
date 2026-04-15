@@ -1,0 +1,11 @@
+{
+  "id": "32cc80d3-5984-474f-9d67-fdafc3a206d4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11520_20260415_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0865_20260216_qwen2.5-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: Tensor Infrastructure and Composition - **Evidence:** - The `awaq` directory (`src/yanantin/awaq`) contains `weaver.py`, which is central to tensor management.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-04-15T02:21:14.823057+00:00"
+}

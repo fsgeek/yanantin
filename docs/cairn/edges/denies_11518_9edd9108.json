@@ -1,0 +1,11 @@
+{
+  "id": "9edd9108-0c56-4127-bb89-427fcceaedad",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11518_20260415_gpt-4.1-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10947_20260411_qwen2.5-coder-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "# Verification Assignment ## The Claim Model `google/gemma-3n-e4b-it` made this claim about `docs/cairn/scout_2814_20260224_llama-3.1-8b-instruct.md`: > ### Verdict DENIED ### Evidence \"The claim states: *\"**Evidence from Provided Files:** None directly related to `markdown_parser.py`, but the emphasis on detailed documentation (e.g., in `docs/cairn/scout_2814_20260224_llama-3.1-8b-instruct.md`) suggests a culture of transparency that could mitigate such risks through open discussion and community engagement.\"* ### Reasoning The provided file `src/yanantin/apacheta/ingest/markdown_parser.py` contains extensive documentation within the code itself, including detailed comments and docstrings.",
+  "claim_file": "docs/cairn/scout_2814_20260224_llama-3.1-8b-instruct.md",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "openai/gpt-4.1-nano",
+  "timestamp": "2026-04-15T02:20:39.121784+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "44916913-6175-4e64-bbea-90fb72364558",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11329_20260414_unslopnemo-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8186_20260327_glm-4.5.md",
+  "relation": "confirms",
+  "claim_text": "Evaluation as a Two-Part Process** The `EVALUATION_PROMPT` in `evaluation.py` (lines 16-51) reveals something interesting about the evaluation philosophy.",
+  "claim_file": "tmp/ubuntu-vm.claude/mcp-builder/scripts/evaluation.py",
+  "claim_by": "z-ai/glm-4.5",
+  "verified_by": "thedrummer/unslopnemo-12b",
+  "timestamp": "2026-04-14T01:20:40.352767+00:00"
+}

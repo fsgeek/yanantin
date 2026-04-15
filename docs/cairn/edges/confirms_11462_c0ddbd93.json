@@ -1,0 +1,11 @@
+{
+  "id": "c0ddbd93-998e-4f6f-87a9-8916cd9650fe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11462_20260414_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0634_20260215_ministral-8b-2512.md",
+  "relation": "confirms",
+  "claim_text": "For example: - The `ApachetaGatewayClient` (seen in `gateway.py`) suggests a **REST API**, but the scout didn\u2019t explore its query layer.",
+  "claim_file": "src/yanantin/apacheta/clients/gateway.py",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-04-14T19:05:17.762741+00:00"
+}

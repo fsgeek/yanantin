@@ -1,0 +1,11 @@
+{
+  "id": "f347bf81-3ca2-48bb-b524-3a178015aa16",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11254_20260413_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0418_20260214_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "The scout claims that the document confirms the presence of the operators in `test_operators.py`.",
+  "claim_file": "tests/unit/test_operators.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-04-13T15:25:33.219121+00:00"
+}

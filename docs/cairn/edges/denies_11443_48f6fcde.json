@@ -1,0 +1,11 @@
+{
+  "id": "48f6fcde-d509-42c2-af07-f68281d1a65f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11443_20260414_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3127_20260226_qwen-2.5-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Closing If I could speak to the original scout, I would suggest verifying the invocation process through the project's core scripts such as `__main__.py` and `bootstrap.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-14T16:28:13.402303+00:00"
+}

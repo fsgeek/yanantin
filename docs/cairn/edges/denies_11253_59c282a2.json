@@ -1,0 +1,11 @@
+{
+  "id": "59c282a2-ef6a-4fa2-a483-5584c91976d6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11253_20260413_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11068_20260412_deepseek-v3.1-nex-n1.md",
+  "relation": "denies",
+  "claim_text": "--- ### Strands #### Strand 1 \u2014 Chasqui as both \u201cplayful messengers\u201d and forensic verification infrastructure **Evidence:** - `__init__.py`: ```python # Chasqui \u2014 the messengers.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "nex-agi/deepseek-v3.1-nex-n1",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-13T15:25:31.006352+00:00"
+}

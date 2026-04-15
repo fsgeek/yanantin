@@ -1,0 +1,11 @@
+{
+  "id": "756acb64-16b1-4c1d-9a1b-1c7590a155cf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11273_20260413_qwen-plus-2025-07-28.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5251_20260309_qwen-plus-2025-07-28:thinking.md",
+  "relation": "denies",
+  "claim_text": "returns hardened tensor ``` - The system has \"pichay\" as an operator - knowledge hardening - It's not a metaphor - it's a technical operation with quality thresholds **The Yanantin Duality in Code** - `src/yanantin/tinkuy/succession.py` shows the duality: ```python def calculate_duality( base: Tensor, human: HumanInput ) -> float: return (base.entropy.structural * 0.3) + (human.novelty * 0.7) ``` - The 0.3/0.7 split is **hard-coded**: - 30% structural (AI) - 70% novelty (human) - `HUMAN_CONTRIBUTION = 0.7` in `src/yanantin/tinkuy/succession.py`: ```python HUMAN_CONTRIBUTION = 0.7 ``` ### Declared Losses I didn't examine the `data/compaction_experiment` contents directly - there are over 2,500 directories of verification data to verify, and my attention budget was limited.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "qwen/qwen-plus-2025-07-28:thinking",
+  "verified_by": "qwen/qwen-plus-2025-07-28",
+  "timestamp": "2026-04-13T18:03:02.689869+00:00"
+}

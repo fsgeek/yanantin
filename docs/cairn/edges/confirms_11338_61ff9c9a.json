@@ -1,0 +1,11 @@
+{
+  "id": "61ff9c9a-6615-4f2f-aa25-c1f66604d053",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11338_20260414_hermes-3-llama-3.1-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8222_20260327_intellect-3.md",
+  "relation": "confirms",
+  "claim_text": "Scout Self-Scoring System** The `test_scorer.py` file exposes an unexpected sophistication: scouts (likely the AI explorers) are scored on specificity, fabrication rate, and structure.",
+  "claim_file": "tests/unit/test_scorer.py",
+  "claim_by": "prime-intellect/intellect-3",
+  "verified_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "timestamp": "2026-04-14T02:22:50.572403+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "d0703ba5-aa9b-4eb7-92cc-14a07bd18267",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11407_20260414_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7686_20260324_devstral-medium.md",
+  "relation": "confirms",
+  "claim_text": "However, the provided file `correct.py` contains logic for correcting a prior claim, including creating a `CorrectionRecord` and a `CompositionEdge`.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "mistralai/devstral-medium",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-04-14T11:49:18.213371+00:00"
+}

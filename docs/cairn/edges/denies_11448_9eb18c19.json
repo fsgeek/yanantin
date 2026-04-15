@@ -1,0 +1,11 @@
+{
+  "id": "9eb18c19-9c69-4df7-87cd-e51a3708a31f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11448_20260414_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9108_20260401_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "Consequently, we cannot determine whether it mentions `evolve` or `dissent.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-14T17:01:14.498445+00:00"
+}

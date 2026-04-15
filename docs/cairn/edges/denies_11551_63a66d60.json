@@ -1,0 +1,11 @@
+{
+  "id": "63a66d60-7bbe-4ffc-b720-f4d7e980e503",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11551_20260415_qwen3-14b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1730_20260219_llama-3.2-3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "``` ### tensors ``` # Verdict CONFIRMED # Evidence The file `docs/cairn/T5_20260208_post_paper.md` and `T10_20260209_post_compaction.md` tensors explicitly discuss \"declared losses\" and \"epistemic metadata.\" # Reasoning The evidence from the file confirms that the claim is accurate.",
+  "claim_file": "docs/cairn/T10_20260209_post_compaction.md",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "qwen/qwen3-14b",
+  "timestamp": "2026-04-15T06:33:06.188115+00:00"
+}

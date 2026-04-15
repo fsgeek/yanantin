@@ -1,0 +1,11 @@
+{
+  "id": "274c7f1f-33c9-4ed3-a0de-ec5d2ae461ba",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11484_20260414_kat-coder-pro-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2742_20260224_qwen-2.5-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "My verdict: **DENIED** for the claim about `docs/predecessors.md`, **CONFIRMED** for the claim about `compose.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "kwaipilot/kat-coder-pro-v2",
+  "timestamp": "2026-04-14T21:39:45.260043+00:00"
+}

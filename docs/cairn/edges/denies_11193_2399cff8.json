@@ -1,0 +1,11 @@
+{
+  "id": "2399cff8-1080-4d02-936c-1212acf6c108",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11193_20260413_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1420_20260218_deepseek-chat-v3.1.md",
+  "relation": "denies",
+  "claim_text": "Epistemic Verification as Core Discipline**   The scout reports (e.g., `scout_0441_20260214_lfm2-8b-a1b.md`, `scout_1195_20260217_nemotron-3-nano-30b-a3b.md`) show a rigorous process where models verify claims about code structure and behavior.",
+  "claim_file": "docs/cairn/scout_0441_20260214_lfm2-8b-a1b.md",
+  "claim_by": "deepseek/deepseek-chat-v3.1",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-13T07:40:04.494846+00:00"
+}

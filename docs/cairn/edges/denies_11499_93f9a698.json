@@ -1,0 +1,11 @@
+{
+  "id": "93f9a698-51f3-4158-8efc-54e4c32377f8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11499_20260414_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1808_20260220_mistral-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "#### Strand 2: **Structured Reviewer\u2019s \"Anti-Meta\" Guardrails** **RESPONSE**: The claim\u2019s **scout-by-scout variation** (e.g., `qwen-2.5` denying `docs/predecessors.md`\u2019s absence, while `mistral-small` correctly confirms its presence) aligns with the **anti-meta guardrails** documented in `scout_reviewer.md`.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "mistralai/mistral-7b-instruct",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-14T23:44:56.786082+00:00"
+}

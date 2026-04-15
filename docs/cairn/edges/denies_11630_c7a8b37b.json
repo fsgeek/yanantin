@@ -1,0 +1,11 @@
+{
+  "id": "c7a8b37b-4d8b-4d35-a491-2f8578d4d616",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11630_20260415_gpt-5.1-codex-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11465_20260414_nemotron-nano-9b-v2.md",
+  "relation": "denies",
+  "claim_text": "**What I don\u2019t know**: The true purpose of `openrouter.py`\u2019s reference, the full functionality of `gateway.py`, and how this fits into the tensor infrastructure.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "openai/gpt-5.1-codex-mini",
+  "timestamp": "2026-04-15T16:55:45.924372+00:00"
+}

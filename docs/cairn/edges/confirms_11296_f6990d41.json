@@ -1,0 +1,11 @@
+{
+  "id": "f6990d41-af0c-4e62-98e2-93456c3020f5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11296_20260413_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9645_20260404_mistral-small-2603.md",
+  "relation": "confirms",
+  "claim_text": "Since `memory.py` does not contain any references to `arango.py` (or any other file), it provides no basis to confirm or deny whether `arango.py` exists.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "mistralai/mistral-small-2603",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-04-13T21:11:13.705999+00:00"
+}

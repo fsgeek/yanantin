@@ -1,0 +1,11 @@
+{
+  "id": "d6dea893-4661-4af3-92c0-39548e720af0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11277_20260413_qwen3-vl-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1194_20260217_cogito-v2.1-671b.md",
+  "relation": "denies",
+  "claim_text": "However, the provided code for `weaver.py` shows only the parsing and extraction logic: 1.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "deepcogito/cogito-v2.1-671b",
+  "verified_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "timestamp": "2026-04-13T18:33:23.209843+00:00"
+}

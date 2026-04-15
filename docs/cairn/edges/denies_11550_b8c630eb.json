@@ -1,0 +1,11 @@
+{
+  "id": "b8c630eb-2695-4916-be0d-b15a0f699d2f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11550_20260415_llama-3.1-nemotron-70b-instruc.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1794_20260220_qwen3-next-80b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "--- ### Strands   #### **Strand 1: The Hallucination as Provenance Event**   I observed that the *same* malformed denial appears in multiple scout reports:   - `scout_1203_20260217_longcat-flash-chat.md` (LLM: `longcat-flash-chat`)   - `scout_1258_20260217_gpt-oss-20b.md` (LLM: `gpt-oss-20b`)   - `scout_1291_20260218_qwen3-vl-235b-a22b-instruct.md` (LLM: `qwen3-vl`)   All deny the existence of `docs/predecessors.md` \u2014 a file that is **explicitly present** and **quoted in full** in the assignment.",
+  "claim_file": "docs/cairn/scout_1258_20260217_gpt-oss-20b.md",
+  "claim_by": "qwen/qwen3-next-80b-a3b-instruct",
+  "verified_by": "nvidia/llama-3.1-nemotron-70b-instruct",
+  "timestamp": "2026-04-15T06:32:54.449295+00:00"
+}

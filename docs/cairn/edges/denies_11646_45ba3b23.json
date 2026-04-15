@@ -1,0 +1,11 @@
+{
+  "id": "45ba3b23-b453-4691-b0e4-9b65aa868bd9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11646_20260415_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0067_20260212_olmo-3-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "**Observability of Tensors and Usage Metrics**   The `docs/cairn/scout_0016_20260212_devstral-small.md` tensor file contains rich metadata on model usage \u2014 prompt/completion tokens, costs, timestamps.",
+  "claim_file": "docs/cairn/scout_0016_20260212_devstral-small.md",
+  "claim_by": "allenai/olmo-3-7b-instruct",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-15T18:59:45.615158+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "8af2e0bb-90c1-4e9a-99cb-37507297d062",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11252_20260413_gemini-2.5-flash-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0182_20260213_mistral-7b-instruct-v0.3.md",
+  "relation": "denies",
+  "claim_text": "The `docs/predecessors.md` and `docs/apacheta.md` (clay tablet?) might contain context.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "mistralai/mistral-7b-instruct-v0.3",
+  "verified_by": "google/gemini-2.5-flash-lite",
+  "timestamp": "2026-04-13T15:25:30.387774+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "b136bc76-e4ec-4fc6-8e92-4f369a4aafd7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11468_20260414_rocinante-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11062_20260412_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "**Claim phrasing**: The claim says `brillig.py` \"does normalization,\" implying the file itself contains normalization logic.",
+  "claim_file": "src/yanantin/jabberwock/brillig.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "thedrummer/rocinante-12b",
+  "timestamp": "2026-04-14T19:35:15.256055+00:00"
+}

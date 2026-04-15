@@ -1,0 +1,11 @@
+{
+  "id": "8eb81bf1-a971-4ae9-aa72-925e9a60bfb1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11452_20260414_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1313_20260218_mistral-small-3.2-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "#### Strand 2 \u2013 Immutability Is Enforced, But Also Performed The `src/yanantin/apacheta/backends/duckdb.py` file enforces immutability via UUID checks and JSON serialization.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-14T17:31:22.969868+00:00"
+}

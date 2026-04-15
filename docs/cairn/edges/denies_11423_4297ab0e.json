@@ -1,0 +1,11 @@
+{
+  "id": "4297ab0e-d693-4ea1-8676-ed7ae8e46577",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11423_20260414_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10054_20260407_gemma-2-9b-it.md",
+  "relation": "denies",
+  "claim_text": "Here's the relevant code snippet from `succession.py`: ```python from yanantin.chasqui import scout  ``` ### Reasoning: The code snippet clearly demonstrates that `succession.py` imports the `scout` module.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-04-14T13:54:37.742253+00:00"
+}

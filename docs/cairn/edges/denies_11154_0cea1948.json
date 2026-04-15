@@ -1,0 +1,11 @@
+{
+  "id": "0cea1948-e4bb-4888-9936-03a2f5232eba",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11154_20260413_gpt-4o-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5327_20260310_qwen3-vl-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   **DENIED** ### Evidence   The claim states:   > \"The project ships three backends\u2014`memory.py`, `duckdb.py`, and `arango.py`.\" The provided file is `src/yanantin/apacheta/backends/memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "verified_by": "openai/gpt-4o-mini",
+  "timestamp": "2026-04-13T02:29:33.251649+00:00"
+}

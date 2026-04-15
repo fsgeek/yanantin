@@ -1,0 +1,11 @@
+{
+  "id": "da6b8f86-d71b-49e7-a647-c3f60a95d55b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11653_20260415_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6497_20260317_rnj-1-instruct.md",
+  "relation": "denies",
+  "claim_text": "I find no import, comment, or mention of `config.py` in the code.",
+  "claim_file": "src/yanantin/apacheta/config.py",
+  "claim_by": "essentialai/rnj-1-instruct",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-04-15T20:03:09.056574+00:00"
+}

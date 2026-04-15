@@ -1,0 +1,11 @@
+{
+  "id": "a6b366b1-7762-4c13-bc42-b7574794e464",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11419_20260414_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5589_20260311_glm-4.5-air.md",
+  "relation": "denies",
+  "claim_text": "After examining the file content, I confirm that there are no imports of `evolve.py` and no code that references the filename `evolve.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "z-ai/glm-4.5-air",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-14T13:22:35.544080+00:00"
+}

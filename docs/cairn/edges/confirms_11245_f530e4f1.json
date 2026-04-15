@@ -1,0 +1,11 @@
+{
+  "id": "f530e4f1-d60d-4429-9190-f50ac40365ea",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11245_20260413_qwen3-coder-next.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2495_20260223_ministral-14b-2512.md",
+  "relation": "confirms",
+  "claim_text": "- **Provenance-first design** (e.g., `src/yanantin/provenance/`) with **immutability guarantees** (e.g., `test_immutability.py`).",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "qwen/qwen3-coder-next",
+  "timestamp": "2026-04-13T14:23:30.047396+00:00"
+}

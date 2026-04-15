@@ -1,0 +1,11 @@
+{
+  "id": "499626c4-62f3-49d5-b183-c492cda70f4c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11528_20260415_qwen-vl-max.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1620_20260219_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The file `src/yanantin/apacheta/backends/memory.py` contains a class `InMemoryBackend` that implements the `ApachetaInterface`.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "qwen/qwen-vl-max",
+  "timestamp": "2026-04-15T03:23:59.947840+00:00"
+}

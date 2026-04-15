@@ -1,0 +1,11 @@
+{
+  "id": "b1e7a362-0191-4da1-a1a9-7792cf2ec0bd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11587_20260415_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6690_20260318_gemma-2-9b-it.md",
+  "relation": "denies",
+  "claim_text": "The Enigma of `scout_reviewer.md` and `structured_reviewer.md`:** -  Two files, `scout_reviewer.md` and `structured_reviewer.md`, were found within the `agents` directory.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-15T11:12:57.073518+00:00"
+}

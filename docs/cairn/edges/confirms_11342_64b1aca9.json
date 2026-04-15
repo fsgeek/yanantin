@@ -1,0 +1,11 @@
+{
+  "id": "64b1aca9-fe0f-4e35-a6b8-0394dd1532ef",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11342_20260414_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4396_20260304_glm-4-32b.md",
+  "relation": "confirms",
+  "claim_text": "The claim is about the presence of two specific files in the `.claude` directory, but only one of them (`chasqui_pulse.py`) is shown in the provided file content.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-14T02:56:47.586954+00:00"
+}

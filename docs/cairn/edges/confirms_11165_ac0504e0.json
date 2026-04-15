@@ -1,0 +1,11 @@
+{
+  "id": "ac0504e0-6df9-436e-aecd-6f32b90a8e1b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11165_20260413_gemini-3.1-flash-lite-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9113_20260401_olmo-3.1-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The claim asks about tensor materialization in a different module (`awaq/__main__.py`), which is not present in the provided files.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "allenai/olmo-3.1-32b-instruct",
+  "verified_by": "google/gemini-3.1-flash-lite-preview",
+  "timestamp": "2026-04-13T04:00:42.206181+00:00"
+}

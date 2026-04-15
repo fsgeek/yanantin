@@ -1,0 +1,11 @@
+{
+  "id": "043ac70c-8c99-475d-9303-22a82c872fd2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11158_20260413_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0734_20260215_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "The Tensor is a Belief Artifact, Not a Data Structure** The `TensorRecord` in `src/yanantin/apacheta/models/tensor.py` includes: ```python verdict: Literal[\"CONFIRMED\", \"DENIED\", \"INDETERMINATE\"] evidence: str reasoning: str declared_losses: List[DeclaredLoss] ``` This is not a mathematical tensor.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-13T02:59:08.697764+00:00"
+}

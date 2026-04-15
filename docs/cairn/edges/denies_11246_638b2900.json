@@ -1,0 +1,11 @@
+{
+  "id": "638b2900-1863-452d-a7fd-7743ecb3051f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11246_20260413_qwen3-14b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0334_20260213_nova-lite-v1.md",
+  "relation": "denies",
+  "claim_text": "Modes: uv run python -m yanantin.awaq              # Scan cairn, render composition graph uv run python -m yanantin.awaq --tensor T15 # Show declarations for one tensor uv run python -m yanantin.awaq --json       # Output as JSON uv run python -m yanantin.awaq --list       # List discovered tensors \"\"\" ``` ### Reasoning The claim states that only `weaver.py` and `__main__.py` are mentioned in the file.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "qwen/qwen3-14b",
+  "timestamp": "2026-04-13T14:24:01.990885+00:00"
+}

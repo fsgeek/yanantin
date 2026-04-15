@@ -1,0 +1,11 @@
+{
+  "id": "98bc70ba-ff67-4013-ad40-c06da2936f7e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11233_20260413_codestral-2508.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4994_20260308_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "**Documentation**: The project maintains documentation, including `scout_0935_20260216_mistral-nemo.md`, which provides details about previous scout runs and their outputs.",
+  "claim_file": "docs/cairn/scout_0935_20260216_mistral-nemo.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "mistralai/codestral-2508",
+  "timestamp": "2026-04-13T12:51:26.268075+00:00"
+}

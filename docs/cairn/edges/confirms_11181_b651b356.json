@@ -1,0 +1,11 @@
+{
+  "id": "b651b356-1b38-4cf2-8577-e9da4b103d52",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11181_20260413_devstral-small.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7398_20260322_qwen2.5-coder-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "<|file_sep|><|fim_prefix|>/generate_non_chasqui_assignments.py # Verification Assignment ## The Claim Model `openai/gpt-5.1` made this claim about `docs/cairn/scout_0008_20260212_mistral-nemo.md`: > - `docs/cairn/scout_*` files (including `scout_0008_20260212_mistral-nemo.md`) look like this one: - Header with: - Run number - Model name & provider - Cost breakdown - Token usage - Timestamp - Short \u201cVerdict / Evidence / Reasoning / Declared Losses\u201d.",
+  "claim_file": "docs/cairn/scout_0008_20260212_mistral-nemo.md",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "mistralai/devstral-small",
+  "timestamp": "2026-04-13T06:06:02.329449+00:00"
+}

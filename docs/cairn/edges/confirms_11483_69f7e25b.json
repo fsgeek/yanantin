@@ -1,0 +1,11 @@
+{
+  "id": "69f7e25b-4bfd-4398-b012-9da362eb1ff4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11483_20260414_qwen3-30b-a3b-instruct-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10776_20260411_qwen-plus.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning   The claim states:   > \u201cThe file `succession.py` contains functions and classes related to checking the succession of an instance in a project.\u201d   This is directly confirmed:   - The module\u2019s stated purpose is \u201corderly transition between mortal instances\u201d and ensuring \u201cthe outgoing instance leaves an accurate map for the next one\u201d.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "timestamp": "2026-04-14T21:39:41.431140+00:00"
+}

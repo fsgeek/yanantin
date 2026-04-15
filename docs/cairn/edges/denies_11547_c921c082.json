@@ -1,0 +1,11 @@
+{
+  "id": "c921c082-956b-48a0-b9c5-1b3cb064ad3b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11547_20260415_qwen2.5-vl-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6872_20260319_granite-4.0-h-micro.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The primary loss in verifying this claim is the lack of information about the `pulse.py` and `scourer.py` models.",
+  "claim_file": "tmp/ubuntu-vm.claude/slack-gif-creator/templates/pulse.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "qwen/qwen2.5-vl-32b-instruct",
+  "timestamp": "2026-04-15T05:59:09.908295+00:00"
+}

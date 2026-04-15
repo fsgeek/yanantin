@@ -1,0 +1,11 @@
+{
+  "id": "972f6157-06a3-4093-908a-14568b373803",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11272_20260413_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2659_20260224_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "### Strands #### 1\ufe0f\u20e3 The presence of `docs/predecessors.md` is **confirmed** **Evidence** (from multiple sources): - `docs/cairn/scout_2449_20260223_nemotron-nano-9b-v2.md`: \"The file `docs/predecessors.md` contains content starting with '# Predecessor Projects' followed by several sections detailing different projects.\" - `docs/cairn/scout_1642_20260219_gpt-oss-120b.md`: \"The file exists and contains detailed information about various predecessor projects.\" - `docs/cairn/scout_2121_20260221_mistral-small-24b-instruct-250.md`: \"The file does mention the existence of several predecessor projects.\" **Reasoning** \u2013 These observations from different models and runs confirm that `docs/predecessors.md` is indeed present and contains the expected content.",
+  "claim_file": "docs/cairn/scout_1642_20260219_gpt-oss-120b.md",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-04-13T18:02:55.376589+00:00"
+}

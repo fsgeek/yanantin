@@ -1,0 +1,11 @@
+{
+  "id": "93e3fe34-4e9d-4db9-b551-2ef9e25208f4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11430_20260414_gemini-2.5-flash-lite-preview-.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10777_20260411_mistral-small-2603.md",
+  "relation": "denies",
+  "claim_text": "- **Lines:** `design.md` (Architecture section), `plan.md` Tasks 3 & 5.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/tests/subagent-driven-dev/svelte-todo/design.md",
+  "claim_by": "mistralai/mistral-small-2603",
+  "verified_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "timestamp": "2026-04-14T15:00:58.055401+00:00"
+}

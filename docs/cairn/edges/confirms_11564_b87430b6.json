@@ -1,0 +1,11 @@
+{
+  "id": "b87430b6-769d-4e5c-ac36-1e2810b5dc2f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11564_20260415_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5646_20260311_qwen2.5-coder-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "# Verification Assignment ## The Claim Model `qwen/qwen3.5-flash-02-23` made this claim about `src/yanantin/apacheta/content_address.py`: > It highlights `content_address.py` using SHA-256.",
+  "claim_file": "src/yanantin/apacheta/content_address.py",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-04-15T08:05:51.968179+00:00"
+}

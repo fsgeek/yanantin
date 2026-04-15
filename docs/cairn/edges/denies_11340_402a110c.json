@@ -1,0 +1,11 @@
+{
+  "id": "402a110c-d470-45bc-b6e2-22d6f42c0830",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11340_20260414_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11203_20260413_qwen3.5-9b.md",
+  "relation": "denies",
+  "claim_text": "I verified this as well \u2014 no import or reference to `model_selector.py` exists in this file.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-14T02:56:40.371119+00:00"
+}

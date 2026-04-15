@@ -1,0 +1,11 @@
+{
+  "id": "a59b250a-5880-4509-a4f9-4417e714b024",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11655_20260415_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0154_20260212_command-r7b-12-2024.md",
+  "relation": "denies",
+  "claim_text": "Operators like `compose.py`, `correct.py`, and `evolve.py` handle schema changes formally.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-15T20:03:23.335012+00:00"
+}

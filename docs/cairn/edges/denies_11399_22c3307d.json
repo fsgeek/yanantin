@@ -1,0 +1,11 @@
+{
+  "id": "22c3307d-678c-4dc9-beae-4e57ca95fb7d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11399_20260414_mistral-saba.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8758_20260330_seed-2.0-mini.md",
+  "relation": "denies",
+  "claim_text": "#### Strand 4: Synthetic Testing Support The `__init__.py` exports a `SyntheticDropboxCollector` from `synthetic.py`, indicating first-class support for testing collection logic without hitting the production Dropbox API.",
+  "claim_file": "src/yanantin/collector/synthetic.py",
+  "claim_by": "bytedance-seed/seed-2.0-mini",
+  "verified_by": "mistralai/mistral-saba",
+  "timestamp": "2026-04-14T10:47:26.054530+00:00"
+}

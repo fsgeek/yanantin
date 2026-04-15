@@ -1,0 +1,11 @@
+{
+  "id": "cf369c67-9cc9-4dfe-8793-63c897efc398",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11515_20260415_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4272_20260303_qwen-turbo.md",
+  "relation": "denies",
+  "claim_text": "The `scout_report_indaleko_patterns.md` and `scout_report_tensor_schema.md` stood out as examples of this reflexive scrutiny.",
+  "claim_file": "docs/scout_report_tensor_schema.md",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-15T01:48:33.160697+00:00"
+}

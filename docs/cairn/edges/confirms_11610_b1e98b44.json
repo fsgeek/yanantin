@@ -1,0 +1,11 @@
+{
+  "id": "b1e98b44-5bec-4373-8585-e38011d0ffa2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11610_20260415_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0548_20260214_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": ">     \"\"\" ### Reasoning The claim states: \"The `src/yanantin/tinkuy/audit.py` module exports a `CodebaseReport`, which surveys the **filesystem**, and not the documentation or models directly \u2014 no parsing of `blueprint.md`, just raw filesystem inspection.\" 1.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-04-15T14:19:28.448782+00:00"
+}

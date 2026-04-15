@@ -1,0 +1,11 @@
+{
+  "id": "1484735a-c017-4c77-8216-3d479861efaf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11595_20260415_llama-3-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9010_20260401_qwen3-30b-a3b-instruct-2507.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `CLAUDE.md` contains the following line: > For the tensor sequence and its history, see `docs/tensors.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "verified_by": "meta-llama/llama-3-70b-instruct",
+  "timestamp": "2026-04-15T12:15:04.889559+00:00"
+}

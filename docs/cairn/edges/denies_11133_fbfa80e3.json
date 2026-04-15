@@ -1,0 +1,11 @@
+{
+  "id": "fbfa80e3-d45e-4635-b5ad-343d7577b994",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11133_20260412_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0773_20260215_devstral-2512.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses - The claim references `docs/blueprint.md` and `docs/tensors.md`, but these files are not provided for verification.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "mistralai/devstral-2512",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-12T23:52:40.276201+00:00"
+}

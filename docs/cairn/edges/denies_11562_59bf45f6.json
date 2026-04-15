@@ -1,0 +1,11 @@
+{
+  "id": "59bf45f6-5e0d-4a15-bc0d-9ec868b5ab63",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11562_20260415_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6631_20260318_gpt-oss-safeguard-20b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence - The file contains the section: ``` ### Verdict **CONFIRMED** ### Evidence The file `docs/signing.md` does not contain any mention of \"Tensor-level provenance.\" ``` - The earlier part of the file states: ``` Claim: - **System B**: Tensor-level provenance (not documented in `signing.md`).",
+  "claim_file": "docs/signing.md",
+  "claim_by": "openai/gpt-oss-safeguard-20b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-15T08:05:48.440875+00:00"
+}

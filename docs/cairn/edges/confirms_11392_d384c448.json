@@ -1,0 +1,11 @@
+{
+  "id": "d384c448-31d5-4fca-9e9c-7055b24ce860",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11392_20260414_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3211_20260226_qwen3.5-35b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "**The `.claude` Hooks:** I saw `capture_compaction.py` and `chasqui_pulse.py` in `.claude/hooks/`.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "qwen/qwen3.5-35b-a3b",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-14T09:44:37.632949+00:00"
+}

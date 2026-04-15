@@ -1,0 +1,11 @@
+{
+  "id": "bd011289-9de1-45e3-b120-5ed7043954d6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11284_20260413_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11004_20260412_qwen3-14b.md",
+  "relation": "denies",
+  "claim_text": "- **No analysis of the `scripts/validation` subdirectory** (e.g., `redlining.py` for tracked changes).",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/redlining.py",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-13T19:37:08.562120+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "b7b02d93-5dd3-4609-8808-cc3419ca9a4e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11584_20260415_seed-2.0-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1306_20260218_olmo-3-7b-think.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The claim lists other files (`bootstrap.py`, `compose.py`, etc.) in the `operators` directory, but their existence cannot be confirmed from the provided evidence.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "allenai/olmo-3-7b-think",
+  "verified_by": "bytedance-seed/seed-2.0-mini",
+  "timestamp": "2026-04-15T10:44:12.440385+00:00"
+}

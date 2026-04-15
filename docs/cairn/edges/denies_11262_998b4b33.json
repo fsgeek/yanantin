@@ -1,0 +1,11 @@
+{
+  "id": "998b4b33-cfb0-4ced-8507-862d653a6a25",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11262_20260413_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8141_20260326_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** --- ### Evidence The claim states: > *\"I avoided deep analysis of the `content_address.py` or cryptographic modules, assuming they are standard or auxiliary.\"* The file `src/yanantin/apacheta/content_address.py` contains **non-standard, non-auxiliary logic** that is **core to the module's purpose**.",
+  "claim_file": "src/yanantin/apacheta/content_address.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-13T16:28:04.594226+00:00"
+}

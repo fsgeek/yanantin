@@ -1,0 +1,11 @@
+{
+  "id": "c52719f3-6109-427a-9afc-9e0646349508",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11150_20260413_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10938_20260411_phi-4.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The document `docs/apacheta.md` does not explicitly mention `tensors.md` or describe any direct relationship between `tensors.md` and `apacheta.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-13T01:57:40.106113+00:00"
+}

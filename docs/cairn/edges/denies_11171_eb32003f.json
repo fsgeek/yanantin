@@ -1,0 +1,11 @@
+{
+  "id": "eb32003f-e623-4515-a1f6-e1293917a38f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11171_20260413_gpt-5-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6651_20260318_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states that the model only looked closely at `models/base.py`, `clients/gateway.py`, and `renderer/__init__.py`.",
+  "claim_file": "src/yanantin/apacheta/clients/gateway.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "openai/gpt-5-nano",
+  "timestamp": "2026-04-13T04:33:25.007049+00:00"
+}

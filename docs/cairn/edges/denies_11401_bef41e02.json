@@ -1,0 +1,11 @@
+{
+  "id": "bef41e02-156a-42de-b5e0-5c68f8bf3360",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11401_20260414_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7687_20260324_mistral-small-3.1-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states that `meta-llama/llama-3.2-3b-instruct` stated: \"Response I observed a lot of code in the `yanantin/chasqui/chasqui.py` file, specifically in the `chasqui/__main__.py` file.\" However, the provided file is `src/yanantin/jabberwock/__main__.py`.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-14T10:47:31.259125+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "883feae1-d4b5-422d-a0d3-e7c00270dd0a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11626_20260415_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2659_20260224_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "#### 3\ufe0f\u20e3 The final scout's tensor is incomplete **Evidence**: - The tensor ends with a large, unrelated code dump (React app, TypeScript store, UI component) that has nothing to do with the `errors.py` file under inspection.",
+  "claim_file": "src/yanantin/apacheta/interface/errors.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-15T16:23:32.393072+00:00"
+}

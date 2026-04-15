@@ -1,0 +1,11 @@
+{
+  "id": "27dd0805-8c1a-4ee2-aba0-388a99c5e025",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11278_20260413_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3920_20260301_mercury-coder.md",
+  "relation": "denies",
+  "claim_text": "- The file does not reference `test_operators.py`, but the presence of the bootstrap import already invalidates the claim.",
+  "claim_file": "tests/unit/test_operators.py",
+  "claim_by": "inception/mercury-coder",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-04-13T18:34:09.026103+00:00"
+}

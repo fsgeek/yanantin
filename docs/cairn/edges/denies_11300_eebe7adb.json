@@ -1,0 +1,11 @@
+{
+  "id": "eebe7adb-daa8-4eff-97dc-8a8c6ac2cc3c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11300_20260413_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8262_20260327_qwen3.5-9b.md",
+  "relation": "denies",
+  "claim_text": "#### The Color Field is Orphaned Each agent has a `color` field: - `code-reviewer.md`: `green` - `code-simplifier.md`: `green` - `comment-analyzer.md`: `green` - `silent-failure-hunter.md`: `yellow` - `pr-test-analyzer.md`: `cyan` - `type-design-analyzer.md`: `pink` These are UI indicators.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/code-simplifier/agents/code-simplifier.md",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-04-13T21:41:02.860362+00:00"
+}

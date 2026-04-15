@@ -1,0 +1,11 @@
+{
+  "id": "aaba7893-3eb8-47e9-b34d-376253d53b02",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11155_20260413_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2280_20260222_qwen3-coder:exacto.md",
+  "relation": "confirms",
+  "claim_text": "This, combined with the use of content-addressed storage (likely via `src/yanantin/apacheta/content_address.py`) and the OpenTimestamps logs in `docs/ots/`, suggests that provenance and historical accuracy are fundamental.",
+  "claim_file": "src/yanantin/apacheta/content_address.py",
+  "claim_by": "qwen/qwen3-coder:exacto",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-13T02:29:33.588541+00:00"
+}

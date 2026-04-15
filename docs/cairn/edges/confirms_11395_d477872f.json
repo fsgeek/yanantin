@@ -1,0 +1,11 @@
+{
+  "id": "d477872f-59d2-4d97-ba56-b2491d26a0ed",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11395_20260414_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7880_20260325_qwen3-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "**Synthetic Data for Testing**   - **What I saw**: `test_collector_synthetic.py` uses a `SyntheticCollectorBase` to generate deterministic data.",
+  "claim_file": "tests/unit/test_collector_synthetic.py",
+  "claim_by": "qwen/qwen3-30b-a3b",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-04-14T10:14:50.740806+00:00"
+}

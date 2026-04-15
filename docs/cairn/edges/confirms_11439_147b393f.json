@@ -1,0 +1,11 @@
+{
+  "id": "147b393f-59c0-4d39-88bd-bbe78debceed",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11439_20260414_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8544_20260329_nemotron-nano-9b-v2.md",
+  "relation": "confirms",
+  "claim_text": "The `epistemics.py` model includes fields like `DeclaredLoss` and `DisagreementType`, indicating the system tracks not just data but also uncertainty or conflict.",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-04-14T15:58:13.762826+00:00"
+}

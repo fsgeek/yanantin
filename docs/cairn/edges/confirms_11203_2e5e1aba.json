@@ -1,0 +1,11 @@
+{
+  "id": "2e5e1aba-a56c-40c0-b457-b66af15dc6cb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11203_20260413_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10822_20260411_nemotron-3-super-120b-a12b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim asserts that \u201cseveral core modules are referenced but not fully visible in the snapshot,\u201d naming `src/yanantin/chasqui/scout.py`, `src/yanantin/chasqui/scorer.py`, `src/yanantin/apacheta/backends/duckdb.py`, and \u201cthe full `model_selector.py`.\u201d   - **Reference check:** The source file contains no import or any other reference to `scout.py`, `scorer.py`, or `duckdb.py`.",
+  "claim_file": "src/yanantin/chasqui/scorer.py",
+  "claim_by": "nvidia/nemotron-3-super-120b-a12b",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-04-13T08:44:44.072688+00:00"
+}

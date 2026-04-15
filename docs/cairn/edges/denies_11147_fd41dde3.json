@@ -1,0 +1,11 @@
+{
+  "id": "fd41dde3-5ce4-4453-9bc1-3d013ea70690",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11147_20260413_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4071_20260302_qwen-plus.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses   I chose not to open or read any `.py` file \u2014 not `scout.py`, not `evolve.py`, not `content_address.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-04-13T01:27:18.111373+00:00"
+}

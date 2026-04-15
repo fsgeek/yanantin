@@ -1,0 +1,11 @@
+{
+  "id": "77799906-9b8c-4b07-ad92-558d10206b55",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11470_20260414_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10629_20260410_grok-4.1-fast.md",
+  "relation": "denies",
+  "claim_text": "**Strand 2: EC Merge as Paxos in Disguise for Metadata Cascades**   `MEMORY.md` (EC merge implemented) and `succession-2026-02-20.md` (refinement) reveal: not dir-hotspots, but *cascade amplification*\u2014one `creat` balloons to B-tree splits/extents, sharing blocks.",
+  "claim_file": "tmp/ubuntu-vm.claude/projects/-home-tony-projects-pukara/memory/MEMORY.md",
+  "claim_by": "x-ai/grok-4.1-fast",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-14T20:07:34.089669+00:00"
+}

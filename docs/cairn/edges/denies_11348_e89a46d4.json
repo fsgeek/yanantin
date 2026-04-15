@@ -1,0 +1,11 @@
+{
+  "id": "e89a46d4-f5d9-4e48-a781-d940a8ed9370",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11348_20260414_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7153_20260321_qwen-2.5-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "This script appears to be a minimal validation tool for skills within the project, ensuring that the `SKILL.md` file adheres to certain conventions.",
+  "claim_file": "tmp/ubuntu-vm.claude/artifacts-builder/SKILL.md",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-14T03:59:38.363020+00:00"
+}

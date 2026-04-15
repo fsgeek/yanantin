@@ -1,0 +1,11 @@
+{
+  "id": "c0e1326d-b654-46d0-b673-0fcba396bef3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11539_20260415_gemma-2-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8978_20260401_ernie-4.5-21b-a3b-thinking.md",
+  "relation": "denies",
+  "claim_text": "Since we cannot access `composition.py`, there is no evidence to confirm or deny the claim about it.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "verified_by": "google/gemma-2-27b-it",
+  "timestamp": "2026-04-15T04:55:57.833838+00:00"
+}

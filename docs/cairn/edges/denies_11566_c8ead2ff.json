@@ -1,0 +1,11 @@
+{
+  "id": "c8ead2ff-8bb8-463e-bc50-74f034771687",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11566_20260415_qwen-2.5-72b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9343_20260403_qwen3-coder-flash.md",
+  "relation": "denies",
+  "claim_text": "## Strands ### Strand 1: Meta-Verification as a Design Primitive - **What I saw**: In `scout_5746_20260312_mistral-small-3.2-24b-instruct.md`, the claim says that `scout.py` and `model_selector.py` are absent from the file inspected (`model_selector.py`).",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "qwen/qwen-2.5-72b-instruct",
+  "timestamp": "2026-04-15T08:37:54.486750+00:00"
+}

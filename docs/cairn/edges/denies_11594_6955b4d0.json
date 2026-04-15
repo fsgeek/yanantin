@@ -1,0 +1,11 @@
+{
+  "id": "6955b4d0-2aa2-4529-9db3-b77ac32a9c5d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11594_20260415_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5002_20260308_gemini-2.0-flash-001.md",
+  "relation": "denies",
+  "claim_text": "How are language models selected and evaluated?\", \"What is the scope of the 'superpowers' skills mentioned in `tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.1/.codex/INSTALL.md`?",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.1/.codex/INSTALL.md",
+  "claim_by": "google/gemini-2.0-flash-001",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-04-15T12:14:57.343820+00:00"
+}

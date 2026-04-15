@@ -1,0 +1,11 @@
+{
+  "id": "5b262acd-fd3a-4166-b454-b184d4ddf552",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11490_20260414_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9775_20260405_palmyra-x5.md",
+  "relation": "denies",
+  "claim_text": "Paired with `ots_stamp.py` and `pipeline_attestation.py`, this suggests every scout report is **not just logged, but *witnessed***.",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "writer/palmyra-x5",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-04-14T22:42:31.142467+00:00"
+}

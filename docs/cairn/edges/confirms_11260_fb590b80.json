@@ -1,0 +1,11 @@
+{
+  "id": "fb590b80-da0d-4424-a43a-075f13eefe9e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11260_20260413_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4263_20260303_olmo-3.1-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The evidence shows that this file (`coordinator.py`) contains no references to `tinkuy/succession.py`.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "allenai/olmo-3.1-32b-instruct",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-04-13T16:27:58.443586+00:00"
+}

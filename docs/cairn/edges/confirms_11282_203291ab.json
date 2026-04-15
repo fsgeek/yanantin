@@ -1,0 +1,11 @@
+{
+  "id": "203291ab-5320-4e0f-a6e9-9e73a11ea996",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11282_20260413_hunyuan-a13b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8580_20260329_llama-3.1-70b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The evidence supports the verdict because the file `docs/predecessors.md` contains a comprehensive list of predecessor projects, along with their descriptions and key contributions.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "meta-llama/llama-3.1-70b-instruct",
+  "verified_by": "tencent/hunyuan-a13b-instruct",
+  "timestamp": "2026-04-13T19:05:26.057576+00:00"
+}

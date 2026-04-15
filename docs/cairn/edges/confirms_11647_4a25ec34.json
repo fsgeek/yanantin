@@ -1,0 +1,11 @@
+{
+  "id": "4a25ec34-72c2-4e4a-9c4a-3ada41af568d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11647_20260415_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4989_20260308_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **INDETERMINATE** ### Evidence   The file `src/yanantin/apacheta/operators/negate.py` contains: ```python \"\"\"Negate operator \u2014 declares that two tensors do not compose.\"\"\" ``` and ```python def negate( interface: ApachetaInterface, tensor_a: UUID, tensor_b: UUID, reasoning: str, *, provenance: ProvenanceEnvelope | None = None, ) -> NegationRecord: \"\"\"Declare that two tensors do not compose.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-04-15T19:00:30.887273+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "48726bd0-9181-4dcb-a093-0d226bcdb18f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11480_20260414_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11408_20260414_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "In the provided file `docs/cairn/scout_1555_20260219_nova-micro-v1.md`, the existence of a scout report is evident from the file itself.",
+  "claim_file": "docs/cairn/scout_1555_20260219_nova-micro-v1.md",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-14T21:09:47.161913+00:00"
+}

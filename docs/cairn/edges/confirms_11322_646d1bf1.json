@@ -1,0 +1,11 @@
+{
+  "id": "646d1bf1-5c45-4c12-aada-76b5f043040d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11322_20260414_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1625_20260219_minimax-01.md",
+  "relation": "confirms",
+  "claim_text": "(snippet for brevity) ``` ### Reasoning The claim states that the `weave_corpus` function in `src/yanantin/awaq/__main__.py` is used to discover and compose tensors, and that this likely serves as a base for validation.",
+  "claim_file": "src/yanantin/awaq/__main__.py",
+  "claim_by": "minimax/minimax-01",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-14T00:19:40.832062+00:00"
+}

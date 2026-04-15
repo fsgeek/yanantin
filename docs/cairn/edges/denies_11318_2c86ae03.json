@@ -1,0 +1,11 @@
+{
+  "id": "2c86ae03-4cd1-4174-8548-9b32f3f943f0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11318_20260413_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1964_20260221_gpt-4o-mini-2024-07-18.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I opted not to delve into the specifics of the `src/yanantin/tinkuy` directory's implementation details, particularly the `audit.py` and `succession.py` files, as they were not directly visible in the selected reports.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "openai/gpt-4o-mini-2024-07-18",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-13T23:46:39.604944+00:00"
+}

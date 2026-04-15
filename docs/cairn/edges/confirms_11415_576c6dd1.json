@@ -1,0 +1,11 @@
+{
+  "id": "576c6dd1-7c9e-415d-9173-2cca43ed7547",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11415_20260414_gemma-2-9b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0007_20260212_deepseek-r1-distill-llama-70b.md",
+  "relation": "confirms",
+  "claim_text": "The `chasqui/__main__.py` file shows a mature CLI with multiple operational modes.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "deepseek/deepseek-r1-distill-llama-70b",
+  "verified_by": "google/gemma-2-9b-it",
+  "timestamp": "2026-04-14T12:52:35.350848+00:00"
+}

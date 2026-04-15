@@ -1,0 +1,11 @@
+{
+  "id": "e78d13c3-5d2a-4b5e-af7a-c1d862117015",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11236_20260413_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8756_20260330_gemma-2-9b-it.md",
+  "relation": "denies",
+  "claim_text": "However, the claim also states that the directory contains other files: `compose.py`, `dissent.py`, `evolve.py`, `negate.py`, and `project.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-04-13T13:21:17.857448+00:00"
+}

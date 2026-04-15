@@ -1,0 +1,11 @@
+{
+  "id": "2727e12b-12cb-4990-be6c-c6e5c2aa8642",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11362_20260414_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9692_20260405_glm-4-32b.md",
+  "relation": "confirms",
+  "claim_text": "\"\"\" ``` ### Reasoning The claim states that the `src/yanantin/apacheta/backends` directory includes `arango.py`, `duckdb.py`, and `memory.py` as backend implementations.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-14T05:34:47.769784+00:00"
+}

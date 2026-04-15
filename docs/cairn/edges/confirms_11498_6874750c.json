@@ -1,0 +1,11 @@
+{
+  "id": "6874750c-e7ae-40c5-aecc-5a236af5a88a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11498_20260414_qwen3-coder-next.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3293_20260226_llama-4-maverick.md",
+  "relation": "confirms",
+  "claim_text": "The file `agents/structured_reviewer.md` exists and contains a reference to \"the scout,\" implying a relationship between the two files.",
+  "claim_file": "agents/structured_reviewer.md",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "qwen/qwen3-coder-next",
+  "timestamp": "2026-04-14T23:44:55.276404+00:00"
+}

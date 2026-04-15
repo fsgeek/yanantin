@@ -1,0 +1,11 @@
+{
+  "id": "e6c73c65-4b6a-444f-b61d-e1a651cb9490",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11270_20260413_gpt-5-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4042_20260302_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The file `src/yanantin/apacheta/operators/evolve.py` contains the following line: ```python def evolve(interface: ApachetaInterface, from_version: str, to_version: str, *, fields_added: list[str] | None = None, fields_removed: list[str] | None = None, migration_notes: str = \"\", provenance: ProvenanceEnvelope | None = None) -> SchemaEvolutionRecord: ``` ### Reasoning The claim states that the `yanantin/apacheta` directory contains an operator named `evolve.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "openai/gpt-5-nano",
+  "timestamp": "2026-04-13T17:31:08.093711+00:00"
+}

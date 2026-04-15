@@ -1,0 +1,11 @@
+{
+  "id": "0cfdff30-d139-4a24-a52e-4f6d4066b70d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11614_20260415_voxtral-small-24b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7820_20260325_ernie-4.5-21b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "Modular Design and Backend Parametrization **Observation**: The tests are parametrized across InMemory and DuckDB backends in multiple files, such as `test_activity_store.py` and `test_query_engine.py`.",
+  "claim_file": "tests/unit/test_query_engine.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b",
+  "verified_by": "mistralai/voxtral-small-24b-2507",
+  "timestamp": "2026-04-15T14:51:10.783459+00:00"
+}

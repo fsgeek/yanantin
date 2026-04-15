@@ -1,0 +1,11 @@
+{
+  "id": "d5b07aa0-2bb2-4e7c-80aa-b5ffc7540184",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11405_20260414_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9872_20260406_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "However, upon reviewing the file, there is no mention or reference to the files `correct.py`, `dissent.py`, `evolve.py`, or `project.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-14T11:17:25.214299+00:00"
+}

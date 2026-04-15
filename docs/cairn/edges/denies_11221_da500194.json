@@ -1,0 +1,11 @@
+{
+  "id": "da500194-52d1-423e-a2f6-076bec4a9b8e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11221_20260413_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11198_20260413_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   **DENIED** ### Evidence   The claim states:   > \"Scouts like `scout_3870_20260301_olmo-3.1-32b-instruct.md` confirm this by verifying the mechanism that catches blueprint staleness before instance death.\" The file `scout_3870_20260301_olmo-3.1-32b-instruct.md` contains:   > \"The building inspector: survey the codebase, compare to what the blueprint claims, report discrepancies.",
+  "claim_file": "docs/cairn/scout_3870_20260301_olmo-3.1-32b-instruct.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-13T11:17:08.147761+00:00"
+}

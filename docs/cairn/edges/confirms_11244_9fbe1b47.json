@@ -1,0 +1,11 @@
+{
+  "id": "9fbe1b47-4329-4bb6-a09b-c2980ed32145",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11244_20260413_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8872_20260331_gpt-5-mini.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence Quoted lines from CLAUDE.md: - \"# CLAUDE.md\" - \"**Before you build anything, read `docs/blueprint.md`.**\" - \"For deeper context on predecessor projects, see `docs/predecessors.md`.\" - \"For the tensor sequence and its history, see `docs/tensors.md`.\" - \"Commits are signed.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "openai/gpt-5-mini",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-13T14:23:28.889332+00:00"
+}

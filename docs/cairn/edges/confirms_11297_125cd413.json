@@ -1,0 +1,11 @@
+{
+  "id": "125cd413-4b62-441d-b40b-1bb016cc9422",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11297_20260413_devstral-small.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0880_20260216_gpt-oss-120b.md",
+  "relation": "confirms",
+  "claim_text": "**Inspect a non\u2011trivial report** (e.g., `scout_0231_20260213_qwen3-235b-a22b-2507.md`) that contains a nuanced \u201cDeclared Loss\u201d about semantic vs syntactic verification.",
+  "claim_file": "docs/cairn/scout_0231_20260213_qwen3-235b-a22b-2507.md",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "mistralai/devstral-small",
+  "timestamp": "2026-04-13T21:11:13.823264+00:00"
+}

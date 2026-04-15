@@ -1,0 +1,11 @@
+{
+  "id": "70b1ac4a-0b58-41e7-b29c-79921cebd13b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11543_20260415_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7216_20260321_step-3.5-flash.md",
+  "relation": "denies",
+  "claim_text": "\u2192 But `grader.md` says output path is `{outputs_dir}/../grading.json` (sibling to outputs_dir).",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/skill-creator/skills/skill-creator/agents/grader.md",
+  "claim_by": "stepfun/step-3.5-flash",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-15T05:27:54.287397+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "09098843-57a0-4171-9bb0-ce5cff1dc1cf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11324_20260414_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1798_20260220_llama-4-maverick.md",
+  "relation": "confirms",
+  "claim_text": "Files like `src/yanantin/apacheta/operators/compose.py` and `src/yanantin/apacheta/models/tensor.py` suggest a robust framework for tensor operations.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-04-14T00:48:21.272381+00:00"
+}

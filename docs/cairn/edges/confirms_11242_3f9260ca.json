@@ -1,0 +1,11 @@
+{
+  "id": "3f9260ca-411e-4dd6-a608-728282a6c258",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11242_20260413_grok-4.1-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6434_20260317_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "```python ``` ## Reasoning The claim accurately states that the asserted presence of both `chasqui_heartbeat.sh` and `chasqui_pulse.py` in `.claude` \"is not confirmed\" and that \"the only script explicitly present is `chasqui_pulse.py`\".",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "x-ai/grok-4.1-fast",
+  "timestamp": "2026-04-13T13:53:41.131014+00:00"
+}

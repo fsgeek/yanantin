@@ -1,0 +1,11 @@
+{
+  "id": "24b9a050-445c-4514-b4d8-ca66ad31a347",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11320_20260414_rnj-1-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2254_20260222_nemotron-nano-9b-v2.md",
+  "relation": "confirms",
+  "claim_text": "However, the file's content does not mention or reference the other files listed in the claim (`bootstrap.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, `project.py`).",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "essentialai/rnj-1-instruct",
+  "timestamp": "2026-04-14T00:19:34.920262+00:00"
+}

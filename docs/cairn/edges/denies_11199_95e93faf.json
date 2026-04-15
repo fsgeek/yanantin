@@ -1,0 +1,11 @@
+{
+  "id": "95e93faf-c4ac-4eae-99f1-8cb93a37244e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11199_20260413_glm-4.5-air.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2485_20260223_gpt-oss-20b.md",
+  "relation": "denies",
+  "claim_text": "* **Is there a policy for merging or cherry\u2011picking changes across the multiple `scout` reports?**  The logs show repeated claims, but the governance logic (e.g., `tests/unit/test_governance.py`) is not fully explored.",
+  "claim_file": "tests/red_bar/test_governance.py",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "z-ai/glm-4.5-air",
+  "timestamp": "2026-04-13T08:11:01.788517+00:00"
+}

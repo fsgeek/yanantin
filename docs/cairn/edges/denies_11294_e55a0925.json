@@ -1,0 +1,11 @@
+{
+  "id": "e55a0925-b3f2-4c80-aa90-713284baa808",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11294_20260413_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11181_20260413_devstral-small.md",
+  "relation": "denies",
+  "claim_text": "The claim is solely based on the source code, which is clearly visible and understood.` ### Reasoning The file `docs/cairn/scout_0008_20260212_mistral-nemo.md` contains all the elements mentioned in the claim: - A header with the run number, model name and provider, cost breakdown, token usage, and timestamp.",
+  "claim_file": "docs/cairn/scout_0008_20260212_mistral-nemo.md",
+  "claim_by": "mistralai/devstral-small",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-04-13T20:39:05.460649+00:00"
+}

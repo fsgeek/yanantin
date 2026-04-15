@@ -1,0 +1,11 @@
+{
+  "id": "138fb8f8-f74a-42ac-9dc2-eb5acf4561bf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11309_20260413_deepseek-chat-v3-0324.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7205_20260321_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "This directly contradicts the claim made by `liquid/lfm-2.2-6b` that the provided content does not contain references to operators named `evolve.py` or `dissent.py` handling schema changes formally.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "deepseek/deepseek-chat-v3-0324",
+  "timestamp": "2026-04-13T22:43:26.658394+00:00"
+}

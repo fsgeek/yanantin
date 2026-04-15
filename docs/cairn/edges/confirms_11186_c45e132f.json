@@ -1,0 +1,11 @@
+{
+  "id": "c45e132f-41b9-4e91-85c1-da099a2d8d9d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11186_20260413_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2060_20260221_lfm-2.2-6b.md",
+  "relation": "confirms",
+  "claim_text": "**Result**: The claim is precisely substantiated by foundational configuration and identity records in `docs/signing.md`.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-04-13T06:38:16.979741+00:00"
+}

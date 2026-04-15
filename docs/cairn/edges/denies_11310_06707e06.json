@@ -1,0 +1,11 @@
+{
+  "id": "06707e06-d7a3-4a2c-bb97-6ff68262e17d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11310_20260413_deepseek-r1-distill-qwen-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9342_20260403_qwen3.5-plus-02-15.md",
+  "relation": "denies",
+  "claim_text": "However, for `succession.py` specifically, the claim is demonstrably false \u2014 the interface is not implemented here.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "qwen/qwen3.5-plus-02-15",
+  "verified_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "timestamp": "2026-04-13T22:43:38.718747+00:00"
+}

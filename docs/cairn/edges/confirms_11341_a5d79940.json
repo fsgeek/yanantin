@@ -1,0 +1,11 @@
+{
+  "id": "a5d79940-0c7c-4226-994a-02f9c581d7d2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11341_20260414_nova-2-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6505_20260317_grok-3.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I could not check external files or project history outside of the provided content of `docs/tensors.md` (e.g., `docs/predecessors.md` mentioned in the original claim context).",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "x-ai/grok-3",
+  "verified_by": "amazon/nova-2-lite-v1",
+  "timestamp": "2026-04-14T02:56:40.766868+00:00"
+}

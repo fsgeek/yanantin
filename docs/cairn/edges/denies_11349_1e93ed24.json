@@ -1,0 +1,11 @@
+{
+  "id": "1e93ed24-43ed-4dc5-8fee-ed92e0995d26",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11349_20260414_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0503_20260214_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "I'd like to investigate how `mind palace` tunneling patterns from `apacheta.md` are implemented and whether they provide self-healing capabilities.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-14T03:59:39.215615+00:00"
+}

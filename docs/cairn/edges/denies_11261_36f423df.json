@@ -1,0 +1,11 @@
+{
+  "id": "36f423df-7838-427b-8dc3-fe1bdfdce7a6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11261_20260413_qwen3-vl-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1779_20260220_qwen-2.5-72b-instruct.md",
+  "relation": "denies",
+  "claim_text": "**Evidence:** - The presence of `composer.py` and `compose.py` in the `src/yanantin/apacheta/operators/` directory suggests the capability for composition, but no sample tensors show the result of a composition operation.",
+  "claim_file": ".venv/lib/python3.14/site-packages/yaml/composer.py",
+  "claim_by": "qwen/qwen-2.5-72b-instruct",
+  "verified_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "timestamp": "2026-04-13T16:28:03.211460+00:00"
+}

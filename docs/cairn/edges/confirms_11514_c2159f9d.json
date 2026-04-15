@@ -1,0 +1,11 @@
+{
+  "id": "c2159f9d-5a7f-4ae9-ae90-15556fc2a0fd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11514_20260415_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9893_20260406_mistral-small-2603.md",
+  "relation": "confirms",
+  "claim_text": "- The reasoning confirms this by noting `scout.py` is not mentioned in `succession.py` and that `succession.py` only references other modules.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "mistralai/mistral-small-2603",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-04-15T01:48:32.162201+00:00"
+}

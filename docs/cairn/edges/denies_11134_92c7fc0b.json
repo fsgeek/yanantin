@@ -1,0 +1,11 @@
+{
+  "id": "92c7fc0b-085b-4ae2-b90c-77a47989cda7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11134_20260412_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5622_20260311_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The claim mentions the existence of modules like `arango.py`, `duckdb.py`, `gateway.py`, `openrouter.py`, `markdown_parser.py`, `tensor_ballot.py`, `composition.py`, `tensor.py`, `entities.py`, `compose.py`, `dissent.py`, etc.",
+  "claim_file": "src/yanantin/apacheta/clients/gateway.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-12T23:52:45.554600+00:00"
+}

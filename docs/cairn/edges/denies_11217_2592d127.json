@@ -1,0 +1,11 @@
+{
+  "id": "2592d127-7cfe-4d0c-8a95-877d5f11fe1e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11217_20260413_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8613_20260330_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "Therefore, the claim that there is \u201cno evidence\u201d of more `evolve` calls than `dissent.py` is undermined by the file\u2019s design: it enables dissent but shows no evidence of `evolve` usage.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-13T10:49:20.202476+00:00"
+}

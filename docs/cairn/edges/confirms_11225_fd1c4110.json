@@ -1,0 +1,11 @@
+{
+  "id": "fd1c4110-90e8-4d3d-8462-1f5cceeecf2b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11225_20260413_mistral-large-2411.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5394_20260310_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Skills and Automation** The `skills-reference.md` file caught my attention, as it outlines a framework for creating and invoking skills within the project.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/claude-code-setup/skills/claude-automation-recommender/references/skills-reference.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "mistralai/mistral-large-2411",
+  "timestamp": "2026-04-13T11:49:22.822548+00:00"
+}

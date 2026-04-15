@@ -1,0 +1,11 @@
+{
+  "id": "bbcc6c8c-ff48-4992-8017-b5c26a1836c6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11257_20260413_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10398_20260408_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "Thus, the claim is **denied** because it **overstates** what can be inferred from `scout.py`.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-04-13T15:57:52.918318+00:00"
+}

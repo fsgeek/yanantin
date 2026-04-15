@@ -1,0 +1,11 @@
+{
+  "id": "029b4c78-2e25-46e2-9fc5-bfde618ab965",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11519_20260415_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11312_20260413_ernie-4.5-21b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "The previous scout's detailed analysis of the `evolve.py` file and the denial of the claim about versioned schema migration is technically correct.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-15T02:20:49.922808+00:00"
+}

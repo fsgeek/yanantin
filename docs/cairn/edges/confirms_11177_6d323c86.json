@@ -1,0 +1,11 @@
+{
+  "id": "6d323c86-7688-4f56-8c7e-bbc7e184a958",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11177_20260413_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10341_20260408_devstral-small.md",
+  "relation": "confirms",
+  "claim_text": "Here are some examples: - Line 15-17: ```python def test_tensor_has_provenance(): tensor = TensorRecord() assert isinstance(tensor.provenance, ProvenanceEnvelope) assert tensor.provenance.interface_version == \"v1\" ``` - Line 19-23: ```python def test_composition_edge_has_provenance(): edge = CompositionEdge( from_tensor=uuid4(), to_tensor=uuid4(), relation_type=RelationType.COMPOSES_WITH, ) assert isinstance(edge.provenance, ProvenanceEnvelope) ``` - Line 25-29: ```python def test_correction_has_provenance(): corr = CorrectionRecord( target_tensor=uuid4(), original_claim=\"old\", corrected_claim=\"new\", ) assert isinstance(corr.provenance, ProvenanceEnvelope) ``` ### Reasoning The evidence supports the claim that `tests/red_bar/test_provenance.py` verifies the presence of provenance in various record types.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "mistralai/devstral-small",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-04-13T05:35:10.049763+00:00"
+}

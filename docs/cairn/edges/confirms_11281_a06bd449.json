@@ -1,0 +1,11 @@
+{
+  "id": "a06bd449-759b-4113-94e8-92b43b916bff",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11281_20260413_qwen-2.5-72b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10538_20260409_gpt-4.1-mini.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states: \"The provided file is indeed named `composition.py`, which suggests that it should contain the content related to `composition.py`.\" - The filename matches exactly: `composition.py`.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "openai/gpt-4.1-mini",
+  "verified_by": "qwen/qwen-2.5-72b-instruct",
+  "timestamp": "2026-04-13T19:05:23.797531+00:00"
+}

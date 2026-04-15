@@ -1,0 +1,11 @@
+{
+  "id": "c1d9e971-f6bf-414d-9b32-f29701d3d753",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11366_20260414_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8030_20260326_llama-3.2-1b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### The File Here is the actual content of `src/yanantin/apacheta/models/composition.py`: ``` \"\"\"Composition models \u2014 edges, corrections, dissent, negation, bootstrap, evolution.\"\"\" from __future__ import annotations from enum import Enum from uuid import UUID, uuid4 from pydantic import Field from yanantin.apacheta.models.base import ApachetaBaseModel from yanantin.apacheta.models.provenance import ProvenanceEnvelope class RelationType(str, Enum): \"\"\"How two tensors relate compositionally.\"\"\" COMPOSES_WITH = \"composes_with\" CORRECTS = \"corrects\" REFINES = \"refines\" BRIDGES = \"bridges\" BRANCHES_FROM = \"branches_from\" DOES_NOT_COMPOSE_WITH = \"does_not_compose_with\" DISSENTS_FROM = \"dissents_from\" CONFIRMS = \"confirms\" DENIES = \"denies\" DEPENDS_ON = \"depends_on\" class CompositionEdge(ApachetaBaseModel): \"\"\"A directed edge between two tensors.\"\"\" id: UUID = Field(default_factory=uuid4) from_tensor: UUID to_tensor: UUID relation_type: RelationType ordering: int = 0 authored_mapping: str | None = None provenance: ProvenanceEnvelope = Field(default_factory=ProvenanceEnvelope) class CorrectionRecord(ApachetaBaseModel): \"\"\"A correction to a prior claim.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "meta-llama/llama-3.2-1b-instruct",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-04-14T06:03:31.448060+00:00"
+}

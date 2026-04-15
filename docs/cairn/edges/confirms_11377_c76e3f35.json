@@ -1,0 +1,11 @@
+{
+  "id": "c76e3f35-4d0b-4156-8e37-8be2eb61b085",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11377_20260414_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8692_20260330_deepseek-v3.1-nex-n1.md",
+  "relation": "confirms",
+  "claim_text": "The directory contains many others (`test_activity_store.py`, `test_analyst.py`, `test_arango_independent.py`, `test_attestation.py`, `test_awaq_weaver.py`, `test_chasqui.py`, etc.).",
+  "claim_file": "tests/unit/test_analyst.py",
+  "claim_by": "nex-agi/deepseek-v3.1-nex-n1",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-14T07:37:33.227480+00:00"
+}

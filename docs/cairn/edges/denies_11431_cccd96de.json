@@ -1,0 +1,11 @@
+{
+  "id": "cccd96de-c706-44a8-b95a-473da10ac19c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11431_20260414_ernie-4.5-21b-a3b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7436_20260322_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "*   `wiggle.py` - line 23: `from core.easing import interpolate` - highlights the importance of animation control.",
+  "claim_file": "tmp/ubuntu-vm.claude/slack-gif-creator/templates/wiggle.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "timestamp": "2026-04-14T15:01:25.464881+00:00"
+}

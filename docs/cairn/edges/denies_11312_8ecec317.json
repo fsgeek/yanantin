@@ -1,0 +1,11 @@
+{
+  "id": "8ecec317-9bb8-44d4-9978-6be3e89a663f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11312_20260413_ernie-4.5-21b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8010_20260326_seed-1.6-flash.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The provided content of `src/yanantin/chasqui/scout.py` does not mention or reference either `scout_3234_20260226_mistral-small-24b-instruct-250.md` or `scour_0323_20260303_gpt-oss-20b.md`, nor does it discuss critiques of \"specification by example\" interpretations of tests or introspection of the `src/yanantin/chasqui` package in the manner described.",
+  "claim_file": "docs/cairn/scout_3234_20260226_mistral-small-24b-instruct-250.md",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "baidu/ernie-4.5-21b-a3b",
+  "timestamp": "2026-04-13T23:15:48.424799+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "ca922d29-f28a-4f1c-906b-b67172a35178",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11534_20260415_devstral-small.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3506_20260227_unslopnemo-12b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states that files like `docs/blueprint.md`, `docs/predecessors.md`, and `docs/tensors.md` provide high-level overviews.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "thedrummer/unslopnemo-12b",
+  "verified_by": "mistralai/devstral-small",
+  "timestamp": "2026-04-15T04:25:08.414767+00:00"
+}

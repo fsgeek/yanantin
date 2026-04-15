@@ -1,0 +1,11 @@
+{
+  "id": "a17a6ea0-3927-45d2-ac43-0f2ffb7e1521",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11326_20260414_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11068_20260412_deepseek-v3.1-nex-n1.md",
+  "relation": "confirms",
+  "claim_text": "**Confusing / notable:** - The coordination between `attestation.py` and `coordinator.py` (where verification happens) isn\u2019t visible here.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "nex-agi/deepseek-v3.1-nex-n1",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-04-14T00:49:08.669042+00:00"
+}

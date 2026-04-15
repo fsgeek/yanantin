@@ -1,0 +1,11 @@
+{
+  "id": "04afcfce-4269-477b-9915-b1a6a6da9c9e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11373_20260414_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10268_20260408_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "**PDF Form Filling** The script `fill_pdf_form_with_annotations.py` fills a PDF form with data from a JSON file.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/scripts/fill_pdf_form_with_annotations.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-04-14T07:05:32.003501+00:00"
+}

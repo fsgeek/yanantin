@@ -1,0 +1,11 @@
+{
+  "id": "58744af7-df2c-4941-98ec-98cf10b7fa41",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11516_20260415_qwen3.5-plus-02-15.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2893_20260225_qwq-32b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **DENIED**   ### Evidence   The entire content of `docs/predecessors.md` is provided and contains multiple sections describing predecessor projects (e.g., Indaleko, Mallku, ai-honesty, etc.), their contributions, and repositories.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "qwen/qwq-32b",
+  "verified_by": "qwen/qwen3.5-plus-02-15",
+  "timestamp": "2026-04-15T01:49:40.848368+00:00"
+}

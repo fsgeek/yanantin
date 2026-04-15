@@ -1,0 +1,11 @@
+{
+  "id": "40b51eb2-b92b-4ee6-a085-62c5505302da",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11314_20260413_glm-4.7-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0223_20260213_gemini-2.5-flash-lite.md",
+  "relation": "denies",
+  "claim_text": "The testing in `test_duckdb_independent.py` highlights a strong emphasis on data integrity, immutability, and robust handling of various data types and edge cases, which is crucial for epistemic observability.\" }, { \"theme\": \"Tinkuy: Governance and Auditing\", \"observation\": \"The `src/yanantin/tinkuy/` directory, with its `__init__.py` and files like `audit.py` and `succession.py`, appears to be the 'governance infrastructure' for Yanantin.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "z-ai/glm-4.7-flash",
+  "timestamp": "2026-04-13T23:16:05.935989+00:00"
+}

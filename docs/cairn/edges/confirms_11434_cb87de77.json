@@ -1,0 +1,11 @@
+{
+  "id": "cb87de77-21ea-4958-a52f-aa29d1f9467a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11434_20260414_rocinante-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0980_20260216_gemma-3-4b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses *   I prioritized the review of `src/yanantin/apacheta/models/tensor.py` and `docs/cairn/scout_0159_20260212_lfm-2.2-6b.md` over examining the full extent of the `agents/structured_reviewer.md` file \u2013 a conscious choice to focus on the core architectural principles.",
+  "claim_file": "agents/structured_reviewer.md",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "thedrummer/rocinante-12b",
+  "timestamp": "2026-04-14T15:25:55.348182+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "ad5360c3-2207-4e1d-82ce-f80f3d3d5593",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11412_20260414_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9759_20260405_qwen3-coder-flash.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: The Role of \"Tony\" as Temporal Continuity In several tensors (e.g., `scour_0420_20260307_deepseek-chat-v3.1.md`, `scout_7400_20260322_granite-4.0-h-micro.md`), the human participant Tony is described not as a client but as a co-equal participant and the clock that maintains continuity.",
+  "claim_file": "docs/cairn/scout_7400_20260322_granite-4.0-h-micro.md",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-04-14T12:19:24.692455+00:00"
+}

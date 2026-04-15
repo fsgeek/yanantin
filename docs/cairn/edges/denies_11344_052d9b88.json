@@ -1,0 +1,11 @@
+{
+  "id": "052d9b88-42cb-416b-804a-7587da9d373a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11344_20260414_llama-4-scout.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8180_20260327_minimax-m1.md",
+  "relation": "denies",
+  "claim_text": "Searching through the entire file, the imports and references are: - `from yanantin.collector.pipeline import open_store` - `from yanantin.jabberwock import Brillig` - `from yanantin.jabberwock import (JABBERWOCK_PROVIDER, RATH_PROVIDER, TOVE_PROVIDER, VORPAL_PROVIDER, Brillig,)` There are no references to `weaver.py` anywhere in the file.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "minimax/minimax-m1",
+  "verified_by": "meta-llama/llama-4-scout",
+  "timestamp": "2026-04-14T03:29:42.739822+00:00"
+}

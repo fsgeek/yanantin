@@ -1,0 +1,11 @@
+{
+  "id": "f6897193-036e-4d3e-91f6-c9878436d5d8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11211_20260413_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7224_20260321_kimi-k2.md",
+  "relation": "confirms",
+  "claim_text": "`design-playground.md`: \u201cApply state values directly to a preview element\u2019s inline styles.\u201d   `code-map.md`: \u201c`const visibleNodes = nodes.filter(n => state.layers[n.layer])`.\u201d   `state` is the *deus ex machina* that remembers slider positions, checkbox ticks, and your half-written comment\u2014yet it lives only in the narrative, not in imports or Redux or React.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/playground/skills/playground/templates/design-playground.md",
+  "claim_by": "moonshotai/kimi-k2",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-04-13T09:45:23.431509+00:00"
+}

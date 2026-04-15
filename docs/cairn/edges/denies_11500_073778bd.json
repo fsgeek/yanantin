@@ -1,0 +1,11 @@
+{
+  "id": "073778bd-f85d-40da-b193-943935b9d65a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11500_20260414_qwen3-coder-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7080_20260321_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses *   **The Code Logic:** I did not read the actual Python code in `src/yanantin/chasqui/scout.py` or `gleaner.py`.",
+  "claim_file": "src/yanantin/chasqui/gleaner.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "qwen/qwen3-coder-flash",
+  "timestamp": "2026-04-14T23:44:57.700648+00:00"
+}

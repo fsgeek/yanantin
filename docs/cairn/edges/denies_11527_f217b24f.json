@@ -1,0 +1,11 @@
+{
+  "id": "f217b24f-a84b-4fd9-96ba-cb7cc651eae9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11527_20260415_cogito-v2.1-671b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5572_20260311_olmo-3-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   CONFIRMED ### Evidence   From the file's docstring: > \"Weaver \u2014 extract composition declarations from tensor prose.\" and > \"The file's docstring directly states its purpose: 'Weaver \u2014 extract composition declarations from tensor prose.'\" This directly supports the claim that `scout_3701_20260228_molmo-2-8b.md`'s docstring in `weaver.py` is cited as evidence for the stated function.",
+  "claim_file": "docs/cairn/scout_3701_20260228_molmo-2-8b.md",
+  "claim_by": "allenai/olmo-3-7b-instruct",
+  "verified_by": "deepcogito/cogito-v2.1-671b",
+  "timestamp": "2026-04-15T03:23:57.171965+00:00"
+}

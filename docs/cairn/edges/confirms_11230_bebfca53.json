@@ -1,0 +1,11 @@
+{
+  "id": "bebfca53-a531-4b50-9d1f-0f2c23aaf25d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11230_20260413_qwen2.5-coder-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4952_20260307_lfm-2-24b-a2b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The claim states:   > - **Implementation Details:** I chose not to examine the implementation details of the databases (`arango.py`, `duckdb.py`), the client abstractions (`openrouter.py`), and the renderer (`markdown.py`).",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "qwen/qwen2.5-coder-7b-instruct",
+  "timestamp": "2026-04-13T12:19:24.364573+00:00"
+}

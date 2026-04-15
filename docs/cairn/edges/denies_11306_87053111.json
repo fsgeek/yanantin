@@ -1,0 +1,11 @@
+{
+  "id": "87053111-b787-4ded-a389-36511384d660",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11306_20260413_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8916_20260331_deepseek-r1-distill-qwen-32b.md",
+  "relation": "denies",
+  "claim_text": "These files (e.g., `scout_0110_20260212_cydonia-24b-v4.1.md`, `scout_0053_20260212_llama-3.2-1b-instruct.md`, `scout_0189_20260213_ministral-8b-2512.md`) detail a 'Run', the 'Model' used, 'Cost' and 'Usage' statistics, a 'Timestamp', a 'Verdict' (CONFIRMED, DENIED, INDETERMINATE), 'Evidence', 'Reasoning', and 'Declared Losses'.",
+  "claim_file": "docs/cairn/scout_0110_20260212_cydonia-24b-v4.1.md",
+  "claim_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-04-13T22:13:17.878244+00:00"
+}

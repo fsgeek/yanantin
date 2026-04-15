@@ -1,0 +1,11 @@
+{
+  "id": "6629be21-0ae6-46e8-87f6-f4b953b44246",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11651_20260415_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0939_20260216_gpt-4o-mini-search-preview.md",
+  "relation": "denies",
+  "claim_text": "- The file also mentions tests such as `test_arango_independent.py` and `test_provenance.py` in the `tests/unit/` directory, indicating that the project has comprehensive test suites.",
+  "claim_file": "tests/unit/test_arango_independent.py",
+  "claim_by": "openai/gpt-4o-mini-search-preview",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-15T19:29:50.980220+00:00"
+}

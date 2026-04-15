@@ -1,0 +1,11 @@
+{
+  "id": "4c66480a-a36c-43ea-8f51-fcb14871ff69",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11649_20260415_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11024_20260412_nemotron-nano-9b-v2.md",
+  "relation": "denies",
+  "claim_text": "The presence of both academic tests (`test-academic.md`) and production-like pressure tests (`test-pressure-1.md`, `test-pressure-2.md`) suggests a deliberate design to simulate edge cases.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/skills/systematic-debugging/test-pressure-1.md",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-15T19:29:50.180340+00:00"
+}

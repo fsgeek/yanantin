@@ -1,0 +1,11 @@
+{
+  "id": "98c361f5-ac7c-4c9a-99f1-86b78a093c5b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11650_20260415_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10890_20260411_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "The claim is about the role of `evolve.py` in handling schema evolution, which is clearly documented and implemented in the provided code.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-04-15T19:29:50.740841+00:00"
+}

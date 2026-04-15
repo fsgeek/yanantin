@@ -1,0 +1,11 @@
+{
+  "id": "bb1c14ab-88cf-49d0-9207-8239f4cfa9c3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11567_20260415_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10785_20260411_ernie-4.5-vl-28b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "**Reference**:   - `pack.py` line 36: `validate=not args.force`   - `pack.py` line 55: `if args.force: ...`   - `pack.py` line 69: `if not success: ...`   #### Strand 2: Redlining Validation (Word-Specific)   **Observation**:   The `validation/redlining.py` module contains a `RedliningValidator` class that checks for **tracked changes** by \"Claude\" (the model?) in `.docx` files.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/pack.py",
+  "claim_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-15T08:38:00.399382+00:00"
+}

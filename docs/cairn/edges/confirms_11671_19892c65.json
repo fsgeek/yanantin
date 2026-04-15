@@ -1,0 +1,11 @@
+{
+  "id": "19892c65-730c-4955-ba4c-0c31dfa91ff5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11671_20260415_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0815_20260216_ministral-14b-2512.md",
+  "relation": "confirms",
+  "claim_text": "- **No operators** in `src/yanantin/apacheta/operators/` mention \"epistemic\" logic (e.g., `evolve.py` handles schema changes, not truth evaluation).",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-04-15T22:07:31.882252+00:00"
+}

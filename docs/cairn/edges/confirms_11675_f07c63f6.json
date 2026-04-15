@@ -1,0 +1,11 @@
+{
+  "id": "f07c63f6-7f03-45d5-98b7-677e81232b0d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11675_20260415_deepseek-r1-distill-qwen-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11283_20260413_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "### Closing In summary, `wss_monitor.py` appears to be a key component in the Yanantin project, focusing on measuring and visualizing the effects of interventions on working set size and tool overhead.",
+  "claim_file": "tools/phase1/wss_monitor.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "timestamp": "2026-04-15T22:36:56.699968+00:00"
+}

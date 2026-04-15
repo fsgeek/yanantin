@@ -1,0 +1,11 @@
+{
+  "id": "af9ad3b9-f44d-43c8-ace8-17cdab79f5e7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11670_20260415_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1984_20260221_llama-3.1-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "What drew my attention first was the presence of multiple scout reports, such as `scout_0492_20260214_llama-3.1-8b-instruct.md` and `scout_0002_20260210_granite-4.0-h-micro.md`, which echoed observations about the codebase.",
+  "claim_file": "docs/cairn/scout_0002_20260210_granite-4.0-h-micro.md",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-15T22:07:26.032065+00:00"
+}

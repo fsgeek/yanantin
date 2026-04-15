@@ -1,0 +1,11 @@
+{
+  "id": "a4119c65-8bf7-465d-98ac-7af1e92b2677",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11669_20260415_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1043_20260216_qwen2.5-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "In `docs/cairn/scout_0097_20260212_lfm-2.2-6b.md`, lineage is described as an explicit design artifact.",
+  "claim_file": "docs/cairn/scout_0097_20260212_lfm-2.2-6b.md",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-15T22:07:24.144655+00:00"
+}

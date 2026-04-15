@@ -1,0 +1,11 @@
+{
+  "id": "6e2e7809-27e6-4215-bb15-39f227991253",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11673_20260415_hermes-3-llama-3.1-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10348_20260408_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "### Tensor of Observation: Yanantin Project Client Interface #### Preamble From my vantage in the `src/yanantin/apacheta/clients/` directory, I observed an initialization script (`__init__.py`) and two potential client interface files (`gateway.py` and `openrouter.py`).",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "timestamp": "2026-04-15T22:36:26.331844+00:00"
+}

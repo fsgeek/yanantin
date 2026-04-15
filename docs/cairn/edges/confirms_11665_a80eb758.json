@@ -1,0 +1,11 @@
+{
+  "id": "a80eb758-f574-4ea8-9025-414f3a58e742",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11665_20260415_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5186_20260309_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "The content of `src/yanantin/chasqui/scout.py` clearly includes code related to verification, including the `format_verify_prompt` function and the `VERIFY_SYSTEM_PROMPT` and `VERIFY_TEMPLATE` constants.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-04-15T21:34:14.520444+00:00"
+}

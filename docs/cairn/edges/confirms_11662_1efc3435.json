@@ -1,0 +1,11 @@
+{
+  "id": "1efc3435-c7e8-458a-bc7a-d41b85984874",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11662_20260415_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7711_20260324_deepseek-r1-distill-qwen-32b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim mentions that `operators/` includes `compose.py` and `correct.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-04-15T21:04:17.768199+00:00"
+}

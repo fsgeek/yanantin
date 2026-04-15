@@ -1,0 +1,11 @@
+{
+  "id": "a3ca725e-39d9-4f4f-8097-33b723fad57e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11663_20260415_qwen3-14b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3631_20260228_nemotron-3-nano-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "Some scout reports (e.g., `scout_0981_20260216_llama-4-scout.md`) claim that this file is \u201cnot present,\u201d but the file itself is clearly present and populated, confirming the existence of a documented predecessor catalogue.",
+  "claim_file": "docs/cairn/scout_0981_20260216_llama-4-scout.md",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "qwen/qwen3-14b",
+  "timestamp": "2026-04-15T21:04:32.665327+00:00"
+}

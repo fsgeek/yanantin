@@ -1,0 +1,11 @@
+{
+  "id": "95eeac5b-7cbd-44a5-a5f1-436d6842edb0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11667_20260415_nova-pro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9720_20260405_gemma-2-9b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict DENIED ### Evidence > The claim states: \"However, a review of the provided `__main__.py` file does not include any import statement for `weaver.py`.\" The provided file `src/yanantin/jabberwock/__main__.py` does not contain any import statements for `weaver.py`.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "amazon/nova-pro-v1",
+  "timestamp": "2026-04-15T21:34:15.627907+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "8d8d9302-eb23-4fba-981a-7f0e5929837b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11661_20260415_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4043_20260302_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "**Runtime Behavior**: I saw `src/yanantin/tinkuy/__main__.py` in the tree, which defines CLI commands (`--check`, `--check-orphans`).",
+  "claim_file": "src/yanantin/tinkuy/__main__.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-15T21:04:15.723836+00:00"
+}

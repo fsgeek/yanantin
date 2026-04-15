@@ -1,0 +1,11 @@
+{
+  "id": "b7b5cf45-9578-4286-a649-df73df3c6c22",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11535_20260415_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8835_20260331_voxtral-small-24b-2507.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `src/yanantin/provenance/timestamp.py` contains the following lines: ```python \"\"\"OpenTimestamps integration for git commit provenance.",
+  "claim_file": "src/yanantin/provenance/timestamp.py",
+  "claim_by": "mistralai/voxtral-small-24b-2507",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-04-15T04:25:10.315470+00:00"
+}

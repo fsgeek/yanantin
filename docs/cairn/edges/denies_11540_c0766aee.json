@@ -1,0 +1,11 @@
+{
+  "id": "c0766aee-5cfe-476a-9cde-f230f26c82a4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11540_20260415_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9861_20260406_relace-search.md",
+  "relation": "denies",
+  "claim_text": "The file `src/yanantin/apacheta/clients/openrouter.py` is a straightforward Python implementation of an OpenRouter API client.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "relace/relace-search",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-04-15T04:56:01.031500+00:00"
+}

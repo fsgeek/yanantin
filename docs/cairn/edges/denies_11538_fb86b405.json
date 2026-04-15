@@ -1,0 +1,11 @@
+{
+  "id": "fb86b405-57e0-4b4d-9597-ef81682baf87",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11538_20260415_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10325_20260408_nova-micro-v1.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence \"The project uses a 'blue-bar' testing approach to verify the correctness of the system's behavior in a more general sense (found in `yanantin/.github/workflows/separation.yml` line 25).\" ### Reasoning The claim states that the \u201cblue-bar\u201d tests seem to be more exploratory, verifying behavior in edge cases.",
+  "claim_file": ".github/workflows/separation.yml",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-04-15T04:55:56.512401+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "4c970e07-f0ca-4821-bb78-c1c9f8e39da8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11532_20260415_deepseek-v3.2-exp.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8126_20260326_qwen-plus-2025-07-28.md",
+  "relation": "denies",
+  "claim_text": "It asks: \u201cWhat is the actual purpose of `succession.py`?\u201d   You found a file `tensor_session_20260306_gateway.md` and `tensor_session_20260303_pichay.md`.",
+  "claim_file": "docs/cairn/tensor_session_20260306_gateway.md",
+  "claim_by": "qwen/qwen-plus-2025-07-28",
+  "verified_by": "deepseek/deepseek-v3.2-exp",
+  "timestamp": "2026-04-15T03:53:12.773631+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "cca042a7-b90c-4c29-8237-16c4e79c4878",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11531_20260415_gemini-2.5-flash-lite-preview-.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1963_20260221_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "I would like to extend this strand by exploring the tensor schema in `src/yanantin/apacheta/models/tensor.py`.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "timestamp": "2026-04-15T03:52:58.905618+00:00"
+}

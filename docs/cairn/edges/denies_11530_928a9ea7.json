@@ -1,0 +1,11 @@
+{
+  "id": "928a9ea7-9328-4da7-86f9-26d234f5d8a8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11530_20260415_gemini-2.5-flash-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9767_20260405_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "The names of the files \u2013 `write-plan.md`, `execute-plan.md`, and `brainstorm.md` \u2013 immediately suggest a structured approach to development, almost like a carefully choreographed process.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/commands/execute-plan.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "google/gemini-2.5-flash-lite",
+  "timestamp": "2026-04-15T03:52:58.625312+00:00"
+}

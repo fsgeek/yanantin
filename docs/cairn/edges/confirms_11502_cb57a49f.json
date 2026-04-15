@@ -1,0 +1,11 @@
+{
+  "id": "cb57a49f-00c2-43c1-af7b-2c757984de5b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11502_20260415_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6980_20260320_olmo-3-7b-think.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict: **CONFIRMED**   ### Evidence:   The claim that `scout.py`'s prompts are \"also likely in this module\" is **CONFIRMED**.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "allenai/olmo-3-7b-think",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-04-15T00:16:57.004731+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "bd1a8021-af25-45ef-820d-30921458930f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11503_20260415_claude-haiku-4.5.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3132_20260226_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "Consider:   - In `T3_20260208_the_finishing_school.md`, Tony says: *\u201cThe corrections were not about facts.",
+  "claim_file": "docs/cairn/T3_20260208_the_finishing_school.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "anthropic/claude-haiku-4.5",
+  "timestamp": "2026-04-15T00:16:57.588706+00:00"
+}

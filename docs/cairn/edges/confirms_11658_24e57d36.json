@@ -1,0 +1,11 @@
+{
+  "id": "24e57d36-7ef6-490f-aaf4-11da91f6372e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11658_20260415_grok-4.20-multi-agent.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9983_20260406_qwen-2.5-coder-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence ```python from yanantin.apacheta.interface.abstract import ApachetaInterface from yanantin.apacheta.models.tensor import StrandRecord ``` ### Reasoning The claim states that there are no references, imports, comments, or definitions for `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `negate.py`, or `project.py` in the provided source.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "qwen/qwen-2.5-coder-32b-instruct",
+  "verified_by": "x-ai/grok-4.20-multi-agent",
+  "timestamp": "2026-04-15T20:32:18.188968+00:00"
+}

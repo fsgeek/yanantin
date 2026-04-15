@@ -1,0 +1,11 @@
+{
+  "id": "0196244c-e545-4381-bd00-e9c2fb3bf1bc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11657_20260415_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5315_20260309_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "``` (The entire file was scanned and no line mentions `scourer.py`.) ### Reasoning The claim states that a separate markdown report (`scour_0080_20260218_gpt-oss-20b.md`) **explicitly says** that `scout.py` contains no reference to `scourer.py`.",
+  "claim_file": "docs/cairn/scour_0080_20260218_gpt-oss-20b.md",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-04-15T20:32:15.814343+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "e6962e17-b5a3-4d3e-8740-8eda59701ad9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11654_20260415_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7993_20260326_gpt-oss-20b.md",
+  "relation": "denies",
+  "claim_text": "**Preamble**   I landed in a tiny \u201cexamples\u201d directory that contains two large Markdown docs: `agent-creation-prompt.md` and `complete-agent-examples.md`.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/agent-development/examples/agent-creation-prompt.md",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-15T20:03:10.087182+00:00"
+}

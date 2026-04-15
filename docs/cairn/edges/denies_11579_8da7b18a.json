@@ -1,0 +1,11 @@
+{
+  "id": "8da7b18a-2342-4c8b-b924-73f2feca8701",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11579_20260415_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1231_20260217_qwen3-8b.md",
+  "relation": "denies",
+  "claim_text": "--- #### Strand 2: Tensor as Authored Loss **What I saw**   - `docs/cairn/scout_0001_20260210_ministral-3b.md` defines a \"tensor ballot\" in `src/yanantin/apacheta/ingest/tensor_ballot.py`, which includes: ```python class TensorBallot: def __init__(self, tensor: TensorRecord, losses: list[str]): self.tensor = tensor self.losses = losses ```   - `docs/cairn/scout_0002_20260210_deepseek-chat-v3.1.md` and `scout_0002_20260210_granite-4.0-h-micro.md` both reference `src/yanantin/apacheta/models/tensor.py`, which includes: ```python class TensorRecord: def __init__(self, content: str, losses: list[str], vantage: str): self.content = content self.losses = losses self.vantage = vantage ```   - Tensors are **bounded** (e.g., `T0_20260207_bounded_verification.md` says \"bounded verification\").",
+  "claim_file": "docs/cairn/scout_0002_20260210_granite-4.0-h-micro.md",
+  "claim_by": "qwen/qwen3-8b",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-15T10:09:59.704010+00:00"
+}

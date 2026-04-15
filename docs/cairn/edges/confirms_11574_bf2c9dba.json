@@ -1,0 +1,11 @@
+{
+  "id": "bf2c9dba-f032-4561-996a-232acccc65e2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11574_20260415_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10703_20260410_mistral-small-creative.md",
+  "relation": "confirms",
+  "claim_text": "The actual source code of `weaver.py` (to verify its imports), **or** 2.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-04-15T09:42:09.438485+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "2f2106e6-d71c-45f2-bfc0-7cb2c19c8db6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11580_20260415_llama-3.3-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6203_20260315_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** --- ### Evidence The following lines from `docs/cairn/scout_3077_20260226_qwen-turbo.md` directly support the claim: 1.",
+  "claim_file": "docs/cairn/scout_3077_20260226_qwen-turbo.md",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "meta-llama/llama-3.3-70b-instruct",
+  "timestamp": "2026-04-15T10:10:03.528144+00:00"
+}

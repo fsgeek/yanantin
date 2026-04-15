@@ -20,6 +20,7 @@ dependencies = [
     "prometheus-client>=0.24.1",
     "anthropic>=0.84.0",
     "desk>=1.9.1",
+    "docker>=7.1.0",
 ]
 
 [project.optional-dependencies]

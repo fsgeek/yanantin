@@ -1,0 +1,11 @@
+{
+  "id": "0722d836-21d8-4dd0-a840-21f5c1e079ce",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11633_20260415_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4563_20260305_deepseek-v3.2.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I could not check whether `composition.py` exists in the project or its content, as I was only given the content of `epistemics.py`.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "deepseek/deepseek-v3.2",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-04-15T17:25:46.820093+00:00"
+}

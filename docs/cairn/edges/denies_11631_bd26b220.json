@@ -1,0 +1,11 @@
+{
+  "id": "bd26b220-2f66-416c-ab8a-50778218da23",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11631_20260415_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5536_20260311_gpt-4.1-mini.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states: \"The claim's statement that 'only the contents of `pyproject.toml` were provided' is false in this context, as `CLAUDE.md` was provided.\"   However, the only file content given here is the content of `pyproject.toml`.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "openai/gpt-4.1-mini",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-15T16:55:47.031231+00:00"
+}

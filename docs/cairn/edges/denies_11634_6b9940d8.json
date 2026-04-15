@@ -1,0 +1,11 @@
+{
+  "id": "6b9940d8-69d2-4181-9ab9-d890bacc6f35",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11634_20260415_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6076_20260315_qwen-plus-2025-07-28.md",
+  "relation": "denies",
+  "claim_text": "``` Also: ```python @pytest.fixture def db(mock_arango_client): \"\"\"Fresh ArangoDB backend for each test (mocked).\"\"\" mock_client, collections = mock_arango_client backend = ArangoDBBackend( host=\"http://mock:8529\", db_name=\"apacheta\", username=\"mock_user\", password=\"mock_password\", ) yield backend backend.close() ``` ### Reasoning   The claim states that `test_arango_independent.py` \"validate[s] the Arango back-end\" alongside `test_arango_real.py`, implying both are integration tests using a real ArangoDB instance.",
+  "claim_file": "tests/integration/test_arango_real.py",
+  "claim_by": "qwen/qwen-plus-2025-07-28",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-04-15T17:25:48.609633+00:00"
+}

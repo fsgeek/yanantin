@@ -1,21 +1,21 @@
 """Integration tests for ArangoDB backend against REAL ArangoDB instance.
 
-These tests connect to a live ArangoDB server at 192.168.111.125:8529
-using a dedicated test database (apacheta_test). No mocks. No fakes.
+These tests connect to a live ArangoDB server using a dedicated test
+database (apacheta_test). No mocks. No fakes.
 
 If ArangoDB is unavailable, all tests skip gracefully.
 
 Connection details:
-- Host: http://192.168.111.125:8529
+- Host: from YANANTIN_ARANGO_HOST environment variable
 - Database: apacheta_test (test database, NOT production)
-- Admin user (root) used ONLY for database creation/teardown
-- Test user (apacheta_test) used for all actual test operations
+- Test user credentials from YANANTIN_ARANGO_USER / YANANTIN_ARANGO_PASSWORD
 
 Design:
-- Session-scoped fixture uses root to create/drop test database (admin op)
+- Session-scoped fixture verifies test database is reachable
 - Function-scoped fixture connects with least-privilege test user
 - Every test runs against real ArangoDB with least-privilege credentials
 - Tests verify behavioral equivalence with InMemoryBackend
+- Database and user setup handled by: uv run python -m yanantin.infra setup
 """
 
 import os
@@ -47,25 +47,19 @@ from yanantin.apacheta.models import (
 )
 
 # Connection parameters — from .env via root conftest.py
-ARANGO_HOST = os.environ.get("YANANTIN_ARANGO_HOST", "http://192.168.111.125:8529")
-ARANGO_DB = "apacheta_test"
-
-# Admin credentials — ONLY for database creation/teardown (session fixture)
-ARANGO_ADMIN_USER = os.environ.get("ARANGO_ADMIN_USER", "root")
-ARANGO_ADMIN_PASSWORD = os.environ.get("ARANGO_ADMIN_PASSWORD", "")
-
-# Least-privilege test credentials — used for ALL test operations
-ARANGO_TEST_USER = os.environ.get("ARANGO_TEST_USER", "apacheta_test")
-ARANGO_TEST_PASSWORD = os.environ.get("ARANGO_TEST_PASSWORD", "")
+ARANGO_HOST = os.environ.get("YANANTIN_ARANGO_HOST", "http://localhost:8529")
+ARANGO_DB = os.environ.get("YANANTIN_ARANGO_DB", "apacheta_test")
+ARANGO_USER = os.environ.get("YANANTIN_ARANGO_USER", "apacheta_test")
+ARANGO_PASSWORD = os.environ.get("YANANTIN_ARANGO_PASSWORD", "")
 
 
 def check_arango_available() -> bool:
-    """Check if ArangoDB is reachable. Returns True if available, False otherwise."""
+    """Check if ArangoDB test database is reachable with test credentials."""
     try:
         from arango import ArangoClient
         client = ArangoClient(hosts=ARANGO_HOST)
-        sys_db = client.db("_system", username=ARANGO_ADMIN_USER, password=ARANGO_ADMIN_PASSWORD)
-        sys_db.databases()
+        db = client.db(ARANGO_DB, username=ARANGO_USER, password=ARANGO_PASSWORD)
+        db.collections()
         client.close()
         return True
     except Exception:
@@ -74,45 +68,19 @@ def check_arango_available() -> bool:
 
 @pytest.fixture(scope="session")
 def arango_session():
-    """Session-scoped fixture: check connectivity and create clean test database.
+    """Session-scoped fixture: verify test database is reachable.
 
-    This fixture:
-    1. Checks if ArangoDB is reachable
-    2. If not reachable, skips all tests in this module
-    3. If reachable, drops and recreates apacheta_test database for clean state
-    4. Yields nothing (backends are created per-test)
-    5. Cleanup happens via function-scoped fixtures
+    Precondition: database and user created by infra setup tool.
+    Run `uv run python -m yanantin.infra setup` before running
+    integration tests. This fixture only checks connectivity —
+    no admin operations, no database creation, no user management.
     """
     if not check_arango_available():
-        pytest.skip(f"ArangoDB not available at {ARANGO_HOST}")
-
-    from arango import ArangoClient
-
-    # Admin operation: create fresh test database (root only)
-    client = ArangoClient(hosts=ARANGO_HOST)
-    sys_db = client.db("_system", username=ARANGO_ADMIN_USER, password=ARANGO_ADMIN_PASSWORD)
-
-    if sys_db.has_database(ARANGO_DB):
-        sys_db.delete_database(ARANGO_DB)
-
-    # Create database with test user access
-    sys_db.create_database(
-        ARANGO_DB,
-        users=[{"username": ARANGO_TEST_USER, "password": ARANGO_TEST_PASSWORD, "active": True}],
-    )
-    # Grant rw to test user on the new database
-    sys_db.update_permission(ARANGO_TEST_USER, "rw", ARANGO_DB)
-
-    client.close()
-
-    yield  # Tests run here with least-privilege credentials
-
-    # Admin cleanup: drop test database
-    client = ArangoClient(hosts=ARANGO_HOST)
-    sys_db = client.db("_system", username=ARANGO_ADMIN_USER, password=ARANGO_ADMIN_PASSWORD)
-    if sys_db.has_database(ARANGO_DB):
-        sys_db.delete_database(ARANGO_DB)
-    client.close()
+        pytest.skip(
+            f"ArangoDB test database not available at {ARANGO_HOST}. "
+            "Run: uv run python -m yanantin.infra setup"
+        )
+    yield
 
 
 @pytest.fixture
@@ -125,8 +93,8 @@ def backend(arango_session):
     db = ArangoDBBackend(
         host=ARANGO_HOST,
         db_name=ARANGO_DB,
-        username=ARANGO_TEST_USER,
-        password=ARANGO_TEST_PASSWORD,
+        username=ARANGO_USER,
+        password=ARANGO_PASSWORD,
     )
 
     # Truncate all collections for clean state
@@ -1224,8 +1192,8 @@ class TestContextManager:
         with ArangoDBBackend(
             host=ARANGO_HOST,
             db_name=ARANGO_DB,
-            username=ARANGO_TEST_USER,
-            password=ARANGO_TEST_PASSWORD,
+            username=ARANGO_USER,
+            password=ARANGO_PASSWORD,
         ) as db:
             # Truncate all collections for clean state
             for collection_name in ("tensors", "composition_edges", "corrections",
@@ -1240,8 +1208,8 @@ class TestContextManager:
         with ArangoDBBackend(
             host=ARANGO_HOST,
             db_name=ARANGO_DB,
-            username=ARANGO_TEST_USER,
-            password=ARANGO_TEST_PASSWORD,
+            username=ARANGO_USER,
+            password=ARANGO_PASSWORD,
         ) as db:
             db.store_tensor(tensor)
             assert db.count_records()["tensors"] == 1
@@ -1250,8 +1218,8 @@ class TestContextManager:
         with ArangoDBBackend(
             host=ARANGO_HOST,
             db_name=ARANGO_DB,
-            username=ARANGO_TEST_USER,
-            password=ARANGO_TEST_PASSWORD,
+            username=ARANGO_USER,
+            password=ARANGO_PASSWORD,
         ) as db:
             retrieved = db.get_tensor(tensor_id)
             assert retrieved.preamble == "Context manager test"
@@ -1261,8 +1229,8 @@ class TestContextManager:
         db = ArangoDBBackend(
             host=ARANGO_HOST,
             db_name=ARANGO_DB,
-            username=ARANGO_TEST_USER,
-            password=ARANGO_TEST_PASSWORD,
+            username=ARANGO_USER,
+            password=ARANGO_PASSWORD,
         )
         tensor = TensorRecord(preamble="Close test")
         db.store_tensor(tensor)

@@ -1,0 +1,11 @@
+{
+  "id": "e1934519-77a1-4f6d-b8ee-269a608cacae",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11723_20260416_ernie-4.5-21b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5787_20260313_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "The mention of `rummage.py` and composition graph extraction confirms advanced fact storage.",
+  "claim_file": "src/yanantin/apacheta/rummage.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "baidu/ernie-4.5-21b-a3b",
+  "timestamp": "2026-04-16T04:52:00.952640+00:00"
+}

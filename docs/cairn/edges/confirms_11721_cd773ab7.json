@@ -1,0 +1,11 @@
+{
+  "id": "cd773ab7-a9a0-4fe1-a181-6b25f252fc61",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11721_20260416_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11454_20260414_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "\"\"\" try: tensors = interface.query_reading_order(domain) except Exception: logger.debug( \"Failed to query configs for domain %s\", domain, exc_info=True ) return None # Filter to only config tensors (query_reading_order matches any # tensor with this lineage_tag, not just config tensors) config_tensors = [t for t in tensors if \"config\" in t.lineage_tags] if not config_tensors: return None # query_reading_order returns oldest-first; we want the newest latest = config_tensors[-1] return _tensor_to_config(latest) ``` ### Reasoning The claim states that the functionality of `config.py` is not fully explained.",
+  "claim_file": "src/yanantin/apacheta/config.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-16T04:48:38.147097+00:00"
+}

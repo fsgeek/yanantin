@@ -1,0 +1,11 @@
+{
+  "id": "8d4de870-79da-4bc5-9fb1-42ec3d2ed846",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11719_20260416_grok-4.1-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7807_20260325_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "The claim asserts a relationship regarding a file named `duckdb.py`: > \"The claim asserts that the provided `duckdb.py` file contains only the contents of `memory.py`.\" ### Reasoning The claim makes a specific assertion about the contents of a file named `duckdb.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "x-ai/grok-4.1-fast",
+  "timestamp": "2026-04-16T04:18:41.107815+00:00"
+}

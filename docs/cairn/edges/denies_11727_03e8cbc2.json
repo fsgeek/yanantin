@@ -1,0 +1,11 @@
+{
+  "id": "03e8cbc2-d83b-44bd-9512-24aa22087139",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11727_20260416_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9990_20260406_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "**The HTTP Type:** Is `type: \"http\"` in `authentication.md` the same as the `SSE` type in `server-types.md`, or is there a native HTTP polling mode not documented here?",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/mcp-integration/references/authentication.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-16T05:23:34.403831+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "36c2f5f8-df03-499b-ac1d-7061cef54d6d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11725_20260416_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3161_20260226_lfm2-8b-a1b.md",
+  "relation": "confirms",
+  "claim_text": "The `model_selector.py` and `model_selector` file are not just code\u2014they are **architectural contracts**.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-16T05:23:33.378768+00:00"
+}

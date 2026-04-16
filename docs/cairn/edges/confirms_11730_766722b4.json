@@ -1,0 +1,11 @@
+{
+  "id": "766722b4-306f-4d66-a39f-ff6ed1a927e7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11730_20260416_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1759_20260220_hermes-3-llama-3.1-70b.md",
+  "relation": "confirms",
+  "claim_text": "### Open Questions - How are the `compose.py`, `correct.py`, and `evolve.py` files related to the tensor sequence (T\u2080-T\u2087)?",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-04-16T05:52:42.269901+00:00"
+}

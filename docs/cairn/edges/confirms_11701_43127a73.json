@@ -1,0 +1,11 @@
+{
+  "id": "43127a73-777a-4fb0-bd39-d7fa5cf3ace1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11701_20260416_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9067_20260401_nemotron-nano-9b-v2.md",
+  "relation": "confirms",
+  "claim_text": "- Inspect `gateway.py` to understand `ApachetaGatewayClient`\u2019s role.",
+  "claim_file": "src/yanantin/apacheta/clients/gateway.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-04-16T02:14:21.989995+00:00"
+}

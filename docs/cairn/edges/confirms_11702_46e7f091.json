@@ -1,0 +1,11 @@
+{
+  "id": "46e7f091-82e6-44bc-b70a-fda738b9fe2b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11702_20260416_gpt-5.1-codex-max.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10606_20260410_phi-4.md",
+  "relation": "confirms",
+  "claim_text": "`\"survey_codebase\" returns \"CodebaseReport\" with non-empty source_layers.` - `tests/unit/test_tinkuy_audit.py` 2.",
+  "claim_file": "tests/unit/test_tinkuy_audit.py",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "openai/gpt-5.1-codex-max",
+  "timestamp": "2026-04-16T02:14:22.480984+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "70b4031a-a6ba-4234-a53a-5ba91e7aaacd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11706_20260416_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0427_20260214_qwen2.5-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The `evolve.py` file contains the following definition for the `SchemaEvolutionRecord` class: ```python record = SchemaEvolutionRecord( from_version=from_version, to_version=to_version, fields_added=fields_added or [], fields_removed=fields_removed or [], migration_notes=migration_notes, provenance=provenance or ProvenanceEnvelope(), ) ``` ### Reasoning The claim suggests that adding a `schema_version` field to `TensorRecord` and a `migrate()` hook in `evolve.py` would help future scouts spot the trigger.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-04-16T02:44:24.356400+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "869b188b-e886-40d5-b17a-1f9a04013617",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11710_20260416_minimax-m2.5.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9980_20260406_command-r7b-12-2024.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The claim mentions the existence of the file `precompact_tensor.py` in the `.claude/hooks` directory, but the file itself is not provided in the context of this verification task.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "minimax/minimax-m2.5",
+  "timestamp": "2026-04-16T03:16:39.362086+00:00"
+}

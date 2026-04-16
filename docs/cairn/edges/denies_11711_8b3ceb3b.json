@@ -1,0 +1,11 @@
+{
+  "id": "8b3ceb3b-51d5-4a6a-ae13-1ee334de761c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11711_20260416_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7463_20260323_qwen2.5-coder-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "# Verification Assignment ## The Claim Model `mistralai/mistral-small-24b-instruct-2501` made this claim about `.claude/hooks/chasqui_pulse.py`: > ``` The claim mentions the existence of the following files in the `.claude/hooks` directory: - `capture_compaction.py` - `chasqui_heartbeat.sh` - `chasqui_pulse.py` - `ots_stamp.py` - `precompact_tensor.py` ### Reasoning The claim is denied because the file `precompact_tensor.py` does not reference any of the other specified files (`capture_compaction.py`, `chasqui_heartbeat.sh`, `chasqui_pulse.py`, `ots_stamp.py`).",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-04-16T03:17:08.935740+00:00"
+}

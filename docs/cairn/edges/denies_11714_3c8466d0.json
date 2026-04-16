@@ -1,0 +1,11 @@
+{
+  "id": "3c8466d0-4c9c-4606-904a-88f687a1c603",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11714_20260416_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8810_20260331_ministral-8b-2512.md",
+  "relation": "denies",
+  "claim_text": "The \"Claude\" as a Collaborative Actor** **Files:** `redlining.py`, `document.py`, `ooxml.md` **Observation:** - Every tracked change (`<w:ins>`, `<w:del>`) is **explicitly authored by \"Claude\"** with `w:author=\"Claude\"`.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/redlining.py",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-04-16T03:46:20.018106+00:00"
+}

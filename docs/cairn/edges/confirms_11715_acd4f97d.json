@@ -1,0 +1,11 @@
+{
+  "id": "acd4f97d-3014-4606-b215-6658b9ae1db6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11715_20260416_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11556_20260415_mistral-small-creative.md",
+  "relation": "confirms",
+  "claim_text": "**Explicit references to `coverage.py` in the file itself**: - The filename is `src/yanantin/chasqui/coverage.py` (as provided in the assignment).",
+  "claim_file": "src/yanantin/chasqui/coverage.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-04-16T03:46:25.800196+00:00"
+}

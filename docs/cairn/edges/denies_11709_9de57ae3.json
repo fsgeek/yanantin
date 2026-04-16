@@ -1,0 +1,11 @@
+{
+  "id": "9de57ae3-0d22-436d-ba96-ebc9a3d0756d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11709_20260416_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0799_20260215_qwen2.5-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "Similarly, the `ModelSelector` logic in `src/yanantin/chasqui/model_selector.py` is not fully detailed, leaving open the question of how models are actually prioritized.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-04-16T03:16:16.139945+00:00"
+}

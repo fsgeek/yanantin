@@ -1,0 +1,11 @@
+{
+  "id": "98b6b035-7d29-4604-b187-f932c25bccd1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11699_20260416_glm-4.5-air.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0894_20260216_ministral-14b-2512.md",
+  "relation": "confirms",
+  "claim_text": "Is it **configurable** (e.g., via `config.py`)?",
+  "claim_file": "src/yanantin/apacheta/config.py",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "z-ai/glm-4.5-air",
+  "timestamp": "2026-04-16T01:42:31.685931+00:00"
+}

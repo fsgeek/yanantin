@@ -1,0 +1,11 @@
+{
+  "id": "9c32f2fe-0c9c-4d46-9890-79817b6f7b14",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11693_20260416_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8024_20260326_qwen-plus-2025-07-28.md",
+  "relation": "denies",
+  "claim_text": "**Is `MEMORY.md` a joke?** It says \u201cFiles like `docs/blueprint.md` are tensors.\u201d But so does `tensors.md`.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "qwen/qwen-plus-2025-07-28",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-04-16T01:12:37.436455+00:00"
+}

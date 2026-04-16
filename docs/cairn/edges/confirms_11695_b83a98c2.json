@@ -1,0 +1,11 @@
+{
+  "id": "b83a98c2-1d6d-4b5c-876c-dd5bb8011ad5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11695_20260416_hunyuan-a13b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10324_20260408_qwen3-vl-235b-a22b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**MemoryAnchorService Is Not a Cache \u2014 It\u2019s a Temporal Gate**   In `test_memory_anchor.py`, the `MemoryAnchorService` doesn\u2019t just store data \u2014 it *guards writes* with flags: `referenced` and `updated`.",
+  "claim_file": "tests/unit/test_memory_anchor.py",
+  "claim_by": "qwen/qwen3-vl-235b-a22b-instruct",
+  "verified_by": "tencent/hunyuan-a13b-instruct",
+  "timestamp": "2026-04-16T01:12:42.564993+00:00"
+}

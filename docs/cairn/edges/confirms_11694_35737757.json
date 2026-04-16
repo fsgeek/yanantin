@@ -1,0 +1,11 @@
+{
+  "id": "35737757-6177-4117-8e23-ae69d027097f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11694_20260416_ernie-4.5-21b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3118_20260226_qwen3-vl-235b-a22b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Yet, the codebase has a `src/yanantin/chasqui/scourer.py` file \u2014 it\u2019s right there in the structure.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "qwen/qwen3-vl-235b-a22b-instruct",
+  "verified_by": "baidu/ernie-4.5-21b-a3b",
+  "timestamp": "2026-04-16T01:12:38.725915+00:00"
+}

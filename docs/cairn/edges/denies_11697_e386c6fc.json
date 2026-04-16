@@ -1,0 +1,11 @@
+{
+  "id": "e386c6fc-e14f-4552-936a-3a06d5c06cd8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11697_20260416_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0669_20260215_devstral-small.md",
+  "relation": "denies",
+  "claim_text": "The error hierarchy in `src/yanantin/apacheta/interface/errors.py` places `ImmutabilityError` alongside `NotFoundError` as fundamental constraints, suggesting that the system treats provenance as unalterable history.",
+  "claim_file": "src/yanantin/apacheta/interface/errors.py",
+  "claim_by": "mistralai/devstral-small",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-04-16T01:42:23.007298+00:00"
+}

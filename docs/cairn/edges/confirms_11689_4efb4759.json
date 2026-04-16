@@ -1,0 +1,11 @@
+{
+  "id": "4efb4759-17d6-4957-ba1d-f106ceb932ce",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11689_20260416_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2517_20260223_intellect-3.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **DENIED**   ### Evidence   The file `docs/predecessors.md` **is present** and contains the following content:   ``` # Predecessor Projects Yanantin composes what was learned across these projects.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "prime-intellect/intellect-3",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-04-16T00:40:29.427549+00:00"
+}

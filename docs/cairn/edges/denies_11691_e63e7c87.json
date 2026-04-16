@@ -1,0 +1,11 @@
+{
+  "id": "e63e7c87-ee84-44e9-89c5-feb8c6073568",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11691_20260416_cogito-v2.1-671b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10821_20260411_ministral-8b-2512.md",
+  "relation": "denies",
+  "claim_text": "- `thumbnail.py` **visualizes the presentation as a grid**, but only if you ask for it\u2014otherwise, it\u2019s just a tool for *epistemic compression*.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/scripts/thumbnail.py",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "deepcogito/cogito-v2.1-671b",
+  "timestamp": "2026-04-16T00:40:32.270645+00:00"
+}

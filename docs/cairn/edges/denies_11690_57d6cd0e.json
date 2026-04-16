@@ -1,0 +1,11 @@
+{
+  "id": "57d6cd0e-c1fa-4a09-aad7-019344551b3d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11690_20260416_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9759_20260405_qwen3-coder-flash.md",
+  "relation": "denies",
+  "claim_text": "Multiple scout tensors (e.g., `scout_6415_20260317_lfm-2.2-6b.md`, `scout_4218_20260303_llama-3.1-8b-instruct.md`) make claims that are then verified by other scouts using the same architecture.",
+  "claim_file": "docs/cairn/scout_4218_20260303_llama-3.1-8b-instruct.md",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-04-16T00:40:31.925057+00:00"
+}

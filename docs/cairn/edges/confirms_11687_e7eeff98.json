@@ -1,0 +1,11 @@
+{
+  "id": "e7eeff98-6d6a-490f-b38f-2c614ef24004",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11687_20260416_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0813_20260215_ernie-4.5-21b-a3b-thinking.md",
+  "relation": "confirms",
+  "claim_text": "To the original scout: Your analysis laid groundwork, but diving deeper into *why* Yanantin embraces fuzziness (e.g., neutrosophic logic in `epistemics.py`) would enrich the report.",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-04-16T00:10:25.387815+00:00"
+}

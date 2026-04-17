@@ -1,0 +1,11 @@
+{
+  "id": "df5c486a-24ae-4b98-b565-bf446376e6a6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11734_20260416_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7643_20260324_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**The Role of Placeholders in Design** (thumbnail.py lines 170\u2013200) In `thumbnail.py`, I noticed a section where it outlines placeholders with red borders when the `--outline-placeholders` flag is used.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/scripts/thumbnail.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-04-16T06:24:37.595338+00:00"
+}

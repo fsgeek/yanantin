@@ -1,0 +1,11 @@
+{
+  "id": "700e5276-df08-458e-892a-5437c405d7af",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11735_20260416_qwen3.5-27b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5747_20260312_mistral-small-24b-instruct-250.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I could not verify the existence or content of `duckdb.py` since it was not provided.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "qwen/qwen3.5-27b",
+  "timestamp": "2026-04-16T06:25:37.117418+00:00"
+}

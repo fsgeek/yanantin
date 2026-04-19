@@ -3,7 +3,8 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: T33 added, cairn counts updated, Pichay thresholds recalibrated, 2026-03-08*
+*Last updated: T39 added, Backend Policy section recorded, 2026-04-19*
+*Prior update: T33 added, cairn counts updated, Pichay thresholds recalibrated, 2026-03-08. Counts and module descriptions between T34-T38 are known stale — run Tinkuy before trusting them.*
 
 ## What Exists
 
@@ -15,7 +16,7 @@ The core. 33 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 |-------|-------|-------------|
 | **models/** | 6 files, 19 classes | Pydantic v2 data models: TensorRecord, StrandRecord, KeyClaim, CompositionEdge, CorrectionRecord, DissentRecord, NegationRecord, BootstrapRecord, SchemaEvolutionRecord, EntityResolution, EpistemicMetadata, DeclaredLoss, ProvenanceEnvelope, SourceIdentifier |
 | **interface/** | 2 files | `ApachetaInterface` ABC (26 methods) + 5 error types. The only API. Everything goes through this. |
-| **backends/** | 3 files | `InMemoryBackend`, `DuckDBBackend`, `ArangoDBBackend`. All implement the same 26 methods. Three paths to the same interface. |
+| **backends/** | 3 files (DuckDB deprecated per T39; deletion pending) | `InMemoryBackend`, `ArangoDBBackend`. `DuckDBBackend` exists in-tree but is deprecated — see Backend Policy below. |
 | **operators/** | 7 files | compose, project, correct, dissent, negate, bootstrap, evolve. Functions that operate through the interface, never touch backend internals. |
 | **renderer/** | 1 file | Markdown rendering. TensorRecord → human-readable text. |
 | **ingest/** | 2 files | Markdown parsing (human-readable text → TensorRecord) and tensor ballot (atomic T-number allocation via O_CREAT\|O_EXCL). Supports both modern (T*_*.md) and legacy (conversation_tensor_*.md) naming, with label-based deduplication on ingest. |
@@ -344,6 +345,44 @@ The context budget is finite. Here's the priority:
 6. **docs/apacheta.md** — the design document for the tensor database.
 7. **Sibling projects** — Willay (`/home/tony/projects/willay/CLAUDE.md`) has its own cairn and memory bridge. Pukara is the gateway.
 8. **The direction** — next step is integrating Indaleko's human-side data (collectors, recorders, episodic memory) with yanantin's AI-side pipeline. The Archivist is the shared memory of a relationship. Build the bridge, not the merge.
+
+## Backend Policy (T39)
+
+Apacheta supports two storage backends: `InMemoryBackend` (dict-based)
+and `ArangoDBBackend` (document + graph). Neither is SQL. DuckDB is
+deprecated as an `ApachetaInterface` target; the code is in-tree
+pending mechanical deletion.
+
+**Criteria for new backends:**
+- Native document storage (not document-flavored SQL)
+- Native graph capability (edge collections, traversal, shortest-path)
+- Query engine usable from the backend — no obligation to
+  pull-all-and-filter in Python
+
+SQL-family databases (PostgreSQL, MySQL, DuckDB, SQLite) do not meet
+the criteria. Document+graph candidates (Neo4j, MongoDB with
+`$graphLookup`, FaunaDB) would be eligible on merit. DuckDB is not
+banished from the project — it remains a reasonable analytical/export
+target with a different interface, to be built when it has a customer.
+
+**Operating rules that follow:**
+- No new `_load_all`-and-Python-filter query implementations on the
+  arango backend. New queries use AQL with indexes on the filtered
+  fields. The storage obfuscator grows a dotted-path helper as part
+  of query work that needs it.
+- Existing `_load_all` query paths are technical debt, logged as such.
+  No urgency to convert today; convert on schedule, not on surprise.
+- Graph-shaped queries on SQL-family backends raise
+  `NotImplementedError` — they do not simulate graph work in Python.
+
+**Why this is policy and not preference:** T39 documents how the
+opposite arrangement drifted into place silently, across multiple
+sessions, via "consistent with existing code" as the path of least
+resistance. The defense is machine-checkable (a red-bar test
+forbidding new load-all-and-filter queries is a reasonable next
+step) and doctrinal (this entry + T39). If a future instance
+proposes re-introducing a SQL backend or extending the `_load_all`
+pattern, point at T39 before arguing on merits.
 
 ## CI Enforcement
 

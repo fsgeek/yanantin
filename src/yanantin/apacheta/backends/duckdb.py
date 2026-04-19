@@ -506,6 +506,46 @@ class DuckDBBackend(ApachetaInterface):
                 if entity.entity_uuid == entity_uuid
             ]
 
+    # ── Open-Record Queries (deferred) ───────────────────────────
+    # Per cairn/T39, DuckDB is deprecated from ApachetaInterface —
+    # graph-shaped queries over SQL require recursive CTEs that don't
+    # compose cleanly with filters. Honest placeholders until deletion;
+    # partial impls would be worse than explicit deferral.
+
+    _OPEN_NOT_IMPLEMENTED = (
+        "DuckDB open-record queries deferred. Use Arango or memory backend."
+    )
+
+    def list_open_records(
+        self,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        raise NotImplementedError(self._OPEN_NOT_IMPLEMENTED)
+
+    def query_open_by_author_instance(
+        self,
+        author_instance_id: str,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        raise NotImplementedError(self._OPEN_NOT_IMPLEMENTED)
+
+    def query_open_by_lineage_tag(
+        self,
+        tag: str,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        raise NotImplementedError(self._OPEN_NOT_IMPLEMENTED)
+
+    def query_open_has_field(
+        self,
+        field: str,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        raise NotImplementedError(self._OPEN_NOT_IMPLEMENTED)
+
+    def list_author_instances(self) -> list[str]:
+        raise NotImplementedError(self._OPEN_NOT_IMPLEMENTED)
+
     # ── Record Counts ────────────────────────────────────────────
 
     def count_records(self) -> dict[str, int]:

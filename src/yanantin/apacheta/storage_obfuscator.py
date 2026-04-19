@@ -22,6 +22,7 @@ class StorageObfuscator(Protocol):
 
     def collection_name(self, semantic: str) -> str: ...
     def field_name(self, semantic: str) -> str: ...
+    def field_path(self, parts: tuple[str, ...]) -> str: ...
     def reverse_field(self, opaque: str) -> str: ...
     def obfuscate_document(self, doc: dict) -> dict: ...
     def deobfuscate_document(self, doc: dict) -> dict: ...
@@ -42,6 +43,18 @@ class TransparentObfuscator:
 
     def field_name(self, semantic: str) -> str:
         return semantic
+
+    def field_path(self, parts: tuple[str, ...]) -> str:
+        """Translate a nested field path (e.g. ('provenance', 'timestamp'))
+        to its storage-layer dotted form.
+
+        Dots in a path are AQL separators, not part of field names. Each
+        part is translated individually via field_name, then joined with
+        ".". The transparent implementation maps each part to itself;
+        a real obfuscator would map each part through field_name before
+        joining.
+        """
+        return ".".join(parts)
 
     def reverse_field(self, opaque: str) -> str:
         return opaque

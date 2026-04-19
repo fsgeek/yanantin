@@ -55,8 +55,18 @@ class InMemoryBackend(ApachetaInterface):
 
     @staticmethod
     def _deep_copy(record):
-        """Deep-copy a record via serialize/deserialize roundtrip."""
-        return type(record).model_validate(record.model_dump(mode="python"))
+        """Deep-copy a record, preserving nested model types.
+
+        A serialize/deserialize roundtrip (model_dump → model_validate)
+        would lose the types of object-shaped extras on
+        ``ApachetaBaseModel`` (which declares ``extra="allow"``): a
+        ``ProvenanceEnvelope`` stored as a conventional ``provenance``
+        extra would reconstruct as a plain dict, and downstream
+        attribute access like ``record.provenance.author_instance_id``
+        would silently fail. ``model_copy(deep=True)`` is pydantic's
+        native deep copy and preserves submodel instances.
+        """
+        return record.model_copy(deep=True)
 
     # ── Generic Operations ────────────────────────────────────────
 

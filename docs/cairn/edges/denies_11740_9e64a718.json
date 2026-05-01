@@ -1,0 +1,11 @@
+{
+  "id": "9e64a718-dc78-4b62-b5df-7409011cd6ae",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11740_20260501_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10088_20260407_qwen3-vl-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "> In `test_duckdb_backend.py`, the `DuckDBBackend` stores tensors \u2014 it expects inputs to be predictable \u2014 because truth must be verifiable.",
+  "claim_file": "tests/unit/test_duckdb_backend.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-05-01T23:22:34.258800+00:00"
+}

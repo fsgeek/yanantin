@@ -1,0 +1,11 @@
+{
+  "id": "ac5aee1e-9dee-4ced-8957-a5fa44385371",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11743_20260501_qwen-vl-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0006_20260210_gpt-oss-120b:exacto.md",
+  "relation": "confirms",
+  "claim_text": "**Reference to \u201cpyproject.toml and uv setup.\u201d**   - The file **does** contain a `pyproject.toml` configuration, confirming the existence of a pyproject setup.",
+  "claim_file": "pyproject.toml",
+  "claim_by": "openai/gpt-oss-120b:exacto",
+  "verified_by": "qwen/qwen-vl-plus",
+  "timestamp": "2026-05-01T23:37:14.612138+00:00"
+}

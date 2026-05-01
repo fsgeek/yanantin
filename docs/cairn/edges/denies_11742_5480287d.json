@@ -1,0 +1,11 @@
+{
+  "id": "5480287d-34f9-42ea-916a-5515dd480115",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11742_20260501_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1111_20260217_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim asserts that only \u201cwhat was explicitly referenced\u201d was examined, but the file itself is entirely dedicated to explaining and validating the function and logic within the `evolve.py` module.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-05-01T23:22:40.845554+00:00"
+}

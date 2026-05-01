@@ -1,0 +1,11 @@
+{
+  "id": "903a4475-be6d-4ccd-9218-339bc88083e1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11741_20260501_seed-1.6-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9426_20260403_ui-tars-1.5-7b.md",
+  "relation": "confirms",
+  "claim_text": "The most prominent files include `html2pptx.js` for converting HTML slides to PowerPoint, `pack.py` and `unpack.py` for handling the packing and unpacking of Office files, and `rearrange.py` for rearranging PowerPoint slides.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/scripts/rearrange.py",
+  "claim_by": "bytedance/ui-tars-1.5-7b",
+  "verified_by": "bytedance-seed/seed-1.6-flash",
+  "timestamp": "2026-05-01T23:22:36.240215+00:00"
+}

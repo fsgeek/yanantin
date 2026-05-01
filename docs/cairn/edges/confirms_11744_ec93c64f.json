@@ -1,0 +1,11 @@
+{
+  "id": "ec93c64f-4ed8-489b-bf1b-875c93d27a92",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11744_20260501_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6482_20260317_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file does not mention `config.py` or any inspection of `tensor.py` by a model.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-05-01T23:37:17.251537+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "acc4c840-6698-456d-9030-d45f7b900840",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11909_20260502_deepseek-v3.2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10119_20260407_deepseek-chat-v3.1.md",
+  "relation": "denies",
+  "claim_text": "``` ### Reasoning The claim states that \"Throughout the filesystem, I see recursive patterns: tensor formats inside `docs/cairn/`, compositional logic inside `src/yanantin/apacheta/operators/`, and even naming conventions that echo earlier files (like `scout_1411_20260218_nemotron-nano-9b-v2.md`).\" However, the actual content of this specific file contains no discussion of: 1.",
+  "claim_file": "docs/cairn/scout_1411_20260218_nemotron-nano-9b-v2.md",
+  "claim_by": "deepseek/deepseek-chat-v3.1",
+  "verified_by": "deepseek/deepseek-v3.2",
+  "timestamp": "2026-05-02T21:25:31.517686+00:00"
+}

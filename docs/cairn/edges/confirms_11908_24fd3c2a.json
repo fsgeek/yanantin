@@ -1,0 +1,11 @@
+{
+  "id": "24fd3c2a-a761-4474-adec-dc0ddc468890",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11908_20260502_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4725_20260306_qwen3-coder-next.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **DENIED** ### Evidence   The claim states:   > \"The `tinkuy` directory (`src/yanantin/tinkuy`) is focused on governance, as indicated by files like `audit.py` and `succession.py`.\" The provided content of `succession.py` shows its purpose is: > \"\"\"Succession protocol \u2014 orderly transition between mortal instances.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "qwen/qwen3-coder-next",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-05-02T21:24:53.055832+00:00"
+}

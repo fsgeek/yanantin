@@ -1,0 +1,11 @@
+{
+  "id": "e418de78-2ba2-4dbc-80b4-d412370253e8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11913_20260502_qwen3.6-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8792_20260331_claude-3.5-haiku.md",
+  "relation": "denies",
+  "claim_text": "The file not only mentions `scourer.py` in its docstring, but the entire file is the implementation of the `scourer.py` module.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "anthropic/claude-3.5-haiku",
+  "verified_by": "qwen/qwen3.6-plus",
+  "timestamp": "2026-05-02T21:55:15.392663+00:00"
+}

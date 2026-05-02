@@ -1,0 +1,11 @@
+{
+  "id": "50b2e14c-e483-4684-a3ab-3be5910eb068",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11911_20260502_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7218_20260321_nova-premier-v1.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states:  > \"The file `docs/predecessors.md` is the file being examined.\"   The file header contains:   `# Predecessor Projects` ### Reasoning The claim's only factual assertion is that the examined file is `docs/predecessors.md`.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "amazon/nova-premier-v1",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-05-02T21:54:37.026540+00:00"
+}

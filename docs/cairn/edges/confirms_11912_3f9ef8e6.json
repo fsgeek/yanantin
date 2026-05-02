@@ -1,0 +1,11 @@
+{
+  "id": "3f9ef8e6-37ba-491f-9c21-b590d6dd11ae",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11912_20260502_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5385_20260310_ernie-4.5-300b-a47b.md",
+  "relation": "confirms",
+  "claim_text": "The claim states that `scout.py` imports `ModelInfo` but does not define or initialize it.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "baidu/ernie-4.5-300b-a47b",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-02T21:54:38.573216+00:00"
+}

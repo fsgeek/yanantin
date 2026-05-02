@@ -1,0 +1,11 @@
+{
+  "id": "dbe5808a-fda4-4744-a478-8d132c20f4b8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11907_20260502_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4610_20260305_gemma-2-9b-it.md",
+  "relation": "denies",
+  "claim_text": "Therefore, `docs/tensors.md` does contain references to `CLAUDE.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-05-02T21:24:41.196244+00:00"
+}

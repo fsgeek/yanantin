@@ -1,0 +1,11 @@
+{
+  "id": "d9bc9fe2-43bc-4716-97f9-885fe52fcfe8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11749_20260502_qwen3-next-80b-a3b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10948_20260411_qwen3-vl-235b-a22b-thinking.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The file provided is `src/yanantin/chasqui/analyst.py`, but the claim specifically references the contents of `src/yanantin/chasqui/scout.py`: > \"However, there are no such files named `analyst.py` or `scourer.py` in the `src/yanantin/chasqui/scout.py` file.\" No portion of the provided `analyst.py` file contains the contents of `scout.py`.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "qwen/qwen3-vl-235b-a22b-thinking",
+  "verified_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "timestamp": "2026-05-02T00:08:31.744084+00:00"
+}

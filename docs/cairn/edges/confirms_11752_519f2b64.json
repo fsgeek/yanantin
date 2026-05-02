@@ -1,0 +1,11 @@
+{
+  "id": "519f2b64-a1a1-4d1e-ab20-e84ee1e63bfd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11752_20260502_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10809_20260411_step-3.5-flash.md",
+  "relation": "confirms",
+  "claim_text": "This assumes the file lives at `src/yanantin/tinkuy/__main__.py` and the project root is three levels up.",
+  "claim_file": "src/yanantin/tinkuy/__main__.py",
+  "claim_by": "stepfun/step-3.5-flash",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-02T00:39:52.252317+00:00"
+}

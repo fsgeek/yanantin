@@ -1,0 +1,11 @@
+{
+  "id": "81ef1a08-9c87-47e9-b466-5705b1ace002",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11751_20260502_devstral-small.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9830_20260405_mimo-v2-omni.md",
+  "relation": "denies",
+  "claim_text": "There is no evidence in the provided file that `CLAUDE.md` contains any reference to `docs/blueprint.md` as \"this blueprint\".",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "xiaomi/mimo-v2-omni",
+  "verified_by": "mistralai/devstral-small",
+  "timestamp": "2026-05-02T00:39:50.713849+00:00"
+}

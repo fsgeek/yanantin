@@ -1,0 +1,11 @@
+{
+  "id": "5630e3d3-8288-40b3-92a5-2e257b9d068f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11753_20260502_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6675_20260318_hunyuan-a13b-instruct.md",
+  "relation": "denies",
+  "claim_text": ">     \"\"\" >     prov = provenance or ProvenanceEnvelope() >     record = DissentRecord( >         target_tensor=target_tensor, >         target_claim_id=target_claim_id, >         alternative_framework=alternative_framework, >         reasoning=reasoning, >         provenance=prov, >     ) >     interface.store_dissent(record) >     edge = CompositionEdge( >         from_tensor=dissenting_tensor, >         to_tensor=target_tensor, >         relation_type=RelationType.DISSENTS_FROM, >         provenance=prov, >     ) >     interface.store_composition_edge(edge) ### Reasoning The claim states that the report mentions operators like `correct.py` and `dissent.py`, suggesting a mechanism for addressing disagreements.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "tencent/hunyuan-a13b-instruct",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-05-02T00:40:03.886498+00:00"
+}

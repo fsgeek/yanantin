@@ -1,0 +1,11 @@
+{
+  "id": "c8f135cc-d501-4057-8c4a-455a97e190d8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11788_20260502_olmo-3.1-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1621_20260219_llama-3.1-70b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `tests/red_bar/test_immutability.py` explicitly validates structural invariants, specifically: * The test `test_duplicate_tensor_raises` checks that attempting to store a tensor with the same UUID raises an `ImmutabilityError` (lines 13-20).",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "meta-llama/llama-3.1-70b-instruct",
+  "verified_by": "allenai/olmo-3.1-32b-instruct",
+  "timestamp": "2026-05-02T05:17:47.490686+00:00"
+}

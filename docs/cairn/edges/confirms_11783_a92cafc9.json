@@ -1,0 +1,11 @@
+{
+  "id": "a92cafc9-5e68-4bb5-89e8-b98d61a873c4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11783_20260502_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3780_20260301_mercury-coder.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The file explicitly imports and uses `survey_codebase` from `audit.py`, indicating that an audit tool exists in the same `tinkuy` package.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "inception/mercury-coder",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-05-02T04:48:42.897215+00:00"
+}

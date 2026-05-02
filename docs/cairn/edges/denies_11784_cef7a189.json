@@ -1,0 +1,11 @@
+{
+  "id": "cef7a189-67c8-4263-86bd-c096bd7e8ecd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11784_20260502_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1183_20260217_kimi-k2.5.md",
+  "relation": "denies",
+  "claim_text": "**Strand 5: Provenance as Living Schema** `src/yanantin/apacheta/models/provenance.py` defines `ProvenanceEnvelope` (lines 12-22) with fields for `timestamp`, `creator` (UUID), `data_schema`, and `data`.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "moonshotai/kimi-k2.5",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-05-02T04:48:47.451499+00:00"
+}

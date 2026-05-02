@@ -1,0 +1,11 @@
+{
+  "id": "8c01c4a0-2f15-4eab-ac8f-39e0d5657027",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11785_20260502_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4471_20260305_gemini-2.5-flash-lite-preview-.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I could not check the existence or content of `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, and `project.py` within the directory `src/yanantin/apacheta/operators`, as only the content of `compose.py` was provided.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-05-02T04:48:48.813012+00:00"
+}

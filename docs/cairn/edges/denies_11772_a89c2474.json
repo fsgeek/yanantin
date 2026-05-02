@@ -1,0 +1,11 @@
+{
+  "id": "a89c2474-6d49-457d-b4cd-0b9a3aff2f55",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11772_20260502_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7829_20260325_mixtral-8x7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The claim states: \"I did not read the content of `docs/blueprint.md` or `docs/predecessors.md`, despite being explicitly told to read the former in `CLAUDE.md`.\" The text of `CLAUDE.md` is not provided in the verification assignment, but the content of `docs/blueprint.md` is.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "mistralai/mixtral-8x7b-instruct",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-02T03:13:22.665993+00:00"
+}

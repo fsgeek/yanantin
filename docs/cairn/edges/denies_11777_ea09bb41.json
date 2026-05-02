@@ -1,0 +1,11 @@
+{
+  "id": "ea09bb41-c8f8-499f-ab47-131f22085472",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11777_20260502_deepseek-v3.1-terminus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2752_20260224_qwen3-30b-a3b-instruct-2507.md",
+  "relation": "denies",
+  "claim_text": "The `apacheta` module uses it, but I did not follow it through `activity/store.py` or `activity/backends/duckdb.py`.",
+  "claim_file": "src/yanantin/activity/store.py",
+  "claim_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "verified_by": "deepseek/deepseek-v3.1-terminus",
+  "timestamp": "2026-05-02T03:45:52.215567+00:00"
+}

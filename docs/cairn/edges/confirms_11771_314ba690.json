@@ -1,0 +1,11 @@
+{
+  "id": "314ba690-f983-44a2-abd6-a9f822be516d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11771_20260502_devstral-small.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10133_20260407_mistral-saba.md",
+  "relation": "confirms",
+  "claim_text": "The claim states there are **no** explicit references to `weaver.py` or `__main__.py` in the code (including string literals or import paths).",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "mistralai/mistral-saba",
+  "verified_by": "mistralai/devstral-small",
+  "timestamp": "2026-05-02T03:13:21.502897+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "8155f28b-cf9a-45b9-8f0d-d901f374f30b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11775_20260502_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3554_20260228_claude-opus-4.6.md",
+  "relation": "denies",
+  "claim_text": "**I did not examine the hooks** (`capture_compaction.py`, `precompact_tensor.py`, `chasqui_pulse.py`) which are the nervous system of the observation pipeline.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "anthropic/claude-opus-4.6",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-02T03:45:33.854078+00:00"
+}

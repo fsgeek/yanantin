@@ -1,0 +1,11 @@
+{
+  "id": "2258036d-c67f-413c-af4c-f5293f194100",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11773_20260502_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7459_20260323_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "However, the actual content of the file `src/yanantin/apacheta/backends/arango.py` does not mention `duckdb.py` or `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-05-02T03:13:23.997147+00:00"
+}

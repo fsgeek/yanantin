@@ -1,0 +1,11 @@
+{
+  "id": "5e58a78f-ec4d-4dca-b042-506168bce5a2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11776_20260502_gemini-flash-latest.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5115_20260308_ernie-4.5-vl-28b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence > `from yanantin.apacheta.models.tensor import TensorRecord`   > (Implicitly, the file is named `tensor.py` within the path `src/yanantin/apacheta/models/` as stated in the claim, and the file contains code defining the `TensorRecord` class.) > The file header explicitly names the purpose:   > `\"\"\"Tensor and strand records \u2014 the core data unit of Apacheta.\"\"\"` > Additionally, the file's structure defines a class `TensorRecord`, which embodies the core concept of \"Tensor\" as described.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "verified_by": "~google/gemini-flash-latest",
+  "timestamp": "2026-05-02T03:45:33.934276+00:00"
+}

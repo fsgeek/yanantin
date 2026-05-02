@@ -1,0 +1,11 @@
+{
+  "id": "8fb599c8-261b-4008-9f40-bd30975713ed",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11815_20260502_mercury-2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11148_20260413_nova-2-lite-v1.md",
+  "relation": "denies",
+  "claim_text": "**The Export Curtain in `__init__.py`** **File:** `__init__.py`   **Lines:** 17\u201331   ```python __all__ = [ \"ApachetaBaseModel\", \"BootstrapRecord\", \"CompositionEdge\", ...",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "amazon/nova-2-lite-v1",
+  "verified_by": "inception/mercury-2",
+  "timestamp": "2026-05-02T08:58:54.824505+00:00"
+}

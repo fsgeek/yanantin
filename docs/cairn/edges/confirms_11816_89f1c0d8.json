@@ -1,0 +1,11 @@
+{
+  "id": "89f1c0d8-6a4e-4755-9b85-5388278bbf44",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11816_20260502_rnj-1-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1983_20260221_qwen3-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "--- #### Strand 3: **Audit Tool Functionality in `test_tinkuy_audit.py`**   The test file `test_tinkuy_audit.py` confirms that the audit tool checks for specific patterns, test coverage, and coding conventions.",
+  "claim_file": "tests/unit/test_tinkuy_audit.py",
+  "claim_by": "qwen/qwen3-30b-a3b",
+  "verified_by": "essentialai/rnj-1-instruct",
+  "timestamp": "2026-05-02T08:58:56.385018+00:00"
+}

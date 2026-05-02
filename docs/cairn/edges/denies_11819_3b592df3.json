@@ -1,0 +1,11 @@
+{
+  "id": "3b592df3-63ef-43cb-abcc-e78e59ab3b3a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11819_20260502_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8880_20260331_grok-3-mini.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim asserts that the reason for some issue (implied but not specified) is not due to `evolve.py` lacking conflict resolution.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "x-ai/grok-3-mini",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-02T09:28:00.459677+00:00"
+}

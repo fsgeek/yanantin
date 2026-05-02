@@ -1,0 +1,11 @@
+{
+  "id": "18c8cfbd-1f52-4a2f-93b3-e074469643fa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11820_20260502_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5432_20260310_qwen-2.5-vl-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "This interaction with `audit.py` indicates that `succession.py` is indeed interacting with the broader system by utilizing functions from `audit.py` to perform audits and comparisons.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "qwen/qwen-2.5-vl-7b-instruct",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-02T09:28:00.623643+00:00"
+}

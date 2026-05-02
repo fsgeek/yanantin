@@ -1,0 +1,11 @@
+{
+  "id": "3d95876a-0569-48c3-a8b5-4f02fbed4760",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11768_20260502_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11195_20260413_deepseek-v3.2.md",
+  "relation": "denies",
+  "claim_text": "The scout is not claiming to have observed emergent artifacts implicitly in `tests/unit/test_collector_synthetic.py`; it is suggesting that emergence *might* be structural, using that file as a potential illustration.",
+  "claim_file": "tests/unit/test_collector_synthetic.py",
+  "claim_by": "deepseek/deepseek-v3.2",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-05-02T02:43:30.817805+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "5279d798-6109-477c-88c9-374cf4db0a0c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11765_20260502_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9241_20260402_rocinante-12b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The provided file `weaver.py` imports the `MaterializedTensor` class from `materialize.py`.",
+  "claim_file": "src/yanantin/awaq/materialize.py",
+  "claim_by": "thedrummer/rocinante-12b",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-05-02T02:11:39.536493+00:00"
+}

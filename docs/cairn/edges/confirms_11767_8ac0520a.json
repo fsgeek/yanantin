@@ -1,0 +1,11 @@
+{
+  "id": "8ac0520a-1e10-4c5c-b1c7-32346124d858",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11767_20260502_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9758_20260405_deepseek-v3.2.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim is about the content of `blueprint.md`, but the file provided for verification is `docs/cairn/T15_pichay_cache_aware_hardening.md`.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "deepseek/deepseek-v3.2",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-02T02:43:30.417514+00:00"
+}

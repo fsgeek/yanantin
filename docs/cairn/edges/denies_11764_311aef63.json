@@ -1,0 +1,11 @@
+{
+  "id": "311aef63-4d25-4ed2-98d8-919c53497919",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11764_20260502_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2621_20260223_hermes-2-pro-llama-3-8b.md",
+  "relation": "denies",
+  "claim_text": "This is why the verdict is \"denied.\" ### Reasoning The claim states that `evolve.py` provides versioned schema migration.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-05-02T02:11:38.650877+00:00"
+}

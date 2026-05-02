@@ -1,0 +1,11 @@
+{
+  "id": "a8ba3da1-874f-4806-a672-309937cbe48c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11860_20260502_qwen3-coder.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7694_20260324_gpt-4o-mini-search-preview.md",
+  "relation": "confirms",
+  "claim_text": "The claim accurately identifies these relationship types as part of the rich type system for tensor relationships in the `weaver.py` file.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "openai/gpt-4o-mini-search-preview",
+  "verified_by": "qwen/qwen3-coder",
+  "timestamp": "2026-05-02T14:38:23.639874+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "33529af8-3657-48cf-8f70-dd0ba95c7f60",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11861_20260502_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7962_20260325_qwen2.5-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "Modular Testing with Subagent-Driven Development** - **Observation**: The `README.md` describes a test suite that verifies skills using `claude-code` in headless mode.",
+  "claim_file": "README.md",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-05-02T14:39:47.430384+00:00"
+}

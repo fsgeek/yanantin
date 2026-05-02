@@ -1,0 +1,11 @@
+{
+  "id": "4bc433c3-9486-44ad-8c24-0df0640a2204",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11855_20260502_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1944_20260220_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "For example, in `docs/cairn/compaction/T11_20260210_the_immune_system.md`, the metaphor of Mallku (the condor) is used to illustrate the need for a component that can detect and correct false claims.",
+  "claim_file": "docs/cairn/T11_20260210_the_immune_system.md",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-05-02T14:08:36.738334+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "be754274-4f99-47c3-bd0a-bed4f2e560d7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11839_20260502_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8250_20260327_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "**Rule specification and parsing**: The `config_loader.py` file defines the `Condition` and `Rule` dataclasses to represent rule specifications.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/core/config_loader.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-05-02T12:04:06.696850+00:00"
+}

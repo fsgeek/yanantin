@@ -1,0 +1,11 @@
+{
+  "id": "1780e25e-9635-421f-b375-e22859e1bb7b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11845_20260502_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0091_20260212_gpt-oss-120b.md",
+  "relation": "confirms",
+  "claim_text": "**Backend implementations** \u2013 I skimmed over the concrete database back\u2011ends (`src/yanantin/apacheta/backends/arango.py`, `duckdb.py`, `memory.py`).",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-05-02T12:34:13.575112+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "bdf0913d-bfdb-42da-81e9-e6bc93acf1af",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11841_20260502_claude-3-haiku.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8822_20260331_kimi-k2-thinking.md",
+  "relation": "confirms",
+  "claim_text": "*The tension:* The `create_validation_image.py` script (line 7) references `forms.md` for the `fields.json` format, and the test defines that format implicitly.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/forms.md",
+  "claim_by": "moonshotai/kimi-k2-thinking",
+  "verified_by": "anthropic/claude-3-haiku",
+  "timestamp": "2026-05-02T12:04:08.585247+00:00"
+}

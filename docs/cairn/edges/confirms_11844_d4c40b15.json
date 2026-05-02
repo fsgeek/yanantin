@@ -1,0 +1,11 @@
+{
+  "id": "d4c40b15-c921-4a1e-8a96-7a6c98761e1d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11844_20260502_gpt-4.1-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0578_20260214_qwen3-next-80b-a3b-thinking.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses   - I did not analyze `scout.py` or `succession.py` because **they were not provided in the selected files**.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "verified_by": "openai/gpt-4.1-nano",
+  "timestamp": "2026-05-02T12:34:12.554085+00:00"
+}

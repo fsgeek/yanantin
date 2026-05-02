@@ -1,0 +1,11 @@
+{
+  "id": "8924fdfc-a923-44a8-a644-47af91007dfd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11843_20260502_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4255_20260303_qwen-plus-2025-07-28:thinking.md",
+  "relation": "confirms",
+  "claim_text": "The model's assertion that `compose.py` \"is not present\" is factually incorrect\u2014it is explicitly provided and verifiable.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "qwen/qwen-plus-2025-07-28:thinking",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-02T12:34:12.408714+00:00"
+}

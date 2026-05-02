@@ -1,0 +1,11 @@
+{
+  "id": "e05b023d-fbe3-4553-9987-b6ce95dcc24d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11888_20260502_gpt-5.1-codex-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10512_20260409_codestral-2508.md",
+  "relation": "confirms",
+  "claim_text": "**File**: `src/yanantin/collector/filesystem/recorder.py` #### Strand 6: Filesystem Collector **Observation**: The `filesystem/collector.py` file defines a collector for gathering stat metadata for every entry in a directory tree.",
+  "claim_file": "src/yanantin/collector/filesystem/collector.py",
+  "claim_by": "mistralai/codestral-2508",
+  "verified_by": "openai/gpt-5.1-codex-mini",
+  "timestamp": "2026-05-02T18:17:27.892829+00:00"
+}

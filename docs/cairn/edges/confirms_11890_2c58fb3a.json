@@ -1,0 +1,11 @@
+{
+  "id": "2c58fb3a-58f5-4358-beff-e6cec894da51",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11890_20260502_gpt-4o-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7195_20260321_qwen3-coder-flash.md",
+  "relation": "confirms",
+  "claim_text": "Also, the file name is `CLAUDE.md`, not `docs/CLAUDE.md`.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "openai/gpt-4o-mini",
+  "timestamp": "2026-05-02T18:47:30.516292+00:00"
+}

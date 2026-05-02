@@ -1,0 +1,11 @@
+{
+  "id": "53d54cc6-430b-4d9f-9338-931f415742a1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11891_20260502_intellect-3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5175_20260309_voxtral-small-24b-2507.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The claim states: \"However, it does mention `docs/predecessors.md` is not present, but it does mention `docs/predecessors.md` is not present, but it does mention.\" The file `docs/cairn/scout_2672_20260224_llama-3.1-8b-instruct.md` does not contain any mention of `docs/predecessors.md` being present or not present.",
+  "claim_file": "docs/cairn/scout_2672_20260224_llama-3.1-8b-instruct.md",
+  "claim_by": "mistralai/voxtral-small-24b-2507",
+  "verified_by": "prime-intellect/intellect-3",
+  "timestamp": "2026-05-02T18:47:34.484862+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "8b3fa9af-97b2-4a0b-90db-533901ec9a21",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11886_20260502_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3964_20260302_ministral-3b-2512.md",
+  "relation": "confirms",
+  "claim_text": "--- ### Declared Losses - **Missing context**: The claim references other files (`tensor.py`, `composition.py`) not shown here.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-02T18:17:25.606318+00:00"
+}

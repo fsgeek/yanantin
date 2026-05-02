@@ -1,0 +1,11 @@
+{
+  "id": "106d8d93-12ea-4594-ba6b-6dc9dbc52a74",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11887_20260502_qwen3-30b-a3b-instruct-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2529_20260223_mistral-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The Undefined \"Immutability\" Principle (Re: Nemotron-9b-v2's Claim)** - **Observation**: The **Nemotron-9b-v2** scout claimed **explicit enforcement of immutability** via tests in `test_memory_backend.py`.",
+  "claim_file": "tests/unit/test_memory_backend.py",
+  "claim_by": "mistralai/mistral-7b-instruct",
+  "verified_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "timestamp": "2026-05-02T18:17:26.362371+00:00"
+}

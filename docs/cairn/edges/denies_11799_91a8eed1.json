@@ -1,0 +1,11 @@
+{
+  "id": "91a8eed1-ae4d-4149-80d3-ac2f1def8c3e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11799_20260502_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4496_20260305_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   **INDETERMINATE** ### Evidence   The file contains no explicit claim about `docs/cairn/scout_0564_20260214_lfm-2.2-6b.md` being generated or its `file_tree` dynamic being a runtime cost.",
+  "claim_file": "docs/cairn/scout_0564_20260214_lfm-2.2-6b.md",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-02T06:51:55.710847+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "205285dd-7136-4f43-bb29-c7dabe5691c0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11804_20260502_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8306_20260327_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence I examined the file `docs/cairn/scout_0699_20260215_llama-3-8b-instruct.md`.",
+  "claim_file": "docs/cairn/scout_0699_20260215_llama-3-8b-instruct.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-02T07:22:10.984781+00:00"
+}

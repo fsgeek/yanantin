@@ -1,0 +1,11 @@
+{
+  "id": "e95ca22c-12f1-44eb-b798-b4475a23dec2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11800_20260502_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6732_20260319_lfm-2-24b-a2b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The claim states that the operators are likely defined elsewhere, possibly in `apacheta/operators/evolve.py` or `apacheta/models/provenance.py`.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-02T06:51:56.435346+00:00"
+}

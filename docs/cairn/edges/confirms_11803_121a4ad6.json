@@ -1,0 +1,11 @@
+{
+  "id": "121a4ad6-c834-4baa-9c2d-74872de9f899",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11803_20260502_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9962_20260406_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "There's a clear progression from simulating basic context window issues (`phase1`) to evaluating complex summarization and non-inferiority (`phase2`), with a deep dive into prompt engineering's role (`ablate.py`) and aggressive compression testing (`aggressive_reconstruction.py`).",
+  "claim_file": "tools/aggressive_reconstruction.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-02T07:22:09.145771+00:00"
+}

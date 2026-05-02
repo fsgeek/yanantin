@@ -1,0 +1,11 @@
+{
+  "id": "1d20ad95-a0ff-46cc-ade7-6c35ecc2d8a8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11801_20260502_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10176_20260407_gemma-3-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "I'm also intrigued by the explicit mention of test author provenance in several files (e.g., `test_tinkuy_succession.py`), a practice rarely seen.\", \"strands\": [ { \"theme\": \"Normalization and Legacy Handling\", \"description\": \"`test_awaq_weaver.py` spends a lot of effort normalizing tensor names, handling Unicode subscripts and LaTeX formatting (`test_awaq_weaver.py:27-60`).",
+  "claim_file": "tests/unit/test_tinkuy_succession.py",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-05-02T06:52:28.168594+00:00"
+}

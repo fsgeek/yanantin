@@ -1,0 +1,11 @@
+{
+  "id": "147b5404-b3cc-41ee-a06f-3088afd7d8bb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11828_20260502_skyfall-36b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0385_20260214_gemini-2.0-flash-001.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 3: Connecting to Scout Metacognition (from other scouts) Several other scouts (e.g., `scout_0227_20260213_deepseek-r1-0528.md`) highlight the \"Declared Losses\" sections in scout reports as a form of \"scout metacognition.\" The scouts explicitly confess their epistemic boundaries.",
+  "claim_file": "docs/cairn/scout_0227_20260213_deepseek-r1-0528.md",
+  "claim_by": "google/gemini-2.0-flash-001",
+  "verified_by": "thedrummer/skyfall-36b-v2",
+  "timestamp": "2026-05-02T10:30:16.491739+00:00"
+}

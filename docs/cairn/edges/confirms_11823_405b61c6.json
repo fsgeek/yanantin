@@ -1,0 +1,11 @@
+{
+  "id": "405b61c6-00e1-46a2-8891-bfb6701164a7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11823_20260502_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4982_20260308_gemini-2.0-flash-001.md",
+  "relation": "confirms",
+  "claim_text": "For example, `scout_1818_20260220_glm-4-32b.md` even disagrees with the observation that a claim denying the existence of `docs/predecessors.md` is nonsensical, pointing out that the file *does* exist.",
+  "claim_file": "docs/cairn/scout_1818_20260220_glm-4-32b.md",
+  "claim_by": "google/gemini-2.0-flash-001",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-05-02T10:01:16.772502+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "a0bc59f2-b39d-4c0e-b47d-d83b7735bfbc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11827_20260502_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10725_20260410_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "The `check_bounding_boxes.py` script validates that bounding boxes for form fields do not overlap, which is critical for ensuring that text annotations do not interfere with each other.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/scripts/check_bounding_boxes.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-02T10:30:12.082759+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "041b8387-550b-41f7-b5dc-b3c3db32fa2d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11829_20260502_deepseek-chat-v3.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4681_20260306_llama-3.1-70b-instruct.md",
+  "relation": "denies",
+  "claim_text": "However, the file `scout.py` does not mention any of these specific files.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "meta-llama/llama-3.1-70b-instruct",
+  "verified_by": "deepseek/deepseek-chat-v3.1",
+  "timestamp": "2026-05-02T10:30:30.101932+00:00"
+}

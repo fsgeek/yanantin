@@ -1,0 +1,11 @@
+{
+  "id": "61871cb5-ad06-47fd-9b67-91fa5c9f62c7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11825_20260502_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0544_20260214_gpt-4o-mini-search-preview.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The docstring in `succession.py` references a \"blueprint\" and describes functionality related to auditing and comparing the codebase to this blueprint.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "openai/gpt-4o-mini-search-preview",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-05-02T10:01:26.444166+00:00"
+}

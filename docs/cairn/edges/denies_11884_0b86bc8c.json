@@ -1,0 +1,11 @@
+{
+  "id": "0b86bc8c-14fc-48f5-83be-3f464ab602ef",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11884_20260502_seed-2.0-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8856_20260331_mistral-small-3.1-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "**No external files or systems beyond the immediate imports and function logic:** - The file imports only specific modules and classes from within the `yanantin.apacheta` package: ```python from __future__ import annotations import threading from uuid import UUID from yanantin.apacheta.interface.abstract import ApachetaInterface from yanantin.apacheta.interface.errors import AccessDeniedError, ImmutabilityError, NotFoundError from yanantin.apacheta.models.composition import ( BootstrapRecord, CompositionEdge, CorrectionRecord, DissentRecord, NegationRecord, SchemaEvolutionRecord, ) from yanantin.apacheta.models.entities import EntityResolution from yanantin.apacheta.models.tensor import TensorRecord ``` ### Reasoning - **No references to `backends/memory.py` or `backends/duckdb.py`:** A manual search of the file content confirms that these strings do not appear anywhere in the file.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "bytedance-seed/seed-2.0-mini",
+  "timestamp": "2026-05-02T17:45:43.425624+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "f5baa555-7b7f-402c-9ed9-03a4aeca9b5e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11883_20260502_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1233_20260217_qwen-2.5-coder-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `docs/predecessors.md` does not contain any mention of a file named `apacheta.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "qwen/qwen-2.5-coder-32b-instruct",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-05-02T17:44:15.383992+00:00"
+}

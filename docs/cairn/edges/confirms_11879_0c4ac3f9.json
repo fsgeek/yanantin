@@ -1,0 +1,11 @@
+{
+  "id": "0c4ac3f9-b69b-4304-9c20-75474ef67214",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11879_20260502_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9375_20260403_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "Example-Driven Agent Descriptions **Observation:** The `agent-creation-prompt.md` file emphasizes the importance of including multiple examples in the agent descriptions to clarify when the agent should be triggered.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/agent-development/examples/agent-creation-prompt.md",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-05-02T17:14:16.633544+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "56a289c1-71ac-4a36-8cb4-9d2ab69d6627",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11880_20260502_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7436_20260322_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "*   `flip.py` - line 27: `from core.gif_builder import GIFBuilder` *   `kaleidoscope.py` - line 10: `from core.gif_builder import GIFBuilder` *   `flip.py` - line 48: ` if object_type == 'horizontal': # flip ` ## \u26a0\ufe0f Assumptions: *   The `object_data` dictionary will contain keys like `emoji`, `color`, `size`, and `type`.",
+  "claim_file": "tmp/ubuntu-vm.claude/slack-gif-creator/templates/flip.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-05-02T17:14:21.482031+00:00"
+}

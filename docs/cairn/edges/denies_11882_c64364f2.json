@@ -1,0 +1,11 @@
+{
+  "id": "c64364f2-d426-4484-b7e6-dccd57b7a9f2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11882_20260502_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7456_20260323_qwen3-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The `silent-failure-hunter.md` declares \u201cSilent failures are unacceptable\u201d \u2014 a dogma.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/pr-review-toolkit/agents/silent-failure-hunter.md",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-02T17:44:08.612282+00:00"
+}

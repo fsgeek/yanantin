@@ -1,0 +1,11 @@
+{
+  "id": "8603e14e-558f-4487-b38f-2ce735385ea8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11847_20260502_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5705_20260312_qwen3-30b-a3b-instruct-2507.md",
+  "relation": "denies",
+  "claim_text": "The claim also states that `audit.py` surveys the filesystem directly \u2014 this is plausible, but **the key error is in denying that it parses the blueprint**.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-05-02T13:07:08.294882+00:00"
+}

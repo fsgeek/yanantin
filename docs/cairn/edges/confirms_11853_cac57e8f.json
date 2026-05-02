@@ -1,0 +1,11 @@
+{
+  "id": "cac57e8f-3f59-4885-b355-b1c65e142f62",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11853_20260502_deepseek-v4-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9107_20260401_qwen3-14b.md",
+  "relation": "confirms",
+  "claim_text": "The `__main__.py` file caught my attention as the entry point, orchestrating audit reports or succession checks.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "deepseek/deepseek-v4-flash",
+  "timestamp": "2026-05-02T13:37:55.315212+00:00"
+}

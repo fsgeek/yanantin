@@ -1,0 +1,11 @@
+{
+  "id": "03d347ae-d386-4c39-8938-b5135a80145f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11849_20260502_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7059_20260320_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Since the file content does not reflect this directory structure or confirm the existence of `arango.py`, `duckdb.py`, or `memory.py` in that location, the claim is not supported by the evidence.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-05-02T13:07:17.136046+00:00"
+}

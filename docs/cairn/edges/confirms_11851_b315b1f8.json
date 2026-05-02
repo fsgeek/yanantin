@@ -1,0 +1,11 @@
+{
+  "id": "b315b1f8-7ad6-427d-acef-e9c0c560e429",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11851_20260502_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8700_20260330_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "**Tool Usage in Commands and Agents**: The `tool-usage.md` document explains how to utilize MCP tools within commands and agents.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/mcp-integration/references/tool-usage.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-05-02T13:36:25.165597+00:00"
+}

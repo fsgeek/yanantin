@@ -1,0 +1,11 @@
+{
+  "id": "68403cbf-c0b1-465e-8607-a100c78eabc1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11848_20260502_llama-3.3-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7922_20260325_cydonia-24b-v4.1.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I cannot confirm the existence or content of `docs/predecessors.md` as it was not provided in the verification assignment.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "thedrummer/cydonia-24b-v4.1",
+  "verified_by": "meta-llama/llama-3.3-70b-instruct",
+  "timestamp": "2026-05-02T13:07:13.134572+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "43798d0b-04f1-4d1f-b5f9-3d9611f096bf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11905_20260502_o4-mini-high.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6526_20260317_gpt-oss-120b.md",
+  "relation": "confirms",
+  "claim_text": "*\u201cThe `test_provenance.py` file verifies that records like `BootstrapRecord`, `TensorRecord`, and `ProvenanceEnvelope` all carry provenance.\u201d*   - This is directly supported: the file includes tests for `BootstrapRecord`, `TensorRecord`, and many other record types, each asserting that their `provenance` attribute is an instance of `ProvenanceEnvelope`.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "openai/o4-mini-high",
+  "timestamp": "2026-05-02T20:52:45.010211+00:00"
+}

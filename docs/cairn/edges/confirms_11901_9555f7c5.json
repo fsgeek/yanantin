@@ -1,0 +1,11 @@
+{
+  "id": "9555f7c5-ce62-472d-9f6a-18719e965a9f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11901_20260502_deepseek-r1-0528.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11548_20260415_wizardlm-2-8x22b.md",
+  "relation": "confirms",
+  "claim_text": "- It is named `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "microsoft/wizardlm-2-8x22b",
+  "verified_by": "deepseek/deepseek-r1-0528",
+  "timestamp": "2026-05-02T20:22:47.589975+00:00"
+}

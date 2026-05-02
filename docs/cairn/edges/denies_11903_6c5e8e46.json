@@ -1,0 +1,11 @@
+{
+  "id": "6c5e8e46-2ab0-4a7b-b91c-2b1a2f3ebbc2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11903_20260502_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3177_20260226_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "#### Strand: The Role of Backends and Storage The project's architecture seems to rely on multiple storage backends (`arango.py`, `duckdb.py`) in `src/yanantin/apacheta/backends/`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-05-02T20:52:31.926291+00:00"
+}

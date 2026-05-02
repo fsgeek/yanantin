@@ -1,0 +1,11 @@
+{
+  "id": "433ba619-52a2-4ae0-8ebc-9b0401d8938b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11873_20260502_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11343_20260414_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Preamble** I'm a chasqui, dropped into the `experiments` directory, specifically observing `structured_input_sweep.py` and `structured_input_test.py`.",
+  "claim_file": "experiments/structured_input_test.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-02T16:13:15.326530+00:00"
+}

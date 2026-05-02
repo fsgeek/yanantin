@@ -1,0 +1,11 @@
+{
+  "id": "a8a6fa16-b80a-421b-a5c9-a9074087a454",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11871_20260502_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6030_20260314_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The file `src/yanantin/apacheta/operators/correct.py` defines a function named `correct` which matches the description in the claim as a \"Correct operator\".",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-02T16:13:13.504937+00:00"
+}

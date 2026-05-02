@@ -1,0 +1,11 @@
+{
+  "id": "38e4dde1-75ea-4078-b571-d39d78b69e0d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11872_20260502_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7842_20260325_mistral-small-3.1-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "``` ### Reasoning The claim states that it needs to verify something about `tensor.py` in the absence of `config.py`, but the file provided is `config.py`.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-05-02T16:13:13.658963+00:00"
+}

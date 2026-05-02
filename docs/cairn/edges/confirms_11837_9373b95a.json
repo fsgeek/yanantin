@@ -1,0 +1,11 @@
+{
+  "id": "9373b95a-00b1-45c1-9314-2515a19af007",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11837_20260502_llama-3.3-nemotron-super-49b-v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1043_20260216_qwen2.5-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Epistemic Non-Commutativity** *What I saw*:   In `docs/cairn/scout_0097_20260212_lfm-2.2-6b.md`, strand 1 highlights the importance of read-order epistemic rules, particularly in `T\u2088` (the master builder tensor).",
+  "claim_file": "docs/cairn/scout_0097_20260212_lfm-2.2-6b.md",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "timestamp": "2026-05-02T11:32:05.774562+00:00"
+}

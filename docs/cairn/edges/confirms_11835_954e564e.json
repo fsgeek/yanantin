@@ -1,0 +1,11 @@
+{
+  "id": "954e564e-411f-4f23-81a5-a2d5fc810db9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11835_20260502_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10981_20260412_cydonia-24b-v4.1.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that \"the remaining 300+ lines of `coverage.py`\" exist.",
+  "claim_file": "src/yanantin/chasqui/coverage.py",
+  "claim_by": "thedrummer/cydonia-24b-v4.1",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-05-02T11:31:52.224418+00:00"
+}

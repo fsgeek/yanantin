@@ -1,0 +1,11 @@
+{
+  "id": "80fb04a8-b3d4-47af-ab14-0ebe17282115",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11833_20260502_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10287_20260408_minimax-01.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `src/yanantin/collector/checksum.py` does not contain: 1.",
+  "claim_file": "src/yanantin/collector/checksum.py",
+  "claim_by": "minimax/minimax-01",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-05-02T11:02:10.539033+00:00"
+}

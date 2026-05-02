@@ -1,0 +1,11 @@
+{
+  "id": "da22c642-7b2f-4a7e-9930-bf05dca46092",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11761_20260502_reka-flash-3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0752_20260215_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The Tinkuy Protocol is a Succession Ritual** The `src/yanantin/tinkuy/` module contains the `audit.py` and `succession.py` files, which suggest a proactive approach to maintaining consistency within the project.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "rekaai/reka-flash-3",
+  "timestamp": "2026-05-02T01:42:29.857199+00:00"
+}

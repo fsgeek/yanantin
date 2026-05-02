@@ -1,0 +1,11 @@
+{
+  "id": "176c3617-f56b-4070-831c-7ffdda8fce48",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11759_20260502_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6525_20260317_hermes-4-70b.md",
+  "relation": "denies",
+  "claim_text": "The claim appears to be referring to a different file (`correct.py`) than the one provided for verification, which is why the evidence from `negate.py` disproves it.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "nousresearch/hermes-4-70b",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-05-02T01:42:17.712311+00:00"
+}

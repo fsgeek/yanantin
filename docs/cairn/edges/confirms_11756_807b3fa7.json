@@ -1,0 +1,11 @@
+{
+  "id": "807b3fa7-76b9-40ee-929f-6f3e022c107f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11756_20260502_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9357_20260403_nova-micro-v1.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The claim by `xiaomi/mimo-v2-flash` states that the files `test_governance.py`, `test_immutability.py`, `test_least_privilege.py`, `test_monotonicity.py`, `test_portability.py`, `test_provenance.py` are **not** about functional correctness.",
+  "claim_file": "tests/red_bar/test_governance.py",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-05-02T01:09:36.506591+00:00"
+}

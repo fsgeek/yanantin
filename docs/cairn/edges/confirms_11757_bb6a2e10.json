@@ -1,0 +1,11 @@
+{
+  "id": "bb6a2e10-ec7f-43be-872a-9d1c52f755f5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11757_20260502_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9206_20260402_glm-4-32b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The file provided is `src/yanantin/chasqui/model_selector.py`.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-05-02T01:10:47.422915+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "e5b86bf9-709e-432c-8350-3f3e66638759",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11755_20260502_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6536_20260317_glm-4-32b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that the model couldn't verify the existence of several files (`bootstrap.py`, `compose.py`, `correct.py`, `negate.py`, and `evolve.py`) outside of the context of the provided `dissent.py` file.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-02T01:09:26.113433+00:00"
+}

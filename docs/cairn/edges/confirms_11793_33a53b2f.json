@@ -1,0 +1,11 @@
+{
+  "id": "33a53b2f-8d69-4bcb-a582-b53a9bfe8b80",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11793_20260502_glm-4.6v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4505_20260305_hermes-4-70b.md",
+  "relation": "confirms",
+  "claim_text": "where = \" AND \".join(conditions) rows = self._conn.execute( \"SELECT id, provider_id, timestamp, data, content_hash \"  # noqa: S608 f\"FROM facts WHERE {where} ORDER BY timestamp ASC\", params, ).fetchall() # Line 151 (store_anchor) - Anchor operation, not relevant to fact hash filtering # Line 162 (get_anchor) - Anchor operation, not relevant to fact hash filtering # Line 170 (get_latest_anchor) - Anchor operation, not relevant to fact hash filtering # Line 178 (list_providers) - Aggregation, not filtering on hash # Line 187 (count_facts) - Aggregation, not filtering on hash ``` ### Reasoning The code in `src/yanantin/activity/backends/duckdb.py` does indeed write a hash when persisting a fact.",
+  "claim_file": "src/yanantin/activity/backends/duckdb.py",
+  "claim_by": "nousresearch/hermes-4-70b",
+  "verified_by": "z-ai/glm-4.6v",
+  "timestamp": "2026-05-02T05:50:42.634600+00:00"
+}

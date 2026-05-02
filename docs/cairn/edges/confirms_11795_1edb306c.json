@@ -1,0 +1,11 @@
+{
+  "id": "1edb306c-7cb2-4e9e-8442-f4f9aebba806",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11795_20260502_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2238_20260222_trinity-mini.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict**INDETERMINATE** ### Evidence The claim references two files (`arango.py` and `duckdb.py`), but the provided file is only `duckdb.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-05-02T06:19:59.710231+00:00"
+}

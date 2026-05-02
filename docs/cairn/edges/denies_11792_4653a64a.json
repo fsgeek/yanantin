@@ -1,0 +1,11 @@
+{
+  "id": "4653a64a-8562-4c02-afe4-3252d3da2667",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11792_20260502_seed-2.0-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0067_20260212_olmo-3-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "**Model Selection and Cost Awareness**   In `docs/cairn/scout_0053_20260212_llama-3.2-1b-instruct.md`, the use of cost-weighted sampling for model choice is highlighted.",
+  "claim_file": "docs/cairn/scout_0053_20260212_llama-3.2-1b-instruct.md",
+  "claim_by": "allenai/olmo-3-7b-instruct",
+  "verified_by": "bytedance-seed/seed-2.0-lite",
+  "timestamp": "2026-05-02T05:50:38.191996+00:00"
+}

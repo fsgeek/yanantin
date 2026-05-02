@@ -1,0 +1,11 @@
+{
+  "id": "946d706e-0fdd-48b3-b160-76ee9b1b316a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11867_20260502_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10379_20260408_aion-1.0-mini.md",
+  "relation": "confirms",
+  "claim_text": "Let's parse: The claim says \"These files seem to be the raw outputs of the verification process mentioned in the scout reports (like the one from `scout_4575_20260305_step-3.5-flash.md`).\" So the claim is that the file `scout_4575_20260305_step-3.5-flash.md` is a raw output of a verification process.",
+  "claim_file": "docs/cairn/scout_4575_20260305_step-3.5-flash.md",
+  "claim_by": "aion-labs/aion-1.0-mini",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-05-02T15:40:16.035300+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "248e5b33-3d25-464d-a0d4-de45378255b1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11868_20260502_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7714_20260324_lfm-2.2-6b.md",
+  "relation": "confirms",
+  "claim_text": "Export public key for GitHub:\"   No line number mentioned about `ProvenanceEnvelope` in `bootstrap.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-02T15:40:16.105944+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "8664c20b-74fe-497b-b10f-5267443ef069",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11863_20260502_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2470_20260223_llama-4-scout.md",
+  "relation": "denies",
+  "claim_text": "- **Files Referenced**: `docs/predecessors.md`, `docs/cairn/scout_2106_20260221_tongyi-deepresearch-30b-a3b.md` - **Thoughts**: This suggests the project isn't just building infrastructure; it's cultivating a collective intelligence that learns from its own mistakes.",
+  "claim_file": "docs/cairn/scout_2106_20260221_tongyi-deepresearch-30b-a3b.md",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-02T15:10:26.350068+00:00"
+}

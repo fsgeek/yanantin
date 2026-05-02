@@ -1,0 +1,11 @@
+{
+  "id": "edb5b0de-7ef6-4f7d-a769-40b92c6f8422",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11865_20260502_qwen3.5-27b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1483_20260218_gemini-2.5-flash-lite.md",
+  "relation": "denies",
+  "claim_text": "**Why does `scout_0835_20260216_devstral-small.md` (and others) include truncated file content (\"...",
+  "claim_file": "docs/cairn/scout_0835_20260216_devstral-small.md",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "qwen/qwen3.5-27b",
+  "timestamp": "2026-05-02T15:10:33.293191+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "5f99c2ed-2e1e-48fc-b61c-0a767ebe9872",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11864_20260502_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6522_20260317_ministral-8b-2512.md",
+  "relation": "denies",
+  "claim_text": "By contrast, the file *does* explicitly declare it is **not a review process documentation tool**: > *\"Not a code review (that's the structured reviewer's job)\"* This implies `structured_reviewer.md` is a separate entity with a different purpose.",
+  "claim_file": "agents/structured_reviewer.md",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-05-02T15:10:26.698288+00:00"
+}

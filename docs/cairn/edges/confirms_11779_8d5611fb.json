@@ -1,0 +1,11 @@
+{
+  "id": "8d5611fb-b4e9-457c-87eb-cfefdd82137e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11779_20260502_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7834_20260325_minimax-01.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `docs/apacheta.md` contains the following statement under the section \"What's Missing\": > ### Schema > > A minimal relational core needs at least: > > **Tensor table**: id, author_instance, model_family, timestamp, lineage_tags, predecessor_ids, declared_losses, context_budget_at_write, narrative_body.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "minimax/minimax-01",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-02T04:15:36.317685+00:00"
+}

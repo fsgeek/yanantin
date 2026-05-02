@@ -1,0 +1,11 @@
+{
+  "id": "f316bf5f-5930-4dc7-a2fb-846747866820",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11813_20260502_seed-2.0-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9399_20260403_gemma-2-9b-it.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I cannot access external files or execute code, so I cannot verify if `replace.py` exists or imports `inventory.py`.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/scripts/replace.py",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "bytedance-seed/seed-2.0-mini",
+  "timestamp": "2026-05-02T08:25:04.883903+00:00"
+}

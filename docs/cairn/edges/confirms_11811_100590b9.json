@@ -1,0 +1,11 @@
+{
+  "id": "100590b9-47cc-45d6-a560-debc3548cc48",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11811_20260502_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0299_20260213_ministral-14b-2512.md",
+  "relation": "confirms",
+  "claim_text": "- **`config.py`** shows **configuration as a tensor**, where **each change is a new tensor** with **reasoning and lineage**.",
+  "claim_file": "src/yanantin/apacheta/config.py",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-05-02T08:24:03.639240+00:00"
+}

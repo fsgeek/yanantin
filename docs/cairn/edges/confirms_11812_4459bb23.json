@@ -1,0 +1,11 @@
+{
+  "id": "4459bb23-b769-41ca-b355-18904c7d9eb2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11812_20260502_glm-4.5-air.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3887_20260301_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "`docs/signing.md` does not reference `src/yanantin/provenance/timestamp.py`.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "z-ai/glm-4.5-air",
+  "timestamp": "2026-05-02T08:24:16.039792+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "3a80d26d-d343-46c8-9036-2c7f8a379757",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11808_20260502_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6588_20260318_gemma-2-9b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence > The `tests/unit/test_recorders.py` file emphasizes provenance tracking, which aligns with the scout\u2019s focus on verifying claims against the codebase.",
+  "claim_file": "tests/unit/test_recorders.py",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-05-02T07:55:12.447422+00:00"
+}

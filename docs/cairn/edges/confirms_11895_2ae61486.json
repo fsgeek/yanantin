@@ -1,0 +1,11 @@
+{
+  "id": "2ae61486-90c5-4c9d-9f09-b1537b636e6f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11895_20260502_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3483_20260227_ministral-14b-2512.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `pyproject.toml` contains the following **explicit reference** to `README.md`: ``` readme = \"README.md\" ``` Additionally, the claim lists the following files: - `.env` (not present in the file, but this is a file naming convention, not a direct reference in `pyproject.toml`) - `.python-version` (not present in the file) - `CLAUDE.md` (not present in the file) - `README.md` (directly referenced in the file) - `pyproject.toml` (the file itself).",
+  "claim_file": "pyproject.toml",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-05-02T19:50:28.991418+00:00"
+}

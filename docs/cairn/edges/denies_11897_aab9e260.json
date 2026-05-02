@@ -1,0 +1,11 @@
+{
+  "id": "aab9e260-2977-4237-bfed-bb494523f88e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11897_20260502_tongyi-deepresearch-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1546_20260219_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The juxtaposition of technical files like `src/yanantin/activity/models.py` with these natural language reports of explorations created an immediate curiosity about how the system mediates between structured, functional code and the unstructured, interpretive work of AI scouting.\" }, \"strands\": [ { \"theme\": \"Scout Infrastructure and Tensor Construction\", \"observation\": \"Each scout report is a \\\"Chasqui Scout Tensor\\\", formatted with metadata like run number, model name, cost, token usage, and timestamp.",
+  "claim_file": "src/yanantin/activity/models.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "alibaba/tongyi-deepresearch-30b-a3b",
+  "timestamp": "2026-05-02T19:50:30.378461+00:00"
+}

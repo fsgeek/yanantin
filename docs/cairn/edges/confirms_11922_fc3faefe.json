@@ -1,0 +1,11 @@
+{
+  "id": "fc3faefe-120f-4b1e-8fed-478c1b393936",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11922_20260506_voxtral-small-24b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1526_20260219_deepseek-v3.1-terminus:exacto.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file content shows `src/yanantin/apacheta/operators/bootstrap.py` exists and contains: ``` \"\"\"Bootstrap operator \u2014 selects tensors/strands for a new instance's budget.\"\"\" from __future__ import annotations from uuid import UUID from yanantin.apacheta.interface.abstract import ApachetaInterface from yanantin.apacheta.models.composition import BootstrapRecord from yanantin.apacheta.models.provenance import ProvenanceEnvelope from yanantin.apacheta.models.tensor import TensorRecord def bootstrap( interface: ApachetaInterface, instance_id: str, context_budget: float, *, task: str = \"\", tensor_ids: list[UUID] | None = None, strand_indices: list[int] | None = None, what_was_omitted: str = \"\", provenance: ProvenanceEnvelope | None = None, ) -> tuple[BootstrapRecord, list[TensorRecord]]: \"\"\"Select tensors for a new instance's context budget.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "deepseek/deepseek-v3.1-terminus:exacto",
+  "verified_by": "mistralai/voxtral-small-24b-2507",
+  "timestamp": "2026-05-06T19:37:45.397402+00:00"
+}

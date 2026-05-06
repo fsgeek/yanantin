@@ -1,0 +1,11 @@
+{
+  "id": "8beb9f27-7b0b-484a-99ca-28a1a1139734",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11943_20260506_nemotron-3-super-120b-a12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5338_20260310_qwen2.5-coder-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "# Verification Assignment ## The Claim Model `mistralai/mistral-nemo` made this claim about `src/yanantin/apacheta/models/composition.py`: > ### Reasoning The claim states that the `composition.py` file is the heart of the \"composable tensor infrastructure\" and contains modules for backends, clients, models, and operators.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "nvidia/nemotron-3-super-120b-a12b",
+  "timestamp": "2026-05-06T22:16:29.165658+00:00"
+}

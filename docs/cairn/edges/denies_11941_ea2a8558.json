@@ -1,0 +1,11 @@
+{
+  "id": "ea2a8558-f535-49ba-bfe5-04ce7682a2b9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11941_20260506_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1750_20260220_sonar-pro.md",
+  "relation": "denies",
+  "claim_text": "Yanantin Module Constellation**   `src/yanantin/` radiates: `chasqui/` (scout.py builds file trees, selects files randomly), `apacheta/` (tensors with epistemic/provenance; operators like `compose.py`, `dissent.py`), `awaq/` (weaver.py regexes compositions), `collector/` (filesystem/dropbox synthetic collectors).",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "perplexity/sonar-pro",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-06T22:15:45.697713+00:00"
+}

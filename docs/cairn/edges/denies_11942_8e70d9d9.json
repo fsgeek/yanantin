@@ -1,0 +1,11 @@
+{
+  "id": "8e70d9d9-e3b9-4adc-b6b1-6324ece74fe8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11942_20260506_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0430_20260214_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "\"\"\" ``` ### Reasoning The claim states that `base.py` contains ML model configuration.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-05-06T22:15:48.980301+00:00"
+}

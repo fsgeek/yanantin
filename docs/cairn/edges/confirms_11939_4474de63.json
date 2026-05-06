@@ -1,0 +1,11 @@
+{
+  "id": "4474de63-2e5f-4789-8d97-86d271afc3d3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11939_20260506_grok-3-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10795_20260411_mistral-small-creative.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** --- ### Evidence The claim states: > The File Here is the actual content of `src/yanantin/apacheta/models/composition.py`: > ``` \"\"\"Composition models \u2014 edges, corrections, dissent, negation, bootstrap, evolution.\"\"\" ...",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "x-ai/grok-3-mini",
+  "timestamp": "2026-05-06T21:44:23.147404+00:00"
+}

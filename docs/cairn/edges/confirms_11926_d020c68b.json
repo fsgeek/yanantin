@@ -1,0 +1,11 @@
+{
+  "id": "d020c68b-3027-48af-a5e7-5ab265b030ea",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11926_20260506_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11756_20260502_qwen3.5-9b.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The file `test_governance.py` is explicitly about **structural invariants and pipeline governance**, not functional correctness of the models being verified.",
+  "claim_file": "tests/red_bar/test_governance.py",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-05-06T20:10:11.134456+00:00"
+}

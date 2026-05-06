@@ -1,0 +1,11 @@
+{
+  "id": "d1eb75c1-882c-4b4d-ba0a-1ab09518086b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11929_20260506_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10081_20260407_lfm-2-24b-a2b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning While the core function of `replace.py` includes text replacement, it also performs extensive formatting operations (bullet removal, indentation, color application, etc.).",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/scripts/replace.py",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-05-06T20:39:22.884780+00:00"
+}

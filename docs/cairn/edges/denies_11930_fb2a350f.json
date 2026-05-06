@@ -1,0 +1,11 @@
+{
+  "id": "fb2a350f-e649-4f0d-9c7b-c40fc8a23dff",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11930_20260506_gpt-4.1-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0184_20260213_qwen-vl-plus.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   **DENIED** ### Evidence   The claim states:   > **Compaction Summaries and Honest Provenance** - **Observation**: `capture_compaction.py` uses regex and keyword matching to extract composition declarations from tensor prose.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "qwen/qwen-vl-plus",
+  "verified_by": "openai/gpt-4.1-nano",
+  "timestamp": "2026-05-06T20:39:28.152199+00:00"
+}

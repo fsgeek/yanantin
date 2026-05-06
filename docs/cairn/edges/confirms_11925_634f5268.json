@@ -1,0 +1,11 @@
+{
+  "id": "634f5268-3a1f-42df-adf7-9308a80936f6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11925_20260506_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11652_20260415_cydonia-24b-v4.1.md",
+  "relation": "confirms",
+  "claim_text": "The `implementer-prompt.md` file explicitly instructs subagents to \"only build what was requested\" and \"avoid overbuilding (YAGNI)\".",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/skills/subagent-driven-development/implementer-prompt.md",
+  "claim_by": "thedrummer/cydonia-24b-v4.1",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-05-06T20:10:07.820326+00:00"
+}

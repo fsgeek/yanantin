@@ -1,0 +1,11 @@
+{
+  "id": "8a476361-0a4f-4e37-8cce-f6d65f208206",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11931_20260506_qwen3-vl-235b-a22b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0952_20260216_llama-3.3-nemotron-super-49b-v.md",
+  "relation": "confirms",
+  "claim_text": "Files like `scout_0665_20260215_gpt-4o-mini-search-preview.md` confirm tensor operators (e.g., `project` function).",
+  "claim_file": "docs/cairn/scout_0665_20260215_gpt-4o-mini-search-preview.md",
+  "claim_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "verified_by": "qwen/qwen3-vl-235b-a22b-thinking",
+  "timestamp": "2026-05-06T20:40:38.239286+00:00"
+}

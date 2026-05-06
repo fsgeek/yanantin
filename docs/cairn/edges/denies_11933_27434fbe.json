@@ -1,0 +1,11 @@
+{
+  "id": "27434fbe-1262-438f-9c0b-0b781dc475e2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11933_20260506_gpt-oss-safeguard-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11000_20260412_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "This suggests the system is **trained to recognize patterns**, but the actual implementation (`fill_pdf_form_with_annotations.py`) **does not automate this recognition**.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/scripts/fill_pdf_form_with_annotations.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "openai/gpt-oss-safeguard-20b",
+  "timestamp": "2026-05-06T21:14:14.911571+00:00"
+}

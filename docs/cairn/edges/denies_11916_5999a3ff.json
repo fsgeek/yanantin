@@ -1,0 +1,11 @@
+{
+  "id": "5999a3ff-4133-4f57-b800-e3b5d14ed2d6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11916_20260502_qwen-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10725_20260410_mistral-small-24b-instruct-250.md",
+  "relation": "denies",
+  "claim_text": "It's used in `create_validation_image.py` (lines 7-8), `fill_pdf_form_with_annotations.py` (lines 14-15), and `fill_fillable_fields.py` (lines 10-11).",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/scripts/create_validation_image.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "qwen/qwen-plus",
+  "timestamp": "2026-05-02T22:26:47.454256+00:00"
+}

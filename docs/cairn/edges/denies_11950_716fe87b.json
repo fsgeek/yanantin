@@ -1,0 +1,11 @@
+{
+  "id": "716fe87b-a4d5-426a-b6f6-232e3fa7a409",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11950_20260506_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8314_20260327_mistral-small-24b-instruct-250.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `tests/unit/test_openrouter.py` contains the following content: ```python \"\"\"Tests for the OpenRouter API client abstraction.\"\"\" import os import pytest from yanantin.apacheta.clients.openrouter import ( OpenRouterClient, OpenRouterResponse, ) ``` ### Reasoning The claim states that the actual content of `tests/unit/test_openrouter.py` is included in the file, but it contains test code, not the lines mentioned in the claim.",
+  "claim_file": "tests/unit/test_openrouter.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-05-06T23:17:31.437116+00:00"
+}

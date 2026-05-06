@@ -1,0 +1,11 @@
+{
+  "id": "c89947c1-e539-48d2-bba1-d27c9c22f915",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11947_20260506_deepseek-v3.1-nex-n1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10172_20260407_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "*   `document-critique.md` (lines 39-43): Uses \"markdown-style formatting inline\" with `renderedLine`.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/playground/skills/playground/templates/document-critique.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "nex-agi/deepseek-v3.1-nex-n1",
+  "timestamp": "2026-05-06T22:45:24.041897+00:00"
+}

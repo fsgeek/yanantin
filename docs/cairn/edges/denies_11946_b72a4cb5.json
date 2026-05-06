@@ -1,0 +1,11 @@
+{
+  "id": "b72a4cb5-5451-4292-b0e3-6baad85f8de4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11946_20260506_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8510_20260328_longcat-flash-chat.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `.claude/hooks/ots_stamp.py` contains **no** `import` statements, `include` directives, or any other code that references or includes the following files: - `capture_compaction.py` - `chasqui_heartbeat.sh` - `chasqui_pulse.py` - `pipeline_attestation.py` - `precompact_tensor.py` Additionally, the file does not include another instance of itself (`ots_stamp.py`).",
+  "claim_file": ".claude/hooks/pipeline_attestation.py",
+  "claim_by": "meituan/longcat-flash-chat",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-05-06T22:45:22.868751+00:00"
+}

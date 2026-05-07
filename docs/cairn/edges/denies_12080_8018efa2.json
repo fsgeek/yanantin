@@ -1,0 +1,11 @@
+{
+  "id": "8018efa2-d585-4c2d-b931-544d30f658d1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12080_20260507_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6105_20260315_mercury-coder.md",
+  "relation": "denies",
+  "claim_text": "The existence of the other listed modules (`arango.py`, `duckdb.py`, `memory.py`, `openrouter.py`, `tensor.py`, `composition.py`, `bootstrap.py`, `compose.py`, `evolve.py`) is not visible in the provided file, so we cannot verify whether they are present or absent.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "inception/mercury-coder",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-05-07T16:30:37.728978+00:00"
+}

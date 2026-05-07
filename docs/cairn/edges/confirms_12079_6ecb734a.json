@@ -1,0 +1,11 @@
+{
+  "id": "6ecb734a-73bb-4e6e-af5c-74fce998e4c9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12079_20260507_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7512_20260323_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "The first thing that stood out to me was the existence of a detailed `advanced.md` file, which detailed the advanced usage of hooks within the project.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/hook-development/references/advanced.md",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-05-07T16:30:27.174676+00:00"
+}

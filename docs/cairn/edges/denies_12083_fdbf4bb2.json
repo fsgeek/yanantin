@@ -1,0 +1,11 @@
+{
+  "id": "fdbf4bb2-55a3-4cba-81be-8f3da8803aa6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12083_20260507_gemini-3.1-flash-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4351_20260304_olmo-3-32b-think.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim concerns the absence of references to `arango.py` or `memory.py` in `duckdb.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "allenai/olmo-3-32b-think",
+  "verified_by": "google/gemini-3.1-flash-lite",
+  "timestamp": "2026-05-07T17:02:14.865451+00:00"
+}

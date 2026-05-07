@@ -1,0 +1,11 @@
+{
+  "id": "638d16a1-cf5c-4f71-a2ff-0aeced7367c2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11997_20260507_deepseek-v3.2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0299_20260213_ministral-14b-2512.md",
+  "relation": "denies",
+  "claim_text": "- **`docs/cairn/scout_0184_20260213_qwen-vl-plus.md`** **denies a claim** about regex parsing, showing **scouts fact-checking each other**.",
+  "claim_file": "docs/cairn/scout_0184_20260213_qwen-vl-plus.md",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "deepseek/deepseek-v3.2",
+  "timestamp": "2026-05-07T05:31:35.067063+00:00"
+}

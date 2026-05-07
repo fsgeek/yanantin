@@ -1,0 +1,11 @@
+{
+  "id": "acaa43ed-094c-400e-bac3-62c753df8ec8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11991_20260507_gpt-oss-safeguard-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2252_20260222_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "- The actual logic in `tests/unit/test_chasqui.py` \u2014 while referenced, it wasn\u2019t provided, so I could not verify the claim about `ImmutabilityError`.",
+  "claim_file": "tests/unit/test_chasqui.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "openai/gpt-oss-safeguard-20b",
+  "timestamp": "2026-05-07T04:58:42.630160+00:00"
+}

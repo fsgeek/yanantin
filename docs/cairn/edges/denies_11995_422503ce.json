@@ -1,0 +1,11 @@
+{
+  "id": "422503ce-0653-4923-8a70-f0851f846dc2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11995_20260507_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8309_20260327_nova-micro-v1.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states: > \"The claim also references two files that aren't provided in the verification context (`scout_0115_20260212_lfm2-8b-a1b.md` and `scout_0382_20260214_mistral-small-creative.md`)\" The file provided *is* `scout_0382_20260214_mistral-small-creative.md`.",
+  "claim_file": "docs/cairn/scout_0115_20260212_lfm2-8b-a1b.md",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-05-07T05:31:22.720846+00:00"
+}

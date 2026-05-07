@@ -1,0 +1,11 @@
+{
+  "id": "f379a0e7-6f11-46c6-a51b-28f3e4365ca5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12044_20260507_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4406_20260304_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": "**Deep Dive into `src/yanantin/apacheta/`**: I did not examine the implementation details of the tensor abstraction (`models/tensor.py`, `content_address.py`).",
+  "claim_file": "src/yanantin/apacheta/content_address.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-05-07T11:51:49.675093+00:00"
+}

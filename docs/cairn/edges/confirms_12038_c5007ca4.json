@@ -1,0 +1,11 @@
+{
+  "id": "c5007ca4-3788-4e91-9704-d571cdb24e38",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12038_20260507_llama-4-scout.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6171_20260315_devstral-small.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `docs/cairn/scout_0070_20260212_llama-guard-3-8b.md` contains no mention of \"Documentation as data\".",
+  "claim_file": "docs/cairn/scout_0070_20260212_llama-guard-3-8b.md",
+  "claim_by": "mistralai/devstral-small",
+  "verified_by": "meta-llama/llama-4-scout",
+  "timestamp": "2026-05-07T11:18:33.117782+00:00"
+}

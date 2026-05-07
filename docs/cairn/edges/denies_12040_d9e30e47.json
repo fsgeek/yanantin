@@ -1,0 +1,11 @@
+{
+  "id": "d9e30e47-4ab2-4847-bcd0-3022e62cf925",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12040_20260507_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10167_20260407_o4-mini-high.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I have only the test file\u2019s source code; I cannot inspect `docs/cairn/scout_0050_20260212_claude-sonnet-4.5.md`.",
+  "claim_file": "docs/cairn/scout_0050_20260212_claude-sonnet-4.5.md",
+  "claim_by": "openai/o4-mini-high",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-05-07T11:19:36.230622+00:00"
+}

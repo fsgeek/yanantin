@@ -1,0 +1,11 @@
+{
+  "id": "026ba860-3830-41d9-aeff-81409e644fab",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12043_20260507_qwen3-235b-a22b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0176_20260213_qwen3-14b.md",
+  "relation": "denies",
+  "claim_text": "You wander the codebase and notice what you notice.\" ### Reasoning The claim asserts that `scout_reviewer.md` represents a meta-level review where agents review *reports of other agents*.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "qwen/qwen3-235b-a22b",
+  "timestamp": "2026-05-07T11:51:35.022074+00:00"
+}

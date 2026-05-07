@@ -1,0 +1,11 @@
+{
+  "id": "51953d0a-9f7d-4afb-9dfc-b2ef34abbe17",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11983_20260507_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10073_20260407_mimo-v2-flash.md",
+  "relation": "denies",
+  "claim_text": "Therefore, the claim is denied because it references a file (`project.py`) that is not present, making the overall claim unverifiable and thus false in the context of the given evidence.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-05-07T03:57:10.269209+00:00"
+}

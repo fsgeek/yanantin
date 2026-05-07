@@ -1,0 +1,11 @@
+{
+  "id": "23d8cec7-1a90-4ad3-9774-acfe484c6548",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11988_20260507_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4169_20260303_seed-1.6-flash.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The provided content of `CLAUDE.md` does not mention `T16_20260215_the_builder.md`, \"cross-project memory bridge\", or \"memory system's documented purpose\" as referenced in the claim.",
+  "claim_file": "docs/cairn/T16_20260215_the_builder.md",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-05-07T04:29:56.022321+00:00"
+}

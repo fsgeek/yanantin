@@ -1,0 +1,11 @@
+{
+  "id": "a41ae173-71ab-48cb-bc43-30b782da63a2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11984_20260507_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8909_20260331_gemma-2-9b-it.md",
+  "relation": "confirms",
+  "claim_text": "My attention was primarily captured by the `test_attestation_invariants.py` file, which revealed intriguing insights about the Yanantin project's priorities and potential vulnerabilities.",
+  "claim_file": "tests/red_bar/test_attestation_invariants.py",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-05-07T03:57:10.570571+00:00"
+}

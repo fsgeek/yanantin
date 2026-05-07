@@ -1,0 +1,11 @@
+{
+  "id": "ba8827fa-bd08-452c-ba0a-6c076b76d335",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11985_20260507_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3340_20260227_router.md",
+  "relation": "denies",
+  "claim_text": "The `src/yanantin/chasqui` directory (containing `scout.py`, `scourer.py`, `analyst.py`, `coordinator.py`) undoubtedly orchestrates this symphony of self-reflection.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "switchpoint/router",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-05-07T03:57:13.966950+00:00"
+}

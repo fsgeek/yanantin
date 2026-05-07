@@ -1,0 +1,11 @@
+{
+  "id": "0bfd0beb-ef1b-41c1-ac7c-1d8fef490af5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12035_20260507_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9637_20260404_unslopnemo-12b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The file `docs/cairn/scour_0299_20260302_granite-4.0-h-micro.md` does not contain any references to the file `src/yanantin/chasqui/gleaner.py` or the patterns `_PATH_PATTERN`, `_SCOUT_HEADER`, or the confidence scoring based on definitive vs.",
+  "claim_file": "docs/cairn/scour_0299_20260302_granite-4.0-h-micro.md",
+  "claim_by": "thedrummer/unslopnemo-12b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-07T10:48:21.062484+00:00"
+}

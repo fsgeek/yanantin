@@ -1,0 +1,11 @@
+{
+  "id": "8ed4f9e9-321a-446d-a0ba-8a4e881f8589",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12031_20260507_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5413_20260310_mistral-small-3.2-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The closest relevant section is \"Reading Order for New Instances,\" which lists several required reads but does not mention `docs/tensors.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-07T10:15:13.018222+00:00"
+}

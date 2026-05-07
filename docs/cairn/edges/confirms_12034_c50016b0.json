@@ -1,0 +1,11 @@
+{
+  "id": "c50016b0-ac13-4a22-bb0e-7ff6dc00893b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12034_20260507_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4477_20260305_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `src/yanantin/apacheta/operators/correct.py` contains the following code: ```python def correct( interface: ApachetaInterface, target_tensor: UUID, original_claim: str, corrected_claim: str, *, correcting_tensor: UUID | None = None, target_strand_index: int | None = None, target_claim_id: UUID | None = None, evidence: str = \"\", provenance: ProvenanceEnvelope | None = None, ) -> CorrectionRecord: \"\"\"Correct a prior claim.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-05-07T10:48:18.005429+00:00"
+}

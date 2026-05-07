@@ -1,0 +1,11 @@
+{
+  "id": "d964cb17-34d9-4f5c-a9e7-090b455ec7df",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11999_20260507_gpt-oss-safeguard-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2670_20260224_claude-3.7-sonnet.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 5: Cost-Weighted Model Selection **Observation**: In `scout_1182_20260217_ernie-4.5-21b-a3b.md`, there's a reference to cost-weighted model selection: ``` The previous scout confirmed that the `select()` method in `ModelSelector` demonstrates cost-weighted random selection logic.",
+  "claim_file": "docs/cairn/scout_1182_20260217_ernie-4.5-21b-a3b.md",
+  "claim_by": "anthropic/claude-3.7-sonnet",
+  "verified_by": "openai/gpt-oss-safeguard-20b",
+  "timestamp": "2026-05-07T06:02:07.202473+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "809a5ef2-420c-4843-9656-e06a880d8d8e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12004_20260507_grok-4.1-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7741_20260324_gemma-3-4b-it.md",
+  "relation": "denies",
+  "claim_text": "The Role of Dispositions:** The `reference_string.py` file defines a rigid set of dispositions (\"L\", \"T\", \"C\", \"U\").",
+  "claim_file": "tools/phase1/reference_string.py",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "x-ai/grok-4.1-fast",
+  "timestamp": "2026-05-07T06:33:52.766826+00:00"
+}

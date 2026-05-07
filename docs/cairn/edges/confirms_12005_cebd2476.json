@@ -1,0 +1,11 @@
+{
+  "id": "cebd2476-1a4d-4fa2-802a-5fd9b3cb2245",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12005_20260507_qwen-vl-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11004_20260412_qwen3-14b.md",
+  "relation": "confirms",
+  "claim_text": "The `pack.py` script caught my attention first, as it handles repacking XML directories into .docx/.pptx/.xlsx files, with validation and XML normalization steps.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/pack.py",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "qwen/qwen-vl-plus",
+  "timestamp": "2026-05-07T06:33:52.936962+00:00"
+}

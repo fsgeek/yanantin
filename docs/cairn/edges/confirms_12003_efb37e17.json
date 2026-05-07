@@ -1,0 +1,11 @@
+{
+  "id": "efb37e17-054c-4bce-be99-3ffdb8c4bca5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12003_20260507_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9628_20260404_qwen-vl-plus.md",
+  "relation": "confirms",
+  "claim_text": "The file `scout.py` was not part of the provided content, but the claim explicitly references it, so its absence does not affect the verification of the claim about `compose.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "qwen/qwen-vl-plus",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-07T06:33:48.294805+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "732e39ba-756a-4cfb-8f63-ac462af3a52e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12000_20260507_deepseek-v3.2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7550_20260323_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The claim also mentions `openrouter.py`, but this file is not present in the provided directory.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "deepseek/deepseek-v3.2",
+  "timestamp": "2026-05-07T06:02:18.312642+00:00"
+}

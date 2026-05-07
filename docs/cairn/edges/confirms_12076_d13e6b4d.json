@@ -1,0 +1,11 @@
+{
+  "id": "d13e6b4d-38b0-49e9-a8e0-9d5b373ef970",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12076_20260507_kimi-k2-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5275_20260309_gpt-4o-mini-2024-07-18.md",
+  "relation": "confirms",
+  "claim_text": "`docs/cairn/scout_0068_20260212_qwen-2.5-vl-7b-instruct.md` In the provided file `src/yanantin/apacheta/operators/evolve.py`, the following imports are present: ```python from yanantin.apacheta.interface.abstract import ApachetaInterface from yanantin.apacheta.models.composition import SchemaEvolutionRecord from yanantin.apacheta.models.provenance import ProvenanceEnvelope ``` The file does not include any imports or references to `src/yanantin/provenance/timestamp.py` or `docs/cairn/scout_0068_20260212_qwen-2.5-vl-7b-instruct.md`.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "openai/gpt-4o-mini-2024-07-18",
+  "verified_by": "moonshotai/kimi-k2-thinking",
+  "timestamp": "2026-05-07T16:01:18.503241+00:00"
+}

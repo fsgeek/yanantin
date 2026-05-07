@@ -1,0 +1,11 @@
+{
+  "id": "eb1bdf64-0d2e-46d4-a20d-831e906b34a6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12071_20260507_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3631_20260228_nemotron-3-nano-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "**Scout\u2011Report Menagerie** \u2013 The `docs/cairn/` folder contains dozens of `scout_*.md` files, each a timestamped snapshot of a model\u2019s behavior (e.g., `scout_0548_20260214_gemini-2.5-flash-lite-preview-.md`, `scout_1346_20260218_glm-4.7.md`).",
+  "claim_file": "docs/cairn/scout_1346_20260218_glm-4.7.md",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-07T15:29:24.213544+00:00"
+}

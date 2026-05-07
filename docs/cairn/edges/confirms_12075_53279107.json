@@ -1,0 +1,11 @@
+{
+  "id": "53279107-5675-44f9-bf3e-4a20b9d1f8a3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12075_20260507_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9079_20260401_hermes-2-pro-llama-3-8b.md",
+  "relation": "confirms",
+  "claim_text": "**Contrasting Approaches to Model Development**: Some files describe the development of models using specific frameworks or techniques, such as \"late-binding-as-correctness\" in `late-binding-as-correctness.md`, while others do not mention any clear approach.",
+  "claim_file": "docs/hypotheses/late-binding-as-correctness.md",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-05-07T16:00:37.332350+00:00"
+}

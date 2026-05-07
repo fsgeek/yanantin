@@ -1,0 +1,11 @@
+{
+  "id": "2323a70e-0ebd-4dee-b4f1-a516d38fe10c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12070_20260507_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7661_20260324_qwen-plus.md",
+  "relation": "denies",
+  "claim_text": "- Why does `scout_7472` (Gemma) cite a *Claude* workflow (`close-external-prs.yml`) \u2014 but from `tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/.github/workflows/`?",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/.github/workflows/close-external-prs.yml",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-05-07T15:29:13.341218+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "0304ed09-4307-4c03-bb52-848f25bb9cdf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12131_20260507_tongyi-deepresearch-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1618_20260219_gpt-oss-20b.md",
+  "relation": "confirms",
+  "claim_text": "OpenTimestamps integration** | `src/yanantin/provenance/timestamp.py` (lines\u00a01\u2011~).",
+  "claim_file": "src/yanantin/provenance/timestamp.py",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "alibaba/tongyi-deepresearch-30b-a3b",
+  "timestamp": "2026-05-07T23:17:22.943909+00:00"
+}

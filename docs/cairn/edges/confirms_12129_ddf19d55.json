@@ -1,0 +1,11 @@
+{
+  "id": "ddf19d55-a128-4f03-8532-6cee5dd074b1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12129_20260507_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7711_20260324_deepseek-r1-distill-qwen-32b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The file `src/yanantin/apacheta/operators/correct.py` is provided, which is part of the `operators/` directory.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-05-07T23:17:09.622319+00:00"
+}

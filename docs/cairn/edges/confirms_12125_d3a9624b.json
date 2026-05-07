@@ -1,0 +1,11 @@
+{
+  "id": "d3a9624b-d75f-42a5-970f-26ece61b111f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12125_20260507_gpt-oss-safeguard-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4637_20260306_grok-4-fast.md",
+  "relation": "confirms",
+  "claim_text": "Playful honesty: it's elegant Inca-road modular, but no `main.py`\u2014entry via `__main__.py` per module?",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "openai/gpt-oss-safeguard-20b",
+  "timestamp": "2026-05-07T22:44:16.461206+00:00"
+}

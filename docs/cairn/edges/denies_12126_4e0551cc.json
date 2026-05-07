@@ -1,0 +1,11 @@
+{
+  "id": "4e0551cc-0e0f-4efe-a630-ead2fec474d8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12126_20260507_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11676_20260415_ernie-4.5-21b-a3b-thinking.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses   I chose not to examine:   - **Cross-module dependencies**: `__main__.py` isn\u2019t provided, so I can\u2019t verify how `Brillig` interacts with entry points.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-05-07T22:44:16.541288+00:00"
+}

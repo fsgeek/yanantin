@@ -1,0 +1,11 @@
+{
+  "id": "20cd80eb-0bb2-415a-ad30-e8e85ade24d3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12009_20260507_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1955_20260220_claude-3-haiku.md",
+  "relation": "confirms",
+  "claim_text": "The file `docs/predecessors.md` is present and contains substantive information about the history and development of the Yanantin project, contrary to the claim that it \"does not mention\" the file at all.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "anthropic/claude-3-haiku",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-05-07T07:04:53.932773+00:00"
+}

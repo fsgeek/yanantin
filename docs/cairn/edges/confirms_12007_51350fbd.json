@@ -1,0 +1,11 @@
+{
+  "id": "51350fbd-1f1f-45f4-b86f-fe3687bf2e61",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12007_20260507_gemini-2.0-flash-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3052_20260225_llama-4-maverick.md",
+  "relation": "confirms",
+  "claim_text": "Files like `test_memory_backend.py` and `test_provenance.py` suggest that the project places a strong emphasis on testing and verifying its functionality.",
+  "claim_file": "tests/unit/test_memory_backend.py",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "google/gemini-2.0-flash-001",
+  "timestamp": "2026-05-07T07:04:12.765174+00:00"
+}

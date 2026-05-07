@@ -1,0 +1,11 @@
+{
+  "id": "1d3901d1-dc39-4855-928f-a0266655c8e8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12011_20260507_nova-2-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5129_20260308_llama-4-scout.md",
+  "relation": "denies",
+  "claim_text": "**Reference:** `docs/cairn/scout_3911_20260228_llama-3.1-8b-instruct.md` and `yanantin/.claude/hooks/capture_compaction.py` **Example observations:** The detailed discussion of infrastructure components and the use of \u201cchasqui\u201d scripts for data capture and heartbeat monitoring.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "amazon/nova-2-lite-v1",
+  "timestamp": "2026-05-07T07:36:12.419931+00:00"
+}

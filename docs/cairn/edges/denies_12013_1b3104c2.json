@@ -1,0 +1,11 @@
+{
+  "id": "1b3104c2-e47f-4d17-b994-8df9d620d487",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12013_20260507_llama-3.3-nemotron-super-49b-v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10681_20260410_gemma-3-4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Strands *   **Strand 1: Skill Definition & Ambiguity:** The `skill-creator` directory contains files like `agent_skills_spec.md`.",
+  "claim_file": "tmp/ubuntu-vm.claude/agent_skills_spec.md",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "timestamp": "2026-05-07T07:36:21.596913+00:00"
+}

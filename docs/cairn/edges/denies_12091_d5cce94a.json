@@ -1,0 +1,11 @@
+{
+  "id": "d5cce94a-954e-40a0-a031-81246d94408e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12091_20260507_l3.1-70b-hanami-x1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4831_20260307_llama-4-scout.md",
+  "relation": "denies",
+  "claim_text": "For instance, `scout_1495_20260218_gemma-3-27b-it.md` shows a cost of $0.0006298, producing a concise report, whereas larger models like `qwen/qwen3-235b-a22b-2507` incur higher costs.",
+  "claim_file": "docs/cairn/scout_1495_20260218_gemma-3-27b-it.md",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "sao10k/l3.1-70b-hanami-x1",
+  "timestamp": "2026-05-07T18:05:01.926990+00:00"
+}

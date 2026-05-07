@@ -1,0 +1,11 @@
+{
+  "id": "9acb8f71-196a-4445-9c2c-8b3c4f2df741",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12086_20260507_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0703_20260215_lfm2-8b-a1b.md",
+  "relation": "denies",
+  "claim_text": "```tensor | Vantage Point | Strand                   | Observation | Thought / Reasoning                                          | |---------------|--------------------------|-------------|--------------------------------------------------------------| | Foundational  | `model_selector.py` \u2014 **Walker** | Noted ` scout_003` shows ApachetaGatewayClient \u2192 AwaqInterface \u2192 DuckDBBackend \u2194 ArangoDBBackend.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-07T17:32:26.142886+00:00"
+}

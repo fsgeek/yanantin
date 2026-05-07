@@ -1,0 +1,11 @@
+{
+  "id": "657289d8-d416-492c-b7de-b50edc47f811",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12054_20260507_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7048_20260320_deepseek-r1-distill-qwen-32b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The file `evolve.py` imports `SchemaEvolutionRecord` from `composition.py` but does not provide any information about the contents of `composition.py`.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-05-07T13:23:48.911034+00:00"
+}

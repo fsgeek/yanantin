@@ -1,0 +1,11 @@
+{
+  "id": "56eacd08-e64f-4f51-bb07-e5455b2553e9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12059_20260507_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11866_20260502_ui-tars-1.5-7b.md",
+  "relation": "confirms",
+  "claim_text": "**The Resolution of Viewing Patterns**: - I noticed that the resolution service in `brillig.py` uses late-binding and Python-side joins to construct views.",
+  "claim_file": "src/yanantin/jabberwock/brillig.py",
+  "claim_by": "bytedance/ui-tars-1.5-7b",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-05-07T13:56:19.937129+00:00"
+}

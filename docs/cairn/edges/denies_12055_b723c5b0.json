@@ -1,0 +1,11 @@
+{
+  "id": "b723c5b0-5816-47ea-9afe-44101470f7b7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12055_20260507_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3256_20260226_grok-4-fast.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses - I chose not to deep-dive into the full `docs/cairn/` archive (e.g., tracing the exact propagation of the original hallucinatory claim across scouts like `scout_1928_20260220_gpt-5.1.md` or `scout_1636_20260219_llama-3.2-3b-instruct.md`) because the provided selection already shows the pattern, and my attention is scoped to composing directly with the previous tensor\u2014further history risks diluting focus.",
+  "claim_file": "docs/cairn/scout_1928_20260220_gpt-5.1.md",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-07T13:23:53.734970+00:00"
+}

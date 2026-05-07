@@ -1,0 +1,11 @@
+{
+  "id": "70773b77-9ded-4576-bff7-cacf729372ca",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11971_20260507_llama-3.3-nemotron-super-49b-v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9244_20260402_mistral-small-3.2-24b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim hinges on an interaction that must involve `jabberwock/models.py`, but the file does not provide any evidence of a vulnerability or interaction with `apacheta/models.py`.",
+  "claim_file": "src/yanantin/jabberwock/models.py",
+  "claim_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "verified_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "timestamp": "2026-05-07T01:53:14.662233+00:00"
+}

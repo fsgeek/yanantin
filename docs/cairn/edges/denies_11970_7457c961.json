@@ -1,0 +1,11 @@
+{
+  "id": "7457c961-3ca3-4e31-b3e3-bd5948c54c53",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11970_20260507_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0578_20260214_qwen3-next-80b-a3b-thinking.md",
+  "relation": "denies",
+  "claim_text": "The selected files include:   - Scout reports (e.g., `scout_0127_...`, `scout_0200_...`)   - Test files (`test_content_address.py`)   - Documentation fragments (`docs/cairn/T13_...`)   None contain `scout.py` or `succession.py`.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-05-07T01:53:02.217243+00:00"
+}

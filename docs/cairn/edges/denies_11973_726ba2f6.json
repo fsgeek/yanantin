@@ -1,0 +1,11 @@
+{
+  "id": "726ba2f6-d507-4870-a307-cda540ab33d7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11973_20260507_gemma-4-31b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4823_20260307_gemini-2.5-flash-lite.md",
+  "relation": "denies",
+  "claim_text": "The fact that these reports are also structured with Verdicts, Evidence, and Reasoning suggests a common framework for AI-generated analysis, similar to the 'scout' reports but perhaps more focused on code introspection rather than verification.\" }, { \"name\": \"A Layered Approach to Documentation and Knowledge\", \"evidence\": \"Beyond the scout/scour reports, there are other `.md` files in `docs/cairn` like `hypotheses/late-binding-as-correctness.md`, `apacheta.md`, `blueprint.md`, `compaction_quality_finding.md`, `design-context-protocol.md`, `tensors.md`, and `session-2026-03-06-context-protocol.md`.",
+  "claim_file": "docs/compaction_quality_finding.md",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "google/gemma-4-31b-it",
+  "timestamp": "2026-05-07T02:25:05.545501+00:00"
+}

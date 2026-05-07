@@ -1,0 +1,11 @@
+{
+  "id": "b7b2a02a-29e6-40df-af0b-86236e4f9692",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12114_20260507_gemini-2.5-flash-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11339_20260414_seed-2.0-lite.md",
+  "relation": "denies",
+  "claim_text": "The truncated compliance, security, and transport sections of `mcp_best_practices.md`, as I had no visibility into their content to assess them.",
+  "claim_file": "tmp/ubuntu-vm.claude/mcp-builder/reference/mcp_best_practices.md",
+  "claim_by": "bytedance-seed/seed-2.0-lite",
+  "verified_by": "google/gemini-2.5-flash-lite",
+  "timestamp": "2026-05-07T21:12:16.590406+00:00"
+}

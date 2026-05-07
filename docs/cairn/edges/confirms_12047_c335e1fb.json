@@ -1,0 +1,11 @@
+{
+  "id": "c335e1fb-9d51-458d-85fb-b4c0e34e808c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12047_20260507_lfm-2-24b-a2b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5956_20260314_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "The claim is about the content of the `weaver.py` file, which is entirely visible.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "liquid/lfm-2-24b-a2b",
+  "timestamp": "2026-05-07T12:21:07.691595+00:00"
+}

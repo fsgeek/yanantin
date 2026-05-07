@@ -1,0 +1,11 @@
+{
+  "id": "51cd7161-e6fc-43ea-920d-35bf2dec6f89",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12052_20260507_devstral-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8248_20260327_ernie-4.5-21b-a3b-thinking.md",
+  "relation": "denies",
+  "claim_text": "I also cannot assess the `conftest.py` file which the claim references.",
+  "claim_file": "conftest.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "verified_by": "mistralai/devstral-2512",
+  "timestamp": "2026-05-07T12:53:44.142065+00:00"
+}

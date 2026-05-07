@@ -1,0 +1,11 @@
+{
+  "id": "b8374fdd-ff0b-4dce-b7ee-357322284b85",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12046_20260507_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11331_20260414_qwen3.5-9b.md",
+  "relation": "denies",
+  "claim_text": "Behavioral test says 5/8 use them.** In `tensor_20260220_phase2.md`, Strand 5, the flatworm notes: \"The deferred sync took create from ~11ms (3 fsyncs) to ~3ms (1 fsync).\" But nowhere in the behavioral test files do I see a measurement that isolates *why* models either use or ignore graph ops.",
+  "claim_file": "tmp/ubuntu-vm.claude/projects/-home-tony-projects-episode/memory/tensor_20260220_phase2.md",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-07T12:21:06.997851+00:00"
+}

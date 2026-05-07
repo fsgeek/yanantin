@@ -1,0 +1,11 @@
+{
+  "id": "73555b0b-1176-48e5-8de4-c68aa53283ea",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12048_20260507_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6105_20260315_mercury-coder.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I could not check the presence or absence of the other modules (`arango.py`, `duckdb.py`, `memory.py`, `openrouter.py`, `tensor.py`, `composition.py`, `bootstrap.py`, `compose.py`, `evolve.py`) because only the source code for `correct.py` was provided.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "inception/mercury-coder",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-07T12:21:14.405111+00:00"
+}

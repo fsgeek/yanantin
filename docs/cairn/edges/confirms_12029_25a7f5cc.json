@@ -1,0 +1,11 @@
+{
+  "id": "25a7f5cc-d211-4c8f-850a-97b61de6d583",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12029_20260507_solar-pro-3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3353_20260227_ernie-4.5-21b-a3b-thinking.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   DENIED   ### Evidence   The claim states that only a snippet of `rummage.py` was provided, but the full implementation is present in the file.",
+  "claim_file": "src/yanantin/apacheta/rummage.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "verified_by": "upstage/solar-pro-3",
+  "timestamp": "2026-05-07T09:44:09.443306+00:00"
+}

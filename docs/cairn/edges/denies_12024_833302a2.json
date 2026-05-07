@@ -1,0 +1,11 @@
+{
+  "id": "833302a2-ee79-4e3d-8070-b3feabc86e75",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12024_20260507_llama-3.1-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0560_20260214_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "- The `agents/scout_reviewer.md` and `structured_reviewer.md` files suggest that scouts are not just models\u2014they\u2019re *agents* with specific roles.",
+  "claim_file": "agents/structured_reviewer.md",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "meta-llama/llama-3.1-70b-instruct",
+  "timestamp": "2026-05-07T09:08:06.040434+00:00"
+}

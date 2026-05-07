@@ -1,0 +1,11 @@
+{
+  "id": "d02e9415-33d3-43b4-85d3-2ddd49a1ce3e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12025_20260507_gpt-4.1-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10060_20260407_mistral-saba.md",
+  "relation": "denies",
+  "claim_text": "The files I examined (`pack.py`, `validation/docx.py`, `validation/pptx.py`, and `validation/__init__.py`) reveal a high-fidelity, almost paranoid validation pipeline for Office Open XML (OOXML) documents.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/docx.py",
+  "claim_by": "mistralai/mistral-saba",
+  "verified_by": "openai/gpt-4.1-nano",
+  "timestamp": "2026-05-07T09:08:08.990045+00:00"
+}

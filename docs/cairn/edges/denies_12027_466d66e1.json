@@ -1,0 +1,11 @@
+{
+  "id": "466d66e1-4ffb-4fdd-b450-80d6a64077e1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12027_20260507_phi-4-mini-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4450_20260304_qwen-turbo.md",
+  "relation": "denies",
+  "claim_text": "--- ### Declared Losses   - I did not examine the full logic of `capture_compaction.py` because it was not directly referenced in the scout tensors I reviewed.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "microsoft/phi-4-mini-instruct",
+  "timestamp": "2026-05-07T09:44:07.617993+00:00"
+}

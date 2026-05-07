@@ -1,0 +1,11 @@
+{
+  "id": "ad8675fe-65b3-4f05-9cca-067f03ab5b85",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12023_20260507_mistral-small-2603.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8625_20260330_qwen-plus-2025-07-28:thinking.md",
+  "relation": "denies",
+  "claim_text": "Never references `tensor_session_20260306_gateway.md` (the only other tensor session file mentioned in the claim) 4.",
+  "claim_file": "docs/cairn/tensor_session_20260306_gateway.md",
+  "claim_by": "qwen/qwen-plus-2025-07-28:thinking",
+  "verified_by": "mistralai/mistral-small-2603",
+  "timestamp": "2026-05-07T09:08:03.585828+00:00"
+}

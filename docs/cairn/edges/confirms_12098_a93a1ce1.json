@@ -1,0 +1,11 @@
+{
+  "id": "a93a1ce1-62c6-45a6-b798-3fcb9e5e149c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12098_20260507_trinity-large-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7352_20260322_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence There are no comments or statements in the given `project.py` file that list, reference, or declare other files like `project.py` or `compose.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "arcee-ai/trinity-large-preview",
+  "timestamp": "2026-05-07T19:06:38.316382+00:00"
+}

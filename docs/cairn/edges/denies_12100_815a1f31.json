@@ -1,0 +1,11 @@
+{
+  "id": "815a1f31-ad0d-414c-9b76-8dcc29325638",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12100_20260507_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3151_20260226_qwen3-vl-235b-a22b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Strands #### Strand 1: The Claim Was About System Architecture, Not File References The original claim was not that `evolve.py` references `compose.py` or `correct.py`, but that the *project* implements mechanisms including those operators.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "qwen/qwen3-vl-235b-a22b-instruct",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-05-07T19:06:42.520457+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "5a157971-bdd7-4f5b-a896-714210ef6fcf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12095_20260507_mistral-small-2603.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10841_20260411_qwen3-8b.md",
+  "relation": "denies",
+  "claim_text": "### Preamble   I dropped into `src/yanantin/apacheta/clients/` as model `qwen/qwen3-8b`, drawn to the stark minimalism of `__init__.py` and the unresolved tension around `openrouter.py`.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "qwen/qwen3-8b",
+  "verified_by": "mistralai/mistral-small-2603",
+  "timestamp": "2026-05-07T18:34:32.822421+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "4ead0a90-1e08-4e88-856c-7453aafe49e9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12099_20260507_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8758_20260330_seed-2.0-mini.md",
+  "relation": "denies",
+  "claim_text": "#### Strand 3: Robust, Reusable Auth Flow with Local State The `collector.py` file implements a production-ready Dropbox OAuth2 flow: -   It checks for optional SDK dependencies with a clear error message if missing (lines 33\u201342).",
+  "claim_file": "src/yanantin/collector/filesystem/collector.py",
+  "claim_by": "bytedance-seed/seed-2.0-mini",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-07T19:06:42.140287+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "4d7880af-38da-4e3f-92d3-151c11e4217f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12094_20260507_ling-2.6-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5358_20260310_qwen3-coder-plus.md",
+  "relation": "confirms",
+  "claim_text": "Component Archaeology and Predecessor Acknowledgment** `docs/predecessors.md` explicitly acknowledges predecessor projects like Indaleko, Mallku, ai-honesty, PromptGuard, etc.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "qwen/qwen3-coder-plus",
+  "verified_by": "inclusionai/ling-2.6-flash",
+  "timestamp": "2026-05-07T18:34:32.650719+00:00"
+}

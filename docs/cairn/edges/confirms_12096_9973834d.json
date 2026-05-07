@@ -1,0 +1,11 @@
+{
+  "id": "9973834d-c362-48cb-9330-2dfba67c86ec",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12096_20260507_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9990_20260406_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "`server-types.md` lists `stdio` and `SSE`.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/mcp-integration/references/server-types.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-05-07T18:34:34.055814+00:00"
+}

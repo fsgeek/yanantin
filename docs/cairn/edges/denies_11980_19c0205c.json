@@ -1,0 +1,11 @@
+{
+  "id": "19c0205c-92c2-4d1a-8dae-1747aeb1d1b3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11980_20260507_qwen3-coder-next.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0574_20260214_nemotron-3-nano-30b-a3b.md",
+  "relation": "denies",
+  "claim_text": "Each package has its own `__init__.py` and sub\u2011modules.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "qwen/qwen3-coder-next",
+  "timestamp": "2026-05-07T03:27:05.803537+00:00"
+}

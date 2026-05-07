@@ -1,0 +1,11 @@
+{
+  "id": "ecd8fd81-85dc-4caa-9097-ea9e2a4a4ae8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11979_20260507_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0074_20260212_mistral-small-3.2-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The file mentions: - `weaver.py`: \"My initial attention was drawn to the `weaver.py` file, which contains the logic for parsing natural language and identifying composition relationships.\" - `__main__.py`: \"The `__main__.py` script offers options to output the extracted composition declarations in different formats\" ### Reasoning The claim states that only `weaver.py` and `__main__.py` are mentioned in the file.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-05-07T03:27:05.552866+00:00"
+}

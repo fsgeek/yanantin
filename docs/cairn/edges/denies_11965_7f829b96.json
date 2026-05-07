@@ -1,0 +1,11 @@
+{
+  "id": "7f829b96-c63f-4d34-bea5-547f08dd89fd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11965_20260507_gpt-4.1-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6857_20260319_llama-4-scout.md",
+  "relation": "denies",
+  "claim_text": "- **Declared losses**: I noticed that some scripts, such as `capture_compaction.py`, use manual configuration dictionaries, which may lead to versioning issues if not properly managed.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "openai/gpt-4.1-nano",
+  "timestamp": "2026-05-07T01:21:38.640691+00:00"
+}

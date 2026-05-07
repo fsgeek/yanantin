@@ -1,0 +1,11 @@
+{
+  "id": "0b20ddbd-54c2-400e-809f-eec53d00e837",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11963_20260507_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8958_20260401_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses The claim refers to files `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, and `project.py` being in the `src/yanantin/chasqui/operators/` directory.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-05-07T00:50:12.872659+00:00"
+}

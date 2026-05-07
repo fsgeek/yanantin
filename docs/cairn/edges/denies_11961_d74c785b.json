@@ -1,0 +1,11 @@
+{
+  "id": "d74c785b-7e16-48eb-b9c2-2c0e184a8823",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11961_20260507_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5400_20260310_llama-3.1-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "However, the actual file `docs/cairn/scout_0191_20260213_mistral-nemo.md` mentions that the `weave_corpus` function is used, but it is not used for tensor composition validation.",
+  "claim_file": "docs/cairn/scout_0191_20260213_mistral-nemo.md",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-07T00:50:04.115062+00:00"
+}

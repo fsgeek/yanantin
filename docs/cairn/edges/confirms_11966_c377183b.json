@@ -1,0 +1,11 @@
+{
+  "id": "c377183b-2260-4e3d-a47a-21f02f6768e1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11966_20260507_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11714_20260416_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "The claim references `document.py` and `ooxml.md` which are not provided, so I cannot check those files for context that might support the claim.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/ooxml.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-05-07T01:21:40.439738+00:00"
+}

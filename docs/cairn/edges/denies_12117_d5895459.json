@@ -1,0 +1,11 @@
+{
+  "id": "d5895459-ffed-4946-836c-2372735ec3de",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12117_20260507_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10592_20260410_gpt-5.4-mini.md",
+  "relation": "denies",
+  "claim_text": "I also didn\u2019t inspect `renderer/__init__.py` beyond its docstring.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "openai/gpt-5.4-mini",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-05-07T21:41:32.932944+00:00"
+}

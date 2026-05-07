@@ -1,0 +1,11 @@
+{
+  "id": "34fdf665-1699-4cd8-ad75-ff92f4c6a637",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12122_20260507_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7196_20260321_qwen-2.5-72b-instruct.md",
+  "relation": "denies",
+  "claim_text": "Therefore, I can only confirm the existence of `CLAUDE.md` and not the additional claim about cryptographic attestation.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "qwen/qwen-2.5-72b-instruct",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-05-07T22:13:45.377798+00:00"
+}

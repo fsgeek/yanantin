@@ -1,0 +1,11 @@
+{
+  "id": "18f99a26-6191-4780-96be-58ef4a41e165",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12118_20260507_qwen3-vl-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5678_20260312_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "**Design Around \"Wallpaper\"** What I saw: The `scorer.py` file mentions the system's design around \"wallpaper\" (low-signal output), implying anticipation of model hallucinations or inconsistencies.",
+  "claim_file": "src/yanantin/chasqui/scorer.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "qwen/qwen3-vl-8b-instruct",
+  "timestamp": "2026-05-07T21:41:33.258109+00:00"
+}

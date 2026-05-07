@@ -1,0 +1,11 @@
+{
+  "id": "0cdccb88-2a1d-44c3-a459-1b07b5e5c825",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12119_20260507_qwen3-14b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6938_20260320_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "These are all part of the `markdown.py` renderer module, and their full implementation is present in the file.",
+  "claim_file": "src/yanantin/apacheta/renderer/markdown.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "qwen/qwen3-14b",
+  "timestamp": "2026-05-07T21:42:50.181286+00:00"
+}

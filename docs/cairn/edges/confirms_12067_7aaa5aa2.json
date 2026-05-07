@@ -1,0 +1,11 @@
+{
+  "id": "7aaa5aa2-f512-40d3-8d91-05cefc80c277",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12067_20260507_o3-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4815_20260307_minimax-m2.md",
+  "relation": "confirms",
+  "claim_text": "The `scripts/ingest_cairn.py` shows tensors flowing through a gateway (Pukara) that enforces immutability.",
+  "claim_file": "scripts/ingest_cairn.py",
+  "claim_by": "minimax/minimax-m2",
+  "verified_by": "openai/o3-mini",
+  "timestamp": "2026-05-07T14:59:08.437182+00:00"
+}

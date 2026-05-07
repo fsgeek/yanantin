@@ -1,0 +1,11 @@
+{
+  "id": "96cc0e21-e8cf-4071-afea-5fc2ed56c680",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12066_20260507_qwen3-vl-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1918_20260220_olmo-3-7b-think.md",
+  "relation": "confirms",
+  "claim_text": "The claim also asserts there is \"no similar instruction to read or fetch `CLAUDE.md`,\" which is **CONFIRMED** (the file does not reference `CLAUDE.md`).",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "allenai/olmo-3-7b-think",
+  "verified_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "timestamp": "2026-05-07T14:59:06.265097+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "ef6352d3-a58d-46a8-abed-65aca0a835e3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12107_20260507_reka-edge.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5036_20260308_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `__main__.py` contains the following code snippet: ```python def _provider(args: argparse.Namespace) -> UUID | None: p = getattr(args, \"provider\", None) return _parse_uuid(p) if p else None ``` This code appears to handle secure credential handling by parsing a provider UUID from the `args` object, if present.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "rekaai/reka-edge",
+  "timestamp": "2026-05-07T20:08:56.689154+00:00"
+}

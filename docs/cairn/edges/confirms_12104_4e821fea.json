@@ -1,0 +1,11 @@
+{
+  "id": "4e821fea-002f-4976-a439-7b554da5ac5c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12104_20260507_deepseek-v4-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6078_20260315_claude-sonnet-4.5.md",
+  "relation": "confirms",
+  "claim_text": "The scout report naturally wouldn't expect `weaver.py` to mention this specific scout report file, since scout reports are generated *about* source files, not referenced *by* them.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "anthropic/claude-sonnet-4.5",
+  "verified_by": "deepseek/deepseek-v4-flash",
+  "timestamp": "2026-05-07T19:37:19.590191+00:00"
+}

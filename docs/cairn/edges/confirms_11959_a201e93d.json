@@ -1,0 +1,11 @@
+{
+  "id": "a201e93d-257f-49c4-841a-be2eccf4464c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11959_20260507_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7820_20260325_ernie-4.5-21b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "Integration with External Tools **Observation**: In `test_gleaner.py`, tests cover the extraction of claims from scout and scour reports.",
+  "claim_file": "tests/unit/test_gleaner.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-05-07T00:20:46.754547+00:00"
+}

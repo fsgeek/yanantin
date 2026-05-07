@@ -1,0 +1,11 @@
+{
+  "id": "5336b386-aca9-4961-940b-f2617587c70e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11953_20260506_qwen-plus-2025-07-28.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3349_20260227_lfm-2-24b-a2b.md",
+  "relation": "denies",
+  "claim_text": "While these files are likely critical to data ingestion and file handling, their absence prevents me from evaluating their influence on overall system reliability.\", \"The `negate.py` operator is mentioned but not described.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "qwen/qwen-plus-2025-07-28",
+  "timestamp": "2026-05-06T23:48:09.457277+00:00"
+}

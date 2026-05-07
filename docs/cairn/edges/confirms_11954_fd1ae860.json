@@ -1,0 +1,11 @@
+{
+  "id": "fd1ae860-a593-4cfb-ba19-86e42370d87e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11954_20260506_qwen3-14b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0712_20260215_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that the project enforces immutability at multiple levels, and that `src/yanantin/apacheta/models/base.py` defines immutable Apacheta records with `frozen=True`.",
+  "claim_file": "src/yanantin/apacheta/models/base.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "qwen/qwen3-14b",
+  "timestamp": "2026-05-06T23:48:22.869571+00:00"
+}

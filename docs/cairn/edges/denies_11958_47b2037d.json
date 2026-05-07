@@ -1,0 +1,11 @@
+{
+  "id": "47b2037d-cf0c-463f-a58a-efd2472a77d4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11958_20260507_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10106_20260407_claude-3.5-haiku.md",
+  "relation": "denies",
+  "claim_text": "No reference to `scour_0323_20260303_gpt-oss-20b.md` ### Reasoning The file `coverage.py` is a module for tracking code review coverage.",
+  "claim_file": "docs/cairn/scour_0323_20260303_gpt-oss-20b.md",
+  "claim_by": "anthropic/claude-3.5-haiku",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-07T00:20:42.195384+00:00"
+}

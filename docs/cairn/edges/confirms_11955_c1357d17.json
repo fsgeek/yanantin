@@ -1,0 +1,11 @@
+{
+  "id": "c1357d17-b3a4-4160-b601-f22dd5c0bd3d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_11955_20260506_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2058_20260221_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "The `docs/cairn/scout_0728_20260215_hermes-4-70b.md` report suggests that documentation should be treated as code.",
+  "claim_file": "docs/cairn/scout_0728_20260215_hermes-4-70b.md",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-06T23:48:34.363937+00:00"
+}

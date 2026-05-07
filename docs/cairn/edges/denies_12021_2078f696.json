@@ -1,0 +1,11 @@
+{
+  "id": "2078f696-d7eb-49c3-9dc7-a51bf9042ea9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12021_20260507_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10126_20260407_nemotron-nano-9b-v2.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim references `scripts/ingest_cairn.py` containing `model_selector.py`.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-05-07T08:38:10.550866+00:00"
+}

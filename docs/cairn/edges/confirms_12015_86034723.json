@@ -1,0 +1,11 @@
+{
+  "id": "86034723-bc7e-4d30-9335-fd7c688eba0e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12015_20260507_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8295_20260327_gemma-3-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "I can only verify the presence and function of `arango.py` and its relation to the others described in the documentation.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-07T08:06:04.650536+00:00"
+}

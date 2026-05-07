@@ -1,0 +1,11 @@
+{
+  "id": "88616caf-1eb3-4a5e-92b5-9bb8bfda96a0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12019_20260507_qwen-2.5-coder-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8434_20260328_qwen3.5-plus-02-15.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence ```python \"\"\"Provenance models \u2014 who made this, when, from what context.\"\"\" ``` (Line 1 of `src/yanantin/apacheta/models/provenance.py`) ### Reasoning The claim makes two assertions regarding the verification context: 1.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "qwen/qwen3.5-plus-02-15",
+  "verified_by": "qwen/qwen-2.5-coder-32b-instruct",
+  "timestamp": "2026-05-07T08:38:05.374086+00:00"
+}

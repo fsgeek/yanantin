@@ -1,0 +1,11 @@
+{
+  "id": "59f23eb7-be6a-402d-9efc-f0ac63f43052",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12017_20260507_llama-4-scout.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2758_20260224_ministral-3b-2512.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The claim from `nvidia/nemotron-nano-9b-v2` asserts that `scout_0484_20260214_grok-4.1-fast.md` verifies the existence of operators like `compose`, `correct`, and `dissent` in `bootstrap.py` (or elsewhere) as explicit ways to \"evolve knowledge.\" The scout report **explicitly denies this**: - The file contains **only the `bootstrap` function**, with no other operators.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "meta-llama/llama-4-scout",
+  "timestamp": "2026-05-07T08:06:17.069096+00:00"
+}

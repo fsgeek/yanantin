@@ -1,0 +1,11 @@
+{
+  "id": "ff5c1ebf-d9d1-42d9-90e1-a6532bd2fcb5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12213_20260508_gpt-5.1-codex-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9811_20260405_qwen3-vl-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "- The `AnchorView` \u2014 it\u2019s mentioned in `models.py`, but not implemented here.",
+  "claim_file": "src/yanantin/jabberwock/models.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "openai/gpt-5.1-codex-mini",
+  "timestamp": "2026-05-08T10:21:49.847897+00:00"
+}

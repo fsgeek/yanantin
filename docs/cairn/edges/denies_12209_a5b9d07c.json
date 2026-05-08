@@ -1,0 +1,11 @@
+{
+  "id": "a5b9d07c-e4bf-45e6-a613-ce39f3b428fd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12209_20260508_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11129_20260412_qwen-turbo.md",
+  "relation": "denies",
+  "claim_text": "The content of `negate.py` does not include any of the files mentioned in the claim, nor does it reference \"verbs of the system\".",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-05-08T09:51:31.669596+00:00"
+}

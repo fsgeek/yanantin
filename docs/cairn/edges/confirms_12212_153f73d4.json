@@ -1,0 +1,11 @@
+{
+  "id": "153f73d4-0227-4e21-8e1d-f8736708be50",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12212_20260508_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7179_20260321_ernie-4.5-vl-424b-a47b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that the directory contains the `scout.py` agent.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "baidu/ernie-4.5-vl-424b-a47b",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-05-08T10:21:48.570683+00:00"
+}

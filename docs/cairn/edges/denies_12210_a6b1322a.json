@@ -1,0 +1,11 @@
+{
+  "id": "a6b1322a-8648-48da-b955-be4e5523f953",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12210_20260508_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11499_20260414_gpt-oss-20b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `agents/scout_reviewer.md` contains only the following content: ``` # Scout Reviewer Agent ## Role You are a scout.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-05-08T09:51:37.951241+00:00"
+}

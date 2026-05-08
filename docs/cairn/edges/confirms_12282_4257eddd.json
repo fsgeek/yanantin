@@ -1,0 +1,11 @@
+{
+  "id": "4257eddd-fa0a-4893-b5ad-668fa102575c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12282_20260508_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0459_20260214_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Moreover, the file contains no line or indication of testing `OpenRouterClient` class directly in the file `docs/cairn/scout_0016_20260212_devstral-small.md`.",
+  "claim_file": "docs/cairn/scout_0016_20260212_devstral-small.md",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-05-08T19:15:28.416559+00:00"
+}

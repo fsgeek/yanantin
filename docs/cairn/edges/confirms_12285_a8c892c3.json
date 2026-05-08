@@ -1,0 +1,11 @@
+{
+  "id": "a8c892c3-089c-4305-b3a7-a8e2e6f4e5f1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12285_20260508_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6357_20260316_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "\" \"including `scout_reviewer.md`, `structured_reviewer.md`, `weaver.md`, `mancer.md`, and `agent.md`.\" ### Reasoning The file explicitly states that the scout agent \"wanders the codebase and notice what you notice\" and that it observes directories containing various files, including `scout_reviewer.md`, `structured_reviewer.md`, `weaver.md`, `mancer.md`, and `agent.md`.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-05-08T19:45:26.954874+00:00"
+}

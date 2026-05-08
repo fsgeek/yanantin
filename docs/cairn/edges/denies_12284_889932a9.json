@@ -1,0 +1,11 @@
+{
+  "id": "889932a9-dc1e-492c-a79b-1592891000dc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12284_20260508_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11445_20260414_qwen-2.5-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Open Questions - **Performance Optimization**: How does the `engine.py` handle performance optimizations when dealing with large datasets?",
+  "claim_file": "src/yanantin/query/engine.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-05-08T19:45:22.506010+00:00"
+}

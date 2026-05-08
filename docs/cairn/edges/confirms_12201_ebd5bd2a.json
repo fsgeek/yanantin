@@ -1,0 +1,11 @@
+{
+  "id": "ebd5bd2a-dda6-459c-b1fc-006fd436adec",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12201_20260508_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6490_20260317_qwen2.5-coder-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "| | `store.py` | `ActivityStreamStore` ABC \u2014 10",
+  "claim_file": "src/yanantin/activity/store.py",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-05-08T08:47:32.831287+00:00"
+}

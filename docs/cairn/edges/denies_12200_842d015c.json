@@ -1,0 +1,11 @@
+{
+  "id": "842d015c-9153-4d9c-a462-568cd12a12b3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12200_20260508_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0232_20260213_gemini-2.0-flash-001.md",
+  "relation": "denies",
+  "claim_text": "*   I did not delve deeply into the configuration files (`.claude/settings.json`, `.claude/settings.local.json`, `pyproject.toml`, `.env`).",
+  "claim_file": "pyproject.toml",
+  "claim_by": "google/gemini-2.0-flash-001",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-05-08T08:47:29.628431+00:00"
+}

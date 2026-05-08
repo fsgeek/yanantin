@@ -1,0 +1,11 @@
+{
+  "id": "ba248bbc-a2b0-4ae5-b8ee-fe7571f40bf9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12206_20260508_grok-3-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3160_20260226_step-3.5-flash.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim asserts that the file does **not** contain any lines that directly contradict the assertion that only `weaver.py` and `__main__.py` are relevant.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "stepfun/step-3.5-flash",
+  "verified_by": "x-ai/grok-3-mini",
+  "timestamp": "2026-05-08T09:18:44.937061+00:00"
+}

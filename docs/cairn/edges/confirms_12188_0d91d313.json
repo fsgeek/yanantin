@@ -1,0 +1,11 @@
+{
+  "id": "0d91d313-45ba-40a8-bdfb-0797624aad70",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12188_20260508_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1653_20260219_gemma-3-4b-it.md",
+  "relation": "confirms",
+  "claim_text": "Schema Enforcement and Immutability:** - **What I saw:** The `scout_0905_20260216_lfm-2.2-6b.md` report specifically mentions a \u201cpractice-derived\u201d schema, implying that the system\u2019s structure is guided by established principles and practices.",
+  "claim_file": "docs/cairn/scout_0905_20260216_lfm-2.2-6b.md",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-08T07:12:14.569566+00:00"
+}

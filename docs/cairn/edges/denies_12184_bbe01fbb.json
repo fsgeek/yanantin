@@ -1,0 +1,11 @@
+{
+  "id": "bbe01fbb-aa65-4558-8dd9-5dba75d0b960",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12184_20260508_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8146_20260326_gemini-2.0-flash-lite-001.md",
+  "relation": "denies",
+  "claim_text": "- What is the purpose of `docs/apacheta.md`?",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-05-08T06:42:12.452178+00:00"
+}

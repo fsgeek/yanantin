@@ -1,0 +1,11 @@
+{
+  "id": "5d1cbbfa-6c74-4bef-aab4-1776c7d408c4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12186_20260508_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6510_20260317_rnj-1-instruct.md",
+  "relation": "denies",
+  "claim_text": "The file `scout_4049_20260302_trinity-mini.md` only contains metadata about the scout run and does not enumerate files.",
+  "claim_file": "docs/cairn/scout_4049_20260302_trinity-mini.md",
+  "claim_by": "essentialai/rnj-1-instruct",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-05-08T06:42:15.939980+00:00"
+}

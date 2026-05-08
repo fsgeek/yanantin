@@ -1,0 +1,11 @@
+{
+  "id": "df4ef041-f878-48ca-a4d0-923b723ebfc2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12189_20260508_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11828_20260502_skyfall-36b-v2.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence ``` Several other scouts (e.g., `scout_0227_20260213_deepseek-r1-0528.md`) highlight the \"Declared Losses\" sections in scout reports as a form of \"scout metacognition.\" ``` ``` - **Scout Metacognition** - **Observation**: Scout reports include **Declared Losses** sections (`scout_0029`: *\"Limited Code Exploration\"*; `scout_0141`: *\"Runtime Behavior\"*).",
+  "claim_file": "docs/cairn/scout_0227_20260213_deepseek-r1-0528.md",
+  "claim_by": "thedrummer/skyfall-36b-v2",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-05-08T07:12:27.732612+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "bc34752f-7804-4b5f-b7ec-bc6d3a0634d6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12185_20260508_qwen3-vl-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11555_20260415_gemma-4-26b-a4b-it.md",
+  "relation": "confirms",
+  "claim_text": "The content of `condition-based-waiting.md` explicitly defines a \"Generic polling function\" (`async function waitFor<T>(...`) and then directs the reader to `condition-based-waiting-example.ts` for \"complete implementation with domain-specific helpers\".",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/skills/systematic-debugging/condition-based-waiting.md",
+  "claim_by": "google/gemma-4-26b-a4b-it",
+  "verified_by": "qwen/qwen3-vl-32b-instruct",
+  "timestamp": "2026-05-08T06:42:14.442701+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "d2bfb98a-1981-415a-8162-2b2ae3039c4e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12238_20260508_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3464_20260227_qwen3-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "I observed that `docs/cairn/scout_2410_20260223_lfm2-8b-a1b.md` denied a claim about self-reflective design because the file had zero token usage.",
+  "claim_file": "docs/cairn/scout_2410_20260223_lfm2-8b-a1b.md",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-08T13:29:43.094062+00:00"
+}

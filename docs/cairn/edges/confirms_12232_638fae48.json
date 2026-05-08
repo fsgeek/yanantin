@@ -1,0 +1,11 @@
+{
+  "id": "638fae48-7ff3-4b95-bd5f-1ac42fb1fd77",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12232_20260508_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8126_20260326_qwen-plus-2025-07-28.md",
+  "relation": "confirms",
+  "claim_text": "**Who or what is `ApachetaInterface`?**   It appears in claims and in `docs/blueprint.md`, but **no scout has examined its API**.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "qwen/qwen-plus-2025-07-28",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-08T12:59:38.356698+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "a2d2c6bb-040c-4a62-9af4-1a2171dcd950",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12237_20260508_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4502_20260305_llama-4-maverick.md",
+  "relation": "denies",
+  "claim_text": "For example, `docs/cairn/scout_1347_20260218_gemma-2-27b-it.md` and `docs/cairn/scout_3515_20260227_gemini-2.5-flash-lite.md` demonstrate how different models verify claims about specific files and code snippets.",
+  "claim_file": "docs/cairn/scout_3515_20260227_gemini-2.5-flash-lite.md",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-05-08T13:29:42.070986+00:00"
+}

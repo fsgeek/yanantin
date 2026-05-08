@@ -1,0 +1,11 @@
+{
+  "id": "a801b668-af92-43c0-af5d-4ce4ed74193a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12236_20260508_ling-2.6-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8822_20260331_kimi-k2-thinking.md",
+  "relation": "denies",
+  "claim_text": "**How do scaled image coordinates map back to PDF user space?** `convert_pdf_to_images.py` scales images for display, but `fill_fillable_fields.py` operates on native PDF coordinates.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/scripts/convert_pdf_to_images.py",
+  "claim_by": "moonshotai/kimi-k2-thinking",
+  "verified_by": "inclusionai/ling-2.6-flash",
+  "timestamp": "2026-05-08T13:29:41.673053+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "758e9f89-0547-4c30-90fd-63687d7fc9e6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12234_20260508_deepseek-v4-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9123_20260401_command-r7b-12-2024.md",
+  "relation": "denies",
+  "claim_text": "It combines `run_eval.py` and `improve_description.py`, tracking history and returning the best description found.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/skill-creator/skills/skill-creator/scripts/run_eval.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "deepseek/deepseek-v4-flash",
+  "timestamp": "2026-05-08T12:59:57.554190+00:00"
+}

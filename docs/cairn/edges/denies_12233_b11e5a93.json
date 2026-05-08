@@ -1,0 +1,11 @@
+{
+  "id": "b11e5a93-24e2-4e25-94d9-9ae1a6bc9ce2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12233_20260508_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4691_20260306_grok-code-fast-1.md",
+  "relation": "denies",
+  "claim_text": "However, the reliance on regex and pattern matching (e.g., in `gleaner.py` for claim extraction) seems brittle\u2014what if code formatting changes?",
+  "claim_file": "src/yanantin/chasqui/gleaner.py",
+  "claim_by": "x-ai/grok-code-fast-1",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-05-08T12:59:40.474669+00:00"
+}

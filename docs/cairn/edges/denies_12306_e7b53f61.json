@@ -1,0 +1,11 @@
+{
+  "id": "e7b53f61-63e9-4d4a-92a1-cc295adca817",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12306_20260508_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1613_20260219_nova-micro-v1.md",
+  "relation": "denies",
+  "claim_text": "- **Specific Files**: `docs/cairn/scout_0120_20260212_qwen2.5-vl-72b-instruct.md`, `docs/cairn/scour_0063_20260217_gemma-3n-e4b-it.md`.",
+  "claim_file": "docs/cairn/scour_0063_20260217_gemma-3n-e4b-it.md",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-05-08T22:21:17.941503+00:00"
+}

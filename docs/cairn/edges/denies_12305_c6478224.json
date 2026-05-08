@@ -1,0 +1,11 @@
+{
+  "id": "c6478224-1938-4ea3-b6a3-2b3fef8f6da3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12305_20260508_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7196_20260321_qwen-2.5-72b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The file `CLAUDE.md` is indeed present and contains the content quoted above.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "qwen/qwen-2.5-72b-instruct",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-05-08T22:21:12.632950+00:00"
+}

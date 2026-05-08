@@ -1,0 +1,11 @@
+{
+  "id": "dd7b1534-5121-45fd-b9d2-a64be36099bf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12308_20260508_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3056_20260225_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "The `agents/structured_reviewer.md` file does not clearly outline the structured reviewer's responsibilities or how they differ from scouts.",
+  "claim_file": "agents/structured_reviewer.md",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-05-08T22:51:14.009991+00:00"
+}

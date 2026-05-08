@@ -1,0 +1,11 @@
+{
+  "id": "3980df55-bee1-4922-b77b-70940ecedbd5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12309_20260508_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3636_20260228_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "- **Files of Interest:** - `docs/cairn/scout_0590_20260214_gemma-3-27b-it.md` - `docs/cairn/scout_0258_20260213_ernie-4.5-21b-a3b-thinking.md` - **Thoughts:** The density and variety of these reports suggest a robust mechanism for capturing and preserving model-specific observations.",
+  "claim_file": "docs/cairn/scout_0590_20260214_gemma-3-27b-it.md",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-08T22:51:14.596831+00:00"
+}

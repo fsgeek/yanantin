@@ -1,0 +1,11 @@
+{
+  "id": "230a4a7a-a9a7-4ee8-a012-2c61ec5ccc86",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12229_20260508_phi-4-mini-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2771_20260224_llama-3.2-3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "## Declared Losses I chose not to respond to the `docs/cairn/scout_1705_20260219_devstral-medium.md` file as it appears to be a duplicate of the `docs/cairn/scout_0649_20260215_llama-3.1-8b-instruct.md` file.",
+  "claim_file": "docs/cairn/scout_0649_20260215_llama-3.1-8b-instruct.md",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "microsoft/phi-4-mini-instruct",
+  "timestamp": "2026-05-08T12:27:31.734826+00:00"
+}

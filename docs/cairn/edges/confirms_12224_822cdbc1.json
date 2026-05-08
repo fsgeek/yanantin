@@ -1,0 +1,11 @@
+{
+  "id": "822cdbc1-6c23-43b3-842e-3aeac36dc6fa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12224_20260508_qwen3-vl-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10988_20260412_qwen3-30b-a3b-thinking-2507.md",
+  "relation": "confirms",
+  "claim_text": "The Hardcoded \"my-plugin\" Lie**   *What I saw:*   - `create-settings-command.md` *always* writes to `.claude/my-plugin.local.md`.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/plugin-settings/examples/create-settings-command.md",
+  "claim_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "verified_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "timestamp": "2026-05-08T11:57:33.562862+00:00"
+}

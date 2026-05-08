@@ -1,0 +1,11 @@
+{
+  "id": "dc578fb3-1ec2-4eba-b10b-244994761d9f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12230_20260508_qwen-plus-2025-07-28:thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10444_20260409_nova-micro-v1.md",
+  "relation": "confirms",
+  "claim_text": "**File Reference:** `migration.md`, lines 46-60.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/hook-development/references/migration.md",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "qwen/qwen-plus-2025-07-28:thinking",
+  "timestamp": "2026-05-08T12:28:21.232692+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "45c72c90-49fe-46cc-a394-764516bf9cbb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12225_20260508_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0039_20260212_gpt-5.1.md",
+  "relation": "confirms",
+  "claim_text": "--- ### Strand 3: Apacheta as an Interface, Not a Monolith **What I saw** - `src/yanantin/apacheta/clients/gateway.py` implements `ApachetaGatewayClient(ApachetaInterface)`: - Uses `httpx.Client` with a base URL and optional `X-API-Key` header.",
+  "claim_file": "src/yanantin/apacheta/clients/gateway.py",
+  "claim_by": "openai/gpt-5.1",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-08T11:57:34.862179+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "e36202bb-33f5-490f-aca7-a9ae63e23594",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12245_20260508_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10354_20260408_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "The initial docstring also states \"Every record has provenance.\" The claim specifically mentions `tests/red_bar/test_provenance.py`, which is the file we are examining.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-05-08T14:31:50.577359+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "1b013f82-1cfb-4772-8976-645cb3a3dcfc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12243_20260508_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10364_20260408_nova-micro-v1.md",
+  "relation": "confirms",
+  "claim_text": "- **Reference**: `CLAUDE_MD_TESTING.md` includes scenarios like \"Time Pressure + Confidence\" and \"Sunk Cost + Works Already,\" which show an awareness of the cognitive load on agents when making decisions.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/skills/writing-skills/examples/CLAUDE_MD_TESTING.md",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-05-08T14:04:27.835636+00:00"
+}

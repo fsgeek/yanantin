@@ -1,0 +1,11 @@
+{
+  "id": "e6f3a8a4-2e55-4549-9431-524576ac3c7e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12246_20260508_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10276_20260408_grok-4.1-fast.md",
+  "relation": "confirms",
+  "claim_text": "`skill-creator-original.md` preaches \"third-person triggers\" like \"This skill should be used when...\".",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/skill-development/references/skill-creator-original.md",
+  "claim_by": "x-ai/grok-4.1-fast",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-05-08T14:31:54.060954+00:00"
+}

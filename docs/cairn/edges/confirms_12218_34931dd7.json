@@ -1,0 +1,11 @@
+{
+  "id": "34931dd7-2762-4e9f-a7d8-6d13144dfc01",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12218_20260508_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11176_20260413_gemma-4-31b-it.md",
+  "relation": "confirms",
+  "claim_text": "**The Hard-Coded Economy of Tokens** I found a surprising amount of \"magic number\" economics in `corpus_trimmer_analysis.py`.",
+  "claim_file": "tools/phase1/corpus_trimmer_analysis.py",
+  "claim_by": "google/gemma-4-31b-it",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-08T10:55:20.585652+00:00"
+}

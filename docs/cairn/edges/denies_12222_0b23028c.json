@@ -1,0 +1,11 @@
+{
+  "id": "0b23028c-1b03-4249-ac57-b06746133059",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12222_20260508_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10088_20260407_qwen3-vl-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "> In `test_collector.py`, the `Collector` stores tensors \u2014 it expects inputs to be predictable \u2014 because truth must be verifiable.",
+  "claim_file": "tests/unit/test_collector.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-05-08T11:24:46.311960+00:00"
+}

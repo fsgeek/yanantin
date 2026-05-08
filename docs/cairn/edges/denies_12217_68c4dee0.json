@@ -1,0 +1,11 @@
+{
+  "id": "68c4dee0-382d-4c1f-8aff-10dee8c73972",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12217_20260508_mistral-large-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10287_20260408_minimax-01.md",
+  "relation": "denies",
+  "claim_text": "Here are the relevant parts of the file: ```python from yanantin.apacheta.interface import ApachetaInterface from yanantin.apacheta.models import ( ProvenanceEnvelope, SourceIdentifier, StrandRecord, TensorRecord, ) from yanantin.activity.models import FactRecord from yanantin.activity.store import ActivityStreamStore from yanantin.collector.base import CollectorBase, FactRecorderBase, RecorderBase from yanantin.collector.models import WranglerEnvelope from yanantin.collector.synthetic import SyntheticCollectorBase from yanantin.collector.wranglers import DirectWrangler ``` ### Reasoning The claim states that the file does not contain a file named `checksum.py` or import statements referencing `machine_config.py`, `filesystem.py`, `synthetic.py`, or `checksum.py`.",
+  "claim_file": "src/yanantin/collector/checksum.py",
+  "claim_by": "minimax/minimax-01",
+  "verified_by": "mistralai/mistral-large-2512",
+  "timestamp": "2026-05-08T10:54:55.946132+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "c07d5853-1a73-49e7-bdfd-63256bea9a89",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12175_20260508_deepseek-chat.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1546_20260219_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The use of cryptographic timestamps and distributed collectors suggests that this project is not just about data, but about building a verifiable, trustable record of activity.\" }, { \"theme\": \"Schemas and Immutability in Practice\", \"observation\": \"The `docs/cairn/scout_0839_20260216_l3-lunaris-8b.md` report raises key questions about the immutability of the blueprint, and how it's enforced.",
+  "claim_file": "docs/cairn/scout_0839_20260216_l3-lunaris-8b.md",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "deepseek/deepseek-chat",
+  "timestamp": "2026-05-08T05:02:32.300684+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "74bfae8b-bba8-4f85-875f-bfc489ee2284",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12173_20260508_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2771_20260224_llama-3.2-3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "## Declared Losses I chose not to respond to the `docs/cairn/scout_1705_20260219_devstral-medium.md` file as it appears to be a duplicate of the `docs/cairn/scout_0649_20260215_llama-3.1-8b-instruct.md` file.",
+  "claim_file": "docs/cairn/scout_0649_20260215_llama-3.1-8b-instruct.md",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-05-08T05:02:25.422933+00:00"
+}

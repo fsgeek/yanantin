@@ -1,0 +1,11 @@
+{
+  "id": "a037b870-9d6a-453f-bd24-bbf91ce67d4a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12174_20260508_seed-1.6-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8047_20260326_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "The provided file is located in the `.claude/hooks` directory, and it is a Python script named `ots_stamp.py`.",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "bytedance-seed/seed-1.6-flash",
+  "timestamp": "2026-05-08T05:02:28.185465+00:00"
+}

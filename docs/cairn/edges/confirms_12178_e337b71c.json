@@ -1,0 +1,11 @@
+{
+  "id": "e337b71c-d1d1-4ab8-b593-835f86c5263f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12178_20260508_unslopnemo-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0486_20260214_minimax-m2.md",
+  "relation": "confirms",
+  "claim_text": "Also \u2014 look for the `tensors.md` file in `docs/cairn/` \u2014 it might explain the tensor schema itself.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "minimax/minimax-m2",
+  "verified_by": "thedrummer/unslopnemo-12b",
+  "timestamp": "2026-05-08T05:34:29.432669+00:00"
+}

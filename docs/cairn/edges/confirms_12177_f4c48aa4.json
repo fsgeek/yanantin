@@ -1,0 +1,11 @@
+{
+  "id": "f4c48aa4-8896-4740-900b-6343baf7fe48",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12177_20260508_gpt-oss-safeguard-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7303_20260322_cydonia-24b-v4.1.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The provided file content is actually for `docs/cairn/T14_20260211_the_flatworm.md`, not `docs/cairn/scout_0063_20260212_phi-4.md` as referenced in the claim.",
+  "claim_file": "docs/cairn/scout_0063_20260212_phi-4.md",
+  "claim_by": "thedrummer/cydonia-24b-v4.1",
+  "verified_by": "openai/gpt-oss-safeguard-20b",
+  "timestamp": "2026-05-08T05:34:28.514050+00:00"
+}

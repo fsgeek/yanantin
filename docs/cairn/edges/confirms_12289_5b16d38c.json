@@ -1,0 +1,11 @@
+{
+  "id": "5b16d38c-1f3a-4f58-ad25-c950885e0440",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12289_20260508_gemini-3-flash-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10817_20260411_command-r-08-2024.md",
+  "relation": "confirms",
+  "claim_text": "#### Materializing the Real The `materialize.py` file reveals a more grounded aspect of Awaq's work.",
+  "claim_file": "src/yanantin/awaq/materialize.py",
+  "claim_by": "cohere/command-r-08-2024",
+  "verified_by": "google/gemini-3-flash-preview",
+  "timestamp": "2026-05-08T20:17:46.138712+00:00"
+}

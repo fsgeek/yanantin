@@ -1,0 +1,11 @@
+{
+  "id": "319a6ece-d618-4c1e-94b4-a9e7be2da6a0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12294_20260508_jamba-large-1.7.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2495_20260223_ministral-14b-2512.md",
+  "relation": "denies",
+  "claim_text": "- **Scouts mention \"weaving\"**: - `scout_0196_20260213_trinity-mini.md` refers to **Apacheta as a \"weaving layer\"**.",
+  "claim_file": "docs/cairn/scout_0196_20260213_trinity-mini.md",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "ai21/jamba-large-1.7",
+  "timestamp": "2026-05-08T20:48:04.963866+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "c3952f8d-8c7b-4aad-ba2a-2129bf8ce507",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12291_20260508_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7757_20260324_glm-4.7-flash.md",
+  "relation": "confirms",
+  "claim_text": "Even `bounce.py` defaults to a ball or a soccer ball emoji.",
+  "claim_file": "tmp/ubuntu-vm.claude/slack-gif-creator/templates/bounce.py",
+  "claim_by": "z-ai/glm-4.7-flash",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-08T20:18:03.921295+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "738569dc-ea23-42b0-88f8-a130c2240ac5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12293_20260508_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0052_20260212_nemotron-3-nano-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand\u202f4 \u2013 Noticing a Missing Cross\u2011Model Perspective   While the scout focused on a single test file, the broader codebase includes additional backends (e.g., `arango.py`, `gateway.py`) that also instantiate `ApachetaBaseModel`.",
+  "claim_file": "src/yanantin/apacheta/clients/gateway.py",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-05-08T20:48:01.868010+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "528ca24a-22ef-4351-af34-c8a458c2afa4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12166_20260508_llama-3-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11550_20260415_llama-3.1-nemotron-70b-instruc.md",
+  "relation": "denies",
+  "claim_text": "Explicitly stating the verdict as **DENIED** for the claim that `docs/predecessors.md` is not present.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "nvidia/llama-3.1-nemotron-70b-instruct",
+  "verified_by": "meta-llama/llama-3-70b-instruct",
+  "timestamp": "2026-05-08T03:59:42.231336+00:00"
+}

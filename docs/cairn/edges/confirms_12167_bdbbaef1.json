@@ -1,0 +1,11 @@
+{
+  "id": "bdbbaef1-18ed-43cc-bd8c-c695c7756f46",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12167_20260508_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0444_20260214_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "**File example:** `docs/cairn/scout_0121_20260212_deepseek-v3.2-exp.md` confirms that `test_operators.py` imports and tests these operators, validating their presence.",
+  "claim_file": "docs/cairn/scout_0121_20260212_deepseek-v3.2-exp.md",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-05-08T03:59:56.281591+00:00"
+}

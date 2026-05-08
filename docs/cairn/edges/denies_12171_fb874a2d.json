@@ -1,0 +1,11 @@
+{
+  "id": "fb874a2d-793f-4498-911b-b8c0b3b4536d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12171_20260508_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8392_20260328_grok-3-mini-beta.md",
+  "relation": "denies",
+  "claim_text": "- **Strand 1: Hashing as the Silent Guardian**   What I saw: Hashing pops up relentlessly\u2014 in `checksum.py` (lines 40-50, where it computes multiple algorithms in one pass for efficiency), `openrouter/fact_recorder.py` (line 30, deriving hashes from generation IDs for dedup), and even `dropbox/fact_recorder.py` (line 40, hashing entry dicts).",
+  "claim_file": "src/yanantin/collector/checksum.py",
+  "claim_by": "x-ai/grok-3-mini-beta",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-08T04:32:20.013965+00:00"
+}

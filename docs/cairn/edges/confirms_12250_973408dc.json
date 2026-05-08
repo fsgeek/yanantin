@@ -1,0 +1,11 @@
+{
+  "id": "973408dc-2f0a-4dc0-ba44-041ca85f01e2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12250_20260508_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8428_20260328_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `tests/unit/test_openrouter.py` contains unit tests for the OpenRouter API client abstraction.",
+  "claim_file": "tests/unit/test_openrouter.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-05-08T15:04:01.385632+00:00"
+}

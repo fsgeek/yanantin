@@ -1,0 +1,11 @@
+{
+  "id": "4bf8fe26-f7d9-46f3-ae01-a9e874ddcfce",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12248_20260508_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10612_20260410_deepseek-v3.2-exp.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I didn't examine: - `base.py` - The parent class that defines the validation framework architecture - `docx.py` - The Word document counterpart to understand pattern reuse - `redlining.py` - Possibly change-tracking validation, a different domain - The actual XSD schemas being referenced - Critical to understanding what \"correct\" means I ran out of attention for the relationship validation logic that would reveal how PowerPoint's internal linking works.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "deepseek/deepseek-v3.2-exp",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-05-08T15:03:59.317268+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "67942598-a613-4a49-a244-1ced5c8f679e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12253_20260508_trinity-large-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12143_20260508_deepseek-v4-flash.md",
+  "relation": "denies",
+  "claim_text": "Since the claim cannot be verified from the provided file alone, and the evidence required to confirm it (the content of `create_validation_image.py` and `fill_pdf_form_with_annotations.py`) is absent, the claim is **DENIED** \u2014 it is not supported by the evidence available.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/scripts/fill_pdf_form_with_annotations.py",
+  "claim_by": "deepseek/deepseek-v4-flash",
+  "verified_by": "arcee-ai/trinity-large-preview",
+  "timestamp": "2026-05-08T15:33:37.684606+00:00"
+}

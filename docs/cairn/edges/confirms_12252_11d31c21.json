@@ -1,0 +1,11 @@
+{
+  "id": "11d31c21-26c9-41ab-8c42-71e07852b79e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12252_20260508_gpt-oss-safeguard-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4989_20260308_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "The model\u2019s claim is: *\"The provided file `src/yanantin/apacheta/operators/dissent.py` does not contain any information about the files in the `operators` directory.\"*   But the file we are given to inspect is `negate.py`, not `dissent.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "openai/gpt-oss-safeguard-20b",
+  "timestamp": "2026-05-08T15:33:35.827768+00:00"
+}

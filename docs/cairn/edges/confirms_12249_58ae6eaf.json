@@ -1,0 +1,11 @@
+{
+  "id": "58ae6eaf-f01a-4864-9238-fabe922a2ea6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12249_20260508_voxtral-small-24b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11557_20260415_deepseek-v3.2.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses - I did not examine the actual `test_operators.py` or `test_openrouter.py` files, though they appear in the directory listing.",
+  "claim_file": "tests/unit/test_openrouter.py",
+  "claim_by": "deepseek/deepseek-v3.2",
+  "verified_by": "mistralai/voxtral-small-24b-2507",
+  "timestamp": "2026-05-08T15:04:00.141769+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "d3d19196-17de-483b-b67f-3c214bef45de",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12141_20260508_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9504_20260404_mistral-small-3.1-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The file discusses tensors extensively but does not reference another file named `tensors.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-08T00:51:16.129158+00:00"
+}

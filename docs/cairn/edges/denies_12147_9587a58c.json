@@ -1,0 +1,11 @@
+{
+  "id": "9587a58c-795b-4611-ad26-697cc1bfed5b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12147_20260508_llama-3.3-nemotron-super-49b-v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7131_20260321_grok-4-fast.md",
+  "relation": "denies",
+  "claim_text": "Specific quotes include: - \"The most recent of those logs, `scout_0402_20260214_glm-4.5.md`, contains an \u201cOperational Roles\u201d table...\" - \"The operational roles table appears in several blueprint\u2011derived files (e.g., `docs/cairn/scout_0402_20260214_glm-4.5.md` and `docs/cairn/scout_0493_20260214_mistral-small-creative.md`).\" No mention of `scout_0541_20260214_gpt-oss-20b.md` appears anywhere in the file.",
+  "claim_file": "docs/cairn/scout_0402_20260214_glm-4.5.md",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "timestamp": "2026-05-08T01:23:34.435955+00:00"
+}

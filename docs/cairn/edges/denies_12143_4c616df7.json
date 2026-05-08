@@ -1,0 +1,11 @@
+{
+  "id": "4c616df7-5dc1-4e98-a5b6-350b40b3a0bc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12143_20260508_deepseek-v4-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11916_20260502_qwen-plus.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning   The claim asserts that *\u201cIt\u2019s used in `create_validation_image.py` (lines 7\u20138), `fill_pdf_form_with_annotations.py` (lines 14\u201315), and `fill_fillable_fields.py` (lines 10\u201311)`\u201d*.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/scripts/fill_fillable_fields.py",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "deepseek/deepseek-v4-flash",
+  "timestamp": "2026-05-08T00:51:38.291561+00:00"
+}

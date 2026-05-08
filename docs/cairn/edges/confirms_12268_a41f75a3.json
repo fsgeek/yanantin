@@ -1,0 +1,11 @@
+{
+  "id": "a41f75a3-2080-41d9-8ef1-9c183d1166c6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12268_20260508_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9541_20260404_devstral-2512.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim mentions `models/base.py`, but the file provided is `validation/base.py`.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "mistralai/devstral-2512",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-08T17:38:47.619706+00:00"
+}

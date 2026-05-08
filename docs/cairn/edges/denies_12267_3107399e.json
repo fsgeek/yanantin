@@ -1,0 +1,11 @@
+{
+  "id": "3107399e-8b69-4dde-a95e-174abf6e748e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12267_20260508_qwen3-vl-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0076_20260212_qwen-2.5-vl-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses - **Did not examine `src/yanantin/tinkuy/audit.py` in depth, as focus remained on scout workflows and provenance.** - Reason: Time constraints, and the file was not directly relevant to scout workflows.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "qwen/qwen-2.5-vl-7b-instruct",
+  "verified_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "timestamp": "2026-05-08T17:10:49.789025+00:00"
+}

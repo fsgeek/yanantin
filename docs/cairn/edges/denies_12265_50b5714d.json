@@ -1,0 +1,11 @@
+{
+  "id": "50b5714d-62de-448c-bd2d-aca4c827690f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12265_20260508_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4217_20260303_nova-micro-v1.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The provided file `src/yanantin/apacheta/content_address.py` only contains code related to content addressing and duplicate detection for markdown files within a specified directory.",
+  "claim_file": "src/yanantin/apacheta/content_address.py",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-05-08T17:10:23.514643+00:00"
+}

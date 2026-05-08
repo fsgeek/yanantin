@@ -1,0 +1,11 @@
+{
+  "id": "7d060b68-c80c-4eaf-80ef-72ae3135c235",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12269_20260508_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9183_20260402_glm-5v-turbo.md",
+  "relation": "denies",
+  "claim_text": "The `<promise>` tag mechanism (`help.md`, under \"Completion Promises\") is technically elegant \u2014 a parseable signal the stop hook can detect.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/ralph-loop/commands/help.md",
+  "claim_by": "z-ai/glm-5v-turbo",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-05-08T17:38:50.533186+00:00"
+}

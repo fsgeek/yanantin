@@ -1,0 +1,11 @@
+{
+  "id": "c0b57a60-fccb-4db0-8f51-a8e7aa5fe2cd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12270_20260508_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3911_20260301_l3-lunaris-8b.md",
+  "relation": "denies",
+  "claim_text": "Documentation** The `docs` directory contains a wealth of documentation, including Markdown files, READMEs, and possibly even a workflow configuration file (`separation.yml`).",
+  "claim_file": ".github/workflows/separation.yml",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-08T17:38:51.459200+00:00"
+}

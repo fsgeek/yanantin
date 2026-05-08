@@ -1,0 +1,11 @@
+{
+  "id": "7b8dcf4e-a0f3-490d-adf4-478cfde8277f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12277_20260508_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7456_20260323_qwen3-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "--- ### Declared Losses I did not examine the `code-reviewer.md`, `code-simplifier.md`, `comment-analyzer.md` files.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/feature-dev/agents/code-reviewer.md",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-05-08T18:43:36.207371+00:00"
+}

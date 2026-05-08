@@ -1,0 +1,11 @@
+{
+  "id": "725a9416-f145-4c04-b574-a7e2e4ea4027",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12275_20260508_llama-3.3-nemotron-super-49b-v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4071_20260302_qwen-plus.md",
+  "relation": "denies",
+  "claim_text": "The `activity/store.py` and `apacheta/storage_obfuscator.py` enforce *obfuscation* \u2014 not encryption, not access control, but semantic renaming \u2014 so `tensors` becomes `_t` or `t0001`.",
+  "claim_file": "src/yanantin/apacheta/storage_obfuscator.py",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "timestamp": "2026-05-08T18:12:18.874285+00:00"
+}

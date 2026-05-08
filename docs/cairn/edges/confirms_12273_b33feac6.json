@@ -1,0 +1,11 @@
+{
+  "id": "b33feac6-2889-4103-91a1-590860b5471c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12273_20260508_deepseek-v3.2-exp.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10514_20260409_qwen3-vl-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The claim references only files that are either explicitly present (`redlining.py`) or absent (`docx.py`, `pptx.py`) \u2014 and I have verified the file content directly.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/docx.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "deepseek/deepseek-v3.2-exp",
+  "timestamp": "2026-05-08T18:12:07.332104+00:00"
+}

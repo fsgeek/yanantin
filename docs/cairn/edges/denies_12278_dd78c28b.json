@@ -1,0 +1,11 @@
+{
+  "id": "dd78c28b-6d72-4fb9-8f6f-f5017bdbb785",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12278_20260508_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6476_20260317_l3-lunaris-8b.md",
+  "relation": "denies",
+  "claim_text": "**Tensor Operations**: File names like `precompact_tensor.py` and `pipeline_attestation.py` indicate the presence of functions or classes responsible for tensor manipulation and validation.",
+  "claim_file": ".claude/hooks/pipeline_attestation.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-08T18:43:36.869022+00:00"
+}

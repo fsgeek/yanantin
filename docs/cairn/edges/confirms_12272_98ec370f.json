@@ -1,0 +1,11 @@
+{
+  "id": "98ec370f-6980-42a3-94f5-081c2538d563",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12272_20260508_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9652_20260404_gemma-3-27b-it.md",
+  "relation": "confirms",
+  "claim_text": "\"\"\" ``` ### Reasoning The file `rearrange.py` exists as claimed.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/scripts/rearrange.py",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-05-08T18:11:59.162521+00:00"
+}

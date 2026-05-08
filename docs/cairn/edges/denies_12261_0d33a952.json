@@ -1,0 +1,11 @@
+{
+  "id": "0d33a952-93b4-4c61-b68f-92a32562ea80",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12261_20260508_l3.1-euryale-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8149_20260326_qwen3-235b-a22b.md",
+  "relation": "denies",
+  "claim_text": "This wasn't in your scope, but it highlights how emergence might be an implicit feature across the codebase, as seen in `tests/unit/test_collector_synthetic.py`, where deterministic outputs (like seeded RNG) create emergent patterns in testing.\" ### Reasoning The file explicitly states that \"emergent artifacts\" are implied in the codebase through \"deterministic outputs (like seeded RNG) create emergent patterns in testing\" in `tests/unit/test_collector_synthetic.py`.",
+  "claim_file": "tests/unit/test_collector_synthetic.py",
+  "claim_by": "qwen/qwen3-235b-a22b",
+  "verified_by": "sao10k/l3.1-euryale-70b",
+  "timestamp": "2026-05-08T16:37:11.110657+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "27ffaeac-3ed7-4c79-a5de-e62185549467",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12262_20260508_grok-4-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6374_20260316_qwen3-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "\"\"\" edge = CompositionEdge( from_tensor=from_tensor, to_tensor=to_tensor, relation_type=RelationType.COMPOSES_WITH, ordering=ordering, authored_mapping=authored_mapping, provenance=provenance or ProvenanceEnvelope(), ) interface.store_composition_edge(edge) return edge ``` ### Reasoning   The claim states that `compose.py` (along with `correct.py` and `evolve.py`) handles **schema changes and disagreements formally**.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "x-ai/grok-4-fast",
+  "timestamp": "2026-05-08T16:37:24.237953+00:00"
+}

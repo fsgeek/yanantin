@@ -1,0 +1,11 @@
+{
+  "id": "42d2b966-9ab9-4e1e-adef-a6c38a7a8964",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12256_20260508_llama-4-scout.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7314_20260322_olmo-3-7b-think.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   **DENIED**   ### Evidence   The file `compose.py` does not reference `audit.py` or any pipeline steps explicitly.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "allenai/olmo-3-7b-think",
+  "verified_by": "meta-llama/llama-4-scout",
+  "timestamp": "2026-05-08T16:06:08.485508+00:00"
+}

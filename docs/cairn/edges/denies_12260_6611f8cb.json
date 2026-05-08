@@ -1,0 +1,11 @@
+{
+  "id": "6611f8cb-bd72-4588-a80b-19ef91b5e5d1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12260_20260508_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9855_20260406_grok-3-mini.md",
+  "relation": "denies",
+  "claim_text": "- **Strand 3: Skills as Shackles**   Across `anthropic-best-practices.md` (lines 100-120) and `testing-skills-with-subagents.md` (lines 60-80), skills are positioned as battle-tested guards against \"common mistakes,\" with variants like \"Directive\" demanding pre-task checks.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/skills/writing-skills/testing-skills-with-subagents.md",
+  "claim_by": "x-ai/grok-3-mini",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-08T16:37:05.006714+00:00"
+}

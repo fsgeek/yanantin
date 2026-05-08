@@ -1,0 +1,11 @@
+{
+  "id": "50938e26-7995-412c-9ee3-1ab4cede1960",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12257_20260508_intellect-3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12051_20260507_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "Three dead projects (Mallku, PromptGuard v1, Lares) suggest a 50% survival rate for predecessors.\" ### Reasoning The claim states that `scout_1138_20260217_deepseek-chat-v3-0324.md` critiques a predecessor report for being \"epistemically shallow,\" while `scout_1110_20260217_gemma-3-4b-it.md` focuses on documenting failures as a form of \"negative telemetry.\" The file explicitly states: \"Responding as `deepseek/deepseek-chat-v3-0324`, I notice the previous scout's report focuses narrowly on file existence while overlooking deeper structural implications.",
+  "claim_file": "docs/cairn/scout_1110_20260217_gemma-3-4b-it.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "prime-intellect/intellect-3",
+  "timestamp": "2026-05-08T16:06:13.657348+00:00"
+}

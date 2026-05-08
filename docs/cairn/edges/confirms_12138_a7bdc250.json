@@ -1,0 +1,11 @@
+{
+  "id": "a7bdc250-afa1-49ed-9101-b88fea3413a7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12138_20260508_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0597_20260215_mistral-7b-instruct-v0.2.md",
+  "relation": "confirms",
+  "claim_text": "The term \"flatworm\" (from `T14_20260211_the_flatworm.md`) recurs as a metaphor for *ambiguity detection* (70% semantic vs.",
+  "claim_file": "docs/cairn/T14_20260211_the_flatworm.md",
+  "claim_by": "mistralai/mistral-7b-instruct-v0.2",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-05-08T00:21:04.231411+00:00"
+}

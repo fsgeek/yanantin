@@ -1,0 +1,11 @@
+{
+  "id": "85db5f59-19e4-4106-9196-c80b00085bc7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12135_20260507_minimax-m2.7.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4502_20260305_llama-4-maverick.md",
+  "relation": "confirms",
+  "claim_text": "The use of `ProvenanceEnvelope` and the configuration being a linked list of immutable states, as mentioned in `scout_0528_20260214_qwen3-235b-a22b-2507.md`, indicates a design focused on maintaining a tamper-evident history of changes and decisions.",
+  "claim_file": "docs/cairn/scout_0528_20260214_qwen3-235b-a22b-2507.md",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "minimax/minimax-m2.7",
+  "timestamp": "2026-05-07T23:49:28.393884+00:00"
+}

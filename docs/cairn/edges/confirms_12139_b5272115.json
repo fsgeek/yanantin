@@ -1,0 +1,11 @@
+{
+  "id": "b5272115-2267-4faa-b6d7-5aaf6d75c9af",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12139_20260508_glm-4.7-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6959_20260320_qwen-2.5-vl-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The file explicitly mentions neither `docs/tensors.md` nor `docs/predecessors.md`, thus confirming the claim.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "qwen/qwen-2.5-vl-7b-instruct",
+  "verified_by": "z-ai/glm-4.7-flash",
+  "timestamp": "2026-05-08T00:21:12.157806+00:00"
+}

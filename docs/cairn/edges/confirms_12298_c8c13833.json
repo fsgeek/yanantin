@@ -1,0 +1,11 @@
+{
+  "id": "c8c13833-1ceb-4ea3-b11e-02dc852cce94",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12298_20260508_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12274_20260508_gemini-2.0-flash-lite-001.md",
+  "relation": "confirms",
+  "claim_text": "The presence of `experiment_eval.py` in `phase1/` further supports the notion that the developers are focused on rigorous evaluation of their approaches.",
+  "claim_file": "tools/phase1/experiment_eval.py",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-08T21:20:23.186042+00:00"
+}

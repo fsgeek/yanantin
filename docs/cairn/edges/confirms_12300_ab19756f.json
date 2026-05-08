@@ -1,0 +1,11 @@
+{
+  "id": "ab19756f-8f72-4f35-8420-ce69cf289f5e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12300_20260508_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3076_20260226_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The code in `__main__.py` appears to be related to a query pipeline, handling arguments, opening stores, and executing queries.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-08T21:49:41.294253+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "06e373f1-027c-4c12-b45d-89bcd17b0a10",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12299_20260508_deepseek-v3.2-exp.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7733_20260324_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "The `agent-creation-prompt.md` and `agent-creation-prompt` are laid out like a set of instructions for building something.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/agent-development/examples/agent-creation-prompt.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "deepseek/deepseek-v3.2-exp",
+  "timestamp": "2026-05-08T21:20:25.300287+00:00"
+}

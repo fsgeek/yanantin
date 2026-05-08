@@ -1,0 +1,11 @@
+{
+  "id": "66447480-9da2-4879-946e-3ca065877aea",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12194_20260508_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1284_20260217_llama-3.2-11b-vision-instruct.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: Composition and Provenance The `src/yanantin/apacheta/ingest/tensor_ballot.py` file caught my attention due to its atomic claim of the next tensor number.",
+  "claim_file": "src/yanantin/apacheta/ingest/tensor_ballot.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-08T07:44:37.770961+00:00"
+}

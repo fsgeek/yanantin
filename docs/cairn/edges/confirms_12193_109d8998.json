@@ -1,0 +1,11 @@
+{
+  "id": "109d8998-8b92-4ee3-9e62-e6f1bd563292",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12193_20260508_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8865_20260331_hermes-3-llama-3.1-70b.md",
+  "relation": "confirms",
+  "claim_text": "Bounce Animation (`bounce.py`): This script creates bouncing animations for objects like circles or emojis.",
+  "claim_file": "tmp/ubuntu-vm.claude/slack-gif-creator/templates/bounce.py",
+  "claim_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-05-08T07:44:27.399149+00:00"
+}

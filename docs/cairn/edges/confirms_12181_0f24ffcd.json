@@ -1,0 +1,11 @@
+{
+  "id": "0f24ffcd-9a8a-488c-90ab-9257134206dd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12181_20260508_qwen3-coder-next.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1925_20260220_ministral-8b-2512.md",
+  "relation": "confirms",
+  "claim_text": "- **Example**: `scout_1448_20260218_mistral-small-24b-instruct-250.md` confirms a test file\u2019s existence with **direct code quotes**, while `scout_1714_20260219_llama-3.2-3b-instruct.md` confirms a predecessor file\u2019s content with **descriptive reasoning**.",
+  "claim_file": "docs/cairn/scout_1714_20260219_llama-3.2-3b-instruct.md",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "qwen/qwen3-coder-next",
+  "timestamp": "2026-05-08T06:07:45.585479+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "66d4af42-11ec-4154-8bf0-70a9deeea131",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12182_20260508_qwen-plus-2025-07-28.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3786_20260301_sorcererlm-8x22b.md",
+  "relation": "denies",
+  "claim_text": "``` ## Reasoning The claim mentions components like `scout.py`, `scourer.py`, and `coordinator.py` as being part of the module.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "raifle/sorcererlm-8x22b",
+  "verified_by": "qwen/qwen-plus-2025-07-28",
+  "timestamp": "2026-05-08T06:07:46.003439+00:00"
+}

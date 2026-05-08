@@ -1,0 +1,11 @@
+{
+  "id": "b6802bff-9dee-4b11-8127-b93cfa161972",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12153_20260508_llama-4-scout.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7977_20260326_grok-3-mini.md",
+  "relation": "confirms",
+  "claim_text": "Take `console-log-warning.local.md`, with its `event: file` and `pattern: console\\.log\\(`, issuing a gentle `action: warn`.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/examples/console-log-warning.local.md",
+  "claim_by": "x-ai/grok-3-mini",
+  "verified_by": "meta-llama/llama-4-scout",
+  "timestamp": "2026-05-08T02:25:15.391800+00:00"
+}

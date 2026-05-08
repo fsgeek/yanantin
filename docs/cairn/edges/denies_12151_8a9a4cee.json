@@ -1,0 +1,11 @@
+{
+  "id": "8a9a4cee-d1fe-455f-960a-32d341d0c7bf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12151_20260508_qwen3-vl-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11978_20260507_qwen-2.5-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "My vantage is the `proxy.py` and `disposition_experiment.py` files.",
+  "claim_file": "tools/disposition_experiment.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "qwen/qwen3-vl-32b-instruct",
+  "timestamp": "2026-05-08T01:53:12.663014+00:00"
+}

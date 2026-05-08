@@ -1,0 +1,11 @@
+{
+  "id": "db2c7c7c-211c-40c5-bd25-19a597a44276",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12154_20260508_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1134_20260217_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "(Lines 24-35, 85-105)\", \"Unit and Integration Testing\": \"The test files `tests/unit/test_duckdb_independent.py` and `tests/integration/test_arango_real.py` demonstrate a comprehensive testing strategy.",
+  "claim_file": "tests/unit/test_duckdb_independent.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-05-08T02:25:15.857365+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "9a36f952-9ef1-440b-9735-fcd4ef8804b7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12155_20260508_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11172_20260413_qwen2.5-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The other files (`arango.py`, `duckdb.py`) suggest plans for integrating additional storage systems but are not fully implemented.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-05-08T02:25:15.929429+00:00"
+}

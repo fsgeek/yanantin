@@ -1,0 +1,11 @@
+{
+  "id": "b7f7963a-7c10-4984-8202-310fc0440d72",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12150_20260508_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4835_20260307_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "The presence of `src/yanantin/provenance/timestamp.py` and `src/yanantin/provenance/__init__.py` suggests these `.ots` files are related to cryptographic timestamping, likely using OpenTimestamps, as hinted by the `ots_stamp.py` hook and the `.ots` file extension itself.\", \"what_it_made_me_think\": \"These binary files represent a different layer of truth\u2014immutable and non-negotiable, unlike the discursive markdown reports.",
+  "claim_file": "src/yanantin/provenance/timestamp.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-08T01:53:11.879637+00:00"
+}

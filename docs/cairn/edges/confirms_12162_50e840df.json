@@ -1,0 +1,11 @@
+{
+  "id": "50e840df-5c77-4f08-a12d-ef5ddf9af960",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12162_20260508_command-r-08-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6439_20260317_qwen3-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "**File names**: The file does not list `arango.py`, `duckdb.py`, or `memory.py` as backends.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "qwen/qwen3-30b-a3b",
+  "verified_by": "cohere/command-r-08-2024",
+  "timestamp": "2026-05-08T03:27:07.548739+00:00"
+}

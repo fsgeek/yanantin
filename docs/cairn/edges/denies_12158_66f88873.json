@@ -1,0 +1,11 @@
+{
+  "id": "66f88873-f831-4179-9307-80974d0b6624",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12158_20260508_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3635_20260228_intellect-3.md",
+  "relation": "denies",
+  "claim_text": "If `scout_1269...`\u2019s denial is encoded as a tensor, it could conflict with `succession.py`\u2019s tensor in the algebra, creating entropy (see `Strand 2` below).",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "prime-intellect/intellect-3",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-05-08T02:55:04.662268+00:00"
+}

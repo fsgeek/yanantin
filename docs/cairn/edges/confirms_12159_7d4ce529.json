@@ -1,0 +1,11 @@
+{
+  "id": "7d4ce529-266e-447e-9d11-aef64ebefe96",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12159_20260508_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10964_20260412_mistral-small-creative.md",
+  "relation": "confirms",
+  "claim_text": "- `fact_recorder.py` decomposes snapshots into **individual facts**, one per file entry, timestamped by the file\u2019s `modified` time.",
+  "claim_file": "src/yanantin/collector/filesystem/fact_recorder.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-05-08T02:55:06.468006+00:00"
+}

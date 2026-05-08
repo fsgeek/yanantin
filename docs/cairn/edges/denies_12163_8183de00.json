@@ -1,0 +1,11 @@
+{
+  "id": "8183de00-19ea-4f8e-a8b4-510d00a38e4e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12163_20260508_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3962_20260302_glm-4.7-flash.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I could not check the file `compose.py` because it was not included in the file provided for verification.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "z-ai/glm-4.7-flash",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-05-08T03:27:07.812597+00:00"
+}

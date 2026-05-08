@@ -1,0 +1,11 @@
+{
+  "id": "541461b9-8e82-48d7-81e1-a698fb98fad4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12157_20260508_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7942_20260325_nemotron-3-super-120b-a12b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `docs/cairn/scout_2365_20260222_lfm-2.2-6b.md` contains the following line within its opening comment block: ``` Claim: ### Declared Losses - **Deep Code Dives**: I skimmed but didn't parse full implementations, like `src/yanantin/apacheta/ingest/markdown_parser.py` or all operators\u2014too many files, and my attention wan ``` This matches exactly the claim quoted in the assignment.",
+  "claim_file": "src/yanantin/apacheta/ingest/markdown_parser.py",
+  "claim_by": "nvidia/nemotron-3-super-120b-a12b",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-05-08T02:55:00.851948+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "04253c49-a606-4d69-bd29-2eda9f889b21",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12361_20260509_gemini-2.5-flash-lite-preview-.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12287_20260508_inflection-3-productivity.md",
+  "relation": "denies",
+  "claim_text": "### Closing The Yanantin project, through this `create-plugin.md` file, reveals a meticulous, user-centric approach to plugin development.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/commands/create-plugin.md",
+  "claim_by": "inflection/inflection-3-productivity",
+  "verified_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "timestamp": "2026-05-09T05:35:40.043848+00:00"
+}

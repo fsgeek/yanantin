@@ -1,0 +1,11 @@
+{
+  "id": "837e7ad5-6fe4-4847-b6b5-97f18518ef6d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12366_20260509_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7224_20260321_kimi-k2.md",
+  "relation": "confirms",
+  "claim_text": "- In `diff-review.md` you don\u2019t merge code\u2014you *approve, reject, or annotate*; the prompt is the *diff of human judgment*.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/playground/skills/playground/templates/diff-review.md",
+  "claim_by": "moonshotai/kimi-k2",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-05-09T06:05:40.993421+00:00"
+}

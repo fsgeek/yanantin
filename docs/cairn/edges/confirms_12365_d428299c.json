@@ -1,0 +1,11 @@
+{
+  "id": "d428299c-35b6-4458-841c-610ec969f665",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12365_20260509_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9859_20260406_grok-3-mini-beta.md",
+  "relation": "confirms",
+  "claim_text": "**Strand 1: Delegated Distrust \u2014 Multi-Agent Oversight**   In `code-review.md`, the process kicks off with a series of Haiku and Sonnet agents handling eligibility checks, file summaries, and issue audits (e.g., steps 1-5).",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/code-review/commands/code-review.md",
+  "claim_by": "x-ai/grok-3-mini-beta",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-05-09T06:05:35.614465+00:00"
+}

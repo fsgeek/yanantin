@@ -1,0 +1,11 @@
+{
+  "id": "2576e16f-e1d6-498e-bf57-2c69e68f8190",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12363_20260509_hermes-3-llama-3.1-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10254_20260408_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The claim mentions behavior at runtime regarding the dispatch mechanism of `scout.py`, which is not directly observable from the static source code of `scout_1468_20260218_llama-3.2-3b-instruct.md`.",
+  "claim_file": "docs/cairn/scout_1468_20260218_llama-3.2-3b-instruct.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "timestamp": "2026-05-09T05:35:47.110891+00:00"
+}

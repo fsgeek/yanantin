@@ -1,0 +1,11 @@
+{
+  "id": "5c482347-3f5a-4ac6-b9c3-7e360663f60e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12375_20260509_qwen3.6-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9003_20260401_hermes-3-llama-3.1-70b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The file `src/yanantin/apacheta/operators/project.py` exists and contains the code for a `project` function.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "verified_by": "qwen/qwen3.6-plus",
+  "timestamp": "2026-05-09T07:07:50.274277+00:00"
+}

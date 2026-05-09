@@ -1,0 +1,11 @@
+{
+  "id": "0e55d939-6ded-43d1-926c-1be371fd982e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12373_20260509_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6557_20260318_qwen3-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim attributes a philosophical or epistemic purpose to the file \u2014 \"maintaining the integrity of epistemic observations\" \u2014 which is not mentioned, implied, or supported by any content in `test_scorer.py`.",
+  "claim_file": "tests/unit/test_scorer.py",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-09T07:07:32.159115+00:00"
+}

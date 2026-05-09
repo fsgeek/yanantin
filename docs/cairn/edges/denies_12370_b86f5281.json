@@ -1,0 +1,11 @@
+{
+  "id": "b86f5281-76ac-4aa6-9eae-8ab1543a1472",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12370_20260509_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2003_20260221_gpt-oss-120b:exacto.md",
+  "relation": "denies",
+  "claim_text": "Inconsistency with the Weaver\u2011model verification   - The Weaver\u2011model tensor (see `docs/cairn/scout_1841_20260220_weaver.md`) ends with the sentence:   > \u201cThe claim made by `aion\u2011labs/aion\u2011rp\u2011llama\u20113.1\u20118b` about `docs/predecessors.md` is **accurate**.\u201d   - This directly contradicts the meta\u2011llama denial.",
+  "claim_file": "docs/cairn/scout_1841_20260220_weaver.md",
+  "claim_by": "openai/gpt-oss-120b:exacto",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-05-09T06:37:43.054789+00:00"
+}

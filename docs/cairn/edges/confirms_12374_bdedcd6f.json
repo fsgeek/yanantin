@@ -1,0 +1,11 @@
+{
+  "id": "bdedcd6f-92da-409d-91b0-7a25ea572b55",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12374_20260509_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10002_20260406_qwen3-vl-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**The Persuasion Toolkit is a Compliance Engine** In `persuasion-principles.md`, the seven persuasion principles aren\u2019t soft suggestions \u2014 they\u2019re *strategic weapons* to prevent rationalization.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/skills/writing-skills/persuasion-principles.md",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-05-09T07:07:32.238301+00:00"
+}

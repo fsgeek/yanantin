@@ -1,0 +1,11 @@
+{
+  "id": "cfedfe4f-6522-4606-938a-082e80de1ef0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12371_20260509_qwen3-30b-a3b-instruct-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10394_20260408_gemma-3-12b-it.md",
+  "relation": "confirms",
+  "claim_text": "The examples given in the claim (`T0_20260207_bounded_verification.md`, `T37_20260328_the_cost_curve.md`) are consistent with this observation.",
+  "claim_file": "docs/cairn/T0_20260207_bounded_verification.md",
+  "claim_by": "google/gemma-3-12b-it",
+  "verified_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "timestamp": "2026-05-09T06:37:50.551087+00:00"
+}

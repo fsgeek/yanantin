@@ -1,0 +1,11 @@
+{
+  "id": "0c04575d-d492-453d-963e-ac4b04619607",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12475_20260509_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3271_20260226_gpt-oss-safeguard-20b.md",
+  "relation": "denies",
+  "claim_text": "**`docs/predecessors.md` self\u2011reference claim**   *Evidence & reasoning*: The file\u2019s first paragraph explicitly states \u201cYanantin composes what was learned across these projects\u201d and the second paragraph references `tensors.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "openai/gpt-oss-safeguard-20b",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-09T20:46:39.215535+00:00"
+}

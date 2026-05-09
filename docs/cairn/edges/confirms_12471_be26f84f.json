@@ -1,0 +1,11 @@
+{
+  "id": "be26f84f-5494-4c0e-8794-fdd03fd6ca5c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12471_20260509_mistral-small-3.1-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7679_20260324_lfm-2.2-6b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `docs/entropy_code_experiment_v2.md` discusses methodology, including **Set A** proposals for high format constraint.",
+  "claim_file": "docs/entropy_code_experiment_v2.md",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "timestamp": "2026-05-09T20:15:49.693670+00:00"
+}

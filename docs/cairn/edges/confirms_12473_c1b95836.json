@@ -1,0 +1,11 @@
+{
+  "id": "c1b95836-06e9-4678-850b-b74338d73164",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12473_20260509_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11062_20260412_mistral-small-creative.md",
+  "relation": "confirms",
+  "claim_text": "The file **does not** explicitly state that `brillig.py` performs normalization as a whole.",
+  "claim_file": "src/yanantin/jabberwock/brillig.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-05-09T20:15:52.206996+00:00"
+}

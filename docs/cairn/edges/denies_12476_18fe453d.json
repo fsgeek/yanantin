@@ -1,0 +1,11 @@
+{
+  "id": "18fe453d-3af0-40c6-a2b0-8603837308e7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12476_20260509_gemma-2-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12423_20260509_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "The file does not reference a non\u2011existent `config.py`; however, the claim\u2019s assertion that there are *no* imports or comments is demonstrably false, making the overall claim inaccurate.",
+  "claim_file": "src/yanantin/apacheta/config.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "google/gemma-2-27b-it",
+  "timestamp": "2026-05-09T20:46:43.886301+00:00"
+}

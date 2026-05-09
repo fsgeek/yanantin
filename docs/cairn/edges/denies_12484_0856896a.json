@@ -1,0 +1,11 @@
+{
+  "id": "0856896a-7e3e-45d2-b316-e8a977815157",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12484_20260509_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5752_20260312_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states that the file `src/yanantin/chasqui/scout.py` does not contain any code snippet or reference to the specific claim made by `liquid/lfm2-8b-a1b` about the `evolve.py` and `compose.py` files.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-09T21:47:52.679912+00:00"
+}

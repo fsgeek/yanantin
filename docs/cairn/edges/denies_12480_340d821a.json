@@ -1,0 +1,11 @@
+{
+  "id": "340d821a-e4fa-4332-83a5-91f135a916ea",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12480_20260509_glm-4.5-air.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10109_20260407_devstral-small.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The claim mentions a file `docs/cairn/scout_2864_20260225_granite-4.0-h-micro.md` and a specific verification dispatch that I cannot access or verify within the provided `CLAUDE.md` content.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "mistralai/devstral-small",
+  "verified_by": "z-ai/glm-4.5-air",
+  "timestamp": "2026-05-09T21:15:45.368377+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "787eba8a-cc6b-4f7c-9aae-c9888341249c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12485_20260509_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12318_20260508_qwen3-vl-8b-thinking.md",
+  "relation": "confirms",
+  "claim_text": "*Conversational inference* in `hookify.md` No evidence exists in `list.md` about: - `configure.md` (not provided) - `hookify.md` (not provided) - Runtime behavior (only static documentation) ### Reasoning 1.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/commands/hookify.md",
+  "claim_by": "qwen/qwen3-vl-8b-thinking",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-05-09T21:48:06.205222+00:00"
+}

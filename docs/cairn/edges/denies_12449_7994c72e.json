@@ -1,0 +1,11 @@
+{
+  "id": "7994c72e-ffbd-493f-adf5-6b86bc3e8433",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12449_20260509_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9830_20260405_mimo-v2-omni.md",
+  "relation": "denies",
+  "claim_text": "There is no evidence in the provided file that `CLAUDE.md` contains any reference to `docs/blueprint.md` as \"this blueprint\".",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "xiaomi/mimo-v2-omni",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-05-09T17:03:34.517247+00:00"
+}

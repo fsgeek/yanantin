@@ -1,0 +1,11 @@
+{
+  "id": "fe557e4a-3fe2-4d9c-807d-c2cfefb76d53",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12453_20260509_qwen3.6-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1280_20260217_o4-mini.md",
+  "relation": "confirms",
+  "claim_text": "Other markdown (`apacheta.md`, `tensors.md`) reads like a narrative of the project\u2019s epistemic foundations.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "openai/o4-mini",
+  "verified_by": "qwen/qwen3.6-flash",
+  "timestamp": "2026-05-09T17:37:57.536734+00:00"
+}

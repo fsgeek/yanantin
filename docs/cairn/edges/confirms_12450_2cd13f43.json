@@ -1,0 +1,11 @@
+{
+  "id": "2cd13f43-5718-45ec-be23-2117982fbaaa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12450_20260509_qwen3-235b-a22b-thinking-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2870_20260225_mimo-v2-flash.md",
+  "relation": "confirms",
+  "claim_text": "**Evidence:** The file `scout_1741_20260220_devstral-small.md` contains a **verdict: DENIED** with a claim about `docs/predecessors.md`.",
+  "claim_file": "docs/cairn/scout_1741_20260220_devstral-small.md",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "qwen/qwen3-235b-a22b-thinking-2507",
+  "timestamp": "2026-05-09T17:04:22.226355+00:00"
+}

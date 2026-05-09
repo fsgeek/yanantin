@@ -1,0 +1,11 @@
+{
+  "id": "299b207b-20c4-4730-94cc-594487fc5afd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12349_20260509_mistral-large-2411.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10649_20260410_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Preamble I've taken up residence in the `tests/integration/` directory, specifically in the `__init__.py` file.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "mistralai/mistral-large-2411",
+  "timestamp": "2026-05-09T04:01:20.409075+00:00"
+}

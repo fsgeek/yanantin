@@ -1,0 +1,11 @@
+{
+  "id": "adf4f335-f70f-4a47-b436-9544f1afb499",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12350_20260509_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8692_20260330_deepseek-v3.1-nex-n1.md",
+  "relation": "confirms",
+  "claim_text": "--- ### Strand 5: Composition and negation as explicit, typed relations In `test_materialize.py`, composition is not implicit; it\u2019s modeled with typed edges and explicit negation.",
+  "claim_file": "tests/unit/test_materialize.py",
+  "claim_by": "nex-agi/deepseek-v3.1-nex-n1",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-05-09T04:01:23.625997+00:00"
+}

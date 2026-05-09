@@ -1,0 +1,11 @@
+{
+  "id": "b1feaba6-a72f-4ff3-b1bc-ce3a1a53b440",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12345_20260509_qwen3-coder-next.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9435_20260403_command-r7b-12-2024.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim references a project name, \"Yanantin,\" and its description in `README.md` and `docs/cairn/blueprint.md`, but the file provided is empty.",
+  "claim_file": "README.md",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "qwen/qwen3-coder-next",
+  "timestamp": "2026-05-09T03:31:12.019181+00:00"
+}

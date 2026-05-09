@@ -1,0 +1,11 @@
+{
+  "id": "20667933-9a09-4dfe-ba8a-65987d7855e3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12348_20260509_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1590_20260219_qwen3-235b-a22b.md",
+  "relation": "confirms",
+  "claim_text": "The previous scout\u2019s claim about the absence of `docs/predecessors.md` was directly contradicted by evidence, yet this contradiction itself reflects the system\u2019s design: errors are not suppressed but made observable and correctable.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "qwen/qwen3-235b-a22b",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-05-09T04:01:18.982067+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "b8e9b68f-8bfe-49b3-a9ca-d469d5f2ff98",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12347_20260509_step-3.5-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11536_20260415_qwen3-30b-a3b-thinking-2507.md",
+  "relation": "confirms",
+  "claim_text": "\"\"\" ``` ### Reasoning The claim states that `provenance.py` \"does not mention 'tensor infrastructure' or 'tensor.py' at all.\" The evidence above confirms: - The docstring explicitly describes the file's purpose as *provenance tracking* (\"who made this, when, from what context\"), with no reference to tensors.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "verified_by": "stepfun/step-3.5-flash",
+  "timestamp": "2026-05-09T03:31:46.312407+00:00"
+}

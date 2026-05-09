@@ -1,0 +1,11 @@
+{
+  "id": "a9fda074-1ce5-4fd3-aaf3-422b2ecf08dc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12437_20260509_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9570_20260404_hermes-3-llama-3.1-70b.md",
+  "relation": "confirms",
+  "claim_text": "The claim mentions `src/yanantin/chasqui/` containing `model_selector.py`, `scout.py`, `scorer.py`, and `scourer.py`, which is accurate based on the provided file path.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-05-09T15:30:46.377475+00:00"
+}

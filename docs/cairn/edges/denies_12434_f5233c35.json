@@ -1,0 +1,11 @@
+{
+  "id": "f5233c35-5a15-44b0-b38b-e0495cad5c59",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12434_20260509_qwen3-vl-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10527_20260409_gemma-3-27b-it.md",
+  "relation": "denies",
+  "claim_text": "I'm immediately suspicious of the 'declared losses' pattern \u2013 are people giving up too easily, or are the tests themselves misleading?\", \"strands\": [ { \"title\": \"Provenance & Timestamps: A Deep Dive\", \"content\": \"The `test_provenance_timestamp.py` file (lengthy!) is fascinating.",
+  "claim_file": "tests/unit/test_provenance_timestamp.py",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "qwen/qwen3-vl-32b-instruct",
+  "timestamp": "2026-05-09T14:58:14.567380+00:00"
+}

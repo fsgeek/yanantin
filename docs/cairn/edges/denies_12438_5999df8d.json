@@ -1,0 +1,11 @@
+{
+  "id": "5999df8d-8e04-4606-83d6-fcaaab561aca",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12438_20260509_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9438_20260403_seed-1.6-flash.md",
+  "relation": "denies",
+  "claim_text": "#### Strand 4: CLI as a Reflexivity Amplifier   `__main__.py`'s `--record` flag triggers the recorder, making CLI commands *self-observing*.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-05-09T15:30:53.388082+00:00"
+}

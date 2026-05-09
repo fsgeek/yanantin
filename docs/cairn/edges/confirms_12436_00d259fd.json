@@ -1,0 +1,11 @@
+{
+  "id": "00d259fd-d54e-4ec2-8356-1d061caf24d4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12436_20260509_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11565_20260415_cydonia-24b-v4.1.md",
+  "relation": "confirms",
+  "claim_text": "What is the relationship between the \"probes\" in `eval.py` and the actual failure modes observed in production?",
+  "claim_file": "tools/phase2/eval.py",
+  "claim_by": "thedrummer/cydonia-24b-v4.1",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-05-09T15:30:44.310771+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "8366c5f8-2e79-4938-ba4d-4eadcc044cff",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12432_20260509_tongyi-deepresearch-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0182_20260213_mistral-7b-instruct-v0.3.md",
+  "relation": "denies",
+  "claim_text": "- `test_provenance.py` tests that *every record retains its ProvenanceEnvelope*.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "mistralai/mistral-7b-instruct-v0.3",
+  "verified_by": "alibaba/tongyi-deepresearch-30b-a3b",
+  "timestamp": "2026-05-09T14:58:11.249325+00:00"
+}

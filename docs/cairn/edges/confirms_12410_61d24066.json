@@ -1,0 +1,11 @@
+{
+  "id": "61d24066-5559-405b-9ce1-7bdc2291ec97",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12410_20260509_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7409_20260322_lfm-2.2-6b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The claim is made about a specific file (`tests/unit/test_arango_independent.py`) and contain-related behavior (independent testing, serialization fidelity, immutability).",
+  "claim_file": "tests/unit/test_arango_independent.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-09T11:48:35.264159+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "c89dee95-d400-4767-a088-40e67f14d699",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12408_20260509_devstral-small.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8033_20260326_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `docs/jabberwock-spec.md` contains the following text: ``` # The Jabberwock Spec: Named Entity Resolution ``` ### Reasoning The claim states that `jabberwock-spec.md` is one of several top-level documents with evocative, non-technical names.",
+  "claim_file": "docs/jabberwock-spec.md",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "mistralai/devstral-small",
+  "timestamp": "2026-05-09T11:48:11.772349+00:00"
+}

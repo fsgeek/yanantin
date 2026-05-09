@@ -1,0 +1,11 @@
+{
+  "id": "da139d88-fac8-41fb-ad22-2139880db707",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12411_20260509_deepseek-v4-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0820_20260216_qwen3-vl-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The presence of \u201cred-bar\u201d tests (e.g., `test_immutability.py`, `test_least_privilege.py`) implies a focus on security and correctness \u2014 not just functionality.",
+  "claim_file": "tests/red_bar/test_least_privilege.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "deepseek/deepseek-v4-flash",
+  "timestamp": "2026-05-09T11:48:35.935080+00:00"
+}

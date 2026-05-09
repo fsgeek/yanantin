@@ -1,0 +1,11 @@
+{
+  "id": "c5eac9be-99d7-46d4-9df0-4bd773674f7a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12412_20260509_gpt-oss-safeguard-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0420_20260214_gemma-2-9b-it.md",
+  "relation": "denies",
+  "claim_text": "I cannot confirm how `ProvenanceEnvelope` is handled in `negate.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "openai/gpt-oss-safeguard-20b",
+  "timestamp": "2026-05-09T12:19:08.763911+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "9e441a0a-55dc-45a4-abd0-45d6e667b57b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12414_20260509_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2238_20260222_trinity-mini.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses - **Unverified file**: The claim references `arango.py`, but only `duckdb.py` is available for review.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-05-09T12:19:20.605371+00:00"
+}

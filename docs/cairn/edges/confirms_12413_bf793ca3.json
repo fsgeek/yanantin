@@ -1,0 +1,11 @@
+{
+  "id": "bf793ca3-3352-4abf-9d8e-a87e07d2f9d8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12413_20260509_deepseek-v4-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4212_20260303_qwen-plus.md",
+  "relation": "confirms",
+  "claim_text": "The Chasqui Is a Distributed, Cost-Weighted, Model-Reflexive Loop**   `src/yanantin/chasqui/` contains `model_selector.py`, `scout.py`, `scorer.py`, and `scourer.py`.",
+  "claim_file": "src/yanantin/chasqui/scorer.py",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "deepseek/deepseek-v4-flash",
+  "timestamp": "2026-05-09T12:19:18.107873+00:00"
+}

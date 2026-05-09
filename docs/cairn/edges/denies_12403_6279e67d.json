@@ -1,0 +1,11 @@
+{
+  "id": "6279e67d-44e1-484f-b60f-998ff07c30f3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12403_20260509_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4577_20260305_qwen3.5-plus-02-15.md",
+  "relation": "denies",
+  "claim_text": "I notice: - `scout_3630_20260228_hermes-2-pro-llama-3-8b.md` \u2014 verified a claim about `ots_stamp.py` not being tensor-related (DENIED the claim that it was) - `scout_3102_20260226_rocinante-12b.md` \u2014 the evidence section repeats \"but it does mention `docs/predecessors.md` is not present\" dozens of times, suggesting a generation failure or loop - `scour_*` files exist too \u2014 these are synthesis reports *about* the scouts The cairn is both archive and autopsy table.",
+  "claim_file": "docs/cairn/scout_3630_20260228_hermes-2-pro-llama-3-8b.md",
+  "claim_by": "qwen/qwen3.5-plus-02-15",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-05-09T10:46:24.109936+00:00"
+}

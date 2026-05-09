@@ -1,0 +1,11 @@
+{
+  "id": "3b9d9fa0-6d02-4525-89c0-b4bdf4cd79fb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12405_20260509_mistral-large-2411.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11309_20260413_deepseek-chat-v3-0324.md",
+  "relation": "confirms",
+  "claim_text": "The file does contain a `dissent.py` operator (confirmed by filename and content) 2.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "deepseek/deepseek-chat-v3-0324",
+  "verified_by": "mistralai/mistral-large-2411",
+  "timestamp": "2026-05-09T11:16:05.883476+00:00"
+}

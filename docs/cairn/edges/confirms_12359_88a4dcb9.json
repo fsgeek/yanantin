@@ -1,0 +1,11 @@
+{
+  "id": "88a4dcb9-cc98-45fe-b428-13cf85f1a7f0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12359_20260509_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6240_20260316_lfm-2-24b-a2b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence > \"Design: - (id UUID, data JSON) per table \u2014 full model serialized as JSON\\n> Immutability via check-before-insert (same as in-memory)\\n> Thread safety via RLock (same as in-memory)\\n> Query logic in Python (same as in-memory) \u2014 push to SQL when scale demands\\n> File-backed by default, :memory: for tests\" These comments describe the **design and storage model** of `duckdb.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-09T05:03:54.933005+00:00"
+}

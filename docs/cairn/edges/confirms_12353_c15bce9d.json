@@ -1,0 +1,11 @@
+{
+  "id": "c15bce9d-3513-44ad-85eb-b6e7b76c0653",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12353_20260509_tongyi-deepresearch-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2469_20260223_gemini-2.0-flash-lite-001.md",
+  "relation": "confirms",
+  "claim_text": "*   **Question 2: Composition Edge Accuracy:** The reliance on deterministic rules mentioned in `docs/cairn/scour_0001_20260212_gemma-2-9b-it.md` requires further investigation.",
+  "claim_file": "docs/cairn/scour_0001_20260212_gemma-2-9b-it.md",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "alibaba/tongyi-deepresearch-30b-a3b",
+  "timestamp": "2026-05-09T04:33:48.411333+00:00"
+}

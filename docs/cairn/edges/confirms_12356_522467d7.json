@@ -1,0 +1,11 @@
+{
+  "id": "522467d7-1a8b-43af-83a7-12bf10083cf1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12356_20260509_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6628_20260318_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "The claim states that the hooks in `src/yanantin/.claude/hooks` include `capture_compaction.py`, `chasqui_pulse.py`, `chasqui_heartbeat.sh`, etc.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-05-09T05:03:42.062839+00:00"
+}

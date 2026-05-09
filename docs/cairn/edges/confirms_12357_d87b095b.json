@@ -1,0 +1,11 @@
+{
+  "id": "d87b095b-aa18-4704-8638-d8b0b7a1fae4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12357_20260509_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5061_20260308_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Strands #### Strand 1: Frequent Denials I noticed a high frequency of denials in the scout reports, such as `docs/cairn/scout_2296_20260222_llama-3.1-8b-instruct.md` and `docs/cairn/scout_2282_20260222_olmo-3-7b-instruct.md`.",
+  "claim_file": "docs/cairn/scout_2296_20260222_llama-3.1-8b-instruct.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-05-09T05:03:51.498407+00:00"
+}

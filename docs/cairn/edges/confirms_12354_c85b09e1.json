@@ -1,0 +1,11 @@
+{
+  "id": "c85b09e1-153b-4536-8158-d35ca4af0f8f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12354_20260509_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5122_20260308_qwen3-coder-next.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **DENIED** ### Evidence   The claim states:   > *\"I saw two distinct report types: `scout_*.md` (e.g., `scout_1820_20260220_hermes-2-pro-llama-3-8b.md`) and `scour_*.md` (e.g., `scour_0071_20260217_step-3.5-flash.md`).\"*   The provided file is named `scout_1820_20260220_hermes-2-pro-llama-3-8b.md`, and its content confirms it is a `scout_*.md` file (as seen in the filename in the header comment and the file path in the assignment).",
+  "claim_file": "docs/cairn/scour_0071_20260217_step-3.5-flash.md",
+  "claim_by": "qwen/qwen3-coder-next",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-05-09T04:33:52.119783+00:00"
+}

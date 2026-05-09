@@ -1,0 +1,11 @@
+{
+  "id": "69a0c0af-dd0e-48ea-8721-a94f12a9c84a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12377_20260509_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2407_20260223_gemini-2.5-flash-lite-preview-.md",
+  "relation": "denies",
+  "claim_text": "**The Duality of Backends (Apollo & Dionysus):** *   **What I Saw:** In `src/yanantin/apacheta/backends/`, there are near-identical structures for `arango.py`, `duckdb.py`, and `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-09T07:39:41.194859+00:00"
+}

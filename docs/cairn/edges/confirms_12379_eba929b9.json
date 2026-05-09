@@ -1,0 +1,11 @@
+{
+  "id": "eba929b9-a25b-4ab6-b42b-8f910a9767e0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12379_20260509_qwen-2.5-72b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12317_20260508_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "- The class `PPTXSchemaValidator` is defined in `pptx.py` and contains multiple PowerPoint-specific methods (e.g., `validate_slide_layout_ids`, `validate_notes_slide_references`, `validate_no_duplicate_slide_layouts`), which are not generic but tailored to PPTX structure.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/pptx.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "qwen/qwen-2.5-72b-instruct",
+  "timestamp": "2026-05-09T07:39:44.936597+00:00"
+}

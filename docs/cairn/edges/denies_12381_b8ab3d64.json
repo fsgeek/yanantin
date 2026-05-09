@@ -1,0 +1,11 @@
+{
+  "id": "b8ab3d64-9ef4-4250-8e04-6ad8cfb22909",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12381_20260509_qwen3-vl-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9738_20260405_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "This section explicitly references key files, including this one (`This blueprint`), `CLAUDE.md`, `MEMORY.md`, and tensors like `T\u2083\u2085`, `T\u2083\u2084`, etc.",
+  "claim_file": "tmp/ubuntu-vm.claude/projects/-home-tony-projects-pukara/memory/MEMORY.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "timestamp": "2026-05-09T08:09:40.199169+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "ff3f4855-5a74-47e3-a997-1c59b05f76a6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12380_20260509_rnj-1-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0934_20260216_gemma-3-12b-it.md",
+  "relation": "confirms",
+  "claim_text": "The `content_address.py` module\u2019s normalization is prominent.",
+  "claim_file": "src/yanantin/apacheta/content_address.py",
+  "claim_by": "google/gemma-3-12b-it",
+  "verified_by": "essentialai/rnj-1-instruct",
+  "timestamp": "2026-05-09T08:09:38.827153+00:00"
+}

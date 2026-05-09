@@ -1,0 +1,11 @@
+{
+  "id": "d8a03c43-32d3-4642-b809-4b2c22c8c4c4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12383_20260509_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0512_20260214_qwen-2.5-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The file `tests/integration/test_arango_real.py` is clearly labeled as integration tests for an ArangoDB backend.",
+  "claim_file": "tests/integration/test_arango_real.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-09T08:09:46.046220+00:00"
+}

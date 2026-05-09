@@ -1,0 +1,11 @@
+{
+  "id": "72d3490c-2f44-4be2-bc82-d2236370d2c8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12313_20260508_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12143_20260508_deepseek-v4-flash.md",
+  "relation": "confirms",
+  "claim_text": "However, looking at the actual file `fill_fillable_fields.py`: - Line 10: `from extract_form_field_info import get_field_info` \u2014 this is an **import statement**, not an indication that this file is used by those other scripts.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/scripts/fill_fillable_fields.py",
+  "claim_by": "deepseek/deepseek-v4-flash",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-05-08T23:23:45.965457+00:00"
+}

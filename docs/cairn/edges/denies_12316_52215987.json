@@ -1,0 +1,11 @@
+{
+  "id": "52215987-6006-4df3-9407-66e39b0e9141",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12316_20260508_gemini-3.1-flash-lite-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10088_20260407_qwen3-vl-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "> In `test_collector_cli.py`, the `CollectorCLI` stores tensors \u2014 it expects inputs to be predictable \u2014 because truth must be verifiable.",
+  "claim_file": "tests/unit/test_collector_cli.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "google/gemini-3.1-flash-lite-preview",
+  "timestamp": "2026-05-08T23:53:12.578053+00:00"
+}

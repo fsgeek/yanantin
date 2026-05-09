@@ -1,0 +1,11 @@
+{
+  "id": "2a5eb8ec-2c93-4135-808a-c0eb7797bd4a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12315_20260508_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7714_20260324_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "However, the description says `bootstrap.py` embeds `ProvenanceEnvelope` - this aligns with the claim under review.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-05-08T23:23:52.330034+00:00"
+}

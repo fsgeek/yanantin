@@ -1,0 +1,11 @@
+{
+  "id": "56d8f490-4d0b-4e37-826d-01fa953d137d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12390_20260509_gemini-2.0-flash-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9511_20260404_qwen3-8b.md",
+  "relation": "denies",
+  "claim_text": "- **Confusing**: The `materialize` function in `materialize.py` is truncated, leaving unresolved how **negations** (e.g., `\"does_not_compose_with\"`) are handled.",
+  "claim_file": "src/yanantin/awaq/materialize.py",
+  "claim_by": "qwen/qwen3-8b",
+  "verified_by": "google/gemini-2.0-flash-001",
+  "timestamp": "2026-05-09T09:11:40.406074+00:00"
+}

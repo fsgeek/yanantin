@@ -1,0 +1,11 @@
+{
+  "id": "08f7cf22-06d7-4313-aca3-bc79d24199b4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12391_20260509_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10088_20260407_qwen3-vl-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "> In `test_collector_synthetic.py`, the test `test_seeded_output_is_deterministic` confirms this: two collectors with the same seed produce the same output.",
+  "claim_file": "tests/unit/test_collector_synthetic.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-09T09:11:47.357862+00:00"
+}

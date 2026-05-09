@@ -1,0 +1,11 @@
+{
+  "id": "63dd4c37-276d-4c36-9778-aa1ad60fdcae",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12385_20260509_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8434_20260328_qwen3.5-plus-02-15.md",
+  "relation": "confirms",
+  "claim_text": "**\"the claim only asks to verify the statement about `provenance.py`\"**: This is accurate.",
+  "claim_file": "src/yanantin/apacheta/models/provenance.py",
+  "claim_by": "qwen/qwen3.5-plus-02-15",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-05-09T08:41:45.743754+00:00"
+}

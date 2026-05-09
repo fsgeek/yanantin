@@ -1,0 +1,11 @@
+{
+  "id": "79995e6f-77fd-46a0-a8e9-e396ba22870d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12393_20260509_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3337_20260227_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "This directly supports the claim that `bootstrap.py` \"selects context tensors.\" ### Declared Losses The claim mentions a file `docs/cairn/T13_20260211_the_gradient.md`, which I cannot access or verify.",
+  "claim_file": "docs/cairn/T13_20260211_the_gradient.md",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-09T09:43:53.336755+00:00"
+}

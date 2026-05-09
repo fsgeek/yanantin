@@ -1,0 +1,11 @@
+{
+  "id": "3ea3d600-ec8a-4701-be43-94a562bef82d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12395_20260509_mistral-large-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11038_20260412_qwen3-vl-32b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence > The `src/yanantin/chasqui/` directory contains files like `scout.py`, `scourer.py`, `scorer.py`, `model_selector.py`, and `coordinator.py`.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "qwen/qwen3-vl-32b-instruct",
+  "verified_by": "mistralai/mistral-large-2512",
+  "timestamp": "2026-05-09T09:43:56.194881+00:00"
+}

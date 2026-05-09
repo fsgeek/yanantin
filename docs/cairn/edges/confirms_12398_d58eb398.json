@@ -1,0 +1,11 @@
+{
+  "id": "d58eb398-86a3-43bf-b47f-baf380602e6c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12398_20260509_deepseek-v4-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11847_20260502_command-r7b-12-2024.md",
+  "relation": "confirms",
+  "claim_text": "A Master Builder instance can compare this report to what the blueprint claims.\" ### Reasoning The provided file, `src/yanantin/tinkuy/audit.py`, explicitly states that the module does not parse the blueprint or any other documentation.",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "deepseek/deepseek-v4-flash",
+  "timestamp": "2026-05-09T10:13:55.907271+00:00"
+}

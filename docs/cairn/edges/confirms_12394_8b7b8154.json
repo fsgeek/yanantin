@@ -1,0 +1,11 @@
+{
+  "id": "8b7b8154-b0b4-4924-b7a6-dae1dd4ccead",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12394_20260509_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2440_20260223_wizardlm-2-8x22b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `docs/predecessors.md` exists and has content.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "microsoft/wizardlm-2-8x22b",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-05-09T09:43:54.480905+00:00"
+}

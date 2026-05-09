@@ -1,0 +1,11 @@
+{
+  "id": "f44e8a10-3425-470f-90d6-70affc94a314",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12423_20260509_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9774_20260405_seed-1.6-flash.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning   The claim asserts that `config.py` contains no imports, comments, or references to a non-existent `config.py`.",
+  "claim_file": "src/yanantin/apacheta/config.py",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-05-09T13:22:26.801763+00:00"
+}

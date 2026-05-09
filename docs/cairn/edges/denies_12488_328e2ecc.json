@@ -1,0 +1,11 @@
+{
+  "id": "328e2ecc-0386-428f-afb4-4e16ee1949f7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12488_20260509_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4330_20260304_olmo-3-32b-think.md",
+  "relation": "denies",
+  "claim_text": "Thus, the assertion that this import \"confirms\" `weaver.py` is part of the `yanantin.awaq` module is false.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "allenai/olmo-3-32b-think",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-05-09T22:18:42.849273+00:00"
+}

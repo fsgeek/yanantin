@@ -1,0 +1,11 @@
+{
+  "id": "2b739dce-d560-495e-b884-df4a4fdc77b6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12492_20260509_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4626_20260305_hunyuan-a13b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The only relevant content from `compose.py` is the import statement:   ```python   from yanantin.apacheta.models.composition import CompositionEdge, RelationType   ```   This import statement pertains to composition-specific models and does not indicate any relationship to the \"verbs of the system\" or the referenced files.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "tencent/hunyuan-a13b-instruct",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-05-09T22:53:37.808815+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "d6a07c34-0090-4645-937c-d9566def1771",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12487_20260509_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7937_20260325_qwen-vl-plus.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **CONFIRMED** ### Evidence   The claim states:   > **I can only see the contents of `duckdb.py`.** The file content provided begins with:   ``` \"\"\"DuckDB backend for Apacheta.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "qwen/qwen-vl-plus",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-09T22:18:41.186175+00:00"
+}

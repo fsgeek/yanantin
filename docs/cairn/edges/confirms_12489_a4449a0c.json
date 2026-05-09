@@ -1,0 +1,11 @@
+{
+  "id": "a4449a0c-c751-44a8-a5b0-c070776141d5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12489_20260509_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8446_20260328_gemma-3-4b-it.md",
+  "relation": "confirms",
+  "claim_text": "This demonstrates that the `epistemics.py` file *is* relevant to the broader topic of epistemic reasoning, specifically concerning disagreement types.",
+  "claim_file": "src/yanantin/apacheta/models/epistemics.py",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-09T22:18:43.282408+00:00"
+}

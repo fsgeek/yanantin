@@ -1,0 +1,11 @@
+{
+  "id": "d0a0367c-78e4-4f33-9b01-2028c88a3a30",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12491_20260509_trinity-large-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0366_20260213_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "I saw evidence of this in `src/yanantin/apacheta/backends/memory.py`, where the in-memory backend enforces immutability to ensure data integrity.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "arcee-ai/trinity-large-preview",
+  "timestamp": "2026-05-09T22:53:37.647838+00:00"
+}

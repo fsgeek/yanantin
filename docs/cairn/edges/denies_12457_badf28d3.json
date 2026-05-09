@@ -1,0 +1,11 @@
+{
+  "id": "badf28d3-6431-481f-8191-3546a48d9462",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12457_20260509_llama-4-maverick.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9669_20260404_gpt-4.1-mini.md",
+  "relation": "denies",
+  "claim_text": "However, the claim's phrasing suggests `docs/tensors.md` gives no information about the content of `docs/apacheta.md`, which is outside the scope here.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "openai/gpt-4.1-mini",
+  "verified_by": "meta-llama/llama-4-maverick",
+  "timestamp": "2026-05-09T18:08:49.170353+00:00"
+}

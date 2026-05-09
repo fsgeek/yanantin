@@ -1,0 +1,11 @@
+{
+  "id": "ad2b2535-3221-4222-bd80-59ebbb225f63",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12458_20260509_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7222_20260321_gpt-oss-20b.md",
+  "relation": "confirms",
+  "claim_text": "Therefore, the existence of this file confirms that the `operators` directory exists and contains the file `correct.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-05-09T18:08:50.185534+00:00"
+}

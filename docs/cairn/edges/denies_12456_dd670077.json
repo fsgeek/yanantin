@@ -1,0 +1,11 @@
+{
+  "id": "dd670077-ee0a-4561-805a-81480cecb249",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12456_20260509_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12266_20260508_gpt-5.1.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `docs/signing.md` contains only the content shown by you, which is entirely about code signing and keys, and makes no mention of any `CLAUDE.md` file or any claim about it.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "openai/gpt-5.1",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-05-09T18:08:48.294849+00:00"
+}

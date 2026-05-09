@@ -1,0 +1,11 @@
+{
+  "id": "5f78ddac-9a24-4875-9e92-60e90b16233f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12459_20260509_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3674_20260228_qwen3-30b-a3b-instruct-2507.md",
+  "relation": "confirms",
+  "claim_text": "However, there is no explicit linkage between these processes, which could lead to inconsistencies.' This is a *direct response* to `scout_0579_20260214_granite-4.0-h-micro.md`, which *declared* that loss.",
+  "claim_file": "docs/cairn/scout_0579_20260214_granite-4.0-h-micro.md",
+  "claim_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-09T18:39:50.720930+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "ec6b7057-01cc-49f1-b959-4faa4a4810b4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12333_20260509_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3042_20260225_minimax-m2.1.md",
+  "relation": "denies",
+  "claim_text": "The Collector/Recorder Pattern (src/yanantin/collector/)** In `src/yanantin/collector/`, I see multiple collector implementations: - `dropbox/`, `filesystem/`, `fs_events/` \u2014 each with `collector.py`, `fact_recorder.py`, `models.py`, `synthetic.py` This pattern appears in the scout reports (e.g., scout_136 mentions \"collector/recorder pairs\" as a contribution from Indaleko).",
+  "claim_file": "src/yanantin/collector/filesystem/collector.py",
+  "claim_by": "minimax/minimax-m2.1",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-09T01:57:32.655205+00:00"
+}

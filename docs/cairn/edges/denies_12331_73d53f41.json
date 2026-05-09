@@ -1,0 +1,11 @@
+{
+  "id": "73d53f41-6c5a-4bd0-b249-43c8930634d2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12331_20260509_deepseek-v3.2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10037_20260406_llama-3-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "**Declared Losses** * **Unexamined Files**: I chose not to examine the files `test_collector_checksum.py` and `test_collector_cli.py`, as they seemed unrelated to my current focus on succession protocol and tensor infrastructure.",
+  "claim_file": "tests/unit/test_collector_checksum.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "deepseek/deepseek-v3.2",
+  "timestamp": "2026-05-09T01:29:16.462041+00:00"
+}

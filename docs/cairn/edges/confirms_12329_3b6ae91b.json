@@ -1,0 +1,11 @@
+{
+  "id": "3b6ae91b-38f8-4f04-9fa0-5c9818bd85cb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12329_20260509_gpt-4o-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10721_20260410_command-r7b-12-2024.md",
+  "relation": "confirms",
+  "claim_text": "### Closing The `migration.md` file provides a valuable roadmap for transitioning to advanced prompt-based hooks in the Yanantin project.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/hook-development/references/migration.md",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "openai/gpt-4o-mini",
+  "timestamp": "2026-05-09T01:29:00.651814+00:00"
+}

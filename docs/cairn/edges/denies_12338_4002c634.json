@@ -1,0 +1,11 @@
+{
+  "id": "4002c634-df26-4d27-8cc9-26a7d02c73f7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12338_20260509_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10128_20260407_gemini-2.0-flash-lite-001.md",
+  "relation": "denies",
+  "claim_text": "The initial files that captured my attention are `pptx.py`, `docx.py`, `redlining.py`, and `base.py`.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/redlining.py",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-05-09T02:30:08.839300+00:00"
+}

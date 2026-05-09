@@ -1,0 +1,11 @@
+{
+  "id": "310bfcfe-3fa3-48f8-90f9-3842c81f7512",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12339_20260509_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6860_20260319_qwen3.5-flash-02-23.md",
+  "relation": "denies",
+  "claim_text": "**Claimed Content:** > \"The code is organized into several directories, including `yanantin`, `cairn`, `composition_graph`, `entropy_code_experiment_v2`, `predecessors`, `scout_0519_20260214_qwen3-235b-a22b-2507.md`, `scout_0631_20260215_nemotron-3-nano-30b-a3b.md`...",
+  "claim_file": "docs/cairn/scout_0631_20260215_nemotron-3-nano-30b-a3b.md",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-05-09T02:30:33.775784+00:00"
+}

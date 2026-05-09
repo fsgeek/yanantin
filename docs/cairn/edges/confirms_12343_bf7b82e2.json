@@ -1,0 +1,11 @@
+{
+  "id": "bf7b82e2-83d5-492e-b0da-3aa05bcd992e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12343_20260509_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11769_20260502_qwen3.5-flash-02-23.md",
+  "relation": "confirms",
+  "claim_text": "To verify if `scripts/ingest_cairn.py` is referenced in `model_selector.py`, I must inspect the contents of `model_selector.py`.",
+  "claim_file": "scripts/ingest_cairn.py",
+  "claim_by": "qwen/qwen3.5-flash-02-23",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-05-09T03:00:13.419353+00:00"
+}

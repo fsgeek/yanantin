@@ -1,0 +1,11 @@
+{
+  "id": "0746a3e7-024e-4af3-854c-5a59390a4786",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12341_20260509_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10962_20260412_deepseek-chat-v3-0324.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that `bootstrap.py` does not refer to `dissent.py` for \"verbs of the system.\" After examining the entire content of `bootstrap.py`, there is indeed no import statement, function call, or any reference to `dissent.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "deepseek/deepseek-chat-v3-0324",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-09T03:00:00.507524+00:00"
+}

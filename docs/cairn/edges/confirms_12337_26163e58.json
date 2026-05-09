@@ -1,0 +1,11 @@
+{
+  "id": "26163e58-4ef8-45d1-89f5-35ef6f0518f8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12337_20260509_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11129_20260412_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "There is no mention of the files `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, or `project.py`, nor is there any reference to \"verbs of the system\".",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-05-09T02:30:07.801706+00:00"
+}

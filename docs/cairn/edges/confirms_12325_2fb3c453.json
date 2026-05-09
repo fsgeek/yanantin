@@ -1,0 +1,11 @@
+{
+  "id": "2fb3c453-3898-4b8e-913c-2747b44ab6f0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12325_20260509_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10608_20260410_nemotron-nano-9b-v2.md",
+  "relation": "confirms",
+  "claim_text": "**Specifics**: Line 22 in `arango.py` (`obfuscator: StorageObfuscator | None = None`).",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-09T00:56:18.782458+00:00"
+}

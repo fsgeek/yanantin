@@ -1,0 +1,11 @@
+{
+  "id": "e46ff703-4d26-4c0d-8d51-54160a7d0728",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12445_20260509_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3798_20260301_nemotron-3-nano-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "However, the actual content of `ots_stamp.py` is a Python script that implements a git post\u2011commit hook for OpenTimestamps.",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-05-09T16:32:34.995265+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "55ab3ee1-3542-475e-864a-40c60116a73c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12446_20260509_rocinante-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1182_20260217_ernie-4.5-21b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 3: `docs/cairn` Directory Structure The previous scout confirmed that the `docs/cairn` directory contains files named after the models they represent, such as `scout_0692_20260215_claude-3-haiku.md`.",
+  "claim_file": "docs/cairn/scout_0692_20260215_claude-3-haiku.md",
+  "claim_by": "baidu/ernie-4.5-21b-a3b",
+  "verified_by": "thedrummer/rocinante-12b",
+  "timestamp": "2026-05-09T16:32:42.398880+00:00"
+}

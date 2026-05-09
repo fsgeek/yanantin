@@ -1,0 +1,11 @@
+{
+  "id": "77c450a9-79c5-4805-8a6f-34a8a23e59e2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12444_20260509_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7051_20260320_lfm-2-24b-a2b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The claim states: > \"The presence of both **mocked** (e.g., `test_duckdb_independent.py`) and **live** (e.g., `test_arango_real.py`) tests indicates a hybrid verification strategy.\" From the file content: - The docstring of `tests/unit/test_duckdb_independent.py` indeed says:   > \"The presence of both *mocked* (e.g., `test_duckdb_independent.py`) and *live* (e.g., `test_arango_real.py`) tests indicates a hybrid verification strategy.\" - This directly matches the claim's wording about the existence of both mocked and live tests indicating a hybrid approach.",
+  "claim_file": "tests/unit/test_duckdb_independent.py",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-05-09T16:32:31.010538+00:00"
+}

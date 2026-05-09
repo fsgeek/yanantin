@@ -1,0 +1,11 @@
+{
+  "id": "01e824ee-1e05-4024-9174-513b571ccab7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12440_20260509_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3455_20260227_glm-4.5.md",
+  "relation": "confirms",
+  "claim_text": "**Scalability and Cost Tracking**: The scout reports include detailed cost tracking (e.g., `scout_2355_20260222_seed-1.6-flash.md` cost $0.0005187).",
+  "claim_file": "docs/cairn/scout_2355_20260222_seed-1.6-flash.md",
+  "claim_by": "z-ai/glm-4.5",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-09T16:01:14.506594+00:00"
+}

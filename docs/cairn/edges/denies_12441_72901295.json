@@ -1,0 +1,11 @@
+{
+  "id": "72901295-fa2f-4fc2-ba96-477b9e37ce2e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12441_20260509_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9296_20260402_gpt-4o-mini-search-preview.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim references `checksum.py`, but the file in question is `synthetic.py`.",
+  "claim_file": "src/yanantin/collector/synthetic.py",
+  "claim_by": "openai/gpt-4o-mini-search-preview",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-05-09T16:01:14.594664+00:00"
+}

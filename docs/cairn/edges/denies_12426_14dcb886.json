@@ -1,0 +1,11 @@
+{
+  "id": "14dcb886-4689-4ba9-bd7b-997646e9e53c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12426_20260509_phi-4-mini-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8518_20260329_qwen3-next-80b-a3b-thinking.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The claim states: \"The tests for `parse_tensor_file` and the emphasis on composition declarations in `src/yanantin/apacheta/weaver.py` support this interpretation.\" However, the actual file provided is `src/yanantin/awaq/weaver.py`, not `src/yanantin/apacheta/weaver.py`.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "verified_by": "microsoft/phi-4-mini-instruct",
+  "timestamp": "2026-05-09T13:54:43.725166+00:00"
+}

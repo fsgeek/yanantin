@@ -1,0 +1,11 @@
+{
+  "id": "71415a4d-a1dc-4771-83a1-158b4057adcb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12429_20260509_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0433_20260214_grok-4-fast.md",
+  "relation": "denies",
+  "claim_text": "This aligns with the project's \"provenance is structural\" principle from `CLAUDE.md` (in `docs/cairn/scout_0031_20260212_llama-3.2-1b-instruct.md`), where data models like this ensure every artifact (e.g., tensors) carries lineage without mutable state.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-05-09T14:24:59.242439+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "c862a883-27e6-4e1e-9eb8-35259645a4f4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12427_20260509_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12066_20260507_qwen3-vl-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "For the tensor sequence and its history, see `docs/tensors.md`.\"**   - **\"See `docs/blueprint.md` for how the pieces connect.\"** Nowhere in the file is there any mention of reading or fetching `CLAUDE.md` itself.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-09T13:54:44.978859+00:00"
+}

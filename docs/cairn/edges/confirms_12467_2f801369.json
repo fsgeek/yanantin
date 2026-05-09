@@ -1,0 +1,11 @@
+{
+  "id": "2f801369-49b3-43ac-a2d0-1fe104ca8626",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12467_20260509_phi-4-mini-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5492_20260311_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The specific lines from the file that support my verdict are: ```python from yanantin.apacheta.models.composition import ( CompositionEdge, CorrectionRecord, RelationType, ) ``` This import statement shows that `composition.py` does contain modules for backends, clients, or operators, specifically: - `CompositionEdge` - `CorrectionRecord` - `RelationType` ### Reasoning The evidence supports my verdict because the import statement confirms that `composition.py` contains the specified modules.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "microsoft/phi-4-mini-instruct",
+  "timestamp": "2026-05-09T19:45:18.154895+00:00"
+}

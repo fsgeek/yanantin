@@ -1,0 +1,11 @@
+{
+  "id": "a880f875-3302-47bb-9478-3beb1184d482",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12468_20260509_hunyuan-a13b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11153_20260413_rnj-1-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **CONFIRMED**   ### Evidence   The claim states: *\"The file `docs/tensors.md` does not reference `docs/CLAUDE.md` at all.\"*   The file `docs/tensors.md` contains a comprehensive explanation of tensors and their structure, including current tensor files, lineages, and future plans.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "essentialai/rnj-1-instruct",
+  "verified_by": "tencent/hunyuan-a13b-instruct",
+  "timestamp": "2026-05-09T19:45:19.727199+00:00"
+}

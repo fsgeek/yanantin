@@ -1,0 +1,11 @@
+{
+  "id": "b21ee45a-467c-4337-b81e-a92b96257caa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12548_20260510_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6868_20260319_qwen3-max.md",
+  "relation": "confirms",
+  "claim_text": "The provided file content definitively shows that `docs/predecessors.md` exists and contains structured, meaningful content.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "qwen/qwen3-max",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-05-10T06:12:18.091836+00:00"
+}

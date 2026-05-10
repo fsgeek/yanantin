@@ -1,0 +1,11 @@
+{
+  "id": "9ef6d8d2-c89a-45c4-88e1-a09380fb1c26",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12543_20260510_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5315_20260309_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "``` (The entire file was scanned and no line mentions `scourer.py`.) ### Reasoning The claim states that a separate markdown report (`scour_0080_20260218_gpt-oss-20b.md`) **explicitly says** that `scout.py` contains no reference to `scourer.py`.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-05-10T05:40:19.677298+00:00"
+}

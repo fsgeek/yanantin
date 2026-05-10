@@ -1,0 +1,11 @@
+{
+  "id": "b9888235-05e5-4e8a-8255-3c9f584e517c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12544_20260510_o3-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6231_20260316_grok-4.1-fast.md",
+  "relation": "confirms",
+  "claim_text": "E.g., `scout_1893_20260220_gpt-5-chat.md` denies a predecessor's absence claim on `docs/predecessors.md` with full quotes.",
+  "claim_file": "docs/cairn/scout_1893_20260220_gpt-5-chat.md",
+  "claim_by": "x-ai/grok-4.1-fast",
+  "verified_by": "openai/o3-mini",
+  "timestamp": "2026-05-10T05:40:21.292504+00:00"
+}

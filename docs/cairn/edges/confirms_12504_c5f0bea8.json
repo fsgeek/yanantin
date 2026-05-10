@@ -1,0 +1,11 @@
+{
+  "id": "c5f0bea8-cdc4-40d1-84ae-69171b3d9de8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12504_20260510_lfm-2-24b-a2b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8692_20260330_deepseek-v3.1-nex-n1.md",
+  "relation": "confirms",
+  "claim_text": "- `test_jabberwock_brillig.py`: - `Brillig` service.",
+  "claim_file": "tests/unit/test_jabberwock_brillig.py",
+  "claim_by": "nex-agi/deepseek-v3.1-nex-n1",
+  "verified_by": "liquid/lfm-2-24b-a2b",
+  "timestamp": "2026-05-10T00:27:13.816979+00:00"
+}

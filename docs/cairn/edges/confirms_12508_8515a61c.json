@@ -1,0 +1,11 @@
+{
+  "id": "8515a61c-f3d2-4001-a92a-1a251ebc4b0a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12508_20260510_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10060_20260407_mistral-saba.md",
+  "relation": "confirms",
+  "claim_text": "**UUIDs, IDs, and the Ontology of Office Documents** - **What I saw**: In `validation/pptx.py`, `validate_uuid_ids()` checks that any attribute that *looks* like a UUID contains only valid hex characters.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/pptx.py",
+  "claim_by": "mistralai/mistral-saba",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-05-10T01:01:09.286661+00:00"
+}

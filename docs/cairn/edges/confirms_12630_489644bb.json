@@ -1,0 +1,11 @@
+{
+  "id": "489644bb-9889-4cf4-9848-fd44531ed28a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12630_20260510_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6329_20260316_qwen3-14b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED (partially) ### Evidence - The `correct` function creates a `CorrectionRecord` and a `CompositionEdge` with `RelationType.CORRECTS`: ```python correction = CorrectionRecord(...) interface.store_correction(correction) if correcting_tensor is not None: edge = CompositionEdge( from_tensor=correcting_tensor, to_tensor=target_tensor, relation_type=RelationType.CORRECTS, provenance=prov, ) interface.store_composition_edge(edge) ``` ### Reasoning The code confirms that `correct.py` creates correction records (aligning with \"validate or repair inconsistencies\") and establishes composition edges (provenance maintenance).",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-05-10T16:38:58.545130+00:00"
+}

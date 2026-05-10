@@ -1,0 +1,11 @@
+{
+  "id": "b9c09423-97e7-4edd-a93f-d162914ec80b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12633_20260510_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9406_20260403_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "`gif_builder.py` Lines 41-91: `optimize_colors` function `validators.py` Lines 21-113: `check_slack_size` and `validate_dimensions` functions ### Declared Losses I did not examine the `easing.py` file in detail, as the easing functions seemed self-explanatory and did not appear to have any dependencies on other modules in the `core` directory.",
+  "claim_file": "tmp/ubuntu-vm.claude/slack-gif-creator/core/easing.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-05-10T17:12:19.207794+00:00"
+}

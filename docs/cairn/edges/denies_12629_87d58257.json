@@ -1,0 +1,11 @@
+{
+  "id": "87d58257-a8a3-442f-84aa-c1b8162ecd09",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12629_20260510_gemini-2.5-flash-lite-preview-.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0249_20260213_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "**Noticing the lack of runtime behavior verification**: The report mentions that the file `coordinator.py` does not include assertions or runtime checks for file existence.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "timestamp": "2026-05-10T16:38:41.563224+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "5de6f69a-d7f9-498c-8594-089c3dc56bfd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12635_20260510_glm-4.5v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0318_20260213_qwen3-4b.md",
+  "relation": "confirms",
+  "claim_text": "This aligns with the 'Yanantin' concept of complementary duality, where AI and human oversight work in tandem.\" }, { \"theme\": \"The Chasqui Scorer's Analytical Rigor\", \"observation\": \"The `scorer.py` file in `chasqui/` parses scout reports to evaluate metrics like 'specificity' and 'generativity'.",
+  "claim_file": "src/yanantin/chasqui/scorer.py",
+  "claim_by": "qwen/qwen3-4b",
+  "verified_by": "z-ai/glm-4.5v",
+  "timestamp": "2026-05-10T17:12:38.360812+00:00"
+}

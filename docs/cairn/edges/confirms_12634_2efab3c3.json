@@ -1,0 +1,11 @@
+{
+  "id": "2efab3c3-144b-4cea-a700-fab43c4a1ff1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12634_20260510_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12241_20260508_qwen-plus.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **DENIED** ### Evidence   The file `tests/red_bar/test_monotonicity.py` **is provided**, and its full content is given \u2014 including the docstring, imports, and two test functions (`test_record_count_never_decreases` and `test_concurrent_writes_dont_lose_records`).",
+  "claim_file": "tests/red_bar/test_monotonicity.py",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-05-10T17:12:22.711373+00:00"
+}

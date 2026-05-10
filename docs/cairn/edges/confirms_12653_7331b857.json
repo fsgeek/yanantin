@@ -1,0 +1,11 @@
+{
+  "id": "7331b857-d0a0-4585-8838-6b7c28a8844d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12653_20260510_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8479_20260328_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "The file `scout_1439_20260218_gemma-3n-e4b-it.md` indeed contains self-referential information about the model (`google/gemma-3n-e4b-it`) and the cost details of the run.",
+  "claim_file": "docs/cairn/scout_1439_20260218_gemma-3n-e4b-it.md",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-05-10T19:47:11.814215+00:00"
+}

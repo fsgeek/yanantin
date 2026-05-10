@@ -1,0 +1,11 @@
+{
+  "id": "d438543d-9519-461c-810b-ed6345eac00d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12657_20260510_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11465_20260414_nemotron-nano-9b-v2.md",
+  "relation": "denies",
+  "claim_text": "- **Did not explore other potential clients**: `__init__.py` only exports one client, but `gateway.py` might support more.",
+  "claim_file": "src/yanantin/apacheta/clients/gateway.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-05-10T20:22:37.787665+00:00"
+}

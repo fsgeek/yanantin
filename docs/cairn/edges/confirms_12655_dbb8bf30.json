@@ -1,0 +1,11 @@
+{
+  "id": "dbb8bf30-67e6-46c4-9582-eef33ec1343d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12655_20260510_qwen2.5-vl-72b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10733_20260410_qwen-2.5-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Composition Models**: - The `CompositionEdge` class in `composition.py` defines a directed edge between two tensors, capturing their compositional relationship.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "qwen/qwen2.5-vl-72b-instruct",
+  "timestamp": "2026-05-10T19:47:31.070142+00:00"
+}

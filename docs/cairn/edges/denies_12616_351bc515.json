@@ -1,0 +1,11 @@
+{
+  "id": "351bc515-4958-4ff2-b98d-d9f78cd1eabd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12616_20260510_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7828_20260325_gemma-3-27b-it.md",
+  "relation": "denies",
+  "claim_text": "Proactive Validation & the Loop:** The `plugin-validator.md` and `skill-reviewer.md` files both demonstrate a pattern of *proactive* validation.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/agents/plugin-validator.md",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-10T14:59:37.069012+00:00"
+}

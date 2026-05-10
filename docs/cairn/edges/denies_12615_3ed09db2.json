@@ -1,0 +1,11 @@
+{
+  "id": "3ed09db2-188a-4da7-8e57-9699f3a50e7f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12615_20260510_gpt-4.1-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9686_20260405_minimax-m2.7.md",
+  "relation": "denies",
+  "claim_text": "Even within the file I was given (`CLAUDE.md`), there are multiple references to other files (`docs/predecessors.md`, `docs/blueprint.md`, `docs/tensors.md`, `docs/signing.md`).",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "minimax/minimax-m2.7",
+  "verified_by": "openai/gpt-4.1-mini",
+  "timestamp": "2026-05-10T14:59:16.633981+00:00"
+}

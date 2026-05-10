@@ -1,0 +1,11 @@
+{
+  "id": "fc44c314-f1e5-43d7-8853-70a510529ac7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12515_20260510_gemma-4-31b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4525_20260305_router.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I could not check the contents of `coordinator.py` as its content was not provided in the verification assignment.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "switchpoint/router",
+  "verified_by": "google/gemma-4-31b-it",
+  "timestamp": "2026-05-10T01:59:55.778285+00:00"
+}

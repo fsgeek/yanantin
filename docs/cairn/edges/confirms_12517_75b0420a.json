@@ -1,0 +1,11 @@
+{
+  "id": "75b0420a-2f8d-4711-83a1-610b02603d65",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12517_20260510_grok-4.1-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7016_20260320_qwen3-coder-flash.md",
+  "relation": "confirms",
+  "claim_text": "The \"Claude\" System as a Centralized Operational Layer The `.claude` directory (`docs/cairn/scout_5776_20260313_gemini-2.5-flash-lite-preview-.md`) contains system hooks: - `capture_compaction.py` - `chasqui_pulse.py` - `precompact_tensor.py` - `pipeline_health.py` *Observation:* These hooks are tied to operations like: - Capturing compaction events (`capture_compaction.py`) - Managing heartbeat pulses (`chasqui_pulse.py`) - Preprocessing tensors before saving (`precompact_tensor.py`) And there are files like `heartbeat_state.json`, `pipeline_health.json`, and `.pulse.lock`.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "x-ai/grok-4.1-fast",
+  "timestamp": "2026-05-10T02:00:14.660333+00:00"
+}

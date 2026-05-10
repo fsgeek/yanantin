@@ -1,0 +1,11 @@
+{
+  "id": "65e13321-88be-4219-88de-9b5a3789fd41",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12512_20260510_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4735_20260306_mistral-small-3.1-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `scourer.py` does not contain any imports, references, or usage of the names `scourer.py` or `coordinator.py`.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-10T01:29:18.932124+00:00"
+}

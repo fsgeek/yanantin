@@ -1,0 +1,11 @@
+{
+  "id": "fc237ab8-c9bb-4214-9b4a-4a8ce23e0e73",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12662_20260510_qwen-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10504_20260409_mistral-small-24b-instruct-250.md",
+  "relation": "denies",
+  "claim_text": "**References:** - `test_tinkuy_succession.py` lines 20-80 ### Declared Losses I chose not to examine the detailed implementation of the `Awaq` materializer in `test_materialize.py` because it involves a complex pipeline that would require deeper integration and understanding of the system's broader architecture.",
+  "claim_file": "tests/unit/test_tinkuy_succession.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "qwen/qwen-plus",
+  "timestamp": "2026-05-10T20:52:18.794277+00:00"
+}

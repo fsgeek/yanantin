@@ -1,0 +1,11 @@
+{
+  "id": "6774f497-2331-49b9-9a04-6547d13c87a9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12661_20260510_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8478_20260328_ernie-4.5-21b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states:   > However, the provided file is `docs/signing.md`.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "baidu/ernie-4.5-21b-a3b",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-05-10T20:52:06.695093+00:00"
+}

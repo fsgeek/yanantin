@@ -1,0 +1,11 @@
+{
+  "id": "cca86d11-673a-4bc9-beee-c80061d62c0c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12660_20260510_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1925_20260220_ministral-8b-2512.md",
+  "relation": "confirms",
+  "claim_text": "The \"Blueprint\" as a Living Specification** - **What I saw**: - `docs/blueprint.md` is referenced in multiple scouts (e.g., `scout_1386_20260218_qwen3-vl-30b-a3b-instruct.md`) as a **\"living state\" of rules** for the system.",
+  "claim_file": "docs/cairn/scout_1386_20260218_qwen3-vl-30b-a3b-instruct.md",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-10T20:52:02.837829+00:00"
+}

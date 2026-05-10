@@ -1,0 +1,11 @@
+{
+  "id": "5271d2cf-93ea-4b55-9f5e-f0b6b7e14a3b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12666_20260510_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9365_20260403_qwen-2.5-72b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The file `tests/unit/test_operators.py` contains the following imports and test cases: ```python from yanantin.apacheta.operators.bootstrap import bootstrap from yanantin.apacheta.operators.compose import compose from yanantin.apacheta.operators.correct import correct from yanantin.apacheta.operators.dissent import dissent from yanantin.apacheta.operators.evolve import evolve from yanantin.apacheta.operators.negate import negate from yanantin.apacheta.operators.project import project ``` ### Reasoning The claim states that the operators in `src/yanantin/apacheta/operators/bootstrap.py` and `tests/unit/test_operators.py` represent explicit ways to evolve knowledge.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "qwen/qwen-2.5-72b-instruct",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-05-10T21:24:29.834556+00:00"
+}

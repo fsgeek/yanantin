@@ -1,0 +1,11 @@
+{
+  "id": "f08038cf-6dd9-41a7-a7ac-c163dc63f3c2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12664_20260510_llama-4-maverick.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10869_20260411_mercury-2.md",
+  "relation": "denies",
+  "claim_text": "| | 8 | **Future extensibility hinted but not scoped** | `design.md` \u2192 \u201cComposable tensor infrastructure for epistemic observability\u201d (the project\u2019s tagline).",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/tests/subagent-driven-dev/svelte-todo/design.md",
+  "claim_by": "inception/mercury-2",
+  "verified_by": "meta-llama/llama-4-maverick",
+  "timestamp": "2026-05-10T21:24:15.858538+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "8f687145-def1-49e7-841e-70c5f745ed70",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12530_20260510_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0911_20260216_qwen2.5-coder-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "# Verification Assignment ## The Claim Model `allenai/olmo-3-32b-think` made this claim about `src/yanantin/tinkuy/succession.py`: > Similarly, `succession.py` (line 15: `compare blueprint claims vs.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-05-10T04:04:27.830168+00:00"
+}

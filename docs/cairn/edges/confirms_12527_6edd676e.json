@@ -1,0 +1,11 @@
+{
+  "id": "6edd676e-2264-473e-9788-26aa9b864ac0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12527_20260510_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0679_20260215_ministral-3b-2512.md",
+  "relation": "confirms",
+  "claim_text": "The .claude Hooks as Epistemic Guardrails** **What I saw:** - The `.claude/hooks` directory contains scripts like `chasqui_pulse.py`, `chasqui_heartbeat.sh`, and `precompact_tensor.py`.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-10T03:32:48.661053+00:00"
+}

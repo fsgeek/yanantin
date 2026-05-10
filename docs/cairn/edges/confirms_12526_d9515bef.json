@@ -1,0 +1,11 @@
+{
+  "id": "d9515bef-ffe9-434f-b50b-ec719e211e03",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12526_20260510_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10088_20260407_qwen3-vl-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "> In `test_scorer.py`, the scorer assigns scores based on *how many times* a file was reviewed \u2014 not on *what* it contains.",
+  "claim_file": "tests/unit/test_scorer.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-05-10T03:32:42.939409+00:00"
+}

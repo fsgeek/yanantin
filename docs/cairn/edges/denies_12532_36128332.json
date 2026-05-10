@@ -1,0 +1,11 @@
+{
+  "id": "36128332-3a45-409a-9a1f-5ab1df924515",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12532_20260510_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5151_20260309_phi-4.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The verification is limited to the content of `project.py` and does not include other files like `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, or `negate.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-05-10T04:04:40.081988+00:00"
+}

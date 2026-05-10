@@ -1,0 +1,11 @@
+{
+  "id": "07a18c72-8ca9-474b-8841-ac6d79d215d9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12528_20260510_voxtral-small-24b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11628_20260415_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "The next scout should explore the testing examples in `CLAUDE_MD_TESTING.md` and consider how these Skills might interact with different model capabilities.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/skills/writing-skills/examples/CLAUDE_MD_TESTING.md",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "mistralai/voxtral-small-24b-2507",
+  "timestamp": "2026-05-10T03:32:49.124542+00:00"
+}

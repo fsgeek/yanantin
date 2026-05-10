@@ -1,0 +1,11 @@
+{
+  "id": "472fa6e8-e434-4795-aa3d-3ed20be3351c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12533_20260510_qwen3.6-max-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8392_20260328_grok-3-mini-beta.md",
+  "relation": "confirms",
+  "claim_text": "#### Open Questions I can't resolve why UUID5 is favored for IDs (e.g., in `openrouter/fact_recorder.py`, line 20)\u2014is it for namespace stability, or a specific security reason?",
+  "claim_file": "src/yanantin/collector/filesystem/fact_recorder.py",
+  "claim_by": "x-ai/grok-3-mini-beta",
+  "verified_by": "qwen/qwen3.6-max-preview",
+  "timestamp": "2026-05-10T04:05:31.082744+00:00"
+}

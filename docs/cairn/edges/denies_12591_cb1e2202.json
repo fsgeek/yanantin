@@ -1,0 +1,11 @@
+{
+  "id": "cb1e2202-ef6f-421a-b135-4b8a3292f554",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12591_20260510_qwen3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8681_20260330_qwen-2.5-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence The content of `docs/scout_report_tensor_schema.md` states: > - The `scout_report_indaleko_patterns.md` and `scout_report_tensor_schema.md` files discuss **patterns and schemas** for tensors, suggesting a **standardized way of representing knowledge**.",
+  "claim_file": "docs/scout_report_indaleko_patterns.md",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "qwen/qwen3-8b",
+  "timestamp": "2026-05-10T11:53:08.164417+00:00"
+}

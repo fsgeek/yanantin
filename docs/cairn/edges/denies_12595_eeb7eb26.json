@@ -1,0 +1,11 @@
+{
+  "id": "eeb7eb26-0cb9-4d85-a169-9a1f38fdaa5e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12595_20260510_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7715_20260324_mistral-small-3.1-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that the file `docs/predecessors.md` contains no references to `scout_0114_20260212_llama-3.2-11b-vision-instruct.md`.",
+  "claim_file": "docs/cairn/scout_0114_20260212_llama-3.2-11b-vision-instruct.md",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-10T12:25:24.438382+00:00"
+}

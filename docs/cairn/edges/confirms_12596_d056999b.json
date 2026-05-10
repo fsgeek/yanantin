@@ -1,0 +1,11 @@
+{
+  "id": "d056999b-0710-48ec-bec5-2671a83e68e1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12596_20260510_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4342_20260304_phi-4.md",
+  "relation": "confirms",
+  "claim_text": "However, the content of `scout_0133_20260212_gemma-3n-e4b-it.md` itself provides sufficient information to assess the claim regarding the description of the model's behavior and instructions.",
+  "claim_file": "docs/cairn/scout_0133_20260212_gemma-3n-e4b-it.md",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-05-10T12:26:17.280437+00:00"
+}

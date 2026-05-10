@@ -1,0 +1,11 @@
+{
+  "id": "751f76d5-4ab8-4382-9c98-c5e8a23db04f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12594_20260510_voxtral-small-24b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9476_20260403_seed-2.0-mini.md",
+  "relation": "confirms",
+  "claim_text": "**Epistemic Observability as Claim + Provenance Tracking** Two interconnected themes emerge: first, `test_gleaner.py` extracts structured verifiable claims from unstructured markdown scout and scour reports, standardizing raw AI-generated output with standardized headers (including model, cost, and timestamp provenance).",
+  "claim_file": "tests/unit/test_gleaner.py",
+  "claim_by": "bytedance-seed/seed-2.0-mini",
+  "verified_by": "mistralai/voxtral-small-24b-2507",
+  "timestamp": "2026-05-10T12:25:18.844872+00:00"
+}

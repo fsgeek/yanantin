@@ -1,0 +1,11 @@
+{
+  "id": "a3fb193f-8898-4aec-bd66-635cf04308dc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12560_20260510_qwen3-30b-a3b-instruct-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7622_20260323_mistral-small-3.1-24b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I cannot verify the contents of `models/base.py` as it is not provided.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "timestamp": "2026-05-10T07:44:02.291290+00:00"
+}

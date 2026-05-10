@@ -1,0 +1,11 @@
+{
+  "id": "02977f22-8248-48cf-9e64-4d111f71d6b2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12559_20260510_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1859_20260220_olmo-3-7b-think.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses   I cannot confirm whether other hooks in the `hooks` directory (e.g., `ots_stamp.py`) do or do not inspect their external dependencies.",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "allenai/olmo-3-7b-think",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-05-10T07:44:01.121061+00:00"
+}

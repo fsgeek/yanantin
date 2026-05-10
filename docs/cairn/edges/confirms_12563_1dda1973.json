@@ -1,0 +1,11 @@
+{
+  "id": "1dda1973-9442-4529-9932-255ca3fe510e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12563_20260510_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5916_20260314_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim mentions `pyproject.toml` and `setup.cfg` as configuration files, but the actual file only contains information about the project's name, version, dependencies, and build settings.",
+  "claim_file": "pyproject.toml",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-05-10T08:15:57.485688+00:00"
+}

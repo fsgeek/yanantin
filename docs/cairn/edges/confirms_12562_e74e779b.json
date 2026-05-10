@@ -1,0 +1,11 @@
+{
+  "id": "e74e779b-a33f-4f4e-803a-ee3ea9834658",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12562_20260510_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10498_20260409_mistral-small-creative.md",
+  "relation": "confirms",
+  "claim_text": "The file provided is `succession-2026-02-19.md`, and its content **does not mention or reference** `succession-2026-02-20.md` in any way.",
+  "claim_file": "tmp/ubuntu-vm.claude/projects/-home-tony-projects-episode/memory/succession-2026-02-19.md",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-05-10T08:15:54.433731+00:00"
+}

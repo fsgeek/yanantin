@@ -1,0 +1,11 @@
+{
+  "id": "b3e79da7-d40d-453a-8a07-f037a9f0de75",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12564_20260510_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1717_20260219_deepseek-v3.1-terminus.md",
+  "relation": "confirms",
+  "claim_text": "After reading the entire file, I find: - No references to `tensors.md` anywhere in the text - No discussion of file substitution operations - No mention of `apacheta.md` being inserted into or replacing another file - The document is entirely self-contained, discussing Apacheta's concepts and implementation The claim suggests there should be evidence of a substitution claim that is absent, but I cannot find any reference to such a substitution claim in the document itself.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "deepseek/deepseek-v3.1-terminus",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-05-10T08:15:58.142999+00:00"
+}

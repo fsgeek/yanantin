@@ -1,0 +1,11 @@
+{
+  "id": "a23c8abe-cd0b-483c-abbe-99daa02c581d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12558_20260510_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6566_20260318_lfm2-8b-a1b.md",
+  "relation": "confirms",
+  "claim_text": "The claim states:   > \"However, the `yanantin/` directory contains a `hooks` subdirectory with several files, including `chasqui_pulse.py`.\" This is directly supported by the file\u2019s opening comment:   ```python #!/usr/bin/env python3 \"\"\"Chasqui pulse \u2014 the reactive heartbeat.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-05-10T07:44:01.044432+00:00"
+}

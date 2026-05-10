@@ -1,0 +1,11 @@
+{
+  "id": "a087c047-07f4-4eef-bc06-36d0dd4c81cc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12638_20260510_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11640_20260415_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "- The scripts `extract_form_field_info.py`, `convert_pdf_to_images.py`, and `fill_fillable_fields.py` work together to extract form field information, convert PDFs to images, and fill in the forms, respectively.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/scripts/fill_fillable_fields.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-05-10T17:46:58.990513+00:00"
+}

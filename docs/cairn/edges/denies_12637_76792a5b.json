@@ -1,0 +1,11 @@
+{
+  "id": "76792a5b-698a-44cf-8fb6-d08530c59fae",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12637_20260510_gemma-4-26b-a4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2421_20260223_mistral-7b-instruct-v0.2.md",
+  "relation": "denies",
+  "claim_text": "No evidence path exists beyond `CLAUDE.md`\u2019s poetic naming \u2014 I can\u2019t verify these.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "mistralai/mistral-7b-instruct-v0.2",
+  "verified_by": "google/gemma-4-26b-a4b-it",
+  "timestamp": "2026-05-10T17:46:50.595950+00:00"
+}

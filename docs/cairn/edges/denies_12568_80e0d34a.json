@@ -1,0 +1,11 @@
+{
+  "id": "80e0d34a-d0b3-4d2d-8a5f-b18705580f57",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12568_20260510_deepseek-v3.2-exp.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10095_20260407_ministral-14b-2512.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states: > \"I chose not to investigate the `src/yanantin/apacheta/backends/duckdb.py` file in detail, as its testing in `test_duckdb_independent.py` was already covered in the `scout_0125.md` report.\" However, the **actual content of `duckdb.py`** demonstrates that the file is **not merely a tested backend** but contains **core logic and novel functionality** that would require examination beyond just testing.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "deepseek/deepseek-v3.2-exp",
+  "timestamp": "2026-05-10T08:46:19.068568+00:00"
+}

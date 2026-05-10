@@ -1,0 +1,11 @@
+{
+  "id": "48bfda65-07bc-4485-8871-65f3f28174ac",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12570_20260510_devstral-small.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0765_20260215_mistral-7b-instruct-v0.2.md",
+  "relation": "confirms",
+  "claim_text": "Did not investigate **ArangoDB schema** (`src/yanantin/apacheta/backends/arango.py`): The backend's actual constraints (e.g., unique `_key` fields) would determine runtime immutability.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "mistralai/mistral-7b-instruct-v0.2",
+  "verified_by": "mistralai/devstral-small",
+  "timestamp": "2026-05-10T09:19:16.912706+00:00"
+}

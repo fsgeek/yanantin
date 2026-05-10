@@ -1,0 +1,11 @@
+{
+  "id": "014c41d5-a783-4cae-b9c5-080cba5ec4f9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12567_20260510_grok-4-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1794_20260220_qwen3-next-80b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "#### **Strand 4: The Tensor as a Living Document**   Look at the naming of the scout files:   - `scout_0076_20260217_gemma-3-4b-it.md`   - `scout_0940_20260216_llama-4-maverick.md`   - `scout_1292_20260218_mistral-7b-instruct-v0.2.md`   Each is timestamped, model-identified, and contains a *metadata header* with cost, tokens, and `is_byok`.",
+  "claim_file": "docs/cairn/scout_0940_20260216_llama-4-maverick.md",
+  "claim_by": "qwen/qwen3-next-80b-a3b-instruct",
+  "verified_by": "x-ai/grok-4-fast",
+  "timestamp": "2026-05-10T08:46:00.919275+00:00"
+}

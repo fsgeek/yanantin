@@ -1,0 +1,11 @@
+{
+  "id": "1f2f0482-51ca-43d4-a41b-521478da525f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12576_20260510_deepseek-r1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10248_20260408_solar-pro-3.md",
+  "relation": "denies",
+  "claim_text": "| | **Version\u2011Driven Changelogs** | `documentation-patterns.md` lines 23\u201128 (CHANGELOG section) and `plugin-features-reference.md` line 45 (\u201cv1.0.0\u201d).",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/command-development/references/plugin-features-reference.md",
+  "claim_by": "upstage/solar-pro-3",
+  "verified_by": "deepseek/deepseek-r1",
+  "timestamp": "2026-05-10T09:52:31.700040+00:00"
+}

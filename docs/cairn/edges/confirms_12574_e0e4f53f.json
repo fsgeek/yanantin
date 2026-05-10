@@ -1,0 +1,11 @@
+{
+  "id": "e0e4f53f-3b84-4d72-b199-e92f6f738d26",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12574_20260510_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10333_20260408_ministral-8b-2512.md",
+  "relation": "confirms",
+  "claim_text": "Relevant absence: - The file does **not** import, call, or reference `ots_stamp.py` (lines 1\u201350+ do not mention it).",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-05-10T09:48:10.631965+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "3d07c6af-3a7f-4dd2-87c1-cdbdfe150119",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12579_20260510_voxtral-small-24b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2470_20260223_llama-4-scout.md",
+  "relation": "confirms",
+  "claim_text": "- **I did not investigate the CLI tools** (`src/yanantin/awaq/`, `src/yanantin/chasqui/__main__.py`).",
+  "claim_file": "src/yanantin/chasqui/__main__.py",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "mistralai/voxtral-small-24b-2507",
+  "timestamp": "2026-05-10T10:20:14.946711+00:00"
+}

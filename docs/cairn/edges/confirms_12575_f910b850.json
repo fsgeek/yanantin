@@ -1,0 +1,11 @@
+{
+  "id": "f910b850-3cb4-44d9-b91a-76a2f991a24c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12575_20260510_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9060_20260401_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "The claim's assertion regarding the non-existence of `weaver.py` has been thoroughly disproven by the provided file content.",
+  "claim_file": "src/yanantin/awaq/weaver.py",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-10T09:48:27.675508+00:00"
+}

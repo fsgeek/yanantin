@@ -1,0 +1,11 @@
+{
+  "id": "c66554f0-d520-4c09-adb6-c225971fe787",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12673_20260510_gpt-4.1-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2589_20260223_voxtral-small-24b-2507.md",
+  "relation": "denies",
+  "claim_text": "The evidence provided shows that both `tensors.md` and `predecessors.md` are indeed mentioned in the file.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "mistralai/voxtral-small-24b-2507",
+  "verified_by": "openai/gpt-4.1-mini",
+  "timestamp": "2026-05-10T22:25:48.182960+00:00"
+}

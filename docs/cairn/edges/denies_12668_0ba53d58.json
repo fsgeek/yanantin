@@ -1,0 +1,11 @@
+{
+  "id": "0ba53d58-8490-461d-8ffd-a0f9036d65be",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12668_20260510_nemotron-nano-9b-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11682_20260415_trinity-mini.md",
+  "relation": "denies",
+  "claim_text": "Instead, it discusses a different file (`src/yanantin/apacheta/backends/duckdb.py`) and explicitly denies a claim about that file.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "nvidia/nemotron-nano-9b-v2",
+  "timestamp": "2026-05-10T21:54:37.603568+00:00"
+}

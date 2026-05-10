@@ -1,0 +1,11 @@
+{
+  "id": "5598d64b-8749-4fb0-8445-50b352ac14af",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12680_20260510_lfm-2-24b-a2b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4844_20260307_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence > \"Without the content of `docs/tensors.md`, it is not possible to verify the claim about `docs/tensors.md`.\" ### Reasoning The claim states that the content of `docs/tensors.md` is necessary to verify any claim about `docs/tensors.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "liquid/lfm-2-24b-a2b",
+  "timestamp": "2026-05-10T23:28:18.719575+00:00"
+}

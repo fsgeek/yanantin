@@ -1,0 +1,11 @@
+{
+  "id": "6bc9ab43-ae31-45da-ba45-94b542fda224",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12676_20260510_phi-4-mini-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6556_20260318_grok-4-fast.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim asserts that the file does not reference any external files named `compose.py`, `correct.py`, or `evolve.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "microsoft/phi-4-mini-instruct",
+  "timestamp": "2026-05-10T22:55:51.998988+00:00"
+}

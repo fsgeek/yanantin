@@ -1,0 +1,11 @@
+{
+  "id": "b37fc270-f17d-4843-b5c0-dc8e636a4490",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12494_20260509_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2073_20260221_hermes-2-pro-llama-3-8b.md",
+  "relation": "confirms",
+  "claim_text": "How does the `file_tree` placeholder in `scout.py` influence the scope of a scout's report?",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-09T23:20:40.943523+00:00"
+}

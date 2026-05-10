@@ -1,0 +1,11 @@
+{
+  "id": "4623dcfe-5fde-46bd-916d-531b5daa78c6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12501_20260509_qwen3.5-plus-02-15.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9590_20260404_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that the file \u201ccontains the verbs `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, and `project.py`.\u201d   - The file indeed defines a function named `evolve` (matching `evolve.py`), but it does **not** contain any of the other listed names.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "qwen/qwen3.5-plus-02-15",
+  "timestamp": "2026-05-09T23:55:22.756140+00:00"
+}

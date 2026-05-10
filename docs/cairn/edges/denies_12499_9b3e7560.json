@@ -1,0 +1,11 @@
+{
+  "id": "9b3e7560-b5b6-4433-bad3-08cee275b938",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12499_20260509_mistral-medium-3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9718_20260405_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "Whether `test_provenance.py` exists or is referenced elsewhere is **not determinable** from this file.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "mistralai/mistral-medium-3",
+  "timestamp": "2026-05-09T23:54:50.789908+00:00"
+}

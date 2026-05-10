@@ -1,0 +1,11 @@
+{
+  "id": "3a70d21f-a20b-4e36-9bdb-1755fa9922ca",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12495_20260509_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0481_20260214_qwen3-8b.md",
+  "relation": "confirms",
+  "claim_text": "Tests like `tests/test_provenance.py` use `ProvenanceEnvelope` to track changes.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "qwen/qwen3-8b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-09T23:20:44.998965+00:00"
+}

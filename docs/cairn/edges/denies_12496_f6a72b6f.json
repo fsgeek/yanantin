@@ -1,0 +1,11 @@
+{
+  "id": "f6a72b6f-f276-446a-9d80-b0575c48fd6f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12496_20260509_llama-4-maverick.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0227_20260213_deepseek-r1-0528.md",
+  "relation": "denies",
+  "claim_text": "- **Entropy experiments**: `entropy_code_experiment_v2.md` suggests cryptographic foundations, but its absence from selected files left this strand unexplored.",
+  "claim_file": "docs/entropy_code_experiment_v2.md",
+  "claim_by": "deepseek/deepseek-r1-0528",
+  "verified_by": "meta-llama/llama-4-maverick",
+  "timestamp": "2026-05-09T23:20:45.456899+00:00"
+}

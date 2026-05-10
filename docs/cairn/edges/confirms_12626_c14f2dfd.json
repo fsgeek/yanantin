@@ -1,0 +1,11 @@
+{
+  "id": "c14f2dfd-2bd8-4231-a91e-70d215640440",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12626_20260510_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11136_20260413_nemotron-nano-9b-v2.md",
+  "relation": "confirms",
+  "claim_text": "**Minimal Export in `__init__.py`**   - **What I saw**: `__init__.py` only exports `ApachetaGatewayClient` from `gateway.py`.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-10T16:09:56.164025+00:00"
+}

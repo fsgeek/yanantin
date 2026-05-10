@@ -1,0 +1,11 @@
+{
+  "id": "ebbb00a0-6f9c-4587-8f0e-6462f9d5656d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12619_20260510_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12490_20260509_deepseek-v3.1-nex-n1.md",
+  "relation": "denies",
+  "claim_text": "--- ### Strands #### Strand 1: The plugin system treats Markdown as executable configuration **What I see** - `commands/hookify.md`, `help.md`, `configure.md`, `list.md` are all `.md` files with YAML frontmatter: ```yaml --- description: Create hooks to prevent unwanted behaviors from conversation analysis or explicit instructions argument-hint: Optional specific behavior to address allowed-tools: [\"Read\", \"Write\", \"AskUserQuestion\", \"Task\", \"Grep\", \"TodoWrite\", \"Skill\"] --- ``` - `help.md` says: > The hookify plugin makes it easy to create custom hooks that prevent unwanted behaviors.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/ralph-loop/commands/help.md",
+  "claim_by": "nex-agi/deepseek-v3.1-nex-n1",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-10T15:31:20.004982+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "c7aa647e-87ed-4bb8-87d7-8298ba7aa917",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12627_20260510_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6884_20260319_qwen3-next-80b-a3b-thinking.md",
+  "relation": "confirms",
+  "claim_text": "The provided `scourer.py` file contains **zero references to `CLAUDE.md`** (searched all lines for `\"CLAUDE.md\"`, `\"claude\"`, or similar patterns).",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-05-10T16:10:05.294668+00:00"
+}

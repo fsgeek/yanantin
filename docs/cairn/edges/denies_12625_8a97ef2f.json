@@ -1,0 +1,11 @@
+{
+  "id": "8a97ef2f-b3a5-4ba4-8408-764dac3287a9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12625_20260510_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3502_20260227_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence \"The previous scout's claim states that the file contains these exact lines, but the actual file shows discrepancies in formatting and comment completeness.\" ### Reasoning The claim made by `nvidia/nemotron-3-nano-30b-a3b` is that the file `scout_0438_20260214_mistral-nemo.md` contains the exact lines presented in the provided text under the \"Strands\" section, specifically the code snippet for `test_duplicate_tensor_raises`.",
+  "claim_file": "docs/cairn/scout_0438_20260214_mistral-nemo.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-10T16:09:45.109734+00:00"
+}

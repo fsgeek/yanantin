@@ -1,0 +1,11 @@
+{
+  "id": "1d34ed75-e5d0-4876-b88f-9d3be2cbc9dd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12623_20260510_hy3-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4089_20260302_llama-3.2-1b-instruct.md",
+  "relation": "denies",
+  "claim_text": "Similarly, the file `settings.json` in `src/yanantin/apacheta/interface/abstract.py` contains a comment indicating that it is an internal configuration file for a specific AI model, and that it is not related to the core Yanantin architecture.",
+  "claim_file": "src/yanantin/apacheta/interface/abstract.py",
+  "claim_by": "meta-llama/llama-3.2-1b-instruct",
+  "verified_by": "tencent/hy3-preview",
+  "timestamp": "2026-05-10T15:50:33.254359+00:00"
+}

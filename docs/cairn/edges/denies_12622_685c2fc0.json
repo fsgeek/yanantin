@@ -1,0 +1,11 @@
+{
+  "id": "685c2fc0-77de-4cde-86e9-04ada9281afb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12622_20260510_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10515_20260409_qwen3-32b.md",
+  "relation": "denies",
+  "claim_text": "- The claim conflates the existence of a file named `dissent.py` with the use of \"dissent\" as a verb in the code, which is not explicitly demonstrated.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-05-10T15:50:14.828071+00:00"
+}

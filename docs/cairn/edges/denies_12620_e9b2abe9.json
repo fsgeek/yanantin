@@ -1,0 +1,11 @@
+{
+  "id": "e9b2abe9-202c-4238-9fb1-697776eecc12",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12620_20260510_nemotron-3-super-120b-a12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2208_20260222_qwen-turbo.md",
+  "relation": "denies",
+  "claim_text": "--- ### Strands   #### Strand 1: The Tensor Definition in Pydantic   - **What I saw**:   In `src/yanantin/apacheta/models.py`, the `Tensor` class is defined with the following structure:   ```python class Tensor(BaseModel): id: str data: Union[Dict, List[Dict]] metadata: Optional[Dict] = None created_at: datetime = Field(default_factory=datetime.utcnow) updated_at: datetime = Field(default_factory=datetime.utcnow) ```   The `Tensor` class is immutable, as evidenced by the `frozen=True` attribute applied to its configuration in `model_config`.",
+  "claim_file": "src/yanantin/jabberwock/models.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "nvidia/nemotron-3-super-120b-a12b",
+  "timestamp": "2026-05-10T15:31:37.662482+00:00"
+}

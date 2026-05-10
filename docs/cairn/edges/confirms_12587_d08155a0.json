@@ -1,0 +1,11 @@
+{
+  "id": "d08155a0-1733-49f8-b436-f01b503c771d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12587_20260510_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0276_20260213_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The docstring of the file `tests/integration/test_arango_real.py` explicitly states: *\"Integration tests for ArangoDB backend against REAL ArangoDB instance.\"* This matches the claim's reference to `tests/integration/test_arango_real.py` as an integration test.",
+  "claim_file": "tests/integration/test_arango_real.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-10T11:23:05.396321+00:00"
+}

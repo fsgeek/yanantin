@@ -1,0 +1,11 @@
+{
+  "id": "8d6c3ce3-22e2-4bf2-8bc1-065353444df1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12586_20260510_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0173_20260213_l3.3-euryale-70b.md",
+  "relation": "confirms",
+  "claim_text": "The `src/yanantin/chasqui/` scout program enforces immutability with `ImmutabilityError` (e.g., `tests/red_bar/test_immutability.py`, lines\u202f9\u201112).",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "sao10k/l3.3-euryale-70b",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-05-10T11:23:05.319725+00:00"
+}

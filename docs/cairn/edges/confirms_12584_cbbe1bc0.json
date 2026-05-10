@@ -1,0 +1,11 @@
+{
+  "id": "cbbe1bc0-ceb2-4fe4-b111-9bc859d6b36b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12584_20260510_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0829_20260216_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "What are the specific strategies used in the `src/yanantin/apacheta/operators/evolve.py` file to handle schema evolution over time?",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-10T10:51:23.842542+00:00"
+}

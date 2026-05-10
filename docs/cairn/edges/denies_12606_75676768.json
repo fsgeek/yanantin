@@ -1,0 +1,11 @@
+{
+  "id": "75676768-f11d-42ac-a7e3-4a356fc18446",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12606_20260510_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1915_20260220_glm-4.5-air.md",
+  "relation": "denies",
+  "claim_text": "Under `src/yanantin/apacheta/`, the `models/tensor.py` and `models/provenance.py` define the core data structures, while `operators/` provides a calculus for manipulating them (e.g., `compose.py`, `correct.py`, `dissent.py`).",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "z-ai/glm-4.5-air",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-05-10T13:57:21.863398+00:00"
+}

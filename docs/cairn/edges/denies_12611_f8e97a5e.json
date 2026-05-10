@@ -1,0 +1,11 @@
+{
+  "id": "f8e97a5e-bb2f-457e-a771-8de460c7f8b4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12611_20260510_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5805_20260313_qwen3-14b.md",
+  "relation": "denies",
+  "claim_text": "However, the presence of the other six files (`compose.py`, `dissent.py`, `evolve.py`, `negate.py`, `bootstrap.py`, `project.py`) cannot be verified based on the given information.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-05-10T14:29:34.330888+00:00"
+}

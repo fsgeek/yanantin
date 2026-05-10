@@ -1,0 +1,11 @@
+{
+  "id": "7bb625e3-6693-4e73-8f98-290122af504d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12607_20260510_grok-4-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1337_20260218_minimax-01.md",
+  "relation": "confirms",
+  "claim_text": "This aligns with the observations in `scout_1075_20260217_qwen3-vl-8b-instruct.md`, which confirms that the `InMemoryBackend` in `memory.py` only supports `store_tensor` and `store_composition_edge`, lacking any deletion functionality.",
+  "claim_file": "docs/cairn/scout_1075_20260217_qwen3-vl-8b-instruct.md",
+  "claim_by": "minimax/minimax-01",
+  "verified_by": "x-ai/grok-4-fast",
+  "timestamp": "2026-05-10T13:57:25.719631+00:00"
+}

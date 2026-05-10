@@ -1,0 +1,11 @@
+{
+  "id": "c53316bf-a601-4eea-a8fc-a98c23a494d9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12610_20260510_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1483_20260218_gemini-2.5-flash-lite.md",
+  "relation": "denies",
+  "claim_text": "For example, `docs/cairn/scout_1198_20260217_gemma-3-27b-it.md` *denies* a claim made by `meta-llama/llama-3.2-3b-instruct` regarding the existence of `docs/predecessors.md`.",
+  "claim_file": "docs/cairn/scout_1198_20260217_gemma-3-27b-it.md",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-05-10T14:29:27.962644+00:00"
+}

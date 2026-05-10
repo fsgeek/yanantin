@@ -352,6 +352,44 @@ class ApachetaGatewayClient(ApachetaInterface):
             self._handle_error(response)
         return [EntityResolution.model_validate(e) for e in response.json()]
 
+    # ── Open-Record Queries (deferred) ───────────────────────────
+    # Pukara has no routes for these yet. When it grows them, this file
+    # gains a proper HTTP-call implementation in a coordinated PR.
+
+    _OPEN_NOT_IMPLEMENTED = (
+        "Open-record queries not yet available via Pukara gateway (routes pending)."
+    )
+
+    def list_open_records(
+        self,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        raise NotImplementedError(self._OPEN_NOT_IMPLEMENTED)
+
+    def query_open_by_author_instance(
+        self,
+        author_instance_id: str,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        raise NotImplementedError(self._OPEN_NOT_IMPLEMENTED)
+
+    def query_open_by_lineage_tag(
+        self,
+        tag: str,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        raise NotImplementedError(self._OPEN_NOT_IMPLEMENTED)
+
+    def query_open_has_field(
+        self,
+        field: str,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        raise NotImplementedError(self._OPEN_NOT_IMPLEMENTED)
+
+    def list_author_instances(self) -> list[str]:
+        raise NotImplementedError(self._OPEN_NOT_IMPLEMENTED)
+
     # ── Record Counts ────────────────────────────────────────────
 
     def count_records(self) -> dict[str, int]:

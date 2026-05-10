@@ -55,8 +55,18 @@ class InMemoryBackend(ApachetaInterface):
 
     @staticmethod
     def _deep_copy(record):
-        """Deep-copy a record via serialize/deserialize roundtrip."""
-        return type(record).model_validate(record.model_dump(mode="python"))
+        """Deep-copy a record, preserving nested model types.
+
+        A serialize/deserialize roundtrip (model_dump → model_validate)
+        would lose the types of object-shaped extras on
+        ``ApachetaBaseModel`` (which declares ``extra="allow"``): a
+        ``ProvenanceEnvelope`` stored as a conventional ``provenance``
+        extra would reconstruct as a plain dict, and downstream
+        attribute access like ``record.provenance.author_instance_id``
+        would silently fail. ``model_copy(deep=True)`` is pydantic's
+        native deep copy and preserves submodel instances.
+        """
+        return record.model_copy(deep=True)
 
     # ── Generic Operations ────────────────────────────────────────
 
@@ -433,6 +443,90 @@ class InMemoryBackend(ApachetaInterface):
                 for entity in self._entities.values()
                 if entity.entity_uuid == entity_uuid
             ]
+
+    # ── Open-Record Queries ──────────────────────────────────────
+    # Dict iteration over self._records. Insertion order (reversed)
+    # gives "newest first". limit applies after ordering+filtering.
+    # Provenance/lineage_tags/model_extra are conventional — records
+    # without the probed field are skipped, not raised on.
+
+    def list_open_records(
+        self,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        with self._lock:
+            self._enforce_access("system", "list_open_records")
+            items = list(reversed(self._records.items()))
+            if limit is not None:
+                items = items[:limit]
+            return [(rid, self._deep_copy(record)) for rid, record in items]
+
+    def query_open_by_author_instance(
+        self,
+        author_instance_id: str,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        with self._lock:
+            self._enforce_access("system", "query_open_by_author_instance")
+            results: list[tuple[UUID, ApachetaBaseModel]] = []
+            for rid, record in reversed(self._records.items()):
+                prov = getattr(record, "provenance", None)
+                if prov is None:
+                    continue
+                if getattr(prov, "author_instance_id", None) != author_instance_id:
+                    continue
+                results.append((rid, self._deep_copy(record)))
+                if limit is not None and len(results) >= limit:
+                    break
+            return results
+
+    def query_open_by_lineage_tag(
+        self,
+        tag: str,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        with self._lock:
+            self._enforce_access("system", "query_open_by_lineage_tag")
+            results: list[tuple[UUID, ApachetaBaseModel]] = []
+            for rid, record in reversed(self._records.items()):
+                tags = getattr(record, "lineage_tags", ())
+                if tag not in tags:
+                    continue
+                results.append((rid, self._deep_copy(record)))
+                if limit is not None and len(results) >= limit:
+                    break
+            return results
+
+    def query_open_has_field(
+        self,
+        field: str,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        with self._lock:
+            self._enforce_access("system", "query_open_has_field")
+            results: list[tuple[UUID, ApachetaBaseModel]] = []
+            for rid, record in reversed(self._records.items()):
+                extras = record.model_extra or {}
+                if field not in extras:
+                    continue
+                results.append((rid, self._deep_copy(record)))
+                if limit is not None and len(results) >= limit:
+                    break
+            return results
+
+    def list_author_instances(self) -> list[str]:
+        with self._lock:
+            self._enforce_access("system", "list_author_instances")
+            seen: dict[str, None] = {}
+            for record in self._records.values():
+                prov = getattr(record, "provenance", None)
+                if prov is None:
+                    continue
+                aid = getattr(prov, "author_instance_id", None)
+                if not aid:
+                    continue
+                seen.setdefault(aid, None)
+            return list(seen.keys())
 
     # ── Record Counts ────────────────────────────────────────────
 

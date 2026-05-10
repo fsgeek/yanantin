@@ -1,7 +1,7 @@
 """Integration tests for ArangoDB activity stream backend against REAL ArangoDB.
 
-These tests connect to a live ArangoDB server at 192.168.111.125:8529
-using the dedicated test database (apacheta_test). No mocks. No fakes.
+These tests connect to a live ArangoDB server using the dedicated test
+database (apacheta_test). No mocks. No fakes.
 
 If ArangoDB is unavailable, all tests skip gracefully.
 
@@ -9,16 +9,16 @@ The activity store uses collections activity_facts and activity_anchors,
 which don't collide with the Apacheta collections in the same database.
 
 Connection details:
-- Host: http://192.168.111.125:8529
+- Host: from YANANTIN_ARANGO_HOST environment variable
 - Database: apacheta_test (test database, NOT production)
-- Admin user (root) used ONLY for database creation/teardown
-- Test user (apacheta_test) used for all actual test operations
+- Test user credentials from YANANTIN_ARANGO_USER / YANANTIN_ARANGO_PASSWORD
 
 Design:
-- Session-scoped fixture reuses the test database (created by arango_session)
+- Session-scoped fixture verifies test database is reachable
 - Function-scoped fixture connects with least-privilege test user
 - Collections truncated between tests for isolation
 - Tests mirror the unit test_activity_store.py parametrized matrix
+- Database and user setup handled by: uv run python -m yanantin.infra setup
 """
 
 from __future__ import annotations
@@ -35,25 +35,19 @@ from yanantin.activity.models import AnchorCursor, FactRecord, MemoryAnchor
 from yanantin.apacheta.interface.errors import ImmutabilityError, NotFoundError
 
 # Connection parameters — from .env via root conftest.py
-ARANGO_HOST = os.environ.get("YANANTIN_ARANGO_HOST", "http://192.168.111.125:8529")
-ARANGO_DB = "apacheta_test"
-
-# Admin credentials — ONLY for database creation/teardown
-ARANGO_ADMIN_USER = os.environ.get("ARANGO_ADMIN_USER", "root")
-ARANGO_ADMIN_PASSWORD = os.environ.get("ARANGO_ADMIN_PASSWORD", "")
-
-# Least-privilege test credentials — used for ALL test operations
-ARANGO_TEST_USER = os.environ.get("ARANGO_TEST_USER", "apacheta_test")
-ARANGO_TEST_PASSWORD = os.environ.get("ARANGO_TEST_PASSWORD", "")
+ARANGO_HOST = os.environ.get("YANANTIN_ARANGO_HOST", "http://localhost:8529")
+ARANGO_DB = os.environ.get("YANANTIN_ARANGO_DB", "apacheta_test")
+ARANGO_USER = os.environ.get("YANANTIN_ARANGO_USER", "apacheta_test")
+ARANGO_PASSWORD = os.environ.get("YANANTIN_ARANGO_PASSWORD", "")
 
 
 def check_arango_available() -> bool:
-    """Check if ArangoDB is reachable."""
+    """Check if ArangoDB test database is reachable with test credentials."""
     try:
         from arango import ArangoClient
         client = ArangoClient(hosts=ARANGO_HOST)
-        sys_db = client.db("_system", username=ARANGO_ADMIN_USER, password=ARANGO_ADMIN_PASSWORD)
-        sys_db.databases()
+        db = client.db(ARANGO_DB, username=ARANGO_USER, password=ARANGO_PASSWORD)
+        db.collections()
         client.close()
         return True
     except Exception:
@@ -62,28 +56,18 @@ def check_arango_available() -> bool:
 
 @pytest.fixture(scope="session")
 def arango_session():
-    """Session-scoped: ensure test database exists with test user access.
+    """Session-scoped fixture: verify test database is reachable.
 
-    Reuses the same apacheta_test database as the Apacheta integration tests.
-    The activity store creates its own collections (activity_facts,
-    activity_anchors) which don't conflict with Apacheta's collections.
+    Precondition: database and user created by infra setup tool.
+    Run `uv run python -m yanantin.infra setup` before running
+    integration tests. This fixture only checks connectivity —
+    no admin operations, no database creation, no user management.
     """
     if not check_arango_available():
-        pytest.skip(f"ArangoDB not available at {ARANGO_HOST}")
-
-    from arango import ArangoClient
-
-    client = ArangoClient(hosts=ARANGO_HOST)
-    sys_db = client.db("_system", username=ARANGO_ADMIN_USER, password=ARANGO_ADMIN_PASSWORD)
-
-    if not sys_db.has_database(ARANGO_DB):
-        sys_db.create_database(
-            ARANGO_DB,
-            users=[{"username": ARANGO_TEST_USER, "password": ARANGO_TEST_PASSWORD, "active": True}],
+        pytest.skip(
+            f"ArangoDB test database not available at {ARANGO_HOST}. "
+            "Run: uv run python -m yanantin.infra setup"
         )
-        sys_db.update_permission(ARANGO_TEST_USER, "rw", ARANGO_DB)
-
-    client.close()
     yield
 
 
@@ -93,8 +77,8 @@ def store(arango_session) -> ArangoDBActivityStreamStore:
     s = ArangoDBActivityStreamStore(
         host=ARANGO_HOST,
         db_name=ARANGO_DB,
-        username=ARANGO_TEST_USER,
-        password=ARANGO_TEST_PASSWORD,
+        username=ARANGO_USER,
+        password=ARANGO_PASSWORD,
     )
 
     # Truncate activity collections for test isolation
@@ -497,8 +481,8 @@ class TestContextManager:
         with ArangoDBActivityStreamStore(
             host=ARANGO_HOST,
             db_name=ARANGO_DB,
-            username=ARANGO_TEST_USER,
-            password=ARANGO_TEST_PASSWORD,
+            username=ARANGO_USER,
+            password=ARANGO_PASSWORD,
         ) as s:
             provider = uuid4()
             t = datetime(2025, 6, 1, 12, 0, 0, tzinfo=timezone.utc)

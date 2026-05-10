@@ -96,6 +96,10 @@ def mock_arango_client():
             coll.get = Mock(side_effect=get)
             coll.all = Mock(side_effect=all)
             coll.count = Mock(side_effect=count)
+            # ArangoDBBackend.__init__ ensures indexes exist. The backend
+            # checks existing persistent indexes by iterating indexes().
+            coll.indexes = Mock(return_value=[])
+            coll.add_persistent_index = Mock(return_value=None)
             collections[name] = coll
             return coll
 
@@ -268,11 +272,15 @@ class TestConnectionAndInit:
         with patch('yanantin.apacheta.backends.arango.ArangoClient') as MockClient:
             mock_client = Mock()
             mock_db = Mock()
+            mock_records = Mock()
+            mock_records.indexes.return_value = []
+            mock_records.add_persistent_index.return_value = None
 
             MockClient.return_value = mock_client
             mock_client.db.return_value = mock_db
             mock_db.collections.return_value = []
             mock_db.has_collection.return_value = True
+            mock_db.collection.return_value = mock_records
 
             backend = ArangoDBBackend(db_name="my_db", username="app_user", password="secret")
 
@@ -285,11 +293,15 @@ class TestConnectionAndInit:
         with patch('yanantin.apacheta.backends.arango.ArangoClient') as MockClient:
             mock_client = Mock()
             mock_db = Mock()
+            mock_records = Mock()
+            mock_records.indexes.return_value = []
+            mock_records.add_persistent_index.return_value = None
 
             MockClient.return_value = mock_client
             mock_client.db.return_value = mock_db
             mock_db.collections.return_value = []
             mock_db.has_collection.return_value = False
+            mock_db.collection.return_value = mock_records
 
             backend = ArangoDBBackend()
 
@@ -306,11 +318,15 @@ class TestConnectionAndInit:
         with patch('yanantin.apacheta.backends.arango.ArangoClient') as MockClient:
             mock_client = Mock()
             mock_db = Mock()
+            mock_records = Mock()
+            mock_records.indexes.return_value = []
+            mock_records.add_persistent_index.return_value = None
 
             MockClient.return_value = mock_client
             mock_client.db.return_value = mock_db
             mock_db.collections.return_value = []
             mock_db.has_collection.return_value = True
+            mock_db.collection.return_value = mock_records
 
             backend = ArangoDBBackend(
                 host="http://custom-host:8529",

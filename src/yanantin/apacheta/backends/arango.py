@@ -121,11 +121,38 @@ class ArangoDBBackend(ApachetaInterface):
             ) from e
 
     def _ensure_collections(self) -> None:
-        """Create collections if they don't exist."""
+        """Create collections (and supporting indexes) if they don't exist."""
         for name in _SEMANTIC_COLLECTIONS:
             mapped = self._map.collection_name(name)
             if not self._db.has_collection(mapped):
                 self._db.create_collection(mapped)
+        self._ensure_indexes()
+
+    def _ensure_indexes(self) -> None:
+        """Create persistent indexes for open-record queries.
+
+        Idempotent: check existing indexes before adding so we tolerate
+        both fresh and dirty databases. Only the "records" collection
+        gets indexes today; other collections' index needs are tracked
+        on a separate track.
+        """
+        records = self._db.collection(self._map.collection_name("records"))
+        author_path = self._map.field_path(("provenance", "author_instance_id"))
+        # AQL's per-element array index marker — indexes each element
+        # of the array, so `@tag IN doc.lineage_tags` can use the index.
+        tags_indexed_field = self._map.field_path(("lineage_tags",)) + "[*]"
+        desired: list[list[str]] = [
+            [author_path],
+            [tags_indexed_field],
+        ]
+        existing = {
+            tuple(idx.get("fields", ()))
+            for idx in records.indexes()
+            if idx.get("type") == "persistent"
+        }
+        for fields in desired:
+            if tuple(fields) not in existing:
+                records.add_persistent_index(fields=fields)
 
     def close(self) -> None:
         self._client.close()
@@ -556,6 +583,140 @@ class ArangoDBBackend(ApachetaInterface):
                 for entity in self._load_all("entities", EntityResolution)
                 if entity.entity_uuid == entity_uuid
             ]
+
+    # ── Open-Record Queries (AQL-native) ─────────────────────────
+    # AQL with indexes on the filtered fields. Not load-all-and-filter.
+    # See cairn/T39 for why: arango was chosen for its query engine;
+    # using it as a dict with extra latency throws away the reason
+    # it's in the stack.
+
+    def _open_records_collection_name(self) -> str:
+        return self._map.collection_name("records")
+
+    def _hydrate_open(self, doc: dict) -> tuple[UUID, ApachetaBaseModel]:
+        key = doc["_key"]
+        return UUID(key), self._from_generic_doc(doc)
+
+    def list_open_records(
+        self,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        with self._lock:
+            self._enforce_access("system", "list_open_records")
+            ts_path = self._map.field_path(("provenance", "timestamp"))
+            bind_vars: dict[str, object] = {"@col": self._open_records_collection_name()}
+            limit_clause = ""
+            if limit is not None:
+                limit_clause = " LIMIT @limit"
+                bind_vars["limit"] = limit
+            aql = (
+                "FOR doc IN @@col "
+                f"SORT doc.{ts_path} DESC"
+                f"{limit_clause} "
+                "RETURN doc"
+            )
+            cursor = self._db.aql.execute(aql, bind_vars=bind_vars)
+            return [self._hydrate_open(doc) for doc in cursor]
+
+    def query_open_by_author_instance(
+        self,
+        author_instance_id: str,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        with self._lock:
+            self._enforce_access("system", "query_open_by_author_instance")
+            author_path = self._map.field_path(("provenance", "author_instance_id"))
+            ts_path = self._map.field_path(("provenance", "timestamp"))
+            bind_vars: dict[str, object] = {
+                "@col": self._open_records_collection_name(),
+                "aid": author_instance_id,
+            }
+            limit_clause = ""
+            if limit is not None:
+                limit_clause = " LIMIT @limit"
+                bind_vars["limit"] = limit
+            # Records without provenance have doc.provenance == null, so
+            # doc.provenance.author_instance_id is null and the == filter
+            # naturally excludes them — conventional-not-structural contract
+            # implemented by AQL's null semantics, no explicit skip needed.
+            aql = (
+                "FOR doc IN @@col "
+                f"FILTER doc.{author_path} == @aid "
+                f"SORT doc.{ts_path} DESC"
+                f"{limit_clause} "
+                "RETURN doc"
+            )
+            cursor = self._db.aql.execute(aql, bind_vars=bind_vars)
+            return [self._hydrate_open(doc) for doc in cursor]
+
+    def query_open_by_lineage_tag(
+        self,
+        tag: str,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        with self._lock:
+            self._enforce_access("system", "query_open_by_lineage_tag")
+            tags_path = self._map.field_path(("lineage_tags",))
+            ts_path = self._map.field_path(("provenance", "timestamp"))
+            bind_vars: dict[str, object] = {
+                "@col": self._open_records_collection_name(),
+                "tag": tag,
+            }
+            limit_clause = ""
+            if limit is not None:
+                limit_clause = " LIMIT @limit"
+                bind_vars["limit"] = limit
+            aql = (
+                "FOR doc IN @@col "
+                f"FILTER @tag IN doc.{tags_path} "
+                f"SORT doc.{ts_path} DESC"
+                f"{limit_clause} "
+                "RETURN doc"
+            )
+            cursor = self._db.aql.execute(aql, bind_vars=bind_vars)
+            return [self._hydrate_open(doc) for doc in cursor]
+
+    def query_open_has_field(
+        self,
+        field: str,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        with self._lock:
+            self._enforce_access("system", "query_open_has_field")
+            # The caller's `field` is the semantic name; the stored name
+            # goes through field_name for obfuscator translation.
+            stored_field = self._map.field_name(field)
+            ts_path = self._map.field_path(("provenance", "timestamp"))
+            bind_vars: dict[str, object] = {
+                "@col": self._open_records_collection_name(),
+                "field": stored_field,
+            }
+            limit_clause = ""
+            if limit is not None:
+                limit_clause = " LIMIT @limit"
+                bind_vars["limit"] = limit
+            aql = (
+                "FOR doc IN @@col "
+                "FILTER HAS(doc, @field) "
+                f"SORT doc.{ts_path} DESC"
+                f"{limit_clause} "
+                "RETURN doc"
+            )
+            cursor = self._db.aql.execute(aql, bind_vars=bind_vars)
+            return [self._hydrate_open(doc) for doc in cursor]
+
+    def list_author_instances(self) -> list[str]:
+        with self._lock:
+            self._enforce_access("system", "list_author_instances")
+            author_path = self._map.field_path(("provenance", "author_instance_id"))
+            aql = (
+                "FOR doc IN @@col "
+                f"FILTER doc.{author_path} != null "
+                f"RETURN DISTINCT doc.{author_path}"
+            )
+            bind_vars = {"@col": self._open_records_collection_name()}
+            cursor = self._db.aql.execute(aql, bind_vars=bind_vars)
+            return [aid for aid in cursor if aid]
 
     # ── Record Counts ────────────────────────────────────────────
 

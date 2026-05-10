@@ -219,6 +219,72 @@ class ApachetaInterface(ABC):
     @abstractmethod
     def query_entities_by_uuid(self, entity_uuid: UUID) -> list[EntityResolution]: ...
 
+    # ── Open-Record Queries ──────────────────────────────────────
+    # Queries over the open-schema records collection — records stored
+    # via store_record() that don't fit a prescribed schema. Added
+    # for hamutay's taste_open cross-session memory access.
+
+    @abstractmethod
+    def list_open_records(
+        self,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        """All records in the open-records collection, newest first.
+
+        Returns (record_id, record) pairs so callers can address records
+        by UUID without parsing the model's provenance. limit is applied
+        after ordering — None means no limit.
+        """
+        ...
+
+    @abstractmethod
+    def query_open_by_author_instance(
+        self,
+        author_instance_id: str,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        """Records whose provenance envelope carries the given author_instance_id.
+
+        Provenance is conventional, not structural — records without a
+        provenance envelope (or without author_instance_id inside it) are
+        skipped, not raised on. Callers needing structural guarantees
+        should use a typed subclass of ApachetaBaseModel.
+        """
+        ...
+
+    @abstractmethod
+    def query_open_by_lineage_tag(
+        self,
+        tag: str,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        """Records whose lineage_tags carries the given tag.
+
+        lineage_tags is conventional — records without the field are skipped.
+        """
+        ...
+
+    @abstractmethod
+    def query_open_has_field(
+        self,
+        field: str,
+        limit: int | None = None,
+    ) -> list[tuple[UUID, ApachetaBaseModel]]:
+        """Records whose model_extra (free-form fields) contains `field`.
+
+        Open records use ApachetaBaseModel with `extra='allow'`, so free-form
+        keys live in `model_extra`. This query returns records that carry
+        a given key, regardless of its value.
+        """
+        ...
+
+    @abstractmethod
+    def list_author_instances(self) -> list[str]:
+        """All distinct author_instance_id values present in the envelopes
+        of the open records collection. Records without provenance are
+        skipped. For cross-instance discovery."""
+        ...
+
     # ── Record Counts (for monotonicity verification) ────────────
 
     @abstractmethod

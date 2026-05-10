@@ -1,0 +1,11 @@
+{
+  "id": "41b1a796-3f7f-4248-9d89-55817ebadf8e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12602_20260510_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11966_20260507_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "Therefore, any context or information about `document.py` cannot be verified.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/scripts/document.py",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-10T13:28:37.480140+00:00"
+}

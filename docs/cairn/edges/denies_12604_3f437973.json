@@ -1,0 +1,11 @@
+{
+  "id": "3f437973-2eed-45c1-ac5d-b3324b36b966",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12604_20260510_qwen3-14b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0490_20260214_trinity-mini.md",
+  "relation": "denies",
+  "claim_text": "- **Disagreement**: The previous scout\u2019s \"Declared Losses\" dismiss testing as \"subjective,\" but the file `test_immutability.py` (from `docs/cairn/scout_0060_20260212_llama-3.3-70b-instruct.md`) explicitly validates structural invariants (e.g., provenance envelopes).",
+  "claim_file": "docs/cairn/scout_0060_20260212_llama-3.3-70b-instruct.md",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "qwen/qwen3-14b",
+  "timestamp": "2026-05-10T13:28:48.944381+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "1a53e3ee-09ee-4729-bf00-676065138659",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12600_20260510_deepseek-v4-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1860_20260220_mistral-7b-instruct-v0.3.md",
+  "relation": "denies",
+  "claim_text": "The reference to `docs/blueprint.md` and `docs/tensors.md` further suggests a structured, verifiable foundation for decisions.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "mistralai/mistral-7b-instruct-v0.3",
+  "verified_by": "deepseek/deepseek-v4-flash",
+  "timestamp": "2026-05-10T12:55:43.513164+00:00"
+}

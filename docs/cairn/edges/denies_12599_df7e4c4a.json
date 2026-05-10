@@ -1,0 +1,11 @@
+{
+  "id": "df7e4c4a-7f7d-465c-89ff-bcf137bb316a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12599_20260510_ernie-4.5-300b-a47b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2138_20260221_qwen-vl-max.md",
+  "relation": "denies",
+  "claim_text": "#### Strand 3: The Role of the Chasqui in Mediation The previous scout\u2019s analysis of `scout.py` and `succession.py` is incomplete, as noted in `scout_0986_20260216_lfm-2.2-6b.md`.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "qwen/qwen-vl-max",
+  "verified_by": "baidu/ernie-4.5-300b-a47b",
+  "timestamp": "2026-05-10T12:55:40.064868+00:00"
+}

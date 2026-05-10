@@ -1,0 +1,11 @@
+{
+  "id": "09516ff4-f0bb-40bb-aa53-ebe46a626c5a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12598_20260510_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11513_20260415_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "- *Lines of interest*: In `models.py`, lines 26-30 define the `DropboxEntryData` model with validators checking for empty names, correct path formats, and valid sizes for files and folders.",
+  "claim_file": "src/yanantin/jabberwock/models.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-10T12:55:34.717394+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "8423d6b6-4654-4d72-9a8e-57b17b715868",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12524_20260510_mistral-saba.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9425_20260403_qwen3-vl-30b-a3b-thinking.md",
+  "relation": "denies",
+  "claim_text": "The file `src/yanantin/chasqui/scout.py` does not contain any references to `src/yanantin/chasqui/coordinator.py` at all.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "qwen/qwen3-vl-30b-a3b-thinking",
+  "verified_by": "mistralai/mistral-saba",
+  "timestamp": "2026-05-10T03:02:00.571562+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "078dc1bd-e6e3-47ec-9b39-7e24c8410ab9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12519_20260510_rnj-1-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11307_20260413_gpt-4o-2024-11-20.md",
+  "relation": "confirms",
+  "claim_text": "**Operator Tests**: I ignored files like `test_operators.py`, assuming they focus on lower-level tensor operations rather than high-level system behaviors.",
+  "claim_file": "tests/unit/test_operators.py",
+  "claim_by": "openai/gpt-4o-2024-11-20",
+  "verified_by": "essentialai/rnj-1-instruct",
+  "timestamp": "2026-05-10T02:30:05.853029+00:00"
+}

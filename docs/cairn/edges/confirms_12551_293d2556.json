@@ -1,0 +1,11 @@
+{
+  "id": "293d2556-4e42-435b-9b07-341f9cc08bd4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12551_20260510_gemma-4-26b-a4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6697_20260318_ministral-14b-2512.md",
+  "relation": "confirms",
+  "claim_text": "**No direct reference to `arango.py` exists in the file.** The file does **not** import or reference `arango.py` at all.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "google/gemma-4-26b-a4b-it",
+  "timestamp": "2026-05-10T06:41:58.512196+00:00"
+}

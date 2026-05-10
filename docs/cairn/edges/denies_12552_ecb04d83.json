@@ -1,0 +1,11 @@
+{
+  "id": "ecb04d83-df60-4160-ad14-f3a287e20bab",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12552_20260510_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10088_20260407_qwen3-vl-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "> In `test_collector_synthetic.py`, the `SyntheticCollectorBase` stores tensors \u2014 it expects inputs to be predictable \u2014 because truth must be verifiable.",
+  "claim_file": "tests/unit/test_collector_synthetic.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-05-10T06:41:59.038624+00:00"
+}

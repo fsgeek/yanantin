@@ -1,0 +1,11 @@
+{
+  "id": "1d081b4c-e239-42e4-8458-a2f25c307476",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12554_20260510_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9811_20260405_qwen3-vl-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "- The `MemoryAnchorService` \u2014 it\u2019s mentioned in `__init__.py`, but not implemented here.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "qwen/qwen3-vl-8b-instruct",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-10T07:14:05.567502+00:00"
+}

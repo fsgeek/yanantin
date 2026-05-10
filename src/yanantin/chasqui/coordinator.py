@@ -239,6 +239,7 @@ def write_to_cairn(
     usage: dict[str, Any],
     cairn_dir: Path = CAIRN_DIR,
     dispatch_context: dict[str, str] | None = None,
+    generation_id: str = "",
 ) -> tuple[int, Path]:
     """Claim a run number and write a scout's tensor to the cairn.
 
@@ -249,6 +250,10 @@ def write_to_cairn(
     When the chef dies (process ends, stdout truncates), the report itself
     must carry enough context to reconstruct why it was dispatched.
 
+    generation_id: OpenRouter's unique ID for this API call. Serves as a
+    deterministic join key between cairn files and the OpenRouter activity
+    stream for cost attribution.
+
     Returns (run_number, path).
     """
     model_short = model.id.split("/")[-1][:30].replace(" ", "_")
@@ -256,6 +261,8 @@ def write_to_cairn(
 
     # Build optional dispatch provenance lines
     context_lines = ""
+    if generation_id:
+        context_lines += f"     GenerationID: {generation_id}\n"
     if dispatch_context:
         for key, value in dispatch_context.items():
             # Truncate long values but keep them useful
@@ -318,6 +325,7 @@ def write_scour_to_cairn(
     target: str,
     scope: str,
     cairn_dir: Path = CAIRN_DIR,
+    generation_id: str = "",
 ) -> tuple[int, Path]:
     """Claim a run number and write a scourer's tensor to the cairn.
 
@@ -329,6 +337,8 @@ def write_scour_to_cairn(
     model_short = model.id.split("/")[-1][:30].replace(" ", "_")
     run_number, path = _claim_scour_number(cairn_dir, model_short)
 
+    gen_line = f"\n     GenerationID: {generation_id}" if generation_id else ""
+
     header = f"""\
 <!-- Chasqui Scour Tensor
      Run: {run_number}
@@ -337,7 +347,7 @@ def write_scour_to_cairn(
      Scope: {scope}
      Cost: prompt=${model.prompt_cost}/M, completion=${model.completion_cost}/M
      Usage: {usage}
-     Timestamp: {datetime.now(timezone.utc).isoformat()}
+     Timestamp: {datetime.now(timezone.utc).isoformat()}{gen_line}
 -->
 
 """
@@ -419,7 +429,7 @@ async def dispatch_scour(
 
     exclude = exclude_patterns or DEFAULT_EXCLUDE
 
-    async with OpenRouterClient() as client:
+    async with OpenRouterClient(app_title="yanantin:scour") as client:
         # 1. Get available models
         models_data = await client.list_models()
 
@@ -471,6 +481,7 @@ async def dispatch_scour(
             target=target,
             scope=scope,
             cairn_dir=cairn_dir,
+            generation_id=response.id,
         )
 
         return {
@@ -524,7 +535,7 @@ async def dispatch_scout(
     # Build activity map if DuckDB store exists — disk change signal
     act_map = _build_activity_map(project_root)
 
-    async with OpenRouterClient() as client:
+    async with OpenRouterClient(app_title="yanantin:scout") as client:
         # 1. Get available models
         models_data = await client.list_models()
 
@@ -559,6 +570,7 @@ async def dispatch_scout(
             model=model,
             usage=response.usage,
             cairn_dir=cairn_dir,
+            generation_id=response.id,
         )
 
         return {
@@ -603,7 +615,7 @@ async def dispatch_respond(
 
     exclude = exclude_patterns or DEFAULT_EXCLUDE
 
-    async with OpenRouterClient() as client:
+    async with OpenRouterClient(app_title="yanantin:respond") as client:
         models_data = await client.list_models()
 
         selector = ModelSelector(
@@ -633,6 +645,7 @@ async def dispatch_respond(
             model=model,
             usage=response.usage,
             cairn_dir=cairn_dir,
+            generation_id=response.id,
         )
 
         return {
@@ -724,7 +737,7 @@ async def dispatch_verify(
 
     exclude = exclude_patterns or DEFAULT_EXCLUDE
 
-    async with OpenRouterClient() as client:
+    async with OpenRouterClient(app_title="yanantin:verify") as client:
         models_data = await client.list_models()
 
         selector = ModelSelector(
@@ -762,6 +775,7 @@ async def dispatch_verify(
                 "ClaimBy": source_model,
                 "SourceTensor": source_tensor,
             },
+            generation_id=response.id,
         )
 
         # Detect degenerate repetition before trusting the verdict.

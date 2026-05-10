@@ -5,6 +5,9 @@ __pycache__/
 .uv-cache/
 .env
 .claude/pipeline_health.json
+.claude/heartbeat_state.json
+.claude/work_queue.json
+.claude/.pulse.lock
 logs/
 tmp/
 data/

@@ -5,6 +5,7 @@ and what doesn't exist yet.*
 
 *Last updated: T39 added, Backend Policy section recorded, 2026-04-19*
 *Prior update: T33 added, cairn counts updated, Pichay thresholds recalibrated, 2026-03-08. Counts and module descriptions between T34-T38 are known stale — run Tinkuy before trusting them.*
+*Last updated: T35 added, cairn counts updated, MessageStore gateway refactor, 2026-03-09*
 
 ## What Exists
 
@@ -26,7 +27,7 @@ The core. 33 classes, 26 abstract methods, 3 backends, 1 HTTP client.
 | **storage_obfuscator.py** | 1 file | `StorageObfuscator` Protocol + `TransparentObfuscator` default. The contract that backends accept for label obfuscation. Pukara provides `SchemaMap` implementation; backends don't know about it. |
 | **rummage.py** | 1 file | Cairn search tool. Searches across tensors, scout reports, scour documents, compaction records. Structure-aware: can target strands, declared losses, open questions. CLI: `uv run python -m yanantin.apacheta.rummage "query"`. |
 
-**1638 tests** (def count) across 58 files, ~1710 pytest-collected (parametrized expansion). 106 red-bar (structural invariants, 11 files), 105 integration (ArangoDB live, 2 files), 1427 unit (45 files). Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, collector pipeline (9 tests), activity stream red-bar (24 tests), query pipeline (105 tests across 3 files), and Jabberwock NER (174 tests across 6 files).
+**1638 tests** (def count) across 58 files, ~1709 pytest-collected (parametrized expansion). 106 red-bar (structural invariants, 11 files), 105 integration (ArangoDB live, 2 files), 1427 unit (45 files). Includes independent test suites for ArangoDB (67 tests), DuckDB (111+43 tests), gateway client (70 tests), config tensors, Tinkuy audit/succession (20 tests), content addressing (38 tests), Awaq weaver (69 tests), Awaq materializer (31 tests), scourer (51 tests), gleaner, analyst (56 tests), precompact hook, collector pipeline (9 tests), activity stream red-bar (24 tests), query pipeline (105 tests across 3 files), and Jabberwock NER (174 tests across 6 files).
 
 ### Chasqui — Coordinator (code: `src/yanantin/chasqui/`)
 
@@ -196,10 +197,12 @@ Has its own cairn (`docs/cairn/W0-origin.md`), CLAUDE.md, and memory bridge.
 
 ### The Cairn (docs/cairn/)
 
-5623 files. 34 tensor-named files (T0-T7, T9-T33, plus
+5758 files. 37 tensor-named files (T0-T7, T9-T35, plus
 `T15_pichay_cache_aware_hardening.md` — a Yanantin instance's record of
-Pichay work; T8 intentionally unwritten). 5103 scout reports, 483 scour reports, 47 compaction
+Pichay work; T8 intentionally unwritten). 5198 scout reports, 519 scour reports, 47 compaction
 records (`docs/cairn/compaction/`). T0-T6 are now real files (symlinks replaced).
+T35 is "The Dumb Question" — proxy→gateway transition, five-layer bug, MessageStore.
+T34 is "The Honest Signal" — 280-model sweep, yuyay protocol, structured inputs.
 T33 is "The Bootstrap Paradox" — building the pager through the pager, collapse ops, checkpoint/restart.
 T32 is "The Cooperative Processor" — Pichay context pager, phantom tools.
 T31 is "The Page Fault" — built the pager under context pressure.
@@ -230,7 +233,7 @@ Three scripts that give the project autonomous behavior between sessions.
 stored as immutable TensorRecords with correction-chain lineage. Each config
 change records what changed, why, and what it replaced. File defaults
 bootstrap the system before a database is available; database configs override.
-`DEFAULT_CONFIGS` covers Chasqui pulse settings. See the Apacheta table above.
+`DEFAULT_CONFIGS` covers Chasqui pulse and Pichay policy settings. See the Apacheta table above.
 
 ## What Connects
 
@@ -292,6 +295,21 @@ Willay (receipts)
 Pukara → ArangoDB
   ↑ (receipt_to_tensor conversion)
 ReceiptRecord → TensorRecord
+
+Pichay (context pager — ward, gateway architecture)
+  ↓ (config bridge)
+config.py → _try_yanantin_config() → DuckDB → get_current_config("pichay.policy")
+  ↓ (fact bridge)
+Telemetry.emit() → FactRecord → DuckDBActivityStreamStore
+  ↓ (local DuckDB stores)
+~/.local/share/yanantin/apacheta.duckdb (config tensors)
+~/.local/share/yanantin/pichay_activity.duckdb (telemetry facts)
+  ↓ (gateway — decoupled message management)
+Claude Code → MessageStore (client tracking) → physical store → API
+  Client mutations absorbed (system-reminder noise), not propagated
+  Client deletions absorbed (compaction), physical store unchanged
+  Pager evicts independently via compact_messages()
+  Page table: _client_to_physical maps virtual→physical indices
 ```
 
 Four paths to the interface: three local backends plus
@@ -340,7 +358,7 @@ The context budget is finite. Here's the priority:
 1. **CLAUDE.md** — loaded automatically. Social norms, operational principles.
 2. **This blueprint** — where everything is and how it connects.
 3. **MEMORY.md** — loaded automatically. Credentials, signing, operational state.
-4. **The most recent tensor** (T₃₃) — "The Bootstrap Paradox": collapse ops, checkpoint/restart, building the pager through the pager. Or (T₃₂) — "The Cooperative Processor": Pichay context pager, phantom tools (yuyay/qunqay), LLM-OS cooperation. Or (T₃₁) — "The Page Fault": building the pager under pressure. Or (T₂₆) — "The Jabberwock": NER spec design, cross-model review. Or (T₂₂) — "The Bridge Begins": the Indaleko story, collector module, emergence conversation.
+4. **The most recent tensor** (T₃₅) — "The Dumb Question": proxy→gateway transition, five-layer bug behind a dashboard, MessageStore refactor. Or (T₃₄) — "The Honest Signal": 280-model sweep proving structured inputs work, yuyay cooperative protocol. Or (T₃₃) — "The Bootstrap Paradox": collapse ops, checkpoint/restart, building the pager through the pager. Or (T₃₂) — "The Cooperative Processor": Pichay context pager, phantom tools (yuyay/qunqay), LLM-OS cooperation.
 5. **One founding tensor** — read ONE of T0-T6 (now real files, not symlinks). Each gives a different perspective. T₀ = the experiment; T₁ = the architecture; T₂ = calibration and failure; T₃ = the finishing school; T₄ = RCS observer (ChatGPT); T₅ = the correction (ChatGPT); T₆ = the bridge. Let the composition graph diversify.
 6. **docs/apacheta.md** — the design document for the tensor database.
 7. **Sibling projects** — Willay (`/home/tony/projects/willay/CLAUDE.md`) has its own cairn and memory bridge. Pukara is the gateway.

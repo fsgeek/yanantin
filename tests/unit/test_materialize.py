@@ -293,8 +293,11 @@ class TestMaterialize:
         backend = InMemoryBackend()
         decls = weave_corpus()
         result = materialize(backend, decls, CAIRN_DIR)
-        # T8 is intentionally unwritten — should be the only unknown
-        assert result.skipped_unknown == ["T8"] or result.skipped_unknown == []
+        # T8 is intentionally unwritten. T49 is a compaction tensor
+        # (lives in docs/cairn/compaction/, not the main cairn directory).
+        # Both are legitimately unknown to the materializer.
+        allowed_unknown = {"T8", "T49"}
+        assert set(result.skipped_unknown) <= allowed_unknown
 
     def test_composition_graph_queryable(self):
         from yanantin.awaq.weaver import weave_corpus

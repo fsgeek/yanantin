@@ -50,7 +50,13 @@ class OpenRouterClient:
 
     BASE_URL = "https://openrouter.ai/api/v1"
 
-    def __init__(self, api_key: str | None = None, timeout: float = 120.0) -> None:
+    def __init__(
+        self,
+        api_key: str | None = None,
+        timeout: float = 120.0,
+        app_title: str = "yanantin",
+        site_url: str = "https://github.com/fsgeek/yanantin",
+    ) -> None:
         self.api_key = api_key or os.getenv("OPENROUTER_API_KEY")
         if not self.api_key:
             raise ValueError(
@@ -62,6 +68,8 @@ class OpenRouterClient:
             headers={
                 "Authorization": f"Bearer {self.api_key}",
                 "Content-Type": "application/json",
+                "X-Title": app_title,
+                "HTTP-Referer": site_url,
             },
             timeout=timeout,
         )
@@ -141,6 +149,7 @@ async def complete(
     temperature: float = 0.7,
     max_tokens: int = 1000,
     metadata: dict[str, str] | None = None,
+    app_title: str = "yanantin",
 ) -> str:
     """One-shot completion. Returns content string.
 
@@ -157,7 +166,7 @@ async def complete(
         messages.append({"role": "system", "content": system})
     messages.append({"role": "user", "content": prompt})
 
-    async with OpenRouterClient() as client:
+    async with OpenRouterClient(app_title=app_title) as client:
         response = await client.complete(
             model=model,
             messages=messages,

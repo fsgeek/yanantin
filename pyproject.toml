@@ -11,15 +11,8 @@ dependencies = [
     "duckdb>=1.4.4",
     "python-arango>=8.2.6",
     "flask>=3.1.3",
-    "matplotlib>=3.10.8",
     "numpy>=2.4.2",
-    "dask>=2026.1.2",
-    "polars>=1.38.1",
-    "fastapi>=0.135.1",
-    "uvicorn>=0.41.0",
-    "prometheus-client>=0.24.1",
     "anthropic>=0.84.0",
-    "desk>=1.9.1",
     "docker>=7.1.0",
 ]
 
@@ -29,9 +22,6 @@ dev = [
 ]
 dropbox = [
     "dropbox>=12.0",
-]
-receipts = [
-    "willay @ {root:uri}/../willay",
 ]
 
 [tool.pytest.ini_options]

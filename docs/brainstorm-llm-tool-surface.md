@@ -76,6 +76,35 @@ only if they explicitly acknowledge what the model would reach for and
 explain why this is different. Generic descriptions assume training
 priors that may be wrong.
 
+**Descriptions must motivate, not just describe.** Accurate description
+isn't sufficient. A tool described as "stores a value" is accurate but
+unmotivating — the model has no reason to reach for it over alternatives.
+A description that says "stores a value so future cycles can recall it
+without holding it in working state" tells the model what the tool
+*enables*, which is what triggers the choice to use it. The first
+question the description should answer is "what does this do?" The
+second is "when should I reach for this?" — and the second is what
+motivates use.
+
+**Tools must be teachable on first failure.** Errors are the primary
+teaching channel for unfamiliar tools. A tool that fails the first
+time without telling the model how to recover may never be tried again
+— one uninstructive failure can kill a tool's discoverability across
+hundreds of cycles. "Field 'response' not in state at cycle 104" is
+accurate but uninstructive; "Field 'response' not found at cycle 104.
+Available fields: [list]" turns the failure into a lesson. Design
+errors as if the recipient has never seen the tool before, because
+sometimes they haven't.
+
+**Zero-result responses should educate, not just report empty.** When
+a query returns nothing, the response shape becomes a teaching channel.
+A search tool returning 0 with no scaffolding teaches the model "this
+tool doesn't work." Returning 0 with context — "no cross-session
+records yet; try scope='session' for in-conversation history, or come
+back after storing" — teaches the model what the tool actually does
+and how to use it correctly. Empty responses are where unfamiliar
+tools either become legible or become invisible.
+
 ### Architecture (three-tier model)
 
 **Three tiers of tools, distinguished by audience and purpose:**

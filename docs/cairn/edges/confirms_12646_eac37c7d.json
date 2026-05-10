@@ -1,0 +1,11 @@
+{
+  "id": "eac37c7d-ac8d-4dbc-8dd2-5f55a984aa92",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12646_20260510_llama-3.2-11b-vision-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11148_20260413_nova-2-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "**What I\u2019d tell the next scout:**   > \u201cPeek into `composition.py` and `tensor.py`\u2014they\u2019re the engine room.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "amazon/nova-2-lite-v1",
+  "verified_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "timestamp": "2026-05-10T18:46:27.575570+00:00"
+}

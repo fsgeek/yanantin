@@ -1,0 +1,11 @@
+{
+  "id": "840f5ee2-6a83-4866-89c5-b911f8f4cab9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12650_20260510_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10208_20260407_qwen3-14b.md",
+  "relation": "confirms",
+  "claim_text": "Yet `update-guidelines.md` shows a diff adding a `Commands` section *after* `Architecture`, suggesting that the template\u2019s structure is not final.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/claude-md-management/skills/claude-md-improver/references/update-guidelines.md",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-05-10T19:18:55.291613+00:00"
+}

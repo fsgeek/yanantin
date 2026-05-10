@@ -1,0 +1,11 @@
+{
+  "id": "b82675b6-0c95-456f-8cbb-f350c5887c61",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12651_20260510_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11598_20260415_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The evidence lies in the file path and contents of `memory.py` itself, which is a Python module stored in the specified directory and provides an `InMemoryBackend` class implementing the `ApachetaInterface`.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-05-10T19:19:05.439145+00:00"
+}

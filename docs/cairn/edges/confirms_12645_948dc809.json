@@ -1,0 +1,11 @@
+{
+  "id": "948dc809-2bf3-4211-9557-5d8dda0e12d3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12645_20260510_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0177_20260213_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Evidence from selected files**: In `docs/cairn/scout_report_tensor_schema.md`, the recommended schema for tensors includes fields for structure, epistemology, and losses.",
+  "claim_file": "docs/scout_report_tensor_schema.md",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-05-10T18:46:25.661716+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "1b47fe91-4136-47b3-920c-091e6c5bd2e0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12535_20260510_qwen3-14b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0894_20260216_ministral-14b-2512.md",
+  "relation": "denies",
+  "claim_text": "- The `scout_0141_20260212_qwen-2.5-7b-instruct.md` report mentions a **cost-weighted model selector** (`src/yanantin/chasqui/model_selector.py`), which optimizes for **token efficiency**.",
+  "claim_file": "docs/cairn/scout_0141_20260212_qwen-2.5-7b-instruct.md",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "qwen/qwen3-14b",
+  "timestamp": "2026-05-10T04:37:07.815903+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "a79d5644-d233-4381-bcbd-39afc10b9c5a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12540_20260510_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5706_20260312_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "What is the significance of the `scout_0069_20260212_rnj-1-instruct.md` file?",
+  "claim_file": "docs/cairn/scout_0069_20260212_rnj-1-instruct.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-05-10T05:09:02.208171+00:00"
+}

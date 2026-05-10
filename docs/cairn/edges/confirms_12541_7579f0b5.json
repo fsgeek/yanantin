@@ -1,0 +1,11 @@
+{
+  "id": "7579f0b5-27f3-4d58-830d-aaeff2d04dc2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12541_20260510_qwen3-235b-a22b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11178_20260413_grok-code-fast-1.md",
+  "relation": "confirms",
+  "claim_text": "provenance: ProvenanceEnvelope = Field(default_factory=ProvenanceEnvelope) ``` ### Reasoning The claim asserts that the file `docs/cairn/scout_0954_20260216_deepseek-v3.2-speciale.md` contains evidence of a `ProvenanceEnvelope` metadata structure attached to records in the `EntityResolution` class, and it provides a code snippet starting with `class EntityResolution(ApachetaBaseModel):`.",
+  "claim_file": "docs/cairn/scout_0954_20260216_deepseek-v3.2-speciale.md",
+  "claim_by": "x-ai/grok-code-fast-1",
+  "verified_by": "qwen/qwen3-235b-a22b",
+  "timestamp": "2026-05-10T05:09:12.017153+00:00"
+}

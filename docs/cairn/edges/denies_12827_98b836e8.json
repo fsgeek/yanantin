@@ -1,0 +1,11 @@
+{
+  "id": "98b836e8-9f23-4c8a-a13e-d03addb40ead",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12827_20260511_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11651_20260415_trinity-mini.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim asserts that `test_arango_independent.py` explicitly references `test_provenance.py` as part of a \"comprehensive test suite.\" However, the file's source code contains **zero references** to `test_provenance.py`.",
+  "claim_file": "tests/unit/test_arango_independent.py",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-11T19:14:26.889965+00:00"
+}

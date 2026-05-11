@@ -1,0 +1,11 @@
+{
+  "id": "4a29492f-8070-47b3-ab60-e7c983f4a0f2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12828_20260511_llama-3.3-nemotron-super-49b-v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1360_20260218_qwen3-coder:exacto.md",
+  "relation": "confirms",
+  "claim_text": "- **Observation**: The `agents/scout_reviewer.md` file itself states, \"Your output is a tensor \u2014 an authored compression of your observation.\" This is not a final product, but a specific type of output (a tensor) that becomes part of the larger, observable system.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "qwen/qwen3-coder:exacto",
+  "verified_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "timestamp": "2026-05-11T19:14:31.569384+00:00"
+}

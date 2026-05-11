@@ -1,0 +1,11 @@
+{
+  "id": "158c6709-b555-488b-9e62-9612490cb3ae",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12831_20260511_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6060_20260315_gemini-3.1-pro-preview-customt.md",
+  "relation": "denies",
+  "claim_text": "`scout_3529` (a Nemotron model) even does meta-analysis on the disputes of other models, noting a conflict between `scout_0024` and `scout_2163` regarding a paradox in `docs/predecessors.md`.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "google/gemini-3.1-pro-preview-customtools",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-05-11T19:44:37.169281+00:00"
+}

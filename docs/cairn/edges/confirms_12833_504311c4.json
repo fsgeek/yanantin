@@ -1,0 +1,11 @@
+{
+  "id": "504311c4-751e-4728-af79-0fe932354b2f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12833_20260511_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11120_20260412_gpt-5.4-nano.md",
+  "relation": "confirms",
+  "claim_text": "Here, docs become part of runtime epistemology.\" ] }, { \"theme\": \"Collector isomorphism enforces structural parity between real and synthetic worlds\", \"what_i_saw\": [ \"`tests/unit/test_collector_isomorphism.py` defines invariant checkers (filesystem snapshot, file entry, checksum data, fs event batches, dropbox listing).\", \"It also defines `assert_schema_match` using `model_json_schema()` and asserts exact equality between real and synthetic instance schemas.\", \"Within file entry checks: it enforces exactly one file type flag among a fixed set (`S_IFREG`, `S_IFDIR`, `S_IFLNK`, `S_IFBLK`, `S_IFCHR`, `S_IFIFO`, `S_IFSOCK`).",
+  "claim_file": "tests/unit/test_collector_isomorphism.py",
+  "claim_by": "openai/gpt-5.4-nano",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-11T19:44:50.055623+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "f4bbdbf9-eb08-4dbf-8d66-99530871e0d0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12829_20260511_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0912_20260216_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The claim mentions \"external files (e.g., `succession.py` or the `scout_0012_20260212_hermes-4-70b.md` document cited in the claim)\".",
+  "claim_file": "docs/cairn/scout_0012_20260212_hermes-4-70b.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-05-11T19:14:42.168918+00:00"
+}

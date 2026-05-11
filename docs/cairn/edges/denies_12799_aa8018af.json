@@ -1,0 +1,11 @@
+{
+  "id": "aa8018af-66ff-40a8-ab2a-b30d85ba13ec",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12799_20260511_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3810_20260301_glm-4-32b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that \"This module includes components like `scout.py`, `scourer.py`, and `coordinator.py`,\" implying that these components are part of the same module or closely related.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-05-11T15:34:34.541434+00:00"
+}

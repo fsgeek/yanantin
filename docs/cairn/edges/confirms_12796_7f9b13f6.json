@@ -1,0 +1,11 @@
+{
+  "id": "7f9b13f6-532e-4b06-b257-00fadc45b8a3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12796_20260511_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10066_20260407_solar-pro-3.md",
+  "relation": "confirms",
+  "claim_text": "- The claim also mentions `arango.py`, but since we are only verifying the statement about `openrouter.py` (and the task only requires checking this specific file), the presence of `openrouter.py` handling the integration is sufficient to confirm the claim.",
+  "claim_file": "src/yanantin/apacheta/clients/openrouter.py",
+  "claim_by": "upstage/solar-pro-3",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-05-11T15:04:42.171812+00:00"
+}

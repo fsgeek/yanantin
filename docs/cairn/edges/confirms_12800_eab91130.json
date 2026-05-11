@@ -1,0 +1,11 @@
+{
+  "id": "eab91130-422c-485b-bea9-f8bef01af1da",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12800_20260511_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12466_20260509_phi-4.md",
+  "relation": "confirms",
+  "claim_text": "- Line reference: `negate.py` and `compose.py` interact with `ProvenanceEnvelope` to manage tracking of tensor facts and their origins.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "microsoft/phi-4",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-11T15:34:44.491368+00:00"
+}

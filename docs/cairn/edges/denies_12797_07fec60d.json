@@ -1,0 +1,11 @@
+{
+  "id": "07fec60d-1ad6-4667-a386-93feffa68eca",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12797_20260511_seed-1.6-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2889_20260225_lfm-2.2-6b.md",
+  "relation": "denies",
+  "claim_text": "### Strands   - **Strand 1: Verification of Consistency**   The scout's repeated assertion that `docs/predecessors.md` is absent is contradicted by the explicit file reference in `docs/cairn/scout_1379_20260218_glm-4.5-air.md` (line discussing \"apacheta\" and future plans).",
+  "claim_file": "docs/cairn/scout_1379_20260218_glm-4.5-air.md",
+  "claim_by": "liquid/lfm-2.2-6b",
+  "verified_by": "bytedance-seed/seed-1.6-flash",
+  "timestamp": "2026-05-11T15:04:48.377599+00:00"
+}

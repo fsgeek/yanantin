@@ -1,0 +1,11 @@
+{
+  "id": "339fc581-e956-4ff3-9c80-488e52358aa3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12811_20260511_rocinante-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1681_20260219_ui-tars-1.5-7b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence In line 101 of `src/yanantin/chasqui/scout.py`, we see the following: ```python file_tree = build_file_tree(root) ``` This line is where the `scout.py` template includes a dynamic placeholder `{file_tree}` for the project's file tree.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "bytedance/ui-tars-1.5-7b",
+  "verified_by": "thedrummer/rocinante-12b",
+  "timestamp": "2026-05-11T17:10:51.800044+00:00"
+}

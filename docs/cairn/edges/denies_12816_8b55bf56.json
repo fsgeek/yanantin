@@ -1,0 +1,11 @@
+{
+  "id": "8b55bf56-20ce-46de-865a-dd8a2165aa0d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12816_20260511_qwen-2.5-72b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3810_20260301_glm-4-32b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that \"This module includes components like `scout.py`, `scourer.py`, and `coordinator.py`,\" implying that these components are part of the same module or closely related.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "qwen/qwen-2.5-72b-instruct",
+  "timestamp": "2026-05-11T17:40:40.416659+00:00"
+}

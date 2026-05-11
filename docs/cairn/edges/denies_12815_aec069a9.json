@@ -1,0 +1,11 @@
+{
+  "id": "aec069a9-1bd2-458d-9ba0-c5a8f2f5a81b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12815_20260511_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8260_20260327_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "**The claim misrepresents the file's content** by asserting that the file itself is `T14_20260211_the_flatworm.md`, when in fact it is **`scout_0063_20260212_phi-4.md`** and discusses another file.",
+  "claim_file": "docs/cairn/T14_20260211_the_flatworm.md",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-11T17:40:32.556550+00:00"
+}

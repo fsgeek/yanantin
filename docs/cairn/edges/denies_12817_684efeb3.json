@@ -1,0 +1,11 @@
+{
+  "id": "684efeb3-aedd-4e8b-88e3-88a7b39c4ad0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12817_20260511_seed-2.0-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9422_20260403_gemini-2.5-flash-lite.md",
+  "relation": "denies",
+  "claim_text": "**What is \"CLAUDE.md\" and how does it relate to the \"blueprint\"?** The `scout_1334_20260218_gemma-3-27b-it.md` report suggests a hierarchy, but the exact relationship and purpose of `CLAUDE.md` remain unclear.",
+  "claim_file": "docs/cairn/scout_1334_20260218_gemma-3-27b-it.md",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "bytedance-seed/seed-2.0-mini",
+  "timestamp": "2026-05-11T17:41:29.902515+00:00"
+}

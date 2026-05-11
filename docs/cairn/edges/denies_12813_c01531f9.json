@@ -1,0 +1,11 @@
+{
+  "id": "c01531f9-3f62-4c6a-9af9-be98d9cc348c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12813_20260511_qwen3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5453_20260310_lfm-2-24b-a2b.md",
+  "relation": "denies",
+  "claim_text": "``` which is the opening of `apacheta.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "liquid/lfm-2-24b-a2b",
+  "verified_by": "qwen/qwen3-8b",
+  "timestamp": "2026-05-11T17:11:04.565773+00:00"
+}

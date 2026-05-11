@@ -1,0 +1,11 @@
+{
+  "id": "041e2844-12b3-42fb-959b-32a6a93927f4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12713_20260511_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8804_20260331_qwen-turbo.md",
+  "relation": "denies",
+  "claim_text": "However, the file content only shows the contents of `rearrange.py` and does not show the directory structure or other files in the directory.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/scripts/rearrange.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-05-11T04:08:15.690757+00:00"
+}

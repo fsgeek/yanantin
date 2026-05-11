@@ -1,0 +1,11 @@
+{
+  "id": "e57826b8-171a-4115-ae8f-d1ab7ee9db86",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12715_20260511_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10841_20260411_qwen3-8b.md",
+  "relation": "denies",
+  "claim_text": "Why does `__init__.py` import only `gateway.py` when `openrouter.py` is listed in the directory?",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "qwen/qwen3-8b",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-05-11T04:08:41.862208+00:00"
+}

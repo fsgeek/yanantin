@@ -1,0 +1,11 @@
+{
+  "id": "b01a4227-bc45-49fc-ab6c-cf0da60e047d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12718_20260511_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2540_20260223_llama-3.1-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The fact that all denials are correct and consistent implies a **ground truth layer** is being maintained, possibly via content addressing (`src/yanantin/apacheta/content_address.py`).",
+  "claim_file": "src/yanantin/apacheta/content_address.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-05-11T04:41:48.730283+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "06e8420e-ed9f-44b8-8301-c751c1670975",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12717_20260511_qwen-2.5-coder-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5805_20260313_qwen3-14b.md",
+  "relation": "denies",
+  "claim_text": "However, the claim also references other files (`compose.py`, `dissent.py`, etc.), which are not mentioned in the provided content.",
+  "claim_file": "src/yanantin/apacheta/operators/dissent.py",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "qwen/qwen-2.5-coder-32b-instruct",
+  "timestamp": "2026-05-11T04:41:44.553975+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "a076f63b-b4cd-4cbf-89b4-a74ffa862ed2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12720_20260511_qwen-vl-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1379_20260218_glm-4.5-air.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The entire content of `docs/tensors.md` contains no mention of either `apacheta.md` or `predecessors.md` files.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "z-ai/glm-4.5-air",
+  "verified_by": "qwen/qwen-vl-plus",
+  "timestamp": "2026-05-11T05:11:16.531947+00:00"
+}

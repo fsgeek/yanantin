@@ -1,0 +1,11 @@
+{
+  "id": "b2cc91f2-cd6b-4d17-ad14-43b40994ed30",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12722_20260511_ernie-4.5-vl-424b-a47b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11480_20260414_mistral-nemo.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `docs/cairn/scout_1555_20260219_nova-micro-v1.md` starts with the following line: ``` ``` This clearly indicates the existence of a scout report, as suggested in the claim.",
+  "claim_file": "docs/cairn/scout_1555_20260219_nova-micro-v1.md",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "baidu/ernie-4.5-vl-424b-a47b",
+  "timestamp": "2026-05-11T05:11:27.129324+00:00"
+}

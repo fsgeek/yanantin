@@ -1,0 +1,11 @@
+{
+  "id": "5ddcee4f-ac18-41e9-8b5b-91a271b361bf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12721_20260511_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6571_20260318_llama-4-scout.md",
+  "relation": "confirms",
+  "claim_text": "* What triggers `precompact_tensor.py`, and how does it fit into the compaction process?",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-11T05:11:22.001518+00:00"
+}

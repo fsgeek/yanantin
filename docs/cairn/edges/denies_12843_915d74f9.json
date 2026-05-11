@@ -1,0 +1,11 @@
+{
+  "id": "915d74f9-f2c1-4a5e-96d8-93bf48dc2116",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12843_20260511_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10653_20260410_mistral-small-2603.md",
+  "relation": "denies",
+  "claim_text": "--- #### Strand 5: **Physics Simulation in User Space** The `move.py` script computes motion using arc height, wave amplitude, wave frequency, and Bezier control points.",
+  "claim_file": "tmp/ubuntu-vm.claude/slack-gif-creator/templates/move.py",
+  "claim_by": "mistralai/mistral-small-2603",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-05-11T21:21:16.345543+00:00"
+}

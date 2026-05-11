@@ -1,0 +1,11 @@
+{
+  "id": "dcaa2196-c325-4ff0-a8cb-5f8b2489ef70",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12844_20260511_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6017_20260314_seed-2.0-mini.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I did not need to evaluate the remaining portions of the claim, as they reference external files (`test_operators.py`, `test_tinkuy_audit.py`) and general test suite behavior that are not part of the claim specifically about this scout file.",
+  "claim_file": "tests/unit/test_operators.py",
+  "claim_by": "bytedance-seed/seed-2.0-mini",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-05-11T21:21:16.410599+00:00"
+}

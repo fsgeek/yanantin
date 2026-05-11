@@ -1,0 +1,11 @@
+{
+  "id": "d7fdf2de-53d3-495d-a333-d4c4cedd93f0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12695_20260511_qwen3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10446_20260409_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "However, the next import from `checksum.py` is confirmed.)* 4.",
+  "claim_file": "src/yanantin/collector/checksum.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "qwen/qwen3-8b",
+  "timestamp": "2026-05-11T01:33:51.153681+00:00"
+}

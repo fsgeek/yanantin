@@ -1,0 +1,11 @@
+{
+  "id": "59dd75b9-64c6-45d7-b855-7be7e869e1b3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12693_20260511_lfm-2-24b-a2b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8201_20260327_seed-2.0-mini.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses We cannot verify the presence or functionality of the other listed scripts (`chasqui_heartbeat.sh`, `chasqui_pulse.py`, `ots_stamp.py`, `precompact_tensor.py`) as their contents are not included in the provided file data.",
+  "claim_file": ".claude/hooks/ots_stamp.py",
+  "claim_by": "bytedance-seed/seed-2.0-mini",
+  "verified_by": "liquid/lfm-2-24b-a2b",
+  "timestamp": "2026-05-11T01:33:32.223445+00:00"
+}

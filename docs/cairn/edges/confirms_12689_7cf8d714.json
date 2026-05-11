@@ -1,0 +1,11 @@
+{
+  "id": "7cf8d714-6514-42db-b646-ecac7d593e51",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12689_20260511_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11384_20260414_gemma-2-9b-it.md",
+  "relation": "confirms",
+  "claim_text": "However, the file only discusses the functionality of `arango.py` and makes no mention of `memory.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "google/gemma-2-9b-it",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-11T01:00:07.438549+00:00"
+}

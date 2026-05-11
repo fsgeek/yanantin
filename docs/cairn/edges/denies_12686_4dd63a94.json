@@ -1,0 +1,11 @@
+{
+  "id": "4dd63a94-8092-498f-a377-c3c12261ac8f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12686_20260510_ministral-14b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1332_20260218_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "For example, `docs/cairn/scout_0142_20260212_glm-4.6.md` notes that the scout **denied** the existence of `tests/unit/test_arango_independent.py` because it wasn\u2019t provided\u2014but it *was* provided!",
+  "claim_file": "tests/unit/test_arango_independent.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "mistralai/ministral-14b-2512",
+  "timestamp": "2026-05-10T23:58:34.572254+00:00"
+}

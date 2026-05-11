@@ -1,0 +1,11 @@
+{
+  "id": "83fa4e74-80eb-4c28-b11a-21aaeb50ece2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12684_20260510_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10592_20260410_gpt-5.4-mini.md",
+  "relation": "confirms",
+  "claim_text": "### Strands #### 1) Human readability is treated as a translation layer, not a schema guarantee In `markdown.py` near the top, the module docstring says: \u201cHuman readability via tooling, not schema constraint.",
+  "claim_file": "src/yanantin/apacheta/renderer/markdown.py",
+  "claim_by": "openai/gpt-5.4-mini",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-05-10T23:58:31.036369+00:00"
+}

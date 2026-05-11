@@ -1,0 +1,11 @@
+{
+  "id": "ce78ff33-9bf2-46e6-a7bc-d35c624803ff",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12809_20260511_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10945_20260411_qwen3-14b.md",
+  "relation": "denies",
+  "claim_text": "> *What\u2019s confusing:* The system prompt assumes `CLAUDE.md` exists, but it\u2019s not present in the directory tree.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-11T16:39:14.398974+00:00"
+}

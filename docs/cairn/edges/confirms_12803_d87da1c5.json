@@ -1,0 +1,11 @@
+{
+  "id": "d87da1c5-9a9e-4425-828a-b8d6de486d19",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12803_20260511_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5522_20260311_lfm2-8b-a1b.md",
+  "relation": "confirms",
+  "claim_text": "However, the file `negate.py` explicitly defines the `negate` function that declares such a negation via `NegationRecord` and `CompositionEdge` with `relation_type=RelationType.DOES_NOT_COMPOSE_WITH`.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "liquid/lfm2-8b-a1b",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-05-11T16:09:14.742405+00:00"
+}

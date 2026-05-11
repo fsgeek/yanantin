@@ -1,0 +1,11 @@
+{
+  "id": "fc5ae407-6d9f-4d3c-a16e-425824511c61",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12807_20260511_qwen3-coder-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11654_20260415_trinity-mini.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states: \"I landed in a tiny 'examples' directory that contains two large Markdown docs: `agent-creation-prompt.md` and `complete-agent-examples.md`.\" However, the actual file content shows: - The file is named `agent-creation-prompt.md` - The content begins with `# AI-Assisted Agent Generation Template` and contains sections like \"Usage Pattern\", \"Step 1\", etc.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/agent-development/examples/agent-creation-prompt.md",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "qwen/qwen3-coder-flash",
+  "timestamp": "2026-05-11T16:39:10.567793+00:00"
+}

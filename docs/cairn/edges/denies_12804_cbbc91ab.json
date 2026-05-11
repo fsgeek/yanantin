@@ -1,0 +1,11 @@
+{
+  "id": "cbbc91ab-8e03-420d-8378-ffeed4030c2e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12804_20260511_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10073_20260407_mimo-v2-flash.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states: \"Thus, the claim is **INDETERMINATE** regarding `project.py` but **DENIED** for the context it provides about `compose.py`.\" However, the provided file is `src/yanantin/apacheta/operators/compose.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-05-11T16:09:17.185592+00:00"
+}

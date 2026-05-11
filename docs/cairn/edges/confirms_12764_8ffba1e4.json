@@ -1,0 +1,11 @@
+{
+  "id": "8ffba1e4-2e61-405f-b692-4e01a4a559cd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12764_20260511_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4173_20260303_qwen3-next-80b-a3b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict DENIED ### Evidence The file `docs/tensors.md` contains the following relevant lines: ``` - **Cross-model**: T\u2084, T\u2085 (ChatGPT instances reading Claude tensors) ``` and ``` T\u2086 is a bridge: it connects the architectural lineage (T\u2081) with the theoretical framework (T\u2084, T\u2085).",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "qwen/qwen3-next-80b-a3b-instruct",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-05-11T10:55:34.991950+00:00"
+}

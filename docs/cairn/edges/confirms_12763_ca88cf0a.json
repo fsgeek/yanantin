@@ -1,0 +1,11 @@
+{
+  "id": "ca88cf0a-89db-4d4a-a180-ba681bab1b56",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12763_20260511_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10833_20260411_mistral-small-creative.md",
+  "relation": "confirms",
+  "claim_text": "**The `coordinator.py`**\u2014a file that *dispatches* scouts (like me) into the codebase, but also *queries an activity stream* (DuckDB) to track file modifications.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-05-11T10:55:33.514521+00:00"
+}

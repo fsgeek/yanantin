@@ -1,0 +1,11 @@
+{
+  "id": "1a5189c3-bf3e-43a7-9394-eed9a57683f3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12765_20260511_qwen3-vl-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1336_20260218_olmo-3.1-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "Evidence:   - The scout in `scout_1317_20260218_nemotron-nano-9b-v2.md` points out that many reports claim absence of references, but the supporting evidence is often limited to short code snippets or partial file dumps.",
+  "claim_file": "docs/cairn/scout_1317_20260218_nemotron-nano-9b-v2.md",
+  "claim_by": "allenai/olmo-3.1-32b-instruct",
+  "verified_by": "qwen/qwen3-vl-8b-instruct",
+  "timestamp": "2026-05-11T10:55:35.605059+00:00"
+}

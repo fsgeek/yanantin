@@ -1,0 +1,11 @@
+{
+  "id": "9793fc41-7616-45f1-ba59-95e74688e574",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12768_20260511_devstral-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8476_20260328_gpt-5.2-codex.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses - I didn\u2019t open the rest of `document.py` beyond the visible portion.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/scripts/document.py",
+  "claim_by": "openai/gpt-5.2-codex",
+  "verified_by": "mistralai/devstral-2512",
+  "timestamp": "2026-05-11T11:25:36.188472+00:00"
+}

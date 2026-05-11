@@ -1,0 +1,11 @@
+{
+  "id": "f753edc7-3ec5-432a-89ac-f3fa5448dacb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12767_20260511_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7131_20260321_grok-4-fast.md",
+  "relation": "denies",
+  "claim_text": "Specific quotes include: - \"The most recent of those logs, `scout_0402_20260214_glm-4.5.md`, contains an \u201cOperational Roles\u201d table...\" - \"The operational roles table appears in several blueprint\u2011derived files (e.g., `docs/cairn/scout_0402_20260214_glm-4.5.md` and `docs/cairn/scout_0493_20260214_mistral-small-creative.md`).\" No mention of `scout_0541_20260214_gpt-oss-20b.md` appears anywhere in the file.",
+  "claim_file": "docs/cairn/scout_0541_20260214_gpt-oss-20b.md",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-05-11T11:25:34.073265+00:00"
+}

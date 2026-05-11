@@ -1,0 +1,11 @@
+{
+  "id": "9c6e3ff2-7f44-4c80-a63f-12cd8337a136",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12823_20260511_gemini-2.5-flash-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7024_20260320_llama-4-maverick.md",
+  "relation": "confirms",
+  "claim_text": "Files like `composition.py` and `provenance.py` within this module indicate a strong focus on tracking the lineage and relationships between tensors.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "google/gemini-2.5-flash-lite",
+  "timestamp": "2026-05-11T18:42:08.973091+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "2615a0da-66bd-4260-807c-aa4ea03b369f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12820_20260511_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7973_20260325_gemma-3-4b-it.md",
+  "relation": "confirms",
+  "claim_text": "The `materialize` function calls, in `test_materialize.py`, seem to be attempting to wire together these interfaces\u2014a key component of the \"weave corpus\" concept.",
+  "claim_file": "tests/unit/test_materialize.py",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-11T18:15:55.540135+00:00"
+}

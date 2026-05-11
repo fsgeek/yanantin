@@ -1,0 +1,11 @@
+{
+  "id": "5364d1e4-b292-48c0-b8a7-33b1bf95c5f3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12724_20260511_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12637_20260510_gemma-4-26b-a4b-it.md",
+  "relation": "confirms",
+  "claim_text": "The file provides multiple concrete paths to other documentation and data, including relative paths within the repository (`docs/blueprint.md`, `docs/predecessors.md`, `docs/tensors.md`, `docs/signing.md`) and an absolute system path (`/home/tony/.claude/projects/-home-tony-projects-ai-honesty/memory/`).",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "google/gemma-4-26b-a4b-it",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-05-11T05:43:13.778643+00:00"
+}

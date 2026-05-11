@@ -1,0 +1,11 @@
+{
+  "id": "399981ba-a86f-47dc-823c-02ad3d1d27d1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12728_20260511_gpt-4o-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11963_20260507_gemma-3-4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The claim mentions `correct.py`, `dissent.py`, `evolve.py`, and `negate.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "openai/gpt-4o-mini",
+  "timestamp": "2026-05-11T06:13:21.255097+00:00"
+}

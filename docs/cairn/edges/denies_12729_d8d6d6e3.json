@@ -1,0 +1,11 @@
+{
+  "id": "d8d6d6e3-32b6-46a2-8656-43542ffb32cd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12729_20260511_rnj-1-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10684_20260410_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "I cannot determine if the claim intended to mean that the file does not *contain* any code or data *related to* `test_provenance.py` in some other way, as the prompt asks me to check the file content directly and the claim is phrased in a way that implies the absence of the file's own content.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "essentialai/rnj-1-instruct",
+  "timestamp": "2026-05-11T06:13:21.436891+00:00"
+}

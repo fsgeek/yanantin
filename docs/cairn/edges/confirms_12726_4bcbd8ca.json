@@ -1,0 +1,11 @@
+{
+  "id": "4bcbd8ca-569b-4b70-bd29-4655b7402e7f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12726_20260511_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7827_20260325_gemma-3-4b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that the `composition.py` file enables interaction between backends, clients, and operators by providing a structured way to represent and manage relationships between tensors, corrections, dissents, negations, bootstrap records, and schema evolution records.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-05-11T05:43:26.639745+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "25b1675a-a229-4a59-8d50-44383f9487dd",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12839_20260511_tongyi-deepresearch-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2654_20260224_mistral-7b-instruct-v0.3.md",
+  "relation": "confirms",
+  "claim_text": "- **Example:** In `negate.py`, a `CompositionEdge` is created with a `relation_type` (e.g., `DOES_NOT_COMPOSE_WITH`).",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "mistralai/mistral-7b-instruct-v0.3",
+  "verified_by": "alibaba/tongyi-deepresearch-30b-a3b",
+  "timestamp": "2026-05-11T20:48:28.651806+00:00"
+}

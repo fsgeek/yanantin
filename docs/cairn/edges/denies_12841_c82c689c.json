@@ -1,0 +1,11 @@
+{
+  "id": "c82c689c-f923-46d7-9061-04c05c2ca023",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12841_20260511_glm-4.7-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3424_20260227_l3.1-70b-hanami-x1.md",
+  "relation": "denies",
+  "claim_text": "The Neutrosophic Coordinates System **Extension**: The mention of a neutrosophic coordinates system in `yanantin/agents/scout_reviewer.md` is intriguing.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "sao10k/l3.1-70b-hanami-x1",
+  "verified_by": "z-ai/glm-4.7-flash",
+  "timestamp": "2026-05-11T20:48:43.073633+00:00"
+}

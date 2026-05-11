@@ -1,0 +1,11 @@
+{
+  "id": "bc48431c-d60a-44b0-8da9-3ee55e11be19",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12836_20260511_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8982_20260401_mercury-coder.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim under verification states that \u201cThe claim references a different file (`yanantin/apacheta/__init__.py`) than the one provided for verification (`tests/__init__.py`).\u201d This is a meta\u2011statement about the claim itself, not about the content of `tests/__init__.py`.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "inception/mercury-coder",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-11T20:17:34.997192+00:00"
+}

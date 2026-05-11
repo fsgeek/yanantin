@@ -1,0 +1,11 @@
+{
+  "id": "3d127259-8196-47ce-ac0a-2a906082a001",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12732_20260511_grok-4.20.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5877_20260314_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The claim states that the `memory.py` backend **is not intended for production persistence**.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "x-ai/grok-4.20",
+  "timestamp": "2026-05-11T06:47:25.052278+00:00"
+}

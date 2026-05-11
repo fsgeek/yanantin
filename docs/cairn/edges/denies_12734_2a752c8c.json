@@ -1,0 +1,11 @@
+{
+  "id": "2a752c8c-a5e6-4bec-89ef-b74240816418",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12734_20260511_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0481_20260214_qwen3-8b.md",
+  "relation": "denies",
+  "claim_text": "These reports reference the same files repeatedly\u2014`src/yanantin/apacheta/models/base.py`, `tests/test_provenance.py`, and `src/yanantin/chasqui/scout.py`.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "qwen/qwen3-8b",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-05-11T06:47:30.161322+00:00"
+}

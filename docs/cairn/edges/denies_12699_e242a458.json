@@ -1,0 +1,11 @@
+{
+  "id": "e242a458-b1fa-4266-a679-6f80563c6156",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12699_20260511_gpt-3.5-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2787_20260224_trinity-mini.md",
+  "relation": "denies",
+  "claim_text": "**`scout.py`**: The primary scout module for tensor exploration.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "openai/gpt-3.5-turbo",
+  "timestamp": "2026-05-11T02:03:08.136501+00:00"
+}

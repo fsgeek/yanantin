@@ -1,0 +1,11 @@
+{
+  "id": "d0895ae6-758e-4a6e-9e95-77c07840c1df",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12702_20260511_phi-4.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12524_20260510_mistral-saba.md",
+  "relation": "denies",
+  "claim_text": "The import statement: ```python from yanantin.chasqui.scout import scout_metadata ``` demonstrates that `coordinator.py` depends on functionality defined in `scout.py`, meaning `scout.py` is referenced by `coordinator.py`.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "mistralai/mistral-saba",
+  "verified_by": "microsoft/phi-4",
+  "timestamp": "2026-05-11T02:35:05.152449+00:00"
+}

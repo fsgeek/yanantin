@@ -1,0 +1,11 @@
+{
+  "id": "612dac54-3c8c-4559-8c3c-81a8ee6f2b4b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12761_20260511_gemini-2.5-flash-image.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7946_20260325_qwen3-coder-30b-a3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states: \"However, a review of the provided `__main__.py` file does not include any import statement for `weaver.py`.\" However, the file provided for verification is `src/yanantin/awaq/weaver.py`, not `__main__.py`.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "verified_by": "google/gemini-2.5-flash-image",
+  "timestamp": "2026-05-11T10:23:33.881368+00:00"
+}

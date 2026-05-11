@@ -1,0 +1,11 @@
+{
+  "id": "e1b5259e-6b7f-4c8c-8a77-dec1b55ee098",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12757_20260511_qwen3-vl-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0774_20260215_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The `get_strand` function in `tests/unit/test_memory_backend.py` returns a view that shares the source UUID, but this doesn't necessarily imply that the system preserves provenance.",
+  "claim_file": "tests/unit/test_memory_backend.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "qwen/qwen3-vl-8b-instruct",
+  "timestamp": "2026-05-11T09:53:37.097412+00:00"
+}

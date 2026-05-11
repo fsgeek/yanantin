@@ -1,0 +1,11 @@
+{
+  "id": "55897df2-125c-4015-85c2-afa737aa5c64",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12707_20260511_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0765_20260215_mistral-7b-instruct-v0.2.md",
+  "relation": "denies",
+  "claim_text": "Did not cross-reference **`SchemaEvolutionRecord`** in `src/yanantin/apacheta/models.py`: If this record type allows structural changes, it could undermine immutability guarantees.",
+  "claim_file": "src/yanantin/jabberwock/models.py",
+  "claim_by": "mistralai/mistral-7b-instruct-v0.2",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-05-11T03:06:36.527467+00:00"
+}

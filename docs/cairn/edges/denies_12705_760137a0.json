@@ -1,0 +1,11 @@
+{
+  "id": "760137a0-c441-420a-84c6-4b4f25c16d89",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12705_20260511_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3903_20260301_qwen2.5-vl-72b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The claim cannot be judged accurately without the content of `CLAUDE.md`.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "qwen/qwen2.5-vl-72b-instruct",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-05-11T03:06:11.244009+00:00"
+}

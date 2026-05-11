@@ -1,0 +1,11 @@
+{
+  "id": "6cfa73e6-4f76-4727-9d12-94fe14408122",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12793_20260511_gpt-5-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3890_20260301_glm-4-32b.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The file path and name in the claim (`tests/unit/test_collector_dropbox.py`) exactly match the file provided.",
+  "claim_file": "tests/unit/test_collector_dropbox.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "openai/gpt-5-mini",
+  "timestamp": "2026-05-11T14:32:50.054801+00:00"
+}

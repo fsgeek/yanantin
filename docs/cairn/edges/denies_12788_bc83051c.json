@@ -1,0 +1,11 @@
+{
+  "id": "bc83051c-e2da-4361-9473-72d0b988bf12",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12788_20260511_qwen3.5-plus-02-15.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10155_20260407_qwen3-14b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim incorrectly attributes \"cost-weighted sampling\" to `analyst.py` and references non-existent files (`scout.py` and `scourer.py`).",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "qwen/qwen3.5-plus-02-15",
+  "timestamp": "2026-05-11T14:02:56.147335+00:00"
+}

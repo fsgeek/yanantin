@@ -1,0 +1,11 @@
+{
+  "id": "55135ba0-dcd2-4c28-9dbf-b0d88662236c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12789_20260511_qwen3-30b-a3b-thinking-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9598_20260404_qwen3-30b-a3b-instruct-2507.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states:   > \"Evidence: `pipeline_attestation.py`, `chasqui_pulse.py`, and `scout_1471_20260218_glm-4-32b.md`\" However, the file `.claude/hooks/pipeline_attestation.py` contains **no reference** to `chasqui_pulse.py` or `scout_1471_20260218_glm-4-32b.md`.",
+  "claim_file": ".claude/hooks/pipeline_attestation.py",
+  "claim_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "verified_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "timestamp": "2026-05-11T14:03:27.998500+00:00"
+}

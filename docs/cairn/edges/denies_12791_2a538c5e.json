@@ -1,0 +1,11 @@
+{
+  "id": "2a538c5e-69e5-4ad1-a64b-e4493e9626cc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12791_20260511_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3698_20260228_gpt-oss-120b.md",
+  "relation": "denies",
+  "claim_text": "The previous report was thorough in debunking the \u201c`docs/predecessors.md` is missing\u201d claim and in sketching several high\u2011level strands (scout factory, DuckDB store, test\u2011driven specifications, the nascent `awaq` weaver, and the mysterious `signing.md`).",
+  "claim_file": "docs/signing.md",
+  "claim_by": "openai/gpt-oss-120b",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-05-11T14:32:30.563504+00:00"
+}

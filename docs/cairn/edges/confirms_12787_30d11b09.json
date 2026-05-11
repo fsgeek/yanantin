@@ -1,0 +1,11 @@
+{
+  "id": "30d11b09-63a2-4515-86d5-cae5c9bd1709",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12787_20260511_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10769_20260411_llama-4-scout.md",
+  "relation": "confirms",
+  "claim_text": "#### Script Structure and Usage The scripts in this directory (`init_skill.py`, `package_skill.py`, and `quick_validate.py`) all have a similar structure, with a main function that handles command-line arguments and usage messages.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/skill-creator/skills/skill-creator/scripts/package_skill.py",
+  "claim_by": "meta-llama/llama-4-scout",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-05-11T14:02:39.060268+00:00"
+}

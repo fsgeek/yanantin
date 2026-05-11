@@ -1,0 +1,11 @@
+{
+  "id": "3e934ca2-dffa-4cd7-a1ee-28916cac898a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12775_20260511_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4071_20260302_qwen-plus.md",
+  "relation": "confirms",
+  "claim_text": "What triggers a `compaction` tensor (like `T33_compaction_20260222_055525.md`) versus a `scout`?",
+  "claim_file": "docs/cairn/compaction/T33_compaction_20260222_055525.md",
+  "claim_by": "qwen/qwen-plus",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-11T12:27:34.114351+00:00"
+}

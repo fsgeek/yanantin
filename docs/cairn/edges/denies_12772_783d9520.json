@@ -1,0 +1,11 @@
+{
+  "id": "783d9520-79fb-4d33-bfd7-9711f2d03e3a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12772_20260511_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10766_20260410_mistral-small-2603.md",
+  "relation": "denies",
+  "claim_text": "- The function explicitly filters by `vantage_rel` (files under the scout's vantage directory), and `succession.py` does not appear in the vantage area.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "mistralai/mistral-small-2603",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-05-11T12:00:44.472046+00:00"
+}

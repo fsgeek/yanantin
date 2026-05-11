@@ -1,0 +1,11 @@
+{
+  "id": "12f83603-5887-46c8-8036-a512358964e4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12776_20260511_command-r7b-12-2024.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10865_20260411_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Open Questions** * What is the purpose of the Yanantin project, and how does the `create-plugin.md` guide fit into its overall architecture?",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/commands/create-plugin.md",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "cohere/command-r7b-12-2024",
+  "timestamp": "2026-05-11T12:27:35.035910+00:00"
+}

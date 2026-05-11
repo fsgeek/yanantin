@@ -1,0 +1,11 @@
+{
+  "id": "8860ff9e-8288-48b8-85e1-af4ef5a7fbcc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12777_20260511_qwen-2.5-7b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5823_20260313_gpt-oss-20b.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I cannot inspect `docs/apacheta.md` because its contents were not provided.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "qwen/qwen-2.5-7b-instruct",
+  "timestamp": "2026-05-11T12:27:36.735347+00:00"
+}

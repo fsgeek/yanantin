@@ -1,0 +1,11 @@
+{
+  "id": "0a4388e0-c30c-4229-97e4-0624391dbe6a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12771_20260511_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4163_20260303_deepseek-v3.2.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states: \"The file `docs/blueprint.md` contains no references to `docs/tensors.md` in any section or subsection.\" However, the file provided for verification is `docs/tensors.md`, not `docs/blueprint.md`.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "deepseek/deepseek-v3.2",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-05-11T12:00:40.447605+00:00"
+}

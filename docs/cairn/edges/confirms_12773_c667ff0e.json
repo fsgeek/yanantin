@@ -1,0 +1,11 @@
+{
+  "id": "c667ff0e-f015-4653-9440-131cdfe5d846",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12773_20260511_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4017_20260302_gpt-4.1-nano.md",
+  "relation": "confirms",
+  "claim_text": "However, there is no indication that the file contains **any** tests that explicitly cover: - Backend storage (`InMemoryBackend`, `DuckDBBackend`, `ArangoBackend`) - Query operations (`query_claims_about`, `query_open_questions`, etc.) - Provenance tracking (`test_provenance_timestamp.py`) - Model governance (`test_tinkuy_succession.py`) ### Reasoning The claim states that the tests in `test_tinkuy_succession.py` are comprehensive, covering backend storage, query operations, provenance tracking, and model governance, and that the coverage is dense but uneven, with strengths in testing backends, models, and query operations.",
+  "claim_file": "tests/unit/test_provenance_timestamp.py",
+  "claim_by": "openai/gpt-4.1-nano",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-11T12:00:49.627028+00:00"
+}

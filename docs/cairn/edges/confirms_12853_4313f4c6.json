@@ -1,0 +1,11 @@
+{
+  "id": "4313f4c6-7fff-4a7c-8117-68078af56d5b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12853_20260511_deepseek-v3.1-nex-n1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10481_20260409_glm-4-32b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The entire file `docs/cairn/scout_0161_20260212_qwen3-vl-8b-instruct.md` supports the claim, particularly the sections: 1.",
+  "claim_file": "docs/cairn/scout_0161_20260212_qwen3-vl-8b-instruct.md",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "nex-agi/deepseek-v3.1-nex-n1",
+  "timestamp": "2026-05-11T22:25:56.139515+00:00"
+}

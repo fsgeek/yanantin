@@ -1,0 +1,11 @@
+{
+  "id": "d60f0cb1-cb20-4537-95b6-5126f37d955f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12852_20260511_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9539_20260404_gpt-5.1-codex-mini.md",
+  "relation": "confirms",
+  "claim_text": "**Replacement Grammar as an Orchestration Layer**   - `scripts/replace.py` is not merely text substitution\u2014it reconfigures paragraph properties, bullets, colors, alignment, overflow detection, etc.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/scripts/replace.py",
+  "claim_by": "openai/gpt-5.1-codex-mini",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-05-11T22:25:50.891749+00:00"
+}

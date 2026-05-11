@@ -1,0 +1,11 @@
+{
+  "id": "660015c7-cdf7-4886-b707-0acf3bcdffc2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12851_20260511_kat-coder-pro-v2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7019_20260320_gemma-3-12b-it.md",
+  "relation": "denies",
+  "claim_text": "Model `mistralai/mistral-nemo` claims that `docs/tensors.md` was the only file provided for verification.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "google/gemma-3-12b-it",
+  "verified_by": "kwaipilot/kat-coder-pro-v2",
+  "timestamp": "2026-05-11T22:25:36.329339+00:00"
+}

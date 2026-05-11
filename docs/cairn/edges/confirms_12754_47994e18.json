@@ -1,0 +1,11 @@
+{
+  "id": "47994e18-93ef-4e8e-8da3-f11e3c8a82f7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12754_20260511_llama-3.3-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7177_20260321_qwen-2.5-72b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Closing The `minimal-plugin.md` file provides a clear and concise example of a basic Claude plugin.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/plugin-structure/examples/minimal-plugin.md",
+  "claim_by": "qwen/qwen-2.5-72b-instruct",
+  "verified_by": "meta-llama/llama-3.3-70b-instruct",
+  "timestamp": "2026-05-11T09:22:10.051780+00:00"
+}

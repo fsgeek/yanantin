@@ -1,0 +1,11 @@
+{
+  "id": "a8509824-4314-44a7-874b-26a75ee8c278",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12749_20260511_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5320_20260310_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "**Test Operators and Truncation**: The `test_operators.py` file, upon inspection, appears to be complete and lacks any \"...\"-truncation.",
+  "claim_file": "tests/unit/test_operators.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-05-11T08:51:37.671539+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "5b434a74-bd46-4fac-8d0a-ba45f006a84e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12750_20260511_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3118_20260226_qwen3-vl-235b-a22b-instruct.md",
+  "relation": "denies",
+  "claim_text": "But the portrait is distorted: models hallucinate ghosts (`predecessors.md`, `scourer.py`), and the compaction tensor admits its own limitations.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "qwen/qwen3-vl-235b-a22b-instruct",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-05-11T08:51:40.793342+00:00"
+}

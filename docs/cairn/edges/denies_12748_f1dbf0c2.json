@@ -1,0 +1,11 @@
+{
+  "id": "f1dbf0c2-5298-4c11-acd1-3b7b906d7ed0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12748_20260511_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7319_20260322_deepseek-r1-distill-qwen-32b.md",
+  "relation": "denies",
+  "claim_text": "``` ``` ### Reasoning The file `tests/__init__.py` is empty and does not contain any code or information that could be used to determine what the \"memory\" source is or how it integrates with the rest of the system.",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "deepseek/deepseek-r1-distill-qwen-32b",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-05-11T08:51:36.369510+00:00"
+}

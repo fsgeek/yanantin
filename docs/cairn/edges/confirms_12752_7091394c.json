@@ -1,0 +1,11 @@
+{
+  "id": "7091394c-9e0a-4d4e-880b-c2615ad29fec",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12752_20260511_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10906_20260411_rnj-1-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim lists additional files (`clients/openrouter.py`, `ingest/markdown_parser.py`, `ingest/tensor_ballot.py`) that are not present in the supplied content.",
+  "claim_file": "src/yanantin/apacheta/ingest/markdown_parser.py",
+  "claim_by": "essentialai/rnj-1-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-11T09:21:29.155225+00:00"
+}

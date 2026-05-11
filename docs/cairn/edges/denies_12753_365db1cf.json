@@ -1,0 +1,11 @@
+{
+  "id": "365db1cf-6531-43af-ad02-1cad6cc07374",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12753_20260511_deepseek-v3.1-terminus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9067_20260401_nemotron-nano-9b-v2.md",
+  "relation": "denies",
+  "claim_text": "- **Implications**: This suggests a deliberate design choice to limit the public API, possibly to enforce a single entry point (`gateway.py`).",
+  "claim_file": "src/yanantin/apacheta/clients/gateway.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "deepseek/deepseek-v3.1-terminus",
+  "timestamp": "2026-05-11T09:21:40.545023+00:00"
+}

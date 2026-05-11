@@ -1,0 +1,11 @@
+{
+  "id": "aaec87b8-f043-439a-b16a-effcc8df20b1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12780_20260511_deepseek-v3.1-nex-n1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5866_20260313_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "**Documentation and reviews**: Files like `scout_2803_20260224_ui-tars-1.5-7b.md` and `scout_reviewer.md` suggest a documentation and review process for the project, potentially involving the chasqui scouts and other reviewers.",
+  "claim_file": "docs/cairn/scout_2803_20260224_ui-tars-1.5-7b.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "nex-agi/deepseek-v3.1-nex-n1",
+  "timestamp": "2026-05-11T13:00:36.429157+00:00"
+}

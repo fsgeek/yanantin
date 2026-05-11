@@ -1,0 +1,11 @@
+{
+  "id": "b7734277-f6c4-45cd-a587-b889a3b8f7a7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12781_20260511_deepseek-v4-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9855_20260406_grok-3-mini.md",
+  "relation": "confirms",
+  "claim_text": "- **Strand 2: Persuasion's Grip on Code**   `persuasion-principles.md` (lines 5-25) applies human psych tactics (e.g., \"Authority: YOU MUST\") to skill design, backed by studies on AI compliance.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/skills/writing-skills/persuasion-principles.md",
+  "claim_by": "x-ai/grok-3-mini",
+  "verified_by": "deepseek/deepseek-v4-flash",
+  "timestamp": "2026-05-11T13:00:37.367163+00:00"
+}

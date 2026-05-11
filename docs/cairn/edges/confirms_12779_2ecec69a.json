@@ -1,0 +1,11 @@
+{
+  "id": "2ecec69a-c92a-4a7a-ad39-af4bb03d8217",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12779_20260511_llama-4-scout.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5115_20260308_ernie-4.5-vl-28b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "The claim mentions no explicit external `tensor.py` files beyond the provided one, and the evidence confirms that the file is named and located as specified.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "verified_by": "meta-llama/llama-4-scout",
+  "timestamp": "2026-05-11T13:00:22.330249+00:00"
+}

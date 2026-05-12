@@ -1,0 +1,11 @@
+{
+  "id": "ba76aa5d-0d28-433e-9c94-bbd1bed8df53",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13035_20260512_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8706_20260330_gemma-3n-e4b-it.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence \"I chose not to respond to the examination of `tests/unit/test_ingest.py` and `rummage.py`.\" ### Reasoning The file `src/yanantin/apacheta/rummage.py` does not contain the statement \"I chose not to respond to the examination of `tests/unit/test_ingest.py` and `rummage.py`\".",
+  "claim_file": "tests/unit/test_ingest.py",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-12T22:48:10.618499+00:00"
+}

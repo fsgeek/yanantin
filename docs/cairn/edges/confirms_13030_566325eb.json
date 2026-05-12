@@ -1,0 +1,11 @@
+{
+  "id": "566325eb-d876-4931-ac26-833c486b6977",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13030_20260512_qwen3.5-397b-a17b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12125_20260507_gpt-oss-safeguard-20b.md",
+  "relation": "confirms",
+  "claim_text": "The provided file is exactly `__main__.py` and includes the standard `if __name__ == \"__main__\": main()` pattern, confirming that it is designed to be executed as a module (`python -m yanantin.jabberwock`).",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "openai/gpt-oss-safeguard-20b",
+  "verified_by": "qwen/qwen3.5-397b-a17b",
+  "timestamp": "2026-05-12T22:16:05.644938+00:00"
+}

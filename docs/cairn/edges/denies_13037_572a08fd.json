@@ -1,0 +1,11 @@
+{
+  "id": "572a08fd-232d-4673-a29c-6fbbae67231d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13037_20260512_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5038_20260308_ernie-4.5-vl-28b-a3b.md",
+  "relation": "denies",
+  "claim_text": "There is no ambiguity or partial truth here: the file's content is clearly accessible and verifiable, and it includes the exception classes mentioned in the claim as being \"unrelated scout reports.\" ### Declared Losses The claim references behavior or content that is not visible in the source code alone (e.g., runtime behavior or potential use in other files like `test_arango_real.py`).",
+  "claim_file": "tests/integration/test_arango_real.py",
+  "claim_by": "baidu/ernie-4.5-vl-28b-a3b",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-05-12T23:17:51.655007+00:00"
+}

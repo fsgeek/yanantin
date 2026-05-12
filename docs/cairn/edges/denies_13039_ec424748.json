@@ -1,0 +1,11 @@
+{
+  "id": "ec424748-e987-4994-a829-8f784f889cb8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13039_20260512_hermes-3-llama-3.1-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8182_20260327_qwen3-vl-235b-a22b-instruct.md",
+  "relation": "denies",
+  "claim_text": "--- ### Declared Losses   I did not examine:   - `test_scorer.py`, `test_scourer.py`, `test_renderer.py` \u2014 these seem to be about evaluation and presentation, not epistemic structure.",
+  "claim_file": "tests/unit/test_scorer.py",
+  "claim_by": "qwen/qwen3-vl-235b-a22b-instruct",
+  "verified_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "timestamp": "2026-05-12T23:18:01.979011+00:00"
+}

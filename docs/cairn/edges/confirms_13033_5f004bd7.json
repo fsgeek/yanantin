@@ -1,0 +1,11 @@
+{
+  "id": "5f004bd7-f159-4283-ba9f-5b3adc5b4eb8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13033_20260512_gemini-2.0-flash-lite-001.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10313_20260408_voxtral-small-24b-2507.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The claim states that the presence of a `precompact_tensor.py` hook, which writes compaction tensors, suggests the project actively manages context limits.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "mistralai/voxtral-small-24b-2507",
+  "verified_by": "google/gemini-2.0-flash-lite-001",
+  "timestamp": "2026-05-12T22:48:02.275174+00:00"
+}

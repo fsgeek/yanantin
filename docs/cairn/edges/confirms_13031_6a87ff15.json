@@ -1,0 +1,11 @@
+{
+  "id": "6a87ff15-4b38-4d11-bf97-5bf20803cecf",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13031_20260512_qwen3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11995_20260507_nova-lite-v1.md",
+  "relation": "confirms",
+  "claim_text": "While the other file (`scout_0382_20260214_mistral-small-creative.md`) is mentioned in the claim, the provided file content does not address the availability of this file directly.",
+  "claim_file": "docs/cairn/scout_0382_20260214_mistral-small-creative.md",
+  "claim_by": "amazon/nova-lite-v1",
+  "verified_by": "qwen/qwen3-8b",
+  "timestamp": "2026-05-12T22:16:13.667080+00:00"
+}

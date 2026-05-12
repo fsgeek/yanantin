@@ -1,0 +1,11 @@
+{
+  "id": "b693902e-6bc7-441d-993d-6f5317b32b9f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13017_20260512_mistral-medium-3.1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5387_20260310_llama-3.1-70b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that the file `tests/red_bar/test_portability.py` contains a test that ensures no hardcoded absolute paths to the home directory are used in test files.",
+  "claim_file": "tests/red_bar/test_portability.py",
+  "claim_by": "meta-llama/llama-3.1-70b-instruct",
+  "verified_by": "mistralai/mistral-medium-3.1",
+  "timestamp": "2026-05-12T20:43:51.143387+00:00"
+}

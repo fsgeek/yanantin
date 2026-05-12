@@ -1,0 +1,11 @@
+{
+  "id": "577090f5-b5dc-4e4c-b6ec-9712e171cb1e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13013_20260512_gemma-4-26b-a4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0893_20260216_olmo-3-7b-think.md",
+  "relation": "denies",
+  "claim_text": "--- #### Strand 3: **Modularity and Composability**   **Evidence**:   - `src/yanantin/apacheta/operators/` contains modules like `compose.py` and `correct.py`, which manipulate tensors for logic (e.g., \"correcting\" data errors).",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "allenai/olmo-3-7b-think",
+  "verified_by": "google/gemma-4-26b-a4b-it",
+  "timestamp": "2026-05-12T20:15:02.527133+00:00"
+}

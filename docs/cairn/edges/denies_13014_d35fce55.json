@@ -1,0 +1,11 @@
+{
+  "id": "d35fce55-6cd2-422d-b104-0272ee4aa59a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13014_20260512_nemotron-3-nano-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11612_20260415_ministral-3b-2512.md",
+  "relation": "denies",
+  "claim_text": "Without `update-guidelines.md`, we cannot confirm the *explicit* encouragement for dynamic additions.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/claude-md-management/skills/claude-md-improver/references/update-guidelines.md",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "timestamp": "2026-05-12T20:15:04.624041+00:00"
+}

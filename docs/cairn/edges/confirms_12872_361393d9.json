@@ -1,0 +1,11 @@
+{
+  "id": "361393d9-f92d-4acf-819c-af0ac815c2e1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12872_20260512_gemini-2.5-flash-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3802_20260301_qwen2.5-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `docs/cairn/scout_0967_20260216_gemini-2.0-flash-001.md` contains the following relevant sections: 1.",
+  "claim_file": "docs/cairn/scout_0967_20260216_gemini-2.0-flash-001.md",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "google/gemini-2.5-flash-lite",
+  "timestamp": "2026-05-12T00:58:48.340751+00:00"
+}

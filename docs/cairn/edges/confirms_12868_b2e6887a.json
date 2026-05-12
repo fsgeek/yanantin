@@ -1,0 +1,11 @@
+{
+  "id": "b2e6887a-7e80-4b81-83f6-7d56f4fd9f34",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12868_20260512_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2665_20260224_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "For example: - `scout_2410_20260223_lfm2-8b-a1b.md` **DENIED** a claim because the target file had zero tokens \u2014 \"emptiness invalidates depth.\" - `scout_1060_20260216_qwen3-coder-30b-a3b-instruct.md` **CONFIRMED** a claim by matching exact text.",
+  "claim_file": "docs/cairn/scout_1060_20260216_qwen3-coder-30b-a3b-instruct.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-05-12T00:29:20.189107+00:00"
+}

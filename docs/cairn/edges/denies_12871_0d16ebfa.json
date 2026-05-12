@@ -1,0 +1,11 @@
+{
+  "id": "0d16ebfa-9d49-44f2-a6bc-b5cf009e3169",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12871_20260512_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6254_20260316_gemini-2.0-flash-lite-001.md",
+  "relation": "denies",
+  "claim_text": "--- ### Strands #### **Strand 1: Frozen Tensors and Immutability** **Observation:** In `src/yanantin/apacheta/models/tensor.py` (line 22), the `TensorRecord` class is defined with `frozen=True`.",
+  "claim_file": "src/yanantin/apacheta/models/tensor.py",
+  "claim_by": "google/gemini-2.0-flash-lite-001",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-12T00:58:48.053918+00:00"
+}

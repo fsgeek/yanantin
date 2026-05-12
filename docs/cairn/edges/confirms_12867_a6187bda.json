@@ -1,0 +1,11 @@
+{
+  "id": "a6187bda-9869-4184-bbe1-110273f2e59e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12867_20260512_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8849_20260331_sonar-pro-search.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file path is explicitly `src/yanantin/apacheta/operators/negate.py`, confirming it is a module named `negate.py` in the `operators` directory.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "perplexity/sonar-pro-search",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-05-12T00:29:19.018541+00:00"
+}

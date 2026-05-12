@@ -1,0 +1,11 @@
+{
+  "id": "9da8f449-085f-4276-b0d3-de61b41c6ffe",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12866_20260512_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11048_20260412_gemma-3-4b-it.md",
+  "relation": "denies",
+  "claim_text": "The fact that the `validate.py` script is independent of the `inventory.py` module suggests a separate concern \u2013 validating the *structure* of the presentation, rather than the content.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validate.py",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-05-12T00:29:17.387650+00:00"
+}

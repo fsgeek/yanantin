@@ -1,0 +1,11 @@
+{
+  "id": "61f8f82c-8ab8-48a1-9445-35393fc97038",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12923_20260512_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9493_20260403_ministral-3b-2512.md",
+  "relation": "confirms",
+  "claim_text": "Since the visible portion of the file does not include: - `machine_config.py` - `filesystem.py` (itself, as a reference) - `synthetic.py` - `checksum.py` (itself, as an import) The claim is **fully supported by the evidence**\u2014the file does not import or reference any of the named files.",
+  "claim_file": ".venv/lib/python3.14/site-packages/duckdb/filesystem.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-05-12T07:48:12.991387+00:00"
+}

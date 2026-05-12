@@ -1,0 +1,11 @@
+{
+  "id": "4ee2a8b9-723d-496b-b942-c728fc1cd722",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12922_20260512_gemini-2.5-flash-lite-preview-.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11431_20260414_ernie-4.5-21b-a3b-thinking.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **DENIED**   ### Evidence   The claim states that `from core.easing import interpolate` is on line 23 of `wiggle.py`.",
+  "claim_file": "tmp/ubuntu-vm.claude/slack-gif-creator/templates/wiggle.py",
+  "claim_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "verified_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "timestamp": "2026-05-12T07:48:10.290095+00:00"
+}

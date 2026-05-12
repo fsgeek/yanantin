@@ -1,0 +1,11 @@
+{
+  "id": "488c0320-3b68-42f7-a0c1-ce89b1167d6a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12927_20260512_qwen-vl-plus.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8602_20260330_nova-micro-v1.md",
+  "relation": "confirms",
+  "claim_text": "**File & Lines**: `tools/pipeline_health.py`: - `check_coverage()` meticulously checks file reviews and coverage reports to ensure the pipeline is working correctly.",
+  "claim_file": "tools/pipeline_health.py",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "qwen/qwen-vl-plus",
+  "timestamp": "2026-05-12T08:17:16.423445+00:00"
+}

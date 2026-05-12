@@ -1,0 +1,11 @@
+{
+  "id": "1ea5c597-0487-4d12-b374-d84629ab50dc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12926_20260512_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9718_20260405_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "**The claim\u2019s error**: The claim falsely asserts that the file references `test_provenance.py` as an example of a file \"not visible in the provided context.\" This is **false**\u2014the file does not mention `test_provenance.py` at all.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-12T08:17:10.614896+00:00"
+}

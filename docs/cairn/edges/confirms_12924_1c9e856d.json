@@ -1,0 +1,11 @@
+{
+  "id": "1c9e856d-52ba-46d0-b062-96f9d8004ed1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12924_20260512_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1601_20260219_qwen3-coder-flash.md",
+  "relation": "confirms",
+  "claim_text": "Yet in several scout reports (`scout_0037_20260212_lfm2-8b-a1b.md`, `scout_1488_20260218_gpt-oss-safeguard-20b.md`) which attempt to verify claims, we see denial of assertions that rely on self-referential statements in files like `docs/predecessors.md`.",
+  "claim_file": "docs/cairn/scout_0037_20260212_lfm2-8b-a1b.md",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-05-12T07:48:38.330116+00:00"
+}

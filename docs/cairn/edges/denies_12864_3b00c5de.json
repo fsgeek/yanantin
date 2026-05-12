@@ -1,0 +1,11 @@
+{
+  "id": "3b00c5de-de00-4fe2-9e3d-0bcdfca907b8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12864_20260511_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12611_20260510_qwen-2.5-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "Specifically, the file contains the following lines: ```python from yanantin.apacheta.interface.abstract import ApachetaInterface from yanantin.apacheta.models.composition import ( CompositionEdge, NegationRecord, RelationType, ) from yanantin.apacheta.models.provenance import ProvenanceEnvelope ``` These imports indicate that `negate.py` relies on other modules within the same project, suggesting that these other files (`compose.py`, `dissent.py`, `evolve.py`, `bootstrap.py`, `project.py`) are also part of the same project and would likely be present in the directory.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-05-11T23:55:15.507136+00:00"
+}

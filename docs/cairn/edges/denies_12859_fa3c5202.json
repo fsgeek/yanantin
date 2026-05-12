@@ -1,0 +1,11 @@
+{
+  "id": "fa3c5202-dbb7-470f-acb1-04816a8baf50",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12859_20260511_grok-4-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4971_20260307_kimi-k2-thinking.md",
+  "relation": "denies",
+  "claim_text": "In `src/yanantin/chasqui/model_selector.py` (lines 89-112), there's a `cost_weighted_random_sample` function that biases selection toward cheaper models.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "moonshotai/kimi-k2-thinking",
+  "verified_by": "x-ai/grok-4-fast",
+  "timestamp": "2026-05-11T23:25:59.308455+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "15dff98e-b13b-493b-8918-f47342be5578",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13007_20260512_hermes-3-llama-3.1-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10515_20260409_qwen3-32b.md",
+  "relation": "denies",
+  "claim_text": "### Verdict   **DENIED**   ### Evidence   The file imports `ApachetaInterface`, `CompositionEdge`, and `DissentRecord` from other modules but does not contain the verbs `bootstrap.py`, `compose.py`, `correct.py`, `dissent.py`, `evolve.py`, `negate.py`, or `project.py` as executable actions or function/method names within its code.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "qwen/qwen3-32b",
+  "verified_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "timestamp": "2026-05-12T18:39:57.352134+00:00"
+}

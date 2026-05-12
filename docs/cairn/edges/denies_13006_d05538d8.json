@@ -1,0 +1,11 @@
+{
+  "id": "d05538d8-1bd9-4d42-af5d-58ffb3f5d2e6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13006_20260512_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7459_20260323_llama-3.1-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "The other two files (`duckdb.py` and `memory.py`) are not present in the provided code, which means the claim is partially false.",
+  "claim_file": "src/yanantin/apacheta/backends/memory.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-05-12T18:39:49.224543+00:00"
+}

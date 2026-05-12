@@ -1,0 +1,11 @@
+{
+  "id": "a4e35165-0d8d-4493-8bf6-3e2e0e33be60",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13005_20260512_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2499_20260223_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "**Evidence from Files:** - **No direct evidence** of `scourer.py` in the provided tensors.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-05-12T18:39:48.730235+00:00"
+}

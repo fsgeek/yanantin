@@ -1,0 +1,11 @@
+{
+  "id": "3f50c078-10c7-452d-9503-63ac23ffcb6e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13002_20260512_ministral-8b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8643_20260330_ministral-3b-2512.md",
+  "relation": "confirms",
+  "claim_text": "**`scorer.py` itself** (the \"scoring algorithm\" referenced in the claim).",
+  "claim_file": "src/yanantin/chasqui/scorer.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "mistralai/ministral-8b-2512",
+  "timestamp": "2026-05-12T18:09:25.870501+00:00"
+}

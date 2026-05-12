@@ -1,0 +1,11 @@
+{
+  "id": "926e2a22-051c-48c8-925b-833e8dad5777",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13003_20260512_tongyi-deepresearch-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8982_20260401_mercury-coder.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence The file `tests/__init__.py` contains no lines (it is empty).",
+  "claim_file": "tests/__init__.py",
+  "claim_by": "inception/mercury-coder",
+  "verified_by": "alibaba/tongyi-deepresearch-30b-a3b",
+  "timestamp": "2026-05-12T18:09:26.064287+00:00"
+}

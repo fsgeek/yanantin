@@ -1,0 +1,11 @@
+{
+  "id": "1e8e3426-01a5-4673-822d-cb65465ea536",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12935_20260512_gemma-3-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0173_20260213_l3.3-euryale-70b.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand\u202f1 \u2013 Authored Loss & Narrative Compaction   - **What I saw** \u2013 The `docs/cairn/T5_20260208_post_paper.md` and `T10_20260209_post_compaction.md` tensors explicitly discuss **declared losses**: the \u201ctechnical continuity\u201d of full sessions versus the \u201cexperiential continuity\u201d lost when a session is compressed into a 4\u202fk\u2011word summary.",
+  "claim_file": "docs/cairn/T5_20260208_post_paper.md",
+  "claim_by": "sao10k/l3.3-euryale-70b",
+  "verified_by": "google/gemma-3-27b-it",
+  "timestamp": "2026-05-12T09:19:09.108352+00:00"
+}

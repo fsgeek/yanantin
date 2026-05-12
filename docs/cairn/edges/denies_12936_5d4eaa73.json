@@ -1,0 +1,11 @@
+{
+  "id": "5d4eaa73-08fb-4230-8ea1-e936994cb01b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12936_20260512_llama-4-maverick.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6027_20260314_mercury-2.md",
+  "relation": "denies",
+  "claim_text": "the file `src/yanantin/chasqui/scout.py` does indeed contain interactions with `succession.py` ...` ### Reasoning The file explicitly lists a model name, cost values, and a timestamp, satisfying the claim\u2019s reference to \u201cmodel names, costs, timestamped logs.\u201d It also contains a claim about missing interaction details and provides evidence describing how `scout.py` interacts with `succession.py`, fulfilling the \u201cinteraction descriptors\u201d part.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "inception/mercury-2",
+  "verified_by": "meta-llama/llama-4-maverick",
+  "timestamp": "2026-05-12T09:19:09.897775+00:00"
+}

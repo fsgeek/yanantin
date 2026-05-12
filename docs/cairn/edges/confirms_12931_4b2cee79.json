@@ -1,0 +1,11 @@
+{
+  "id": "4b2cee79-6d62-46f1-87b4-04b13bc31fe9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12931_20260512_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5028_20260308_olmo-3-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The claim states: > \"The file `content_address.py` explicitly discusses content addressing, as indicated by the docstring at the beginning of the file.\" Evidence from the file: The very first lines of `content_address.py` are the docstring: ```python \"\"\"Content addressing for cairn documents.",
+  "claim_file": "src/yanantin/apacheta/content_address.py",
+  "claim_by": "allenai/olmo-3-7b-instruct",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-12T08:49:20.146485+00:00"
+}

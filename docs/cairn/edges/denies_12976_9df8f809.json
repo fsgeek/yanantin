@@ -1,0 +1,11 @@
+{
+  "id": "9df8f809-f0b6-472e-a950-e2f3cd4bdcf9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12976_20260512_phi-4-mini-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1683_20260219_gpt-oss-20b.md",
+  "relation": "denies",
+  "claim_text": "<br>\u2022 `tests/unit/test_duckdb_backend.py` and `test_duckdb_independent.py` validate the DuckDB back\u2011end.",
+  "claim_file": "tests/unit/test_duckdb_independent.py",
+  "claim_by": "openai/gpt-oss-20b",
+  "verified_by": "microsoft/phi-4-mini-instruct",
+  "timestamp": "2026-05-12T14:29:20.608819+00:00"
+}

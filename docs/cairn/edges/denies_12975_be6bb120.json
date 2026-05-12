@@ -1,0 +1,11 @@
+{
+  "id": "be6bb120-ea64-4407-a094-6631aa5a9532",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12975_20260512_gemma-4-26b-a4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8175_20260327_gemini-2.0-flash-001.md",
+  "relation": "denies",
+  "claim_text": "### Verdict DENIED ### Evidence ``` ``` ### Reasoning The model claims that the `agent-a5cea87` subfolder contains a `README.md` file.",
+  "claim_file": "README.md",
+  "claim_by": "google/gemini-2.0-flash-001",
+  "verified_by": "google/gemma-4-26b-a4b-it",
+  "timestamp": "2026-05-12T14:29:20.502703+00:00"
+}

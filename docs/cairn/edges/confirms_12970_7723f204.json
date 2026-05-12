@@ -1,0 +1,11 @@
+{
+  "id": "7723f204-c5e4-4f5d-97ad-ccc9f24fc07a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12970_20260512_nova-2-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9167_20260402_qwen3.5-9b.md",
+  "relation": "confirms",
+  "claim_text": "The Persona Layering** `agent-creation-system-prompt.md` opens with: > \"You are an elite AI agent architect specializing in crafting high-performance agent configurations.\" This is a prompt *about* a prompt *about* a task.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/agent-development/references/agent-creation-system-prompt.md",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "amazon/nova-2-lite-v1",
+  "timestamp": "2026-05-12T14:00:29.916550+00:00"
+}

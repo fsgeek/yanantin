@@ -1,0 +1,11 @@
+{
+  "id": "38725848-6174-420b-ac42-c832d10a1a36",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12979_20260512_qwen-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0743_20260215_qwen3-8b.md",
+  "relation": "denies",
+  "claim_text": "The absence of `test_chasqui_files_non_empty(...)` in `src/yanantin/chasqui/scout.py` (as noted in `scout_0699_20260215_llama-3-8b-instruct.md`) suggests intentional omissions, possibly to enforce immutability or test boundaries.",
+  "claim_file": "docs/cairn/scout_0699_20260215_llama-3-8b-instruct.md",
+  "claim_by": "qwen/qwen3-8b",
+  "verified_by": "qwen/qwen-turbo",
+  "timestamp": "2026-05-12T15:02:36.566308+00:00"
+}

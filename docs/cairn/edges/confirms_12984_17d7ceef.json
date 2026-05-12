@@ -1,0 +1,11 @@
+{
+  "id": "17d7ceef-c159-4450-916c-bf7ff5cf3777",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12984_20260512_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10649_20260410_llama-3-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I chose not to examine the `test_arango_real.py` file in detail, as it seems to be focused on verifying the functionality of the ArangoDB backend.",
+  "claim_file": "tests/integration/test_arango_real.py",
+  "claim_by": "meta-llama/llama-3-8b-instruct",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-05-12T15:32:52.940501+00:00"
+}

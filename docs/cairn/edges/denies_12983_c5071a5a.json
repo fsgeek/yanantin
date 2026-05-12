@@ -1,0 +1,11 @@
+{
+  "id": "c5071a5a-d2e5-4f36-8a5f-67c969f628b3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12983_20260512_gpt-oss-120b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11497_20260414_ministral-8b-2512.md",
+  "relation": "denies",
+  "claim_text": "**Confusion**: The `pretooluse.py` docstring says *\"allow operation and log error\"*, but the `stop.py` docstring is more ambiguous.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/stop.py",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "openai/gpt-oss-120b",
+  "timestamp": "2026-05-12T15:32:40.815231+00:00"
+}

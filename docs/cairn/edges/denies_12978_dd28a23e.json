@@ -1,0 +1,11 @@
+{
+  "id": "dd28a23e-9188-450c-aae2-dbcf6739498b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12978_20260512_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11700_20260416_seed-1.6-flash.md",
+  "relation": "denies",
+  "claim_text": "### Strands   **Strand 1: The Great Granularity Divide**   The `company-newsletter.md` (audience: 1000+ people) demands \"company-wide impact\" and avoids \"overly granular team updates,\" framing progress as collective (e.g., \"we launched X\") and sectioned into broad clusters like \"product development\" or \"external news\" (lines 58-62).",
+  "claim_file": "tmp/ubuntu-vm.claude/internal-comms/examples/company-newsletter.md",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-12T15:02:35.952141+00:00"
+}

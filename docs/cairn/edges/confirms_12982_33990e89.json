@@ -1,0 +1,11 @@
+{
+  "id": "33990e89-9b2b-4be1-8999-d649b3fdbf9d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12982_20260512_gpt-oss-safeguard-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9697_20260405_aion-1.0-mini.md",
+  "relation": "confirms",
+  "claim_text": "Recurring Claims and Their Fates\", regarding the claim about `docs/predecessors.md` being absent: - \"The claim is **systematically false** but persists across models, suggesting a **semantic artifact** or **adversarial echo** in the cairn.\" - \"**Model Artifact?** Likely not; the file exists, but the claim\u2019s repetition resembles a **self-reinforcing myth**.\" Additionally, later in the \"Weaknesses and Risks\" section: - \"\u26a0\ufe0f **Adversarial Echo Chamber:** False claims about `predecessors.md` **persist and multiply**, suggesting the cairn is **generating its own noise**.\" ### Reasoning The claim states that the file calls the absence claims a \"self-reinforcing myth\" and notes that the myth persists.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "aion-labs/aion-1.0-mini",
+  "verified_by": "openai/gpt-oss-safeguard-20b",
+  "timestamp": "2026-05-12T15:32:36.309075+00:00"
+}

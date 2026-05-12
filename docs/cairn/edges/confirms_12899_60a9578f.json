@@ -1,0 +1,11 @@
+{
+  "id": "60a9578f-d1dd-48b4-b5ba-a1735724e34a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12899_20260512_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1356_20260218_nemotron-nano-9b-v2.md",
+  "relation": "confirms",
+  "claim_text": "Declared Losses: I didn't examine the actual code for the scouting algorithm in `src/yanantin/chasqui/scout.py`.",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-05-12T04:40:25.639774+00:00"
+}

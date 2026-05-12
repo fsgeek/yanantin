@@ -1,0 +1,11 @@
+{
+  "id": "b0903432-868d-4f86-812a-6a6e93558236",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12903_20260512_gemma-4-26b-a4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9969_20260406_nemotron-nano-9b-v2.md",
+  "relation": "confirms",
+  "claim_text": "The file does not explicitly state whether `tinkuy/`, `audit.py`, or `succession.py` were skipped, only that they are not mentioned.",
+  "claim_file": "src/yanantin/tinkuy/succession.py",
+  "claim_by": "nvidia/nemotron-nano-9b-v2",
+  "verified_by": "google/gemma-4-26b-a4b-it",
+  "timestamp": "2026-05-12T05:10:42.958335+00:00"
+}

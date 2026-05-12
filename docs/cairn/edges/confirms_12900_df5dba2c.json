@@ -1,0 +1,11 @@
+{
+  "id": "df5dba2c-3863-4cb9-8f73-7f4e5bb6cae2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12900_20260512_step-3.5-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5894_20260314_qwen-plus-2025-07-28.md",
+  "relation": "confirms",
+  "claim_text": "### What I Don\u2019t Know   - I don\u2019t know if `model_selector.py` is actually used.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "qwen/qwen-plus-2025-07-28",
+  "verified_by": "stepfun/step-3.5-flash",
+  "timestamp": "2026-05-12T04:40:27.816116+00:00"
+}

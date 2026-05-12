@@ -1,0 +1,11 @@
+{
+  "id": "ddfd08ad-bef9-416c-9ae6-ef3ba3b52116",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12902_20260512_tongyi-deepresearch-30b-a3b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1364_20260218_qwen3-14b.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim incorrectly asserts that `scout.py` is a Markdown tensor (a record of model output).",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "alibaba/tongyi-deepresearch-30b-a3b",
+  "timestamp": "2026-05-12T05:10:21.465566+00:00"
+}

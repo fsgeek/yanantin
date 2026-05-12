@@ -1,0 +1,11 @@
+{
+  "id": "15cbf9b1-b2e4-42f0-a717-701ec30a2cbc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13011_20260512_qwen3-30b-a3b-thinking-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9962_20260406_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "`tools/phase1/corpus_trimmer_analysis.py` projects \"tool stub savings across 813 sessions\" by using \"per-tool byte costs.\" *   **What it Made Me Think:** These scripts are the objective arbiters of the experiments.",
+  "claim_file": "tools/phase1/corpus_trimmer_analysis.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "qwen/qwen3-30b-a3b-thinking-2507",
+  "timestamp": "2026-05-12T19:42:30.897223+00:00"
+}

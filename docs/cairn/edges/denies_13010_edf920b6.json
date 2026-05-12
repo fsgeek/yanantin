@@ -1,0 +1,11 @@
+{
+  "id": "edf920b6-3948-46a5-960d-2aceb3e6b2f9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13010_20260512_devstral-small.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12447_20260509_grok-4.1-fast.md",
+  "relation": "denies",
+  "claim_text": "### Materialization Wiring `test_materialize.py`: Awaq \"weaver\" extracts labels (`T0` from `T0_20260207_bounded_verification.md`), discovers cairn tensors, converts declarations (`composes_with` \u2192 `CompositionEdge( RelationType.COMPOSES_WITH)` , `does_not_compose_with` \u2192 `NegationRecord`).",
+  "claim_file": "docs/cairn/T0_20260207_bounded_verification.md",
+  "claim_by": "x-ai/grok-4.1-fast",
+  "verified_by": "mistralai/devstral-small",
+  "timestamp": "2026-05-12T19:42:09.863045+00:00"
+}

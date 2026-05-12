@@ -1,0 +1,11 @@
+{
+  "id": "f93d4252-668f-43ac-9d8d-b33178a2079b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12962_20260512_ling-2.6-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9686_20260405_minimax-m2.7.md",
+  "relation": "denies",
+  "claim_text": "Even within the file I was given (`CLAUDE.md`), there are multiple references to other files (`docs/predecessors.md`, `docs/blueprint.md`, `docs/tensors.md`, `docs/signing.md`).",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "minimax/minimax-m2.7",
+  "verified_by": "inclusionai/ling-2.6-flash",
+  "timestamp": "2026-05-12T12:59:20.726945+00:00"
+}

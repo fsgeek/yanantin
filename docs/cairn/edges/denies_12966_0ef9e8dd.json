@@ -1,0 +1,11 @@
+{
+  "id": "0ef9e8dd-070a-48a9-ac80-304b66f64f9c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12966_20260512_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0867_20260216_seed-1.6-flash.md",
+  "relation": "denies",
+  "claim_text": "The current markdown files in the ai-honesty memory directory are the prototype.\"   - The claim states \"invents `predecessors.md`\".",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-12T13:29:06.871160+00:00"
+}

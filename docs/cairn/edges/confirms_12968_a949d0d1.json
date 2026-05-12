@@ -1,0 +1,11 @@
+{
+  "id": "a949d0d1-7377-45b4-9574-63c69cf89bb1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12968_20260512_qwen3-next-80b-a3b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2242_20260222_hermes-2-pro-llama-3-8b.md",
+  "relation": "confirms",
+  "claim_text": "Reference: `scout_0046_qwen2.5-coder-7b-instruct.md`, `tests/unit/test_tinkuy_audit.py` ### Declared Losses * I did not inspect the contents of `composition.py`.",
+  "claim_file": "tests/unit/test_tinkuy_audit.py",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "timestamp": "2026-05-12T13:29:47.526262+00:00"
+}

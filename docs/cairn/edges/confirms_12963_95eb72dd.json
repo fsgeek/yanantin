@@ -1,0 +1,11 @@
+{
+  "id": "95eb72dd-e0fe-4af0-bd31-21290307e9f6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12963_20260512_minimax-01.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1106_20260217_deepseek-v3.2.md",
+  "relation": "confirms",
+  "claim_text": "- The `awaq` module (`materialize.py`, `weaver.py`) wires **composition declarations** from tensor prose (e.g., ``) into stored `CompositionEdge` and `NegationRecord` objects.",
+  "claim_file": "src/yanantin/awaq/materialize.py",
+  "claim_by": "deepseek/deepseek-v3.2",
+  "verified_by": "minimax/minimax-01",
+  "timestamp": "2026-05-12T12:59:36.586082+00:00"
+}

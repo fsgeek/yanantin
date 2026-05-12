@@ -1,0 +1,11 @@
+{
+  "id": "87c53561-511b-4401-9410-91d088853744",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12907_20260512_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3001_20260225_gemma-3-4b-it.md",
+  "relation": "confirms",
+  "claim_text": "#### Strand 2: Parsing Tolerance and Lineage Risk * **Observation:** The scout correctly identified the lenient parsing approach in `ingest/markdown_parser.py` as a potential source of fragility.",
+  "claim_file": "src/yanantin/apacheta/ingest/markdown_parser.py",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-05-12T05:42:21.124740+00:00"
+}

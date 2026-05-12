@@ -1,0 +1,11 @@
+{
+  "id": "8eeb716e-3413-4fc5-a34c-ea831d56e514",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12910_20260512_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1362_20260218_llama-3.2-11b-vision-instruct.md",
+  "relation": "denies",
+  "claim_text": "``` This line confirms that the file `precompact_tensor.py` is indeed located in the `.claude/hooks` directory.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "meta-llama/llama-3.2-11b-vision-instruct",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-05-12T06:12:01.030713+00:00"
+}

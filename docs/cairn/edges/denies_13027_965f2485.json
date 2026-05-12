@@ -1,0 +1,11 @@
+{
+  "id": "965f2485-bc12-46e1-8a58-46b8d103a8bc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13027_20260512_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11470_20260414_qwen-turbo.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I couldn't check the content of `succession-2026-02-20.md` as it was not provided in the task, but the claim's primary assertion about `MEMORY.md` is independently verifiable and found to be false based on the provided file content.",
+  "claim_file": "tmp/ubuntu-vm.claude/projects/-home-tony-projects-pukara/memory/MEMORY.md",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-12T21:46:26.499969+00:00"
+}

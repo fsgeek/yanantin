@@ -1,0 +1,11 @@
+{
+  "id": "e2709c2a-ad94-4916-9f3f-caba2356bf07",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13025_20260512_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2242_20260222_hermes-2-pro-llama-3-8b.md",
+  "relation": "denies",
+  "claim_text": "Reference: File counts in `docs/cairn/`, `src/yanantin/model_selector.py` **Strand 2: The Compositional Ontology** Observed: The concept of tensors as \"autobiographical compressions with declared losses\" is central to the project's philosophy.",
+  "claim_file": "src/yanantin/chasqui/model_selector.py",
+  "claim_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-12T21:46:23.055700+00:00"
+}

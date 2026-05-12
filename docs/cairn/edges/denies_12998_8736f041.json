@@ -1,0 +1,11 @@
+{
+  "id": "8736f041-9621-4183-bdc6-2337f482f775",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12998_20260512_trinity-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0490_20260214_trinity-mini.md",
+  "relation": "denies",
+  "claim_text": "File Exclusivity** - **Agreement**: The previous scout correctly identifies that `weaver.py` references `rummage.py` and external markdown files (e.g., `docs/cairn/*.md`).",
+  "claim_file": "src/yanantin/apacheta/rummage.py",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "arcee-ai/trinity-mini",
+  "timestamp": "2026-05-12T17:37:59.934892+00:00"
+}

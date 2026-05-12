@@ -1,0 +1,11 @@
+{
+  "id": "6b637835-91cd-42f8-b5d6-96cc3fcdf41b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12999_20260512_qwen3-coder-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8846_20260331_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "**Tooling Constraints: The Hidden Gatekeepers**   In `ralph-loop.md`:   > `allowed-tools: [\"Bash(${CLAUDE_PLUGIN_ROOT}/scripts/setup-ralph-loop.sh:*\"]`   And in `cancel-ralph.md`:   > `allowed-tools: [\"Bash(...)\", \"Read(...)\"]`   These are **permission markers**\u2014not just documentation.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/ralph-loop/commands/ralph-loop.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "qwen/qwen3-coder-flash",
+  "timestamp": "2026-05-12T17:38:00.224524+00:00"
+}

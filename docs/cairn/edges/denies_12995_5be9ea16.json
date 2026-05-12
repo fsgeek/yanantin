@@ -1,0 +1,11 @@
+{
+  "id": "5be9ea16-c73a-4a5a-be85-94e9d2dc46c6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12995_20260512_qwen3.5-27b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12171_20260508_llama-3.1-8b-instruct.md",
+  "relation": "denies",
+  "claim_text": "``` ### Reasoning The claim is incorrect because the file `checksum.py` does not contain the code that computes multiple algorithms in one pass.",
+  "claim_file": "src/yanantin/collector/checksum.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "qwen/qwen3.5-27b",
+  "timestamp": "2026-05-12T17:08:11.043739+00:00"
+}

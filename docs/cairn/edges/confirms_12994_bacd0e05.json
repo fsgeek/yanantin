@@ -1,0 +1,11 @@
+{
+  "id": "bacd0e05-f553-4684-a131-cbb1dfc1abd0",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12994_20260512_gemma-4-31b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10840_20260411_mistral-small-3.1-24b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "This confirms the claim that the `attestation.py` module is optional and that the system can run without a ledger.",
+  "claim_file": "src/yanantin/chasqui/attestation.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "google/gemma-4-31b-it",
+  "timestamp": "2026-05-12T17:07:58.810657+00:00"
+}

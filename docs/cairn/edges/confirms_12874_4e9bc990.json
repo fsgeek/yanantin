@@ -1,0 +1,11 @@
+{
+  "id": "4e9bc990-ab0b-495d-88db-b5d3e5ec0e2e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12874_20260512_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11685_20260416_gemini-2.5-flash-lite-preview-.md",
+  "relation": "confirms",
+  "claim_text": "If the claim was: \"The file `src/yanantin/chasqui/model_selector.py` does not contain any information about `coordinator.py`, `model_selector.py`, or `scout.py`,\" the verdict would be CONFIRMED (as `model_selector.py` doesn't import itself or the others).",
+  "claim_file": "src/yanantin/chasqui/scout.py",
+  "claim_by": "google/gemini-2.5-flash-lite-preview-09-2025",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-12T01:31:19.411665+00:00"
+}

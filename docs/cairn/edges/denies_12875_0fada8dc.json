@@ -1,0 +1,11 @@
+{
+  "id": "0fada8dc-25e3-4272-a074-1ed108bfa08d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12875_20260512_qwen3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9560_20260404_nemotron-3-super-120b-a12b.md",
+  "relation": "denies",
+  "claim_text": "Reasoning: The claim asserts that there is an interaction between a `Scout` class and other modules (e.g., `gleaner.py`, `verify.py`) that is unexamined.",
+  "claim_file": "src/yanantin/chasqui/gleaner.py",
+  "claim_by": "nvidia/nemotron-3-super-120b-a12b",
+  "verified_by": "qwen/qwen3-8b",
+  "timestamp": "2026-05-12T01:31:30.224442+00:00"
+}

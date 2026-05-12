@@ -1,0 +1,11 @@
+{
+  "id": "36b73471-4d75-4787-9dbd-a4d31434f6e2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12878_20260512_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10496_20260409_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses I chose not to examine the other template files (`code-map.md`, `concept-map.md`, etc.) in depth, as they seemed to focus on different aspects of the project.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/playground/skills/playground/templates/code-map.md",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-05-12T02:02:11.339305+00:00"
+}

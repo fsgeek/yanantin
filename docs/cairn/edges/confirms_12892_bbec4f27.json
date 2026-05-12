@@ -1,0 +1,11 @@
+{
+  "id": "bbec4f27-6f4b-47ab-9742-4895a5f73fea",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12892_20260512_qwen3-vl-8b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8257_20260327_gemma-3-4b-it.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim states that \"many scout reports reference files not visible in the provided context (e.g., `test_provenance.py` in `scout_1737_20260219_gemma-3n-e4b-it.md`).\"  This refers to external scout reports and a specific markdown file.",
+  "claim_file": "docs/cairn/scout_1737_20260219_gemma-3n-e4b-it.md",
+  "claim_by": "google/gemma-3-4b-it",
+  "verified_by": "qwen/qwen3-vl-8b-thinking",
+  "timestamp": "2026-05-12T03:37:38.837872+00:00"
+}

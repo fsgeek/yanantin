@@ -1,0 +1,11 @@
+{
+  "id": "be5b0d2f-f7e2-4a34-b175-3e8e1d2abf3a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12942_20260512_qwen3-vl-32b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10893_20260411_command-r-08-2024.md",
+  "relation": "confirms",
+  "claim_text": "My gaze is drawn to a file named `expedition-findings.md`, a log of sorts, detailing the exploration of a personal information retrieval system called Indaleko.",
+  "claim_file": "tmp/ubuntu-vm.claude/projects/-home-tony-projects-indaleko/memory/expedition-findings.md",
+  "claim_by": "cohere/command-r-08-2024",
+  "verified_by": "qwen/qwen3-vl-32b-instruct",
+  "timestamp": "2026-05-12T10:21:23.939092+00:00"
+}

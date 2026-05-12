@@ -1,0 +1,11 @@
+{
+  "id": "2982b931-65dd-4e15-82dd-8ff84984a1f7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12939_20260512_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0182_20260213_mistral-7b-instruct-v0.3.md",
+  "relation": "confirms",
+  "claim_text": "- The `TensorBallot` mechanism in `src/yanantin/apacheta/ingest/tensor_ballot.py` is likely related to this.",
+  "claim_file": "src/yanantin/apacheta/ingest/tensor_ballot.py",
+  "claim_by": "mistralai/mistral-7b-instruct-v0.3",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-05-12T09:51:08.139779+00:00"
+}

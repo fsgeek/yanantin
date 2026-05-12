@@ -1,0 +1,11 @@
+{
+  "id": "4638e7d8-b960-43e6-8c81-b8eb67098b08",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12944_20260512_aion-1.0-mini.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9506_20260404_gemma-3-12b-it.md",
+  "relation": "denies",
+  "claim_text": "spec = QuerySpec(limit=10000) result = engine.execute(spec) except Exception: logger.debug(\"Activity map: failed to query DuckDB store\", exc_info=True) return None activity_map: dict[str, datetime] = {} for fact in result.facts: data = fact.get(\"data\", {}) path = data.get(\"path\", \"\") if not path: continue # Extract mtime from fact data timestamps timestamps = data.get(\"timestamps\", {}) mtime_str = timestamps.get(\"modified\") or timestamps.get(\"mtime\") if mtime_str: try: mtime = datetime.fromisoformat(mtime_str) except (ValueError, TypeError): continue else: # Fall back to fact timestamp (collection time) try: mtime = datetime.fromisoformat(fact[\"timestamp\"]) except (ValueError, TypeError, KeyError): continue # Make timezone-aware if naive if mtime.tzinfo is None: mtime = mtime.replace(tzinfo=timezone.utc) # Convert to relative path try: rel = str(Path(path).relative_to(project_root)) except ValueError: continue # Keep the most recent observation per file if rel not in activity_map or mtime > activity_map[rel]: activity_map[rel] = mtime return activity_map if activity_map else None ``` ### Reasoning The claim states that the implementation includes `InMemoryBackend`, `coordinator.py`, and `analyst.py`.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "google/gemma-3-12b-it",
+  "verified_by": "aion-labs/aion-1.0-mini",
+  "timestamp": "2026-05-12T10:22:33.888899+00:00"
+}

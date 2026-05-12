@@ -1,0 +1,11 @@
+{
+  "id": "78e8a1f5-bd9a-4232-992a-58003bfb6c63",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12946_20260512_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8801_20260331_deepseek-r1-0528.md",
+  "relation": "confirms",
+  "claim_text": "This directly contradicts the notion that `CLAUDE.md` content is \"not provided\" in the scout file, as quoted sections are present and attributed to `CLAUDE.md`.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "deepseek/deepseek-r1-0528",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-12T10:53:17.067115+00:00"
+}

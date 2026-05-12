@@ -1,0 +1,11 @@
+{
+  "id": "86490fd0-556a-497c-8d97-472e5550d9ad",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12948_20260512_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5465_20260310_nova-micro-v1.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim states: \"The claim states that the author 'assumed' that `negate.py` might be handled via `correct.py`, but this is speculative.\" The relevant file `correct.py` does not contain any references to `negate.py`: ``` from __future__ import annotations from uuid import UUID from yanantin.apacheta.interface.abstract import ApachetaInterface from yanantin.apacheta.models.composition import ( CompositionEdge, CorrectionRecord, RelationType, ) from yanantin.apacheta.models.provenance import ProvenanceEnvelope def correct( interface: ApachetaInterface, target_tensor: UUID, original_claim: str, corrected_claim: str, *, correcting_tensor: UUID | None = None, target_strand_index: int | None = None, target_claim_id: UUID | None = None, evidence: str = \"\", provenance: ProvenanceEnvelope | None = None, ) -> CorrectionRecord: \"\"\" Correct a prior claim.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "amazon/nova-micro-v1",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-05-12T10:53:25.498378+00:00"
+}

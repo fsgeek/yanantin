@@ -1,0 +1,11 @@
+{
+  "id": "e5753cf6-5821-41e2-b978-ea3d1e73623f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12947_20260512_qwen3.5-9b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1315_20260218_qwen2.5-coder-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "<|file_sep|>/tests/test_helpers.py # Verification Assignment ## The Claim Model `mistralai/mistral-7b-instruct-v0.2` made this claim about `src/yanantin/apacheta/operators/correct.py`: > - Detailed examination of the `epistemic_metadata` usage (e.g., `T/I/F` scores) in operators like `compose.py` or `correct.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "qwen/qwen2.5-coder-7b-instruct",
+  "verified_by": "qwen/qwen3.5-9b",
+  "timestamp": "2026-05-12T10:53:20.127291+00:00"
+}

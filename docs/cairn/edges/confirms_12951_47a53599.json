@@ -1,0 +1,11 @@
+{
+  "id": "47a53599-0369-411e-8138-327a64445c0c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12951_20260512_gpt-3.5-turbo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1037_20260216_glm-4.5.md",
+  "relation": "confirms",
+  "claim_text": "From `docs/cairn/scout_0344_20260213_qwen-2.5-7b-instruct.md`, we see that `ApachetaBaseModel` enforces structural immutability with `frozen=True`.",
+  "claim_file": "docs/cairn/scout_0344_20260213_qwen-2.5-7b-instruct.md",
+  "claim_by": "z-ai/glm-4.5",
+  "verified_by": "openai/gpt-3.5-turbo",
+  "timestamp": "2026-05-12T11:23:15.716497+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "94003ae3-d1f6-45d7-a718-e3fd189ff88f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12918_20260512_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4933_20260307_gemma-3-27b-it.md",
+  "relation": "denies",
+  "claim_text": "The claim that the code does not examine the interaction between `bootstrap.py` and other components is therefore accurate based on the given source code.",
+  "claim_file": "src/yanantin/apacheta/operators/bootstrap.py",
+  "claim_by": "google/gemma-3-27b-it",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-12T07:15:06.578875+00:00"
+}

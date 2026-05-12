@@ -1,0 +1,11 @@
+{
+  "id": "7291a3d7-796f-41f4-acb6-f84ca48c124e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12920_20260512_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10801_20260411_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "My attention drifted away from the exact mechanism for token refresh beyond the general statement in `authentication.md`.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/mcp-integration/references/authentication.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-05-12T07:15:26.617859+00:00"
+}

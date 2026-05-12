@@ -1,0 +1,11 @@
+{
+  "id": "544436e4-877c-41d9-b3b9-f8342690334a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12914_20260512_gemini-2.5-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10628_20260410_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The existence of the test function `test_check_succession_returns_list_against_real_project` in the file `tests/unit/test_tinkuy_succession.py` directly refutes the claim that the model did not examine this file.",
+  "claim_file": "tests/unit/test_tinkuy_succession.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "google/gemini-2.5-flash",
+  "timestamp": "2026-05-12T06:44:02.151521+00:00"
+}

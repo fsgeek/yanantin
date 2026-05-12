@@ -1,0 +1,11 @@
+{
+  "id": "28ef1a58-b39e-48e0-b928-d29f63f09369",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12990_20260512_qwen3-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6920_20260320_llama-4-maverick.md",
+  "relation": "denies",
+  "claim_text": "#### Strand 2: Tensor Structure and Composition * What I saw: The `docs/cairn` directory contains numerous scout reports (e.g., `scout_3970_20260302_qwen-2.5-7b-instruct.md`, `scout_3158_20260226_mistral-small-3.2-24b-instruct.md`) that follow a structured format, including sections like \"Preamble\", \"Strands\", \"Declared Losses\", and \"Open Questions\".",
+  "claim_file": "docs/cairn/scout_3970_20260302_qwen-2.5-7b-instruct.md",
+  "claim_by": "meta-llama/llama-4-maverick",
+  "verified_by": "qwen/qwen3-32b",
+  "timestamp": "2026-05-12T16:35:25.973820+00:00"
+}

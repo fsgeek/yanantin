@@ -1,0 +1,11 @@
+{
+  "id": "cb2a60b5-d43f-41e6-ae70-f55afcd2e843",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12991_20260512_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1440_20260218_grok-3-mini-beta.md",
+  "relation": "confirms",
+  "claim_text": "It references OpenTimestamps for anchoring commits, forming a chain that's checked in `chasqui_pulse.py`.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "x-ai/grok-3-mini-beta",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-05-12T16:35:31.255483+00:00"
+}

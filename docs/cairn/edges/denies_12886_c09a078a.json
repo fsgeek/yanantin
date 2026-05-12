@@ -1,0 +1,11 @@
+{
+  "id": "c09a078a-11ba-4f7e-96db-e25352125c7a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12886_20260512_gemini-2.5-flash-lite.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8896_20260331_command-r7b-12-2024.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning The claim states that no lines in the file confirm the existence of specific functions (`correct.py`, `evolve.py`, `negate.py`, or `project.py`).",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "google/gemini-2.5-flash-lite",
+  "timestamp": "2026-05-12T03:04:11.246878+00:00"
+}

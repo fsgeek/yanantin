@@ -1,0 +1,11 @@
+{
+  "id": "b5196d5f-e923-4a4d-ae3a-747abd665f8f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12882_20260512_nova-micro-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0410_20260214_qwen-turbo.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict CONFIRMED ### Evidence The file contains this line: \"The `agents` directory contains `scout_reviewer.md` and `structured_reviewer.md`.\" ### Reasoning The claim accurately states that the `agents` directory contains `scout_reviewer.md` and `structured_reviewer.md`.",
+  "claim_file": "agents/scout_reviewer.md",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "amazon/nova-micro-v1",
+  "timestamp": "2026-05-12T02:36:07.432296+00:00"
+}

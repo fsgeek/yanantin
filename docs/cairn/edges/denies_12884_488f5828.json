@@ -1,0 +1,11 @@
+{
+  "id": "488f5828-2b52-4623-80a3-03310de3e536",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12884_20260512_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9898_20260406_longcat-flash-chat.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **INDETERMINATE** ### Evidence The claim made by `qwen/qwen-turbo` is:   > \"The claim introduces two additional files (`model_selector.py` and `coordinator.py`) that are not part of the file being verified (`scripts/ingest_cairn.py`).\" The file content provided is for `src/yanantin/chasqui/coordinator.py`, which includes: - `from yanantin.chasqui.model_selector import ModelInfo, ModelSelector` (line 29) - `from yanantin.chasqui.scout import [...]` (lines 30-36) - The whole file is `coordinator.py` itself.",
+  "claim_file": "src/yanantin/chasqui/coordinator.py",
+  "claim_by": "meituan/longcat-flash-chat",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-12T02:36:10.917949+00:00"
+}

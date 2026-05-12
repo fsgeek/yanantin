@@ -1,0 +1,11 @@
+{
+  "id": "1b0bc5a9-6830-400e-884b-596860a7ece5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12955_20260512_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5584_20260311_gemini-2.5-flash-lite.md",
+  "relation": "confirms",
+  "claim_text": "The provided file is `src/yanantin/apacheta/operators/compose.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-05-12T11:55:19.857877+00:00"
+}

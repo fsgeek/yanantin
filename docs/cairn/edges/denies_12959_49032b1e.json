@@ -1,0 +1,11 @@
+{
+  "id": "49032b1e-2fd9-4e33-a4e3-67f511b4db31",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12959_20260512_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0894_20260216_ministral-14b-2512.md",
+  "relation": "denies",
+  "claim_text": "- The `scout_0546_20260214_ministral-3b-2512.md` report highlights the **tension** between: - The audit tool (which only checks filesystem structure) - The succession protocol (which requires blueprint verification) - The `scout_0140_20260212_nova-micro-v1.md` report suggests the blueprint might be a **schema**, not just a document.",
+  "claim_file": "docs/cairn/scout_0140_20260212_nova-micro-v1.md",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-05-12T12:25:39.976963+00:00"
+}

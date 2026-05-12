@@ -1,0 +1,11 @@
+{
+  "id": "4dfcefb8-11fb-4781-9e40-55d85486206f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12960_20260512_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8470_20260328_llama-3.1-70b-instruct.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `tests/unit/test_tinkuy_audit.py` contains a comprehensive set of tests for the `yanantin.tinkuy.audit` module, covering various aspects of the codebase audit tool.",
+  "claim_file": "tests/unit/test_tinkuy_audit.py",
+  "claim_by": "meta-llama/llama-3.1-70b-instruct",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-05-12T12:25:47.985702+00:00"
+}

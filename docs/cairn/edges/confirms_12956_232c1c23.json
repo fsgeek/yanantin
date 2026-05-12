@@ -1,0 +1,11 @@
+{
+  "id": "232c1c23-c93d-4202-aec1-2809a429d101",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12956_20260512_gpt-5-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2895_20260225_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "The Scourer\u2019s Recursive Gaze**   *What I saw*: The `scour_0171_20260223_llama-3.1-8b-instruct.md` report is a *scour* (not a scout) of the `chasqui` module.",
+  "claim_file": "docs/cairn/scour_0171_20260223_llama-3.1-8b-instruct.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "openai/gpt-5-nano",
+  "timestamp": "2026-05-12T11:55:42.420767+00:00"
+}

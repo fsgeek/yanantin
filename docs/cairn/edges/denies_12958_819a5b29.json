@@ -1,0 +1,11 @@
+{
+  "id": "819a5b29-eefe-4e9d-b943-2e01eea09284",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_12958_20260512_mistral-large-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0323_20260213_olmo-3-7b-instruct.md",
+  "relation": "denies",
+  "claim_text": "**Backend Abstraction and Decoupling** In `src/yanantin/apacheta/backends/__init__.py` and the referenced `arango.py`, the code suggests a decoupled architecture for storage\u2014dictionaries, SQL, document and graph backends are all treated as pluggable options.",
+  "claim_file": "src/yanantin/apacheta/backends/__init__.py",
+  "claim_by": "allenai/olmo-3-7b-instruct",
+  "verified_by": "mistralai/mistral-large-2512",
+  "timestamp": "2026-05-12T12:25:39.693447+00:00"
+}

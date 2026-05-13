@@ -32,6 +32,7 @@ class OpenRouterResponse(BaseModel):
     content: str = ""
     usage: dict[str, Any] = Field(default_factory=dict)
     raw: dict[str, Any] = Field(default_factory=dict)
+    tool_calls: list[dict[str, Any]] | None = None
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 
@@ -77,23 +78,30 @@ class OpenRouterClient:
     async def complete(
         self,
         model: str,
-        messages: list[dict[str, str]],
+        messages: list[dict[str, Any]],
         *,
         temperature: float = 0.7,
         max_tokens: int = 1000,
         metadata: dict[str, str] | None = None,
+        tools: list[dict[str, Any]] | None = None,
+        tool_choice: str | dict[str, Any] | None = None,
     ) -> OpenRouterResponse:
         """Send a chat completion request.
 
         Args:
             model: OpenRouter model ID (e.g. "anthropic/claude-haiku-4.5")
-            messages: List of {"role": ..., "content": ...} dicts
+            messages: List of role/content dicts; tool messages may carry
+                tool_call_id and structured content.
             temperature: Sampling temperature
             max_tokens: Max tokens to generate
             metadata: OpenRouter metadata for experiment tracking / cost allocation
+            tools: Optional list of OpenAI-format tool definitions to expose.
+            tool_choice: 'auto', 'none', or a forced choice dict. Only sent
+                when tools is also provided.
 
         Returns:
-            Parsed response with content, usage, and raw API response.
+            Parsed response with content, usage, raw API response, and any
+            tool_calls the model emitted.
 
         Raises:
             httpx.HTTPStatusError: On API errors (4xx, 5xx)
@@ -107,14 +115,21 @@ class OpenRouterClient:
         }
         if metadata:
             request_data["metadata"] = metadata
+        if tools is not None:
+            request_data["tools"] = tools
+            if tool_choice is not None:
+                request_data["tool_choice"] = tool_choice
 
         response = await self._client.post("/chat/completions", json=request_data)
         response.raise_for_status()
 
         raw = response.json()
         content = ""
+        tool_calls: list[dict[str, Any]] | None = None
         if raw.get("choices"):
-            content = raw["choices"][0].get("message", {}).get("content", "")
+            message = raw["choices"][0].get("message", {}) or {}
+            content = message.get("content") or ""
+            tool_calls = message.get("tool_calls") or None
 
         return OpenRouterResponse(
             id=raw.get("id", ""),
@@ -122,6 +137,7 @@ class OpenRouterClient:
             content=content,
             usage=raw.get("usage", {}),
             raw=raw,
+            tool_calls=tool_calls,
         )
 
     async def list_models(self) -> list[dict[str, Any]]:

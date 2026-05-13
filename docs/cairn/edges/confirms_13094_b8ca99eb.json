@@ -1,0 +1,11 @@
+{
+  "id": "b8ca99eb-0c71-440c-9322-d403e1307ee5",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13094_20260513_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0192_20260213_mercury.md",
+  "relation": "confirms",
+  "claim_text": "`scourer.py` introspection** | The `scourer.py` file (under `src/yanantin/chasqui/`) is described in a separate report (`scour_0004_20260212_nemotron-nano-9b-v2.md`).",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "inception/mercury",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-13T06:43:21.280307+00:00"
+}

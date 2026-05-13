@@ -1,0 +1,11 @@
+{
+  "id": "d393bbff-b10f-44ed-945c-7129c53c4659",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13093_20260513_gpt-5.1-codex-max.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10388_20260408_qwen-max.md",
+  "relation": "denies",
+  "claim_text": "- **Why:** - My attention was drawn to the `code-simplifier.md` and `type-design-analyzer.md` files due to their detailed guidelines and examples.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/code-simplifier/agents/code-simplifier.md",
+  "claim_by": "qwen/qwen-max",
+  "verified_by": "openai/gpt-5.1-codex-max",
+  "timestamp": "2026-05-13T06:43:19.820970+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "f388a59d-c0af-49a9-8502-b74d09b856b9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13095_20260513_qwen3-coder-30b-a3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1617_20260219_gpt-oss-safeguard-20b.md",
+  "relation": "confirms",
+  "claim_text": "- **Look at base classes for configuration.** The immutability and validation flags live in `base.py`; checking imports alone can be misleading.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "openai/gpt-oss-safeguard-20b",
+  "verified_by": "qwen/qwen3-coder-30b-a3b-instruct",
+  "timestamp": "2026-05-13T06:43:30.410004+00:00"
+}

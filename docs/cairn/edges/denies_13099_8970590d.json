@@ -1,0 +1,11 @@
+{
+  "id": "8970590d-068b-4c70-bba6-4b95aa195c09",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13099_20260513_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12532_20260510_mimo-v2-flash.md",
+  "relation": "denies",
+  "claim_text": "However, the file in question is `negate.py` itself, and its content does not reference `project.py` or any of the other files listed.",
+  "claim_file": "src/yanantin/apacheta/operators/project.py",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-13T07:13:20.172403+00:00"
+}

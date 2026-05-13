@@ -1,0 +1,11 @@
+{
+  "id": "0144c0b0-dda3-4a7e-b041-1911f79a0a30",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13097_20260513_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12345_20260509_qwen3-coder-next.md",
+  "relation": "confirms",
+  "claim_text": "However, since the claim about `README.md` alone is sufficient for this verdict, and the claim\u2019s *core factual assertion about `README.md`* is accurate, this omission does not affect the verdict.",
+  "claim_file": "README.md",
+  "claim_by": "qwen/qwen3-coder-next",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-13T07:13:11.015862+00:00"
+}

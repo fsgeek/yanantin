@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Pre-register a memory-tool experiment: resolve its panel against the live
+# OpenRouter catalog, write + stage the manifests, then commit. The commit
+# fires .githooks/post-commit, which OTS-stamps it — that stamp is the
+# verifiable proof the panel was current before any data was collected.
+#
+# Usage: scripts/register-experiment <experiment_id>
+set -euo pipefail
+
+EXP="${1:?usage: scripts/register-experiment <experiment_id>}"
+PREREG="experiments/memory_tools/${EXP}/preregistration.yaml"
+test -f "$PREREG" || { echo "missing $PREREG" >&2; exit 1; }
+
+uv run python -m yanantin.experiments.preregister --exp "$EXP" --stage
+git commit -m "Pre-register experiment: ${EXP} at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+echo "Pre-registered ${EXP}. OTS proof will land in docs/ots/ shortly (post-commit hook runs in background; see logs/ots.log)."

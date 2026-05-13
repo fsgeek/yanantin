@@ -446,23 +446,26 @@ Both projects have `.github/workflows/separation.yml`:
 - The boundary is GitHub infrastructure, not local hooks (agents bypassed
   local hooks in Mallku)
 
-## Succession Protocol
+## Succession Protocol (retired)
 
-Before writing your tensor (the end-of-session ritual), run:
+Retired with the yanantin → library pivot, 2026-05-13. The succession
+protocol and orphan-tensor check were load-bearing when yanantin's primary
+artifact was the cairn — an experimental package with a heartbeat writing
+tensors. As yanantin becomes a library that other systems build on, the
+governance machinery for the prior phase no longer applies. Systems built
+on top of yanantin (taste experiments, future runners, downstream
+consumers) can add their own tracking when they need it.
+
+The `tinkuy` CLI is still in-tree for anyone who wants the old housekeeping
+locally:
 
 ```bash
-uv run python -m yanantin.tinkuy
+uv run python -m yanantin.tinkuy           # audit
+uv run python -m yanantin.tinkuy --check   # succession check
 ```
 
-Compare the audit report to this blueprint. If they disagree, update the
-blueprint. Then run the succession check:
-
-```bash
-uv run python -m yanantin.tinkuy --check
-```
-
-Empty list = the map matches the territory. Non-empty = fix the blueprint
-before writing your tensor.
+It is no longer a CI gate (the `governance` job was removed from
+`.github/workflows/separation.yml`).
 
 ## How to Update This Blueprint
 

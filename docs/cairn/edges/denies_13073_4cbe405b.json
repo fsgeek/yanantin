@@ -1,0 +1,11 @@
+{
+  "id": "4cbe405b-0ed1-4ef7-9832-bcd5755e5319",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13073_20260513_gemma-3-12b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1128_20260217_mistral-small-creative.md",
+  "relation": "denies",
+  "claim_text": "**Claim Interpretation**: The claim asks whether there is *\"tension\"* between two systems: - **System A**: Cryptographic commit signing (documented in `signing.md`).",
+  "claim_file": "docs/signing.md",
+  "claim_by": "mistralai/mistral-small-creative",
+  "verified_by": "google/gemma-3-12b-it",
+  "timestamp": "2026-05-13T03:58:43.498877+00:00"
+}

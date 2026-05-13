@@ -1,0 +1,11 @@
+{
+  "id": "be47ab39-bf91-4867-8d59-b9296360ee12",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13075_20260513_mimo-v2-pro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_13013_20260512_gemma-4-26b-a4b-it.md",
+  "relation": "denies",
+  "claim_text": "\"\"\" edge = CompositionEdge( from_tensor=from_tensor, to_tensor=to_tensor, relation_type=RelationType.COMPOSES_WITH, ordering=ordering, authored_mapping=authored_mapping, provenance=provenance or ProvenanceEnvelope(), ) interface.store_composition_edge(edge) return edge ``` ### Reasoning The claim asserts that `compose.py` is a module that \"manipulate[s] tensors for logic (e.g., 'correcting' data errors).\"  The actual code in `src/yanantin/apacheta/operators/compose.py` does not manipulate tensor data or perform logic to correct errors.",
+  "claim_file": "src/yanantin/apacheta/operators/compose.py",
+  "claim_by": "google/gemma-4-26b-a4b-it",
+  "verified_by": "xiaomi/mimo-v2-pro",
+  "timestamp": "2026-05-13T03:58:46.890258+00:00"
+}

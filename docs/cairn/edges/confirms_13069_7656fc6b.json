@@ -1,0 +1,11 @@
+{
+  "id": "7656fc6b-7dd8-41f2-b38e-9cba0a140a8a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13069_20260513_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10268_20260408_mistral-small-24b-instruct-250.md",
+  "relation": "confirms",
+  "claim_text": "**JavaScript Libraries for PDF Manipulation** The `reference.md` file mentions the use of JavaScript libraries like `pdf-lib` for creating and manipulating PDFs.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/reference.md",
+  "claim_by": "mistralai/mistral-small-24b-instruct-2501",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-13T03:32:06.524152+00:00"
+}

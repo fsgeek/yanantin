@@ -1,0 +1,11 @@
+{
+  "id": "2d397724-376f-4126-b5bf-a64033913dac",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13071_20260513_l3-euryale-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9615_20260404_granite-4.0-h-micro.md",
+  "relation": "confirms",
+  "claim_text": "- **Scout Integration Points**: The `src/yanantin/chasqui` directory contains scout\u2011related utilities (`scout.py`, `analyst.py`, `attestation.py`, etc.).",
+  "claim_file": "src/yanantin/chasqui/attestation.py",
+  "claim_by": "ibm-granite/granite-4.0-h-micro",
+  "verified_by": "sao10k/l3-euryale-70b",
+  "timestamp": "2026-05-13T03:32:13.602596+00:00"
+}

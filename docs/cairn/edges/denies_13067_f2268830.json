@@ -1,0 +1,11 @@
+{
+  "id": "f2268830-5e7a-4891-a946-cad990fb5345",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13067_20260513_glm-4.6v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12576_20260510_deepseek-r1.md",
+  "relation": "denies",
+  "claim_text": "The claim references `documentation-patterns.md` lines 23-28, but this file was not provided for verification.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/command-development/references/documentation-patterns.md",
+  "claim_by": "deepseek/deepseek-r1",
+  "verified_by": "z-ai/glm-4.6v",
+  "timestamp": "2026-05-13T03:03:43.513774+00:00"
+}

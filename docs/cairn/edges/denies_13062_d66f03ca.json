@@ -1,0 +1,11 @@
+{
+  "id": "d66f03ca-1fdb-49e0-b736-c4d7c0152079",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13062_20260513_glm-4-32b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6351_20260316_qwen-2.5-72b-instruct.md",
+  "relation": "denies",
+  "claim_text": "However, the provided file `arango.py` does not contain any information about these files or behaviors.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "qwen/qwen-2.5-72b-instruct",
+  "verified_by": "z-ai/glm-4-32b",
+  "timestamp": "2026-05-13T02:29:42.416619+00:00"
+}

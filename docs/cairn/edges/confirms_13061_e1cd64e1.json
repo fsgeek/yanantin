@@ -1,0 +1,11 @@
+{
+  "id": "e1cd64e1-4127-44f9-b3b6-23b64204777c",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13061_20260513_llama-3-70b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11743_20260501_qwen-vl-plus.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **CONFIRMED** ### Evidence   Specific lines from `pyproject.toml`: ```toml [build-system] requires = [\"hatchling\"] build-backend = \"hatchling.build\" ``` ```toml [tool.hatch.metadata] allow-direct-references = true ``` ### Reasoning   The claim states that the file **\u201ccontains a `pyproject.toml` configuration, confirming the existence of a pyproject setup.\u201d** This is supported by two key sections of the file: 1.",
+  "claim_file": "pyproject.toml",
+  "claim_by": "qwen/qwen-vl-plus",
+  "verified_by": "meta-llama/llama-3-70b-instruct",
+  "timestamp": "2026-05-13T02:29:41.189877+00:00"
+}

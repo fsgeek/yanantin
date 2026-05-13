@@ -1,0 +1,11 @@
+{
+  "id": "e906e38c-8e48-40b2-a52e-682f12a838b6",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13066_20260513_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1303_20260218_grok-code-fast-1.md",
+  "relation": "denies",
+  "claim_text": "#### Strand 2: Compaction as Memory Management - **What I saw:** Files like `docs/cairn/compaction/T16_compaction_20260213_225254.md` summarize sessions with tool usage counts (e.g., \"Bash: 18, Read: 6, Task: 4\"), key artifacts modified (e.g., `src/yanantin/chasqui/__main__.py`), and \"Declared Losses\" like automation not capturing what the instance found surprising.",
+  "claim_file": "src/yanantin/chasqui/__main__.py",
+  "claim_by": "x-ai/grok-code-fast-1",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-13T03:03:20.402858+00:00"
+}

@@ -29,6 +29,6 @@ candidates:
   - {id: "qwen/qwen3-coder-30b-a3b-instruct", family: qwen,   size_tier: large-open, cost_tier: cheap}
   - {id: "openai/gpt-oss-120b",              family: gpt-oss, size_tier: large-open, cost_tier: cheap}
   # frontier-cheap
-  - {id: "anthropic/claude-haiku-4-5",       family: anthropic-haiku, size_tier: small, cost_tier: frontier-cheap}
+  - {id: "anthropic/claude-haiku-4.5",       family: anthropic-haiku, size_tier: small, cost_tier: frontier-cheap}
   - {id: "google/gemini-2.5-flash-lite",     family: google-flash-lite, size_tier: small, cost_tier: frontier-cheap}
   - {id: "deepseek/deepseek-v4-flash",       family: deepseek, size_tier: mid, cost_tier: frontier-cheap}

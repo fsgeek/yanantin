@@ -3,7 +3,8 @@
 *Not a tensor. Not a journal. A map of what exists, what connects,
 and what doesn't exist yet.*
 
-*Last updated: T39 added, Backend Policy section recorded, 2026-04-19*
+*Last updated: Experiments section added (memory-tool harness foundation: capture + pre-registration), 2026-05-13*
+*Prior update: T39 added, Backend Policy section recorded, 2026-04-19*
 *Prior update: T33 added, cairn counts updated, Pichay thresholds recalibrated, 2026-03-08. Counts and module descriptions between T34-T38 are known stale — run Tinkuy before trusting them.*
 *Last updated: T35 added, cairn counts updated, MessageStore gateway refactor, 2026-03-09*
 
@@ -155,6 +156,41 @@ Indaleko's 8-year evolution. First concrete implementation: machine config.
 | `pipeline.py` | End-to-end pipeline wiring: `open_store(backend)`, `record_and_anchor(store, recorder, envelope)`. Backend selection via string name + env vars. |
 | `__main__.py` | CLI: `uv run python -m yanantin.collector` — `--store {memory,duckdb,arango}` for fact storage, `status` and `materialize` subcommands. Machine config default keeps `--record` for tensor path. |
 | `__init__.py` | Package init, exports 14 public names. |
+
+### Experiments — Memory-Tool Harness Foundation (code: `src/yanantin/experiments/`)
+
+The data-integrity foundation for the LLM-facing memory-tool experimental
+harness. Spec: `docs/specs/2026-05-11-memory-tool-experimental-harness-design.md`.
+Brainstorm: `docs/brainstorm-llm-tool-surface.md`. This is the capture +
+pre-registration layer only — no runner, no tool surface, no experiment run
+(those are the next plan). 5 source files.
+
+| File | What it does |
+|------|-------------|
+| `capture.py` | `CaptureRecord` (pydantic v2, schema-open via `extra="allow"`, frozen, no-truncation contract: full request / full response / full error payload). `CaptureWriter` — append-only JSONL writer, one file per run, flushes on every write so a crashed run leaves a complete record of everything captured before the crash. `load_run` — replay records in file order, blank-line skip, 1-based line number on a malformed line. |
+| `catalog.py` | `fetch_openrouter_catalog()` — async GET against the OpenRouter `/models` endpoint. `catalog_snapshot_sha()` — order-sensitive sha256 fingerprint of the catalog body, so "were these models current?" has a verifiable answer. |
+| `panel.py` | Panel-as-criteria, not hardcoded IDs. `CandidateModel`, `PanelCriteria` (panel_id, rationale, context_length_min, exclude_patterns, candidates), `ResolvedModel`, `ResolvedPanel` (with `resolved_at` and `catalog_snapshot_sha`). `resolve_panel(criteria, catalog)` validates each candidate against the live catalog and enriches with current pricing / context limits. **Two failure modes, deliberately distinguished:** integrity (id not in catalog → raise) vs policy filter (matches `exclude_patterns` or fails `context_length_min` → skip). The design distinction came from independent test authorship — the original plan collapsed both into raise; Codex reading the spec called the filter semantics. |
+| `preregister.py` | CLI: `python -m yanantin.experiments.preregister --exp <id> [--dry-run] [--stage] [--catalog-json <path>]`. Reads the experiment's `preregistration.yaml`, resolves its panel against the live catalog (or a `--catalog-json` for tests), writes `<panel_id>.resolved.yaml`, patches the preregistration.yaml with `panel_resolved` / `resolved_at` / `catalog_snapshot_sha`. With `--stage`, git-adds the three files. The commit itself is done by `scripts/register-experiment` so the OTS post-commit hook stamps it — that stamp is the verifiable record that the panel was current as of when, before any data was collected. |
+| `__init__.py` | Package docstring. |
+
+**Sandbox files:**
+- `experiments/memory_tools/panels/iteration_v1.criteria.yaml` — first panel criteria (~17 current-gen candidates spanning family × size × cost). Candidate ids are best-effort from the cairn scout corpus as of 2026-05-12; `preregister --dry-run` against the live catalog is what nails them down (rotated-out slugs surface as `ValueError`-on-integrity, by design).
+- `scripts/register-experiment` — bash wrapper: invoke `preregister --stage`, then `git commit`. The OTS post-commit hook (`.claude/hooks/ots_stamp.py`) does the rest.
+- `tests/experiments/fixtures/openrouter_models_sample.json` — small static `/models` body for unit tests.
+
+**25 tests** across 5 files (10 capture, 3 catalog, 5 panel, 7 preregister)
+plus one `@pytest.mark.integration` smoke test (real OpenRouter call → 
+`CaptureRecord` → write → load) that skips without `OPENROUTER_API_KEY`. Tests
+authored by Codex (GPT-5.3-codex) under builder/tester separation — the
+panel/preregister test files are spec-driven (Codex read the spec and decided
+coverage, rather than transcribing a prescribed assertion list), which caught
+the policy-vs-integrity design ambiguity in `resolve_panel`.
+
+**Next plan** (`docs/plans/2026-05-13-memory-tool-harness-runner-and-tools.md`,
+to be written): extend `OpenRouterClient` for function-calling tool definitions,
+the runner loop (model × tool_variant × prompt → capture), the six tool functions
+(`find_objects`, `get_object`, `sample_objects`, `have_i_called`, `have_i_requested`,
+`request_capability`), the prompt corpus, and the name-effect experiment.
 
 ### Pukara — Fortress Gateway (separate project: `/home/tony/projects/pukara/`)
 

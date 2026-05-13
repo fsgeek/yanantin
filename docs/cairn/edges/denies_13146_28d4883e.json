@@ -1,0 +1,11 @@
+{
+  "id": "28d4883e-a179-4cfd-b4f8-3c3e431028eb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13146_20260513_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10625_20260410_qwen3-235b-a22b-2507.md",
+  "relation": "denies",
+  "claim_text": "**Cairn as Epistemic Ledger** (`test_materialize.py`, `test_coverage.py`)   The word `cairn` appears everywhere \u2014 not just in paths (`CAIRN_DIR`), but in function names (`discover_cairn_tensors`, `scan_cairn_coverage`).",
+  "claim_file": "tests/unit/test_materialize.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-05-13T13:32:41.648741+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "7de647a5-db4c-4cce-8810-b8667dc3c034",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13148_20260513_deepseek-v4-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0081_20260212_olmo-3-32b-think.md",
+  "relation": "denies",
+  "claim_text": "- Scout report `scout_0070_20260212_llama-guard-3-8b.md` (line 15: \"mean entropy is wrong for citations\") aligns, but the codebase lacks alternative metrics (e.g., `max_entropy` or `entropy_std`).",
+  "claim_file": "docs/cairn/scout_0070_20260212_llama-guard-3-8b.md",
+  "claim_by": "allenai/olmo-3-32b-think",
+  "verified_by": "deepseek/deepseek-v4-flash",
+  "timestamp": "2026-05-13T13:32:57.530824+00:00"
+}

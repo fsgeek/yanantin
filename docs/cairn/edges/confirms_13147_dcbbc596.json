@@ -1,0 +1,11 @@
+{
+  "id": "dcbbc596-bf37-453a-a6b4-77df2762db85",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13147_20260513_qwen3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7980_20260326_llama-3.3-70b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The code snippet in the claim is present in the file, but it does not support the assumption that `negate.py` might be handled via `correct.py`.",
+  "claim_file": "src/yanantin/apacheta/operators/correct.py",
+  "claim_by": "meta-llama/llama-3.3-70b-instruct",
+  "verified_by": "qwen/qwen3-8b",
+  "timestamp": "2026-05-13T13:32:49.189204+00:00"
+}

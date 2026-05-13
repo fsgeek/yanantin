@@ -1,0 +1,82 @@
+experiment_id: name_effect_v1
+panel_id: iteration_v1
+rationale: "Test whether the *name* of an associative-memory tool measurably affects\n\
+  call-success rate and task-completion rate, holding description,\nparameter schema,\
+  \ and implementation constant. Three variants:\nfind_objects (verb-object, prior-correcting),\
+  \ search (bare verb, REST\nprior), query (bare verb, database prior). Identical\
+  \ descriptions,\nidentical signatures, identical Python implementation \u2014 only\
+  \ the\nfunction name advertised in the tool schema differs.\n"
+hypothesis: 'H1: Call-success rate (model emits a syntactically valid tool_call
+
+  matching the parameters schema) differs measurably across variants.
+
+  H2: Task-completion rate (the model reports the correct answer within
+
+  max_turns turns) differs measurably across variants.
+
+  Null: descriptions are doing all the work; name is observably noise.
+
+  '
+variants:
+- find_objects_v1
+- search_v1
+- query_v1
+prompts:
+- find_a_record
+- find_by_lineage
+- find_by_author
+budgets:
+  cost_ceiling_usd: 0.5
+  max_turns_per_task: 6
+  query_budget_per_task: 12
+  per_call_timeout_s: 60
+  max_tokens: 16384
+sandbox:
+  apacheta_tier: test
+  read_only: true
+analyses:
+- per_variant_call_success
+- per_variant_task_completion
+- per_model_cross_variant_consistency
+- workaround_patterns
+analyses_notes: 'per_variant_call_success: fraction of tasks whose first turn carries
+  a
+
+  valid tool_call against the schema.
+
+  per_variant_task_completion: fraction of tasks ending in
+
+  terminated_by == ''final_content'' (vs max_turns / tool_error / http_error).
+
+  per_model_cross_variant_consistency: do small vs mid vs large-open vs
+
+  frontier-cheap converge or diverge?
+
+  workaround_patterns: tasks where the model called the tool with
+
+  matching == {} or with all three filter keys set (triggering
+
+  ignored_filters).
+
+  '
+findings_carried_forward: "Not every model on the iteration_v1 panel has tool-capable\
+  \ endpoints\non OpenRouter (verified 2026-05-13: meta-llama/llama-3.2-1b-instruct\n\
+  returns 404 \"No endpoints found that support tool use\" for any tools\nrequest).\
+  \ The runner captures these as terminated_by='http_error',\nso the analysis must\
+  \ filter models with 100% http_error rate from\nthe per-variant call-success comparison\
+  \ \u2014 but the FACT that a model\nhas no tool endpoints is itself a population-level\
+  \ finding worth\nreporting.\n"
+notes: 'The runner writes one CaptureRecord per LLM call. Multi-turn trajectories
+
+  share a task_id and are linked by parent_record_id; the last record per
+
+  task carries a terminated_by reason. panel_id resolution + OTS proof is
+
+  committed in iteration_v1.resolved.yaml; this experiment runs against
+
+  whichever models that resolution names.
+
+  '
+panel_resolved: experiments/memory_tools/panels/iteration_v1.resolved.yaml
+resolved_at: '2026-05-13T14:08:04.893846+00:00'
+catalog_snapshot_sha: 5acb90aadac3d0fd855a22b9e0a3e34ce800ee46d14a72b7c58255d754d5abe5

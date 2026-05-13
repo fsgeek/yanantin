@@ -1,0 +1,11 @@
+{
+  "id": "3fbc1209-bf1f-4682-b924-62b1d1a48186",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13079_20260513_unslopnemo-12b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1033_20260216_nemotron-3-nano-30b-a3b.md",
+  "relation": "confirms",
+  "claim_text": "| | **Creative\u2011Writing / Metaphorical Files** | Files like `T13_20260211_the_gradient.md` and `T15_20260212_the_enemy.md` embed poetic language (\u201cthe doctrine of synaptic scatter\u201d).",
+  "claim_file": "docs/cairn/T13_20260211_the_gradient.md",
+  "claim_by": "nvidia/nemotron-3-nano-30b-a3b",
+  "verified_by": "thedrummer/unslopnemo-12b",
+  "timestamp": "2026-05-13T04:31:46.109330+00:00"
+}

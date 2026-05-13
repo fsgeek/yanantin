@@ -1,0 +1,11 @@
+{
+  "id": "515605fc-e2b7-455c-a5c6-0b967d4d8aae",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13078_20260513_hermes-2-pro-llama-3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9961_20260406_grok-4-fast.md",
+  "relation": "denies",
+  "claim_text": "- No import statements reference `duckdb.py` (e.g., no `from yanantin.apacheta.backends.duckdb` or similar).",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "x-ai/grok-4-fast",
+  "verified_by": "nousresearch/hermes-2-pro-llama-3-8b",
+  "timestamp": "2026-05-13T04:31:42.263970+00:00"
+}

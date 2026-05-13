@@ -1,0 +1,11 @@
+{
+  "id": "cdd63d7e-2bcb-4b1d-83e5-b8f478e8711e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13077_20260513_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8724_20260330_l3-lunaris-8b.md",
+  "relation": "confirms",
+  "claim_text": "The presence of this class and its methods confirms the existence of `duckdb.py` as claimed.",
+  "claim_file": "src/yanantin/apacheta/backends/duckdb.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-13T04:31:41.896305+00:00"
+}

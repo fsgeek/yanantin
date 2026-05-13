@@ -1,0 +1,11 @@
+{
+  "id": "dd8c92ec-0f07-4646-8666-9ed6e40156ec",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13081_20260513_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9619_20260404_gemma-3n-e4b-it.md",
+  "relation": "confirms",
+  "claim_text": "(See: `hooks-patterns.md`, section \"Protection Hooks\").",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/claude-code-setup/skills/claude-automation-recommender/references/hooks-patterns.md",
+  "claim_by": "google/gemma-3n-e4b-it",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-05-13T05:01:01.866517+00:00"
+}

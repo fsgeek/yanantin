@@ -1,0 +1,11 @@
+{
+  "id": "ae7dd36f-144d-4b1c-bdbb-33f919c098ee",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13110_20260513_qwen3-vl-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10011_20260406_qwen-2.5-7b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict INDETERMINATE ### Evidence There is no specific evidence in the file `tests/unit/test_arango_independent.py` that confirms the claim made by `x-ai/grok-4.1-fast`, which states that `test_arango_independent.py` is comprehensive and confirms `docs/cairn/scout_2858_20260225_llama-3.2-3b-instruct.md`.",
+  "claim_file": "tests/unit/test_arango_independent.py",
+  "claim_by": "qwen/qwen-2.5-7b-instruct",
+  "verified_by": "qwen/qwen3-vl-8b-instruct",
+  "timestamp": "2026-05-13T08:49:42.540869+00:00"
+}

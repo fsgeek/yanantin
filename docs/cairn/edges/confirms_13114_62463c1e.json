@@ -1,0 +1,11 @@
+{
+  "id": "62463c1e-b3a0-4520-afbf-610a016c10db",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13114_20260513_hermes-3-llama-3.1-70b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8020_20260326_glm-4.5-air.md",
+  "relation": "confirms",
+  "claim_text": "The Tension Between Control and Exploration There's an interesting duality in interaction design: - Templates like `design-playground.md` and `data-explorer.md` emphasize direct manipulation (sliders, toggles, dropdowns) - While `concept-map.md` and `code-map.md` prioritize open exploration (drag-to-arrange, click-to-connect) The prompt generation logic in each reveals different philosophies: - Data/design prompts generate specifications (\"Make it with X properties\") - Concept/code map prompts generate learning requests (\"Explain these relationships to me\") #### 3.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/playground/skills/playground/templates/code-map.md",
+  "claim_by": "z-ai/glm-4.5-air",
+  "verified_by": "nousresearch/hermes-3-llama-3.1-70b",
+  "timestamp": "2026-05-13T09:19:22.596193+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "539f7ed8-3577-4270-8bb3-604c47d63671",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13113_20260513_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0566_20260214_ministral-14b-2512.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses - The claim references **external context** (e.g., \"previous scout's tensor\") that is not present in `apacheta.md`.",
+  "claim_file": "docs/apacheta.md",
+  "claim_by": "mistralai/ministral-14b-2512",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-13T09:19:20.341288+00:00"
+}

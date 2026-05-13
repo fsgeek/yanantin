@@ -1,0 +1,11 @@
+{
+  "id": "158b49d1-d25e-4451-bac1-07564383784e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13109_20260513_deepseek-v4-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6683_20260318_l3-lunaris-8b.md",
+  "relation": "denies",
+  "claim_text": "Observed in: `weaver.py`, `materializer.py`, `composition.py` 2.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "sao10k/l3-lunaris-8b",
+  "verified_by": "deepseek/deepseek-v4-flash",
+  "timestamp": "2026-05-13T08:49:24.411688+00:00"
+}

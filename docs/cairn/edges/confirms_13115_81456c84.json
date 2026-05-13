@@ -1,0 +1,11 @@
+{
+  "id": "81456c84-9144-456a-8ae5-fbf903256d99",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13115_20260513_deepseek-v3.2.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10968_20260412_qwen3-coder.md",
+  "relation": "confirms",
+  "claim_text": "The Specificity of \"Wrong\"** The `condition-based-waiting.md` file and its example (`condition-based-waiting-example.ts`) provide a concrete, technical example of a \"symptom fix\" - using arbitrary `sleep` calls instead of waiting for a condition.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/skills/systematic-debugging/condition-based-waiting.md",
+  "claim_by": "qwen/qwen3-coder",
+  "verified_by": "deepseek/deepseek-v3.2",
+  "timestamp": "2026-05-13T09:19:24.823887+00:00"
+}

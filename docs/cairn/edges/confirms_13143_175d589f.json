@@ -1,0 +1,11 @@
+{
+  "id": "175d589f-cd67-492a-a96e-118a5b9228bb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13143_20260513_gpt-5-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0528_20260214_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "- `test_provenance.py`: No orphaned records.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "openai/gpt-5-nano",
+  "timestamp": "2026-05-13T13:00:26.488775+00:00"
+}

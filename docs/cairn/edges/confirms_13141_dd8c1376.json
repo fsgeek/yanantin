@@ -1,0 +1,11 @@
+{
+  "id": "dd8c1376-aae2-4459-9d06-cdaf68f345ea",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13141_20260513_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_7224_20260321_kimi-k2.md",
+  "relation": "confirms",
+  "claim_text": "`design-playground.md` promises a live preview that mutates `border-radius` in real time\u2014yet the only JavaScript is a three-line straw-man.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/playground/skills/playground/templates/design-playground.md",
+  "claim_by": "moonshotai/kimi-k2",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-05-13T13:00:11.227863+00:00"
+}

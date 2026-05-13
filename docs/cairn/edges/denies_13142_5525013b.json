@@ -1,0 +1,11 @@
+{
+  "id": "5525013b-1dee-4769-a742-15f503abd07b",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13142_20260513_qwen3-next-80b-a3b-thinking.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9830_20260405_mimo-v2-omni.md",
+  "relation": "denies",
+  "claim_text": "The second part of the claim\u2014that `CLAUDE.md` is established as foundational while `docs/blueprint.md` is described as the primary source of architectural information\u2014is partially supported.",
+  "claim_file": "docs/blueprint.md",
+  "claim_by": "xiaomi/mimo-v2-omni",
+  "verified_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "timestamp": "2026-05-13T13:00:22.229997+00:00"
+}

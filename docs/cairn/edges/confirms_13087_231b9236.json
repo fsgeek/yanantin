@@ -1,0 +1,11 @@
+{
+  "id": "231b9236-b29b-482f-95d5-5337f2982644",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13087_20260513_intellect-3.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9722_20260405_qwen3.5-9b.md",
+  "relation": "confirms",
+  "claim_text": "**They are templates, not primary data**: For `structured_reviewer.md`, this characterization appears accurate.",
+  "claim_file": "agents/structured_reviewer.md",
+  "claim_by": "qwen/qwen3.5-9b",
+  "verified_by": "prime-intellect/intellect-3",
+  "timestamp": "2026-05-13T05:36:10.588574+00:00"
+}

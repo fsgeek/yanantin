@@ -1,0 +1,11 @@
+{
+  "id": "9d49d2de-099c-40f9-bd03-a775a786ddc8",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13091_20260513_gemma-3n-e4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_3479_20260227_ministral-8b-2512.md",
+  "relation": "denies",
+  "claim_text": "- If this is a **known issue** in the scout system (e.g., documented in `docs/cairn/design.md`).",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/cache/claude-plugins-official/superpowers/4.3.0/tests/subagent-driven-dev/svelte-todo/design.md",
+  "claim_by": "mistralai/ministral-8b-2512",
+  "verified_by": "google/gemma-3n-e4b-it",
+  "timestamp": "2026-05-13T06:07:18.282383+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "f2c14862-b99c-4866-8f89-3a10b29ff55f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13090_20260513_qwen3.5-flash-02-23.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11397_20260414_qwen3-235b-a22b-thinking-2507.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `docs/signing.md` contains no references to other files as claimed.",
+  "claim_file": "docs/signing.md",
+  "claim_by": "qwen/qwen3-235b-a22b-thinking-2507",
+  "verified_by": "qwen/qwen3.5-flash-02-23",
+  "timestamp": "2026-05-13T06:07:15.011672+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "61bbf18b-987a-420d-beb6-00c96b2b1adc",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13089_20260513_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10933_20260411_qwen3-235b-a22b.md",
+  "relation": "confirms",
+  "claim_text": "**Are `SKILL.md` files consumed by LLMs or parsed by tooling?** Their structure resembles documentation, but their placement in a `skills/` directory implies functional use.",
+  "claim_file": "tmp/ubuntu-vm.claude/artifacts-builder/SKILL.md",
+  "claim_by": "qwen/qwen3-235b-a22b",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-05-13T06:07:09.858785+00:00"
+}

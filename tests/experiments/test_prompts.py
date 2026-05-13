@@ -85,3 +85,39 @@ def test_load_template_validation_error_on_missing_required_fields(tmp_path: Pat
 
     with pytest.raises(pydantic.ValidationError):
         load_template(path)
+
+
+def test_name_effect_prompt_corpus_is_present_valid_and_distinct():
+    prompts_dir = Path("experiments/memory_tools/prompts")
+    prompt_names = ("find_a_record", "find_by_lineage", "find_by_author")
+    loaded_templates: dict[str, PromptTemplate] = {}
+
+    for name in prompt_names:
+        path = prompts_dir / f"{name}.yaml"
+        assert path.exists(), f"Missing required prompt file: {path}"
+        assert path.is_file(), f"Prompt path exists but is not a file: {path}"
+        try:
+            template = load_template(path)
+        except Exception as exc:  # pragma: no cover - assertion path
+            raise AssertionError(f"Malformed or invalid prompt file: {path}") from exc
+
+        body = template.text.strip()
+        assert body, f"Prompt text body is empty in {path}"
+        assert len(body) >= 40, f"Prompt text body is trivial/too short in {path}"
+        assert (
+            len(body.split()) >= 8
+        ), f"Prompt text body is trivial/too few words in {path}"
+        loaded_templates[name] = template
+
+    duplicate_pairs: list[str] = []
+    for idx, left_name in enumerate(prompt_names):
+        left = loaded_templates[left_name]
+        for right_name in prompt_names[idx + 1 :]:
+            right = loaded_templates[right_name]
+            if left.content_hash == right.content_hash or left.text == right.text:
+                duplicate_pairs.append(f"{left_name} == {right_name}")
+
+    assert not duplicate_pairs, (
+        "Prompt corpus must contain three DISTINCT prompt texts; duplicates found: "
+        + ", ".join(duplicate_pairs)
+    )

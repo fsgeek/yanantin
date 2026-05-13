@@ -1,0 +1,11 @@
+{
+  "id": "58083d58-4203-4afe-813d-2eacff13bae7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13057_20260513_devstral-small.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0227_20260213_deepseek-r1-0528.md",
+  "relation": "confirms",
+  "claim_text": "### Declared Losses   - **`.claude/hooks` mechanics**: Files like `capture_compaction.py` and `precompact_tensor.py` hint at tensor preprocessing rituals, but I avoided this subsystem due to its tight coupling with Claude-specific internals.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "deepseek/deepseek-r1-0528",
+  "verified_by": "mistralai/devstral-small",
+  "timestamp": "2026-05-13T01:58:57.373636+00:00"
+}

@@ -36,3 +36,12 @@ allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/yanantin"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/yanantin",
+    "tests",
+    "conftest.py",
+    "pyproject.toml",
+    "README.md",
+]

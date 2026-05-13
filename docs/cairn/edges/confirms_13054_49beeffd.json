@@ -1,0 +1,11 @@
+{
+  "id": "49beeffd-0a2e-41e8-82d7-9cba67ebca47",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13054_20260513_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10074_20260407_qwq-32b.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `src/yanantin/apacheta/operators/negate.py` contains the `negate` function implementation: ```python def negate( interface: ApachetaInterface, tensor_a: UUID, tensor_b: UUID, reasoning: str, *, provenance: ProvenanceEnvelope | None = None, ) -> NegationRecord: \"\"\"Declare that two tensors do not compose.",
+  "claim_file": "src/yanantin/apacheta/operators/negate.py",
+  "claim_by": "qwen/qwq-32b",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-13T01:26:40.626529+00:00"
+}

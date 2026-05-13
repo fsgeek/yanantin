@@ -13,3 +13,8 @@ tmp/
 data/
 .vscode/
 .codex
+ruvector.db
+.claude-flow
+.claude
+.mcp.json
+.swarm

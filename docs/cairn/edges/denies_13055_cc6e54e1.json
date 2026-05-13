@@ -1,0 +1,11 @@
+{
+  "id": "cc6e54e1-9f17-42a8-a0ce-d7e869d79866",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13055_20260513_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9692_20260405_glm-4-32b.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses I cannot verify the actual existence of `duckdb.py` and `memory.py` files in the directory, as I only have access to the `arango.py` file.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-05-13T01:26:49.009374+00:00"
+}

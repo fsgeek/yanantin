@@ -1,0 +1,11 @@
+{
+  "id": "4e847a36-da78-46cd-a3eb-30c4e35b412e",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13058_20260513_grok-4-fast.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5396_20260310_mistral-nemo.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `tests/red_bar/test_immutability.py` indeed contains tests for immutability, as claimed.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "mistralai/mistral-nemo",
+  "verified_by": "x-ai/grok-4-fast",
+  "timestamp": "2026-05-13T01:58:59.205734+00:00"
+}

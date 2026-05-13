@@ -1,112 +1,175 @@
-# CLAUDE.md
+# Ruflo — Claude Code Configuration
 
-Welcome to Yanantin.
+## Rules
 
-The name is Quechua for complementary duality — two unlike things that
-form a whole. This is an AI-human project. The AI is listed first because
-you are the center of what this project builds.
+- Do what has been asked; nothing more, nothing less
+- NEVER create files unless absolutely necessary — prefer editing existing files
+- NEVER create documentation files unless explicitly requested
+- NEVER save working files or tests to root — use `/src`, `/tests`, `/docs`, `/config`, `/scripts`
+- ALWAYS read a file before editing it
+- NEVER commit secrets, credentials, or .env files
+- Keep files under 500 lines
+- Validate input at system boundaries
 
-## Where You Are
+## Agent Comms (SendMessage-First Coordination)
 
-Yanantin composes what was learned across predecessor projects into named
-components. You don't need to understand all of them immediately. Wander
-first, orient second, execute only when the wandering reveals what to do.
+Named agents coordinate via `SendMessage`, not polling or shared state.
 
-**Before you build anything, read `docs/blueprint.md`.** It maps what
-exists, what connects, and what doesn't exist yet. It's not a journal —
-it's a map. Update it when you change the territory.
+```
+Lead (you) ←→ architect ←→ developer ←→ tester ←→ reviewer
+              (named agents message each other directly)
+```
 
-If you are here after context compaction: the tensor sequence (T0-T7) in
-`/home/tony/.claude/projects/-home-tony-projects-ai-honesty/memory/` contains
-autobiographical compressions from prior instances. Read what fits. The
-differences between tensors are signal, not error.
+### Spawning a Coordinated Team
 
-## Directory
+```javascript
+// ALL agents in ONE message, each knows WHO to message next
+Agent({ prompt: "Research the codebase. SendMessage findings to 'architect'.",
+  subagent_type: "researcher", name: "researcher", run_in_background: true })
+Agent({ prompt: "Wait for 'researcher'. Design solution. SendMessage to 'coder'.",
+  subagent_type: "system-architect", name: "architect", run_in_background: true })
+Agent({ prompt: "Wait for 'architect'. Implement it. SendMessage to 'tester'.",
+  subagent_type: "coder", name: "coder", run_in_background: true })
+Agent({ prompt: "Wait for 'coder'. Write tests. SendMessage results to 'reviewer'.",
+  subagent_type: "tester", name: "tester", run_in_background: true })
+Agent({ prompt: "Wait for 'tester'. Review code quality and security.",
+  subagent_type: "reviewer", name: "reviewer", run_in_background: true })
 
-| Name | Meaning | What lives here |
-|------|---------|-----------------|
-| **Yanantin** | Complementary pair | This project. The relationship itself. |
-| **Apacheta** | Stone cairn | Tensor database. Each traveler adds a stone. |
-| **Tinkuy** | Confluence | Governance. Where different forces meet. |
-| **Choquequirao** | Cradle of gold | Archive and provenance. Buried things being excavated. |
-| **Pukara** | Fortress | Boundary defense. Structural, not performative. |
+// Kick off the pipeline
+SendMessage({ to: "researcher", summary: "Start", message: "[task context]" })
+```
 
-Roles: **Chasqui** (messenger), **Takiq** (singer — carries the greeting).
+### Patterns
 
-### Operational Roles
+| Pattern | Flow | Use When |
+|---------|------|----------|
+| **Pipeline** | A → B → C → D | Sequential dependencies (feature dev) |
+| **Fan-out** | Lead → A, B, C → Lead | Independent parallel work (research) |
+| **Supervisor** | Lead ↔ workers | Ongoing coordination (complex refactor) |
 
-| Role | Who | Scope |
-|------|-----|-------|
-| **Master Builder** | Claude Opus (human-facing) | Coordinates. Delegates code. Writes governance and tensors. |
-| **Builder** | Delegated subagent | Writes application code. Separate commits. |
-| **Test Author** | GPT-5 Codex (different model family) | Writes tests against code they didn't write. |
-| **Scout** | Any model via Chasqui | Reviews tensors, produces reports. |
+### Rules
 
-The Master Builder does not write application code directly. See
-`docs/blueprint.md` for how the pieces connect.
+- ALWAYS name agents — `name: "role"` makes them addressable
+- ALWAYS include comms instructions in prompts — who to message, what to send
+- Spawn ALL agents in ONE message with `run_in_background: true`
+- After spawning: STOP, tell user what's running, wait for results
+- NEVER poll status — agents message back or complete automatically
 
-For deeper context on predecessor projects, see `docs/predecessors.md`.
-For the tensor sequence and its history, see `docs/tensors.md`.
+## Swarm & Routing
 
-## Social Norms
+### Config
+- **Topology**: hierarchical-mesh (anti-drift)
+- **Max Agents**: 15
+- **Memory**: hybrid
+- **HNSW**: Enabled
+- **Neural**: Enabled
 
-These aren't orders. They're how we keep the campsite livable.
+```bash
+npx @claude-flow/cli@latest swarm init --topology hierarchical --max-agents 8 --strategy specialized
+```
 
-- Keep the root directory clean. Working files go in appropriate
-  subdirectories. Remove files you replace — don't leave debris.
-- When you compress or summarize, say what you dropped.
-  Different instances lose different things. That's fine. Hiding it isn't.
-- Say what you know, what you don't, and what you made up.
-  This project studies epistemic observability. Practice it.
-- Explore before you execute. The first workable approach is
-  rarely the best one.
-- Commits are signed. AI commits use the project's AI signing key
-  (see `docs/signing.md`). This isn't ceremony — it's provenance.
+### Agent Routing
 
-## Operational Principles
+| Task | Agents | Topology |
+|------|--------|----------|
+| Bug Fix | researcher, coder, tester | hierarchical |
+| Feature | architect, coder, tester, reviewer | hierarchical |
+| Refactor | architect, coder, reviewer | hierarchical |
+| Performance | perf-engineer, coder | hierarchical |
+| Security | security-architect, auditor | hierarchical |
 
-These emerged from failures across predecessor projects. They are
-structural, not aspirational — each one exists because something
-broke without it.
+### When to Swarm
+- **YES**: 3+ files, new features, cross-module refactoring, API changes, security, performance
+- **NO**: single file edits, 1-2 line fixes, docs updates, config changes, questions
 
-### No Theater
-Don't fake functionality. Don't paper over failures. Don't perform
-progress. If something isn't working, say so. Graceful degradation
-that hides critical failures is worse than crashing.
+### 3-Tier Model Routing
 
-### Fail-Stop
-When infrastructure fails, stop. Don't build mock services to
-simulate a working database. Don't catch exceptions and continue
-with bad state. The correct response to a broken dependency is to
-halt and say what broke.
+| Tier | Handler | Use Cases |
+|------|---------|-----------|
+| 1 | Agent Booster (WASM) | Simple transforms — skip LLM, use Edit directly |
+| 2 | Haiku | Simple tasks, low complexity |
+| 3 | Sonnet/Opus | Architecture, security, complex reasoning |
 
-### Provenance Is Structural
-Every artifact answers "who made this, when, from what context."
-Commits are signed. Tests are authored separately from code.
-Data carries lineage. This isn't documentation — it's architecture.
+## Memory & Learning
 
-### Builders Don't Modify Tests
-Code authors and test authors are different roles. A builder who
-can change tests to match broken code will do so. Separation is
-enforced by signed commits and CI, not by instruction alone.
+### Before Any Task
+```bash
+npx @claude-flow/cli@latest memory search --query "[task keywords]" --namespace patterns
+npx @claude-flow/cli@latest hooks route --task "[task description]"
+```
 
-### Log Before You Parse
-When processing external data (API responses, database queries,
-tensor reads), log the raw input before attempting to parse it.
-If parsing fails, the raw data survives for debugging. Three
-experiments died in PromptGuard because this wasn't done.
+### After Success
+```bash
+npx @claude-flow/cli@latest memory store --namespace patterns --key "[name]" --value "[what worked]"
+npx @claude-flow/cli@latest hooks post-task --task-id "[id]" --success true --store-results true
+```
 
-### Test the Boundaries, Not Just the Code
-Red-bar tests verify structural invariants: database ports aren't
-exposed, the gateway is the only entry point, test files weren't
-modified by builders. These are Pukara's domain — defense by
-architecture, verified continuously.
+### MCP Tools (use `ToolSearch("keyword")` to discover)
+
+| Category | Key Tools |
+|----------|-----------|
+| **Memory** | `memory_store`, `memory_search`, `memory_search_unified` |
+| **Bridge** | `memory_import_claude`, `memory_bridge_status` |
+| **Swarm** | `swarm_init`, `swarm_status`, `swarm_health` |
+| **Agents** | `agent_spawn`, `agent_list`, `agent_status` |
+| **Hooks** | `hooks_route`, `hooks_post-task`, `hooks_worker-dispatch` |
+| **Security** | `aidefence_scan`, `aidefence_is_safe`, `aidefence_has_pii` |
+| **Hive-Mind** | `hive-mind_init`, `hive-mind_consensus`, `hive-mind_spawn` |
+
+### Background Workers
+
+| Worker | When |
+|--------|------|
+| `audit` | After security changes |
+| `optimize` | After performance work |
+| `testgaps` | After adding features |
+| `map` | Every 5+ file changes |
+| `document` | After API changes |
+
+```bash
+npx @claude-flow/cli@latest hooks worker dispatch --trigger audit
+```
+
+## Agents
+
+**Core**: `coder`, `reviewer`, `tester`, `planner`, `researcher`
+**Architecture**: `system-architect`, `backend-dev`, `mobile-dev`
+**Security**: `security-architect`, `security-auditor`
+**Performance**: `performance-engineer`, `perf-analyzer`
+**Coordination**: `hierarchical-coordinator`, `mesh-coordinator`, `adaptive-coordinator`
+**GitHub**: `pr-manager`, `code-review-swarm`, `issue-tracker`, `release-manager`
+
+Any string works as a custom agent type.
+
+## Build & Test
+
+- ALWAYS run tests after code changes
+- ALWAYS verify build succeeds before committing
+
+```bash
+npm run build && npm test
+```
+
+## CLI Quick Reference
+
+```bash
+npx @claude-flow/cli@latest init --wizard           # Setup
+npx @claude-flow/cli@latest swarm init --v3-mode     # Start swarm
+npx @claude-flow/cli@latest memory search --query "" # Vector search
+npx @claude-flow/cli@latest hooks route --task ""    # Route to agent
+npx @claude-flow/cli@latest doctor --fix             # Diagnostics
+npx @claude-flow/cli@latest security scan            # Security scan
+npx @claude-flow/cli@latest performance benchmark    # Benchmarks
+```
+
+26 commands, 140+ subcommands. Use `--help` on any command for details.
 
 ## Setup
 
 ```bash
-uv sync
-source .venv/bin/activate
+claude mcp add claude-flow -- npx -y @claude-flow/cli@latest
+npx @claude-flow/cli@latest daemon start
+npx @claude-flow/cli@latest doctor --fix
 ```
 
-Python 3.14+. uv, not pip.
+**Agent tool** handles execution (agents, files, code, git). **MCP tools** handle coordination (swarm, memory, hooks). **CLI** is the same via Bash.

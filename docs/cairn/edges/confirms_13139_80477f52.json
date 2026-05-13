@@ -1,0 +1,11 @@
+{
+  "id": "80477f52-55ac-4520-b65e-7dc41a47966d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13139_20260513_llama-3.2-1b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9064_20260401_llama-3.1-8b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "### Reasoning The claim made by `mistralai/mistral-small-creative` states that `scourer.py` does not exist.",
+  "claim_file": "src/yanantin/chasqui/scourer.py",
+  "claim_by": "meta-llama/llama-3.1-8b-instruct",
+  "verified_by": "meta-llama/llama-3.2-1b-instruct",
+  "timestamp": "2026-05-13T12:29:50.419567+00:00"
+}

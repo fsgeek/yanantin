@@ -1,0 +1,11 @@
+{
+  "id": "39109791-63fe-49a8-bf74-c84a40876a09",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13138_20260513_mistral-small-3.2-24b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9655_20260404_qwen3-14b.md",
+  "relation": "denies",
+  "claim_text": "### Preamble   I observed the `valiant-knitting-stream.md` lecture plan for student capstone ideation and the `luminous-wiggling-rivest.md` VMTP simulator design.",
+  "claim_file": "tmp/ubuntu-vm.claude/plans/valiant-knitting-stream.md",
+  "claim_by": "qwen/qwen3-14b",
+  "verified_by": "mistralai/mistral-small-3.2-24b-instruct",
+  "timestamp": "2026-05-13T12:29:46.184063+00:00"
+}

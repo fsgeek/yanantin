@@ -1,0 +1,11 @@
+{
+  "id": "959d577f-2cca-4c0c-8390-3b30084d290a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13135_20260513_llama-3.2-3b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8449_20260328_trinity-mini.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The claim references a file named `__main__.py`, but the file provided for verification is `src/yanantin/awaq/weaver.py`.",
+  "claim_file": "src/yanantin/jabberwock/__main__.py",
+  "claim_by": "arcee-ai/trinity-mini",
+  "verified_by": "meta-llama/llama-3.2-3b-instruct",
+  "timestamp": "2026-05-13T11:57:36.486637+00:00"
+}

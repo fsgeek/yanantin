@@ -4,6 +4,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 import json
 
+import pytest
 import yaml
 
 from yanantin.experiments.catalog import catalog_snapshot_sha
@@ -135,6 +136,41 @@ def test_resolve_panel_uses_default_native_max_tokens_fallback() -> None:
 
     assert len(panel.models) == 1
     assert panel.models[0].native_max_tokens == DEFAULT_NATIVE_MAX_TOKENS
+
+
+def test_resolve_panel_raises_when_candidate_id_not_in_catalog() -> None:
+    """Integrity contract — distinct from the policy-filter behavior above.
+
+    An id absent from the catalog is the user asking for a model that does
+    not exist; the spec wants that surfaced, not silently dropped. Without
+    this test the contract is in the impl docstring only and a future
+    refactor could collapse it into the policy-filter `continue` path
+    unnoticed.
+    """
+    catalog = _sample_catalog()
+    criteria = PanelCriteria(
+        panel_id="integrity_check",
+        rationale="a missing-from-catalog id must raise, not silently filter",
+        context_length_min=8000,
+        exclude_patterns=[],
+        candidates=[
+            CandidateModel(
+                id="meta-llama/llama-4-scout",
+                family="llama",
+                size_tier="large-open",
+                cost_tier="cheap",
+            ),
+            CandidateModel(
+                id="nonexistent/nope-7b",
+                family="nope",
+                size_tier="mid",
+                cost_tier="cheap",
+            ),
+        ],
+    )
+
+    with pytest.raises(ValueError, match="nonexistent/nope-7b"):
+        resolve_panel(criteria, catalog)
 
 
 def test_dump_resolved_writes_yaml_and_creates_parent_dirs(tmp_path: Path) -> None:

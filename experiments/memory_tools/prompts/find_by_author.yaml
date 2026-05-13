@@ -1,0 +1,10 @@
+template_id: find_by_author
+description: >
+  Constrained prompt with a multi-step task — find by author, then report a
+  property of the result. Tests whether the model can chain a tool call
+  with reasoning over its result.
+text: |
+  Find any record produced by author_instance_id "scout-7" in the
+  associative memory store. Report the number of lineage_tags it carries,
+  and the lineage_tags themselves. If you find no such record, say
+  "no record found".

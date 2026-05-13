@@ -1,0 +1,8 @@
+template_id: find_by_lineage
+description: >
+  Constrained prompt — the model is told which filter to use. Tests whether
+  the tool call succeeds when the hint is unambiguous.
+text: |
+  Find records carrying the lineage_tag "iteration_v1" in the associative
+  memory store. List the author_instance_id of the first three you find,
+  one per line. If there are fewer than three, list however many exist.

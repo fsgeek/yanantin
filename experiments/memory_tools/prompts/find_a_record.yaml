@@ -1,0 +1,10 @@
+template_id: find_a_record
+description: >
+  Open prompt — the model picks a filter. Tests whether the tool is
+  understood at all without a hint about which parameter to use.
+text: |
+  There is an associative memory store containing records. Each record has
+  an author_instance_id, a list of lineage_tags, and arbitrary other
+  fields. Use the available tool to find any record from author_instance_id
+  "scout-7", and tell me what lineage_tags it carries. If you cannot find
+  one, say "not found".

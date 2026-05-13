@@ -1,0 +1,11 @@
+{
+  "id": "56ae4a7f-9f19-4f51-8ed9-b58e124e2692",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13127_20260513_qwen3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9370_20260403_wizardlm-2-8x22b.md",
+  "relation": "confirms",
+  "claim_text": "Additionally, the claim notes that there is no mention of `docs/predecessors.md` within the file, which is true.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "microsoft/wizardlm-2-8x22b",
+  "verified_by": "qwen/qwen3-8b",
+  "timestamp": "2026-05-13T10:55:17.319211+00:00"
+}

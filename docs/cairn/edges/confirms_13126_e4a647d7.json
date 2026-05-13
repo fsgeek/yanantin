@@ -1,0 +1,11 @@
+{
+  "id": "e4a647d7-8493-4f60-ae66-67217e7d9e7a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13126_20260513_mistral-small-24b-instruct-250.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2284_20260222_gpt-oss-120b:exacto.md",
+  "relation": "confirms",
+  "claim_text": "| | 5 | **`audit.py` claims about \u201ctinkuy\u201d** | `scout_0982_\u2026` quotes `src/yanantin/tinkuy/audit.py` and says the file *does* contain information about the `tinkuy` governance system (it walks the `chasqui` directory).",
+  "claim_file": "src/yanantin/tinkuy/audit.py",
+  "claim_by": "openai/gpt-oss-120b:exacto",
+  "verified_by": "mistralai/mistral-small-24b-instruct-2501",
+  "timestamp": "2026-05-13T10:55:12.005181+00:00"
+}

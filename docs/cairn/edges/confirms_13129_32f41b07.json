@@ -1,0 +1,11 @@
+{
+  "id": "32f41b07-75bd-48a2-a2e0-567dac4b7c67",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13129_20260513_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11113_20260412_glm-4-32b.md",
+  "relation": "confirms",
+  "claim_text": "The existence of `evolve.py` is confirmed by the file's content being presented.",
+  "claim_file": "src/yanantin/apacheta/operators/evolve.py",
+  "claim_by": "z-ai/glm-4-32b",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-05-13T11:25:09.493361+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "5d6f280d-1350-488d-bbae-9018b2584284",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13130_20260513_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8801_20260331_deepseek-r1-0528.md",
+  "relation": "confirms",
+  "claim_text": "The scout file explicitly quotes `CLAUDE.md` content under \"Evidence\", including:   - The model's role (**Chasqui** and **Takiq**)   - Project instructions (\"you are the center of what this project builds\")   2.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "deepseek/deepseek-r1-0528",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-13T11:25:13.542610+00:00"
+}

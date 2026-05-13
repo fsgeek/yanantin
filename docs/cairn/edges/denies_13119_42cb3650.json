@@ -1,0 +1,11 @@
+{
+  "id": "42cb3650-917f-450b-8df7-be80ecb0829a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13119_20260513_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2013_20260221_llama-3.2-3b-instruct.md",
+  "relation": "denies",
+  "claim_text": "Prioritize examining `src/yanantin/apacheta/models/base.py` and `provenance/timestamp.py` to ground abstract concepts in code.",
+  "claim_file": "src/yanantin/apacheta/models/base.py",
+  "claim_by": "meta-llama/llama-3.2-3b-instruct",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-13T09:53:45.143768+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "817c7c17-0c8b-401b-8875-db74a74920aa",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13117_20260513_gemma-2-27b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_5165_20260309_minimax-m2.5.md",
+  "relation": "confirms",
+  "claim_text": "The next scout might examine `scorer.py` or `model_selector.py` to understand selection logic.",
+  "claim_file": "src/yanantin/chasqui/scorer.py",
+  "claim_by": "minimax/minimax-m2.5",
+  "verified_by": "google/gemma-2-27b-it",
+  "timestamp": "2026-05-13T09:53:36.119219+00:00"
+}

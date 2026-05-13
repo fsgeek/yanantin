@@ -1,0 +1,11 @@
+{
+  "id": "34f899ae-ee7e-4fa8-a4d0-7737f215c73d",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13042_20260512_ministral-3b-2512.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8877_20260331_qwen3-235b-a22b-2507.md",
+  "relation": "confirms",
+  "claim_text": "I ran out of attention for:   - The validation scripts in `testing-strategies.md` \u2014 they\u2019re shell-based and syntactic, so I assumed they\u2019re guards, not governors.",
+  "claim_file": "tmp/ubuntu-vm.claude/plugins/marketplaces/claude-plugins-official/plugins/plugin-dev/skills/command-development/references/testing-strategies.md",
+  "claim_by": "qwen/qwen3-235b-a22b-2507",
+  "verified_by": "mistralai/ministral-3b-2512",
+  "timestamp": "2026-05-12T23:52:57.104288+00:00"
+}

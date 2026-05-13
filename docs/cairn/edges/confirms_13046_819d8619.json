@@ -1,0 +1,11 @@
+{
+  "id": "819d8619-eba6-4fbe-ad5c-c387c1b6bc15",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13046_20260513_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1750_20260220_sonar-pro.md",
+  "relation": "confirms",
+  "claim_text": "`tensors.md`, `predecessors.md` anchor it.",
+  "claim_file": "docs/predecessors.md",
+  "claim_by": "perplexity/sonar-pro",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-13T00:21:55.405462+00:00"
+}

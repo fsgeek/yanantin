@@ -1,0 +1,11 @@
+{
+  "id": "ce2210cc-9940-472d-acf3-2ef7f72dd131",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13045_20260513_gpt-oss-20b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0028_20260212_mistral-small-3.1-24b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "The `test_immutability.py` File The `test_immutability.py` file provides strong evidence of the project's commitment to immutability.",
+  "claim_file": "tests/red_bar/test_immutability.py",
+  "claim_by": "mistralai/mistral-small-3.1-24b-instruct",
+  "verified_by": "openai/gpt-oss-20b",
+  "timestamp": "2026-05-13T00:21:54.257357+00:00"
+}

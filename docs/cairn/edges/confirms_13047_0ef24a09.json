@@ -1,0 +1,11 @@
+{
+  "id": "0ef24a09-47c4-4641-be06-ffdc7a435817",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13047_20260513_l3-lunaris-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1804_20260220_ministral-3b-2512.md",
+  "relation": "confirms",
+  "claim_text": "**Hooks and Compaction** - **Observation**: The `.claude/hooks` directory contains four files: `capture_compaction.py`, `chasqui_heartbeat.sh`, `chasqui_pulse.py`, and `ots_stamp.py`.",
+  "claim_file": ".claude/hooks/chasqui_pulse.py",
+  "claim_by": "mistralai/ministral-3b-2512",
+  "verified_by": "sao10k/l3-lunaris-8b",
+  "timestamp": "2026-05-13T00:21:56.897304+00:00"
+}

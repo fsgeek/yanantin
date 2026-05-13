@@ -1,0 +1,11 @@
+{
+  "id": "683eb944-3459-4f47-a7ec-26ea73ae4fbb",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13162_20260513_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9848_20260405_command-r7b-12-2024.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `docs/tensors.md` explicitly mentions the existence of `tensors.md` and provides details about its content, structure, and purpose.",
+  "claim_file": "docs/tensors.md",
+  "claim_by": "cohere/command-r7b-12-2024",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-13T14:46:20.772333+00:00"
+}

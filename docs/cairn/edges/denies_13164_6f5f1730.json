@@ -1,0 +1,11 @@
+{
+  "id": "6f5f1730-7fcf-427d-bba8-5b5bbb3e65c4",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13164_20260513_glm-4.7-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9774_20260405_seed-1.6-flash.md",
+  "relation": "denies",
+  "claim_text": "### Reasoning   The claim asserts that `config.py` contains no imports, comments, or references to a non-existent `config.py`.",
+  "claim_file": "src/yanantin/infra/config.py",
+  "claim_by": "bytedance-seed/seed-1.6-flash",
+  "verified_by": "z-ai/glm-4.7-flash",
+  "timestamp": "2026-05-13T14:46:59.526456+00:00"
+}

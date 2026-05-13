@@ -1,0 +1,11 @@
+{
+  "id": "fc7cdd14-3a2d-4946-9260-3176ec7852b1",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13156_20260513_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_6696_20260318_mimo-v2-flash.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **DENIED** ### Evidence The file `CLAUDE.md` contains explicit \"anti-Shoggoth\" patterns.",
+  "claim_file": "CLAUDE.md",
+  "claim_by": "xiaomi/mimo-v2-flash",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-13T14:14:53.458693+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "4531f859-780b-4faf-859f-39c923e56786",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13166_20260513_hy3-preview.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9863_20260406_minimax-m2.7.md",
+  "relation": "denies",
+  "claim_text": "**Strand 5: Overflow Detection Tightly Couples inventory.py and replace.py** `inventory.py` provides `detect_frame_overflow(inventory: InventoryData)` which returns a dict of overflow measurements.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pptx/scripts/inventory.py",
+  "claim_by": "minimax/minimax-m2.7",
+  "verified_by": "tencent/hy3-preview",
+  "timestamp": "2026-05-13T14:54:22.265460+00:00"
+}

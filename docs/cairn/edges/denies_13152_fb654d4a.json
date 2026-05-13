@@ -1,0 +1,11 @@
+{
+  "id": "fb654d4a-680a-4b29-9526-7c288c04293f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13152_20260513_llama-3.1-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_1805_20260220_devstral-small.md",
+  "relation": "denies",
+  "claim_text": "### Verdict **CONFIRMED** ### Evidence The file `tests/red_bar/test_provenance.py` contains no mention of \"ArangoDB\" or any suggestion for cross-referencing with any other testing framework or database.",
+  "claim_file": "tests/red_bar/test_provenance.py",
+  "claim_by": "mistralai/devstral-small",
+  "verified_by": "meta-llama/llama-3.1-8b-instruct",
+  "timestamp": "2026-05-13T14:02:44.055032+00:00"
+}

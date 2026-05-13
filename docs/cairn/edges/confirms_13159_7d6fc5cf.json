@@ -1,0 +1,11 @@
+{
+  "id": "7d6fc5cf-ce8c-4006-bfdc-76e1038844f3",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13159_20260513_ui-tars-1.5-7b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_4041_20260302_rnj-1-instruct.md",
+  "relation": "confirms",
+  "claim_text": "``` ### Reasoning The claim states that the tests in `tests/unit/test_duckdb_independent.py` verify the round-trip serialization and immutability of tensors in these backends.",
+  "claim_file": "tests/unit/test_duckdb_independent.py",
+  "claim_by": "essentialai/rnj-1-instruct",
+  "verified_by": "bytedance/ui-tars-1.5-7b",
+  "timestamp": "2026-05-13T14:37:29.151005+00:00"
+}

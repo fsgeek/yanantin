@@ -1,0 +1,11 @@
+{
+  "id": "574658d3-170b-44b8-86b9-f7886d81953f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13160_20260513_qwen3-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10749_20260410_qwen2.5-vl-32b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "**Filling Forms with Annotations** - **Observation**: The `fill_pdf_form_with_annotations.py` script fills PDF forms by adding text annotations based on data from `fields.json`.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/pdf/scripts/fill_pdf_form_with_annotations.py",
+  "claim_by": "qwen/qwen2.5-vl-32b-instruct",
+  "verified_by": "qwen/qwen3-8b",
+  "timestamp": "2026-05-13T14:37:29.307955+00:00"
+}

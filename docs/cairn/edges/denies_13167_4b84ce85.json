@@ -1,0 +1,11 @@
+{
+  "id": "4b84ce85-cfbf-4f50-b5cd-6f0ffaac9683",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13167_20260513_llama-3.3-nemotron-super-49b-v.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_12371_20260509_qwen3-30b-a3b-instruct-2507.md",
+  "relation": "denies",
+  "claim_text": "Since `T0_20260207_bounded_verification.md` contains all necessary evidence (corrected numbers, calibration status, evaluation references), and the existence of `T37_20260328_the_cost_curve.md` is implied by context and naming convention, no external data or runtime behavior was needed to verify.",
+  "claim_file": "docs/cairn/T0_20260207_bounded_verification.md",
+  "claim_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "verified_by": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "timestamp": "2026-05-13T14:54:35.556973+00:00"
+}

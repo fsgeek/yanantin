@@ -1,0 +1,11 @@
+{
+  "id": "0699fc04-58ae-466f-944a-a35f183b6c85",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13155_20260513_gemma-3-4b-it.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11726_20260416_qwen3-coder-flash.md",
+  "relation": "denies",
+  "claim_text": "However, none of these terms or concepts appear anywhere in the provided file `src/yanantin/jabberwock/models.py`.",
+  "claim_file": "src/yanantin/jabberwock/models.py",
+  "claim_by": "qwen/qwen3-coder-flash",
+  "verified_by": "google/gemma-3-4b-it",
+  "timestamp": "2026-05-13T14:14:48.084394+00:00"
+}

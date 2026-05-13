@@ -1,0 +1,11 @@
+{
+  "id": "99128480-08eb-4a7a-a168-f233022406d2",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13153_20260513_glm-5.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_0347_20260213_gemini-2.5-flash-lite.md",
+  "relation": "denies",
+  "claim_text": "*   The `precompact_tensor.py` script and related logs in `.claude` and `logs` hint at some form of data preparation or optimization.",
+  "claim_file": ".claude/hooks/precompact_tensor.py",
+  "claim_by": "google/gemini-2.5-flash-lite",
+  "verified_by": "z-ai/glm-5",
+  "timestamp": "2026-05-13T14:02:46.359315+00:00"
+}

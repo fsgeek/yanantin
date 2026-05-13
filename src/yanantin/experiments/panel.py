@@ -82,24 +82,30 @@ def resolve_panel(
 ) -> ResolvedPanel:
     """Validate each candidate against the live catalog and enrich it.
 
-    Raises ValueError on: a candidate id not in the catalog; a candidate
-    id matching an exclude_pattern; a catalog context_length below the
-    criteria floor. Otherwise produces a ResolvedPanel fingerprinted to
-    the exact catalog passed.
+    Two failure modes, deliberately distinguished:
+
+    - **Integrity:** a candidate id not present in the catalog raises
+      ValueError. The user asked for a model that doesn't exist; that is a
+      mistake to surface, not silently swallow.
+    - **Policy filter:** a candidate matching `exclude_patterns` or failing
+      `context_length_min` is dropped from the resolved set. The criteria
+      YAML colocates these filters with the candidate pool — the contract
+      is "here is my pool, here are filters to apply" — so a filter miss is
+      expected behavior, not an error.
+
+    The resolved panel is fingerprinted to the exact catalog passed.
     """
     by_id = {entry["id"]: entry for entry in catalog if "id" in entry}
     resolved: list[ResolvedModel] = []
     for cand in criteria.candidates:
         if any(fnmatch.fnmatch(cand.id, pat) for pat in criteria.exclude_patterns):
-            raise ValueError(f"candidate {cand.id!r} matches an exclude_pattern")
+            continue
         entry = by_id.get(cand.id)
         if entry is None:
             raise ValueError(f"candidate {cand.id!r} not found in the OpenRouter catalog")
         ctx = int(entry.get("context_length", 0))
         if ctx < criteria.context_length_min:
-            raise ValueError(
-                f"candidate {cand.id!r} context_length {ctx} < required {criteria.context_length_min}"
-            )
+            continue
         pricing = entry.get("pricing", {})
         native = (entry.get("top_provider", {}) or {}).get("max_completion_tokens")
         resolved.append(

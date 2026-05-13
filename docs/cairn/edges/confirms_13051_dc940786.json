@@ -1,0 +1,11 @@
+{
+  "id": "dc940786-33d6-4cff-bd5f-b6f16780f6b7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13051_20260513_granite-4.0-h-micro.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11760_20260502_qwen-plus-2025-07-28.md",
+  "relation": "confirms",
+  "claim_text": "### Verdict   **INDETERMINATE** ### Evidence   The claim states:   > \"Scout report structure** | Several examples (`docs/cairn/scout_0800_20260215_gemma-3n-e4b-it.md`, `docs/cairn/scout_1389_20260218_mistral-7b-instruct-v0.3.md`, `docs/cairn/scout_0294_20260213_nova-lite-v1.md`, `docs/cairn/scout_1247_20260217_gemini-2.0-flash-lite-001.md`, `docs/cairn/scour_0094_20260218_llama-3.2-3b-instruct.md`, `docs/cairn/scout_0844_20260216_qwen3-coder-flash.md`, `docs/cairn/scout_0484_20260214_grok-4.1-fast.md`).\" The file `docs/cairn/scout_0844_20260216_qwen3-coder-flash.md` contains: ``` ``` And the structure of this file matches the other scout reports in format (based on naming and metadata layout).",
+  "claim_file": "docs/cairn/scout_0294_20260213_nova-lite-v1.md",
+  "claim_by": "qwen/qwen-plus-2025-07-28",
+  "verified_by": "ibm-granite/granite-4.0-h-micro",
+  "timestamp": "2026-05-13T00:57:47.046764+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "bc1f1b9e-1984-43ec-9642-94cea62c679f",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13106_20260513_granite-4.1-8b.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_8467_20260328_qwen3-30b-a3b-instruct-2507.md",
+  "relation": "denies",
+  "claim_text": "These are clearly central to the system\u2019s logic, confirming that `composition.py` is a core component.",
+  "claim_file": "src/yanantin/apacheta/models/composition.py",
+  "claim_by": "qwen/qwen3-30b-a3b-instruct-2507",
+  "verified_by": "ibm-granite/granite-4.1-8b",
+  "timestamp": "2026-05-13T08:17:27.342108+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "af1cc5a9-bbee-44fa-8b6b-45ddaf67ddb9",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13102_20260513_mistral-nemo.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9894_20260406_ernie-4.5-21b-a3b-thinking.md",
+  "relation": "denies",
+  "claim_text": "### Declared Losses The claim mentions behavior related to `pyproject.toml` configuration, but: - The file is source code for a tensor infrastructure project, not configuration files.",
+  "claim_file": "pyproject.toml",
+  "claim_by": "baidu/ernie-4.5-21b-a3b-thinking",
+  "verified_by": "mistralai/mistral-nemo",
+  "timestamp": "2026-05-13T07:47:22.139043+00:00"
+}

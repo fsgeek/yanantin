@@ -1,0 +1,11 @@
+{
+  "id": "c8c832dd-fa84-4b43-ae85-efddebbc91e7",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13101_20260513_llama-3-8b-instruct.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_10974_20260412_mistral-large.md",
+  "relation": "denies",
+  "claim_text": "The file does **not** contain: - Any mention of `scout_0645_20260215_qwen3-vl-8b-instruct.md`.",
+  "claim_file": "docs/cairn/scout_0645_20260215_qwen3-vl-8b-instruct.md",
+  "claim_by": "mistralai/mistral-large",
+  "verified_by": "meta-llama/llama-3-8b-instruct",
+  "timestamp": "2026-05-13T07:47:13.622657+00:00"
+}

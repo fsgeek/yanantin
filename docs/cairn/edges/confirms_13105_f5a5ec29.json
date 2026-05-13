@@ -1,0 +1,11 @@
+{
+  "id": "f5a5ec29-e2d8-460a-801e-7daab853b332",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13105_20260513_nova-lite-v1.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9708_20260405_reka-edge.md",
+  "relation": "confirms",
+  "claim_text": "**Verdict: INDETERMINATE** **Evidence:** The claim references a single file `capture_compaction.py` which contains code change detection logic.",
+  "claim_file": ".claude/hooks/capture_compaction.py",
+  "claim_by": "rekaai/reka-edge",
+  "verified_by": "amazon/nova-lite-v1",
+  "timestamp": "2026-05-13T08:17:25.620494+00:00"
+}

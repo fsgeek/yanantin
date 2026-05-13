@@ -1,0 +1,11 @@
+{
+  "id": "c9634f0f-97de-4a2f-8325-3c0104c8ba7a",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13170_20260513_gpt-5-nano.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_11695_20260416_hunyuan-a13b-instruct.md",
+  "relation": "confirms",
+  "claim_text": "In the file `tests/unit/test_memory_anchor.py`, the `MemoryAnchorService` is described as follows:   ```   \"\"\"Tests verify:   - Handle issuance sets referenced flag   - Cursor update sets updated flag   - Cursor update returns False when reference unchanged   - Write gate requires both flags (updated AND referenced)   - Flush stores anchor and advances handle   - Materialize resolves all providers (late binding)   - Materialize returns latest facts before anchor time   - Freeze creates tensor with expected strands   - Freeze tensor has provenance   \"\"\"   ```   This directly supports the claim that `MemoryAnchorService` uses flags (`referenced` and `updated`) to guard writes.",
+  "claim_file": "tests/unit/test_memory_anchor.py",
+  "claim_by": "tencent/hunyuan-a13b-instruct",
+  "verified_by": "openai/gpt-5-nano",
+  "timestamp": "2026-05-13T15:27:55.822013+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "9ca0270a-a11a-467f-a845-2ae004553970",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13168_20260513_mimo-v2-flash.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_9424_20260403_qwen3-next-80b-a3b-thinking.md",
+  "relation": "confirms",
+  "claim_text": "However, the provided file content does not contain any references to: - `docs/signing.md` - `src/yanantin/models/base.py` - \"tensor-level provenance\" - `ProvenanceEnvelope` The entire content of the provided file is a Python script for OOXML validation logic, with no mention of the files or terms specified in the claim.",
+  "claim_file": "tmp/ubuntu-vm.claude/document-skills/docx/ooxml/scripts/validation/base.py",
+  "claim_by": "qwen/qwen3-next-80b-a3b-thinking",
+  "verified_by": "xiaomi/mimo-v2-flash",
+  "timestamp": "2026-05-13T15:27:38.379146+00:00"
+}

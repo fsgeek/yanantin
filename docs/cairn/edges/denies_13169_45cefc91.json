@@ -1,0 +1,11 @@
+{
+  "id": "45cefc91-49c4-4b61-a907-e04b429dff54",
+  "from_report": "/home/tony/projects/yanantin/docs/cairn/scout_13169_20260513_qwen3-235b-a22b-2507.md",
+  "to_report": "/home/tony/projects/yanantin/docs/cairn/scout_2437_20260223_qwen-turbo.md",
+  "relation": "denies",
+  "claim_text": "- **Specific Files**: `docs/cairn/scour_0355_20260215_nova-lite-v1.md`, `backends/arango.py`, `backends/duckdb.py`.",
+  "claim_file": "src/yanantin/apacheta/backends/arango.py",
+  "claim_by": "qwen/qwen-turbo",
+  "verified_by": "qwen/qwen3-235b-a22b-2507",
+  "timestamp": "2026-05-13T15:27:49.794227+00:00"
+}

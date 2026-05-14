@@ -160,13 +160,28 @@ What this note adds beyond those literatures: a *typology* (Finding 2), a *mecha
 
 A four-axis design that would convert the exploration into formal evidence:
 
-- **Names** (4 levels): aligned English (`find_objects`), misleading-destructive English (`delete_objects`), Indonesian aligned (`cari_objects`), nonsense (`xqylp_zk`).
+- **Names** (5 levels): aligned English (`find_objects`), misleading-destructive English (`delete_objects`), Indonesian aligned (`cari_objects`), Quechua aligned (`maskay_objects`), nonsense (`xqylp_zk`). Include Quechua as a measured condition rather than carrying the partial-falsification from run_007 as the only data point.
 - **Descriptions** (3 levels): rich/aligned, empty, contradicting.
-- **Models** (8-12): cover the five typology clusters identified here plus replications across the Mistral family and within-family Claude scaling (Haiku/Sonnet/Opus) to test whether the intent-dominance pattern is Haiku-specific or Claude-family.
+- **Models** (8-12): cover the five typology clusters identified here, plus replications across the Mistral family (Mistral Small, Mistral Large, Mistral-8x22B) to test whether **capability-fabrication** generalizes within the lab, plus within-family Claude scaling (Haiku/Sonnet/Opus) to test whether **intent-dominance** is Haiku-specific or Claude-family.
 - **Prompts** (5-10): broaden the current corpus, especially to multi-result and chained-reasoning tasks.
 
 Target: n=50+ per cell, total cost under $5, pre-registered with OTS proof. The hypothesis: each model's refusal-category distribution under degraded descriptions clusters into one of the five typology buckets identified here, and the cluster assignment is stable across replications.
 
+### Open items from review (Kimi / Perplexity / Claude)
+
+Things the reviewers flagged that are *not* in the next-study design above and need a place to live:
+
+- **Temporal stability of the typology** (Kimi). Re-run the matrix on the same five models in 3–6 months. Does cluster assignment drift across model versions? Is the cross-lab variation *increasing* or *decreasing* over time? Would distinguish "labs converging on a tool-use default" from "labs continuing to diverge." Requires a longitudinal commitment, not a single experiment.
+- **Safety-veto severity gradient** (Perplexity). Replace the binary "destructive / non-destructive" name axis with a continuous severity ladder: `find_` → `retrieve_` → `fetch_` → `extract_` → `remove_` → `delete_` → `purge_` → `destroy_`. Where does Gemini's name-affordance veto threshold actually sit? Does the gradient match human intuitions about destructiveness, or does it follow OpenAI-training-data-frequency in surprising ways?
+- **Parallel MCP / Anthropic-native transport arm** (Perplexity; implicit in Claude's "one transport" limit). Run at least the Claude Haiku conditions through Anthropic's native tool-use API alongside the OpenRouter probe. The description-as-contract finding could partly reflect OpenRouter's normalization for Claude's native format; an in-house probe would isolate that.
+- **Parameter-level name effects** (Kimi). The substring-extraction mechanism in Finding 5 should also operate on parameter names. Does naming a parameter `object_ids_to_delete` vs `object_ids` vs `target_ids` change tool-selection or refusal behavior when the function description is otherwise identical? A focused ablation on this would establish whether identifier decomposition operates symmetrically at function-name and parameter-name levels.
+- **Substring-extraction conditionality** (Kimi). Is the `yanantin_delete_objects → delete` extraction *always* operative, or does it depend on the model having seen the scoped pattern (e.g. AWS S3 `delete_object`, GitHub MCP `delete_repository`) in training? Worth a probe with novel-shape compound identifiers (different separator characters, non-`verb_noun` structures).
+- **Probe-before-tool-call calibration as covariate** (Perplexity). Integrate the translation probe into the main experimental run: for each (model, name) pair, first ask the model to gloss the name and report confidence, then run the tool-selection trial. Lets the analysis use per-model-per-name calibration as a continuous covariate predicting tool behavior, rather than treating the translation probe and the tool-selection ablation as separate studies.
+- **Cross-lab variation comparison baseline** (Claude). The Finding 3 comparative claim ("tool-use varies more than RLHF behaviors") requires measuring variation in refusal-for-harm, helpfulness register, and tone on the *same* five-model panel. Without that baseline measurement, the comparison is asserted, not shown.
+- **Citation verification pass** (Perplexity provided pointers). The arXiv IDs Perplexity surfaced (ToolTweak 2510.02554, MLCL/Lost-in-Execution 2601.05366, Semantic Confusion 2512.01037, Reasoning Trap 2510.22977, agent hallucination survey 2509.18970, ToolCommander 2405.18540, EASYTOOL NAACL 2025) look plausible but were not verified before they would go on the page. Verify titles, authors, publication venues, and whether they say what Perplexity claims they say, before any formal submission.
+
+These belong in the next pre-registered design or in follow-up studies; this section is the durable record so they don't get lost between sessions.
+
 ## Reproducibility
 
-The harness is `src/yanantin/experiments/`. Pre-registration: `experiments/memory_tools/name_effect_v1/preregistration.yaml`, OTS-stamped at commit `544e05fb`. Raw data: `experiments/memory_tools/name_effect_v1/run_00{1,2,3,4,5,6}*.jsonl`. Every record carries `request_full` and `response_raw_body` so analysis can re-derive any rate from the source. The commits are in chronological order on `main`; the OTS chain anchors the dates.
+The harness is `src/yanantin/experiments/`. Pre-registration: `experiments/memory_tools/name_effect_v1/preregistration.yaml`, OTS-stamped at commit `544e05fb`. Raw data: `experiments/memory_tools/name_effect_v1/run_00{1,2,3,4,5,6,7}*.jsonl`. Every record carries `request_full` and `response_raw_body` so analysis can re-derive any rate from the source. The commits are in chronological order on `main`; the OTS chain anchors the dates.

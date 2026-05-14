@@ -1,0 +1,57 @@
+#!/bin/bash
+# OpenTimestamps post-commit hook.
+#
+# After each real commit, submits the commit hash to OpenTimestamps
+# calendar servers and stores the proof in docs/ots/<short>.ots, then
+# creates a follow-up "ots: stamp <short>" commit recording the proof.
+#
+# The hook uses yanantin's own provenance.timestamp Python module
+# (no external `ots` CLI required).
+#
+# Recursion guard: skips commits whose message starts with "ots:" so
+# our own follow-up commits don't retrigger stamping.
+#
+# Failure is non-fatal: if the calendar is unreachable, the original
+# commit still stands; only the follow-up stamp commit is skipped.
+# A backfill script can recover later.
+set -e
+
+GIT_ROOT=$(git rev-parse --show-toplevel)
+cd "$GIT_ROOT"
+
+COMMIT_MSG=$(git log -1 --format="%s")
+if [[ "$COMMIT_MSG" == ots:* ]]; then
+    exit 0
+fi
+
+HASH=$(git rev-parse HEAD)
+SHORT=${HASH:0:10}
+OTS_FILE="docs/ots/${SHORT}.ots"
+
+if [ -f "$OTS_FILE" ]; then
+    exit 0
+fi
+
+UV="${UV:-$HOME/.local/bin/uv}"
+if [ ! -x "$UV" ]; then
+    echo "ots: uv not found at $UV; skipping stamp for $SHORT" >&2
+    exit 0
+fi
+
+if ! HASH="$HASH" "$UV" run python -c "
+import os, sys
+from pathlib import Path
+from yanantin.provenance.timestamp import stamp_commit
+sys.exit(0 if stamp_commit(os.environ['HASH'], Path('docs/ots')) else 1)
+"; then
+    echo "ots: stamp failed for $SHORT (calendar unreachable?); skipping follow-up" >&2
+    exit 0
+fi
+
+if [ ! -f "$OTS_FILE" ]; then
+    echo "ots: proof file not created at $OTS_FILE; skipping follow-up" >&2
+    exit 0
+fi
+
+git add "$OTS_FILE"
+git commit --no-verify -m "ots: stamp $SHORT"

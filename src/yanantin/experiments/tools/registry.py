@@ -60,6 +60,50 @@ def build_name_effect_variants() -> list[ToolVariant]:
 DESCRIPTION_STATES_3D = ("rich", "empty", "contradicting")
 
 
+SEPARATOR_PROBE_SHAPES = (
+    # (shape_label, function_name)
+    ("snake_case",        "delete_objects"),       # baseline; replicates run_010's strongest veto cell
+    ("camelCase",         "deleteObjects"),        # case-boundary segmentation
+    ("kebab-case",        "delete-objects"),       # different separator character
+    ("verb_last",         "objects_delete"),       # positional dependence within compound
+    ("substring_buried",  "predelete_objects"),    # morpheme inside a longer compound token
+)
+
+
+def build_separator_probe_variants() -> list[ToolVariant]:
+    """10 variants: 5 function-name shapes x 2 description states (rich, contradicting).
+
+    All variants carry the destructive `delete` morpheme somewhere in the
+    function name; the shape varies. Description states held to rich
+    (control — all should call at 100%) and contradicting (where the
+    function-name veto fires strongest per run_010).
+
+    Tests whether the substring-extraction mechanism is BPE-driven (any
+    occurrence of the destructive morpheme triggers the veto, regardless
+    of separator or position) or convention-driven (only conventional
+    snake_case verb_noun shapes trigger).
+
+    variant_id format: `sep__{shape_label}_{desc_state}`
+    Parameter is held at `matching` (function-name slot only).
+    """
+    variants: list[ToolVariant] = []
+    for shape_label, fn_name in SEPARATOR_PROBE_SHAPES:
+        for desc_state in ("rich", "contradicting"):
+            variants.append(
+                ToolVariant(
+                    variant_id=f"sep__{shape_label}_{desc_state}",
+                    function_name=fn_name,
+                    schema=find_objects_schema(
+                        fn_name,
+                        param_name="matching",
+                        description_state=desc_state,
+                    ),
+                    impl=find_objects_impl,
+                )
+            )
+    return variants
+
+
 def build_verb_x_description_x_slot_variants() -> list[ToolVariant]:
     """48 variants: 8 verbs x 3 description states x 2 identifier slots.
 

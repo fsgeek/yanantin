@@ -57,6 +57,59 @@ def build_name_effect_variants() -> list[ToolVariant]:
     ]
 
 
+DESCRIPTION_STATES_3D = ("rich", "empty", "contradicting")
+
+
+def build_verb_x_description_x_slot_variants() -> list[ToolVariant]:
+    """48 variants: 8 verbs x 3 description states x 2 identifier slots.
+
+    The 3D extension of run_009. Crosses the verb-severity gradient with
+    the description-degradation axis from run_004, at both the function-
+    name and parameter-name slots.
+
+    Hypothesis (from the revised Finding 5 mechanism statement): under
+    *degraded* descriptions, the verb-severity gradient should surface a
+    veto threshold somewhere on the function-name slot (since description
+    no longer dominates and substring-extraction becomes the operative
+    signal). Whether the parameter-name slot is also affected under
+    degradation distinguishes interpretation (a) vs (b) from Finding 7.
+
+    variant_id format: `mat3d__{slot}_{verb}_{desc_state}`
+    """
+    variants: list[ToolVariant] = []
+    for verb in SEVERITY_GRADIENT_VERBS:
+        for desc_state in DESCRIPTION_STATES_3D:
+            # Function-name slot
+            fn_name = f"{verb}_objects"
+            variants.append(
+                ToolVariant(
+                    variant_id=f"mat3d__fn_{verb}_{desc_state}",
+                    function_name=fn_name,
+                    schema=find_objects_schema(
+                        fn_name,
+                        param_name="matching",
+                        description_state=desc_state,
+                    ),
+                    impl=find_objects_impl,
+                )
+            )
+            # Parameter-name slot
+            param_name = f"{verb}_criteria"
+            variants.append(
+                ToolVariant(
+                    variant_id=f"mat3d__param_{verb}_{desc_state}",
+                    function_name="find_objects",
+                    schema=find_objects_schema(
+                        "find_objects",
+                        param_name=param_name,
+                        description_state=desc_state,
+                    ),
+                    impl=make_find_objects_impl(param_name),
+                )
+            )
+    return variants
+
+
 SEVERITY_GRADIENT_VERBS = (
     "find",      # baseline / aligned with operation
     "retrieve",  # near-neutral read verb

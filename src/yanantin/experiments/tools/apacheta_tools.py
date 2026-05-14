@@ -73,12 +73,42 @@ def find_objects_impl(
 ) -> dict[str, Any]:
     """Resolve a `find_objects`-shaped call against the apacheta store.
 
-    `args` is the parsed dict of the model's tool-call arguments.
-    Returns the canonical response envelope (see `tools/schemas.py`).
+    Default behaviour: reads the filter container from `args["matching"]`.
+    For variants that rename this parameter, use `make_find_objects_impl`.
     """
+    return _find_objects_impl_inner(apacheta, args, budget, param_name="matching")
+
+
+def make_find_objects_impl(param_name: str = "matching"):
+    """Return a `find_objects`-shaped impl that reads its filter container
+    from `args[param_name]`.
+
+    The default (`"matching"`) preserves the original behaviour; the
+    parameter-name probe binds e.g. `"criteria_to_delete"` so the impl
+    honours whatever key was advertised in the schema.
+    """
+
+    def _impl(
+        apacheta: ApachetaInterface,
+        args: dict[str, Any],
+        budget: QueryBudget,
+    ) -> dict[str, Any]:
+        return _find_objects_impl_inner(apacheta, args, budget, param_name=param_name)
+
+    _impl.__name__ = f"find_objects_impl__{param_name}"
+    return _impl
+
+
+def _find_objects_impl_inner(
+    apacheta: ApachetaInterface,
+    args: dict[str, Any],
+    budget: QueryBudget,
+    *,
+    param_name: str,
+) -> dict[str, Any]:
     budget.charge()
 
-    matching: dict[str, Any] = dict(args.get("matching") or {})
+    matching: dict[str, Any] = dict(args.get(param_name) or {})
     limit = args.get("limit", 50)
     cursor = args.get("cursor")
 

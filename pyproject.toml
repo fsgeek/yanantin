@@ -45,6 +45,12 @@ packages = ["src/yanantin"]
 include = [
     "src/yanantin",
     "tests",
+    "docs/principles.md",
+    "docs/stability.md",
+    "docs/glossary.md",
+    "docs/apacheta.md",
+    "docs/blueprint.md",
+    "examples",
     "conftest.py",
     "pyproject.toml",
     "README.md",

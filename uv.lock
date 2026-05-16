@@ -619,6 +619,21 @@ wheels = [
 ]
 
 [[package]]
+name = "tiksi"
+version = "0.1.0"
+source = { editable = "../tiksi" }
+dependencies = [
+    { name = "pydantic" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "pydantic", specifier = ">=2.0" },
+    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
+]
+provides-extras = ["dev"]
+
+[[package]]
 name = "typing-extensions"
 version = "4.15.0"
 source = { registry = "https://pypi.org/simple" }
@@ -662,7 +677,7 @@ wheels = [
 
 [[package]]
 name = "yanantin"
-version = "0.1.1"
+version = "0.1.2"
 source = { editable = "." }
 dependencies = [
     { name = "anthropic" },
@@ -675,6 +690,7 @@ dependencies = [
     { name = "pydantic" },
     { name = "python-arango" },
     { name = "pyyaml" },
+    { name = "tiksi" },
 ]
 
 [package.optional-dependencies]
@@ -699,5 +715,6 @@ requires-dist = [
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
     { name = "python-arango", specifier = ">=8.2.6" },
     { name = "pyyaml", specifier = ">=6.0" },
+    { name = "tiksi", editable = "../tiksi" },
 ]
 provides-extras = ["dev", "dropbox"]

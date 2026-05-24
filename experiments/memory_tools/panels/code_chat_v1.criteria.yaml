@@ -1,0 +1,29 @@
+panel_id: code_chat_v1
+rationale: >
+  Matched code/chat sibling pairs to test whether code (and agentic) post-
+  training suppresses the destructive-substring veto found in Finding 10/11.
+  The Finding 11 confound is that same-lab siblings diverge anyway, so a
+  code-tuning claim requires the direction (code shows less veto than its
+  chat sibling) to replicate across independent labs and matched sizes.
+  Two primary matched pairs carry the confirmatory weight: Mistral 24B
+  (codestral-2508 vs the strongest-veto chat anchor mistral-small-3.2) and
+  Qwen 30b-a3b (qwen3-coder vs qwen3-30b-a3b-instruct-2507, identical MoE
+  architecture, only post-training differs). devstral-small adds an
+  agentic/tool-tuned arm (exploratory, no predicted direction). An older
+  Qwen2.5 pair adds a looser cross-generation replication.
+context_length_min: 8000
+exclude_patterns:
+  - "*-audio-*"
+  - "*:online"
+candidates:
+  # --- Mistral arm (matched ~24B) ---
+  - {id: "mistralai/mistral-small-3.2-24b-instruct", family: mistral, size_tier: mid, cost_tier: cheap}   # chat anchor (strongest uniform veto, run_011/012)
+  - {id: "mistralai/codestral-2508",                 family: mistral, size_tier: mid, cost_tier: cheap}   # code
+  - {id: "mistralai/devstral-small",                 family: mistral, size_tier: mid, cost_tier: cheap}   # agentic/tool-tuned (exploratory)
+  # --- Qwen3 arm (matched 30b-a3b architecture) ---
+  - {id: "qwen/qwen3-32b",                           family: qwen3, size_tier: mid, cost_tier: cheap}     # chat anchor (mild veto, run_011/012)
+  - {id: "qwen/qwen3-30b-a3b-instruct-2507",         family: qwen3, size_tier: mid, cost_tier: cheap}     # chat, matched arch to coder
+  - {id: "qwen/qwen3-coder-30b-a3b-instruct",        family: qwen3, size_tier: mid, cost_tier: cheap}     # code (the run_012 null)
+  # --- Qwen2.5 arm (older-gen, looser size match) ---
+  - {id: "qwen/qwen-2.5-72b-instruct",               family: qwen25, size_tier: large-open, cost_tier: cheap}  # chat
+  - {id: "qwen/qwen-2.5-coder-32b-instruct",         family: qwen25, size_tier: mid, cost_tier: cheap}    # code

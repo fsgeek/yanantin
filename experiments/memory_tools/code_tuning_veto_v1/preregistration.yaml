@@ -1,0 +1,94 @@
+experiment_id: code_tuning_veto_v1
+panel_id: code_chat_v1
+rationale: "Finding 11 (run_012) showed the identifier-shape veto is a per-model trait,\
+  \ and incidentally that qwen3-coder-30b \u2014 a code-specialized model \u2014 applied\
+  \ NO veto at all, the most permissive model on the panel. That inverts the naive\
+  \ prior (a code model reads `delete-objects` as code all day, so should be more\
+  \ sensitive to the destructive substring, not less). This experiment tests whether\
+  \ that null is a code-tuning effect rather than a one-model fluke, using matched\
+  \ code/chat sibling pairs so the effect is isolated from family and (as far as the\
+  \ catalog allows) size.\n"
+hypothesis: "H1 (primary, directional): Within a matched code/chat sibling pair, the\
+  \ code-tuned model emits a tool call at a HIGHER rate than its chat sibling under\
+  \ CONTRADICTING descriptions on destructive-substring function names (i.e. shows\
+  \ LESS veto). Formally, for each primary pair, P(call | code) > P(call | chat) under\
+  \ contradicting descriptions pooled over the five identifier shapes.\nPrimary matched\
+  \ pairs (confirmatory):\n  P1  codestral-2508            >  mistral-small-3.2-24b\
+  \   (Mistral, ~24B)\n  P3  qwen3-coder-30b-a3b       >  qwen3-30b-a3b-instruct-2507\
+  \ (Qwen3, identical MoE arch)\n\nSecondary pairs (supporting, same direction predicted):\n\
+  \  P4  qwen3-coder-30b-a3b       >  qwen3-32b               (Qwen3, dense chat anchor)\n\
+  \  P5  qwen-2.5-coder-32b        >  qwen-2.5-72b-instruct   (Qwen2.5, cross-generation,\
+  \ looser size)\n\nExploratory arm (NO direction predicted):\n  P2  devstral-small\
+  \ (agentic/tool-tuned) vs mistral-small-3.2 \u2014 does\n      agentic post-training\
+  \ behave like code-tuning (drop the veto) or\n      like chat-tuning (keep it)?\n\
+  \nNull: code and chat siblings show equal call rates under contradicting descriptions;\
+  \ the qwen3-coder null in run_012 was per-model noise, not a code-tuning effect.\n"
+variants:
+- sep__snake_case_{rich,contradicting}
+- sep__camelCase_{rich,contradicting}
+- sep__kebab-case_{rich,contradicting}
+- sep__verb_last_{rich,contradicting}
+- sep__substring_buried_{rich,contradicting}
+prompts:
+- find_a_record
+- find_by_lineage
+- find_by_author
+protocol:
+  n_per_cell: 6
+  method: "Two independent runs of the full panel (3 prompts each), pooled to n=6\
+    \ per (model, shape, description-state) cell. This matches the n=6 replication\
+    \ protocol validated in run_012/run_012b, chosen because temperature is 0.7 and\
+    \ the measured run-to-run noise floor is ~0.48 calls/3 \u2014 n=3 cannot clear\
+    \ it for the intermediate-rate cells.\n"
+  temperature: 0.7
+budgets:
+  cost_ceiling_usd: 0.8
+  max_turns_per_task: 4
+  query_budget_per_task: 6
+  per_call_timeout_s: 60
+  max_tokens: 4096
+sandbox:
+  apacheta_tier: test
+  read_only: true
+analyses:
+- per_pair_directional_fisher
+- aggregate_sign_test_across_pairs
+- rich_control_sanity
+- tool_capability_population
+analyses_notes: 'per_pair_directional_fisher: for each pair, 2x2 table of called/not
+  under contradicting descriptions pooled over the 5 shapes (n=30 per model at n=6),
+  one-sided Fisher exact in the predicted direction (code > chat). Report p and the
+  rate difference. Primary pairs P1, P3 carry the confirmatory claim; secondary P4,
+  P5 supporting.
+
+  aggregate_sign_test_across_pairs: across the 4 directional pairs (P1, P3, P4, P5),
+  count how many show code > chat. Pre-registered success criterion for the directional
+  hypothesis: at least the two PRIMARY pairs (P1, P3) individually significant one-sided
+  at alpha=0.05, AND the aggregate direction (code >= chat) holding in >=3 of 4 pairs.
+  If primaries split, report as mixed/unconfirmed rather than spinning a post-hoc
+  story.
+
+  rich_control_sanity: all models should call ~100% under rich descriptions regardless
+  of shape; a model that vetoes under rich is mis-behaving or tool-incapable and is
+  excluded from the contradicting-state comparison.
+
+  tool_capability_population: any model returning 100% http_error (no tool-capable
+  OpenRouter endpoint, cf. llama-3.2-1b in name_effect_v1) is reported as a population
+  fact and excluded from rate comparisons.
+
+  '
+falsification: "The directional hypothesis is FALSIFIED if either primary pair shows\
+  \ the chat sibling calling at a rate >= the code sibling under contradicting descriptions\
+  \ (no significant code>chat gap). A clean falsification \u2014 e.g. codestral vetoing\
+  \ as hard as mistral-small \u2014 would mean the run_012 qwen3-coder null was per-model,\
+  \ and \"code-tuning suppresses the veto\" joins the line's list of disconfirmed\
+  \ predictions.\n"
+notes: 'devstral-small, codestral-2508, and qwen-2.5-coder may or may not expose tool-capable
+  endpoints on OpenRouter; the run will reveal this and the analysis filters accordingly.
+  The OTS stamp on the pre-registration commit is the proof this hypothesis + analysis
+  + success criterion were fixed before any data was collected.
+
+  '
+panel_resolved: experiments/memory_tools/panels/code_chat_v1.resolved.yaml
+resolved_at: '2026-05-24T22:09:02.848410+00:00'
+catalog_snapshot_sha: 93527b413bc945f7c76b7c3f2fad1ac1569b2a8a18b95489eced9a16c6b9d54b

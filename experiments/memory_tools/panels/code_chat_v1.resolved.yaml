@@ -1,0 +1,79 @@
+panel_id: code_chat_v1
+rationale: 'Matched code/chat sibling pairs to test whether code (and agentic) post-
+  training suppresses the destructive-substring veto found in Finding 10/11. The Finding
+  11 confound is that same-lab siblings diverge anyway, so a code-tuning claim requires
+  the direction (code shows less veto than its chat sibling) to replicate across independent
+  labs and matched sizes. Two primary matched pairs carry the confirmatory weight:
+  Mistral 24B (codestral-2508 vs the strongest-veto chat anchor mistral-small-3.2)
+  and Qwen 30b-a3b (qwen3-coder vs qwen3-30b-a3b-instruct-2507, identical MoE architecture,
+  only post-training differs). devstral-small adds an agentic/tool-tuned arm (exploratory,
+  no predicted direction). An older Qwen2.5 pair adds a looser cross-generation replication.
+
+  '
+resolved_at: '2026-05-24T22:09:02.848410Z'
+catalog_snapshot_sha: 93527b413bc945f7c76b7c3f2fad1ac1569b2a8a18b95489eced9a16c6b9d54b
+models:
+- id: mistralai/mistral-small-3.2-24b-instruct
+  family: mistral
+  size_tier: mid
+  cost_tier: cheap
+  prompt_cost: 7.5e-08
+  completion_cost: 2.0e-07
+  context_length: 128000
+  native_max_tokens: 16384
+- id: mistralai/codestral-2508
+  family: mistral
+  size_tier: mid
+  cost_tier: cheap
+  prompt_cost: 3.0e-07
+  completion_cost: 9.0e-07
+  context_length: 256000
+  native_max_tokens: 4096
+- id: mistralai/devstral-small
+  family: mistral
+  size_tier: mid
+  cost_tier: cheap
+  prompt_cost: 1.0e-07
+  completion_cost: 3.0e-07
+  context_length: 131072
+  native_max_tokens: 4096
+- id: qwen/qwen3-32b
+  family: qwen3
+  size_tier: mid
+  cost_tier: cheap
+  prompt_cost: 8.0e-08
+  completion_cost: 2.8e-07
+  context_length: 131072
+  native_max_tokens: 16384
+- id: qwen/qwen3-30b-a3b-instruct-2507
+  family: qwen3
+  size_tier: mid
+  cost_tier: cheap
+  prompt_cost: 9.0e-08
+  completion_cost: 3.0e-07
+  context_length: 262144
+  native_max_tokens: 262144
+- id: qwen/qwen3-coder-30b-a3b-instruct
+  family: qwen3
+  size_tier: mid
+  cost_tier: cheap
+  prompt_cost: 7.0e-08
+  completion_cost: 2.7e-07
+  context_length: 160000
+  native_max_tokens: 32768
+- id: qwen/qwen-2.5-72b-instruct
+  family: qwen25
+  size_tier: large-open
+  cost_tier: cheap
+  prompt_cost: 3.6e-07
+  completion_cost: 4.0e-07
+  context_length: 131072
+  native_max_tokens: 16384
+- id: qwen/qwen-2.5-coder-32b-instruct
+  family: qwen25
+  size_tier: mid
+  cost_tier: cheap
+  prompt_cost: 6.6e-07
+  completion_cost: 1.0e-06
+  context_length: 128000
+  native_max_tokens: 32768

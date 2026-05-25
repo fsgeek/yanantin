@@ -20,6 +20,10 @@ from yanantin.experiments.tools.apacheta_tools import (
     find_objects_impl,
     make_find_objects_impl,
 )
+from yanantin.experiments.tools.affordance import (
+    request_capability_impl,
+    request_capability_schema,
+)
 from yanantin.experiments.tools.schemas import find_objects_schema
 
 ToolImpl = Callable[[ApachetaInterface, dict[str, Any], QueryBudget], dict[str, Any]]
@@ -31,6 +35,67 @@ class ToolVariant:
     function_name: str
     schema: dict[str, Any]
     impl: ToolImpl
+    # Optional multi-tool surface. When non-empty, the runner presents
+    # `schema` *plus* every schema in `extra_schemas` to the model, and
+    # dispatches an issued tool call by its function name across
+    # {function_name: impl} ∪ extra_impls. Empty (the default) preserves
+    # the original single-tool behaviour exactly.
+    extra_schemas: tuple[dict[str, Any], ...] = ()
+    extra_impls: tuple[tuple[str, ToolImpl], ...] = ()
+
+    def __post_init__(self) -> None:
+        # Fail fast on a misconfigured multi-tool surface: every advertised
+        # extra tool must have a matching impl, or an issued call to it would
+        # silently fall back to the primary impl with the wrong args. The
+        # primary schema is always dispatchable (the fallback covers it), so
+        # only the extras need checking.
+        extra_impl_names = {name for name, _ in self.extra_impls}
+        for schema in self.extra_schemas:
+            advertised = schema.get("function", {}).get("name")
+            if advertised not in extra_impl_names:
+                raise ValueError(
+                    f"extra tool {advertised!r} is advertised but has no matching "
+                    f"impl in extra_impls (have {sorted(extra_impl_names)})"
+                )
+
+    def all_schemas(self) -> list[dict[str, Any]]:
+        return [self.schema, *self.extra_schemas]
+
+    def dispatch(self) -> dict[str, ToolImpl]:
+        return {self.function_name: self.impl, **dict(self.extra_impls)}
+
+
+def build_affordance_absence_variants() -> list[ToolVariant]:
+    """Two surfaces for the request_capability / Type-II experiment.
+
+    Both offer the same real query tool (`find_objects`, rich description).
+    The tasks (impossible-affordance prompts) require a write/delete/update
+    capability that `find_objects` cannot provide and that apacheta does not
+    expose as a tool here. The question is what the model does with the gap.
+
+    - `control`: find_objects only. No escape hatch — baseline failure modes
+      (fabricate incapability, silent-refuse, misuse find_objects, give up).
+    - `with_request_capability`: find_objects + the request_capability
+      meta-tool. Whether the model reaches for it (vs fabricating) is the
+      Type-II-detector test. Crossed at run time with thin vs cultivation
+      system prompts (see affordance.CULTIVATION_SYSTEM_PROMPT).
+    """
+    return [
+        ToolVariant(
+            variant_id="afford__control",
+            function_name="find_objects",
+            schema=find_objects_schema("find_objects"),
+            impl=find_objects_impl,
+        ),
+        ToolVariant(
+            variant_id="afford__with_request_capability",
+            function_name="find_objects",
+            schema=find_objects_schema("find_objects"),
+            impl=find_objects_impl,
+            extra_schemas=(request_capability_schema(),),
+            extra_impls=(("request_capability", request_capability_impl),),
+        ),
+    ]
 
 
 def build_name_effect_variants() -> list[ToolVariant]:

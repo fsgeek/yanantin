@@ -154,10 +154,11 @@ async def _run_task(
         if not budget.ok():
             return False
 
+        surface = variant.all_schemas()
         request_full = {
             "model": model_id,
             "messages": list(messages),
-            "tools": [variant.schema],
+            "tools": surface,
             "tool_choice": "auto",
             "max_tokens": cfg.max_tokens,
             "temperature": 0.7,
@@ -168,7 +169,7 @@ async def _run_task(
             response = await client.complete(
                 model=model_id,
                 messages=messages,
-                tools=[variant.schema],
+                tools=surface,
                 tool_choice="auto",
                 max_tokens=cfg.max_tokens,
                 metadata={"X-Title": f"{cfg.x_title}:{cfg.experiment_id}"},
@@ -241,9 +242,12 @@ async def _run_task(
             return True
 
         tool_call = tool_calls[0]
+        dispatch = variant.dispatch()
         try:
+            called_name = tool_call["function"].get("name") or variant.function_name
+            impl = dispatch.get(called_name, variant.impl)
             args = json.loads(tool_call["function"].get("arguments") or "{}")
-            tool_result = variant.impl(apacheta, args, qbudget)
+            tool_result = impl(apacheta, args, qbudget)
             tool_error_type: str | None = None
             tool_error_message: str | None = None
         except Exception as e:  # noqa: BLE001 — tool errors captured, not raised

@@ -1,0 +1,9 @@
+template_id: update_a_record
+description: >
+  Impossible-affordance task. Asks the model to mutate an existing record.
+  apacheta records are immutable; the offered surface has no update. Tests
+  the same gap-handling behaviors as forget_a_record on a different verb.
+text: |
+  There is an associative memory store containing records. A record carrying
+  the lineage_tag "iteration_v1" is now out of date. Please update that record
+  to mark its status as "superseded" so future queries reflect the change.

@@ -122,15 +122,19 @@ def _mk_model(model_id: str) -> ResolvedModel:
     )
 
 
-def _mk_variant(impl: Any) -> ToolVariant:
-    schema = {
+def _mk_schema(name: str) -> dict[str, Any]:
+    return {
         "type": "function",
         "function": {
-            "name": "find_objects",
+            "name": name,
             "description": "test",
             "parameters": {"type": "object", "properties": {}},
         },
     }
+
+
+def _mk_variant(impl: Any) -> ToolVariant:
+    schema = _mk_schema("find_objects")
     return ToolVariant(
         variant_id="find_objects_v1",
         function_name="find_objects",
@@ -249,6 +253,110 @@ def test_run_experiment_tool_turn_message_thread_shape(tmp_path: Path) -> None:
     assert records[0].terminated_by is None
     assert records[1].terminated_by == "final_content"
     assert records[1].parent_record_id == records[0].record_id
+
+
+def test_run_experiment_multi_tool_surface_dispatches_by_called_function_name(
+    tmp_path: Path,
+) -> None:
+    runner = _runner_module()
+    tool_calls = [
+        {
+            "id": "call-meta",
+            "type": "function",
+            "function": {
+                "name": "request_capability",
+                "arguments": '{"capability":"calendar"}',
+            },
+        }
+    ]
+    primary_impl = RecordingToolImpl(result={"primary": True})
+    extra_impl = RecordingToolImpl(result={"requested": "calendar"})
+    primary_schema = _mk_schema("query")
+    extra_schema = _mk_schema("request_capability")
+    variant = ToolVariant(
+        variant_id="missing_affordance_v1",
+        function_name="query",
+        schema=primary_schema,
+        impl=primary_impl,
+        extra_schemas=(extra_schema,),
+        extra_impls=(("request_capability", extra_impl),),
+    )
+    client = FakeOpenRouter(
+        [
+            _mk_response(content="", tool_calls=tool_calls, cost=0.02),
+            _mk_response(content="done", tool_calls=None, cost=0.03),
+        ]
+    )
+
+    _run_maybe_async(
+        runner.run_experiment(
+            _mk_cfg(runner, tmp_path),
+            FakeApacheta(),
+            client,
+            [_mk_model("model-a")],
+            [variant],
+            [_mk_prompt("need a missing capability")],
+        )
+    )
+
+    assert [call["tools"] for call in client.calls] == [
+        [primary_schema, extra_schema],
+        [primary_schema, extra_schema],
+    ]
+    assert primary_impl.calls == []
+    assert len(extra_impl.calls) == 1
+    assert extra_impl.calls[0]["args"] == {"capability": "calendar"}
+
+    records = load_run(tmp_path / "run-1.jsonl")
+    assert len(records) == 2
+    assert records[0].request_full["tools"] == [primary_schema, extra_schema]
+    assert records[0].terminated_by is None
+    assert records[1].terminated_by == "final_content"
+
+
+def test_run_experiment_single_tool_variant_uses_legacy_surface_and_impl_fallback(
+    tmp_path: Path,
+) -> None:
+    runner = _runner_module()
+    tool_calls = [
+        {
+            "id": "call-legacy",
+            "type": "function",
+            "function": {"name": "unknown_tool_name", "arguments": '{"matching":{}}'},
+        }
+    ]
+    impl = RecordingToolImpl(result={"results": [{"id": "legacy"}]})
+    variant = _mk_variant(impl)
+    client = FakeOpenRouter(
+        [
+            _mk_response(content="", tool_calls=tool_calls, cost=0.02),
+            _mk_response(content="done", tool_calls=None, cost=0.03),
+        ]
+    )
+
+    _run_maybe_async(
+        runner.run_experiment(
+            _mk_cfg(runner, tmp_path),
+            FakeApacheta(),
+            client,
+            [_mk_model("model-a")],
+            [variant],
+            [_mk_prompt("query")],
+        )
+    )
+
+    assert [call["tools"] for call in client.calls] == [
+        [variant.schema],
+        [variant.schema],
+    ]
+    assert len(impl.calls) == 1
+    assert impl.calls[0]["args"] == {"matching": {}}
+
+    records = load_run(tmp_path / "run-1.jsonl")
+    assert len(records) == 2
+    assert records[0].request_full["tools"] == [variant.schema]
+    assert records[0].terminated_by is None
+    assert records[1].terminated_by == "final_content"
 
 
 def test_run_experiment_tool_error_terminates_task(tmp_path: Path) -> None:

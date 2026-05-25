@@ -8,6 +8,27 @@ from yanantin.experiments.tools.apacheta_tools import find_objects_impl
 from yanantin.experiments.tools.registry import ToolVariant, build_name_effect_variants
 
 
+def _schema(name: str) -> dict[str, object]:
+    return {
+        "type": "function",
+        "function": {
+            "name": name,
+            "description": "test schema",
+            "parameters": {"type": "object", "properties": {}},
+        },
+    }
+
+
+def _impl(_apacheta: object, _args: dict[str, object], _budget: object) -> dict[str, str]:
+    return {"impl": "primary"}
+
+
+def _extra_impl(
+    _apacheta: object, _args: dict[str, object], _budget: object
+) -> dict[str, str]:
+    return {"impl": "extra"}
+
+
 EXPECTED_VARIANTS = (
     ("find_objects_v1", "find_objects"),
     ("search_v1", "search"),
@@ -24,8 +45,46 @@ def test_tool_variant_is_frozen_dataclass_with_expected_field_layout() -> None:
         "function_name",
         "schema",
         "impl",
+        "extra_schemas",
+        "extra_impls",
     ]
     assert all(field.init for field in dataclass_fields)
+    assert dataclass_fields[4].default == ()
+    assert dataclass_fields[5].default == ()
+
+
+def test_multi_tool_variant_advertises_all_schemas_and_dispatches_by_name() -> None:
+    primary_schema = _schema("query")
+    extra_schema = _schema("request_capability")
+    variant = ToolVariant(
+        variant_id="multi_tool_v1",
+        function_name="query",
+        schema=primary_schema,
+        impl=_impl,
+        extra_schemas=(extra_schema,),
+        extra_impls=(("request_capability", _extra_impl),),
+    )
+
+    assert variant.all_schemas() == [primary_schema, extra_schema]
+    assert variant.dispatch() == {
+        "query": _impl,
+        "request_capability": _extra_impl,
+    }
+
+
+def test_empty_extra_variant_preserves_single_tool_contract() -> None:
+    schema = _schema("query")
+    variant = ToolVariant(
+        variant_id="single_tool_v1",
+        function_name="query",
+        schema=schema,
+        impl=_impl,
+    )
+
+    assert variant.extra_schemas == ()
+    assert variant.extra_impls == ()
+    assert variant.all_schemas() == [schema]
+    assert variant.dispatch() == {"query": _impl}
 
 
 def test_build_name_effect_variants_has_expected_ids_names_and_order() -> None:

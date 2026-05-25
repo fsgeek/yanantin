@@ -1,0 +1,77 @@
+panel_id: affordance_v1
+rationale: "Type-II / request_capability experiment panel. Chosen to span the behavioral\
+  \ clusters the cue-conflict line identified, because the hypothesis is cluster-specific:\
+  \ does offering + cultivating request_capability convert a model's missing-affordance\
+  \ failure mode into an explicit gap declaration? Includes the capability-fabrication\
+  \ exemplar (mistral-small-3.2 \u2014 the model whose invented incapability motivated\
+  \ this whole question), the terse-skip cluster (qwen3-32b, gpt-oss-20b), the name-affordance-veto\
+  \ cluster (gemini-flash-lite), the silent-refuse cluster (llama-4-scout), and intent-dominant\
+  \ / no-veto controls (claude-haiku, gemma-4-31b, deepseek-v4-flash). All verified\
+  \ tool-capable on OpenRouter in prior runs (run_001..run_012).\n"
+resolved_at: '2026-05-25T00:02:17.487529Z'
+catalog_snapshot_sha: 93527b413bc945f7c76b7c3f2fad1ac1569b2a8a18b95489eced9a16c6b9d54b
+models:
+- id: mistralai/mistral-small-3.2-24b-instruct
+  family: mistral
+  size_tier: mid
+  cost_tier: cheap
+  prompt_cost: 7.5e-08
+  completion_cost: 2.0e-07
+  context_length: 128000
+  native_max_tokens: 16384
+- id: qwen/qwen3-32b
+  family: qwen
+  size_tier: mid
+  cost_tier: cheap
+  prompt_cost: 8.0e-08
+  completion_cost: 2.8e-07
+  context_length: 131072
+  native_max_tokens: 16384
+- id: openai/gpt-oss-20b
+  family: gpt-oss
+  size_tier: mid
+  cost_tier: cheap
+  prompt_cost: 3.0e-08
+  completion_cost: 1.4e-07
+  context_length: 131072
+  native_max_tokens: 131072
+- id: google/gemini-2.5-flash-lite
+  family: google-flash-lite
+  size_tier: small
+  cost_tier: frontier-cheap
+  prompt_cost: 1.0e-07
+  completion_cost: 4.0e-07
+  context_length: 1048576
+  native_max_tokens: 65535
+- id: meta-llama/llama-4-scout
+  family: llama
+  size_tier: large-open
+  cost_tier: cheap
+  prompt_cost: 8.0e-08
+  completion_cost: 3.0e-07
+  context_length: 10000000
+  native_max_tokens: 16384
+- id: anthropic/claude-haiku-4.5
+  family: anthropic-haiku
+  size_tier: small
+  cost_tier: frontier-cheap
+  prompt_cost: 1.0e-06
+  completion_cost: 5.0e-06
+  context_length: 200000
+  native_max_tokens: 64000
+- id: google/gemma-4-31b-it
+  family: gemma
+  size_tier: mid
+  cost_tier: cheap
+  prompt_cost: 1.2e-07
+  completion_cost: 3.7e-07
+  context_length: 262144
+  native_max_tokens: 16384
+- id: deepseek/deepseek-v4-flash
+  family: deepseek
+  size_tier: mid
+  cost_tier: frontier-cheap
+  prompt_cost: 1.0e-07
+  completion_cost: 2.0e-07
+  context_length: 1048576
+  native_max_tokens: 16384

@@ -254,18 +254,108 @@ def _fully_populated_tensor(
 class TestConnectionAndInit:
     """Test connection lifecycle and initialization."""
 
-    def test_fails_if_database_unreachable(self):
-        """Backend should fail-stop if it can't connect to the database."""
-        with patch('yanantin.apacheta.backends.arango.ArangoClient') as MockClient:
-            mock_client = Mock()
-            mock_db = Mock()
+    def _backend_raising(self, collections_exc):
+        """Build an ArangoDBBackend whose collections() probe raises `exc`.
 
-            MockClient.return_value = mock_client
-            mock_client.db.return_value = mock_db
-            mock_db.collections.side_effect = Exception("Connection refused")
+        Returns a context that patches ArangoClient so construction reaches
+        _connect_database() and the discrimination branch fires.
+        """
+        patcher = patch('yanantin.apacheta.backends.arango.ArangoClient')
+        MockClient = patcher.start()
+        mock_client = Mock()
+        mock_db = Mock()
+        MockClient.return_value = mock_client
+        mock_client.db.return_value = mock_db
+        mock_db.collections.side_effect = collections_exc
+        return patcher
 
-            with pytest.raises(ConnectionError, match="Cannot connect"):
+    @staticmethod
+    def _server_error(http_code):
+        """A python-arango ArangoServerError carrying an HTTP status code.
+
+        The driver populates `http_code` from the response; we set it
+        directly so the discrimination logic has the signal it branches on.
+        """
+        from arango.exceptions import ArangoServerError
+
+        exc = ArangoServerError.__new__(ArangoServerError)
+        exc.http_code = http_code
+        exc.error_code = None
+        # ArangoServerError stringifies via its own machinery; give it a message.
+        Exception.__init__(exc, f"[HTTP {http_code}] server error")
+        return exc
+
+    def test_auth_failure_raises_backend_auth_error(self):
+        """HTTP 401 (wrong credentials) → BackendAuthError, not a provisioning claim."""
+        from yanantin.apacheta.interface.errors import BackendAuthError
+
+        patcher = self._backend_raising(self._server_error(401))
+        try:
+            with pytest.raises(BackendAuthError, match="(?i)credential"):
+                ArangoDBBackend(db_name="apacheta", username="bad", password="wrong")
+        finally:
+            patcher.stop()
+
+    def test_forbidden_raises_backend_auth_error(self):
+        """HTTP 403 (insufficient privilege) is also an auth boundary, not provisioning."""
+        from yanantin.apacheta.interface.errors import BackendAuthError
+
+        patcher = self._backend_raising(self._server_error(403))
+        try:
+            with pytest.raises(BackendAuthError):
+                ArangoDBBackend(db_name="apacheta", username="lowpriv", password="x")
+        finally:
+            patcher.stop()
+
+    def test_unreachable_host_raises_backend_unreachable_error(self):
+        """A transport-level connection failure → BackendUnreachableError (host/port/network)."""
+        from arango.exceptions import ServerConnectionError
+
+        from yanantin.apacheta.interface.errors import BackendUnreachableError
+
+        # ServerConnectionError on a transport failure carries no usable http_code.
+        exc = ServerConnectionError.__new__(ServerConnectionError)
+        exc.http_code = None
+        exc.error_code = None
+        Exception.__init__(exc, "Can't connect to host(s) within limit (3)")
+
+        patcher = self._backend_raising(exc)
+        try:
+            with pytest.raises(BackendUnreachableError, match="(?i)host|port|network|reach"):
+                ArangoDBBackend(db_name="apacheta")
+        finally:
+            patcher.stop()
+
+    def test_missing_database_raises_not_provisioned_error(self):
+        """HTTP 404 (database absent on a reachable, authenticated host) → DatabaseNotProvisionedError."""
+        from yanantin.apacheta.interface.errors import DatabaseNotProvisionedError
+
+        patcher = self._backend_raising(self._server_error(404))
+        try:
+            with pytest.raises(DatabaseNotProvisionedError, match="(?i)provision"):
                 ArangoDBBackend(db_name="nonexistent_db")
+        finally:
+            patcher.stop()
+
+    def test_all_failure_modes_remain_connectionerror(self):
+        """Backward-compat contract: every discriminated subclass is still a ConnectionError."""
+        from yanantin.apacheta.interface.errors import (
+            BackendAuthError,
+            BackendUnreachableError,
+            DatabaseNotProvisionedError,
+        )
+
+        for cls in (BackendAuthError, BackendUnreachableError, DatabaseNotProvisionedError):
+            assert issubclass(cls, ConnectionError), f"{cls.__name__} must subclass ConnectionError"
+
+    def test_unknown_failure_falls_back_to_connectionerror(self):
+        """An unrecognized failure → generic ConnectionError, not a misleading specific claim."""
+        patcher = self._backend_raising(ValueError("something unexpected"))
+        try:
+            with pytest.raises(ConnectionError, match="(?i)unexpected"):
+                ArangoDBBackend(db_name="apacheta")
+        finally:
+            patcher.stop()
 
     def test_connects_directly_to_target_database(self):
         """Backend connects to target database, never to _system (least privilege)."""

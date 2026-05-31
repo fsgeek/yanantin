@@ -25,11 +25,19 @@ from uuid import UUID
 
 from arango import ArangoClient
 from arango.database import StandardDatabase
-from arango.exceptions import DocumentInsertError
+from arango.exceptions import (
+    ArangoClientError,
+    ArangoServerError,
+    DocumentInsertError,
+    ServerConnectionError,
+)
 
 from yanantin.apacheta.interface.abstract import ApachetaInterface
 from yanantin.apacheta.interface.errors import (
     AccessDeniedError,
+    BackendAuthError,
+    BackendUnreachableError,
+    DatabaseNotProvisionedError,
     ImmutabilityError,
     NotFoundError,
 )
@@ -114,11 +122,49 @@ class ArangoDBBackend(ApachetaInterface):
             db.collections()
             return db
         except Exception as e:
-            raise ConnectionError(
-                f"Cannot connect to ArangoDB database '{self._db_name}' at {self._host}. "
-                f"Database must be provisioned by an admin before the application can use it. "
-                f"Error: {e}"
-            ) from e
+            raise self._discriminate_connection_failure(e) from e
+
+    def _discriminate_connection_failure(self, e: Exception) -> ConnectionError:
+        """Map a raw connection failure to a specific, remediation-honest error.
+
+        The old blanket wrapper claimed every failure meant "must be
+        provisioned by an admin" — true for exactly one of three causes.
+        An operator (or a reasoning loop) reading that prefix goes looking
+        for admin tooling when the real problem is a typo in the credentials
+        or an unreachable host. We branch on the signal python-arango
+        actually carries — the HTTP status code, and the transport-failure
+        exception types — and say what's really wrong.
+        """
+        where = f"ArangoDB database '{self._db_name}' at {self._host}"
+
+        # Transport-level failure: the host never answered. ServerConnectionError
+        # is raised on a failed connect; ArangoClientError covers client-side
+        # transport problems. Neither carries a meaningful HTTP status.
+        if isinstance(e, (ServerConnectionError, ArangoClientError)):
+            return BackendUnreachableError(
+                f"Cannot reach {where}. Check the host, port, and network "
+                f"(is the server running and listening?). Error: {e}"
+            )
+
+        # Server answered with a status code — branch on what it said.
+        http_code = getattr(e, "http_code", None)
+        if isinstance(e, ArangoServerError):
+            if http_code in (401, 403):
+                return BackendAuthError(
+                    f"Authentication rejected by {where}. Check the credentials "
+                    f"and that the user has access to this database — this is not "
+                    f"a provisioning problem. Error: {e}"
+                )
+            if http_code == 404:
+                return DatabaseNotProvisionedError(
+                    f"Cannot connect to {where}. Database must be provisioned by "
+                    f"an admin before the application can use it. Error: {e}"
+                )
+
+        # Unrecognized failure: don't pretend to know the cause. Say so.
+        return ConnectionError(
+            f"Unexpected failure connecting to {where}. Error: {e}"
+        )
 
     def _ensure_collections(self) -> None:
         """Create collections (and supporting indexes) if they don't exist."""

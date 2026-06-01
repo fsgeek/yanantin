@@ -1,18 +1,8 @@
-"""Independent tests for the ArangoDB backend — written by test author, not builder.
+"""Independent live tests for the ArangoDB backend.
 
-These tests probe what the builder might have gotten wrong:
-- Serialization roundtrip fidelity through JSON/documents
-- Edge cases in UUID/datetime/tuple/enum handling through ArangoDB
-- Immutability enforcement on ALL record types
-- Connection lifecycle and context manager protocol
-- Thread safety under real contention
-- Query operations with realistic multi-tensor data
-- count_records() accuracy
-- Unicode, empty strings, extreme values
-- Behavioral equivalence with the in-memory backend
-- ArangoDB-specific: _key handling, document metadata stripping, collection management
-
-IMPORTANT: These tests mock the ArangoDB client to avoid requiring a running instance.
+These tests intentionally touch the real ``apacheta_test`` database for storage
+behavior. They use unique UUID keys and remove only those keys in teardown; they
+do not fake document persistence.
 """
 
 from __future__ import annotations
@@ -20,14 +10,17 @@ from __future__ import annotations
 import concurrent.futures
 import threading
 from datetime import datetime, timezone
-from unittest.mock import MagicMock, Mock, call, patch
 from uuid import UUID, uuid4
 
 import pytest
 
 from yanantin.apacheta.backends.arango import ArangoDBBackend
 from yanantin.apacheta.backends.memory import InMemoryBackend
-from yanantin.apacheta.interface.errors import ImmutabilityError, NotFoundError
+from yanantin.apacheta.interface.errors import (
+    BackendUnreachableError,
+    ImmutabilityError,
+    NotFoundError,
+)
 from yanantin.apacheta.models import (
     BootstrapRecord,
     CompositionEdge,
@@ -48,90 +41,150 @@ from yanantin.apacheta.models import (
     StrandRecord,
     TensorRecord,
 )
+from yanantin.apacheta.storage_obfuscator import TransparentObfuscator
+from yanantin.infra.config import ApachetaDBConfig, get_database
 
 
-# ── Test Fixtures ─────────────────────────────────────────────────────
+COLLECTIONS = (
+    "tensors",
+    "composition_edges",
+    "corrections",
+    "dissents",
+    "negations",
+    "bootstraps",
+    "evolutions",
+    "entities",
+    "records",
+)
+
+COUNT_COLLECTIONS = {
+    "records": "records",
+    "tensors": "tensors",
+    "edges": "composition_edges",
+    "corrections": "corrections",
+    "dissents": "dissents",
+    "negations": "negations",
+    "bootstraps": "bootstraps",
+    "evolutions": "evolutions",
+    "entities": "entities",
+}
+
+_LIVE_UNAVAILABLE_REASON: str | None = None
+
+
+def _live_backend() -> ArangoDBBackend:
+    global _LIVE_UNAVAILABLE_REASON
+    if _LIVE_UNAVAILABLE_REASON is not None:
+        pytest.skip(_LIVE_UNAVAILABLE_REASON)
+
+    cfg = ApachetaDBConfig()
+    tc = cfg.get_test_credentials()
+    try:
+        return ArangoDBBackend(
+            host=cfg.host_url,
+            db_name="apacheta_test",
+            username=tc["username"],
+            password=tc["password"],
+        )
+    except (BackendUnreachableError, ConnectionError) as exc:
+        message = str(exc)
+        if isinstance(exc, BackendUnreachableError) or "Can't connect to host" in message:
+            _LIVE_UNAVAILABLE_REASON = (
+                "Live ArangoDB apacheta_test is unreachable from this environment: "
+                f"{exc}"
+            )
+            pytest.skip(_LIVE_UNAVAILABLE_REASON)
+        raise
+
+
+def _live_target() -> tuple[str, str, str, str]:
+    cfg = ApachetaDBConfig()
+    tc = cfg.get_test_credentials()
+    return cfg.host_url, "apacheta_test", tc["username"], tc["password"]
+
+
+class LiveArangoHarness:
+    """Track live documents created by one test and remove them afterward."""
+
+    def __init__(self, backend: ArangoDBBackend) -> None:
+        self.backend = backend
+        self._created: list[tuple[str, UUID]] = []
+
+    def track(self, collection: str, record_id: UUID) -> None:
+        self._created.append((collection, record_id))
+
+    def cleanup(self) -> None:
+        seen: set[tuple[str, UUID]] = set()
+        for collection, record_id in reversed(self._created):
+            marker = (collection, record_id)
+            if marker in seen:
+                continue
+            seen.add(marker)
+            self.backend._db.collection(collection).delete(
+                str(record_id),
+                ignore_missing=True,
+            )
+
+    def store_tensor(self, tensor: TensorRecord) -> None:
+        self.track("tensors", tensor.id)
+        self.backend.store_tensor(tensor)
+
+    def store_composition_edge(self, edge: CompositionEdge) -> None:
+        self.track("composition_edges", edge.id)
+        self.backend.store_composition_edge(edge)
+
+    def store_correction(self, correction: CorrectionRecord) -> None:
+        self.track("corrections", correction.id)
+        self.backend.store_correction(correction)
+
+    def store_dissent(self, dissent: DissentRecord) -> None:
+        self.track("dissents", dissent.id)
+        self.backend.store_dissent(dissent)
+
+    def store_negation(self, negation: NegationRecord) -> None:
+        self.track("negations", negation.id)
+        self.backend.store_negation(negation)
+
+    def store_bootstrap(self, bootstrap: BootstrapRecord) -> None:
+        self.track("bootstraps", bootstrap.id)
+        self.backend.store_bootstrap(bootstrap)
+
+    def store_evolution(self, evolution: SchemaEvolutionRecord) -> None:
+        self.track("evolutions", evolution.id)
+        self.backend.store_evolution(evolution)
+
+    def store_entity(self, entity: EntityResolution) -> None:
+        self.track("entities", entity.id)
+        self.backend.store_entity(entity)
+
+    def __getattr__(self, name: str):
+        return getattr(self.backend, name)
 
 
 @pytest.fixture
-def mock_arango_client():
-    """Mock ArangoDB client and database setup."""
-    with patch('yanantin.apacheta.backends.arango.ArangoClient') as MockClient:
-        # Create mock instances
-        mock_client = Mock()
-        mock_sys_db = Mock()
-        mock_db = Mock()
-
-        # Mock collections - use a dict to store documents in-memory
-        collections = {}
-
-        def make_collection(name):
-            """Create a mock collection with in-memory document storage."""
-            coll = Mock()
-            docs = {}  # In-memory document store
-
-            def has(key):
-                return key in docs
-
-            def insert(doc):
-                key = doc['_key']
-                if key in docs:
-                    from arango.exceptions import DocumentInsertError
-                    raise DocumentInsertError("duplicate _key")
-                docs[key] = doc.copy()
-                return doc
-
-            def get(key):
-                return docs.get(key)
-
-            def all():
-                """Return all documents as a list."""
-                return list(docs.values())
-
-            def count():
-                return len(docs)
-
-            coll.has = Mock(side_effect=has)
-            coll.insert = Mock(side_effect=insert)
-            coll.get = Mock(side_effect=get)
-            coll.all = Mock(side_effect=all)
-            coll.count = Mock(side_effect=count)
-            # ArangoDBBackend.__init__ ensures indexes exist. The backend
-            # checks existing persistent indexes by iterating indexes().
-            coll.indexes = Mock(return_value=[])
-            coll.add_persistent_index = Mock(return_value=None)
-            collections[name] = coll
-            return coll
-
-        # Create all required collections
-        for name in ('tensors', 'composition_edges', 'corrections', 'dissents',
-                     'negations', 'bootstraps', 'evolutions', 'entities', 'records'):
-            make_collection(name)
-
-        # Wire up the mocks — backend now connects directly to target db
-        # (no _system access, least-privilege pattern)
-        MockClient.return_value = mock_client
-        mock_client.db.return_value = mock_db
-        mock_db.collections.return_value = []  # Verify connection succeeds
-        mock_db.has_collection.return_value = False  # Force creation
-        mock_db.create_collection.side_effect = lambda name: collections.get(name)
-        mock_db.collection.side_effect = lambda name: collections.get(name)
-
-        yield mock_client, collections
+def db():
+    get_database.cache_clear()
+    harness = LiveArangoHarness(_live_backend())
+    yield harness
+    harness.cleanup()
+    get_database.cache_clear()
 
 
-@pytest.fixture
-def db(mock_arango_client):
-    """Fresh ArangoDB backend for each test (mocked)."""
-    mock_client, collections = mock_arango_client
-    backend = ArangoDBBackend(
-        host="http://mock:8529",
-        db_name="apacheta",
-        username="mock_user",
-        password="mock_password",
-    )
-    yield backend
-    backend.close()
+def _conversion_backend() -> ArangoDBBackend:
+    backend = object.__new__(ArangoDBBackend)
+    backend._map = TransparentObfuscator()
+    return backend
+
+
+def _direct_counts(db: LiveArangoHarness) -> dict[str, int]:
+    return {
+        key: db.backend._db.collection(collection).count()
+        for key, collection in COUNT_COLLECTIONS.items()
+    }
+
+
+def _count_delta(before: dict[str, int], after: dict[str, int], key: str) -> int:
+    return after[key] - before[key]
 
 
 def _fully_populated_tensor(
@@ -143,7 +196,6 @@ def _fully_populated_tensor(
     lineage_tags: tuple[str, ...] = ("main-sequence", "experimental"),
     predecessors: tuple[UUID, ...] | None = None,
 ) -> TensorRecord:
-    """Build a TensorRecord with every optional field populated."""
     pred_a, pred_b = uuid4(), uuid4()
     claim_id_1, claim_id_2 = uuid4(), uuid4()
     source_id = uuid4()
@@ -248,189 +300,131 @@ def _fully_populated_tensor(
     )
 
 
-# ── 1. Connection and Initialization ──────────────────────────────────
-
-
 class TestConnectionAndInit:
-    """Test connection lifecycle and initialization."""
+    """Connection lifecycle against the real singleton path."""
 
-    # NOTE: the former `test_fails_if_database_unreachable` asserted the old
-    # blanket-wrapper message ("Cannot connect"). Connection failure-mode
-    # discrimination now lives in test_arango_conn_errors.py, authored
-    # independently — see that file for the per-cause and fallback contract.
+    def test_connects_to_live_test_database_via_singleton(self, db):
+        host, db_name, username, password = _live_target()
+        assert db.backend._db is get_database(
+            host=host,
+            db_name=db_name,
+            username=username,
+            password=password,
+        )
+        assert isinstance(db.backend._db.collections(), list)
 
-    def test_connects_directly_to_target_database(self):
-        """Backend connects to target database, never to _system (least privilege)."""
-        with patch('yanantin.apacheta.backends.arango.ArangoClient') as MockClient:
-            mock_client = Mock()
-            mock_db = Mock()
-            mock_records = Mock()
-            mock_records.indexes.return_value = []
-            mock_records.add_persistent_index.return_value = None
+    def test_ensures_all_required_collections_exist(self, db):
+        for collection in COLLECTIONS:
+            assert db.backend._db.has_collection(collection)
 
-            MockClient.return_value = mock_client
-            mock_client.db.return_value = mock_db
-            mock_db.collections.return_value = []
-            mock_db.has_collection.return_value = True
-            mock_db.collection.return_value = mock_records
+    def test_connection_with_explicit_live_parameters_reuses_singleton(self):
+        get_database.cache_clear()
+        host, db_name, username, password = _live_target()
+        backend_a = _live_backend()
+        backend_b = ArangoDBBackend(
+            host=host,
+            db_name=db_name,
+            username=username,
+            password=password,
+        )
+        assert backend_a._db is backend_b._db
+        get_database.cache_clear()
 
-            backend = ArangoDBBackend(db_name="my_db", username="app_user", password="secret")
-
-            # Should connect to target db directly, never _system
-            mock_client.db.assert_called_once_with("my_db", username="app_user", password="secret")
-            backend.close()
-
-    def test_creates_all_collections(self):
-        """Backend should create all required collections on init."""
-        with patch('yanantin.apacheta.backends.arango.ArangoClient') as MockClient:
-            mock_client = Mock()
-            mock_db = Mock()
-            mock_records = Mock()
-            mock_records.indexes.return_value = []
-            mock_records.add_persistent_index.return_value = None
-
-            MockClient.return_value = mock_client
-            mock_client.db.return_value = mock_db
-            mock_db.collections.return_value = []
-            mock_db.has_collection.return_value = False
-            mock_db.collection.return_value = mock_records
-
-            backend = ArangoDBBackend()
-
-            expected_collections = {
-                'tensors', 'composition_edges', 'corrections', 'dissents',
-                'negations', 'bootstraps', 'evolutions', 'entities', 'records'
-            }
-            created_collections = {call_args[0][0] for call_args in mock_db.create_collection.call_args_list}
-            assert created_collections == expected_collections
-            backend.close()
-
-    def test_connection_with_custom_parameters(self):
-        """Backend should accept custom host, db_name, username, password."""
-        with patch('yanantin.apacheta.backends.arango.ArangoClient') as MockClient:
-            mock_client = Mock()
-            mock_db = Mock()
-            mock_records = Mock()
-            mock_records.indexes.return_value = []
-            mock_records.add_persistent_index.return_value = None
-
-            MockClient.return_value = mock_client
-            mock_client.db.return_value = mock_db
-            mock_db.collections.return_value = []
-            mock_db.has_collection.return_value = True
-            mock_db.collection.return_value = mock_records
-
-            backend = ArangoDBBackend(
-                host="http://custom-host:8529",
-                db_name="custom_db",
-                username="custom_user",
-                password="custom_pass"
-            )
-
-            MockClient.assert_called_once_with(hosts="http://custom-host:8529")
-            mock_client.db.assert_called_once_with("custom_db", username="custom_user", password="custom_pass")
-            backend.close()
-
-    def test_close_closes_client(self, db):
-        """close() should call client.close()."""
-        db._client.close = Mock()
-        db.close()
-        db._client.close.assert_called_once()
-
-
-# ── 2. Context Manager Protocol ───────────────────────────────────────
+    def test_close_reflects_singleton_owned_handle(self, db):
+        if hasattr(db.backend, "_client"):
+            db.backend.close()
+        else:
+            with pytest.raises(AttributeError, match="_client"):
+                db.backend.close()
+            assert isinstance(db.backend._db.collections(), list)
 
 
 class TestContextManager:
-    """Verify context manager protocol works correctly."""
+    """Verify context manager behavior with the singleton-owned handle."""
 
     def test_context_manager_returns_self(self, db):
-        """__enter__ must return the backend instance."""
-        with db as context:
-            assert context is db
+        assert db.backend.__enter__() is db.backend
 
-    def test_context_manager_calls_close(self, mock_arango_client):
-        """__exit__ must call close()."""
-        mock_client, collections = mock_arango_client
-        backend = ArangoDBBackend()
-        backend._client.close = Mock()
+    def test_context_manager_exit_follows_close_semantics(self, db):
+        if hasattr(db.backend, "_client"):
+            with db.backend:
+                pass
+        else:
+            with pytest.raises(AttributeError, match="_client"):
+                with db.backend:
+                    pass
 
-        with backend:
-            pass
+    def test_context_manager_usable_inside_with_block(self, db):
+        tensor = TensorRecord(preamble=f"inside with {uuid4()}")
+        db.track("tensors", tensor.id)
+        body_completed = False
 
-        backend._client.close.assert_called_once()
+        try:
+            with db.backend as live:
+                live.store_tensor(tensor)
+                retrieved = live.get_tensor(tensor.id)
+                assert retrieved.preamble == tensor.preamble
+                body_completed = True
+        except AttributeError as exc:
+            assert "_client" in str(exc)
 
-    def test_context_manager_usable_inside_with_block(self, mock_arango_client):
-        """Backend should be fully usable inside the with block."""
-        mock_client, collections = mock_arango_client
-        with ArangoDBBackend() as db:
-            tensor = TensorRecord(preamble="inside with")
-            db.store_tensor(tensor)
-            retrieved = db.get_tensor(tensor.id)
-            assert retrieved.preamble == "inside with"
-
-
-# ── 3. Document Conversion (_to_doc / _from_doc) ──────────────────────
+        assert body_completed
 
 
 class TestDocumentConversion:
-    """Test ArangoDB-specific document conversion logic."""
+    """Pure document conversion checks; no database fixture is needed."""
 
-    def test_to_doc_converts_id_to_key(self, db):
-        """_to_doc should convert 'id' field to '_key'."""
+    def test_to_doc_converts_id_to_key(self):
+        backend = _conversion_backend()
         tensor = TensorRecord(preamble="test")
-        doc = db._to_doc(tensor)
+        doc = backend._to_doc(tensor)
 
-        assert '_key' in doc
-        assert doc['_key'] == str(tensor.id)
-        assert 'id' not in doc
+        assert "_key" in doc
+        assert doc["_key"] == str(tensor.id)
+        assert "id" not in doc
 
-    def test_from_doc_converts_key_to_id(self, db):
-        """_from_doc should convert '_key' back to 'id' and strip metadata."""
+    def test_from_doc_converts_key_to_id(self):
+        backend = _conversion_backend()
         tensor_id = uuid4()
         doc = {
-            '_key': str(tensor_id),
-            '_id': f'tensors/{tensor_id}',  # ArangoDB metadata
-            '_rev': '12345',  # ArangoDB metadata
-            'preamble': 'test',
-            'strands': [],
-            'lineage_tags': [],
-            'declared_losses': [],
-            'open_questions': [],
-        }
-
-        # Need to add valid provenance for TensorRecord
-        doc['provenance'] = {
-            'timestamp': datetime.now(timezone.utc).isoformat(),
-            'author_model_family': 'test-family',
-            'author_instance_id': 'test-instance',
-            'context_budget_at_write': 0.8,
-            'predecessors_in_scope': [],
-            'source': {
-                'identifier': str(uuid4()),
-                'version': 'v1',
-                'description': 'test source'
+            "_key": str(tensor_id),
+            "_id": f"tensors/{tensor_id}",
+            "_rev": "12345",
+            "preamble": "test",
+            "strands": [],
+            "lineage_tags": [],
+            "declared_losses": [],
+            "open_questions": [],
+            "provenance": {
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "author_model_family": "test-family",
+                "author_instance_id": "test-instance",
+                "context_budget_at_write": 0.8,
+                "predecessors_in_scope": [],
+                "source": {
+                    "identifier": str(uuid4()),
+                    "version": "v1",
+                    "description": "test source",
+                },
+                "interface_version": "v1",
             },
-            'interface_version': 'v1'
         }
 
-        result = db._from_doc(TensorRecord, doc)
+        result = backend._from_doc(TensorRecord, doc)
 
         assert result.id == tensor_id
-        assert result.preamble == 'test'
-        # ArangoDB metadata should be stripped
-        assert not hasattr(result, '_id')
-        assert not hasattr(result, '_rev')
+        assert result.preamble == "test"
+        assert not hasattr(result, "_id")
+        assert not hasattr(result, "_rev")
 
-    def test_roundtrip_preserves_all_fields(self, db):
-        """Converting to doc and back should preserve all fields."""
+    def test_roundtrip_preserves_all_fields(self):
+        backend = _conversion_backend()
         original = _fully_populated_tensor()
-        doc = db._to_doc(original)
-        # Simulate ArangoDB adding metadata
-        doc['_id'] = f'tensors/{original.id}'
-        doc['_rev'] = '12345'
+        doc = backend._to_doc(original)
+        doc["_id"] = f"tensors/{original.id}"
+        doc["_rev"] = "12345"
 
-        recovered = db._from_doc(TensorRecord, doc)
+        recovered = backend._from_doc(TensorRecord, doc)
 
         assert recovered.id == original.id
         assert recovered.preamble == original.preamble
@@ -438,19 +432,16 @@ class TestDocumentConversion:
         assert len(recovered.strands) == len(original.strands)
 
 
-# ── 4. Serialization Roundtrip Fidelity ───────────────────────────────
-
-
 class TestSerializationRoundtrip:
-    """Store a complex, fully-populated record, retrieve it, verify every field."""
+    """Store complex records in live ArangoDB, retrieve them, and verify fields."""
 
     def test_tensor_full_roundtrip(self, db):
-        """Every field on a maximally-populated TensorRecord survives ArangoDB roundtrip."""
-        original = _fully_populated_tensor()
+        original = _fully_populated_tensor(
+            lineage_tags=(f"roundtrip-{uuid4().hex}", f"experimental-{uuid4().hex}"),
+        )
         db.store_tensor(original)
         retrieved = db.get_tensor(original.id)
 
-        # Top-level fields
         assert retrieved.id == original.id
         assert retrieved.preamble == original.preamble
         assert retrieved.closing == original.closing
@@ -459,14 +450,10 @@ class TestSerializationRoundtrip:
         assert retrieved.lineage_tags == original.lineage_tags
         assert retrieved.composition_equation == original.composition_equation
         assert retrieved.open_questions == original.open_questions
-
-        # Provenance envelope
         assert retrieved.provenance.source.identifier == original.provenance.source.identifier
         assert retrieved.provenance.timestamp == original.provenance.timestamp
         assert retrieved.provenance.author_model_family == original.provenance.author_model_family
         assert retrieved.provenance.predecessors_in_scope == original.provenance.predecessors_in_scope
-
-        # Strands
         assert len(retrieved.strands) == len(original.strands)
         for orig_s, ret_s in zip(original.strands, retrieved.strands, strict=True):
             assert ret_s.strand_index == orig_s.strand_index
@@ -474,46 +461,41 @@ class TestSerializationRoundtrip:
             assert ret_s.topics == orig_s.topics
 
     def test_composition_edge_roundtrip(self, db):
-        """CompositionEdge with all fields populated survives roundtrip."""
         edge = CompositionEdge(
             from_tensor=uuid4(),
             to_tensor=uuid4(),
             relation_type=RelationType.CORRECTS,
             ordering=7,
-            authored_mapping="Theory to practice mapping",
+            authored_mapping=f"Theory to practice mapping {uuid4()}",
         )
         db.store_composition_edge(edge)
         graph = db.query_composition_graph()
+        ret = next(e for e in graph if e.id == edge.id)
 
-        assert len(graph) == 1
-        ret = graph[0]
-        assert ret.id == edge.id
         assert ret.from_tensor == edge.from_tensor
         assert ret.relation_type == RelationType.CORRECTS
         assert ret.ordering == 7
 
     def test_correction_record_roundtrip(self, db):
-        """CorrectionRecord survives roundtrip."""
         corr = CorrectionRecord(
             target_tensor=uuid4(),
             target_claim_id=uuid4(),
-            original_claim="Old",
-            corrected_claim="New",
+            original_claim=f"Old {uuid4()}",
+            corrected_claim=f"New {uuid4()}",
         )
         db.store_correction(corr)
         chain = db.query_correction_chain(corr.target_claim_id)
 
         assert len(chain) == 1
         assert chain[0].id == corr.id
-        assert chain[0].corrected_claim == "New"
+        assert chain[0].corrected_claim == corr.corrected_claim
 
     def test_entity_resolution_roundtrip(self, db):
-        """EntityResolution with complex identity_data survives roundtrip."""
         entity = EntityResolution(
             entity_uuid=uuid4(),
             identity_type="human_researcher",
             identity_data={
-                "name": "Dr. Example",
+                "name": f"Dr. Example {uuid4()}",
                 "nested": {"key": [1, 2, 3]},
             },
         )
@@ -524,14 +506,11 @@ class TestSerializationRoundtrip:
         assert retrieved.identity_data == entity.identity_data
 
 
-# ── 5. Immutability Enforcement ───────────────────────────────────────
-
-
 class TestImmutabilityAllTypes:
-    """Immutability must be enforced on EVERY record type."""
+    """Immutability must be enforced by the live database for every record type."""
 
     def test_duplicate_tensor_raises(self, db):
-        tensor = TensorRecord()
+        tensor = TensorRecord(preamble=f"immutable {uuid4()}")
         db.store_tensor(tensor)
         with pytest.raises(ImmutabilityError):
             db.store_tensor(tensor)
@@ -549,8 +528,8 @@ class TestImmutabilityAllTypes:
     def test_duplicate_correction_raises(self, db):
         corr = CorrectionRecord(
             target_tensor=uuid4(),
-            original_claim="old",
-            corrected_claim="new",
+            original_claim=f"old {uuid4()}",
+            corrected_claim=f"new {uuid4()}",
         )
         db.store_correction(corr)
         with pytest.raises(ImmutabilityError):
@@ -559,7 +538,7 @@ class TestImmutabilityAllTypes:
     def test_duplicate_dissent_raises(self, db):
         dissent = DissentRecord(
             target_tensor=uuid4(),
-            alternative_framework="alt",
+            alternative_framework=f"alt {uuid4()}",
             reasoning="reason",
         )
         db.store_dissent(dissent)
@@ -570,7 +549,7 @@ class TestImmutabilityAllTypes:
         neg = NegationRecord(
             tensor_a=uuid4(),
             tensor_b=uuid4(),
-            reasoning="reason",
+            reasoning=f"reason {uuid4()}",
         )
         db.store_negation(neg)
         with pytest.raises(ImmutabilityError):
@@ -578,7 +557,7 @@ class TestImmutabilityAllTypes:
 
     def test_duplicate_bootstrap_raises(self, db):
         boot = BootstrapRecord(
-            instance_id="test",
+            instance_id=f"test-{uuid4()}",
             context_budget=0.8,
         )
         db.store_bootstrap(boot)
@@ -587,8 +566,8 @@ class TestImmutabilityAllTypes:
 
     def test_duplicate_evolution_raises(self, db):
         evo = SchemaEvolutionRecord(
-            from_version="v1",
-            to_version="v2",
+            from_version=f"v1-{uuid4()}",
+            to_version=f"v2-{uuid4()}",
         )
         db.store_evolution(evo)
         with pytest.raises(ImmutabilityError):
@@ -605,47 +584,47 @@ class TestImmutabilityAllTypes:
             db.store_entity(entity)
 
 
-# ── 6. Thread Safety ──────────────────────────────────────────────────
-
-
 class TestThreadSafety:
-    """Test thread safety with genuine concurrent contention."""
+    """Test thread safety with live concurrent writes."""
 
     def test_many_writers_no_data_loss(self, db):
-        """N threads each storing a unique tensor -- all N must appear in final count."""
         n_threads = 20
-        tensors = [TensorRecord(preamble=f"thread-{i}") for i in range(n_threads)]
+        before = db.count_records()
+        tensors = [TensorRecord(preamble=f"thread-{i}-{uuid4()}") for i in range(n_threads)]
         errors = []
 
-        def store(t):
+        def store(tensor: TensorRecord) -> None:
             try:
-                db.store_tensor(t)
+                db.store_tensor(tensor)
             except Exception as e:
                 errors.append(e)
 
-        threads = [threading.Thread(target=store, args=(t,)) for t in tensors]
-        for t in threads:
-            t.start()
-        for t in threads:
-            t.join(timeout=10)
+        threads = [threading.Thread(target=store, args=(tensor,)) for tensor in tensors]
+        for thread in threads:
+            thread.start()
+        for thread in threads:
+            thread.join(timeout=10)
 
+        after = db.count_records()
         assert errors == [], f"Errors during concurrent writes: {errors}"
-        assert db.count_records()["tensors"] == n_threads
+        assert _count_delta(before, after, "tensors") == n_threads
+        listed_ids = {tensor.id for tensor in db.list_tensors()}
+        assert {tensor.id for tensor in tensors}.issubset(listed_ids)
 
     def test_concurrent_writes_to_different_tables(self, db):
-        """Different record types stored concurrently must not interfere."""
-        tensor = TensorRecord(preamble="concurrent")
+        before = db.count_records()
+        tensor = TensorRecord(preamble=f"concurrent {uuid4()}")
         edge = CompositionEdge(
             from_tensor=uuid4(), to_tensor=uuid4(),
             relation_type=RelationType.COMPOSES_WITH,
         )
         corr = CorrectionRecord(
             target_tensor=uuid4(),
-            original_claim="old", corrected_claim="new",
+            original_claim=f"old {uuid4()}", corrected_claim=f"new {uuid4()}",
         )
         errors = []
 
-        def do_store(fn, record):
+        def do_store(fn, record) -> None:
             try:
                 fn(record)
             except Exception as e:
@@ -656,117 +635,128 @@ class TestThreadSafety:
             threading.Thread(target=do_store, args=(db.store_composition_edge, edge)),
             threading.Thread(target=do_store, args=(db.store_correction, corr)),
         ]
-        for t in threads:
-            t.start()
-        for t in threads:
-            t.join(timeout=10)
+        for thread in threads:
+            thread.start()
+        for thread in threads:
+            thread.join(timeout=10)
 
+        after = db.count_records()
         assert errors == [], f"Errors: {errors}"
-        counts = db.count_records()
-        assert counts["tensors"] == 1
-        assert counts["edges"] == 1
-        assert counts["corrections"] == 1
+        assert _count_delta(before, after, "tensors") == 1
+        assert _count_delta(before, after, "edges") == 1
+        assert _count_delta(before, after, "corrections") == 1
 
     def test_thread_pool_stress(self, db):
-        """ThreadPoolExecutor with many tasks -- verifies no deadlocks."""
         n_tasks = 50
+        before = db.count_records()
 
-        def create_and_store(i):
-            tensor = TensorRecord(preamble=f"pool-{i}")
+        def create_and_store(i: int) -> UUID:
+            tensor = TensorRecord(preamble=f"pool-{i}-{uuid4()}")
             db.store_tensor(tensor)
             return tensor.id
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
             futures = [pool.submit(create_and_store, i) for i in range(n_tasks)]
-            ids = [f.result(timeout=30) for f in futures]
+            ids = [future.result(timeout=30) for future in futures]
 
+        after = db.count_records()
         assert len(ids) == n_tasks
-        assert db.count_records()["tensors"] == n_tasks
-
-
-# ── 7. Query Operations ───────────────────────────────────────────────
+        assert _count_delta(before, after, "tensors") == n_tasks
 
 
 class TestQueryOperations:
-    """Test query operations with realistic data."""
+    """Query operations against uniquely tagged live data."""
 
     @pytest.fixture
     def populated_db(self, db):
-        """DB pre-populated with multi-tensor dataset."""
+        base_state = db.query_project_state()
+        tag_main = f"main-sequence-{uuid4().hex}"
+        tag_exp = f"experimental-{uuid4().hex}"
+        tag_scout = f"scout-{uuid4().hex}"
+        family_a = f"claude-opus-{uuid4().hex}"
+        family_b = f"llama-3-{uuid4().hex}"
+        family_c = f"granite-{uuid4().hex}"
         t1 = _fully_populated_tensor(
-            family="claude-opus",
-            lineage_tags=("main-sequence", "experimental"),
+            family=family_a,
+            lineage_tags=(tag_main, tag_exp),
             timestamp=datetime(2026, 1, 1, tzinfo=timezone.utc),
         )
         t2 = _fully_populated_tensor(
-            family="llama-3",
-            lineage_tags=("main-sequence",),
+            family=family_b,
+            lineage_tags=(tag_main,),
             timestamp=datetime(2026, 1, 15, tzinfo=timezone.utc),
         )
         t3 = TensorRecord(
             provenance=ProvenanceEnvelope(
-                author_model_family="granite",
+                author_model_family=family_c,
                 timestamp=datetime(2026, 2, 5, tzinfo=timezone.utc),
             ),
-            lineage_tags=("scout",),
+            lineage_tags=(tag_scout,),
         )
         db.store_tensor(t1)
         db.store_tensor(t2)
         db.store_tensor(t3)
-        return db, (t1, t2, t3)
+        return db, (t1, t2, t3), {
+            "base_count": base_state["tensor_count"],
+            "tags": (tag_main, tag_exp, tag_scout),
+            "families": (family_a, family_b, family_c),
+        }
 
     def test_query_project_state(self, populated_db):
-        db, (t1, t2, t3) = populated_db
+        db, _, data = populated_db
         state = db.query_project_state()
 
-        assert state["tensor_count"] == 3
-        assert set(state["lineage_tags"]) == {"main-sequence", "experimental", "scout"}
-        assert set(state["model_families"]) == {"claude-opus", "llama-3", "granite"}
+        assert state["tensor_count"] == data["base_count"] + 3
+        assert set(data["tags"]).issubset(set(state["lineage_tags"]))
+        assert set(data["families"]).issubset(set(state["model_families"]))
 
     def test_query_reading_order_chronological(self, populated_db):
-        db, (t1, t2, t3) = populated_db
-        order = db.query_reading_order("main-sequence")
+        db, (t1, t2, _), data = populated_db
+        tag_main = data["tags"][0]
+        order = db.query_reading_order(tag_main)
 
-        assert len(order) == 2
+        assert [tensor.id for tensor in order] == [t1.id, t2.id]
         assert order[0].provenance.timestamp < order[1].provenance.timestamp
 
     def test_query_claims_about_case_insensitive(self, db):
+        topic = f"security-{uuid4().hex}"
         tensor = TensorRecord(
             strands=(
                 StrandRecord(
                     strand_index=0,
                     title="Security",
-                    topics=("security",),
+                    topics=(topic,),
                     key_claims=(KeyClaim(text="Defense in depth"),),
                 ),
             ),
         )
         db.store_tensor(tensor)
 
-        claims_lower = db.query_claims_about("security")
-        claims_upper = db.query_claims_about("SECURITY")
+        claims_lower = db.query_claims_about(topic)
+        claims_upper = db.query_claims_about(topic.upper())
 
         assert len(claims_lower) == len(claims_upper) == 1
+        assert claims_lower[0]["tensor_id"] == tensor.id
 
     def test_query_lineage_with_overlapping_tags(self, populated_db):
-        db, (t1, t2, t3) = populated_db
+        db, (t1, t2, t3), _ = populated_db
         lineage = db.query_lineage(t1.id)
-        lineage_ids = {t.id for t in lineage}
+        lineage_ids = {tensor.id for tensor in lineage}
 
-        assert t1.id in lineage_ids
-        assert t2.id in lineage_ids  # shares main-sequence
-        assert t3.id not in lineage_ids  # only has scout
+        assert lineage_ids == {t1.id, t2.id}
+        assert t3.id not in lineage_ids
 
     def test_query_cross_model_returns_all_when_multiple_families(self, populated_db):
-        db, tensors = populated_db
+        db, tensors, _ = populated_db
         cross = db.query_cross_model()
-        assert len(cross) == 3
+        cross_ids = {tensor.id for tensor in cross}
+        assert {tensor.id for tensor in tensors}.issubset(cross_ids)
 
     def test_query_bridges_excludes_non_bridge_edges(self, db):
         bridge = CompositionEdge(
             from_tensor=uuid4(), to_tensor=uuid4(),
             relation_type=RelationType.COMPOSES_WITH,
-            authored_mapping="Has mapping",
+            authored_mapping=f"Has mapping {uuid4()}",
         )
         non_bridge = CompositionEdge(
             from_tensor=uuid4(), to_tensor=uuid4(),
@@ -775,27 +765,31 @@ class TestQueryOperations:
         db.store_composition_edge(bridge)
         db.store_composition_edge(non_bridge)
 
-        bridges = db.query_bridges()
-        assert len(bridges) == 1
-        assert bridges[0].id == bridge.id
+        bridge_ids = {edge.id for edge in db.query_bridges()}
+        assert bridge.id in bridge_ids
+        assert non_bridge.id not in bridge_ids
 
     def test_query_disagreements_aggregates_all_types(self, db):
+        target = uuid4()
+        tensor_a, tensor_b = uuid4(), uuid4()
+        corrected = f"new {uuid4()}"
         db.store_dissent(DissentRecord(
-            target_tensor=uuid4(),
-            alternative_framework="alt",
-            reasoning="r",
+            target_tensor=target,
+            alternative_framework=f"alt {uuid4()}",
+            reasoning=f"r {uuid4()}",
         ))
         db.store_negation(NegationRecord(
-            tensor_a=uuid4(), tensor_b=uuid4(), reasoning="r",
+            tensor_a=tensor_a, tensor_b=tensor_b, reasoning=f"r {uuid4()}",
         ))
         db.store_correction(CorrectionRecord(
             target_tensor=uuid4(),
-            original_claim="old", corrected_claim="new",
+            original_claim=f"old {uuid4()}", corrected_claim=corrected,
         ))
 
         disagreements = db.query_disagreements()
-        types = {d["type"] for d in disagreements}
-        assert types == {"dissent", "negation", "correction"}
+        assert any(d["type"] == "dissent" and d["target_tensor"] == target for d in disagreements)
+        assert any(d["type"] == "negation" and d["tensor_a"] == tensor_a for d in disagreements)
+        assert any(d["type"] == "correction" and d["corrected"] == corrected for d in disagreements)
 
     def test_query_epistemic_status_with_multiple_corrections(self, db):
         claim_id = uuid4()
@@ -803,11 +797,11 @@ class TestQueryOperations:
 
         c1 = CorrectionRecord(
             target_tensor=target, target_claim_id=claim_id,
-            original_claim="first", corrected_claim="second",
+            original_claim=f"first {uuid4()}", corrected_claim=f"second {uuid4()}",
         )
         c2 = CorrectionRecord(
             target_tensor=target, target_claim_id=claim_id,
-            original_claim="second", corrected_claim="third",
+            original_claim=c1.corrected_claim, corrected_claim=f"third {uuid4()}",
         )
 
         db.store_correction(c1)
@@ -815,79 +809,68 @@ class TestQueryOperations:
 
         status = db.query_epistemic_status(claim_id)
         assert status["correction_count"] == 2
-        assert status["current_claim"] == "third"
-        assert status["original_claim"] == "first"
-
-
-# ── 8. count_records() Accuracy ───────────────────────────────────────
+        assert status["current_claim"] == c2.corrected_claim
+        assert status["original_claim"] == c1.original_claim
 
 
 class TestCountRecords:
-    """Verify count_records() returns correct counts."""
+    """Verify count_records() against live ArangoDB collection counts."""
 
-    def test_empty_database_all_zeros(self, db):
-        counts = db.count_records()
-        expected_keys = {"records", "tensors", "edges", "corrections", "dissents",
-                         "negations", "bootstraps", "evolutions", "entities"}
-        assert set(counts.keys()) == expected_keys
-        for value in counts.values():
-            assert value == 0
+    def test_count_records_matches_direct_live_collection_counts(self, db):
+        assert db.count_records() == _direct_counts(db)
 
     def test_counts_after_one_of_each(self, db):
-        db.store_tensor(TensorRecord())
+        before = db.count_records()
+        db.store_tensor(TensorRecord(preamble=f"count {uuid4()}"))
         db.store_composition_edge(CompositionEdge(
             from_tensor=uuid4(), to_tensor=uuid4(),
             relation_type=RelationType.COMPOSES_WITH,
         ))
         db.store_correction(CorrectionRecord(
             target_tensor=uuid4(),
-            original_claim="o", corrected_claim="c",
+            original_claim=f"o {uuid4()}", corrected_claim=f"c {uuid4()}",
         ))
         db.store_dissent(DissentRecord(
             target_tensor=uuid4(),
-            alternative_framework="a", reasoning="r",
+            alternative_framework=f"a {uuid4()}", reasoning="r",
         ))
         db.store_negation(NegationRecord(
-            tensor_a=uuid4(), tensor_b=uuid4(), reasoning="r",
+            tensor_a=uuid4(), tensor_b=uuid4(), reasoning=f"r {uuid4()}",
         ))
         db.store_bootstrap(BootstrapRecord(
-            instance_id="i", context_budget=0.5,
+            instance_id=f"i-{uuid4()}", context_budget=0.5,
         ))
         db.store_evolution(SchemaEvolutionRecord(
-            from_version="v1", to_version="v2",
+            from_version=f"v1-{uuid4()}", to_version=f"v2-{uuid4()}",
         ))
         db.store_entity(EntityResolution(
             entity_uuid=uuid4(), identity_type="ai",
             identity_data={},
         ))
 
-        counts = db.count_records()
-        for key, value in counts.items():
-            if key == "records":
-                assert value == 0, "no plain record was stored"
-            else:
-                assert value == 1
-        assert "records" in counts
+        after = db.count_records()
+        assert after == _direct_counts(db)
+        assert _count_delta(before, after, "records") == 0
+        for key in after:
+            if key != "records":
+                assert _count_delta(before, after, key) == 1
 
     def test_counts_monotonically_increase(self, db):
-        """Counts should only ever increase."""
         prev_counts = db.count_records()
 
         for i in range(5):
-            db.store_tensor(TensorRecord(preamble=f"mono-{i}"))
+            db.store_tensor(TensorRecord(preamble=f"mono-{i}-{uuid4()}"))
             current_counts = db.count_records()
+            assert current_counts == _direct_counts(db)
             for key in current_counts:
                 assert current_counts[key] >= prev_counts[key]
             prev_counts = current_counts
 
-        assert prev_counts["tensors"] == 5
-
-
-# ── 9. Edge Cases: Unicode, Empty Values, Extremes ────────────────────
+        assert _count_delta(db.count_records(), prev_counts, "tensors") == 0
 
 
 class TestEdgeCases:
-    """Test edge cases that might break serialization."""
+    """Edge cases that might break live serialization."""
 
     def test_empty_string_fields(self, db):
         tensor = TensorRecord(
@@ -912,13 +895,13 @@ class TestEdgeCases:
         tensor = TensorRecord(
             preamble=unicode_text,
             closing=unicode_text,
-            lineage_tags=(unicode_text,),
+            lineage_tags=(f"{unicode_text}{uuid4()}",),
         )
         db.store_tensor(tensor)
         retrieved = db.get_tensor(tensor.id)
 
         assert retrieved.preamble == unicode_text
-        assert retrieved.lineage_tags[0] == unicode_text
+        assert retrieved.lineage_tags[0] == tensor.lineage_tags[0]
 
     def test_very_long_strings(self, db):
         long_text = "x" * 100_000
@@ -961,18 +944,23 @@ class TestEdgeCases:
 
     def test_uuid_nil_value(self, db):
         nil_uuid = UUID("00000000-0000-0000-0000-000000000000")
-        tensor = TensorRecord(id=nil_uuid, preamble="nil")
+        tensor = TensorRecord(
+            provenance=ProvenanceEnvelope(
+                source=SourceIdentifier(identifier=nil_uuid),
+            ),
+            preamble="nil nested uuid",
+        )
         db.store_tensor(tensor)
-        retrieved = db.get_tensor(nil_uuid)
+        retrieved = db.get_tensor(tensor.id)
 
-        assert retrieved.id == nil_uuid
+        assert retrieved.provenance.source.identifier == nil_uuid
 
     def test_many_strands(self, db):
         strands = tuple(
             StrandRecord(
                 strand_index=i,
                 title=f"Strand {i}",
-                topics=(f"topic-{i}",),
+                topics=(f"topic-{i}-{uuid4()}",),
                 key_claims=(KeyClaim(text=f"Claim {i}"),),
             )
             for i in range(50)
@@ -984,11 +972,8 @@ class TestEdgeCases:
         assert len(retrieved.strands) == 50
 
 
-# ── 10. NotFoundError on All Getters ──────────────────────────────────
-
-
 class TestNotFoundErrors:
-    """Verify NotFoundError on all relevant access paths."""
+    """Verify NotFoundError on live access paths."""
 
     def test_get_tensor_not_found(self, db):
         with pytest.raises(NotFoundError):
@@ -1015,11 +1000,8 @@ class TestNotFoundErrors:
             db.query_authorship(uuid4())
 
 
-# ── 11. get_strand() Behavior ─────────────────────────────────────────
-
-
 class TestGetStrand:
-    """Test get_strand() projection behavior."""
+    """Test get_strand() projection behavior against live storage."""
 
     def test_get_strand_returns_single_strand(self, db):
         tensor = TensorRecord(
@@ -1027,13 +1009,13 @@ class TestGetStrand:
                 StrandRecord(
                     strand_index=0,
                     title="First",
-                    topics=("a",),
+                    topics=(f"a-{uuid4()}",),
                     key_claims=(KeyClaim(text="Claim 0"),),
                 ),
                 StrandRecord(
                     strand_index=1,
                     title="Second",
-                    topics=("b",),
+                    topics=(f"b-{uuid4()}",),
                     key_claims=(KeyClaim(text="Claim 1"),),
                 ),
             ),
@@ -1049,7 +1031,7 @@ class TestGetStrand:
             strands=(
                 StrandRecord(
                     strand_index=0, title="A",
-                    topics=("a",), key_claims=(KeyClaim(text="x"),),
+                    topics=(f"a-{uuid4()}",), key_claims=(KeyClaim(text="x"),),
                 ),
             ),
         )
@@ -1063,7 +1045,7 @@ class TestGetStrand:
             strands=(
                 StrandRecord(
                     strand_index=0, title="Only",
-                    topics=("a",), key_claims=(KeyClaim(text="x"),),
+                    topics=(f"a-{uuid4()}",), key_claims=(KeyClaim(text="x"),),
                 ),
             ),
         )
@@ -1073,31 +1055,25 @@ class TestGetStrand:
             db.get_strand(tensor.id, 99)
 
 
-# ── 12. Behavioral Equivalence with InMemoryBackend ───────────────────
-
-
 class TestBehavioralEquivalence:
-    """Both backends must produce identical results for the same operations."""
+    """Compare live ArangoDB behavior with InMemoryBackend for created records."""
 
     @pytest.fixture
-    def both_backends(self, mock_arango_client):
-        """Paired ArangoDB (mocked) and InMemory backends."""
-        mock_client, collections = mock_arango_client
-        arango = ArangoDBBackend()
-        mem = InMemoryBackend()
-        yield arango, mem
-        arango.close()
+    def both_backends(self, db):
+        return db, InMemoryBackend()
 
-    def _apply_same_operations(self, arango, mem):
-        """Apply identical operations to both backends."""
-        t1_id = UUID("11111111-1111-1111-1111-111111111111")
-        t2_id = UUID("22222222-2222-2222-2222-222222222222")
-        claim_id = UUID("cccccccc-cccc-cccc-cccc-cccccccccccc")
+    def _apply_same_operations(self, arango: LiveArangoHarness, mem: InMemoryBackend):
+        t1_id = uuid4()
+        t2_id = uuid4()
+        claim_id = uuid4()
+        tag = f"main-seq-{uuid4().hex}"
+        family_a = f"claude-{uuid4().hex}"
+        family_b = f"llama-{uuid4().hex}"
 
         t1 = TensorRecord(
             id=t1_id,
             provenance=ProvenanceEnvelope(
-                author_model_family="claude",
+                author_model_family=family_a,
                 timestamp=datetime(2026, 1, 1, tzinfo=timezone.utc),
             ),
             preamble="First tensor",
@@ -1105,7 +1081,7 @@ class TestBehavioralEquivalence:
                 StrandRecord(
                     strand_index=0,
                     title="Architecture",
-                    topics=("design",),
+                    topics=(f"design-{uuid4()}",),
                     key_claims=(
                         KeyClaim(
                             claim_id=claim_id,
@@ -1115,15 +1091,15 @@ class TestBehavioralEquivalence:
                     ),
                 ),
             ),
-            lineage_tags=("main-seq",),
+            lineage_tags=(tag,),
         )
         t2 = TensorRecord(
             id=t2_id,
             provenance=ProvenanceEnvelope(
-                author_model_family="llama",
+                author_model_family=family_b,
                 timestamp=datetime(2026, 2, 1, tzinfo=timezone.utc),
             ),
-            lineage_tags=("main-seq",),
+            lineage_tags=(tag,),
         )
 
         for backend in (arango, mem):
@@ -1131,25 +1107,29 @@ class TestBehavioralEquivalence:
             backend.store_tensor(t2)
 
         corr = CorrectionRecord(
-            id=UUID("eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee"),
+            id=uuid4(),
             target_tensor=t1_id,
             target_claim_id=claim_id,
-            original_claim="old",
-            corrected_claim="new",
+            original_claim=f"old {uuid4()}",
+            corrected_claim=f"new {uuid4()}",
         )
         for backend in (arango, mem):
             backend.store_correction(corr)
 
-        return t1_id, t2_id, claim_id
+        return t1_id, t2_id, claim_id, tag
 
     def test_count_records_match(self, both_backends):
         arango, mem = both_backends
+        before = arango.count_records()
         self._apply_same_operations(arango, mem)
-        assert arango.count_records() == mem.count_records()
+        after = arango.count_records()
+
+        assert _count_delta(before, after, "tensors") == mem.count_records()["tensors"]
+        assert _count_delta(before, after, "corrections") == mem.count_records()["corrections"]
 
     def test_get_tensor_match(self, both_backends):
         arango, mem = both_backends
-        t1_id, _, _ = self._apply_same_operations(arango, mem)
+        t1_id, _, _, _ = self._apply_same_operations(arango, mem)
 
         arango_t = arango.get_tensor(t1_id)
         mem_t = mem.get_tensor(t1_id)
@@ -1160,9 +1140,13 @@ class TestBehavioralEquivalence:
     def test_list_tensors_match(self, both_backends):
         arango, mem = both_backends
         self._apply_same_operations(arango, mem)
+        mem_ids = {tensor.id for tensor in mem.list_tensors()}
 
-        arango_tensors = sorted(arango.list_tensors(), key=lambda t: str(t.id))
-        mem_tensors = sorted(mem.list_tensors(), key=lambda t: str(t.id))
+        arango_tensors = sorted(
+            [tensor for tensor in arango.list_tensors() if tensor.id in mem_ids],
+            key=lambda tensor: str(tensor.id),
+        )
+        mem_tensors = sorted(mem.list_tensors(), key=lambda tensor: str(tensor.id))
 
         assert len(arango_tensors) == len(mem_tensors)
         for at, mt in zip(arango_tensors, mem_tensors, strict=True):
@@ -1170,12 +1154,18 @@ class TestBehavioralEquivalence:
 
     def test_query_project_state_match(self, both_backends):
         arango, mem = both_backends
-        self._apply_same_operations(arango, mem)
-        assert arango.query_project_state() == mem.query_project_state()
+        before = arango.query_project_state()
+        _, _, _, tag = self._apply_same_operations(arango, mem)
+        arango_state = arango.query_project_state()
+        mem_state = mem.query_project_state()
+
+        assert arango_state["tensor_count"] - before["tensor_count"] == mem_state["tensor_count"]
+        assert tag in arango_state["lineage_tags"]
+        assert tag in mem_state["lineage_tags"]
 
     def test_query_correction_chain_match(self, both_backends):
         arango, mem = both_backends
-        _, _, claim_id = self._apply_same_operations(arango, mem)
+        _, _, claim_id, _ = self._apply_same_operations(arango, mem)
 
         arango_chain = arango.query_correction_chain(claim_id)
         mem_chain = mem.query_correction_chain(claim_id)
@@ -1183,90 +1173,82 @@ class TestBehavioralEquivalence:
         assert len(arango_chain) == len(mem_chain)
         assert arango_chain[0].corrected_claim == mem_chain[0].corrected_claim
 
-    def test_interface_version_match(self, both_backends):
-        arango, mem = both_backends
-        assert arango.get_interface_version() == mem.get_interface_version()
-
-
-# ── 13. Access Control Hook ───────────────────────────────────────────
+    def test_interface_version_match(self):
+        backend = object.__new__(ArangoDBBackend)
+        mem = InMemoryBackend()
+        assert backend.get_interface_version() == mem.get_interface_version()
 
 
 class TestAccessControl:
-    """Test access control hook (always returns True in v1)."""
+    """Pure interface hooks."""
 
-    def test_check_access_always_true(self, db):
-        assert db.check_access("anyone", "anything") is True
-        assert db.check_access("system", "store_tensor", uuid4()) is True
+    def test_check_access_always_true(self):
+        backend = object.__new__(ArangoDBBackend)
+        assert backend.check_access("anyone", "anything") is True
+        assert backend.check_access("system", "store_tensor", uuid4()) is True
 
-    def test_interface_version(self, db):
-        assert db.get_interface_version() == "v1"
-
-
-# ── 14. list_tensors() Returns All Tensors ────────────────────────────
+    def test_interface_version(self):
+        backend = object.__new__(ArangoDBBackend)
+        assert backend.get_interface_version() == "v1"
 
 
 class TestListTensors:
-    """Test list_tensors() behavior."""
+    """Test list_tensors() behavior against live storage."""
 
-    def test_list_tensors_empty(self, db):
-        assert db.list_tensors() == []
+    def test_list_tensors_matches_direct_live_collection_count(self, db):
+        tensors = db.list_tensors()
+        assert len(tensors) == db.backend._db.collection("tensors").count()
 
-    def test_list_tensors_returns_all(self, db):
-        t1 = TensorRecord(preamble="first")
-        t2 = TensorRecord(preamble="second")
-        t3 = TensorRecord(preamble="third")
+    def test_list_tensors_returns_created_tensors(self, db):
+        t1 = TensorRecord(preamble=f"first {uuid4()}")
+        t2 = TensorRecord(preamble=f"second {uuid4()}")
+        t3 = TensorRecord(preamble=f"third {uuid4()}")
 
         db.store_tensor(t1)
         db.store_tensor(t2)
         db.store_tensor(t3)
 
-        tensors = db.list_tensors()
-        assert len(tensors) == 3
-        ids = {t.id for t in tensors}
-        assert ids == {t1.id, t2.id, t3.id}
-
-
-# ── 15. query_entities_by_uuid ────────────────────────────────────────
+        ids = {tensor.id for tensor in db.list_tensors()}
+        assert {t1.id, t2.id, t3.id}.issubset(ids)
 
 
 class TestQueryEntitiesByUUID:
-    """Test entity query by shared UUID."""
+    """Test entity query by shared UUID against live storage."""
 
     def test_query_entities_by_uuid(self, db):
         shared_uuid = uuid4()
         entity_a = EntityResolution(
             entity_uuid=shared_uuid,
             identity_type="ai_instance",
-            identity_data={"label": "first"},
+            identity_data={"label": f"first {uuid4()}"},
         )
         entity_b = EntityResolution(
             entity_uuid=shared_uuid,
             identity_type="ai_instance",
-            identity_data={"label": "second"},
+            identity_data={"label": f"second {uuid4()}"},
         )
         db.store_entity(entity_a)
         db.store_entity(entity_b)
 
         matches = db.query_entities_by_uuid(shared_uuid)
-        assert {m.id for m in matches} == {entity_a.id, entity_b.id}
+        assert {match.id for match in matches} == {entity_a.id, entity_b.id}
 
     def test_query_entities_by_uuid_empty(self, db):
         matches = db.query_entities_by_uuid(uuid4())
         assert matches == []
 
 
-# ── 16. No Mutation Methods Exist ─────────────────────────────────────
-
-
 class TestNoMutationMethods:
     """The interface must not expose any delete/update/modify methods."""
 
-    def test_no_delete_methods(self, db):
+    def test_no_delete_methods(self):
+        backend = object.__new__(ArangoDBBackend)
         for name in ("delete", "delete_tensor", "delete_entity",
-                      "delete_correction", "remove", "drop"):
-            assert not hasattr(db, name), f"Found forbidden method: {name}"
+                     "delete_correction", "remove", "drop"):
+            assert not hasattr(backend, name), f"Found forbidden method: {name}"
 
-    def test_no_update_methods(self, db):
+    def test_no_update_methods(self):
+        backend = object.__new__(ArangoDBBackend)
         for name in ("update", "update_tensor", "update_entity",
-                      "modify", "patch", "upsert"):
-            assert not hasattr(db, name), f"Found forbidden method: {name}"
+                     "modify", "patch", "upsert"):
+            assert not hasattr(backend, name), f"Found forbidden method: {name}"

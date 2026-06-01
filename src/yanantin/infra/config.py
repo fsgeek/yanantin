@@ -247,17 +247,27 @@ def _resolve_db_params(
     return host, db_name, username, password
 
 
-@functools.lru_cache(maxsize=None)
-def _connect_memoized(host: str, db_name: str, username: str, password: str) -> StandardDatabase:
-    """One ArangoClient + db handle per distinct resolved target. Memoized.
+# Identity is (host, db_name, username) ONLY — password is deliberately NOT in
+# the cache key. Keying on password would split the singleton when the same
+# user reconnects with a re-resolved-but-equal credential, which is exactly the
+# failure the singleton exists to prevent. The password is used to establish the
+# handle on first connect and then carried by the handle itself.
+_HANDLE_CACHE: dict[tuple[str, str, str], StandardDatabase] = {}
 
-    Keyed on all four resolved values (lru_cache keys on all args); the PUBLIC
-    identity contract is per (host, db_name, username) — username is the tier
-    boundary, enforced by the DB grant — and password is 1:1 with username, so
-    keying on it too does not split the singleton in practice.
+
+def _connect_memoized(host: str, db_name: str, username: str, password: str) -> StandardDatabase:
+    """One ArangoClient + db handle per distinct (host, db_name, username).
+
+    Memoized on identity only; password establishes the handle but is not part
+    of the key — see the cache comment above.
     """
-    client = ArangoClient(hosts=host)
-    return client.db(db_name, username=username, password=password)
+    key = (host, db_name, username)
+    handle = _HANDLE_CACHE.get(key)
+    if handle is None:
+        client = ArangoClient(hosts=host)
+        handle = client.db(db_name, username=username, password=password)
+        _HANDLE_CACHE[key] = handle
+    return handle
 
 
 def get_database(
@@ -271,7 +281,8 @@ def get_database(
     Resolve-then-memoize: fields resolve (explicit > env > config), then the
     resolved (host, db_name, username) determines identity. Two callers meaning
     the same target share one handle; different usernames (the tier boundary,
-    enforced by the DB grant) or db_names get distinct handles.
+    enforced by the DB grant) or db_names get distinct handles. The password is
+    NOT part of identity — re-resolving the same user does not split the handle.
 
     To reset (tests): get_database.cache_clear().
     """
@@ -280,4 +291,4 @@ def get_database(
 
 
 # expose cache_clear on the public name for test isolation
-get_database.cache_clear = _connect_memoized.cache_clear
+get_database.cache_clear = _HANDLE_CACHE.clear

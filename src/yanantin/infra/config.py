@@ -11,6 +11,7 @@ Reference: ~/projects/indaleko-test/db/db_config.py
 from __future__ import annotations
 
 import configparser
+import functools
 import logging
 import os
 import secrets
@@ -19,6 +20,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from arango import ArangoClient
+from arango.database import StandardDatabase
 
 logger = logging.getLogger(__name__)
 
@@ -209,3 +211,73 @@ class ApachetaDBConfig:
         if self._config_file.exists():
             self._config_file.unlink()
             logger.info("Deleted config %s", self._config_file)
+
+
+# ── Shared database handle (the connection singleton) ─────────────────
+#
+# The ApachetaDBConfig object above is a singleton over *credentials*. What was
+# historically missing — and what every ArangoClient construction site faked
+# independently — is a singleton over the *database handle* itself. get_database
+# is that: one client + db handle per distinct resolved (host, db_name,
+# username). Resolution (explicit arg > env > config) happens BEFORE the memo,
+# so two callers that mean the same target share one connection however they
+# spelled the call.
+
+
+def _resolve_db_params(
+    host: str | None,
+    db_name: str | None,
+    username: str | None,
+    password: str | None,
+) -> tuple[str, str, str, str]:
+    """Resolve each connection field: explicit arg > env var > config file.
+
+    Resolution happens HERE, before memoization, so that two calls that mean
+    the same target (e.g. get_database() and get_database(db_name='apacheta'))
+    resolve to the same (host, db_name, username) key and do NOT split into two
+    connections. The cache in get_database() sits BEHIND this function.
+    """
+    cfg = ApachetaDBConfig()  # the credential singleton (load-or-create)
+    app_creds = cfg.get_app_credentials()
+
+    host = host or os.environ.get("YANANTIN_ARANGO_HOST") or cfg.host_url
+    db_name = db_name or os.environ.get("YANANTIN_ARANGO_DB") or cfg.db["database"]
+    username = username or os.environ.get("YANANTIN_ARANGO_USER") or app_creds["username"]
+    password = password or os.environ.get("YANANTIN_ARANGO_PASSWORD") or app_creds["password"]
+    return host, db_name, username, password
+
+
+@functools.lru_cache(maxsize=None)
+def _connect_memoized(host: str, db_name: str, username: str, password: str) -> StandardDatabase:
+    """One ArangoClient + db handle per distinct resolved target. Memoized.
+
+    Keyed on all four resolved values (lru_cache keys on all args); the PUBLIC
+    identity contract is per (host, db_name, username) — username is the tier
+    boundary, enforced by the DB grant — and password is 1:1 with username, so
+    keying on it too does not split the singleton in practice.
+    """
+    client = ArangoClient(hosts=host)
+    return client.db(db_name, username=username, password=password)
+
+
+def get_database(
+    host: str | None = None,
+    db_name: str | None = None,
+    username: str | None = None,
+    password: str | None = None,
+) -> StandardDatabase:
+    """Return the shared ArangoDB handle for a connection target.
+
+    Resolve-then-memoize: fields resolve (explicit > env > config), then the
+    resolved (host, db_name, username) determines identity. Two callers meaning
+    the same target share one handle; different usernames (the tier boundary,
+    enforced by the DB grant) or db_names get distinct handles.
+
+    To reset (tests): get_database.cache_clear().
+    """
+    resolved = _resolve_db_params(host, db_name, username, password)
+    return _connect_memoized(*resolved)
+
+
+# expose cache_clear on the public name for test isolation
+get_database.cache_clear = _connect_memoized.cache_clear

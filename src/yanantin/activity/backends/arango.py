@@ -18,9 +18,9 @@ import threading
 from uuid import UUID
 from datetime import datetime
 
-from arango import ArangoClient
 from arango.database import StandardDatabase
 
+from yanantin.infra.config import get_database
 from yanantin.activity.models import FactRecord, MemoryAnchor
 from yanantin.activity.store import ActivityStreamStore
 from yanantin.apacheta.interface.errors import ImmutabilityError, NotFoundError
@@ -47,16 +47,28 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
     ) -> None:
         self._lock = threading.RLock()
         self._map = obfuscator or TransparentObfuscator()
-        self._client = ArangoClient(hosts=host)
         self._host = host
         self._db_name = db_name
         self._db = self._connect_database(username, password)
         self._ensure_collections()
 
     def _connect_database(self, username: str, password: str) -> StandardDatabase:
-        """Connect to the target database. Fail-stop if it doesn't exist."""
+        """Connect to the target database via the shared singleton. Fail-stop
+        if it doesn't exist.
+
+        NOTE: the failure-discrimination here is the OLD blanket wrapper; the
+        three-way discrimination (auth/unreachable/not-provisioned) is tracked
+        as a single fix for both backends — see
+        docs/plans/2026-06-01-arango-conn-error-discrimination-is-wrong.md.
+        This retrofit changes only WHERE the client comes from.
+        """
         try:
-            db = self._client.db(self._db_name, username=username, password=password)
+            db = get_database(
+                host=self._host,
+                db_name=self._db_name,
+                username=username,
+                password=password,
+            )
             db.collections()
             return db
         except Exception as e:
@@ -97,7 +109,9 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
         )
 
     def close(self) -> None:
-        self._client.close()
+        """No-op: the ArangoDB client is owned by the get_database singleton and
+        shared across consumers. See ArangoDBBackend.close() in apacheta.
+        """
 
     def __enter__(self):
         return self

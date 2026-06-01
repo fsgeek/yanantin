@@ -205,7 +205,11 @@ class ArangoDBBackend(ApachetaInterface):
                 records.add_persistent_index(fields=fields)
 
     def close(self) -> None:
-        self._client.close()
+        """No-op: the ArangoDB client is owned by the get_database singleton and
+        shared across consumers. A single backend must not close the shared
+        connection out from under other borrowers; the connection is
+        process-lived. Kept for interface/context-manager compatibility.
+        """
 
     def __enter__(self):
         return self

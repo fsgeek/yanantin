@@ -23,7 +23,6 @@ from __future__ import annotations
 import threading
 from uuid import UUID
 
-from arango import ArangoClient
 from arango.database import StandardDatabase
 from arango.exceptions import (
     ArangoClientError,
@@ -33,6 +32,7 @@ from arango.exceptions import (
 )
 
 from yanantin.apacheta.interface.abstract import ApachetaInterface
+from yanantin.infra.config import get_database
 from yanantin.apacheta.interface.errors import (
     AccessDeniedError,
     BackendAuthError,
@@ -101,7 +101,6 @@ class ArangoDBBackend(ApachetaInterface):
     ) -> None:
         self._lock = threading.RLock()
         self._map = obfuscator or TransparentObfuscator()
-        self._client = ArangoClient(hosts=host)
         self._host = host
         self._db_name = db_name
         self._username = username
@@ -117,7 +116,12 @@ class ArangoDBBackend(ApachetaInterface):
         credentials and fails if the database isn't there.
         """
         try:
-            db = self._client.db(self._db_name, username=self._username, password=self._password)
+            db = get_database(
+                host=self._host,
+                db_name=self._db_name,
+                username=self._username,
+                password=self._password,
+            )
             # Verify the connection works by listing collections
             db.collections()
             return db

@@ -4,8 +4,8 @@
 with an adversarial review pass (Claude Desktop). Co-designed, internally
 consistent, framing challenged once by a same-family reviewer — **not**
 independently validated (the reviewer helped shape the direction; see
-"What this slice does not prove"). Scaled to a thin vertical slice, not the
-whole Llika layer.*
+"What this slice proves — stated precisely"). Scaled to a thin vertical
+slice, not the whole Llika layer.*
 
 ## Goal
 
@@ -44,9 +44,10 @@ The full Llika spec (`docs/llika-spec.md`, approved 2026-03-31, never
 implemented) defines four edge types and four traversal methods. Every prior
 instance wandered off to the tool-name cue-conflict research line instead of
 building any of it (see memory `project-request-capability-type2`). The slice
-de-risks the *whole stack* by proving the operation the customer actually
-named — `find` ("discover what you didn't know to ask about") — over real
-storage, rather than building a complete layer no one has exercised.
+de-risks the *engine* — `find`'s traversal over real storage — rather than
+building a complete layer no one has exercised. (It does **not** de-risk the
+epistemic capability the customer named; see "What this slice proves" for the
+precise, narrower claim.)
 
 `find()` transitively needs depth-limited walk machinery, so building it
 yields `walk()`'s core for nearly free; `walk()` becomes "find without the
@@ -185,7 +186,14 @@ class LlikaService:
         """Walk the graph from vertex_id, evaluating `predicate` Python-side on
         each discovered vertex. Return the PATHS to matching vertices (capped at
         max_results) — the path is the answer, not just the destination.
-        Finding-as-path-connectivity (see value claim above), not searching."""
+        Finding-as-path-connectivity (see value claim above), not searching.
+
+        SCOPE (Phase 1): raw traversal only. Walks ALL edges, including ones a
+        later correction supersedes — honors NO retraction semantics. Do NOT
+        read this as 'what the entity believes now'; it is 'every edge ever
+        written, reachable from here'. Results are capped at max_results in
+        traversal order (truncation is silent — a 51st match is not surfaced).
+        """
 ```
 
 `find`'s predicate is a Python callable (a stopping condition on the
@@ -294,7 +302,18 @@ break" to Codex's judgment per builder/tester separation.
    through real storage.
 7. `find()` returns the *path*, not just the terminal vertex, and stops at
    predicate match.
-8. Edges are immutable — no update/delete affordance exists.
+8. **Multi-hop connective tissue is surfaced** — this is the property that
+   earns the "discovery is in the path" claim, and a single-hop test does NOT
+   satisfy it. Build a graph of depth ≥ 3 (A→B→C→D); `find` from A with a
+   predicate matching *only the far end* (D), naming nothing about the
+   intermediates; assert the returned path carries B and C — vertices the
+   predicate never mentioned. Round-trip (property 6) proves the plumbing;
+   *this* proves the connective tissue is what `find` surfaces.
+9. **Truncation is observable, not silent corruption** — with more matches
+   than `max_results`, `find` returns exactly `max_results` paths (a capped
+   result is not an error and not the whole population). Pins the guard's
+   behavior so a caller can tell "capped" from "that's all there is."
+10. Edges are immutable — no update/delete affordance exists.
 
 `get_database` is process-global memoized state; live tests need cache
 isolation so one test's resolved handle doesn't leak into the next and mask a

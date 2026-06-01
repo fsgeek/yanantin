@@ -331,12 +331,8 @@ class TestConnectionAndInit:
         get_database.cache_clear()
 
     def test_close_reflects_singleton_owned_handle(self, db):
-        if hasattr(db.backend, "_client"):
-            db.backend.close()
-        else:
-            with pytest.raises(AttributeError, match="_client"):
-                db.backend.close()
-            assert isinstance(db.backend._db.collections(), list)
+        db.backend.close()
+        assert isinstance(db.backend._db.collections(), list)
 
 
 class TestContextManager:
@@ -346,13 +342,9 @@ class TestContextManager:
         assert db.backend.__enter__() is db.backend
 
     def test_context_manager_exit_follows_close_semantics(self, db):
-        if hasattr(db.backend, "_client"):
-            with db.backend:
-                pass
-        else:
-            with pytest.raises(AttributeError, match="_client"):
-                with db.backend:
-                    pass
+        with db.backend:
+            pass
+        assert isinstance(db.backend._db.collections(), list)
 
     def test_context_manager_usable_inside_with_block(self, db):
         tensor = TensorRecord(preamble=f"inside with {uuid4()}")

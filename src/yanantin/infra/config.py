@@ -146,11 +146,14 @@ class ApachetaDBConfig:
     def get_test_credentials(self) -> dict:
         return {"username": self.db["test_user"], "password": self.db["test_password"]}
 
-    def connect(self, tier: str = "test") -> object:
-        """Connect to ArangoDB and return a database object.
+    def connect(self, tier: str = "test") -> StandardDatabase:
+        """Connect to ArangoDB and return the shared database handle.
 
         Args:
             tier: "admin" (connects to _system), "app", or "test"
+
+        Delegates to the module-level get_database singleton so all consumers
+        share one connection per resolved target. Tier→target mapping stays here.
         """
         creds = {
             "admin": self.get_admin_credentials,
@@ -162,8 +165,12 @@ class ApachetaDBConfig:
             self.db["database"] if tier == "app" else "apacheta_test"
         )
 
-        client = ArangoClient(hosts=self.host_url)
-        return client.db(db_name, username=creds["username"], password=creds["password"])
+        return get_database(
+            host=self.host_url,
+            db_name=db_name,
+            username=creds["username"],
+            password=creds["password"],
+        )
 
     def write_env(self, path: Path | None = None) -> None:
         """Write .env file with test credentials only."""

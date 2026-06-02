@@ -287,23 +287,48 @@ intuition, the exact guessing this whole design fights. Indaleko's 3-min→10ms 
 it was built *because the slow full-scan query had been observed*. The observation came first. A
 (3) without observability throws away the one thing that made Indaleko's (2) possible.
 
-So v1's single standing obligation is **telemetry, append-only, decisions made on it by no one
-yet**:
+**What to capture — the Indaleko query-chain model.** Indaleko collected, per query, the full
+chain: the original NL query, its NER identification, the applicable collections, the complete LLM
+prompt, the returned AQL, the query *explanation*, and the results. The hard-won lessons from that
+corpus:
 
-- **Per-`find` query record:** the predicate shape (which axes present, which fields filtered,
-  ops used — *shape, not values*, consistent with the matched_fields discipline), `total_matched`,
-  `truncated`, `limit`, and whether `max_candidates` was hit.
-- **Per-`find` performance:** wall-clock / candidates-scanned, and whether the query was served by
-  an index or fell to a scan (the 3-min-vs-10ms signal). This is the field that tells a future
-  optimizer *which* predicate shapes are starving for an index.
-- **Scope-too-broad signal:** `total_matched` ≫ `limit` recurring on a predicate shape is the
-  evidence that a field wants indexing or a scope wants narrowing.
+1. **The full results were dropped** — large, and *not* useful for understanding query
+   performance. Everything *upstream* of execution was kept.
+2. **What you searched for is surprisingly rich**, because instances repeat the same or similar
+   searches. The KIMI "Boltzmann brain" loop *is* this: the instance issued near-identical queries
+   repeatedly. Recurrence is the single strongest (3)→(2) signal — "this shape recurs, it deserves
+   an index / a materialized view / a cached answer" — and it is detectable **only if the query as
+   issued, with its values, is retained over time.**
 
-Cost is deliberately low: it is *writing* telemetry, not *acting* on it. No build/adjust/retire,
-no monitoring loop, no decisions — those belong to (2). v1 only guarantees the evidence base for
-(2) exists and is honest. Where the telemetry lands (a sidecar collection, an append-only log
-analogous to Hamut'ay's `_log_entry`) is an implementation choice for the plan; that it is
-*collected from day one* is the commitment.
+The `find` telemetry record is the `find` analogue of that chain:
+
+- **The predicate as issued — whole, values included.** `find` is already structured, so the
+  predicate *is* the parsed form (no NL/NER stage to capture); we keep it intact. **This retains
+  the filter values and content terms** — and yes, that revises the "shape, not values" instinct
+  from the result-boundary discipline. The two boundaries differ: `matched_fields`/snippets govern
+  what crosses *back to a caller*; telemetry is *internal observability*. Repetition is invisible
+  without the values ("filtered `epistemic.truth >= 0.7` forty times this week" needs the `0.7`).
+  Keep them. (Known consideration, not a redaction: content terms an instance searches may be
+  sensitive in a way AQL constants are not — but for a single-tenant tool studying its own
+  instances, that is exactly the data the research wants.)
+- **The AQL Llika generated** to satisfy the predicate (analogue of Indaleko's "returned AQL").
+- **The query plan / `explain`** — ArangoDB's explain output (analogue of "query explanation").
+  This is where index-vs-scan *actually* lives, properly, rather than as a hand-rolled boolean.
+- **Result metadata, NOT full results:** `total_matched`, `truncated`, candidates-scanned,
+  wall-clock, `limit`/`max_candidates`. The returned **addresses (UUIDs)** are cheap and worth
+  keeping as a trimmed result set; the **content/snippets are dropped** (Indaleko lesson #1).
+
+**Where it lands: in the database, as records — not a sidecar file.** Append-only *semantics*
+(telemetry is immutable events), but stored in Apacheta and queryable, not a flat JSONL. Storing
+Llika's own observability outside the queryable store would repeat the exact mistake this design
+corrects: the (3)→(2) optimizer must *query* this telemetry ("which predicate shapes recur? which
+fell to a scan? the last N slow finds"), and telemetry in a JSONL is not queryable — you would be
+writing a second `find` to search your `find` telemetry. Which Apacheta collection/lane holds it
+is a plan detail; *that it is in the database and queryable* is the commitment.
+
+Cost is deliberately low: it is *writing* the chain, not *acting* on it. No build/adjust/retire, no
+monitoring loop, no decisions — those belong to (2). v1 only guarantees the evidence base for (2)
+exists, is honest, and is itself queryable.
 
 **Deferred research commitment — autonomic indexing (NOT made now).**
 The eventual direction is Llika inferring indexes from observed predicates and building/adjusting
@@ -338,9 +363,11 @@ not denied.)
   `edges` + `total_matched` + `truncated`.
 - Static construction-time indexed-field set; ArangoSearch view over the open `records` lane
   (spine + named content paths) + declared field indexes.
-- **Observability (standing obligation):** per-`find` telemetry — predicate shape, `total_matched`,
-  `truncated`, index-vs-scan, candidates-scanned — collected append-only from day one. No
-  decisions acted on it in v1; it is the evidence base that makes (2) designable.
+- **Observability (standing obligation):** per-`find` telemetry — the query chain (predicate as
+  issued *with values*, generated AQL, query `explain`/plan, result metadata + returned UUIDs;
+  full content/snippets dropped) — stored **in the database, queryable**, append-only semantics,
+  from day one. No decisions acted on it in v1; it is the queryable evidence base that makes (2)
+  designable. Recurrence of a predicate is the strongest (3)→(2) signal and needs the values.
 - `walk`/`neighbors`/`link` unchanged.
 
 ### Fast-follow (in this spec's shape, implemented after v1 proves the substrate)
@@ -421,14 +448,16 @@ def test_find_predicate_is_data_not_callable():
     # The predicate is serializable data; passing a callable is a type error /
     # rejected. (Guards against callable-find regression.)
 
-def test_find_emits_observability_telemetry():
-    # Each find() records a telemetry entry carrying predicate SHAPE (axes/fields/ops,
-    # not values), total_matched, truncated, and an index-vs-scan marker. The evidence
-    # base for (2) exists from day one. (Asserts collection, not any acting on it.)
+def test_find_emits_observability_telemetry_to_database():
+    # Each find() writes a telemetry record TO THE DATABASE (queryable, not a sidecar
+    # file) carrying the predicate as issued, the generated AQL, the query explain/plan,
+    # and result metadata (total_matched, truncated, candidates-scanned). The queryable
+    # evidence base for (2) exists from day one. (Asserts collection, not acting on it.)
 
-def test_find_telemetry_records_shape_not_values():
-    # The telemetry entry does NOT contain the content terms or filter values —
-    # shape only, consistent with the matched_fields / field_names discipline.
+def test_find_telemetry_retains_values_drops_full_results():
+    # The telemetry record RETAINS the predicate's filter values and content terms
+    # (recurrence detection needs them) but does NOT store full result content/snippets
+    # (Indaleko lesson: large, not useful for performance). Returned UUIDs may be kept.
 
 # Fast-follow (window axis):
 def test_find_window_anchor_match_neighbors():   # fast-follow

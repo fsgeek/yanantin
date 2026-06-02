@@ -78,13 +78,24 @@ future RPC service are **one interface, two transports.**
 
 ## The service surface
 
-The service is constructed bound to a tenant and a provenance envelope:
+The service keeps the slice-1 name **`LlikaService`** (Llika = Quechua *net /
+web / fine mesh* — "the paths between the cairns"; the service *is* the net in
+use). It is constructed bound to a tenant and a provenance envelope:
 
-    MemoryGraph(tenant: <space id>, provenance: ProvenanceEnvelope)
+    LlikaService(tenant: <space id>, provenance: ProvenanceEnvelope)
 
-(Working name `MemoryGraph` supersedes `LlikaService(db, provenance)` from the
-first slice — the `db` no longer crosses the constructor. Final name is an
-implementation detail; the *shape* is the contract.)
+The change from slice 1 is internal: the `db` no longer crosses the
+constructor (the service resolves its own handle from the tenant via the
+`get_database` singleton). That is not a reason to rename the net.
+
+**Naming rule (project convention):** names are drawn from Quechua (and, for
+hamut'ay's LLM-facing *tool* names, Indonesian) — deliberately, because those
+namespaces don't collide. Pragmatically: a generic name like `MemoryGraph`
+collides on PyPI/import graphs *and* collides with the model's semantic priors
+about what such a thing does (the same hazard the tool-name-cue-conflict line
+studies). Quechua names are effectively unique in the Python ecosystem and
+carry no unintended priors. The metaphor is a bonus; non-collision is the
+load-bearing reason.
 
 **Fate of the slice-1 code:** `LlikaService.link` survives largely intact
 (re-homed behind the tenant-bound constructor and returning `EdgeResult`).

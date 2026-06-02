@@ -372,9 +372,11 @@ persistence, their migration is its own work (gh #7).
 - **gh #3** — find window axis (fast-follow).
 - **gh #4** — autonomic indexing optimizer (the (2) this v1's observability feeds).
 - **gh #6**, **gh #7** — as above.
-- **gh #8** — data-exposure posture + Llika-vs-Pukara placement (Threat model section). **v1
-  layering prerequisite**, not a fast-follow: Llika must be server-side behind Pukara before
-  find ships to agents.
+- **gh #8** — Llika-vs-Pukara placement + the searchable-encryption research line (Threat model
+  section). **Placement is a v1 layering prerequisite**, not a fast-follow: Llika must be
+  server-side behind Pukara before find ships to agents.
+- **gh #9** — value obfuscation + CI adversary-read validator (own slice). **v1 posture
+  prerequisite:** find ships value-obfuscated, not plaintext; find depends on #9, does not own it.
 
 The callback-fog failure (`execute_concurrent_tool_calls`) exists in **both** backend branches:
 the Anthropic terminal path (taste_open.py:367–384) *and* the OpenAI-compatible branch
@@ -439,17 +441,39 @@ order, access patterns) and *constrains which `find` predicates remain possible*
 declared loss is therefore a real research line that would **reshape `find`'s axes around what is
 cryptographically indexable** — not a setting to flip.
 
-### v1 posture — DECLARED, inherited from the blueprint, extended to find's corpora
+### v1 posture — value obfuscation + a CI adversary-read validator (gh #9), NOT plaintext
 
-v1 is **plaintext values + label obfuscation, confidentiality resting on the Pukara perimeter
-(filesystem isolation + least-privilege creds)** — the blueprint's existing declared loss,
-**explicitly extended** to cover the conversational and telemetry corpora `find` introduces. This
-is named as a *loss*, not implied as protection. The honest one-line statement the spec commits to:
+An earlier draft of this section accepted plaintext-values-on-the-perimeter as the v1 posture (the
+blueprint's existing declared loss). **That floor was rejected** (2026-06-02): shipping `find` —
+which *enlarges* the exposure with a conversational corpus and a telemetry corpus — under
+plaintext-values is security theater the moment the spec implies any protection. The chosen floor
+(gh #9, its own slice):
 
-> *`find`'s data (conversational corpus + telemetry) is exposed to a datastore-breach adversary.
-> v1 relies on the Pukara boundary holding, not on content confidentiality. Label obfuscation does
-> not mitigate this. Content protection is an open research line (searchable encryption) tracked
-> separately — gh #8.*
+- **A real per-installation value-mapping obfuscator** so stored content values are opaque
+  (`boltzmann brain` → `tok_8f3a tok_19c2`), not plaintext. Indexing survives (ArangoSearch ranks
+  the opaque token stream; `find`'s lexical axis works through the same map); equality filters
+  survive; ranges are the hard case. Per-install keying (same UUID-namespace pattern `SchemaMap`
+  uses for labels) → one breach does not compromise the fleet.
+- **A red-bar CI validator that reads the test DB as a DB-side adversary and fails if plaintext is
+  visible.** This makes the posture *structurally enforced*, not prose — it is the load-bearing
+  artifact. It certifies exactly one claim: no plaintext values visible. It does **not** claim
+  frequency-analysis resistance.
+
+**Declared loss (honest, scoped):** the value-map admits frequency / co-occurrence / access-pattern
+analysis — a *real, tested* gain (validator-certified: no plaintext) plus a *declared* loss (the
+frequency channel), not a hidden loss dressed as protection. Closing the frequency channel is the
+searchable-encryption research line (gh #8); the ad-hoc-construction dead-end (substitution →
+homophonic → stop) is recorded there. The honest one-line statement the spec commits to:
+
+> *`find`'s data (conversational corpus + telemetry) is stored value-obfuscated (gh #9), not
+> plaintext, and a red-bar validator enforces that no plaintext is visible to a DB-side adversary.
+> This admits frequency analysis (declared) and is contained per-installation. Stronger content
+> protection (searchable encryption) is an open research line — gh #8.*
+
+**`find` depends on gh #9; it does not own it.** The value-obfuscator/validator protects the whole
+`records` corpus and predates/outlives `find`. `find`'s only obligation is to operate *through* the
+value-map (query terms mapped the same way as stored content) so lexical match round-trips — an
+acceptance-criterion concern, not a mechanism `find` builds.
 
 ### Llika placement relative to the fortress — must be settled in the plan
 
@@ -458,8 +482,8 @@ keys.** If `find`/`get`/`walk` are agent-facing, an agent holding a `LlikaServic
 credentials the perimeter exists to withhold. The implementation plan must place Llika on the
 **server side, fronted by Pukara** (find/get/walk become Pukara routes; agents reach them via
 `ApachetaGatewayClient` — the "transport swap" slice 2 anticipated *is* Pukara), consistent with
-the intended path. This is a v1 layering prerequisite, tracked **gh #8** alongside the exposure
-posture, since both are facets of the same boundary.
+the intended path. This is a v1 layering prerequisite, tracked **gh #8** — the sibling of the value-
+obfuscation posture (**gh #9**); both are facets of the same Pukara boundary.
 
 ---
 
@@ -661,6 +685,11 @@ def test_find_content_roundtrip():
 def test_find_content_stemmed_case_insensitive():
     # content.terms "boltzmann brain" matches a record containing "Boltzmann brains".
     # The motivating regression. Arango-only (Llika is Arango-backed; no memory backend).
+
+def test_find_roundtrips_through_value_obfuscator():   # depends on gh #9
+    # Stored content is value-obfuscated (not plaintext). A find for the plaintext
+    # term maps through the SAME per-install value-map and matches the obfuscated
+    # stored tokens. Lexical recall survives obfuscation; the DB never indexed plaintext.
 
 def test_find_filter_numeric():
     # filter {field: cycle, op: >=, value: 10} returns only records with cycle >= 10.

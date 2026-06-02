@@ -40,12 +40,49 @@ results are more than 50 entries, you need a better finding strategy."
 
 - **Thin service, no ABC.** `LlikaService` is a concrete class. If a
   second backend materializes, we extract an interface then. YAGNI.
+  *(Name retained deliberately — Quechua, non-colliding. See "Naming"
+  below and `memory/project_naming_convention.md`.)*
 
-- **Singleton database.** One ArangoDB connection per process, shared
-  between Apacheta and Llika. Eliminates mismatched connections, edges
-  pointing at vertices in a different database, services stepping on
-  each other. Llika discovers vertex collections from the shared
-  database handle rather than requiring separate configuration.
+- **Singleton database — but the handle does not cross to callers.**
+  *(Superseded 2026-06-01. Original principle: "one connection per
+  process, shared between Apacheta and Llika; Llika discovers vertex
+  collections from the shared database handle." That remains true for
+  the connection layer — `get_database` is still the one connection per
+  resolved target.)* What changed: **`LlikaService` no longer accepts a
+  `db` handle from its caller, and never hands one out.** It is
+  constructed bound to a *tenant* (a memory space) and resolves its own
+  handle internally via the `get_database` singleton. Forcing function:
+  ArangoDB has **no fine-grained access control** (verified 2026-06-01:
+  no ArangoSearch views; the only enforcement is per-database user
+  grants). Tenant isolation and the append-only/frozen invariants
+  therefore cannot live in the database — they must live in the
+  interface *above* it. A caller that holds a raw handle can bypass
+  every invariant, so callers get the service, never the handle.
+
+- **RPC-shaped boundary (the memory interface is a service-in-waiting).**
+  *(Added 2026-06-01.)* Yanantin **is** the native memory service;
+  graph-walking is a memory concern and yanantin owns memory. Other
+  projects (hamut'ay first) are **customers** — they decide *when* a
+  memory/edge is born (they alone witness composition, recall,
+  injection) and call yanantin to persist and traverse. They own **no**
+  graph primitive. Because this interface eventually becomes the trust
+  boundary, it is RPC-shaped from the start, by three rules every
+  memory-interface method must honor:
+    1. **Tenant-bound at construction** — no method takes `db`/`db_name`;
+       the caller cannot name another tenant's space.
+    2. **Serializable in, serializable out** — no callables, no
+       `StandardDatabase`, no internal pydantic models cross the boundary.
+       (This is why the slice-1 `find(predicate: Callable)` is retired:
+       a callable cannot cross a wire.)
+    3. **No internal leakage** — results are clean domain shapes
+       (record-id strings + edge metadata), never raw arango docs.
+  Promoting library → network service is then a *transport swap*: same
+  signatures over HTTP, tenant from authenticated identity. The
+  in-process library and the future RPC service are one interface, two
+  transports. *(This keeps the entanglement out of customers: hamut'ay
+  must not import yanantin's internal models to hand-build edges — it
+  calls a clean interface. Tiksi exists because yanantin and willay are
+  entangled; customers must not inherit that.)*
 
 - **Frozen, open-schema, append-only.** Same philosophy as
   ApachetaBaseModel. Edges are immutable once created. No update, no
@@ -57,6 +94,25 @@ results are more than 50 entries, you need a better finding strategy."
   Llika. Llika knows about all of them, but they don't know about it.
   Integration happens at the caller level.
 
+- **Naming: Quechua, for non-collision.** *(Recorded 2026-06-01.)*
+  Package/service/class names are Quechua (hamut'ay's LLM-facing *tool*
+  names are Indonesian). The load-bearing reason is non-collision, not
+  metaphor: a generic name like `MemoryGraph` collides on PyPI/the
+  import graph AND with the model's semantic priors about what such a
+  thing does (the hazard the tool-name-cue-conflict line studies).
+  Quechua names are effectively unique in the Python ecosystem and carry
+  no unintended priors. *Llika* = net / web / fine mesh — the paths
+  between the cairns; the service is the net in use.
+
+- **Finding-by-structure only; no content index yet.** *(Recorded
+  2026-06-01.)* Llika finds by *structure* (graph traversal). It does
+  **not** find by *content* — there is no full-text/semantic index
+  (verified 2026-06-01: no ArangoSearch views, no analyzers; "search"
+  today is a Python substring scan over already-retrieved records). A
+  content index is a real, deliberate gap and a *separate future slice*
+  (ArangoSearch view + analyzer, or embeddings), not a shortfall of the
+  traversal surface.
+
 ## Module Structure
 
 ```
@@ -65,7 +121,12 @@ src/yanantin/llika/
     models.py            # Edge models (4 types), traversal result models
     service.py           # LlikaService — thin class, singleton DB handle
     edges.py             # Edge creation: link(), provenance auto-attachment
-    traversal.py         # neighbors(), walk(), find(), path()
+    traversal.py         # neighbors(), walk()  [find()/path() cut 2026-06-01:
+                         #   find's callable predicate can't cross a wire and
+                         #   the customer filters by edge STRUCTURE, not vertex
+                         #   content; path (A->B reachability) is YAGNI until
+                         #   pulled. Traversal is structure-only:
+                         #   direction(forward/backward/both) + depth + relation_type.]
     migration.py         # Existing composition edges → native graph
     __main__.py          # CLI: explore, traverse, path operations
 ```

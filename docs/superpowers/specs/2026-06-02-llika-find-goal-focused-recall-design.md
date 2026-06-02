@@ -310,17 +310,17 @@ paths → stored (possibly obfuscated) paths. Traced against code 2026-06-02:
   themselves this same latent bypass — hardcoded names instead of routing through `_map`. (Ties to
   the edge migration, gh #5.)
 
-**Decision (mechanism, not a punt):** Llika resolves field paths through the **same obfuscator
-instance the backend owns** — by binding to the tier via the path that yields the
-`ApachetaInterface`/backend (which holds both the db and `_map`), **not** the bare-db path it uses
-today. The tenant-binding invariant ("no db/db_name crosses the constructor") is preserved: Llika
-still names only a `tier`; it resolves to the backend instead of a raw handle. What is **not**
-acceptable is Llika constructing its own `SchemaMap` — divergence (different mapping than what was
-stored) is the bug class; single-sourcing through the backend's `_map` is the guard. Routing
-Llika's existing collection/path literals through `_map` is part of this and is a v1 prerequisite
-for the `filter` axis on nested paths. (The implementation plan picks the exact surface — e.g. the
-backend exposing a narrow `field_path`/`collection_name` accessor — but the *single-source-through-
-the-backend* decision is made here, not deferred.)
+**Decision (mechanism):** Llika resolves field paths through the **same `SchemaMap` instance the
+server side already owns**, never a reconstructed one — divergence (a different mapping than what
+was stored) is the bug class; single-sourcing is the guard. Routing Llika's existing
+collection/path literals (`llika_composition`, traversal AQL) through that map is part of this and
+is a v1 prerequisite for the `filter` axis on nested paths.
+
+**Note this is subsumed by the larger placement decision (gh #8):** once Llika sits server-side
+behind Pukara (Threat model & data exposure, above), it is co-resident with the backend that owns
+`_map`, so "borrow the backend's map" and "Llika behind Pukara" are the same move at two scopes.
+The exact accessor surface (a narrow `field_path`/`collection_name` on the backend, or Pukara's
+own `schema_map`) is the plan's call; the *single-source, never-reconstruct* rule is fixed here.
 
 ### `<self>` — reserved sentinel, expanded by Llika (verified ambiguity)
 
@@ -372,10 +372,94 @@ persistence, their migration is its own work (gh #7).
 - **gh #3** — find window axis (fast-follow).
 - **gh #4** — autonomic indexing optimizer (the (2) this v1's observability feeds).
 - **gh #6**, **gh #7** — as above.
+- **gh #8** — data-exposure posture + Llika-vs-Pukara placement (Threat model section). **v1
+  layering prerequisite**, not a fast-follow: Llika must be server-side behind Pukara before
+  find ships to agents.
 
 The callback-fog failure (`execute_concurrent_tool_calls`) exists in **both** backend branches:
 the Anthropic terminal path (taste_open.py:367–384) *and* the OpenAI-compatible branch
 (taste_open.py:~1074). Any Hamut'ay-side fix must cover both.
+
+---
+
+## Threat model & data exposure (the blocking gap — find ENLARGES an already-declared loss)
+
+An earlier draft used the words "obfuscator" / "opaque path" in a way that implied the storage
+layer protects `find`'s data. It does not, and the project never claimed it did. This section names
+the posture honestly and records that `find` **enlarges** an exposure the blueprint already
+declared — it does not create a new vulnerability, but it is not neutral.
+
+### What the boundary actually is (verified against code + Pukara blueprint)
+
+- **The intended path is `agent → Pukara (HTTP) → ApachetaInterface → ArangoDB`.** Pukara is the
+  fortress; "agents reach the database only through Pukara"; the boundary is *filesystem isolation
+  + least-privilege credentials*, not politeness (`pukara/CLAUDE.md`). The agent side is
+  `ApachetaGatewayClient` (an `ApachetaInterface` over httpx). **`LlikaService` today bypasses
+  this — it holds a raw `StandardDatabase` + `apacheta_app` credentials (`service.py:40`), i.e. it
+  sits *inside* the fortress.** See "Llika placement" below.
+- **`SchemaMap` obfuscates labels, NOT values.** Two modes: `opaque` (collection/field names →
+  `c_<uuid5>` / `f_<uuid5>` under a per-deployment namespace) and `transparent` (identity, dev).
+  In *both*, `obfuscate_document` leaves **values unchanged** (`pukara/schema_map.py:193`,
+  confirmed). Pukara blueprint line 74 already states this as a **declared loss**: "hides
+  collection and field names, not values. A reader of the raw documents still sees the data.
+  Declared loss, not a hidden one."
+
+### The adversary that matters (the Instructure lesson)
+
+The most common real-world compromise is **the datastore itself** — third-party DB breach,
+exfiltration, ransom (e.g. the Instructure/Canvas-class event: 8000+ orgs' regulated *student*
+data seized). The security model therefore **must not assume the store is trustworthy.** Against a
+store-breach adversary, **label obfuscation buys almost nothing**: `response_text` → field `f_7a3`
+still contains the plaintext string `"I think therefore I am uncertain…"`, which is
+self-describing. Obfuscation defends *schema-shape inference*, not *content confidentiality*.
+
+### How `find` changes the exposure (this is why it is not neutral)
+
+The blueprint's declared loss was written for the **tensor** corpus. `find` adds two more
+plaintext, breach-exfiltratable corpora:
+
+1. **The conversational corpus** (gh #6 `store_turn`): full `user_message` / `response_text` written
+   to the queryable `records` lane — richer and more directly sensitive than tensors, and the whole
+   point is that there is *more* of it, *findable*.
+2. **The telemetry corpus** (the observability obligation): a second copy of *what was searched
+   for* (predicate values retained) + result UUIDs. A breach gets the queries, not just the corpus.
+   (This is why the telemetry "values vs. shape" aside elsewhere in this spec is *understated* — see
+   the cross-reference there. The values question is now subordinate to this threat-model decision.)
+
+### The fundamental tension (why we can't just encrypt)
+
+`find` requires the indexed fields to be **tokenizable / comparable / rankable by the database**
+(ArangoSearch BM25, stemming, the `filter` axis's `>=` on `epistemic.truth`). **Naive
+encrypt-at-rest makes content opaque to the index → `find` returns nothing**, collapsing back to
+fetch-all-and-decrypt-client-side — the 3-min-scan / callable-`find` failure this design retired.
+You cannot simultaneously have "the DB does the 10ms lookup" and "the DB cannot read the content"
+without **searchable/structured encryption** (deterministic encryption for `==`, order-preserving /
+ORE for ranges, blind/secure indexes for keyword) — each of which *leaks something* (equality,
+order, access patterns) and *constrains which `find` predicates remain possible*. Closing the
+declared loss is therefore a real research line that would **reshape `find`'s axes around what is
+cryptographically indexable** — not a setting to flip.
+
+### v1 posture — DECLARED, inherited from the blueprint, extended to find's corpora
+
+v1 is **plaintext values + label obfuscation, confidentiality resting on the Pukara perimeter
+(filesystem isolation + least-privilege creds)** — the blueprint's existing declared loss,
+**explicitly extended** to cover the conversational and telemetry corpora `find` introduces. This
+is named as a *loss*, not implied as protection. The honest one-line statement the spec commits to:
+
+> *`find`'s data (conversational corpus + telemetry) is exposed to a datastore-breach adversary.
+> v1 relies on the Pukara boundary holding, not on content confidentiality. Label obfuscation does
+> not mitigate this. Content protection is an open research line (searchable encryption) tracked
+> separately — gh #8.*
+
+### Llika placement relative to the fortress — must be settled in the plan
+
+Because `LlikaService` currently holds a raw DB connection, **it is inside the fortress with the
+keys.** If `find`/`get`/`walk` are agent-facing, an agent holding a `LlikaService` holds the
+credentials the perimeter exists to withhold. The implementation plan must place Llika on the
+**server side, fronted by Pukara** (find/get/walk become Pukara routes; agents reach them via
+`ApachetaGatewayClient` — the "transport swap" slice 2 anticipated *is* Pukara), consistent with
+the intended path. This is a v1 layering prerequisite, tracked **gh #8** alongside the exposure
+posture, since both are facets of the same boundary.
 
 ---
 
@@ -458,9 +542,11 @@ The `find` telemetry record is the `find` analogue of that chain:
   from the result-boundary discipline. The two boundaries differ: `matched_fields`/snippets govern
   what crosses *back to a caller*; telemetry is *internal observability*. Repetition is invisible
   without the values ("filtered `epistemic.truth >= 0.7` forty times this week" needs the `0.7`).
-  Keep them. (Known consideration, not a redaction: content terms an instance searches may be
-  sensitive in a way AQL constants are not — but for a single-tenant tool studying its own
-  instances, that is exactly the data the research wants.)
+  Keep them. **(Exposure note — see Threat model & data exposure, gh #8: retaining values makes the
+  telemetry a SECOND plaintext corpus of what was searched for, breach-exfiltratable alongside the
+  conversational corpus. This does not add a new exposure *class* under v1's declared posture — the
+  corpus is plaintext too — but it enlarges the surface. The values-vs-shape question is subordinate
+  to the threat-model decision and is revisited there, not resolved here.)**
 - **The AQL Llika generated** to satisfy the predicate (analogue of Indaleko's "returned AQL").
 - **The query plan / `explain`** — ArangoDB's explain output (analogue of "query explanation").
   This is where index-vs-scan *actually* lives, properly, rather than as a hand-rolled boolean.

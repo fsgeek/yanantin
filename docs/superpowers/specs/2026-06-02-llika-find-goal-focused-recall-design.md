@@ -292,20 +292,35 @@ shrinks to write-only," not "delete the bridge."
 no-live-models rule. It is the one place full content crosses the boundary, and only one record at
 a time, by explicit id — the recall-boundary discipline intact.
 
-### Field-path mapping / obfuscator access (verified blocker)
+### Field-path mapping / obfuscator access (verified blocker — mechanism now pinned)
 
-The spec relies on `_map.field_path` to map declared semantic paths → opaque stored paths. But
-`LlikaService` today holds only a **raw `StandardDatabase`** from `ApachetaDBConfig().connect()`
-(service.py:40) — it has **no `SchemaMap`/obfuscator**, so it cannot map paths before generating
-AQL or building views.
+The `filter` axis (and the ArangoSearch view) needs `_map.field_path` to map declared semantic
+paths → stored (possibly obfuscated) paths. Traced against code 2026-06-02:
 
-**Decision:** Llika must obtain the *same* `SchemaMap` Apacheta used for the tier, so its
-generated AQL/view field paths match the stored (obfuscated) paths. The implementation plan picks
-the mechanism — the honest options are (a) `ApachetaDBConfig` exposes the tier's `SchemaMap`
-alongside the db handle, or (b) Llika is constructed with the Apacheta backend (not a raw db
-handle) and borrows its `_map`. Either keeps the mapping single-sourced; what is *not* acceptable
-is Llika reconstructing its own mapping and risking divergence. This is a v1 prerequisite for the
-`filter` axis on nested paths.
+- `LlikaService` gets its handle from **`ApachetaDBConfig().connect(tier)`**, which returns a
+  **raw `StandardDatabase`** via the `get_database` singleton (`infra/config.py:149`) — no map.
+- The obfuscator (`self._map`) lives **only inside `ArangoDBBackend`** (`backends/arango.py:103`),
+  constructed by the **package-level `apacheta.connect(tier)`** (`apacheta/__init__.py:7`) — a
+  *different* `connect` than the one Llika calls.
+- **Latent hazard:** the backend currently defaults to `TransparentObfuscator()` when none is
+  passed (`arango.py:103`), so paths are identity-mapped *today*. This is why Llika's existing
+  hand-built AQL works at all. But it means the bypass is **silent**: the moment a real obfuscator
+  is configured, Llika's raw AQL would target wrong paths with no error. Llika's
+  `_EDGE_COLLECTION = "llika_composition"` literal and raw traversal AQL (`service.py:17`, 96) are
+  themselves this same latent bypass — hardcoded names instead of routing through `_map`. (Ties to
+  the edge migration, gh #5.)
+
+**Decision (mechanism, not a punt):** Llika resolves field paths through the **same obfuscator
+instance the backend owns** — by binding to the tier via the path that yields the
+`ApachetaInterface`/backend (which holds both the db and `_map`), **not** the bare-db path it uses
+today. The tenant-binding invariant ("no db/db_name crosses the constructor") is preserved: Llika
+still names only a `tier`; it resolves to the backend instead of a raw handle. What is **not**
+acceptable is Llika constructing its own `SchemaMap` — divergence (different mapping than what was
+stored) is the bug class; single-sourcing through the backend's `_map` is the guard. Routing
+Llika's existing collection/path literals through `_map` is part of this and is a v1 prerequisite
+for the `filter` axis on nested paths. (The implementation plan picks the exact surface — e.g. the
+backend exposing a narrow `field_path`/`collection_name` accessor — but the *single-source-through-
+the-backend* decision is made here, not deferred.)
 
 ### `<self>` — reserved sentinel, expanded by Llika (verified ambiguity)
 
@@ -502,9 +517,11 @@ not denied.)
   v1.
 - Public surface returns **bare UUIDs**; internal Arango `records/<uuid>` conversion at the
   boundary. (Updates the slice-2 PathStep slash-assertion test.)
-- Llika obtains the tier's `SchemaMap` so generated AQL/view paths match stored (obfuscated)
-  paths — single-sourced, never reconstructed. (Consumer boundary; v1 prerequisite for nested
-  `filter` paths.)
+- Llika resolves paths through the **backend's own `_map`** (binds to the tier via the backend,
+  not the raw-db path it uses today) so generated AQL/view paths match stored paths — single-sourced
+  through the backend, never reconstructed. Also routes its existing `llika_composition` /
+  traversal literals through `_map` (today they bypass it — latent under the transparent default).
+  (Consumer boundary; v1 prerequisite for nested `filter` paths.)
 - Static construction-time indexed-field set; ArangoSearch view over the open `records` lane
   (spine + named content paths) + declared field indexes.
 - **Observability (standing obligation):** per-`find` telemetry — the query chain (predicate as

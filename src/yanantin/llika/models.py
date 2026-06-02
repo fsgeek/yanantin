@@ -1,6 +1,13 @@
-"""Llika edge and traversal models. Frozen, extra='allow', append-only."""
+"""Llika edge and traversal models.
+
+CompositionEdge is the stored (pydantic) edge form — frozen, extra='allow',
+append-only. EdgeResult/PathStep/PathResult are the SERIALIZABLE result types
+the service returns across the (eventually-RPC) boundary: plain frozen
+dataclasses, JSON-representable, carrying record-id strings and edge metadata —
+never raw ArangoDB documents (_id/_rev). field_names is SHAPE, not values."""
 from __future__ import annotations
 
+from dataclasses import dataclass
 from datetime import datetime
 from uuid import UUID, uuid4
 
@@ -17,8 +24,7 @@ class CompositionEdge(ApachetaBaseModel):
     Distinct from the flat tiksi.CompositionEdge (from_tensor/to_tensor plain
     fields): this is the *graph* form, carrying ArangoDB's required `_from`/`_to`
     edge refs (e.g. "tensors/<uuid>") via aliases, since pydantic forbids
-    leading-underscore field names. This is the migration target the Llika spec
-    describes."""
+    leading-underscore field names."""
     id: UUID = Field(default_factory=uuid4)
     from_ref: str = Field(alias="_from")   # e.g. "tensors/<uuid>"
     to_ref: str = Field(alias="_to")
@@ -27,10 +33,26 @@ class CompositionEdge(ApachetaBaseModel):
     provenance: ProvenanceEnvelope
 
 
-class Path(ApachetaBaseModel):
-    """An ordered traversal result: the path is the answer, not just the end.
+@dataclass(frozen=True)
+class EdgeResult:
+    """Serializable result of link(). No raw arango doc, no pydantic model."""
+    edge_id: str          # the edge's UUID, as a string
+    from_id: str          # record-id ref
+    to_id: str            # record-id ref
+    relation_type: str    # RelationType name
+    created_at: str       # ISO-8601
 
-    vertices and edges are raw dicts as returned by ArangoDB — Llika does not
-    interpret vertex kinds (per llika-spec)."""
-    vertices: tuple[dict, ...]
-    edges: tuple[dict, ...]
+
+@dataclass(frozen=True)
+class PathStep:
+    """One hop in a traversal. field_names is SHAPE (which fields), not values."""
+    record_id: str         # the vertex reached at this step
+    relation_type: str     # the edge type that reached it
+    field_names: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class PathResult:
+    """An ordered walk from a start vertex. steps[-1] is the far end."""
+    start_id: str
+    steps: tuple[PathStep, ...]

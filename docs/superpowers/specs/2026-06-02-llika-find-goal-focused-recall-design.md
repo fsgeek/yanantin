@@ -119,18 +119,22 @@ right. Llika satisfies whatever subset is present; the consumer never specifies 
     ]
   },
 
-  // ── structure axis: graph neighborhood (optional) ──
+  // ── structure axis: graph neighborhood (FAST-FOLLOW — NOT v1; gh #2, blocked by #5) ──
   // The walk axis, reused as a constraint within a goal: "matching this
   // content, reachable from my current record via composes_with, depth 2."
   // Makes a subgraph ADDRESSABLE, never materialized (see Return shape).
+  // DEFERRED: Hamut'ay writes Apacheta composition_edges; Llika traverses
+  // llika_composition (verified — service.py:17 vs apacheta_bridge.py:218).
+  // The structure axis cannot see Hamut'ay's edges until the edge migration
+  // (gh #5) lands. Shape designed now so adding it is non-breaking.
   "structure": {
     "from_record": "current",       // "<uuid>" | "current"
     "relation_types": ["composes_with"],
-    "direction": "outbound",        // "outbound" | "inbound" | "any"
-    "depth": 2
+    "direction": "forward",         // "forward" | "backward" | "both" (MATCHES walk's vocab)
+    "depth": 2                      // depth 0 = anchor only, no traversal (see acceptance)
   },
 
-  // ── window axis: temporal neighborhood (optional; fast-follow, see Scope) ──
+  // ── window axis: temporal neighborhood (FAST-FOLLOW — NOT v1; gh #3) ──
   // The temporal analogue of the structure axis. anchor:"<match>" is the
   // powerful form: run the content/filter match, then return each hit PLUS
   // its prior/follow temporal neighbors — "find where I discussed X, and show
@@ -145,11 +149,18 @@ right. Llika satisfies whatever subset is present; the consumer never specifies 
   },
 
   // ── result control ──
-  "order_by": "relevance",          // "relevance" | "cycle" | "timestamp"
-                                    // default: relevance if content present, else cycle desc
+  "order_by": "cycle",              // "relevance" | "cycle" | "timestamp"
+                                    // DEFAULT IS ALWAYS "cycle" desc — explicit, not
+                                    // content-conditional. Adding a content axis must NOT
+                                    // silently flip sort order (KIMI concern 5). For
+                                    // relevance ranking, ask for it: order_by="relevance"
+                                    // (valid only when a content axis is present).
   "order": "desc",                  // "desc" | "asc"
   "limit": 10,
-  "max_candidates": 500             // scan guard; Llika may truncate past this and flag it
+  "max_scan": 500                   // scan guard (renamed from max_candidates — it bounds
+                                    // SCAN, not result count). Llika may stop scanning past
+                                    // this; when it does, total_matched is a LOWER BOUND and
+                                    // the result flags scan_truncated (see Return shape).
 }
 ```
 
@@ -171,7 +182,7 @@ nestable.
 
 ### Deliberately excluded (proposed by KIMI, cut with reasons)
 
-- **Token/cycle budget in the predicate.** Result bounds (`limit`, `max_candidates`) are find's
+- **Token/cycle budget in the predicate.** Result bounds (`limit`, `max_scan`) are find's
   job. Runtime resource accounting (max_tokens, max_cycles) is the *session* layer's concern;
   folding it into the query language couples the predicate to the runtime's accounting. The
   instinct (don't let a find run away) is honored by the scan guard, not a token budget.
@@ -196,19 +207,26 @@ Serializable only — no live Pydantic models, no raw arango docs (consistent wi
 {
   "hits": [
     {
-      "record_id": "<uuid>",                 // the address — for a later recall()
-      "score": 0.87,                          // BM25 when content present; null otherwise
+      "record_id": "0c4f…-uuid",             // BARE UUID — the address for get(record_id).
+                                              // NOT an Arango "collection/key" ref. Llika
+                                              // converts to/from records/<uuid> INTERNALLY
+                                              // (see Consumer Boundary: ID shape).
+      "score": 0.87,                          // BM25 when order_by="relevance"; null otherwise
       "matched_fields": ["response_text"],    // SHAPE not values (slice-2 field_names discipline)
       "snippet": "…never encoded into any tensor field…",  // bounded window around the match
       "cycle": 47,
       "timestamp": "2026-05-12T18:58:46Z"
     }
   ],
-  "edges": [                                  // structural edges AMONG the hits (when structure axis present)
-    {"from": "<uuid>", "to": "<uuid>", "relation_type": "composes_with"}
+  "edges": [                                  // structural edges AMONG hits — FAST-FOLLOW only
+                                              // (empty in v1; populated when structure axis ships, gh #2)
+    {"from": "0c4f…-uuid", "to": "9a1e…-uuid", "relation_type": "composes_with"}
   ],
-  "total_matched": 142,                       // ALWAYS present — N-of-how-many; the signal to tighten scope
-  "truncated": true                           // true when results were cut by limit or max_candidates
+  "total_matched": 142,                       // ALWAYS present. EXACT when the scan completed;
+                                              // a LOWER BOUND when scan_truncated is true.
+  "truncated": true,                          // true when results were cut by `limit`
+  "scan_truncated": false                     // true when scanning stopped at `max_scan` —
+                                              // then total_matched is a lower bound, not exact
 }
 ```
 
@@ -216,9 +234,10 @@ Serializable only — no live Pydantic models, no raw arango docs (consistent wi
 
 `find` returns **addresses + snippets + edges among hits — never full record content.** The
 subgraph is *addressable, not materialized*: you get the edges (the neighborhood's shape), then
-read any node deliberately via `recall(record_id)` (the hand-off's existing principle, independent
-of this design). This is the line that stops the callable-`find` failure ("haul everything into
-the caller") from re-entering disguised as "just return the records."
+read any node deliberately via **`get(record_id)`** — a companion Llika verb (see Consumer
+Boundary), the deliberate-hydration counterpart to find's address-only return. This is the line
+that stops the callable-`find` failure ("haul everything into the caller") from re-entering
+disguised as "just return the records."
 
 - **Snippets** are bounded (a window around the first match, as `search_memory` does today).
 - **`matched_fields`** reports *which* fields matched, not their values — the slice-2 "shape not
@@ -226,6 +245,122 @@ the caller") from re-entering disguised as "just return the records."
 - **`total_matched`** is always present. Without it a 10-hit list is indistinguishable from
   "exactly 10 exist" vs. "10 of 4,000" — and knowing scope is too broad is the whole Indaleko
   precision story.
+
+---
+
+## Consumer boundary
+
+Three independent reviews (Hamut'ay-Claude's call-site census, KIMI's ergonomics pass, Codex's
+code-grounded audit) agreed the *design* is sound and the *consumer boundary* was under-specified.
+This section pins it. The findings below were **verified against code 2026-06-02**, not taken from
+review prose.
+
+### ID shape — public bare UUID, internal Arango ref (verified blocker)
+
+`walk`/`neighbors` today return `record_id = vertex["_id"]` (service.py:106) — an Arango
+`collection/key` ref (e.g. `records/0c4f…`), and a slice-2 test asserts the slash
+(`tests/integration/test_llika_service.py:158`). But Hamut'ay's `recall(record_id)` expects a
+**bare UUID** (`hamutay/src/hamutay/tools/memory.py:149`).
+
+**Decision:** Llika's *public* surface (`find` hits, `get`, and `walk`/`neighbors` going forward)
+returns **bare UUIDs**. Llika converts to/from the internal `records/<uuid>` ref at the boundary.
+The slice-2 PathStep test that asserts a slash must be updated to assert a bare UUID — a deliberate
+consistency change, noted so it is not mistaken for a regression.
+
+### Hydrate-by-id — Llika grows `get(record_id)` (resolves the husk)
+
+`find` returns addresses, never full content. Hamut'ay still needs to read one full record by id
+— today `bridge.retrieve(record_id)` → `backend.get_record`, the single most-used bridge method
+(**6 call sites**, per Hamut'ay's census). The earlier draft named this "a separate deliberate
+`recall`" without giving it a home — a capability in prose with no owner, the husk shape.
+
+**Decision (Hamut'ay-Claude option a):** **Llika grows `get(record_id) -> serializable record`**,
+the deliberate-hydration companion to `find`. Migration story becomes clean and total:
+
+| job | before | after |
+|---|---|---|
+| search / cross-session query | `search_memory`, `query_open_by_*` (Python scans) | `find` |
+| hydrate one record by id | `bridge.retrieve` (×6) | `get` |
+| traversal | `walk` / `query_edges_by_endpoint` | `walk` (+ find structure, fast-follow) |
+| **write + REFINES edge** | `store_open_state` / `store_record` / `store_edge` | **stays Hamut'ay-side** (correct scoping) |
+
+So the bridge's **read** half goes to ~zero; its **write** half survives (it authors the REFINES
+edge and cross-cycle bookkeeping — not find's job). The migration claim is therefore "the bridge
+shrinks to write-only," not "delete the bridge."
+
+`get` returns a serializable record (not a live `ApachetaBaseModel`), consistent with the
+no-live-models rule. It is the one place full content crosses the boundary, and only one record at
+a time, by explicit id — the recall-boundary discipline intact.
+
+### Field-path mapping / obfuscator access (verified blocker)
+
+The spec relies on `_map.field_path` to map declared semantic paths → opaque stored paths. But
+`LlikaService` today holds only a **raw `StandardDatabase`** from `ApachetaDBConfig().connect()`
+(service.py:40) — it has **no `SchemaMap`/obfuscator**, so it cannot map paths before generating
+AQL or building views.
+
+**Decision:** Llika must obtain the *same* `SchemaMap` Apacheta used for the tier, so its
+generated AQL/view field paths match the stored (obfuscated) paths. The implementation plan picks
+the mechanism — the honest options are (a) `ApachetaDBConfig` exposes the tier's `SchemaMap`
+alongside the db handle, or (b) Llika is constructed with the Apacheta backend (not a raw db
+handle) and borrows its `_map`. Either keeps the mapping single-sourced; what is *not* acceptable
+is Llika reconstructing its own mapping and risking divergence. This is a v1 prerequisite for the
+`filter` axis on nested paths.
+
+### `<self>` — reserved sentinel, expanded by Llika (verified ambiguity)
+
+The sample filters `provenance.author_instance_id == "<self>"`. **Decision:** `<self>` is a
+**reserved sentinel**, expanded by Llika from its bound `ProvenanceEnvelope.author_instance_id` —
+not a caller literal. The instance never has to know its own session id to scope to itself.
+Edge-case note: an instance whose literal `author_instance_id` is the string `"<self>"` would
+collide; treated as a documented reserved value, the same way a shell treats `~`. (Future: if the
+collision ever matters, an explicit `{op: "is_self"}` form sidesteps it; not built now.)
+
+### Tool migration — `find` + `get` replace `search_memory` + the read-bridge; resolve the "single tool" overclaim
+
+taste_open exposes `memory_schema`, `recall`, `compare`, `walk`, `search_memory`
+(`hamutay/src/hamutay/tools/schemas.py:527`). An earlier line called the post-migration surface "a
+single goal-focused memory tool," which contradicts keeping `recall`. **Corrected stance:**
+
+- `find` **replaces `search_memory`** (and the ad-hoc cross-session query methods). It is the
+  goal-focused search verb.
+- `get` (Llika) **backs `recall`** — `recall(record_id)` becomes a thin pass-through to `get`.
+- `walk`/`compare` remain as distinct verbs; they are different goals, not synonyms (no catalog
+  leak — the catalog problem was synonymous *domain* methods, not distinct *capabilities*).
+
+So the instance-facing surface *shrinks* (search collapses into `find`) but is not literally one
+tool. The honest claim: **`find` is the single goal-focused *search* verb; deliberate hydration
+(`recall`→`get`) and structural traversal (`walk`) stay as the distinct acts they are.**
+
+### Write-side prerequisite (find is read-only; it needs Hamut'ay to write findable content) — gh #6
+
+`find`'s content axis indexes conversational fields, but today those reach only the JSONL via
+`_log_entry`; `store_open_state` persists only the lossy tensor. **`find` cannot fix the
+Boltzmann-brain regression until Hamut'ay writes conversational content to the open `records`
+lane** — a Hamut'ay-side `store_turn`-like wrapper over `store_record` (gh #6). The fields it
+writes are the fields `LlikaService` is constructed to index. Store-side granularity (fat
+per-cycle record vs. decomposed) is **Hamut'ay's** decision. The find implementation plan must
+sequence #6 before claiming the regression is fixed end-to-end.
+
+### Scope: taste_open only (gh #7)
+
+`find` v1 serves **taste_open**. `taste.py` (no persistence, `taste.py:508`) and `commune.py`
+(JSONL only, no bridge, `commune.py:253`) are **explicitly not v1 customers**; if they later gain
+persistence, their migration is its own work (gh #7).
+
+### Deferred consumer-side items tracked as issues (not buried in this prose)
+
+- **gh #5** — Hamut'ay edge migration (bridge writes Llika `link` edges, not Apacheta
+  `composition_edges`). *Already deferred once in slice 2 and rediscovered as a blocker — the
+  evaporation this very design fights.* **Blocks the find structure axis (gh #2).**
+- **gh #2** — find structure axis (fast-follow, blocked by #5).
+- **gh #3** — find window axis (fast-follow).
+- **gh #4** — autonomic indexing optimizer (the (2) this v1's observability feeds).
+- **gh #6**, **gh #7** — as above.
+
+The callback-fog failure (`execute_concurrent_tool_calls`) exists in **both** backend branches:
+the Anthropic terminal path (taste_open.py:367–384) *and* the OpenAI-compatible branch
+(taste_open.py:~1074). Any Hamut'ay-side fix must cover both.
 
 ---
 
@@ -258,9 +393,9 @@ smuggled in.
 **v1 — static field set at construction, *with observability* (the committed choice).**
 `LlikaService` is constructed with the set of content/filter paths to index (and their
 analyzer/type), alongside its existing `tier`/`provenance`. Llika builds the ArangoSearch view +
-field indexes from that set over the open `records` lane. This delivers `find` with
-content+filter+structure over a known field set, the motivating stemmed-match regression, and
-temporal/scope filtering.
+field indexes from that set over the open `records` lane. This delivers `find` with the
+**content + filter** axes over a known field set, the motivating stemmed-match regression, and
+temporal/scope filtering. (`structure`/`window` are fast-follow — gh #2/#3.)
 
 v1 carries **exactly one standing obligation: observability.** This is non-negotiable and is the
 correction at the heart of this design — see the next subsection. v1 makes no optimization
@@ -315,7 +450,7 @@ The `find` telemetry record is the `find` analogue of that chain:
 - **The query plan / `explain`** — ArangoDB's explain output (analogue of "query explanation").
   This is where index-vs-scan *actually* lives, properly, rather than as a hand-rolled boolean.
 - **Result metadata, NOT full results:** `total_matched`, `truncated`, candidates-scanned,
-  wall-clock, `limit`/`max_candidates`. The returned **addresses (UUIDs)** are cheap and worth
+  wall-clock, `limit`/`max_scan`/`scan_truncated`. The returned **addresses (UUIDs)** are cheap and worth
   keeping as a trimmed result set; the **content/snippets are dropped** (Indaleko lesson #1).
 
 **Where it lands: in the database, as records — not a sidecar file.** Append-only *semantics*
@@ -358,9 +493,18 @@ not denied.)
 ### v1 (this design)
 
 - `LlikaService.find(predicate) -> FindResult`, tenant-bound, RPC-shaped, serializable result.
-- Predicate axes: **content**, **filter**, **structure**. Result control: `order_by`/`order`/
-  `limit`/`max_candidates`. Result: `hits` (addresses+snippets+matched_fields+cycle+timestamp) +
-  `edges` + `total_matched` + `truncated`.
+- **`LlikaService.get(record_id) -> serializable record`** — the deliberate-hydration companion
+  to `find`; backs Hamut'ay's `recall`. Bare-UUID in, serializable record out. (Consumer boundary.)
+- Predicate axes: **content** + **filter** only. (`structure` → gh #2; `window` → gh #3.) Result
+  control: `order_by` (default `cycle` desc, explicit) / `order` / `limit` / `max_scan`. Result:
+  `hits` (bare-UUID addresses + snippets + matched_fields + cycle + timestamp) + `total_matched`
+  (exact, or lower-bound when `scan_truncated`) + `truncated` + `scan_truncated`. `edges` empty in
+  v1.
+- Public surface returns **bare UUIDs**; internal Arango `records/<uuid>` conversion at the
+  boundary. (Updates the slice-2 PathStep slash-assertion test.)
+- Llika obtains the tier's `SchemaMap` so generated AQL/view paths match stored (obfuscated)
+  paths — single-sourced, never reconstructed. (Consumer boundary; v1 prerequisite for nested
+  `filter` paths.)
 - Static construction-time indexed-field set; ArangoSearch view over the open `records` lane
   (spine + named content paths) + declared field indexes.
 - **Observability (standing obligation):** per-`find` telemetry — the query chain (predicate as
@@ -372,9 +516,13 @@ not denied.)
 
 ### Fast-follow (in this spec's shape, implemented after v1 proves the substrate)
 
-- The **`window` axis** (temporal neighborhood), including `anchor:"<match>"` (two-pass:
-  match, then gather each hit's prior/follow neighbors). Designed into the predicate now so the
-  shape is complete and non-breaking; the hardest axis does not block v1.
+- **`structure` axis** (graph neighborhood) — **gh #2, blocked by the Hamut'ay edge migration
+  gh #5.** Cannot ship until Llika and Hamut'ay agree on one edge collection; today they do not
+  (verified). Predicate + `edges` return-field already designed; non-breaking to populate later.
+- **`window` axis** (temporal neighborhood), including `anchor:"<match>"` (two-pass: match, then
+  gather each hit's prior/follow neighbors) — **gh #3.** Designed into the predicate now so the
+  shape is complete and non-breaking; the hardest axis does not block v1. (Note: `anchor:"<match>"`
+  is the fullest form of the callback-fog fix — KIMI.)
 
 ### Explicitly NOT in scope
 
@@ -390,31 +538,26 @@ not denied.)
   remains a Hamut'ay-side concern, independently shippable.)
 - `unit` values other than `cycles`.
 
----
-
-## Consumer impact: Hamut'ay
-
-- Hamut'ay must store the conversational fields it wants findable into the open `records` lane
-  (today `store_open_state` persists only the tensor; the full cycle reaches only the JSONL via
-  `_log_entry`). The *unit and granularity of that store is Hamut'ay's decision* — this spec does
-  not dictate it. A consumer-side `store_turn`-like wrapper over the existing `store_record` is the
-  expected mechanism; the fields it writes are the fields Llika is constructed to index.
-- Retrieval is `LlikaService.find(predicate)`; full-turn reads remain a deliberate
-  `recall(record_id)`. The instance is exposed a single goal-focused memory tool, not a catalog of
-  search/recall/walk verbs to chain by hand.
+> **Consumer impact on Hamut'ay** is pinned in the **Consumer boundary** section above
+> (ID shape, `get`/`recall`, tool migration, `<self>`, write-side prerequisite gh #6, scope gh #7).
 
 ---
 
 ## Acceptance criteria (contract — packaging is the test author's call; live `apacheta_test`, no DB mocks)
+
+Llika is Arango-backed (per `docs/llika-spec.md`); there is **no memory backend for `find`**.
+The earlier "memory backend may xfail" notes are removed — they were inherited from the Apacheta
+`search_open_text` hand-off, which spanned backends. `find` lives on Llika and is Arango-only;
+tests run against live `apacheta_test`.
 
 ```python
 def test_find_content_roundtrip():
     # Two open records stored; a term in one is found; returns its UUID,
     # a non-empty bounded snippet, and matched_fields naming the matched field.
 
-def test_find_content_stemmed_case_insensitive():   # arango-only
+def test_find_content_stemmed_case_insensitive():
     # content.terms "boltzmann brain" matches a record containing "Boltzmann brains".
-    # The motivating regression. Memory backend may xfail (substring fallback only).
+    # The motivating regression. Arango-only (Llika is Arango-backed; no memory backend).
 
 def test_find_filter_numeric():
     # filter {field: cycle, op: >=, value: 10} returns only records with cycle >= 10.
@@ -423,19 +566,43 @@ def test_find_filter_declared_field_generic():
     # filter {field: "epistemic.truth", op: >=, value: 0.7} works as a generic field
     # comparison — Llika has no epistemic-specific code path.
 
+def test_find_filter_dotted_path_nested():
+    # A nested dotted path (e.g. "epistemic.truth", "provenance.timestamp") resolves
+    # correctly through SchemaMap.field_path — validates the "opaque path" claim for
+    # depth >1, not just top-level fields. (KIMI / Codex obfuscator concern.)
+
+def test_find_filter_not_empty_on_array():
+    # filter {field: "declared_losses", op: "not_empty"} returns only records whose
+    # array field is present and non-empty. (declared_losses is a key Hamut'ay field;
+    # the op was listed but untested — KIMI.)
+
 def test_find_filter_and_or_nested():
     # nested and/or combinator evaluates correctly.
 
-def test_find_scope_author_self():
-    # filter on provenance.author_instance_id restricts to that instance's records.
+def test_find_scope_author_self_sentinel():
+    # filter {field: provenance.author_instance_id, op: ==, value: "<self>"} expands
+    # to the service's bound ProvenanceEnvelope.author_instance_id and restricts to
+    # this instance's records. "<self>" is NOT treated as a literal id.
 
-def test_find_structure_addressable_not_materialized():
-    # structure axis present → edges among hits returned; hits carry record_id only,
-    # NOT full record content (recall boundary).
+def test_find_returns_bare_uuid_not_arango_ref():
+    # hit.record_id is a bare UUID (no slash), suitable for get()/recall() — NOT an
+    # Arango "records/<uuid>" ref. (Verified blocker: walk currently returns the ref.)
+
+def test_get_hydrates_record_by_bare_uuid():
+    # get(<bare uuid>) returns the full record as a serializable type (not a live
+    # ApachetaBaseModel, not a raw arango doc). The deliberate-hydration companion to find.
 
 def test_find_total_matched_and_truncated():
-    # limit smaller than match count → len(hits)==limit, total_matched==full count,
-    # truncated==True.
+    # limit smaller than match count → len(hits)==limit, total_matched==exact full count,
+    # truncated==True, scan_truncated==False.
+
+def test_find_total_matched_lower_bound_when_scan_truncated():
+    # match count exceeds max_scan → scan stops early; total_matched is a LOWER BOUND
+    # and scan_truncated==True. (total_matched exact-vs-lower-bound semantics — Codex.)
+
+def test_find_order_by_default_is_cycle_desc_regardless_of_content():
+    # With no order_by, default is cycle desc — and adding a content axis does NOT
+    # silently flip the order to relevance. (Explicit default — KIMI concern 5.)
 
 def test_find_order_by_cycle_desc_recency():
     # order_by cycle desc + limit N returns the N most-recent matches (recency, not last_n).
@@ -459,24 +626,38 @@ def test_find_telemetry_retains_values_drops_full_results():
     # (recurrence detection needs them) but does NOT store full result content/snippets
     # (Indaleko lesson: large, not useful for performance). Returned UUIDs may be kept.
 
-# Fast-follow (window axis):
-def test_find_window_anchor_match_neighbors():   # fast-follow
+# ── Fast-follow (NOT v1) ──
+def test_find_structure_addressable_not_materialized():   # fast-follow, gh #2 (blocked by #5)
+    # structure axis present → edges among hits returned; hits carry record_id only,
+    # NOT full record content (recall boundary).
+
+def test_find_structure_depth_zero_anchor_only():   # fast-follow, gh #2
+    # structure {depth: 0} = anchor record only, no traversal (not an error).
+
+def test_find_window_anchor_match_neighbors():   # fast-follow, gh #3
     # window {anchor: "<match>", prior: 1, follow: 1} returns each content hit plus
     # its immediate prior/follow neighbors by cycle.
 ```
 
 ---
 
-## Commit identity
+## Tracked follow-ups (GitHub issues — the durable channel, not this prose)
 
-Yanantin commits author as `yanantin@wamason.com`, `Tony Mason`, signed (per-command git config
-overrides, not repo-level). Match that.
+Every deferral in this spec has a GitHub issue so it cannot evaporate the way the slice-2
+edge-migration note did (deferred in prose, "trigger met" in memory, still undone, rediscovered as
+a blocker here). The spec is the design-of-record; the issues are the work-of-record.
 
-```bash
-cd /home/tony/projects/yanantin
-git -c user.email=yanantin@wamason.com -c user.name="Tony Mason" \
-    -c user.signingkey=1E416B1FB63AF88179EE0F38D0CAB9659C950893 commit -S -m "..."
-```
+- **gh #2** — find `structure` axis (fast-follow; blocked by #5)
+- **gh #3** — find `window` axis (fast-follow)
+- **gh #4** — autonomic indexing optimizer, the (2) this v1's observability feeds
+- **gh #5** — Hamut'ay edge migration (bridge writes Llika `link` edges, not Apacheta
+  `composition_edges`) — *blocks #2*
+- **gh #6** — Hamut'ay `store_turn` (find's write-side prerequisite; without it the
+  Boltzmann-brain regression is not fixed end-to-end)
+- **gh #7** — taste.py / commune.py scope (not v1 customers)
+
+(Commit identity for Yanantin-authored work — signing key, per-command git config — is recorded in
+project memory, not duplicated here.)
 
 ---
 

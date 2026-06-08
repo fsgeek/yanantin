@@ -1,7 +1,7 @@
 """LlikaService — a thin facade over a GraphBackend.
 
-The privileged ArangoDB handle is GONE. LlikaService no longer calls
-ApachetaDBConfig().connect(tier) and holds no StandardDatabase; its only
+The privileged ArangoDB handle is GONE. LlikaService no longer resolves
+its own database connection and holds no raw handle of any kind; its only
 path to data is the GraphBackend it is *given* at construction. The graph
 AQL that used to live here moved into ArangoDBBackend, where it routes
 through the storage obfuscator. This is the unwalled-gate fix (yanantin#10):

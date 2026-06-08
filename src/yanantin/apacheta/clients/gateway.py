@@ -28,8 +28,11 @@ from yanantin.apacheta.models.composition import (
     NegationRecord,
     SchemaEvolutionRecord,
 )
+from yanantin.apacheta.models import ProvenanceEnvelope
+from yanantin.apacheta.models.composition import RelationType
 from yanantin.apacheta.models.entities import EntityResolution
 from yanantin.apacheta.models.tensor import TensorRecord
+from yanantin.llika.models import EdgeResult, PathResult, PathStep
 
 
 class ApachetaGatewayClient(ApachetaInterface):
@@ -351,6 +354,102 @@ class ApachetaGatewayClient(ApachetaInterface):
         if response.status_code != 200:
             self._handle_error(response)
         return [EntityResolution.model_validate(e) for e in response.json()]
+
+    # ── Llika graph verbs (behind Pukara) ────────────────────────
+    # Mirror pukara/routes/llika.py exactly. id-shape is mixed per-verb
+    # (yanantin#10 SEAM 1): link/walk/neighbors take "collection/<uuid>"
+    # slash-form refs; get takes a bare UUID (records-only). The frozen
+    # result dataclasses (EdgeResult/PathResult/PathStep) are reconstructed
+    # from the route JSON so callers get the same types as the in-process
+    # GraphBackend.
+
+    @staticmethod
+    def _path_result_from_json(data: dict) -> PathResult:
+        return PathResult(
+            start_id=data["start_id"],
+            steps=tuple(
+                PathStep(
+                    record_id=s["record_id"],
+                    relation_type=s["relation_type"],
+                    field_names=tuple(s["field_names"]),
+                )
+                for s in data["steps"]
+            ),
+        )
+
+    def link(
+        self,
+        from_ref: str,
+        to_ref: str,
+        relation_type: RelationType,
+        provenance: ProvenanceEnvelope,
+        **fields: Any,
+    ) -> EdgeResult:
+        body = {
+            "from_ref": from_ref,
+            "to_ref": to_ref,
+            "relation_type": relation_type.value,
+            "provenance": provenance.model_dump(mode="json"),
+            **fields,
+        }
+        response = self._client.post("/api/v1/llika/link", json=body)
+        if response.status_code != 201:
+            self._handle_error(response)
+        data = response.json()
+        return EdgeResult(
+            edge_id=data["edge_id"],
+            from_id=data["from_id"],
+            to_id=data["to_id"],
+            relation_type=data["relation_type"],
+            created_at=data["created_at"],
+        )
+
+    def walk(
+        self,
+        start_id: str,
+        direction: str,
+        depth: int,
+        relation_types: list[str] | None = None,
+        max_results: int = 50,
+    ) -> list[PathResult]:
+        body = {
+            "start_id": start_id,
+            "direction": direction,
+            "depth": depth,
+            "relation_types": relation_types,
+            "max_results": max_results,
+        }
+        response = self._client.post("/api/v1/llika/walk", json=body)
+        if response.status_code != 200:
+            self._handle_error(response)
+        return [self._path_result_from_json(r) for r in response.json()]
+
+    def neighbors(
+        self,
+        start_id: str,
+        direction: str,
+        relation_types: list[str] | None = None,
+    ) -> list[PathResult]:
+        body = {
+            "start_id": start_id,
+            "direction": direction,
+            "relation_types": relation_types,
+        }
+        response = self._client.post("/api/v1/llika/neighbors", json=body)
+        if response.status_code != 200:
+            self._handle_error(response)
+        return [self._path_result_from_json(r) for r in response.json()]
+
+    def get(self, record_id: UUID) -> ApachetaBaseModel:
+        """Read a single record by UUID through the llika get route.
+
+        Distinct from get_record (which hits /api/v1/records/{id}); the llika
+        surface exposes its own get endpoint riding the same backend method.
+        """
+        response = self._client.get(f"/api/v1/llika/get/{record_id}")
+        if response.status_code != 200:
+            self._handle_error(response)
+        return ApachetaBaseModel.model_validate(response.json())
 
     # ── Open-Record Queries (deferred) ───────────────────────────
     # Pukara has no routes for these yet. When it grows them, this file

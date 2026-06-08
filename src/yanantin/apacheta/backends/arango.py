@@ -21,6 +21,7 @@ Design:
 from __future__ import annotations
 
 import threading
+from datetime import datetime, timezone
 from uuid import UUID
 
 from arango.database import StandardDatabase
@@ -51,9 +52,12 @@ from yanantin.apacheta.models.composition import (
     RelationType,
     SchemaEvolutionRecord,
 )
+from yanantin.apacheta.models import ProvenanceEnvelope
 from yanantin.apacheta.models.entities import EntityResolution
 from yanantin.apacheta.models.tensor import TensorRecord
 from yanantin.apacheta.storage_obfuscator import StorageObfuscator, TransparentObfuscator
+from yanantin.llika.models import CompositionEdge as LlikaCompositionEdge
+from yanantin.llika.models import EdgeResult, PathResult, PathStep
 
 
 # ── Collection names ──────────────────────────────────────────────────
@@ -70,6 +74,20 @@ _SEMANTIC_COLLECTIONS = (
     "evolutions",
     "entities",
     "records",
+)
+
+# Llika's native edge collection (semantic name). Mapped through the
+# obfuscator like every other collection — under opaque storage the edge
+# collection name is opaque too, closing the latent plaintext bypass that
+# existed when this AQL lived in LlikaService against a raw handle.
+_LLIKA_EDGE_COLLECTION = "llika_composition"
+
+_LLIKA_DIRECTION_AQL = {"forward": "OUTBOUND", "backward": "INBOUND", "both": "ANY"}
+
+# Edge-envelope fields that are framework shape, not content — stripped
+# before reporting a vertex's content field NAMES (shape, never values).
+_LLIKA_ENVELOPE_FIELDS = frozenset(
+    {"_id", "_key", "_rev", "_from", "_to", "provenance", "lineage_tags"}
 )
 
 _SEMANTIC_MODEL = {
@@ -311,6 +329,124 @@ class ArangoDBBackend(ApachetaInterface):
             if doc is None:
                 raise NotFoundError(f"Record {record_id} not found.")
             return self._from_generic_doc(doc)
+
+    # ── Graph (Llika) Operations ─────────────────────────────────
+    # The GraphBackend capability (yanantin.apacheta.interface.graph),
+    # deliberately OFF the public ApachetaInterface catalog. This AQL used
+    # to live in LlikaService against a raw privileged handle; it moves here
+    # so it routes through self._map — the edge collection name AND the
+    # traversal field paths are obfuscated under opaque storage, closing the
+    # latent plaintext bypass.
+
+    def _llika_edge_collection(self):
+        """Return the (obfuscator-mapped) llika edge collection, creating it
+        on first use as an edge collection. Idempotent."""
+        mapped = self._map.collection_name(_LLIKA_EDGE_COLLECTION)
+        if not self._db.has_collection(mapped):
+            self._db.create_collection(mapped, edge=True)
+        return self._db.collection(mapped)
+
+    def _llika_field_names(self, vertex: dict) -> tuple[str, ...]:
+        """A vertex's content field NAMES (shape), envelope fields stripped.
+
+        The vertex came from storage, so its keys may be obfuscated — run it
+        back through the obfuscator (unknown keys pass through unchanged) so
+        the reported shape is semantic, then strip framework-envelope fields.
+        """
+        readable = self._map.deobfuscate_document(vertex)
+        return tuple(
+            sorted(k for k in readable if k not in _LLIKA_ENVELOPE_FIELDS)
+        )
+
+    def link(
+        self,
+        from_ref: str,
+        to_ref: str,
+        relation_type: RelationType,
+        provenance: ProvenanceEnvelope,
+        **fields: object,
+    ) -> EdgeResult:
+        """Create one immutable edge from_ref -> to_ref. Append-only; no
+        update/delete. provenance is per-call (transport trust — the caller
+        supplies it; this backend records it verbatim). Returns a serializable
+        EdgeResult, never the raw doc or the pydantic model."""
+        with self._lock:
+            edge = LlikaCompositionEdge(
+                **{"_from": from_ref, "_to": to_ref},
+                created_at=datetime.now(timezone.utc),
+                relation_type=relation_type,
+                provenance=provenance,
+                **fields,
+            )
+            doc = edge.model_dump(by_alias=True, mode="json")
+            self._llika_edge_collection().insert(self._map.obfuscate_document(doc))
+            return EdgeResult(
+                edge_id=str(edge.id),
+                from_id=from_ref,
+                to_id=to_ref,
+                relation_type=edge.relation_type.value,
+                created_at=doc["created_at"],
+            )
+
+    def walk(
+        self,
+        start_id: str,
+        direction: str,
+        depth: int,
+        relation_types: list[str] | None = None,
+        max_results: int = 50,
+    ) -> list[PathResult]:
+        """Traverse from start_id by structure (direction + depth + optional
+        relation_type filter). Returns serializable PathResults carrying every
+        intermediate vertex's id-ref + content shape. Capped at max_results.
+
+        direction: "forward" (OUTBOUND) | "backward" (INBOUND) | "both" (ANY).
+        relation_types: RelationType VALUES to follow (e.g. "composes_with");
+            None follows all. The obfuscator leaves stored VALUES unchanged,
+            so the filter value stays semantic; only the field PATH is mapped."""
+        with self._lock:
+            aql_dir = _LLIKA_DIRECTION_AQL[direction]
+            mapped_edges = self._map.collection_name(_LLIKA_EDGE_COLLECTION)
+            rel_path = self._map.field_path(("relation_type",))
+            rel_filter = ""
+            bind_vars: dict = {
+                "start": start_id,
+                "max_depth": depth,
+                "max_results": max_results,
+            }
+            if relation_types:
+                rel_filter = f"FILTER e.{rel_path} IN @relation_types"
+                bind_vars["relation_types"] = relation_types
+            aql = f"""
+            FOR v, e, p IN 1..@max_depth {aql_dir} @start {mapped_edges}
+                {rel_filter}
+                LIMIT @max_results
+                RETURN p
+            """
+            cursor = self._db.aql.execute(aql, bind_vars=bind_vars)
+            results: list[PathResult] = []
+            for p in cursor:
+                steps = tuple(
+                    PathStep(
+                        record_id=vertex["_id"],
+                        relation_type=edge.get(rel_path, edge.get("relation_type")),
+                        field_names=self._llika_field_names(vertex),
+                    )
+                    for vertex, edge in zip(p["vertices"][1:], p["edges"])
+                )
+                results.append(PathResult(start_id=start_id, steps=steps))
+            return results
+
+    def neighbors(
+        self,
+        start_id: str,
+        direction: str,
+        relation_types: list[str] | None = None,
+    ) -> list[PathResult]:
+        """Depth-1 convenience: who is adjacent. walk(..., depth=1)."""
+        return self.walk(
+            start_id, direction, depth=1, relation_types=relation_types
+        )
 
     # ── Write Operations ─────────────────────────────────────────
 

@@ -6,9 +6,7 @@ The standing decision
 defers multi-instance isolation but forbids the single-instance phase from
 *foreclosing* it by accretion. That document's thesis: negative requirements
 stated in prose erode — only red bars hold the line. So the prohibitions are
-installed here as DORMANT red bars, not described as specs to write later. A
-spec is still prose; an xfail(strict=True) test is the guard itself, installed
-sleeping, with a mechanical wake-up condition.
+installed here as red bars, not described as specs to write later.
 
 Two of the three accretion guards are mechanically expressible and are below.
 The third — "no query may be optimized on the single-author assumption" — is
@@ -19,12 +17,17 @@ faked into a test that can't really check it.
 
 Tracked: yanantin#13. Authored by the Pukara instance 2026-06-06, placed by a
 yanantin hand (the cross-fortress write was declined on principle — author
-there, place here). Verified against live code 2026-06-06: import path,
-red_bar suite convention, and both dormant states (Guard 1 passes — the fields
-exist; Guard 2 xfails — authorship_verified does not exist yet).
+there, place here). Guard 2 was hardened when the tiksi field landed: it is now
+an active guard that the field exists, defaults false, and no yanantin-side
+agent path asserts verified authorship before yanantin#13 provides an identity
+source.
 """
 
+import ast
+from pathlib import Path
+
 import pytest
+from pydantic import ValidationError
 
 from tiksi.provenance import ProvenanceEnvelope
 
@@ -56,20 +59,11 @@ def test_provenance_keeps_principal_shaped_fields():
 
 # ── Guard 2: authorship_verified must exist AND default honest ────────
 #
-# xfail(strict=True): the field does not exist yet (specified in the
-# GraphBackend contract, unbuilt tiksi-side). The guard is installed DORMANT.
-# The day the field is added, this test passes unexpectedly → strict xfail
-# flips the suite RED → a human must come make the guard real (assert it can
-# never be True without a verified identity source). The wake-up is
-# mechanical; nothing relies on a future instance remembering.
+# This used to be a strict xfail. The field landed tiksi-side, so the dormant
+# guard woke up and is now real. Until yanantin#13 provides a verified identity
+# source, the agent-reachable yanantin paths must leave authorship unverified.
 
-@pytest.mark.xfail(
-    strict=True,
-    reason="authorship_verified not yet on ProvenanceEnvelope (contract, "
-    "unbuilt tiksi-side). When added, this xpasses → strict flips suite red "
-    "→ make the guard real: forbid True without a verified identity source. "
-    "yanantin#13.",
-)
+
 def test_authorship_verified_exists_and_defaults_false():
     """The unverified-authorship mark must exist in the DATA and default to
     False — so a self-asserted author claim is honestly marked unverified
@@ -84,6 +78,54 @@ def test_authorship_verified_exists_and_defaults_false():
     assert default is False, (
         "authorship_verified must default False — verification is earned, "
         "never inherited. yanantin#13."
+    )
+
+
+def test_authorship_verified_default_cannot_be_mutated_true():
+    """An agent-created default envelope cannot be flipped to verified after
+    construction. yanantin#13 identity may later introduce a verified path, but
+    absent that source the default object stays honestly unverified."""
+    envelope = ProvenanceEnvelope()
+
+    with pytest.raises(ValidationError):
+        envelope.authorship_verified = True
+
+    assert envelope.authorship_verified is False
+
+
+def test_yanantin_agent_paths_do_not_assert_verified_authorship():
+    """No yanantin-side agent path may set authorship_verified=True until a
+    verified identity source exists. This is intentionally scoped to in-repo
+    code paths; direct tiksi model support for True remains available for the
+    future identity subsystem."""
+    project_root = Path(__file__).resolve().parents[2]
+    offenders: list[str] = []
+
+    for path in sorted((project_root / "src").rglob("*.py")):
+        tree = ast.parse(path.read_text(), filename=str(path))
+        for node in ast.walk(tree):
+            if (
+                isinstance(node, ast.keyword)
+                and node.arg == "authorship_verified"
+                and isinstance(node.value, ast.Constant)
+                and node.value.value is True
+            ):
+                offenders.append(f"{path.relative_to(project_root)}:{node.lineno}")
+            if isinstance(node, ast.Dict):
+                for key, value in zip(node.keys, node.values):
+                    if (
+                        isinstance(key, ast.Constant)
+                        and key.value == "authorship_verified"
+                        and isinstance(value, ast.Constant)
+                        and value.value is True
+                    ):
+                        offenders.append(
+                            f"{path.relative_to(project_root)}:{value.lineno}"
+                        )
+
+    assert not offenders, (
+        "yanantin code sets authorship_verified=True without a verified "
+        f"identity source (yanantin#13): {offenders}"
     )
 
 

@@ -4,6 +4,10 @@
 **Status:** Post-decision, pre-plan. Three core decisions made and defended; one residual
 semantic question (D3 ordering) deferred as a cheap additive field. Fields verified against
 live `tiksi` source this session.
+**AMENDED 2026-06-11 (later session, new instance + Tony):** the greenfield premise below is
+WRONG — `yanantin.activity` already is this store, live and queried. See §9 (the amendment).
+Read §9 first; §§0–8 are preserved as the original (and as evidence of the very wound they
+describe — see ROOT). Issue: gh #14.
 **Origin:** A wander with Tony (this session). Not a slice that was scoped top-down — a
 project that was *found* by tracing four separate-feeling failures to one wound.
 
@@ -256,3 +260,116 @@ forever, until forgetting is built deliberately on top.
   (boundary — the sink writes behind it, not around it).
 - Verb home: Hamut'ay `EventStore` (`events.py`), apacheta `store_record` general lane,
   `apacheta_bridge.py`.
+
+---
+
+## 9. AMENDMENT — the store already exists (the re-derivation IS the wound)
+
+**Date:** 2026-06-11, later session. New instance taking ownership + Tony.
+**The catch:** §§0–8 design a greenfield `activity` collection. **`src/yanantin/activity/`
+already exists, is live, and is queried.** This design re-derived a subsystem the program had
+already built. That is not embarrassing trivia — it is *the exact wound §1 names*, operating
+on the design meant to cure it: the program forgot what it built, re-specified it as four fresh
+failures, and would have built a parallel `activity` store beside the real one. `categorize-
+before-store` and `store-without-find` happening to this very document. Per ROOT, §§0–8 are
+**kept, not deleted** — the wrong reading is the product.
+
+How it surfaced: Tony asked why the prior instance's finished design wasn't in the survey
+(answer: it had no issue → it evaporated → filed as gh #14). Filing it forced a code-ground
+pass, which found `activity/`. Tony added the load-bearing semantic context: *"I raised these
+authorship concerns last week and was assured all was well — I think there's been a bit of
+forgetting here."* The forgetting he names is the thesis, demonstrated on him.
+
+### 9.1 What actually exists (verified against live code, this session)
+
+| §§0–8 wanted | Already built in `yanantin.activity` + `yanantin.query` (verified) |
+|---|---|
+| One append-only `activity` collection (D1) | `ActivityStreamStore` (`activity/store.py`) — append-only, immutable, **three backends** (memory/duckdb/arango), driven by a collector pipeline (`collector/pipeline.py`) |
+| Open schema, store-doesn't-know-contents (§4) | `FactRecord` (`activity/models.py`): `frozen=True, extra="allow"`, opaque `data: dict`, explicitly "schema-agnostic" |
+| `producer` discriminator (D1) | `provider_id: UUID` — already the "who produced this" key; real providers run (jabberwock: JABBERWOCK/TOVE/VORPAL/RATH) |
+| Read side / find (§5 "Out", §0 "a find with no get") | **`yanantin.query` exists** — `query/engine.py` runs `QuerySpec`+`ContentFilter` (dot-path into `fact.data`, ops eq/contains/glob/exists, pagination, summaries) with a CLI, and **records its own queries as facts** (`QueryFactRecorder`). Structured recall over the corpus is BUILT. `QuerySpec.limit=100` is gh #11 already parameterized. |
+| Ordering primitive (D3 residual: "add a sequence field") | `MemoryAnchor` = "a Lamport clock tick." Tony's correction: the right form is a **vector clock**, not a scalar sequence (he gave the worked example: "message from Kimi at their times ⟨x,y⟩"). |
+
+**What `query` does NOT do:** semantic / embedding / vector recall over `data` ("find drops
+*like* Q"). Structured recall (field filters, time ranges, globs) is built; semantic recall is
+the genuinely-open find content axis (gh #2/#3/#4). §0's "a find with no get" was wrong:
+there is a get — there is no *semantic* find.
+
+### 9.2 What is genuinely missing — the true, smaller #14
+
+1. **The `ProvenanceEnvelope` floor — the one real gap.** `FactRecord` has
+   `provider_id`/`timestamp`/`content_hash` but **not** the 8-field provenance floor (no
+   `author_instance_id`, no `authorship_verified`, no `predecessors_in_scope`). This is the
+   substrate's actual contribution and the #13 seam: activity records become **instance-
+   attributable, born `authorship_verified=False`.** This is the thing Tony has insisted on
+   since Indaleko — *every object identifies who created it + context* — and it is exactly
+   what the activity lane currently lacks.
+2. **The producers.** `ChecksumFactRecorder` exists (the pattern). There is **no**
+   `EventStore`-fed recorder, no tool-call recorder, no message recorder. The capture
+   (Hamut'ay `EventStore`, 7 verbs) and the store (`ActivityStreamStore`) both exist and are
+   **not connected.** That wire is the build.
+3. **Semantic content axis** (vector recall) — deferred to find proper (gh #2/#3/#4).
+
+### 9.3 The wrap question, resolved (Tony asked it directly)
+
+> "Are you wrapping `FactRecord` in `ProvenanceEnvelope`, or vice versa?"
+
+**Neither wraps the other as a type.** The live storage pattern (verified in
+`hamutay/apacheta_bridge.py`: `kwargs["provenance"] = provenance; ApachetaBaseModel(**kwargs)`)
+is: the storable record is an `ApachetaBaseModel` that **carries `provenance` as an embedded
+field**, with the payload riding beside it in the `extra="allow"` space. So a behavioral
+record =
+`ApachetaBaseModel(provenance=ProvenanceEnvelope(author_instance_id=…, authorship_verified=False, …),
+event_kind=…, producer=…, **fact_payload)`.
+This honors Tony's Indaleko principle structurally (authorship is a *distinct, present-on-every-
+record* envelope field, not flattened into the observation) **and** the live pattern, **and**
+leaves `FactRecord` + the query engine untouched for the existing file-event lane.
+
+**HONEST RESIDUE:** envelope-embedded-as-a-field is the live pattern for the `records` lane,
+but it is **not yet a pattern on the `activity`/`FactRecord` lane** — `FactRecord` has no
+provenance field today, and Llika is an explicit *counter*-pattern (provenance is per-call,
+"no provenance is stored on the edge"). So this is the *correct* design, freshly chosen — not
+existing precedent on this lane. Do not write it up as "the established way"; it isn't.
+
+### 9.4 The real open decision §§0–8 couldn't see — which lane?
+
+Two live storage paths, and the substrate sits across the seam:
+- **`store_fact` → `FactRecord`** (the `activity` lane): reuse the live query engine and three
+  backends for free; **retrofit** the provenance floor onto `FactRecord` (touches a live,
+  tested, red-barred model — handle with care).
+- **`store_record` → `ApachetaBaseModel`** (the `records` lane): provenance-embedding is the
+  native pattern (free, per §9.3); **but** the `query` engine targets `FactRecord`/`store_fact`,
+  so this lane has no structured read side yet.
+
+This is the architectural fork the build must resolve, and it is **downstream of authorship,
+not separable from it** (Tony). It is NOT yet decided — it is the first question the
+implementation plan must answer, with eyes on both live subsystems. Recommendation to carry
+into planning: lean toward the `activity` lane (reuse the query engine — the read side is the
+expensive half and it already exists), making the build "retrofit provenance onto the activity
+record + write the EventStore recorder," provided the `FactRecord` retrofit can be done
+additively without breaking its red-bar. Verify that before committing.
+
+### 9.5 Build order — REVISED
+
+1. **Amend this doc** (this §9) + file gh #14. ✅ (this session)
+2. **Decide the lane** (§9.4) against live code — `activity`/`FactRecord` retrofit vs `records`.
+3. **Provenance floor**, additively, on the chosen lane. Red-bars R1 (open-schema round-trip —
+   now testable against the *real* model) and R4 (no retroactive `False→True`). `authorship_
+   verified` defaults False; da34519a Guard 3 already forbids yanantin source flipping it.
+4. **EventStore → recorder** (the missing wire): a recorder in the `ChecksumFactRecorder` mold
+   routing the 7 verbs into the store. Dual-write (keep JSONL). Red-bar R2 (store contains what
+   the sidecar contains).
+5. **Recognize, don't rebuild, the read side.** `yanantin.query` is the structured-find. The
+   only new find work is semantic recall (gh #2/#3/#4) — out of #14.
+
+### 9.6 Residue for the next instance (so this doesn't re-forget)
+
+- The greenfield draft (§§0–8) was written by an instance that could not see `yanantin.activity`.
+  This instance could, only because filing the issue forced a code-ground pass. **The
+  countermeasure is not "remember harder" — it is gh #14 + this amendment + the red-bars.**
+- `provider_id` ⟷ `producer`, `FactRecord.data` ⟷ the open payload, `MemoryAnchor` ⟷ the
+  ordering primitive, `query/engine.py` ⟷ "the find we thought we lacked." If a future
+  instance "discovers" the need for a behavioral store, it is re-forgetting: grep
+  `yanantin.activity` and `yanantin.query` FIRST.
+- Ordering: Tony wants a **vector clock**, not a scalar sequence. The D3 residual (§3) is
+  upgraded by this.

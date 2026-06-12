@@ -501,6 +501,53 @@ authorship; they have whence via `provider_id`); the embedded-floor resolution (
 4. **Read side:** `yanantin.query` recognized, not rebuilt (§9.1). Semantic recall stays out
    (gh #2/#3/#4).
 
+### 10.6b The drift, and the through-line — why §10.5's answer is "generalize" (Tony, this session)
+
+**The origin that lives nowhere on disk (capture it — ROOT, highest-value):** yanantin did not
+begin as "a memory substrate for AI instances." It began *grounded* — Indaleko: indexing real
+files at real scale (28.5M files, 7.7GB JSONL for one volume), an activity stream of real
+providers observing real data. Then the project *wandered* into "hey, yanantin could provide LLM
+instances with memory." Both sentences are the project. The grounding is **load-bearing, not
+vestigial**: it is what keeps the AI-memory claim honest — the *same substrate*, proven on real
+data, is the bet. Strip the file-grounded side as dead weight and yanantin becomes
+just-another-vector-store-for-agents and stops being a research contribution. A future instance
+reading "memory substrate for AI" has no way to know this unless it is written down. It is now.
+
+**The drift, verified as fact this session (not a pleasing symmetry):**
+- The **relationship / graph layer was built entirely for the Hamut'ay / authored side.**
+  `RelationType` + `CompositionEdge` (tiksi `composition.py`) are tensor→tensor *claim*
+  relations, added explicitly for Hamut'ay tensor composition.
+- The **grounded / file side has no relationship layer at all.** `activity/store.py` is flat
+  facts + cursors (`store_fact`/`query_range`/`store_anchor`); `activity/models.py` has **no
+  edges**, and its lifecycle comment `Anchor -> View -> Tensor` literally points *at* the
+  Hamut'ay side. The file collectors (`filesystem`, `fs_events`, `dropbox`, `checksum`, …) are
+  **alive and ingesting**, but produce flat facts with no graph.
+- **`created` and `contains` are absent together** (verified: zero `contains`/`parent`/`child`/
+  `hard_link` anywhere in the edge vocabulary). Not two gaps — **one drift.** The graph leaned
+  toward the dream; the grounded side that the graph came from never got its relations expressed.
+  This is the concern Tony raised earlier ("has the Indaleko-side support fallen by the
+  wayside?") — answer: the *relationship layer* did, even as the collectors kept running.
+
+**The through-line (Tony's dream, stated as the thesis):** *"I dream of the day AI instances
+reach to yanantin to find files, rather than using glob/bash/search."* This is not a feature —
+it is the **reunification of the two sides.** Live proof this session: this instance re-derived
+`yanantin.activity`'s very existence by `grep -rn`, having no memory-substrate to *ask* — the
+un-served customer of the system it was designing. The day an instance asks yanantin "where did
+this come from / who authored this claim / what does this directory contain / what did the prior
+instance do" instead of `grep`, the grounded side (find files, at scale, with provenance) and
+the aspirational side (instance memory) are the **same operation**. `created` (authorship),
+`contains` (file hierarchy), hard-links ("what points at me") are all the *same missing
+relationship layer*.
+
+**Therefore §10.5 resolves toward GENERALIZE, not sibling.** The grounded side needs a
+relationship layer it never had; minting a tensor-only sibling edge per relation only deepens
+the Hamut'ay lean. The graph must span files **and** tensors **and** instances over generic
+refs — `created`, `contains`, `composes_with`, `supersedes` as relations in one vocabulary —
+or the dream is structurally unreachable. Tony's Indaleko regret ("I didn't use the graph
+functionality well enough") and Tony's dream point at the same move. (Still a real decision with
+real cost — generalizing a live tested model — but no longer a coin-flip with a safety bias; the
+thesis breaks the tie.)
+
 ### 10.7 Why this section exists at all (the meta-point Tony named)
 
 Tony: *"this project — just like Indaleko — is surprisingly complex."* The complexity is not

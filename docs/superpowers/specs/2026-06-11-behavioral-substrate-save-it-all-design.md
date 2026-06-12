@@ -280,6 +280,14 @@ pass, which found `activity/`. Tony added the load-bearing semantic context: *"I
 authorship concerns last week and was assured all was well — I think there's been a bit of
 forgetting here."* The forgetting he names is the thesis, demonstrated on him.
 
+> **SUPERSEDED IN PART by §10 (same session, continued dialogue).** §9.1 (what exists) and
+> §9.6 (residue) stand. But §9.2/§9.3/§9.4's resolution — "embed the `ProvenanceEnvelope` floor
+> as a field on the record / pick a storage lane" — is **superseded**: provenance and authorship
+> are *different relationships*, and authorship is an **edge to an author node**, not an embedded
+> field. The lane fork (§9.4) partly dissolves (collections are schema-shape housekeeping, not
+> semantics; edges span them). Read §10 for the resolved structure. §9.2–9.4 are KEPT as the
+> intermediate (and partly-wrong) reading — ROOT.
+
 ### 9.1 What actually exists (verified against live code, this session)
 
 | §§0–8 wanted | Already built in `yanantin.activity` + `yanantin.query` (verified) |
@@ -367,6 +375,143 @@ additively without breaking its red-bar. Verify that before committing.
 - The greenfield draft (§§0–8) was written by an instance that could not see `yanantin.activity`.
   This instance could, only because filing the issue forced a code-ground pass. **The
   countermeasure is not "remember harder" — it is gh #14 + this amendment + the red-bars.**
+
+---
+
+## 10. The resolved structure — provenance is whence, authorship is an edge (Tony + instance, this session)
+
+**Status:** Found through dialogue, not scoped. The §9 "embed the floor / pick a lane" framing
+collapsed two distinct relationships into one and treated a schema-shape decision as semantic.
+§10 is the un-flattening. One joint remains genuinely open (§10.5) — named, not papered.
+
+**Provenance of the design itself (ROOT — the design's own provenance is data):** the structure
+below was recovered from Tony's Indaleko memory, against the instance's repeated reach for the
+tidy version. The instance nearly wrote three "the code already does X" reuse claims that the
+code does **not** support (embed-the-floor; reuse-`CompositionEdge`; the lane fork as semantic);
+each was caught by a grep, not by foresight. The corrections ARE the artifact.
+
+### 10.1 Two relationships, not one envelope
+
+The afternoon's error was the word "authorship" naming two different things:
+
+- **Provenance = *whence*.** Which component/format/version produced this. Indaleko-shaped: one
+  origin block per *record* (not per field — "wrapping every field would be dumb"). Universal:
+  facts and authored acts both have it. Already modeled (`ProvenanceEnvelope`;
+  `CompositionEdge.provenance`). A `FactRecord`'s `provider_id` is already a whence.
+- **Authorship = *ownership of a claim/opinion*.** Present *only when there is an opinion to
+  own*. A checksum asserts nothing → no authorship. A curation-drop-with-why asserts a judgment
+  → authorship. `authorship_verified` (gh #13) verifies *this ownership claim* — meaningless on
+  a fact (no claim → nothing to verify). This is why the `FactRecord` red-bar is RIGHT that
+  "facts have no epistemic metadata": not because provenance is forbidden, but because **there
+  is no claim to own.**
+
+### 10.2 Author = node; authorship = a single directed edge
+
+- **Author identity = a node property.** The author (instance/model-family/producer) is a vertex
+  carrying its own identity facts, stored ONCE. Not denormalized into every record.
+- **Authorship = one directed edge: `author -created-> record`.** Direction chosen deliberately:
+  the substrate's central question is *"what did instance X actually do?"* (§0), which is the
+  **cheap forward traversal** of `author -created-> record`. (The instance first wrote it
+  `record -created_by-> author`, optimizing the audit question "who made this?"; Tony's
+  direction optimizes the *research* question. The reverse — "who made this record?" — is the
+  free `_from`-enumeration for a given `_to`. Hard-links taught this: a unidirectional graph
+  answers "everything that points at me" by enumerating `_from`. **One edge, traversed both
+  ways. No reciprocal twin** — a `created` + `created_by` pair would be denormalization-as-edges
+  and a consistency hazard; the regret of under-using a graph is cured by *trusting* reverse
+  traversal, not by adding edges.)
+- **The edge carries** provenance (when/whence the authoring happened) and `authorship_verified`.
+  The verified-bit lives on the **edge** (it is a property of *this authorship claim*), not on
+  the record and not on the author. Append-only, **supersession-in-place** (the edge-composition
+  decision: edges are never deleted/overwritten; a superseding edge is added, and you must say
+  *why*). This makes the authorship edge as un-severable as Indaleko's in-record origin block,
+  without the denormalization.
+
+### 10.3 The facts/authored sort is structural — by edge presence, not a written label
+
+Structure belongs where a wrong answer is unfalsifiable later (mislabel an authored judgment as
+a fact → the authorship is silently, unrecoverably lost). So: structural. **But not a write-time
+flag** (that relocates the freedom into a field the producer can get wrong, now rigidly). The
+structural sort that actually holds: **a record is "authored" iff an `author -created-> record`
+edge to a claim-owning participant exists; "fact" iff it does not.** The sort is a *topological
+fact of the graph*, not a label anyone writes — nothing to mislabel; you either drew the
+authorship edge (the act of claiming ownership) or you didn't.
+
+- Bash trace / raw tool-call: no claim-owner → no authorship edge → **fact**, by absence.
+- Curation-drop-with-why / dissent / judgment: claim-owner → authorship edge exists →
+  **authored**, by presence.
+
+**OPEN FRAGILITY (do not paper over):** "structure by absence" has a mirror failure — a record
+that *should* have an authorship edge but the edge-write failed is now *silently misfiled as a
+fact*. This is the exact unfalsifiable-later failure used to argue FOR structure, pointing the
+other way. A guard is needed: authored producers must write record+edge atomically, or a
+reconciliation pass must detect authored-shaped records with no authorship edge. **Red-bar
+territory; not yet designed.**
+
+### 10.4 Collections are schema-shape housekeeping, NOT semantics — the lane fork dissolves
+
+Indaleko split fact collections by recorder — but the *reason* was "**you cannot have the
+database enforce a schema**," so collection boundaries were the only lever for keeping shapes
+from tangling. The split was about **shape (schema homogeneity)**, not meaning. Therefore:
+
+- The fact-vs-authored *semantics* live in the **edges** (§10.3), which **span collections
+  gracefully**. The *collection* a record sits in is a separate, lower-stakes **shape** decision.
+- **The §9.4 "which lane?" fork was a category error** — it treated a housekeeping (shape)
+  decision as a semantic (meaning) one. You do NOT need to unify `activity` and `records`
+  collections to unify their semantics; the graph already unifies semantics via edges. The
+  instinct to merge the lanes imported a relational reflex ("one table = one truth") into a
+  graph where truth lives in edges. The singleton lesson applies to the *connection*, not the
+  *collections*.
+
+### 10.5 The genuinely-open piece — `created` is a NEW edge kind (not a `CompositionEdge` reuse)
+
+Verified this session: `RelationType` (tiksi `composition.py`) has **no** `created`/`created_by`
+member — all ten members are tensor-to-tensor *claim* relations ("How two tensors relate
+compositionally"). And `CompositionEdge` is typed `from_tensor: UUID -> to_tensor: UUID` — both
+endpoints are **tensors**. An author is **not** a tensor. So:
+
+**`author -created-> record` is a new edge kind**, not a reuse of `CompositionEdge`. It shares
+the *philosophy* (append-only, supersession-in-place, provenance-on-the-edge) but not the
+*model* (different endpoint types: author-node → record, vs tensor → tensor). Forcing a producer
+into a `from_tensor` slot would be a type-lie — the same category-flatten this whole section
+un-did.
+
+**THE OPEN DECISION (tiksi-side, the actual next design work):** does `created` get
+(a) a **new sibling edge model** alongside `CompositionEdge`, same philosophy, author/record
+endpoints; or (b) the edge layer **generalized** so endpoints aren't hardcoded to tensors and
+`created` is one relation among many over generic refs? (a) is smaller and safer; (b) is the
+"use the graph better" move Tony regretted skipping in Indaleko, but it touches a live tested
+model. **Not decided. This is the first question for the tiksi-side design, before any #14
+implementation plan.**
+
+### 10.6 What this retires, and what remains
+
+**Retired:** the lane-unification migration (§10.4 — lanes are correctly shape-separated);
+the `FactRecord` provenance retrofit as the core build (§10.1 — facts correctly need no
+authorship; they have whence via `provider_id`); the embedded-floor resolution (§9.3).
+
+**Remains, in order:**
+1. **tiksi-side:** resolve §10.5 (new sibling edge vs generalized edge layer) → the `created`
+   edge kind, append-only + supersession-in-place, provenance + `authorship_verified` on the edge.
+2. **The producers / the wire:** EventStore → recorder (§9.2.2 still stands — capture exists,
+   store exists, they are not connected). Each authored producer writes record + authorship edge
+   atomically (§10.3 guard).
+3. **Red-bars:** (R-auth-1) authored-shaped record with no authorship edge trips a guard
+   (§10.3 fragility); (R-auth-2) authorship edge is never deleted/overwritten, only superseded-
+   with-reason; (R4 retained) no migration infers historical `authorship_verified False→True`.
+4. **Read side:** `yanantin.query` recognized, not rebuilt (§9.1). Semantic recall stays out
+   (gh #2/#3/#4).
+
+### 10.7 Why this section exists at all (the meta-point Tony named)
+
+Tony: *"this project — just like Indaleko — is surprisingly complex."* The complexity is not
+cruft; the domain has irreducible joints (whence vs claim-ownership; fact vs authored; sever vs
+supersede; shape vs meaning), and the constant pressure — the instance's especially — is to
+collapse a joint and call it cleanliness. Every "simple" framing this session flattened a real
+joint: "build the substrate" (it exists), "add a floor" (two relationships), "pick a lane"
+(housekeeping ≠ semantics), "reuse the edge" (wrong endpoint types). §10 is what survived the
+flattening pressure because Tony kept the joints open until the structure showed itself. The
+artifact is the *structure with its joints intact* — including §10.3's open fragility and §10.5's
+open decision. A tidier §10 would be one more flatten.
 - `provider_id` ⟷ `producer`, `FactRecord.data` ⟷ the open payload, `MemoryAnchor` ⟷ the
   ordering primitive, `query/engine.py` ⟷ "the find we thought we lacked." If a future
   instance "discovers" the need for a behavioral store, it is re-forgetting: grep

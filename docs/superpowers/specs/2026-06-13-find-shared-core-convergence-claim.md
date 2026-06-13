@@ -494,6 +494,12 @@ UNBUILT-NOT-FORECLOSED seams:
 - **Hostile-intent-compilation defense** — the real security surface; deferred.
 - **Transducer cost signal** — interface must carry location-aware cost; policy
   (eager/lazy/never) is yanantin#4, learned, logged from day one.
+- **Query/outcome telemetry (gh #18)** — #15 (principal) tells us WHO asked, but
+  Venn-region learning needs WHAT HAPPENED: consumer class, requested intent,
+  compiled-query id, rejection class if any, result count, follow-up link, and
+  eventual disposition/outcome. Feeds learned defaults (#11) and the autonomic
+  optimizer (#4). #15 is necessary but NOT sufficient; without #18, "log enough to
+  learn the Venn boundary" is underspecified.
 - **Learned per-consumer defaults** (yanantin#11) — static clear defaults v1,
   outcomes logged. "Learned defaults with clear initial values."
 - **Provisional Venn boundary** — core stays consumer-agnostic; log enough to
@@ -549,6 +555,15 @@ Verification command run by reviewer:
 → 89 passed, 3 failed (the failures are exactly the uniform-storage-object red
 bars). The contracts the architecture brags about (count, pagination, no-raw-
 string) are real; the resolver the claim rests on is not.
+
+**[CURRENT executable status — the 89/3 above is HISTORICAL, from before the
+factor-shape gate existed; do not read it as current. After adding
+`test_factor_shape.py` (round-2 response):**
+`uv run pytest tests/red_bar/test_factor_shape.py tests/red_bar/test_uniform_storage_object.py tests/unit/test_query_engine.py tests/red_bar/test_query_pipeline.py -q`
+**→ 89 passed, 8 failed (verified 2026-06-13). The 8 failures are the honestly-red
+factor-shape gate (5) + uniform-storage-object gate (3) — the unbuilt floors under
+the claim, each red until its contract is built. More honest red is the gate
+working, not a regression.]**
 
 **Disposition:** the architecture is NOT refuted; the EPISTEMIC STATUS of the
 claim was. Fix is not more prose — it is paying the three NOW-DEBTs and building

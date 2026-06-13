@@ -14,8 +14,86 @@ reasoning — not just a polished conclusion that hides its own derivation.
 
 ---
 
+## ADVERSARIAL REVIEW RESULT (2026-06-13, independent instance, verified in code)
+
+An independent instance attacked this artifact. Verdict accepted; key findings
+verified directly against `src/`. **Read this section before believing anything
+below it.**
+
+**Verdict: the central claim is UNFALSIFIABLE-AS-STATED, and partially UNFOUNDED
+where it can be tested today.** Reason: the claim names refutation conditions
+that probe the query engine, the semantic core, and the storage core — and
+**none of those three exist as code.** You cannot run the claim against its own
+refutation conditions. A declared loss is a debt, not a payment; this artifact
+presented a debt in the grammar of a result.
+
+What is actually built vs. asserted (grep-verified 2026-06-13):
+
+| Core the claim rests on | Artifact implied | Reality in `src/` |
+|---|---|---|
+| Activity-stream-shaped | "half-exists" | **REAL** (`FactRecorderBase`, `ActivityStreamStore`, `QueryFactRecorder`). |
+| Storage-shaped (uniform object) | "gap red-barred" | **UNBUILT** — red bar is honestly red. |
+| Semantic-shaped (label-triple, registration, equivalence) | a "shape" | **ZERO symbols in `src/`.** Pure prose. This is the AI-shaped load-bearing part. |
+| Query engine "contains the MODEL," "resolves intent → bands" | the head | **NO MODEL in the query path.** `query/engine.py` is structured-filter-only over `QuerySpec`. No NL→query. |
+
+**The strongest attack (accepted):** the convergence is *proven* only on the
+activity-stream core — where it was never in doubt, because a clock is
+silo-neutral by construction — and *asserted* over the two cores (storage,
+semantic) that don't exist, which is exactly where all the human/LLM divergence
+pressure lives. The convergence was validated on the cheapest axis and
+generalized to the expensive ones. The builder felt this as discovery
+(reconstruction-felt-as-discovery); it was assertion.
+
+**"Resolves intent" is the smuggle (accepted):** one verb hides two different
+retrieval mechanisms — (a) grounding a human's private episodic timeline (no
+ground truth, no structure) vs. (b) compiling an LLM query over a shared code
+artifact (ASTs, deterministic references, Serena-style neighborhoods). This
+artifact's own Serena table admits code has structure a receipt lacks, then
+collapses both into "reachable by intent." Same-signature-different-resolver IS
+a fork by refutation-condition #1. The line "the optimal storage interface for
+an LLM is IDENTICAL to a human's" is poetic overreach the builder fell in love
+with.
+
+**The meta-recursion ships a real cross-instance leak NOW (accepted, verified):**
+`QueryFactRecorder` stores every query under a single fixed
+`QUERY_PROVIDER_ID = uuid5(..., "yanantin.query.service")` with **no principal on
+the fact** (`query/recorder.py:20,42`). Its docstring *advertises* cross-instance
+pattern detection. So "what did **I** already find" is, as built, "what did
+**everyone** find." Citing the recursion as positive evidence for convergence was
+wrong: it is simultaneously a built-in yanantin#13 violation, and adding identity
+later means retrofitting onto an undifferentiated stream — the exact
+"baked-so-deep-you-must-rewrite" failure the artifact claimed to avoid. "Blind to
+semantics = safe" is a non-sequitur: blindness to semantics ≠ blindness to
+identity.
+
+**"Injection unrepresentable" guards the empty half (accepted):** true for the
+library, irrelevant to the threat. The real surface is a (future) model compiling
+adversarial NL into a *well-formed* hostile `QuerySpec`; deferring that to
+"authorization" labels it but does not handle it, and the clean "unrepresentable"
+framing makes the unthreatened boundary feel like the protected one.
+
+**Also confirmed (pre-existing debt, now tied to this artifact):**
+`engine.py:98` does `total_matched = len(filtered)` over a Python-materialized
+list — load-all-then-filter, the exact disease the `total_matched` contract
+exists to prevent. Contract honest; implementation is the lie it was meant to
+stop. Must become a DB-side pushdown (page + fullCount in one op).
+
+**Disposition:** the architecture below is NOT refuted — the *epistemic status*
+of the claim is. The fix is not to rewrite the layering; it is (1) to build the
+semantic resolver and run the convergence test (suite #3) with a real human
+episodic query AND a real LLM code query against the SAME resolver — that is the
+only thing that can falsify the claim; (2) to put a principal on query-facts NOW
+(promote the leak from "deferred seam" to "now-debt"); (3) to fix the
+`len(filtered)` pushdown. Until (1), this document is a HYPOTHESIS, not a finding.
+
+---
+
 ## The central claim (the thing to falsify)
 
+> **[HYPOTHESIS — unfalsifiable until the semantic resolver + storage core exist;
+> see ADVERSARIAL REVIEW RESULT above. Proven only on the activity-stream core,
+> where convergence was never in doubt.]**
+>
 > **One shared deterministic core serves both customers — human-facing find
 > ("the design doc I wrote about Siddhartha six weeks after Lima") and
 > LLM-facing find ("where is cross-silo uniformity enforced in this repo"). The
@@ -267,6 +345,13 @@ by-hand can replicate it, it hasn't earned its existence.
 
 - **Authorization** (what a consumer may find) — seam present, unbuilt, joined to
   yanantin#13 identity.
+- **[PROMOTED FROM SEAM TO NOW-DEBT by adversarial review]** **Principal on
+  query-facts.** `QueryFactRecorder` currently writes every query under one fixed
+  `QUERY_PROVIDER_ID` with no consumer/instance identity — a shipped cross-instance
+  leak ("what did I find" = "what did everyone find"). This is NOT a deferrable
+  seam: every unattributed query-fact written now is data #13 must later
+  retrofit identity onto. Add a principal to query-facts BEFORE the meta-recursion
+  is leaned on as a self-history axis. Joined to yanantin#13.
 - **Learned per-consumer defaults** (yanantin#11) — STATIC clear defaults in v1,
   but knob-settings + outcomes LOGGED from day one so the learning has data later.
   Don't build the learning; don't discard its fuel (ROOT). "Learned defaults with

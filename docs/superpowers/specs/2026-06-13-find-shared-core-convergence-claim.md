@@ -535,6 +535,45 @@ data layer.** Code has parseable structure (ASTs, reference edges, deterministic
 ground truth) a human's private episodic timeline lacks; that asymmetry is
 exactly what the convergence test must probe, not assume away.
 
+### The MISSING comparison: naive vector retrieval (RAG) — round-5b, DeepSeek
+
+The doc benchmarks against Serena (the code-symbol silo) but NOT against the
+thing the LLM consumer actually chooses between TODAY: **naive vector retrieval
+over its own history.** Accepted gap. DeepSeek (the consumer) named it and gave
+the right ACCEPTANCE CRITERION — which is a qualitative-difference test, not a
+horse race:
+
+- NOT "beats baseline by X%" (percentage-lift is marketing/theater).
+- YES "finds what the baseline STRUCTURALLY CANNOT (cross-phrasing
+  conclusion-identity, cross-silo joins) AND fails gracefully where the baseline
+  fails (surface divergence)."
+
+The conceptual bet behind this (DeepSeek's articulation of the doc's OWN thesis,
+recorded as a consumer framing, NOT as proven architecture): embeddings are a
+PROJECTION that discards the structure the six factors try to keep; vector
+similarity matches token surface, not conclusion identity, so "uniformity in the
+resolver" and "uniformity as a factor-shape property" may be far apart in
+embedding space (different wording) while being the same conclusion — exactly the
+cross-phrasing case the semantic-checksum claims to catch and RAG cannot.
+
+**HARD CAVEAT (the doc has ZERO evidence of this lift; build the benchmark to let
+RAG WIN where it wins, or it is rigged — a rigged benchmark is worse than none):**
+"RAG is excrement" is rhetoric; yanantin has built almost none of the thing that
+would beat it; vector retrieval is fast, real, and ships today and will win on
+many queries. The benchmark must be honest or it proves nothing. Filed: gh #23
+(RAG baseline + LLM-as-user test protocol).
+
+**Also recorded (consumer methodology, DeepSeek):** an LLM-as-user test protocol —
+the consumer runs the self-history find and reports "asked X, got Y, here's why
+it's right/wrong," no builder introspection. This is the consumer-run eval the
+build/test topology lacked; it is HOW the RAG benchmark gets run with a real
+consumer instead of a synthetic fixture. CAVEAT: DeepSeek claims "I have no
+projections, I'm reporting what I need" — overstated; round-5 already caught him
+and Kimi mis-projecting their own `when`. An LLM reporting its own needs beats an
+LLM projecting a human's, but it is not projection-free. Record his reports as
+valuable primary data, not oracle ground truth. Gated behind the resolver + the
+three NOW-debts existing (his own precondition).
+
 ---
 
 ## Build / test topology

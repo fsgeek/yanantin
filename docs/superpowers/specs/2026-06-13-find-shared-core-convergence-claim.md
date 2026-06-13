@@ -66,15 +66,33 @@ parameter value is fine; a different resolver is a fork).
    the core silently failing one consumer while appearing to serve both.
 3. **Self-history asymmetry:** the LLM's "what did I already find" axis needs a
    *separate store* from the human's file/activity store. (The claim predicts the
-   SAME store, found by the SAME engine — see meta-recursion.)
-4. **Salience ≠ mechanism (the live fork-risk):** if grounding a human's
-   life-anchored intent (e.g. "after the big fire in Cedarville") requires
-   fundamentally different resolver machinery than grounding an LLM's
-   artifact-anchored intent ("the symbol enforcing uniformity"), the claim forks.
-   Current belief (to TEST, not assert): it does NOT fork — both are the same
+   SAME store, found by the SAME engine — see meta-recursion.) **Round-4
+   sharpening (DeepSeek): #15's no-principal recorder is not merely a bug — it is
+   a shipped architectural choice that "identity is optional," which means the
+   storage demo NEVER EXERCISED the identity/self-history axis at all. So the
+   convergence claim is currently untested on precisely the axis where divergence
+   is MOST likely. "Add principal" is itself a design commitment (identity-as-
+   factor); whether that one mechanism serves both consumers is unknown until
+   run.**
+4. **Salience ≠ mechanism (THE live fork-risk — all four round-4 out-of-harness
+   reviewers independently named this as the load-bearing, hand-waved claim).**
+   If grounding a human's life-anchored intent ("after the big fire in
+   Cedarville") requires fundamentally different resolver machinery than grounding
+   an LLM's artifact-anchored intent ("the symbol enforcing uniformity"), the
+   claim forks. Belief (to TEST, NOT assert): NOT a fork — both are one
    band-resolution mechanism (anchor → stream → factor-constraint → intersect),
    differing only in WHICH factor is salient and WHICH stream bridges the anchor.
-   This risk lives in the human region the builder understands LEAST.
+   Reviewers' correct objection: "anchor → … → intersect" is so general it may be
+   descriptive-not-constraining ("all transportation is move A→B"), and SAME API
+   SURFACE ≠ same mechanism — the test must be **trace-level, not
+   interface-level.** This is now an EXECUTABLE GATE, not prose:
+   `tests/red_bar/test_mechanism_invariance.py` (honestly red) requires ONE
+   resolver to compile BOTH query types to the SAME intermediate
+   factor-constraint schema with NO consumer-type branch below the head — and it
+   distinguishes convergence from fork (a resolver that branches on consumer
+   CANNOT make it green). The claim is unfalsifiable until a resolver exists; this
+   gate is the trap waiting for it. This risk lives in the human region the
+   builder understands LEAST.
 
 Only code and logs can settle these. A prose doc that asserts convergence is
 unfalsifiable; this one states the conditions and invites attack on THEM.
@@ -607,6 +625,69 @@ failure):
 - **Semantic-checksum eval definition — REQUIRED BEFORE building it as the first
   resolver slice.** "Same conclusion" vs "related topic" vs "contradiction" must
   be defined and scored, or the high-risk first build is hand-waving.
+
+## Round-4 review (four out-of-harness models: DeepSeek, ChatGPT, Gemini, Kimi)
+
+Four independent models reviewed the artifact. They CONVERGED on findings the
+three in-harness rounds did not surface — the strongest signal in the record.
+
+**Cross-model convergence (all four):** "salience ≠ mechanism" (refutation #4) is
+the load-bearing claim AND was hand-waved; "same core" needs a TRACE-LEVEL, not
+interface-level, executable definition. → Answered: NEW gate
+`tests/red_bar/test_mechanism_invariance.py` (honestly red; proven to go green
+only under a single non-forking resolver, and to TRAP a consumer-branching fork).
+
+**Three corrections that change WHAT TO BUILD NEXT (accepted):**
+
+1. **Separate three things the doc conflated (ChatGPT; DeepSeek & Gemini asked
+   the same as "why semantic-checksum first if the claim is SHARED?"):**
+   - (a) **LLM self-history pilot** — buildable, useful, introspectively grounded
+     — but tests NOTHING about convergence (it is LLM-only; building it proves
+     only that LLM-only things can be built).
+   - (b) **Shared-core convergence test** — the actual claim — needs a query from
+     the SHARED region run against the SAME resolver, NOT an LLM-only query.
+   - (c) **Human product validation** — established by neither (a) nor (b).
+   The doc previously let (a) launder as evidence for (b). The FIRST convergence
+   slice must exercise a shared-need path; the self-history pilot is worthwhile
+   engineering but is NOT the convergence test. Do not overread a working memory
+   tool as proof of the shared-core thesis.
+
+2. **The self-history axis is UNTESTED, not just leaky (DeepSeek):** see
+   refutation #3 — #15's no-principal recorder means the identity axis was never
+   exercised. Convergence is unproven on the axis where divergence is likeliest.
+
+3. **Adversarial / pre-registration hardening (ChatGPT + Kimi):** the artifact is
+   a strong capture but too RESCUABLE after a bad result. Adopt, as discipline
+   (not as more prose):
+   - **Prose-budget rule (Kimi):** every new architectural rationale must ship
+     with a corresponding red bar or interface contract — else it is not added.
+     This section obeys it: its three claims map to the mechanism-invariance gate,
+     refutation #3, and the frozen-core list below.
+   - **Freeze before build (ChatGPT):** fixtures, the exact convergence queries,
+     allowed-vs-forbidden differences, success/failure metrics, and a resolver
+     TRACE requirement must be frozen BEFORE the resolver exists, so outcomes
+     cannot be reinterpreted after seeing them. Forbidden differences (a fork) =
+     separate resolver/store/query-API/intermediate-representation per consumer,
+     or any consumer-type branch below the head. Allowed = page size, rendering,
+     disposition, latency budget, cap. (The mechanism-invariance gate already
+     encodes the core of this; the fixtures + metrics are the remaining freeze.)
+   - **Negative controls (Kimi):** absent-anchor query, nonexistent-symbol query,
+     a must-reject authz query, an injection-shaped intent that must compile to a
+     typed rejection, and two related-but-non-identical conclusions that must NOT
+     merge. A passing test on forgiving fixtures proves little without these.
+
+**Interface debts the four flagged (filed, not prose):** the `CompiledQuery` /
+factor-constraint intermediate representation must be a STRUCTURED, auditable type
+defined BEFORE the model (Kimi/ChatGPT) — gh #19; the transducer cost-signal
+interface must be gated now even though the policy is deferred (all four) — gh #20.
+
+**One agreement worth recording (all four):** the epistemic posture (honest red
+bars, no-fabrication consumer discipline, provisional Venn, visible adversarial
+history) is the project's strength and must be PRESERVED — including resisting
+pressure to "fix" red bars by lowering specificity or to soften the thin mom-only
+region to feel inclusive. Kimi's meta-warning: the document's quality is itself a
+risk — it names holes so well they can feel handled. Antidote = the prose-budget
+rule above.
 
 ## Model evolution log (what the reviews + second night changed — declare what was dropped)
 

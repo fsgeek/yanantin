@@ -563,6 +563,29 @@ would beat it; vector retrieval is fast, real, and ships today and will win on
 many queries. The benchmark must be honest or it proves nothing. Filed: gh #23
 (RAG baseline + LLM-as-user test protocol).
 
+**The sharpest reframe (DeepSeek, round-5c, under a joke):** RAG is not a worse
+memory — it is **attention, not memory.** Vector retrieval is a within-manifold,
+within-session operation over what is already co-present; it has no concept of
+ABSENCE. So the comparison axis is not only cross-phrasing (recorded above) but
+**cross-ABSENCE: find a conclusion AFTER its raw was evicted from context** —
+which RAG can only do by having already re-embedded it into the same manifold
+(still within-session), and which yanantin claims to do via stamped, factorized,
+raw-retained storage ACROSS the gap. The problem statement this clarifies: **the
+shared region is memory for DISCONTINUOUS beings — find across a wake-gap.** Human
+(sleep/forgetting) and LLM (context roll) are both discontinuous; RAG/long-context
+is continuous-retrieval-in-one-room and cannot be the baseline for find-across-
+absence. Add the cross-absence case to the #23 benchmark, distinct from
+cross-phrasing.
+
+**THREAT TO THE THESIS recorded (do NOT wave this away — the joke invited waving
+it away):** if context windows keep growing, the ABSENCE the whole project is
+premised on SHRINKS. For many real queries, attention-over-a-big-context may
+genuinely be enough, and the structured-memory bet pays off only in the
+discontinuity TAIL. The live risk is not "RAG is technically worse" (rhetoric) —
+it is that the MARKET for cross-absence find may be smaller than the project
+assumes if everyone just buys a bigger room. The benchmark (#23) must therefore
+also locate WHERE the absence-tail is big enough to matter, not assume it is.
+
 **Also recorded (consumer methodology, DeepSeek):** an LLM-as-user test protocol —
 the consumer runs the self-history find and reports "asked X, got Y, here's why
 it's right/wrong," no builder introspection. This is the consumer-run eval the

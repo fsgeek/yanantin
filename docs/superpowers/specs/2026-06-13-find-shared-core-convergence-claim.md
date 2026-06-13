@@ -89,6 +89,21 @@ is normalized, and they are what lets structurally-dissimilar data be *joined*:
 two otherwise-incompatible sources still share a *when*, usually a *who*, often a
 *where*.
 
+**[HYPOTHESIS — round-2 review: asserted, not demonstrated. Gated by the factor
+red bar `tests/red_bar/test_factor_shape.py` (honestly red): a filesystem object
+AND an LLM-memory object must both normalize into one shared factor shape before
+"degenerate region" is a fact rather than a metaphor.]**
+
+**Raw-retention is a LAW of the factor shape, not an option (Indaleko precedent,
+Tony):** every normalized object retains its raw source, unconditionally —
+constructing a factor value without retained raw is ILLEGAL by construction. You
+cannot extract what you did not save. Retained-raw is what lets a research
+prototype "fix" already-collected data by re-extracting factors it did not
+normalize initially, WITHOUT re-collecting (the expensive, sometimes-impossible
+step for a cloud/glacial source). Storage is cheap; re-collection is not.
+Normalize for queryability; never normalize lossily. (Enforced by
+`test_raw_retention_is_an_invariant_not_an_option`.)
+
 - **Storage data is a DEGENERATE region of this space:** name/contents (**what**),
   timestamps (**when**), path/volume (**where**), owner (thin **who**), size — but
   **no why and a trivial how.** Storage-find is therefore the low-dimensional
@@ -114,11 +129,18 @@ share.
 A silo is **a set of objects that share a queryable normalized shape** — not a
 storage location, not a provider. Consequences:
 
-- All **location providers** — local node, obvious clouds (Google Drive), and
-  *accidental* clouds (Discord, Slack, Outlook — every app that retains your
-  attachments is an alternative storage location) — collapse into ONE
-  "location-provider silo," because the *shape* of their base normalized data
-  overlaps. Different locations, same silo.
+- **[HYPOTHESIS — round-2 review: a testable PREDICTION, not a fact. A silo
+  classifier may discover SUB-silos.]** Location providers — local node, obvious
+  clouds (Google Drive), and *accidental* clouds (Discord, Slack, Outlook — every
+  app that retains your attachments is an alternative storage location) — are
+  PREDICTED to collapse into ONE "location-provider silo" because the *shape* of
+  their base normalized data overlaps. But they differ on versioning, ownership,
+  permissions, sharing semantics, container/conversation context, deletion
+  semantics, and remote availability — and it is NOT yet established which of
+  those differences are open-bag attributes (same silo), which define sub-silos,
+  and which force a new silo because resolver or authz behavior changes. Needs an
+  operational classifier with acceptance criteria run over filesystem + Dropbox +
+  one accidental-cloud fixture. Until then: prediction, not fact.
 - Conversely, two **activity providers** (Spotify vs. calendar) are DIFFERENT
   silos despite both being "activity," because their structure differs.
 - The thing that makes cross-silo find hard is therefore NOT that data is in
@@ -261,7 +283,10 @@ human are biased toward convergence by the gaps it cannot feel. Building LLM-fir
 is not choosing the easy customer — it is refusing to build for a user we are
 imagining. (No-fabrication discipline, applied to consumers.)
 
-**The "marketing" asymmetry (real, under the joke):** mom's adoption gap is UX —
+**The "marketing" asymmetry [PRODUCT HYPOTHESIS — round-2 review: not
+architectural evidence; must not influence core factoring until logs show
+unprompted tool reuse after successful self-history finds]:** mom's adoption gap
+is UX —
 she feels the pain of the search box and will use the tool once it is simple.
 The LLM's adoption gap is SELF-AWARENESS — it greps fresh every session and feels
 competent; it does not experience the absence of a find. You cannot sell a find
@@ -530,6 +555,43 @@ claim was. Fix is not more prose — it is paying the three NOW-DEBTs and buildi
 the resolver, then running the convergence test.
 
 ---
+
+## Executable contracts still missing (round-2 review — name the holes, do NOT fill them with more prose-architecture)
+
+Round-2's central finding: the second-night vocabulary (six factors, silo-as-
+shape, transducers, cost signal, learned Venn) replaced one prose overreach with
+a richer one. The countermeasure is red bars, not more doc. Each below is an
+UNBUILT contract with its open design question; the FIRST is now an executable
+gate, the rest are named-not-filled (writing the schemas here would repeat the
+failure):
+
+- **Factor value shape — GATED (red bar exists):**
+  `tests/red_bar/test_factor_shape.py` (honestly red) asserts storage AND
+  LLM-memory normalize into one shape, absent ≠ unknown, raw retained as an
+  invariant. This is the executable floor under "storage is a degenerate region."
+  Open question it does NOT yet answer: factor *value* fields (kind, value,
+  source-field, transducer-id/version, confidence, principal).
+- **Transducer interface — NAMED, unbuilt.** Open questions: input (raw /
+  normalized / activity-fact / context-window event)? output (factor values /
+  join keys / both)? versioning + invalidation? equivalence representation that
+  does NOT let the model collapse non-identical things? required cost signal?
+  attached principal? Define the SMALLEST such interface before choosing a first
+  build.
+- **Cost signal — NAMED, unbuilt (round-2: promote to interface debt once
+  transducers start).** Any transducer output must carry intrinsic cost + source
+  tier/location + surfaced-vs-fetch + timestamp + principal, and the system must
+  log whether a transduced value was later USED by a query — or yanantin#4 has no
+  exhaust.
+- **Convergence fixture — NAMED, unbuilt.** The convergence test (below) has
+  acceptance criteria but no fixtures. Needs: a small human-query fixture
+  (activity stream w/ event anchor + later-window doc + distractors), a small
+  LLM-query fixture (code corpus w/ a uniformity symbol + refs + distractors),
+  and a shared-resolver-trace rule (both compile to the SAME intermediate
+  factor-constraint representation; fail if either needs a special intermediate
+  or bypasses factor constraints).
+- **Semantic-checksum eval definition — REQUIRED BEFORE building it as the first
+  resolver slice.** "Same conclusion" vs "related topic" vs "contradiction" must
+  be defined and scored, or the high-risk first build is hand-waving.
 
 ## Model evolution log (what the reviews + second night changed — declare what was dropped)
 

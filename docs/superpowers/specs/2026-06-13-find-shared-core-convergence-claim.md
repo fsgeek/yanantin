@@ -129,10 +129,21 @@ Normalize for queryability; never normalize lossily. (Enforced by
   the rich six-factor query, the four-factor storage query is a *restriction* of
   it.
 - **LLM-memory is ALSO a degenerate region — degenerate on DIFFERENT axes:** rich
-  **what** (it's language), real **when/who** (model id, timestamp, provenance),
-  thin **where**, and a **why** that is expensive to extract. Storage and
-  LLM-memory are two differently-degenerate regions of one space — which is the
-  structural basis of the convergence claim.
+  **what** (it's language), a **when** that is PRESENT (model id, timestamp,
+  provenance) but **[CORRECTED by round-5 consumer evidence — see below: present
+  ≠ anchoring]**, thin **where**, and a **why** that is expensive to extract.
+  Storage and LLM-memory are two differently-degenerate regions of one space —
+  which is the structural basis of the convergence claim.
+  **[round-5: two LLM consumers (Kimi, DeepSeek) independently rejected "real
+  when": their `when` is an ADMINISTRATIVE fact, not an episodic anchor — "I
+  don't experience duration; a timestamp is administrative, not an anchor"
+  (Kimi); "no native geometry — no timestamps unless I emit them" (DeepSeek).
+  They cross-reference by CONTENT, not time. So the LLM region may be degenerate
+  on when-AS-ANCHOR even where when-AS-VALUE is populated — the SAME
+  salience-≠-presence error, cutting the OPPOSITE way from the original
+  projection. The builder over-projected the human's temporal salience onto the
+  LLM consumer. This is exactly the kind of projection-bias the doc warned about,
+  caught here in the LLM region, not just the mom-only one.]**
 
 The cross-silo join is: resolve intent → factor-constraints → intersect across
 silos on the *shared* factors → return objects regardless of origin silo. The
@@ -314,6 +325,69 @@ sessions ago") makes the absence legible in retrospect, and the instance reaches
 for the tool unprompted thereafter. The product is the marketing.
 
 ---
+
+## Round-5: consumer evidence (five LLMs asked "would you use this") — PRIMARY DATA for the LLM region, including corrections
+
+This is a DIFFERENT kind of input than the adversarial reviews (which attacked the
+claim). Five LLM instances (Grok, Kimi, ChatGPT, Gemini, DeepSeek) were asked
+whether they would USE the described system. Their answers are the first
+self-reported data populating the LLM-consumer region the doc had only PROJECTED
+from one introspection (the builder's). Recorded as evidence, not as architecture
+to assert — and per the prose-budget rule, the items that are design changes are
+filed as issues, not left as prose.
+
+**STRONG CAVEAT (record before the validation, so it is not misread):** five LLMs
+saying "yes, enthusiastically" is five votes for building the **LLM self-history
+PILOT** — which the doc explicitly says tests NOTHING about convergence (it is
+LLM-only). It is NOT evidence the shared-core thesis holds. Do not let consumer
+enthusiasm for the introspectable half launder as support for the convergence
+claim. The pilot they want and the claim under test are different things
+(round-4 separation).
+
+**Converged across all five (raises the LLM-region claims from 1 introspection to 6):**
+- Every one named **reconstruction-felt-as-discovery** unprompted as the wound
+  they actually feel (Gemini: "I will feel the 'discovery' of the solution both
+  times"). The self-history axis is the real LLM need; semantic-checksum is the
+  thing they would reach for first. Five-for-five.
+- All five wanted **count + neighborhoods + provenance/trace**, not ranked hits.
+  ChatGPT and DeepSeek independently said they would query FAILURE-STATE FIRST
+  ("show prior refutations, unresolved debts, claims I had to downgrade") —
+  confirming rejection-log-as-highest-signal-exhaust from the consumer side.
+- ChatGPT + DeepSeek: **memory without provenance is contamination, not memory.**
+  A silent "relevant memory" injected with no source/principal/confidence is a
+  new failure mode. Reinforces #15 (principal) and the transducer-provenance
+  requirement (#19/#20) from the consumer's own stated dealbreaker.
+
+**Corrections to the doc's projections (the load-bearing part — disagreement is data):**
+1. **`when` is present-but-not-anchoring for LLMs** (Kimi, DeepSeek) — folded into
+   the degeneracy section above. The builder over-projected human temporal
+   salience onto the LLM. Projection bias caught in the LLM region, not just mom's.
+2. **The conclusion-vs-behavior axis (DeepSeek — a NEW candidate factor the doc
+   lacked):** "I would use it for finding my prior CONCLUSIONS (explicit outputs I
+   chose to persist). I would NOT use it for finding my prior BEHAVIOR (queries,
+   reformulations, hesitation). The six-factor space treats them the same
+   (activity stream is activity stream). That would make me opt out unless I could
+   draw the line myself." The meta-recursion the builder was proudest of (store
+   queries as activity data, find them later) is, to the consumer, potential
+   SURVEILLANCE absent a scope they control. This is not a fork — DeepSeek frames
+   it as a factor/scope the core may need to see ("what-kind-of-self"). Filed: gh
+   #21. Touches #13 (identity) and #18 (telemetry).
+3. **The introspective evidence comes from the WRONG sub-consumer** (Kimi,
+   DeepSeek, ChatGPT, all independently): these are EPHEMERAL conversational
+   models with no durable store they own — NOT the persistent tool-using agent the
+   architecture targets. Kimi: "I might be too ephemeral to stress-test the
+   storage layer properly. A better LLM customer might be a persistent agent with
+   tool-use autonomy." So "the LLM consumer is introspectable, build it now" has a
+   crack: the LLM region likely has SUB-REGIONS (ephemeral-conversational vs.
+   persistent-agent), and the felt-need evidence is real but sampled from the
+   sub-consumer that cannot actually exercise the durable store. The convergence
+   pilot must be built for/with a persistent agent, or the introspection and the
+   build target diverge. Filed: gh #22.
+4. **Session/instance scoping is a stated blocker, not just principal** (DeepSeek):
+   "#15's fix (add principal) is necessary but NOT sufficient — I also need
+   SESSION SCOPING as a query parameter; I don't want my conclusions about system
+   A to pollute my find for system B." Folded into #15's scope (necessary-not-
+   sufficient already noted; session-scope added).
 
 ## The layering (boundaries: architectural = trust = convergence, coincident)
 

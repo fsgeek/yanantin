@@ -497,10 +497,14 @@ class ArangoDBBackend(ApachetaInterface):
                             matched_fields=tuple(matched_fields),
                         )
                     )
+            # Count-at-boundary model: the naive full scan knows `total` for
+            # free, so total_matched is always exact. `truncated` is the
+            # boundary signal — len(hits) == limit means we hit the cap (the
+            # case where a view-backed engine would run a separate count).
             return FindResult(
                 hits=tuple(hits),
                 total_matched=total,
-                truncated=total > len(hits),
+                truncated=len(hits) == limit and total > limit,
             )
 
     # ── Write Operations ─────────────────────────────────────────

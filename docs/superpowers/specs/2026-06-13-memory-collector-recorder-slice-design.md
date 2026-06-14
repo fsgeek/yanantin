@@ -110,6 +110,61 @@ substrate is append-only/immutable (`store_record` raises `ImmutabilityError` on
 - Indaleko's 3-level inheritance (grow it on the second target, don't pre-build).
 - Targets other than the memory dir (the collector is generic; only the memory target is wired).
 
+## The model is the only decision — indices/views are tuning (Tony, 2026-06-13)
+
+The clarifying cut that ends the design oscillation: **the only thing that needs
+deciding is what the MODEL looks like.** Indices, the ArangoSearch view, the
+inverted-index-per-field + search-alias "cheat" (Indaleko's 3-min→10ms win) are
+OPTIMIZATIONS — important at scale, invisible below it. **You won't notice the
+difference until ~100k objects; it won't annoy you until ~1M.** The apacheta corpus
+is ~300 records. So the naive full-scan `find` built 2026-06-13 is CORRECT and
+SUFFICIENT — do not pour a view at 300 records (premature optimization solving a
+problem three orders of magnitude away). The view is a free afternoon when 100k
+arrives; it needs no data migration ("we control the indices — index however we
+want, whenever; the same field can be indexed several ways — this is DB tuning, not
+a design decision").
+
+**What IS load-bearing (because it calcifies — propagates into every record written
+and every consumer built against it before it's fixed):**
+
+- **The record.** content + the **provenance envelope carrying the vector-clock
+  coordinate `(author_instance_id, cycle)`** + a wall-clock timestamp + collector-
+  extracted fields. The coordinate is ONE thing semantically (the labeled Lamport
+  position) — it lives in provenance because that's what it IS; *where* it's stored
+  is decoupled from *how* it's indexed.
+- **The predicate (`find`'s input).** Structured, serializable, declarative DATA —
+  NOT a callable, NOT sloppy NL. The filter axis must make the **ordinal/temporal
+  field range-queryable** and admit a future **vector-clock comparison** over
+  `(instance_id, cycle)` without a schema change. ("show me what I modified this
+  session in the past 20 cycles" = `author == self AND cycle >= current-20`.)
+- **The result.** `hits + total_matched (always EXACT, count-at-boundary) + truncated`.
+  No max_scan/scan_truncated/lower-bound apparatus — RETIRED. If `len(hits) < limit`,
+  total = len(hits) free; if `== limit`, run the count. Cheap exactly when needed.
+- **The seam.** `find` is the DUMB executor of an already-formed predicate — the
+  routine you call AFTER the wand. Simple at the API, extensible at the index layer:
+  a new queryable field is an indexing change, not a `find` change. (Hardest part,
+  admitted: keeping that seam clean so a new field doesn't leak into `find`'s logic.)
+
+## Two customers, one function; collectors add joinable axes
+
+- **`find` is NOT the magic wand.** The wand (an LLM in the consumer-facing tool)
+  converts a sloppy query into the library predicate. Two wands on one `find`:
+  **human** ("a file about widgets — same day I had that sandwich and posted on
+  TikTok") → ISO temporal window; **instance** ("the cycle I was wrestling with
+  credentials") → Lamport-cycle window. The episodic-memory wand is a layer ON TOP,
+  one nice query among many — NOT `find`'s job. The two clocks (ISO, labeled-Lamport)
+  are both just ordered comparables; `find` filters them with the same `>=`/`<=`.
+- **Temporal anchor DOMINATES.** Empirically (Indaleko) the temporal field is by far
+  the most powerful content filter — no strong alternative found yet (location maybe,
+  tools-used maybe). So the ordinal field is the one you make sure is well-indexed.
+- **Each collector adds a joinable AXIS, not a feature.** memory content+author+cycle
+  (axis 1); a future Serena/LSP collector → AST + symbols (axis 2); interaction logs →
+  what-touched-when (axis 3). The index holds AST relational data AND interaction
+  patterns AND temporal anchors in ONE queryable surface, so cross-axis joins ("the
+  function I was editing when I made the credential decision") become answerable — and
+  the useful joins are EMERGENT, discovered by building the surface, not enumerable in
+  advance. `find` stays dumb so adding an axis teaches it nothing.
+
 ## References
 
 - `~/projects/indaleko/storage/collectors/base.py`, `.../local/linux/collector.py` — the

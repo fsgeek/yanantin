@@ -72,17 +72,28 @@ class FindHit:
 class FindResult:
     """Serializable result of find(). Addresses + total, never full records.
 
-    v1 SCOPE — content axis only, plaintext values. KNOWN GAPS, declared not
-    hidden (each tracked as a gh issue in the find spec):
-      - filter / structure / window axes: NOT here (content axis only).
+    total_matched is ALWAYS EXACT — count-at-boundary, not a lower bound:
+    if len(hits) < limit you've seen them all (total = len(hits), no extra
+    work); if len(hits) == limit you hit the boundary and a count is run. The
+    earlier max_scan/scan_truncated/lower-bound apparatus is RETIRED, not
+    deferred — counting is cheap exactly when you need it, so honest total is
+    free. (Tony, 2026-06-13.)
+
+    Indices/views are TUNING, not part of this contract: the naive full scan is
+    correct and sufficient to ~100k objects; you won't notice a view until 100k,
+    won't be annoyed until 1M. Don't optimize before then. What's load-bearing
+    is the MODEL (this result shape + the predicate + the record), not the engine.
+
+    v1 SCOPE — content axis only, plaintext values. KNOWN GAPS (gh issues):
+      - filter / structure / window axes: NOT here (content axis only). The
+        filter axis is where the dominant anchor lands — the ordinal/temporal
+        field (wall-clock for humans, labeled-Lamport (instance_id, cycle) =
+        a vector clock for instances), range-queryable. Model admits it; v1
+        doesn't build it.
       - relevance/BM25 ranking: NOT here (substring match; order is scan order).
-      - value-obfuscation (gh #9): values are searched/stored PLAINTEXT under the
-        transparent obfuscator. A real value-map would break this substring path;
-        that is #9's slice, not this one.
-      - Pukara placement (gh #8): this runs in-process against a live handle. The
-        agent-facing posture (find behind Pukara) is downstream, not built here.
-      - scan_truncated/max_scan: total_matched is EXACT here because the scan is
-        full. The lower-bound semantics arrive with the scan guard, later."""
+      - value-obfuscation (gh #9): values stored/searched PLAINTEXT under the
+        transparent obfuscator; a real value-map breaks substring — #9's slice.
+      - Pukara placement (gh #8): in-process here; agent-facing is downstream."""
     hits: tuple[FindHit, ...]
-    total_matched: int                  # EXACT (full scan); lower-bound semantics are later
-    truncated: bool                     # True when limit cut the hit list short
+    total_matched: int                  # ALWAYS EXACT (count-at-boundary)
+    truncated: bool                     # True when limit cut the list (len(hits) == limit)

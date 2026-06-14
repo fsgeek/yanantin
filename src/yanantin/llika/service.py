@@ -15,9 +15,14 @@ provenance for its own in-process callers' convenience; it passes that (or
 a per-call override) down to the backend. No provenance is stored on the
 backend.
 
-Append-only: link only; no update/delete. find() is intentionally absent
-(a callable predicate cannot cross a wire; the customer filters by
-structure)."""
+Append-only writes: link only; no update/delete.
+
+find() is the goal-focused recall verb. The OLD find (retired in slice 1)
+took a Python CALLABLE predicate — that could not cross a wire, so it was
+removed. This find takes DATA (a content query string, v1), runs server-side
+through the backend, and returns serializable addresses — the shape the find
+spec argued back in. v1 is content-axis only; the filter/structure/window
+axes are declared gaps on FindResult."""
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
@@ -26,7 +31,7 @@ from uuid import UUID
 from yanantin.apacheta.models import ProvenanceEnvelope
 from yanantin.apacheta.models.base import ApachetaBaseModel
 from yanantin.apacheta.models.composition import RelationType
-from yanantin.llika.models import EdgeResult, PathResult
+from yanantin.llika.models import EdgeResult, FindResult, PathResult
 
 if TYPE_CHECKING:
     from yanantin.apacheta.interface.graph import GraphBackend
@@ -91,3 +96,11 @@ class LlikaService:
         """Read a single record by UUID (records-only). Rides the backend's
         existing get_record — no new result type."""
         return self._backend.get_record(record_id)
+
+    def find(self, terms: str, limit: int = 10) -> FindResult:
+        """Goal-focused content recall over the open records lane. Returns
+        bare-UUID addresses + bounded snippets + matched-field SHAPE, never
+        full record content (hydrate one hit deliberately via get). v1 is
+        content-axis only; gaps are declared on FindResult. Passes straight
+        through to the backend — the customer never specifies *how*."""
+        return self._backend.find(terms, limit)

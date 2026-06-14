@@ -57,7 +57,7 @@ from yanantin.apacheta.models.entities import EntityResolution
 from yanantin.apacheta.models.tensor import TensorRecord
 from yanantin.apacheta.storage_obfuscator import StorageObfuscator, TransparentObfuscator
 from yanantin.llika.models import CompositionEdge as LlikaCompositionEdge
-from yanantin.llika.models import EdgeResult, PathResult, PathStep
+from yanantin.llika.models import EdgeResult, FindHit, FindResult, PathResult, PathStep
 
 
 # ── Collection names ──────────────────────────────────────────────────
@@ -447,6 +447,61 @@ class ArangoDBBackend(ApachetaInterface):
         return self.walk(
             start_id, direction, depth=1, relation_types=relation_types
         )
+
+    def find(self, terms: str, limit: int = 10) -> FindResult:
+        """Content-axis find over the open `records` lane: the records whose
+        deobfuscated string content contains `terms` (case-insensitive
+        substring). Returns bare-UUID addresses + a bounded snippet + the SHAPE
+        of which fields matched — never full record content (the recall
+        boundary; hydrate one hit deliberately via get_record).
+
+        DELIBERATELY NAIVE — this is the first square metre of road, not the
+        autobahn. A FULL SCAN with a Python substring match: no ArangoSearch
+        view, no BM25, no analyzer/stemming. KNOWN GAPS (declared, each a gh
+        issue in the find spec): relevance ranking, the filter / structure /
+        window axes, value-obfuscation (gh #9 — this searches PLAINTEXT and
+        only works under the transparent obfuscator), Pukara placement (gh #8),
+        and the max_scan/scan_truncated guard (total_matched is EXACT here
+        because the scan is complete). Replacing this body with an ArangoSearch
+        view is the next slice; FindResult's SHAPE is the contract and does not
+        change when the engine does."""
+        needle = terms.lower()
+        with self._lock:
+            mapped = self._map.collection_name("records")
+            collection = self._db.collection(mapped)
+            hits: list[FindHit] = []
+            total = 0
+            for doc in collection.all():
+                clear = self._map.deobfuscate_document(doc)
+                matched_fields: list[str] = []
+                snippet = ""
+                for key, value in clear.items():
+                    if key.startswith("_") or not isinstance(value, str):
+                        continue
+                    pos = value.lower().find(needle)
+                    if pos == -1:
+                        continue
+                    matched_fields.append(key)
+                    if not snippet:
+                        lo = max(0, pos - 30)
+                        hi = min(len(value), pos + len(needle) + 30)
+                        snippet = value[lo:hi]
+                if not matched_fields:
+                    continue
+                total += 1
+                if len(hits) < limit:
+                    hits.append(
+                        FindHit(
+                            record_id=doc["_key"],
+                            snippet=snippet,
+                            matched_fields=tuple(matched_fields),
+                        )
+                    )
+            return FindResult(
+                hits=tuple(hits),
+                total_matched=total,
+                truncated=total > len(hits),
+            )
 
     # ── Write Operations ─────────────────────────────────────────
 

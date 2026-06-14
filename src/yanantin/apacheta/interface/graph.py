@@ -22,7 +22,7 @@ from uuid import UUID
 from yanantin.apacheta.models import ProvenanceEnvelope
 from yanantin.apacheta.models.base import ApachetaBaseModel
 from yanantin.apacheta.models.composition import RelationType
-from yanantin.llika.models import EdgeResult, PathResult
+from yanantin.llika.models import EdgeResult, FindResult, PathResult
 
 
 @runtime_checkable
@@ -62,6 +62,8 @@ class GraphBackend(Protocol):
     ) -> list[PathResult]: ...
 
     def get_record(self, record_id: UUID) -> ApachetaBaseModel: ...
+
+    def find(self, terms: str, limit: int = 10) -> FindResult: ...
 
 
 __all__ = ["GraphBackend"]

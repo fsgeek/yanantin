@@ -122,3 +122,30 @@ class TestSyntheticDropboxCollector:
         json_str = listing.model_dump_json()
         restored = DropboxListing.model_validate_json(json_str)
         assert restored == listing
+
+
+class TestDropboxTokenPermissions:
+    """The OAuth token file is a credential — it must land owner-only (0o600)."""
+
+    def test_save_tokens_writes_owner_only_mode(self, tmp_path) -> None:
+        import stat
+        from yanantin.collector.storage.cloud.dropbox.collector import (
+            DropboxCollector,
+            _TOKEN_FILENAME,
+        )
+
+        collector = DropboxCollector(tmp_path)
+        collector._save_tokens({"access_token": "secret", "refresh_token": "also-secret"})
+
+        token_path = tmp_path / _TOKEN_FILENAME
+        assert token_path.exists()
+        mode = stat.S_IMODE(token_path.stat().st_mode)
+        assert mode == 0o600, f"token file mode {oct(mode)} exposes credentials"
+
+    def test_save_tokens_roundtrips(self, tmp_path) -> None:
+        from yanantin.collector.storage.cloud.dropbox.collector import DropboxCollector
+
+        collector = DropboxCollector(tmp_path)
+        tokens = {"access_token": "a", "refresh_token": "r", "app_key": "k"}
+        collector._save_tokens(tokens)
+        assert collector._load_tokens() == tokens

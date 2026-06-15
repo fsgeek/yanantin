@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 from uuid import NAMESPACE_DNS, UUID, uuid5
@@ -84,10 +85,17 @@ class DropboxCollector(CollectorBase[DropboxListing]):
             return None
 
     def _save_tokens(self, tokens: dict) -> None:
-        """Save tokens atomically."""
+        """Save tokens atomically with owner-only permissions.
+
+        OAuth tokens are credentials. The temp file is opened 0o600 before
+        any bytes are written, so the token is never briefly world-readable
+        (a write-then-chmod sequence would leave that race window open).
+        """
         token_path = self._config_dir / _TOKEN_FILENAME
         tmp_path = token_path.with_suffix(".tmp")
-        tmp_path.write_text(json.dumps(tokens, indent=2))
+        fd = os.open(str(tmp_path), os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+        with os.fdopen(fd, "w") as f:
+            json.dump(tokens, f, indent=2)
         tmp_path.rename(token_path)
 
     def _authenticate(self) -> None:

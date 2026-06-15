@@ -26,7 +26,11 @@ related but structurally disconnected.
 - `identity_data` = `{}` — NER fills this in later with human labels ("Tony's WSL desktop")
 - `redacted` = `False`
 
-**Idempotent upsert:** if an entity with this `entity_uuid` already exists, skip the write.
+**`entity.id` = `uuid.UUID(machine_id_hex)`** — the document `_key` in ArangoDB is set to the
+machine_id itself, making the entity directly addressable as `entities/{machine_id}` without
+a secondary lookup. This matches Indaleko's convention of using explicit UUIDs for `_key`.
+
+**Idempotent upsert:** if an entity with this `_key` already exists, skip the write.
 The entity is stable — machine config changes don't change identity.
 
 ### 2. MachineConfig snapshot tensor (written per run, unchanged shape)
@@ -74,7 +78,7 @@ records with a dangling `machine_entity` reference are valid and will resolve wh
 ### 5. Edges written by FilesystemFactRecorder
 
 For each file entry fact written to the activity stream, two edges are written to
-`composition_edges`:
+`provenance_edges`:
 
 | Edge | `from` | `to` | `relation_type` |
 |------|--------|------|-----------------|
@@ -86,25 +90,26 @@ are the design. If ArangoDB performance becomes a constraint, bulk edge insertio
 (`arangoimport` or batch AQL) is the mitigation, not reducing edge granularity.
 
 **Edge document shape:** `CompositionEdge` (in `tiksi.composition`) is tensor-to-tensor only
-and `RelationType` has no `contains` or `collected_by` values. A new `ProvenanceEdge` model
-is needed in `tiksi` (or locally in yanantin) with:
+and `RelationType` is a closed enum — neither fits cross-collection edges. A new `ProvenanceEdge`
+model is defined locally in `yanantin.apacheta.models.provenance_edge` with native ArangoDB
+edge fields so the collection is traversable via AQL graph queries:
 
-- `from_id: UUID` — source entity or record UUID
-- `from_collection: str` — `"entities"`, `"records"`, etc.
-- `to_id: UUID`
-- `to_collection: str`
-- `relation_type: str` — free string, not enum, to avoid locking the vocabulary
+- `id: UUID` — document key
+- `_from: str` — ArangoDB `collection/key` format, e.g. `"entities/8ae0edf526f3453ab1abaf04e1c75a4a"`
+- `_to: str` — ArangoDB `collection/key` format, e.g. `"records/<fact_uuid>"`
+- `relation_type: str` — free string (not enum) to avoid locking the vocabulary early
 - `provenance: ProvenanceEnvelope`
 
 Stored in a new `provenance_edges` ArangoDB collection (not `composition_edges`, which is
-tensor-composition-only by design).
+tensor-composition-only by design). A new `store_provenance_edge(edge: ProvenanceEdge)`
+method is added to `ApachetaInterface` and its backends. The `_store_edge` helper in the
+Arango backend sets `_from` and `_to` directly rather than mapping through `id` → `_key`.
 
 ```json
 {
-  "from_id": "8ae0edf5-26f3-453a-b1ab-af04e1c75a4a",
-  "from_collection": "entities",
-  "to_id": "<fact_uuid>",
-  "to_collection": "records",
+  "_key": "<edge_uuid>",
+  "_from": "entities/8ae0edf526f3453ab1abaf04e1c75a4a",
+  "_to": "records/<fact_uuid>",
   "relation_type": "contains",
   "provenance": { "source": { "identifier": "<recorder_id>" }, "timestamp": "..." }
 }
@@ -152,7 +157,7 @@ provenance that can be added without blocking the core wiring.
    on repeated runs) and one tensor in `tensors` with a `has_snapshot` edge between them.
 2. `LinuxFilesystemCollector` accepts an explicit `machine_id` and uses it for `provider_id`
    derivation.
-3. `FilesystemFactRecorder.record_facts()` writes two edges per file entry to `composition_edges`.
+3. `FilesystemFactRecorder.record_facts()` writes two edges per file entry to `provenance_edges`.
 4. All existing unit tests pass unchanged.
 5. A new integration test runs the full pipeline against `apacheta_test` and verifies entity +
    edges are present.

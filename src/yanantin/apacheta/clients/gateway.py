@@ -187,6 +187,19 @@ class ApachetaGatewayClient(ApachetaInterface):
         if response.status_code != 201:
             self._handle_error(response)
 
+    def store_provenance_edge(self, edge) -> None:
+        # Pukara has no provenance-edge route yet. When it grows one, this
+        # gains a proper HTTP-call implementation in a coordinated PR
+        # (mirrors the open-record stubs below).
+        raise NotImplementedError(
+            "Provenance edges not yet available via Pukara gateway (route pending)."
+        )
+
+    def list_provenance_edges(self) -> list:
+        raise NotImplementedError(
+            "Provenance edges not yet available via Pukara gateway (route pending)."
+        )
+
     # ── Read Operations ──────────────────────────────────────────
 
     def get_tensor(self, tensor_id: UUID) -> TensorRecord:

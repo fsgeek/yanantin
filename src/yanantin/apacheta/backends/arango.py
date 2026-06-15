@@ -54,6 +54,7 @@ from yanantin.apacheta.models.composition import (
 )
 from yanantin.apacheta.models import ProvenanceEnvelope
 from yanantin.apacheta.models.entities import EntityResolution
+from yanantin.apacheta.models.provenance_edge import ProvenanceEdge
 from yanantin.apacheta.models.tensor import TensorRecord
 from yanantin.apacheta.storage_obfuscator import StorageObfuscator, TransparentObfuscator
 from yanantin.llika.models import CompositionEdge as LlikaCompositionEdge
@@ -548,6 +549,54 @@ class ArangoDBBackend(ApachetaInterface):
         with self._lock:
             self._enforce_access("system", "store_entity", entity.id)
             self._store("entities", entity.id, entity)
+
+    def _provenance_edge_collection(self):
+        """Return the (obfuscator-mapped) provenance_edges collection, creating
+        it on first use as an EDGE collection. Idempotent.
+
+        Mirrors _llika_edge_collection: the collection MUST be edge-type
+        (create_collection(edge=True)) so native graph traversal
+        (FOR v IN OUTBOUND ...) works on its _from/_to. The generic _store
+        path creates plain document collections and dumps without by_alias,
+        so it cannot host edges — this is why provenance_edges gets its own
+        store path rather than going through _store.
+        """
+        mapped = self._map.collection_name("provenance_edges")
+        if not self._db.has_collection(mapped):
+            self._db.create_collection(mapped, edge=True)
+        return self._db.collection(mapped)
+
+    def store_provenance_edge(self, edge: ProvenanceEdge) -> None:
+        with self._lock:
+            self._enforce_access("system", "store_provenance_edge", edge.id)
+            collection = self._provenance_edge_collection()
+            key = str(edge.id)
+            if collection.has(key):
+                raise ImmutabilityError(
+                    f"ProvenanceEdge {edge.id} already exists. "
+                    "Edges are append-only — no update, no overwrite."
+                )
+            # by_alias=True so _from/_to land as ArangoDB's native edge fields.
+            doc = edge.model_dump(mode="json", by_alias=True)
+            doc["_key"] = key
+            collection.insert(self._map.obfuscate_document(doc))
+
+    def list_provenance_edges(self) -> list[ProvenanceEdge]:
+        with self._lock:
+            collection = self._provenance_edge_collection()
+            results: list[ProvenanceEdge] = []
+            for doc in collection.all():
+                deobfuscated = self._map.deobfuscate_document(doc)
+                # _from/_to are native edge fields → map back to the model's
+                # aliases; strip ArangoDB metadata; restore id from _key.
+                data = {
+                    k: v for k, v in deobfuscated.items() if not k.startswith("_")
+                }
+                data["_from"] = deobfuscated["_from"]
+                data["_to"] = deobfuscated["_to"]
+                data["id"] = doc["_key"]
+                results.append(ProvenanceEdge.model_validate(data))
+            return results
 
     # ── Read Operations ──────────────────────────────────────────
 

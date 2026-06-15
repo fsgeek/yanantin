@@ -216,6 +216,18 @@ class DuckDBBackend(ApachetaInterface):
             self._enforce_access("system", "store_entity", entity.id)
             self._store("entities", entity.id, entity)
 
+    def store_provenance_edge(self, edge) -> None:
+        raise NotImplementedError(
+            "provenance_edges not implemented for DuckDB backend — "
+            "graph edges require an edge-capable store (ArangoDB)"
+        )
+
+    def list_provenance_edges(self) -> list:
+        raise NotImplementedError(
+            "provenance_edges not implemented for DuckDB backend — "
+            "graph edges require an edge-capable store (ArangoDB)"
+        )
+
     # ── Read Operations ──────────────────────────────────────────
 
     def get_tensor(self, tensor_id: UUID) -> TensorRecord:

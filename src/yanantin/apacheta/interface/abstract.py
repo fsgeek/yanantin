@@ -20,6 +20,7 @@ from yanantin.apacheta.models.composition import (
     SchemaEvolutionRecord,
 )
 from yanantin.apacheta.models.entities import EntityResolution
+from yanantin.apacheta.models.provenance_edge import ProvenanceEdge
 from yanantin.apacheta.models.tensor import TensorRecord
 
 INTERFACE_VERSION = "v1"
@@ -90,6 +91,12 @@ class ApachetaInterface(ABC):
 
     @abstractmethod
     def store_entity(self, entity: EntityResolution) -> None: ...
+
+    @abstractmethod
+    def store_provenance_edge(self, edge: ProvenanceEdge) -> None: ...
+
+    @abstractmethod
+    def list_provenance_edges(self) -> list[ProvenanceEdge]: ...
 
     # ── Read Operations ──────────────────────────────────────────
 

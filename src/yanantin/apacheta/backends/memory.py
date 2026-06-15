@@ -22,6 +22,7 @@ from yanantin.apacheta.models.composition import (
     SchemaEvolutionRecord,
 )
 from yanantin.apacheta.models.entities import EntityResolution
+from yanantin.apacheta.models.provenance_edge import ProvenanceEdge
 from yanantin.apacheta.models.tensor import TensorRecord
 
 
@@ -42,6 +43,7 @@ class InMemoryBackend(ApachetaInterface):
         self._bootstraps: dict[UUID, BootstrapRecord] = {}
         self._evolutions: dict[UUID, SchemaEvolutionRecord] = {}
         self._entities: dict[UUID, EntityResolution] = {}
+        self._provenance_edges: dict[UUID, ProvenanceEdge] = {}
         self._records: dict[UUID, ApachetaBaseModel] = {}
 
     # ── Internal ──────────────────────────────────────────────────
@@ -147,6 +149,17 @@ class InMemoryBackend(ApachetaInterface):
             if entity.id in self._entities:
                 raise ImmutabilityError(f"EntityResolution {entity.id} already exists.")
             self._entities[entity.id] = self._deep_copy(entity)
+
+    def store_provenance_edge(self, edge: ProvenanceEdge) -> None:
+        with self._lock:
+            self._enforce_access("system", "store_provenance_edge", edge.id)
+            if edge.id in self._provenance_edges:
+                raise ImmutabilityError(f"ProvenanceEdge {edge.id} already exists.")
+            self._provenance_edges[edge.id] = self._deep_copy(edge)
+
+    def list_provenance_edges(self) -> list[ProvenanceEdge]:
+        with self._lock:
+            return [self._deep_copy(e) for e in self._provenance_edges.values()]
 
     # ── Read Operations ──────────────────────────────────────────
 

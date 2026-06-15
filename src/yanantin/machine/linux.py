@@ -24,6 +24,8 @@ from yanantin.apacheta.models import (
     StrandRecord,
     TensorRecord,
 )
+from yanantin.apacheta.models.entities import EntityResolution
+from yanantin.apacheta.models.provenance_edge import ProvenanceEdge
 from yanantin.collector._collector_base import CollectorBase
 from yanantin.machine.base import _get_machine_id
 from yanantin.recorder.base import RecorderBase
@@ -127,8 +129,22 @@ class MachineConfigRecorder(RecorderBase[MachineConfigData]):
         )
 
     def record(self, envelope: WranglerEnvelope[MachineConfigData]) -> UUID:
-        """Create a tensor from the machine config and store it."""
+        """Write EntityResolution (upsert), tensor, and has_snapshot edge."""
         data = envelope.data
+        machine_uuid = UUID(data.machine_id)
+
+        # 1. Write machine entity (idempotent — skip if already exists)
+        try:
+            self.interface.get_entity(machine_uuid)
+        except Exception:
+            entity = EntityResolution(
+                id=machine_uuid,
+                entity_uuid=machine_uuid,
+                identity_type="machine.linux",
+                identity_data={},
+                redacted=False,
+            )
+            self.interface.store_entity(entity)
 
         identity_strand = StrandRecord(
             strand_index=0,
@@ -169,6 +185,24 @@ class MachineConfigRecorder(RecorderBase[MachineConfigData]):
         )
 
         self.interface.store_tensor(tensor)
+
+        # 3. Write has_snapshot edge: machine entity → tensor.
+        # The endpoint MUST be the canonical entity _key form — str(UUID) —
+        # because that is how store_entity keys the document. The raw
+        # 32-hex machine_id string would NOT match (str(UUID) is hyphenated),
+        # so an edge built on the raw string dangles: graph traversal
+        # (FOR v IN OUTBOUND 'entities/<hyphenated-key>') finds nothing.
+        # Unit tests string-compare from_ref and miss this; the live-DB
+        # traversal in the integration test is what catches it.
+        edge = ProvenanceEdge(
+            **{
+                "_from": f"entities/{machine_uuid}",
+                "_to": f"tensors/{tensor.id}",
+            },
+            relation_type="has_snapshot",
+        )
+        self.interface.store_provenance_edge(edge)
+
         return tensor.id
 
     def get_recorder_id(self) -> UUID:

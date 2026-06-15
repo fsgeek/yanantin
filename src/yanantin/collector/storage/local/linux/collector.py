@@ -115,11 +115,13 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
     counted, never fatal to the walk.
     """
 
-    def __init__(self, root_path: Path) -> None:
+    def __init__(self, root_path: Path, machine_id: str | None = None) -> None:
         self._root_path = root_path.resolve()
+        resolved_machine_id = machine_id if machine_id is not None else _get_machine_id()
+        self._machine_id = resolved_machine_id
         self._provider_id = uuid5(
             NAMESPACE_DNS,
-            f"yanantin.collector.filesystem.{_get_machine_id()}",
+            f"yanantin.collector.filesystem.{resolved_machine_id}",
         )
 
     def collect(self, since: datetime | None = None) -> FilesystemSnapshot:

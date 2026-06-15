@@ -27,6 +27,8 @@ from tiksi import (
     TensorRecord,
 )
 
+from yanantin.apacheta.models.provenance_edge import ProvenanceEdge
+
 __all__ = [
     "ApachetaBaseModel",
     "BootstrapRecord",
@@ -47,4 +49,5 @@ __all__ = [
     "SourceIdentifier",
     "StrandRecord",
     "TensorRecord",
+    "ProvenanceEdge",
 ]

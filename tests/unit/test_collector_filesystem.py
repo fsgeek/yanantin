@@ -225,3 +225,48 @@ class TestSyntheticFilesystemCollector:
         json_str = snapshot.model_dump_json()
         restored = FilesystemSnapshot.model_validate_json(json_str)
         assert restored == snapshot
+
+
+# --- Task 4: explicit machine_id wiring (storage.local.linux collector) ---
+# NOTE: these tests target yanantin.collector.storage.local.linux.collector,
+# a DIFFERENT module than the LinuxFilesystemCollector imported at the top of
+# this file (yanantin.collector.filesystem.collector). Imports are local to
+# each test to keep the two trees unambiguous.
+
+from unittest.mock import patch
+
+FAKE_MACHINE_ID = "8ae0edf526f3453ab1abaf04e1c75a4a"
+
+
+def test_explicit_machine_id_used_for_provider_id(tmp_path):
+    """Explicit machine_id produces deterministic provider_id across runs."""
+    from uuid import uuid5, NAMESPACE_DNS
+    from yanantin.collector.storage.local.linux.collector import LinuxFilesystemCollector
+
+    collector = LinuxFilesystemCollector(tmp_path, machine_id=FAKE_MACHINE_ID)
+    expected = uuid5(NAMESPACE_DNS, f"yanantin.collector.filesystem.{FAKE_MACHINE_ID}")
+    assert collector.get_provider_id() == expected
+
+
+def test_default_machine_id_falls_back_to_etc_machine_id(tmp_path):
+    """When no machine_id passed, reads /etc/machine-id."""
+    from yanantin.collector.storage.local.linux.collector import LinuxFilesystemCollector
+
+    with patch(
+        "yanantin.collector.storage.local.linux.collector._get_machine_id",
+        return_value=FAKE_MACHINE_ID,
+    ):
+        collector = LinuxFilesystemCollector(tmp_path)
+    from uuid import uuid5, NAMESPACE_DNS
+
+    expected = uuid5(NAMESPACE_DNS, f"yanantin.collector.filesystem.{FAKE_MACHINE_ID}")
+    assert collector.get_provider_id() == expected
+
+
+def test_provider_id_stable_across_instances(tmp_path):
+    """Two collectors with same machine_id and path get same provider_id."""
+    from yanantin.collector.storage.local.linux.collector import LinuxFilesystemCollector
+
+    c1 = LinuxFilesystemCollector(tmp_path, machine_id=FAKE_MACHINE_ID)
+    c2 = LinuxFilesystemCollector(tmp_path, machine_id=FAKE_MACHINE_ID)
+    assert c1.get_provider_id() == c2.get_provider_id()

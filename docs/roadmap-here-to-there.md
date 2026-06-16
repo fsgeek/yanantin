@@ -42,13 +42,24 @@ substantially exists, so this is not aspirational.
   (`test_single_principal_accretion.py`, commit da34519a) — `authorship_verified` defaults
   False, no yanantin path may set it True. Structure HELD, enforcement deferred.
 
-### Front A — file tenant — EARLIER THAN "TRAILHEAD"
-- **No Indaleko corpus is loaded. No loader exists.** Collectors produce records in REAL
-  TIME; there is no "index the 28.5M" step. The file tenant is NOT a queryable database yet.
+### Front A — file tenant — ONLY THE COLLECTORS ARE REAL; EVERYTHING DOWNSTREAM IS UNBUILT OR ANTI-BUILT
+*(Tony's correction 2026-06-15: "everything downstream from the machine config isn't real yet."
+Verified — and it's worse than "absent": the recorder that exists writes the WRONG shape.)*
+- **Collectors are real** (produce snapshots/listings). But their DESTINATION is not.
+- **The recorder ANTI-PATTERN:** `recorder/storage/local/linux/recorder.py:40-79` `record()`
+  takes a whole `FilesystemSnapshot` and `json.dumps` ALL entries into ONE strand of ONE
+  `TensorRecord` (`entries_json`, lines 57-66). At 28.5M files this is **one tensor holding a
+  28.5M-entry JSON blob** — un-findable, un-prunable, un-addressable. It is `find /` in a
+  database costume: the EXACT disease the project exists to cure. The recorder must be
+  REPLACED, not extended.
+- **No Indaleko corpus is loaded. No loader exists.** No "index the 28.5M" step. The file
+  tenant is NOT a queryable database.
 - **Uniform storage object (#17): ABSENT** — `collector/storage_object.py` does not exist
-  (orphan `.pyc` only); `tests/red_bar/test_uniform_storage_object.py` is HONESTLY RED. This
-  is the precise trailhead marker. Without it, cross-silo temporal join is STRUCTURALLY
-  IMPOSSIBLE (filesystem `modified` and Dropbox `modified_time` never become one join key).
+  (orphan `.pyc` only); `tests/red_bar/test_uniform_storage_object.py` is HONESTLY RED.
+  **Crucially: #17 is not an upstream prerequisite OF the recorder — #17 is WHAT THE RECORDER
+  SHOULD EMIT (one queryable record per file, not a blob per snapshot).** Porting the storage
+  object and fixing the recorder are the SAME stone. Without it, cross-silo temporal join is
+  STRUCTURALLY IMPOSSIBLE (filesystem `modified` and Dropbox `modified_time` never join).
 - Collectors: 4/6 have synthetic twins; **openrouter and machine_config MISSING twins** (#25).
 - Temporal: facts carry UTC timestamps; DuckDB has `(provider_id, timestamp)` index +
   `query_range`/`query_latest`. **Pruning is DESIGNED (comments) but not runtime.** And it's
@@ -60,10 +71,12 @@ substantially exists, so this is not aspirational.
 - S1. Confirm the access hook + `ProvenanceEdge` + open-record scoping are the floor both
   tenants stand on. (Largely a verification + small-gap task, not a build.)
 
-**Front A — file tenant (longest leg; at/before trailhead):**
-- A1. **Port the uniform storage object** (#17) — turn the red bar green. Named-UUID
-  timestamps (4 canonical Indaleko UUIDs), open `semantic_attributes` lane (NOT extra=forbid),
-  raw blob retained. THIS IS THE GATING ARTIFACT for cross-silo `when`.
+**Front A — file tenant (the whole leg is unbuilt; only collectors are real):**
+- A1. **Port the uniform storage object (#17) AND replace the blob-recorder — same stone.**
+  The storage object (4 named-UUID timestamps, open `semantic_attributes` lane, raw blob
+  retained) is WHAT `record()` SHOULD EMIT: one queryable record per file, not one JSON blob
+  per snapshot. Turning the #17 red bar green and killing the `entries_json` anti-pattern
+  (`recorder/storage/local/linux/recorder.py:57-66`) are the same task. GATING ARTIFACT.
 - A2. Normalize ≥2 collectors (filesystem + one cloud) to the storage object → prove the
   cross-silo temporal join works on real shapes.
 - A3. Stand up the file tenant as an actual database (loader OR live-collect into its own DB).

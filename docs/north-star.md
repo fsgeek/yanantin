@@ -64,18 +64,53 @@ will NOT pay for you across the boundary:
    logged object (least-privilege as the multitenancy mechanism).
 
 **Design pressure (healthy):** keep the hot path inside a tenant's own database; make
-cross-tenant reach deliberate, rare, attested, logged. Each tenant's find runs fast locally;
-the loop-closing hop (AI reaches the human's files; an instance cites a community artifact)
-is the expensive authorized one — and *should* be, because that hop is where integrity matters.
+cross-tenant reach deliberate, logged. Each tenant's find runs fast locally; the loop-closing
+hop (AI reaches the human's files; an instance cites a community artifact) is the cross-database
+one — its cost is the round-trip, defended by temporal pruning (below), NOT by authentication.
 
-## The named-open frontier (NOT resolved here)
+## The cross-tenant seam — RESOLVED 2026-06-15 (simple-first)
 
-**When does a cross-tenant referent get resolved/verified?** Resolve-on-read (live
-capability, always current, pays a round-trip, fails if grant lapsed) vs. resolve-and-attest
-(Willay-style publish-and-cite, cheap reads, can go stale) vs. both-by-edge-kind — OR an
-off-axis answer (content-addressing, ayni-exchange-graph) that the clean menu hides. This
-is the hinge of the cross-tenant design and gets **its own brainstorm**, deliberately, not
-a snap pick. (Premature collapse tell: a clean N-way menu means a premise needs dropping.)
+The "when does a cross-tenant referent resolve/verify?" menu (resolve-on-read vs.
+resolve-and-attest vs. both) was MALFORMED — it asked "when do you resolve" as if resolution
+were one act. A foreign key carries TWO separable guarantees that intra-DB hides because we get
+both free:
+
+- **Identity** (the referent IS what it claims) — given by a **content-hash**. NEVER stale: a
+  hash of B's content as-of-citation is true forever. Kept — but as *drift-detection and
+  correctness*, NOT defense. "The thing you cited was revised" is information you want.
+- **Authorization** (this principal may follow this edge NOW) — inherently live, must be
+  checked every read. This is the capability/grant.
+
+These have OPPOSITE time-discipline, so you snapshot one and live-check the other — they were
+never the same question.
+
+**But the trust model collapses the authorization half — for now.** `ayllu` means trust about
+boundaries. A signed-capability-checked-every-read is the Miraflores move (isolating strangers)
+in Quechua costume. Among kin the boundary's job is **legibility, not enforcement**. So:
+
+> **INITIAL (simple) model:** a cross-tenant edge is a **content-hashed + attributed + logged**
+> reference. NO capability, NO per-read authentication. Cross-tenant reach is permitted by
+> default among ayllu and merely RECORDED (the record IS the ayni). The edge carries a grant-id
+> SLOT that is implicit/null among kin — so a signed capability can be inserted LATER at exactly
+> the seam where trust stops. The consumer's query decides whether to dereference to current
+> state (get the live file, drift-detected free by the hash) or rest on the snapshot (cite what
+> I saw). One edge type; the query picks; find stays the dumb executor.
+
+**Why simple-first is the RIGOROUS choice, not the lazy one (Tony, 2026-06-15):** "If we can't
+make the simple model work, the complex adversarial multi-tenant model won't matter." The
+capability layer's outcome is CERTAIN (signed caps at a gateway is solved engineering, just
+substantial). The UNCERTAIN thing — the actual experiment — is whether the find loop closes:
+AI translates the human's episodic query by finding its own memory, then reaching the human's
+files, timestamp-pruned, affordably. Build the uncertain thing first (the ROOT principle applied
+to the architecture itself). Worse: building the gate first would let you NEVER find out the
+simple model is broken — a failed loop couldn't be told apart from the gate getting in the way.
+Strip enforcement so a failure means *find* failed, which is the thing you need to know.
+
+**When capabilities arrive:** at the STRUCTURAL EVENT that ends kin-trust — publication to
+non-kin (community-shared databases exposed outward) or a *refusable* reach (a tenant that can
+say "no, not you"). NOT at cross-tenant reach per se; human-tenant ↔ its-own-AI-instances is one
+household and never trips it. That work is substantial and deliberately deferred, gated on the
+simple model proving the loop closes at all.
 
 ## How this measures drift
 

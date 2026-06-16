@@ -82,6 +82,42 @@ transient-promoted-to-persistent risk). Why now, and why ONLY registration:
   turns category questions into folder questions (same trick as the issue-ledger scan: the
   concrete artifact made the abstraction decidable).
 
+## `YANANTIN_DATA_ROOT` — the data-location boundary (core leaf #3, decided 2026-06-16)
+
+Yanantin is an installable substrate, so WHERE data lives must be ONE explicit physical boundary,
+not scattered. **Current state = scattered (the same disease as `_SEMANTIC_COLLECTIONS`):** the
+DuckDB default `~/.local/share/yanantin/activity.duckdb` is hardcoded in FOUR places
+(`collector/__main__`, `query/__main__`, `collector/pipeline.py`, `chasqui/coordinator.py`); the
+wrangler `staging_dir` is a bare constructor arg with NO default (caller invents a path each time);
+config/creds are at `~/.yanantin/config/`; the DuckDB at `~/.local/share`. Three conventions, no
+root.
+
+**DECISION — option (2) "root + overridable per-kind", with single-root defaults.** Complexity was
+MEASURED, not guessed: there are exactly TWO data paths that need a root (the DuckDB/mapping file;
+the wrangler staging dir). The cost of per-kind override over a flat single root is THREE small
+functions instead of one — each a pure leaf (read env var, else fall through to the root):
+
+```
+# core/paths.py
+def data_root()    -> Path: return Path(os.environ.get("YANANTIN_DATA_ROOT",  Path.home()/".yanantin"/"data"))
+def staging_dir()  -> Path: return Path(os.environ.get("YANANTIN_STAGING_DIR", data_root()/"staging"))
+def mapping_path() -> Path: return Path(os.environ.get("YANANTIN_MAPPING_DIR", data_root()/"mapping"))
+```
+
+- Defaults stick to a SINGLE root now (`~/.yanantin/data`; deploy e.g. `/var/local/yanantin`).
+- The per-kind override is FREE and DORMANT: it's the difference between "deployment puts the
+  transient ~140GB staging on fast scratch while precious mapping stays on backed-up storage" being
+  a one-line env var vs. a code change. (Staging is transient/huge; mapping is durable/precious —
+  lose the DuckDB decoder ring and the Arango UUIDs become unreadable. Real, physical, already-named
+  distinction.) No debt: the override is a leaf; nothing downstream knows whether the path came from
+  override or default.
+- **Config STAYS separate** at `~/.yanantin/config/` (NOT folded under DATA_ROOT). data ≠ config
+  (XDG-style): config is small/hand-edited/0600/backed-up; data is large/regenerable-ish. Folding
+  them conflates two boundaries that want to stay separate, for zero benefit.
+- **`core/paths.py` is core leaf #3** (beside registration + the DB singleton): depends on env+stdlib
+  only; killing the four-way DuckDB-default scatter = every sink resolves against ONE function. Born
+  in `core/`.
+
 ## Relation to the rest of the map
 
 This bottom-up path IS C0's first concrete form, and it lands in `src/yanantin/core/`. The mapping

@@ -9,9 +9,17 @@ with Tony; the forks below were his calls, recorded inline.*
 The common core's missing primitive (gh #1): a mechanism by which **any** provider — semantic,
 storage, activity, or a kind nobody has invented yet — **declares itself**, and the substrate
 organizes around it. It replaces the static `_SEMANTIC_COLLECTIONS` lists (the disease: collections
-known only by a hardcoded tuple that someone must remember to edit) with a dynamic registry: a
-provider registers, and its data collection comes into existence as a consequence. Born in
+known only by a hardcoded tuple that someone must remember to edit) with a dynamic registry. Born in
 `src/yanantin/core/`, it is the first and (day one) only inhabitant.
+
+**The model is NOT one-provider-one-collection.** That assumption (which an early draft of this spec
+carried, copied uncritically from Indaleko's `{prefix}{uuid}` collection naming) breaks the most
+important thing the substrate does — see the Stacking section. A provider does not necessarily *own*
+a collection; it registers with a **registrar** that owns a collection and accepts contributions
+into it, and registrars themselves stack. The purpose of registration is to make the system's
+contents **data, not code**: the catalog of what-exists becomes queryable instead of a Python literal,
+which is the precondition for find-across-silos (you cannot search a space you cannot enumerate) and
+the architecture-level antibody to the closed-schema reflex.
 
 ## The disambiguation that unblocked this (read first)
 
@@ -68,24 +76,91 @@ Consequence for design: registration does NOT import `transport.ProviderRegistra
 make core depend on transport — a crossing with no reason behind it). It defines its **own** registry
 record.
 
+## Stacking — the collection topology IS a tree of registrars (Tony, 2026-06-16)
+
+The load-bearing insight, and the correction to Indaleko's one-provider-one-collection model.
+
+**A registrar owns one collection and accepts registrants that contribute into it. A registrar can
+itself be a registrant of a registrar below it.** Registration *stacks*:
+
+```
+linux-local-fs recorder ──registers with──▶ local-storage-object registrar
+                                                  │ (is itself a registrant of)
+                                                  ▼
+                                            storage-object registrar  ──owns──▶ Objects collection
+                                                  │
+                                                  ▼
+                                            base registrar
+```
+
+The leaf (linux-local) **does not know how far down it collapses.** It registers with its parent;
+where its data ultimately lands is a property of the tree, not of the leaf. This single recursive
+application of one primitive produces **both** topologies an earlier draft wrongly split into two
+mechanisms:
+
+- **"Own a collection"** = a registrar with one registrant and no collapse below it (Indaleko's
+  `{prefix}{uuid}` per-provider collection is just this *degenerate case* — not the model).
+- **"Contribute to a shared collection"** (the `Objects` case) = many leaves register with one
+  registrar that owns the shared collection; provider identity becomes a **field on the record**,
+  not the collection name.
+
+**Why `extra="allow"` is the enabling condition for stacking, not just a closed-schema antibody:** a
+shared collection can only absorb heterogeneous registrants losslessly if it validates the common
+spine and *keeps* their divergent fields. Linux-local and Windows-local collapse into one `Objects`
+collection because `Objects` validates the shared file-object spine and preserves platform-specific
+fields in the open tail. The record-shape decision and the stacking decision are the same decision.
+
+**The collapse-depth is the logical data model, and it is a deliberate knob.** Five separate platform
+collections → "files on storage type X" is a collection lookup, but "all my files" is five-scans+merge
+(the RAG fan-out the north star is defined *against*). One mega-collection → "all my files" is one
+scan, but "just linux-local" is a filter and the representation has lost its joints. Neither extreme is
+free; the registrar tree is *where you place the seam* between them, per the query pattern. `Objects`
+reproduced: a storage-object registrar owns `Objects`; platform recorders register with it; "all files"
+is one scan, "linux-local only" is a `FILTER`. North star intact.
+
+### Two topology decisions, with their visible expiry (Tony's calls — guideline, not law)
+
+1. **C0 builds the FLAT, stacking-COMPATIBLE primitive — not the recursive composable node.** Tony:
+   registration is *rare* (init-time), so keep the stack simple-but-layered; a 3–4-deep registration
+   walk at startup that is "annoying to walk" beats a pretty recursive abstraction that is load-bearing
+   in ways that bite later. C0 builds a registrar (owns one collection, accepts registrants) such that
+   "a registrar is itself a registrant" is an *additive* later step, not a rewrite. (Building the
+   `Objects` vertical first *produces* this primitive as a byproduct — so the concrete-first and
+   flat-primitive options were never orthogonal.)
+
+2. **The registrar tree (who registers with whom) is CODE for C0 — a single-tenant-spine simplification
+   with a KNOWN EXPIRY.** The interior nodes / collapse points are the substrate's deliberate, stable
+   logical model, defined in core code; leaf providers register as data. Tony's honesty test: moving a
+   collapse seam needs a data migration *regardless* of whether the tree is code or data, so code is the
+   more honest default — it does not pretend the seam is cheap to move. **Recorded pushback (Claude, not
+   withdrawn):** this is right for the single-tenant spine, but it has an expiry. The north-star customer
+   is the *AI-instance-as-tenant*; the day a second tenant needs to shape *its own* collapse topology,
+   "tree is code" means a tenant cannot reorganize its logical model without a core redeploy — the
+   cross-tenant seam re-broken. At that point the topology becomes **data** (queryable/movable per
+   tenant), which is a design change *plus* the unavoidable migration, deliberately deferred — NOT a
+   property we believe is permanent. Flagged so the crossing is visible when it comes. (If "it becomes
+   data at the multi-tenant seam" mis-models how tenants work, that is the load-bearing assumption to
+   correct.)
+
 ## Components
 
-### `core/registration` — registry + factory
+### `core/registration` — the registrar
 
-Ported from `IndalekoRegistrationService`, stripped of Indaleko's `ServiceManager`/singleton
-infrastructure. Two welded halves:
+A registrar node, ported in spirit (not line-for-line) from `IndalekoRegistrationService`, stripped of
+Indaleko's `ServiceManager`/singleton infrastructure. One node = two responsibilities:
 
-- **The registry** — a single provider collection cataloging who has registered. Verbs:
-  `register_provider`, `lookup_provider_by_identifier`, `lookup_provider_by_name`,
-  `get_provider_list`, `deactivate_provider`, `delete_provider`. The registry row is the record
-  below.
-- **The factory** — `create_provider_collection(identifier, schema=None, edge=False, indices=None,
-  reset=False)`. **Delegates to the obfuscator-aware collection creation already proven in
+- **Registry** — owns a registrant catalog. Verbs: `register` (a provider or a child registrar),
+  `lookup_by_identifier`, `lookup_by_name`, `list_registrants`, `deactivate`, `delete`. Each registrant
+  is a record (below). A registrar may itself register upward (the stacking edge) — flat/layered in C0,
+  not a recursive abstraction.
+- **Collection ownership** — the registrar owns ONE collection that its registrants contribute into.
+  Creating/ensuring that collection **delegates to the obfuscator-aware creation already proven in
   `apacheta/backends/arango.py:196-198`** (`has_collection` guard → `create_collection(mapped,
-  edge=...)` → indices via `add_persistent_index`). It does NOT re-implement collection creation,
-  and it does NOT create literal-named collections — names pass through the `StorageObfuscator`
-  like every other collection (Tony: option-2 "literal now, obfuscate later" is an illusion of
-  choice — the only honest path is through the obfuscator from the first pour).
+  edge=...)` → indices via `add_persistent_index`). It does NOT re-implement collection creation, and
+  names pass through the `StorageObfuscator` like every other collection (Tony: "literal now, obfuscate
+  later" is an illusion of choice — through the obfuscator from the first pour). The degenerate
+  per-registrant-UUID collection (Indaleko's `{prefix}{uuid}`) remains available for the own-a-collection
+  case, but is one option, not the model.
 
 ### The registry record — `frozen=True, extra="allow"`
 
@@ -100,8 +175,11 @@ A Pydantic model, core's own (NOT transport's). The shape Tony named "very yanan
   designing the defense against it). The typed spine stays validated; the open tail absorbs the
   not-yet-categorized.
 
-Typed spine (the mechanical, validated part): `provider_id: UUID`, `provider_name: str`,
-`provider_type: str`, `description: str`, `schema: dict | None`, `registered_at: datetime`,
+Typed spine (the mechanical, validated part): `registrant_id: UUID`, `registrant_name: str`,
+`registrant_kind: str` (e.g. `"provider"` vs `"registrar"` — the stacking edge), `description: str`,
+`contributes_schema: dict | None` (the shape this registrant promises to write into its registrar's
+owned collection; used to validate contributions, not to mint a private collection), `parent_id: UUID
+| None` (the registrar it registered with — `None` only for the base), `registered_at: datetime`,
 `active: bool`. Everything else: allowed and stored.
 
 ## Why `transport.ProviderRegistration` is NOT this (and stays put)
@@ -137,24 +215,31 @@ path bootstrap, OSError-swallowing (fail-stop instead).
 
 ## Error handling
 
-Fail-stop, per the build-order law. No storage ⇒ hard stop; no in-memory fallback, no
+Fail-stop, per the build-order guideline. No storage ⇒ hard stop; no in-memory fallback, no
 graceful-degradation (simulating a capability you don't have is the lie). Indaleko's `except OSError:
 return None/[]` swallowing is NOT ported — a registry that can't reach its store must raise, not
-return an empty list that reads as "no providers."
+return an empty list that reads as "no registrants."
 
 ## Testing (green vs live `apacheta_test`, no mocks)
 
 Per the no-mock-databases rule, tested against the live `apacheta_test` DB:
 
-1. Register a provider → assert the registry row exists, keyed by provider UUID, with the typed
+1. Register a registrant → assert the catalog row exists, keyed by `registrant_id`, with the typed
    spine + an extra field that survived (proves `extra="allow"` round-trips through ArangoDB).
-2. `create_provider_collection(id, schema, indices)` → assert the collection exists **under its
-   obfuscated name** (proves the obfuscator seam), with the schema validation + indices applied.
+2. A registrar ensures its owned collection → assert the collection exists **under its obfuscated
+   name** (proves the obfuscator seam), with schema validation + indices applied.
 3. Re-register same UUID → raises (no silent overwrite).
-4. `get_provider_list` → returns the registered provider(s).
-5. Register through a `TransparentObfuscator` and through a stand-in opaque obfuscator → collection
+4. `list_registrants` → returns the registrant(s).
+5. Ensure-collection through a `TransparentObfuscator` vs a stand-in opaque obfuscator → collection
    name differs accordingly (proves the seam is real, not decorative).
 6. Fail-stop: registration against an unreachable store raises, does not return empty.
+7. **Stacking (the load-bearing test):** build `base ◀ storage-object-registrar(owns Objects) ◀
+   {linux-local, windows-local}`. Both leaves register; both write a record (shared spine + a
+   platform-specific extra field) into the ONE `Objects` collection. Assert: (a) one collection, not
+   three; (b) "all files" = one scan returns both; (c) "linux-local only" = a `FILTER` on the identity
+   field returns just linux's; (d) both platforms' extra fields survived (lossless collapse — proves
+   `extra="allow"` is what makes stacking work). This test is the spec's claim that `Objects` is
+   reproducible; if it's red, the stacking model is wrong, not the test.
 
 Test/builder separation enforced by CI; the red-bar floor must actually RUN these.
 
@@ -171,6 +256,11 @@ Test/builder separation enforced by CI; the red-bar floor must actually RUN thes
    (capabilities/handles Pukara routes on). Its own brainstorm, Tony driving. C0 builds on ONE
    StandardDatabase and is INDEPENDENT of how this resolves.
 
+2. **Topology-as-data at the multi-tenant seam** — the registrar tree is CODE for C0 (single-tenant
+   spine). The recorded-pushback expiry: when a second tenant needs to shape its own collapse
+   topology, the tree becomes per-tenant DATA. Deferred deliberately, flagged so the crossing is
+   visible; not built now, not believed permanent.
+
 3. **Convergence of the `_SEMANTIC_COLLECTIONS` tuples onto registration** — the apacheta + activity
-   backends' static lists become registered providers. This is A1 / downstream, NOT C0. C0 just
-   builds the mechanism they will later migrate onto, one tested-green step at a time.
+   backends' static lists become registered providers/registrars. This is A1 / downstream, NOT C0.
+   C0 just builds the mechanism they will later migrate onto, one tested-green step at a time.

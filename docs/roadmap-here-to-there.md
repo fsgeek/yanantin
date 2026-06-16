@@ -51,13 +51,16 @@ precisely to make the OOBE FAST. yanantin ported the FRONT half, not the back ha
 - **Collectors real; wranglers real.** `collector/wranglers.py` = the collector→recorder
   decouple (Direct/Batch/Queued). This is the build-path simplifier that keeps new tools cheap
   — the dynamic-extensibility requirement. SOUND, matches intent.
-- **The MISSING STAGE:** there is NO recorder→DB fan-out. `grep arangoimport` → nothing.
-  `recorder/storage/local/linux/recorder.py:57-66` `record()` `json.dumps` ALL entries into ONE
-  terminal `TensorRecord` — NOT because blob-per-snapshot is the intended shape, but because the
-  bulk-import back half doesn't exist, so `record()` had to terminate *somewhere*. The blob is a
-  SYMPTOM of the missing stage, not a wrong design choice. **DO NOT "fix" it by writing
-  one-document-per-file in a loop — that rebuilds the one-at-a-time slowness Indaleko's batch
-  model exists to avoid.**
+- **The BUG, named precisely (Tony 2026-06-15):** a TRANSIENT staging artifact got PROMOTED to a
+  PERSISTENT record. Indaleko's staging JSON files were always EPHEMERAL/transient — the input to
+  `arangoimport`, deleted after. `record()` `json.dumps` ALL entries into one terminal
+  `TensorRecord` (`recorder/.../recorder.py:57-66`), mistaking the transient staging shape for a
+  terminal store shape and collapsing the two-stage batch pipeline into one stage pointed at the
+  tensor store. **SCALE PROOF this was never viable: the Objects-collection staging JSON was ~140GB
+  GZIPPED (>1TB uncompressed); the same data in ArangoDB was ~35GB.** `json.dumps(all_entries)`
+  builds that >1TB string in Python memory inside one tensor → OOM-dies, doesn't "get slow." The
+  single-tensor model only works at toy scale. **DO NOT "fix" it by per-record write loops either —
+  that rebuilds the one-at-a-time slowness the batch model exists to avoid.**
 - **Three regimes (Tony) need different write-paths, same build surface (wranglers):**
   (1) COLD-START / full load → recorder→file→`arangoimport` (throughput-first; the OOBE-fast
   path that does NOT exist yet). (2) INCREMENTAL (the steady-state baseline; deltas, lighter
@@ -82,12 +85,14 @@ precisely to make the OOBE FAST. yanantin ported the FRONT half, not the back ha
   tenants stand on. (Largely a verification + small-gap task, not a build.)
 
 **Front A — file tenant (collectors+wranglers real; batch back-half + DB + pruning unbuilt):**
-- A1. **Port the uniform storage object (#17)** — the per-document row shape (4 named-UUID
-  timestamps, open `semantic_attributes` lane, raw blob retained). Turns the red bar green.
-  This is the shape the bulk import fans out INTO. GATING ARTIFACT for cross-silo `when`.
-- A2. **Build the batch back-half: recorder→file→`arangoimport` fan-out** into one #17 document
-  per file. This is the OOBE-fast cold-start path. The blob-tensor `record()` is RETIRED here,
-  but NOT by per-record loops — by bulk import. (Then the incremental + live paths as regimes 2/3.)
+- A1. **Port the uniform storage object (#17)** — the ARANGO-RESIDENT document shape (4 named-UUID
+  timestamps, open `semantic_attributes` lane, raw blob retained). NOTE: #17 is the ~35GB TYPED
+  document form, NOT the ~140GB-gzipped staging-JSON form — the JSON is a fatter transient
+  projection that deserializes INTO the #17 document on import. Turns the red bar green. GATING.
+- A2. **Port the batch back-half Indaleko already had: recorder→EPHEMERAL staging file→
+  `arangoimport`** fanning out one #17 document per file. The staging file is TRANSIENT (delete
+  after import). This is the OOBE-fast cold-start path. The blob-tensor `record()` is RETIRED —
+  NOT by per-record loops, by bulk import. (Then incremental + live paths as regimes 2/3.)
 - A3. Stand up the file tenant as an actual database (the `arangoimport` target = its own DB).
 - A4. Runtime temporal pruning over the file tenant (the anti-RAG strand made real).
 - (A5. Close the synthetic-twin gaps #25 — needed for trustworthy eval, parallel to A1–A4.)

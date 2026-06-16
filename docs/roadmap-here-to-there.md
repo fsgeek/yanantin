@@ -42,24 +42,34 @@ substantially exists, so this is not aspirational.
   (`test_single_principal_accretion.py`, commit da34519a) — `authorship_verified` defaults
   False, no yanantin path may set it True. Structure HELD, enforcement deferred.
 
-### Front A — file tenant — ONLY THE COLLECTORS ARE REAL; EVERYTHING DOWNSTREAM IS UNBUILT OR ANTI-BUILT
-*(Tony's correction 2026-06-15: "everything downstream from the machine config isn't real yet."
-Verified — and it's worse than "absent": the recorder that exists writes the WRONG shape.)*
-- **Collectors are real** (produce snapshots/listings). But their DESTINATION is not.
-- **The recorder ANTI-PATTERN:** `recorder/storage/local/linux/recorder.py:40-79` `record()`
-  takes a whole `FilesystemSnapshot` and `json.dumps` ALL entries into ONE strand of ONE
-  `TensorRecord` (`entries_json`, lines 57-66). At 28.5M files this is **one tensor holding a
-  28.5M-entry JSON blob** — un-findable, un-prunable, un-addressable. It is `find /` in a
-  database costume: the EXACT disease the project exists to cure. The recorder must be
-  REPLACED, not extended.
-- **No Indaleko corpus is loaded. No loader exists.** No "index the 28.5M" step. The file
-  tenant is NOT a queryable database.
+### Front A — file tenant — COLLECTORS REAL; the batch pipeline's BACK HALF is MISSING (not anti-built — HALF-built)
+*(Tony's correction 2026-06-15, then a second correction: this is NOT "the recorder writes the
+wrong final shape." It is "Indaleko's batch model was never fully ported." Indaleko's path is
+collector→file → recorder→file → **`arangoimport` fans out into one queryable doc per file**.
+One-at-a-time DB writes are fatally slow at millions of entries — the batch/bulk model exists
+precisely to make the OOBE FAST. yanantin ported the FRONT half, not the back half.)*
+- **Collectors real; wranglers real.** `collector/wranglers.py` = the collector→recorder
+  decouple (Direct/Batch/Queued). This is the build-path simplifier that keeps new tools cheap
+  — the dynamic-extensibility requirement. SOUND, matches intent.
+- **The MISSING STAGE:** there is NO recorder→DB fan-out. `grep arangoimport` → nothing.
+  `recorder/storage/local/linux/recorder.py:57-66` `record()` `json.dumps` ALL entries into ONE
+  terminal `TensorRecord` — NOT because blob-per-snapshot is the intended shape, but because the
+  bulk-import back half doesn't exist, so `record()` had to terminate *somewhere*. The blob is a
+  SYMPTOM of the missing stage, not a wrong design choice. **DO NOT "fix" it by writing
+  one-document-per-file in a loop — that rebuilds the one-at-a-time slowness Indaleko's batch
+  model exists to avoid.**
+- **Three regimes (Tony) need different write-paths, same build surface (wranglers):**
+  (1) COLD-START / full load → recorder→file→`arangoimport` (throughput-first; the OOBE-fast
+  path that does NOT exist yet). (2) INCREMENTAL (the steady-state baseline; deltas, lighter
+  path may be per-record). (3) LIVE/MONITORED (a monitoring service feeds changed files into
+  the incremental path).
+- **No Indaleko corpus is loaded.** The file tenant is NOT a queryable database yet.
 - **Uniform storage object (#17): ABSENT** — `collector/storage_object.py` does not exist
-  (orphan `.pyc` only); `tests/red_bar/test_uniform_storage_object.py` is HONESTLY RED.
-  **Crucially: #17 is not an upstream prerequisite OF the recorder — #17 is WHAT THE RECORDER
-  SHOULD EMIT (one queryable record per file, not a blob per snapshot).** Porting the storage
-  object and fixing the recorder are the SAME stone. Without it, cross-silo temporal join is
-  STRUCTURALLY IMPOSSIBLE (filesystem `modified` and Dropbox `modified_time` never join).
+  (orphan `.pyc`); `tests/red_bar/test_uniform_storage_object.py` HONESTLY RED. **#17 is the
+  PER-DOCUMENT ROW SHAPE that `arangoimport` fans out INTO** — not "what record() emits one at a
+  time." Same stone, correctly placed in a BATCH pipeline, not a streaming one. Without it,
+  cross-silo temporal join is STRUCTURALLY IMPOSSIBLE (filesystem `modified` and Dropbox
+  `modified_time` never join).
 - Collectors: 4/6 have synthetic twins; **openrouter and machine_config MISSING twins** (#25).
 - Temporal: facts carry UTC timestamps; DuckDB has `(provider_id, timestamp)` index +
   `query_range`/`query_latest`. **Pruning is DESIGNED (comments) but not runtime.** And it's
@@ -71,15 +81,14 @@ Verified — and it's worse than "absent": the recorder that exists writes the W
 - S1. Confirm the access hook + `ProvenanceEdge` + open-record scoping are the floor both
   tenants stand on. (Largely a verification + small-gap task, not a build.)
 
-**Front A — file tenant (the whole leg is unbuilt; only collectors are real):**
-- A1. **Port the uniform storage object (#17) AND replace the blob-recorder — same stone.**
-  The storage object (4 named-UUID timestamps, open `semantic_attributes` lane, raw blob
-  retained) is WHAT `record()` SHOULD EMIT: one queryable record per file, not one JSON blob
-  per snapshot. Turning the #17 red bar green and killing the `entries_json` anti-pattern
-  (`recorder/storage/local/linux/recorder.py:57-66`) are the same task. GATING ARTIFACT.
-- A2. Normalize ≥2 collectors (filesystem + one cloud) to the storage object → prove the
-  cross-silo temporal join works on real shapes.
-- A3. Stand up the file tenant as an actual database (loader OR live-collect into its own DB).
+**Front A — file tenant (collectors+wranglers real; batch back-half + DB + pruning unbuilt):**
+- A1. **Port the uniform storage object (#17)** — the per-document row shape (4 named-UUID
+  timestamps, open `semantic_attributes` lane, raw blob retained). Turns the red bar green.
+  This is the shape the bulk import fans out INTO. GATING ARTIFACT for cross-silo `when`.
+- A2. **Build the batch back-half: recorder→file→`arangoimport` fan-out** into one #17 document
+  per file. This is the OOBE-fast cold-start path. The blob-tensor `record()` is RETIRED here,
+  but NOT by per-record loops — by bulk import. (Then the incremental + live paths as regimes 2/3.)
+- A3. Stand up the file tenant as an actual database (the `arangoimport` target = its own DB).
 - A4. Runtime temporal pruning over the file tenant (the anti-RAG strand made real).
 - (A5. Close the synthetic-twin gaps #25 — needed for trustworthy eval, parallel to A1–A4.)
 

@@ -128,19 +128,40 @@ is one scan, "linux-local only" is a `FILTER`. North star intact.
    `Objects` vertical first *produces* this primitive as a byproduct — so the concrete-first and
    flat-primitive options were never orthogonal.)
 
-2. **The registrar tree (who registers with whom) is CODE for C0 — a single-tenant-spine simplification
-   with a KNOWN EXPIRY.** The interior nodes / collapse points are the substrate's deliberate, stable
-   logical model, defined in core code; leaf providers register as data. Tony's honesty test: moving a
-   collapse seam needs a data migration *regardless* of whether the tree is code or data, so code is the
-   more honest default — it does not pretend the seam is cheap to move. **Recorded pushback (Claude, not
-   withdrawn):** this is right for the single-tenant spine, but it has an expiry. The north-star customer
-   is the *AI-instance-as-tenant*; the day a second tenant needs to shape *its own* collapse topology,
-   "tree is code" means a tenant cannot reorganize its logical model without a core redeploy — the
-   cross-tenant seam re-broken. At that point the topology becomes **data** (queryable/movable per
-   tenant), which is a design change *plus* the unavoidable migration, deliberately deferred — NOT a
-   property we believe is permanent. Flagged so the crossing is visible when it comes. (If "it becomes
-   data at the multi-tenant seam" mis-models how tenants work, that is the load-bearing assumption to
-   correct.)
+2. **The registrar tree (who registers with whom) is CODE.** The interior nodes / collapse points are
+   the substrate's deliberate, stable logical model, defined in core code; leaf providers register as
+   data. Tony's honesty test: moving a collapse seam needs a data migration *regardless* of whether the
+   tree is code or data, so code is the more honest default — it does not pretend the seam is cheap to
+   move. **A speculative "expiry" was floated (topology becomes per-tenant data when a tenant reshapes
+   its own collapse) and then WITHDRAWN — on the wrong axis and wrong on its own terms.** Wrong on its
+   own terms: re-shaping topology into a *new shape* changes the tree-walking code regardless of
+   data-vs-code (data-driven only buys you re-*parameterizing* an existing shape, not introducing a new
+   one — and the realistic divergence is new shapes). Wrong axis: the real multi-tenant pressure is NOT
+   tenants reshaping topology — it is that the storage object space is *shared* across tenants (see the
+   StandardDatabase section). Tree-as-code stands without the asterisk.
+
+## The hard physical boundary: stacking lives inside ONE StandardDatabase (Tony, 2026-06-16)
+
+The registrar/stacking model is bounded by a database fact, not a design preference: **ArangoDB native
+edges cannot span StandardDatabase objects.** The apacheta backend's whole graph story —
+`CompositionEdge`, `ProvenanceEdge`, llika composition edges, lineage traversal, the epistemic graph —
+is intra-database and load-bearing. So:
+
+- **The registrar tree, its collapse, and the shared `Objects` space all operate WITHIN one
+  StandardDatabase.** Edges work there; `Objects` is traversable there. The spec's stacking model is
+  correct *for that space* and assumes it.
+- **The storage object space is COMMON-TENANT-ACCESS by design.** AI instances and humans both reach
+  the *same* object space — it is shared, NOT per-tenant-isolated. This is a different regime from #13's
+  per-instance isolation, which is for *private* spaces (continuity notes, an instance's own memory).
+  Two regimes coexist: one shared traversable object space, and per-tenant private spaces.
+- **Cross-tenant / cross-database relationships are FOREIGN KEYS, not edges** — store the target id as a
+  field, resolve by application-level lookup, gated by Pukara as an authz decision (the cross-tenant
+  seam: "a foreign key whose JOIN is an authz decision"). They live ABOVE the registrar (the routing
+  seam, OPEN ITEM 1), never inside it. **The registrar never tries to span databases — it physically
+  can't, and must not pretend to.**
+- **Status today:** the code runs effectively one database (`apacheta` / `apacheta_test` are env tiers,
+  not tenants — never related to each other). Per-tenant StandardDatabases and cross-database foreign
+  keys are designed-not-built. C0 builds on the single-database reality and is correct under it.
 
 ## Components
 
@@ -256,10 +277,12 @@ Test/builder separation enforced by CI; the red-bar floor must actually RUN thes
    (capabilities/handles Pukara routes on). Its own brainstorm, Tony driving. C0 builds on ONE
    StandardDatabase and is INDEPENDENT of how this resolves.
 
-2. **Topology-as-data at the multi-tenant seam** — the registrar tree is CODE for C0 (single-tenant
-   spine). The recorded-pushback expiry: when a second tenant needs to shape its own collapse
-   topology, the tree becomes per-tenant DATA. Deferred deliberately, flagged so the crossing is
-   visible; not built now, not believed permanent.
+2. **The shared object space vs cross-database foreign keys** — the storage object space is
+   common-tenant-access (shared, one StandardDatabase, traversable). Per-tenant private spaces are
+   isolated (#13). A relationship crossing that boundary is a Pukara-gated foreign key, NOT an edge
+   (ArangoDB can't span databases). How the shared space is physically sited relative to per-tenant
+   DBs, and how foreign keys resolve across them, is the routing seam's harder half — designed, not
+   built. C0 builds the single-database registrar; this is the layer above it.
 
 3. **Convergence of the `_SEMANTIC_COLLECTIONS` tuples onto registration** — the apacheta + activity
    backends' static lists become registered providers/registrars. This is A1 / downstream, NOT C0.

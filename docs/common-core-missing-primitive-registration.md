@@ -62,6 +62,19 @@ Building A1 before registration deepens the shoehorn.** Corrected order:
   Indaleko design: ONE static config collection (the registration manifest) + a mechanism that
   reads it and dynamically constructs collections / schemas / indices / views. This is a PORT, not
   an invention — Tony already designed and validated it in Indaleko.
+  - **DESIGN SOURCE (read it, don't re-derive): `~/projects/indaleko/utils/registration_service.py`**
+    (16KB, dated 2025-08, the most legible form the design exists in — decisions already made).
+    `IndalekoRegistrationService` holds a **provider collection** (= the "one static config
+    collection") and exposes the exact missing primitive:
+    `create_provider_collection(identifier, schema=, edge=, indices=, reset=)` — registers a new
+    collection WITH its schema, edge-ness, and indices in ONE call. Plus
+    `generate_provider_collection_name(identifier)` (dynamic naming, no collisions) and a QUERYABLE
+    registry (`lookup_provider_by_identifier`/`by_name`, `get_provider_list`). The C0 port replaces
+    yanantin's two `_SEMANTIC_COLLECTIONS` tuples with registration into a provider collection.
+  - **Legibility note (Tony):** the intent is NOT trapped in Tony's head — half of it is this file,
+    fully made in code (which can't hand-wave the way prose does). What was missing was the
+    POINTER (the link "yanantin's missing primitive = this Indaleko file"), which lived only in
+    Tony's head. That pointer is now in ink here — the cheap fix to the legibility gap.
 - Then **A1 (#17) REGISTERS itself** (collection + schema + indices) instead of hand-appending.
 - Then the **activity fork converges back** (registers instead of its own `_SEMANTIC_COLLECTIONS`
   tuple), and new spaces (machine-config, file-records) cost a registration CALL, not a backend

@@ -163,6 +163,42 @@ is intra-database and load-bearing. So:
   not tenants — never related to each other). Per-tenant StandardDatabases and cross-database foreign
   keys are designed-not-built. C0 builds on the single-database reality and is correct under it.
 
+### The isolation posture — registration is per-StandardDatabase; build for N, run 1, TEST BOTH (Tony, 2026-06-16)
+
+Three models were reasoned through (NOT three options to merge — Tony was working out what makes sense):
+
+1. **Per-StandardDatabase isolation (the multi-tenant case).** Each AI entity gets its OWN
+   StandardDatabase for private data; the storage-object StandardDatabase is the *de facto* global
+   shared commons everyone reaches. Communal/group-shared spaces are just more StandardDatabases later —
+   the stacking model covers them unchanged (a group space is structurally identical to the shared object
+   space: many registrants, one owned collection, within one StandardDatabase). **This is the structure.**
+2. **Per-object ACLs (REJECTED — theater).** One database, every document carries an ACL, check before
+   surfacing. Rejected because it is positive-permission enforced at *read time*: every query path is a
+   place the check can be forgotten, and a forgotten check fails *OPEN* (data surfaces). The safe path
+   requires remembering to add a clause; the unsafe path is just writing a normal query — so the default
+   is disclosure. That is the security-erosion mechanism by construction; "we're pretending to have
+   security and information-disclosure likelihood is very high" (Tony).
+3. **Ayllu posture ON TOP of the structure (the chosen default).** Run a SINGLE StandardDatabase in the
+   normal case and trust kin to respect each other — BUT this is *deferring the USE of isolation, not its
+   EXISTENCE*. **The system supports multiple StandardDatabase instances and simply maintains one in the
+   normal case.** The wall is real and there to grant across (ayllu lives at the *crossing* — a
+   Pukara-gated foreign key you trust kin with — not at the *absence* of a wall). This is what keeps (3)
+   honest rather than "we pinky-swear": isolation is a validated, chosen-not-deployed capability, not an
+   unvalidated claim.
+
+**Registration is therefore PER-StandardDatabase:** each StandardDatabase has its own registrar tree;
+"what exists here" is scoped to the same boundary that scopes "who can see it" — the registrar boundary
+and the privacy boundary are the *same* boundary. The registrar is identical whether there is one
+StandardDatabase or fifty; it operates within its own.
+
+**TEST DISCIPLINE (the red bar that makes (3) honest — and a general project rule Tony stated here):**
+test code MUST validate correct behavior for BOTH the single-database configuration (the normal case)
+AND the multi-database case. Concretely for the registrar: every registrar test runs twice — once
+single-DB, once with two StandardDatabases where a registrant in DB-A is **invisible** to a query against
+DB-B (proves the structural boundary is real, not asserted). If the two-DB test is green, isolation is
+not theater; if it is red, we do not get to claim isolation. (Stronger test, never an error: it can only
+confirm isolation works or reveal it doesn't.)
+
 ## Components
 
 ### `core/registration` — the registrar
@@ -261,6 +297,12 @@ Per the no-mock-databases rule, tested against the live `apacheta_test` DB:
    field returns just linux's; (d) both platforms' extra fields survived (lossless collapse — proves
    `extra="allow"` is what makes stacking work). This test is the spec's claim that `Objects` is
    reproducible; if it's red, the stacking model is wrong, not the test.
+8. **Two-database isolation (the red bar that makes the ayllu posture honest):** every registrar test
+   runs in BOTH configurations — single-StandardDatabase (normal case) AND two StandardDatabases. In the
+   two-DB case, register a registrant in DB-A, then query DB-B → it is **invisible** (the structural
+   boundary holds, fail-closed). Green ⇒ isolation is a validated capability we chose not to deploy; red
+   ⇒ we do not get to claim isolation. This is the test that distinguishes "build for N, run 1" from
+   "pinky-swear."
 
 Test/builder separation enforced by CI; the red-bar floor must actually RUN these.
 

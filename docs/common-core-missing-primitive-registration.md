@@ -80,6 +80,26 @@ Building A1 before registration deepens the shoehorn.** Corrected order:
   tuple), and new spaces (machine-config, file-records) cost a registration CALL, not a backend
   edit ×3. THIS is the "fundamentally dynamically extensible" system being actually dynamic.
 
+## Registration is a dependency-free LEAF — buildable NOW, gated on nothing (Tony, 2026-06-16)
+
+Registration belongs in core, has NO dependencies on anything else, and so can be built whenever.
+VERIFIED against code:
+- `infra/config.py` imports nothing from `yanantin` (only `arango` + stdlib) — the DB singleton
+  `get_database()` is itself a clean leaf. The leaf rests on a leaf.
+- Indaleko's `registration_service.py` depends only on its collection abstraction (`db`) + a
+  singleton + stdlib. Translated to yanantin: `infra/config.get_database()` + ArangoDB's native
+  collection API. **No models, no interface, no tensors, no tenants, no awaq, no machine** — none
+  of the session's OPEN questions (machine's slot, awaq's function, the StandardDatabase-routing
+  seam, the salvage sequence) touch it. They all sit ABOVE registration.
+
+**Therefore registration is THE FIRST POUR** — not because the open questions are resolved, but
+because they don't gate it (the same simple-first discipline as the cross-tenant seam and the
+(3)-independent-of-(1)/(2) cut, found at the one place with nothing left to wait for). It is also
+the ROOT of the critical path (it unblocks A1 → activity tenant → find loop), AND testable in
+isolation against a live DB, no mocks: `create_provider_collection(id, schema, indices)` → assert
+the collection exists with that schema + indices → green. This ends the "starved of pourable
+concrete" stall: registration is the one piece gated on nothing.
+
 ## Drift-guard
 
 Do not build A1 / new collections by editing `_SEMANTIC_COLLECTIONS`. That is the shoehorn. The

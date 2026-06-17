@@ -222,3 +222,54 @@ class Registrar:
         _id, _rev) — contributions are data, not driver bookkeeping."""
         readable = self._obfuscator.deobfuscate_document(doc)
         return {k: v for k, v in readable.items() if not k.startswith("_")}
+
+
+BASE_REGISTRANT_CATALOG = "core_registrants"
+"""Semantic name of the base catalog. A constant IN CODE only — it reaches
+storage solely through obfuscator.collection_name(), so the per-installation
+opaque name is the only anchor at rest (no persisted service-UUID; the threat
+model is third-party-custodian compromise, see the design doc)."""
+
+
+class RegistrationService:
+    """The Indaleko get_provider_list() seam: owns the well-known base-catalog
+    name so callers (the CLI, future tools) never speak a collection name.
+
+    Minus Indaleko's persisted service_uuid — yanantin persists no service
+    identity; the opaque base-catalog name is the per-installation anchor.
+    """
+
+    def __init__(
+        self,
+        db: StandardDatabase,
+        obfuscator: StorageObfuscator | None = None,
+    ) -> None:
+        self.base_registrar = Registrar(
+            db=db,
+            catalog_collection=BASE_REGISTRANT_CATALOG,
+            name="core registration service",
+            description="the base registrant catalog",
+            obfuscator=obfuscator,
+        )
+
+    def get_registrant_list(self) -> list[RegistrantRecord]:
+        """Every registrant in the base catalog (the get_provider_list verb)."""
+        return self.base_registrar.list_registrants()
+
+    def lookup_by_identifier(self, registrant_id: UUID) -> RegistrantRecord | None:
+        return self.base_registrar.lookup_by_identifier(registrant_id)
+
+    def lookup_by_name(self, name: str) -> RegistrantRecord | None:
+        """First registrant whose name matches, or None. Names are values
+        (unobfuscated), so this is a cheap match over the listed records —
+        the verb a human inspector wants (names, not UUIDs)."""
+        for r in self.get_registrant_list():
+            if r.registrant_name == name:
+                return r
+        return None
+
+    def contribution_count(self, registrant_id: UUID) -> int:
+        """How many data records this registrant owns in the base registrar's
+        owned collection. The one place v1 touches the data path — a count
+        column for the inspector, not a dump."""
+        return len(self.base_registrar.list_contributions(registrant_id))

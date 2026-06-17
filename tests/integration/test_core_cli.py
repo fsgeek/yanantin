@@ -69,3 +69,12 @@ def test_show_unknown_id_exits_nonzero(populated_service):
     with pytest.raises(SystemExit) as exc:
         main(["show", str(uuid.uuid4())], service=svc)
     assert exc.value.code == 1
+
+
+def test_show_unknown_id_json_emits_json_error_on_stdout(populated_service, capsys):
+    svc, _ = populated_service
+    with pytest.raises(SystemExit) as exc:
+        main(["--json", "show", str(uuid.uuid4())], service=svc)
+    assert exc.value.code == 1
+    payload = json.loads(capsys.readouterr().out)
+    assert "error" in payload

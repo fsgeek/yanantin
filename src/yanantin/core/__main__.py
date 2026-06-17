@@ -50,7 +50,11 @@ def _cmd_list(svc: RegistrationService, args: argparse.Namespace) -> None:
 def _cmd_show(svc: RegistrationService, args: argparse.Namespace) -> None:
     rec = svc.lookup_by_identifier(UUID(args.uuid))
     if rec is None:
-        print(f"no registrant with id {args.uuid}", file=sys.stderr)
+        msg = f"no registrant with id {args.uuid}"
+        if args.json:
+            print(json.dumps({"error": msg}))
+        else:
+            print(msg, file=sys.stderr)
         sys.exit(1)
     row = _row(rec, svc.contribution_count(rec.registrant_id))
     if args.json:

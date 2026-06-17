@@ -1,3 +1,14 @@
+> # ⛔ SUPERSEDED — DO NOT EXECUTE
+> This draft was written BEFORE the collector/recorder migration was finished. It
+> mints new `SourceRecord`/`StorageObject` shapes and a `recorder/linux_storage.py`
+> that COLLIDES with the existing `recorder/` package — the exact "add a 4th
+> similar-but-different shape" landmine Tony caught (2026-06-17). Phase 1 cleanup is
+> now done (one canonical stack). **Re-plan Phase 2 against the CLEAN stack** using
+> the spec `docs/superpowers/specs/2026-06-17-recorder-collection-mapping.md` and the
+> Indaleko leaf decomposition. Kept only as a record of the premature attempt.
+
+---
+
 # Recorder → Collection Mapping Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.

@@ -5,13 +5,12 @@ import uuid
 
 import pytest
 
+from tests.integration._obfuscators import PrefixObfuscator
 from yanantin.core.__main__ import main
 from yanantin.core.registration import BASE_REGISTRANT_CATALOG, RegistrationService
 from yanantin.infra.config import ApachetaDBConfig, get_database
 
 pytestmark = pytest.mark.integration
-
-from tests.integration._obfuscators import PrefixObfuscator
 
 
 @pytest.fixture
@@ -63,3 +62,10 @@ def test_show_prints_full_record(populated_service, capsys):
     out = capsys.readouterr().out
     assert "linux-local-fs" in out
     assert "local fs provider" in out
+
+
+def test_show_unknown_id_exits_nonzero(populated_service):
+    svc, _ = populated_service
+    with pytest.raises(SystemExit) as exc:
+        main(["show", str(uuid.uuid4())], service=svc)
+    assert exc.value.code == 1

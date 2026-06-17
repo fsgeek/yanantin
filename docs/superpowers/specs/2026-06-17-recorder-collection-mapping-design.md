@@ -146,7 +146,9 @@ shape now (below) IS the escape hatch for that future.
 The collection mapping is a **declared property carried in the registration record's
 open tail** — `extra="allow"` is already there for exactly this. No parallel
 registration stack (the author's posited stack was the registration/mapping
-conflation again); no separate mapping service (a redundant second lookup).
+conflation again); no separate mapping service (a redundant second lookup); **no
+registrar change** (it already stores and returns open-tail extra; it never reads
+`contributes_to`).
 
 A recorder registers with a `contributes_to` property: a list of targets, each
 shaped roughly:
@@ -162,27 +164,45 @@ contributes_to: [
   `{Objects, doc}` and `{Relationships, edge}` (Case 2).
 - **Semantic transducer** registers with one `dynamic` target (Case 3).
 
-The registrar already ensures collections exist (`_ensure_collection` + obfuscator)
-and the CLI inspector already reads the open tail — so the mapping becomes **visible
-through `python -m yanantin.core` immediately**, no new read path.
+### The registrar treats `contributes_to` as OPAQUE (Tony's correction)
 
-### The one coding-level branch: well_known attaches, dynamic mints (Tony's joint)
+Critical decomposition, and a place this author re-made the very conflation the spec
+disentangles — one layer down. **The registrar does NOT parse, interpret, or act on
+`contributes_to`.** It is open-tail extra: `extra="allow"` stores it and returns the
+same-shaped object on lookup, knowing nothing about what it means. `contributes_to`
+is a **self-description the recorder authors about itself and later reads back** — the
+catalog (and the CLI, and find) can *see* the mapping, but the *acting* on it belongs
+entirely to the recorder. The registrar is a dumb, faithful store of a fact the
+recorder authored. This is what "registration ≠ mapping" actually demands; giving the
+registrar a `well_known`/`dynamic` branch would hand the mapping *behavior* back to
+registration, undoing the separation. (No registrar change is needed at all — it
+already stores extra and returns it.)
 
-`naming` selects the coding-level behaviour — ONE mechanism, two branches, not two
-architectures:
+The CLI inspector already reads the open tail, so the mapping is **visible through
+`python -m yanantin.core` immediately**, no new read path.
 
-- **`well_known`** → **attach to the registrar that owns this collection.** `Objects`
-  is owned ONCE by a storage-object registrar; linux-local and windows-local recorders
-  both *attach* (this is precisely the C0 stacking diagram:
-  `storage-object registrar owns Objects; platform recorders register with it`). No
-  race to create; the registrar owns it.
-- **`dynamic`** → **mint your own** (`{prefix}{uuid}`), the own-a-collection degenerate
-  case the C0 spec already names.
+### The coding-level branch lives in the RECORDER: well_known attaches, dynamic mints
+
+`naming` selects the **recorder's** coding-level behaviour — ONE mechanism, two
+branches, not two architectures, and NOT the registrar's job:
+
+- **`well_known`** → the recorder **writes through the collection owned by a
+  storage-object registrar.** `Objects` is created ONCE (the registrar that owns it
+  created it via its existing `_ensure_collection` + obfuscator); linux-local and
+  windows-local recorders both write through that same owned collection (the C0
+  stacking diagram: `storage-object registrar owns Objects; platform recorders write
+  into it`). "Owning" here means "created the collection and holds the handle the
+  recorders write through" — coordination by shared collection ownership, NOT the
+  registrar interpreting anything. The recorder is handed / looks up the owning
+  registrar's handle; resolving that handle is an implementation-plan detail.
+- **`dynamic`** → the recorder **mints its own** collection (`{prefix}{uuid}`), the
+  own-a-collection degenerate case the C0 spec already names.
 
 Capturing `kind` and `naming` in the stored shape is the escape hatch: a future change
 (e.g. promoting `own → shared`, or view-as-schema) has a joint to grab without us
 building that future now. Same move as `extra="allow"` — keep the shape, defer the
-policy.
+policy. The shape is stored opaquely by the registrar; only the recorder reads it as
+behaviour.
 
 ## Scope of THIS pour
 
@@ -219,9 +239,10 @@ synthetic) collector data, and is the wake-note's stated next pour
 ## Error handling
 
 Fail-stop, inherited from `core.Registrar`: no storage ⇒ raise, never a false-empty.
-A `well_known` target whose owning registrar does not exist is an error (you cannot
-attach to a collection nobody owns), not a silent mint — the mint path is `dynamic`
-only, chosen explicitly.
+**The recorder** (not the registrar) enforces the mapping: a `well_known` target whose
+owning registrar/collection does not exist is an error the recorder raises (you cannot
+write through a collection nobody owns), not a silent mint — the mint path is `dynamic`
+only, chosen explicitly. The registrar stays opaque to all of this.
 
 ## Testing (green vs live `apacheta_test`, no mocks; dual-DB where the registrar is)
 
@@ -246,8 +267,11 @@ only, chosen explicitly.
    produce schema-valid StorageObjects in `Objects` (gh #27 honoured).
 7. **End-to-end visibility:** after recording, `python -m yanantin.core` lists the
    registrant, shows its `contributes_to`, and reports a non-zero contribution count.
-8. **Fail-stop:** `well_known` target with no owning registrar raises; unreachable
-   store raises (no false-empty, no silent mint).
+8. **Fail-stop:** the recorder raises on a `well_known` target with no owning
+   collection (no silent mint); unreachable store raises (no false-empty). The
+   registrar itself never inspects `contributes_to` — a test asserts it round-trips
+   `contributes_to` unchanged as opaque extra (proves the separation: the registrar
+   stores the mapping without interpreting it).
 
 Test/builder separation enforced by CI; red-bar floor must actually RUN. Stronger
 tests are never an error.

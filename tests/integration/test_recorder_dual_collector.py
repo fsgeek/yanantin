@@ -60,17 +60,24 @@ def interface():
         username=creds["username"],
         password=creds["password"],
     )
-    created: list = []
-    be._created_tensor_ids = created  # test records ids it must clean up
     try:
         yield be
     finally:
-        for tid in created:
-            try:
-                be._db.collection("tensors").delete(str(tid))
-            except Exception:  # noqa: BLE001 — best-effort surgical cleanup
-                pass
         be.close()
+
+
+@pytest.fixture
+def created_tensor_ids(interface):
+    """Ids the test created; surgically deleted on teardown. apacheta_test's
+    `tensors` collection is shared, so truncation would be collateral damage —
+    delete only what this test wrote, by id."""
+    created: list = []
+    yield created
+    for tid in created:
+        try:
+            interface._db.collection("tensors").delete(str(tid))
+        except Exception:  # noqa: BLE001 — best-effort surgical cleanup
+            pass
 
 
 @pytest.fixture
@@ -85,7 +92,7 @@ def tmp_tree(tmp_path: Path) -> Path:
     return tmp_path
 
 
-def _record_both(interface, tmp_tree):
+def _record_both(interface, tmp_tree, created_tensor_ids):
     """Build two envelopes from two collectors, record both through ONE
     recorder instance, return the round-tripped tensors and the collectors."""
     real = LinuxFilesystemCollector(Path(tmp_tree))  # MUST be Path (.resolve())
@@ -97,17 +104,17 @@ def _record_both(interface, tmp_tree):
 
     tid_r = rec.record(env_r)
     tid_s = rec.record(env_s)
-    interface._created_tensor_ids.extend([tid_r, tid_s])
+    created_tensor_ids.extend([tid_r, tid_s])
 
     tr = interface.get_tensor(tid_r)
     ts = interface.get_tensor(tid_s)
     return rec, real, syn, env_r, env_s, tid_r, tid_s, tr, ts
 
 
-def test_both_sources_store_and_return_uuid(interface, tmp_tree):
+def test_both_sources_store_and_return_uuid(interface, tmp_tree, created_tensor_ids):
     """Both sources record successfully and round-trip: distinct UUIDs,
     both retrievable from live storage (no NotFoundError)."""
-    _, _, _, _, _, tid_r, tid_s, tr, ts = _record_both(interface, tmp_tree)
+    _, _, _, _, _, tid_r, tid_s, tr, ts = _record_both(interface, tmp_tree, created_tensor_ids)
 
     assert tid_r != tid_s
     # get_tensor already succeeded in the helper; reconfirm identity round-trip.
@@ -117,10 +124,10 @@ def test_both_sources_store_and_return_uuid(interface, tmp_tree):
     assert ts.id == tid_s
 
 
-def test_recorder_controlled_fields_are_identical(interface, tmp_tree):
+def test_recorder_controlled_fields_are_identical(interface, tmp_tree, created_tensor_ids):
     """The indistinguishability core: every field the recorder controls is
     identical across the real and synthetic round-tripped tensors."""
-    _, _, _, _, _, _, _, tr, ts = _record_both(interface, tmp_tree)
+    _, _, _, _, _, _, _, tr, ts = _record_both(interface, tmp_tree, created_tensor_ids)
 
     # Strand structure: count, titles, topics.
     assert len(tr.strands) == len(ts.strands) == 2
@@ -145,6 +152,7 @@ def test_recorder_controlled_fields_are_identical(interface, tmp_tree):
 
     # lineage_tags shape: filesystem + snapshot present, exactly one content tag
     # of 16 hex chars, in both.
+    content_hex = []
     for tags in (tr.lineage_tags, ts.lineage_tags):
         assert "filesystem" in tags
         assert "snapshot" in tags
@@ -153,34 +161,40 @@ def test_recorder_controlled_fields_are_identical(interface, tmp_tree):
         hexpart = content_tags[0].split("content:", 1)[1]
         assert len(hexpart) == 16
         int(hexpart, 16)  # raises ValueError if not hex
+        content_hex.append(hexpart)
+
+    # The shared fields are identical; the content tag is data-derived, so the
+    # two sources MUST differ here — closes the seam where "indistinguishable"
+    # could hide a recorder that ignores input entirely.
+    assert content_hex[0] != content_hex[1]
 
 
-def test_provenance_tracks_provider_not_recorder(interface, tmp_tree):
+def test_provenance_tracks_provider_not_recorder(interface, tmp_tree, created_tensor_ids):
     """provenance.source.identifier follows the envelope's provider_id — the
     ONE legitimate per-source delta — while everything else is shared."""
-    _, real, syn, _, _, _, _, tr, ts = _record_both(interface, tmp_tree)
+    _, real, syn, _, _, _, _, tr, ts = _record_both(interface, tmp_tree, created_tensor_ids)
 
     assert tr.provenance.source.identifier == real.get_provider_id()
     assert ts.provenance.source.identifier == syn.get_provider_id()
     assert real.get_provider_id() != syn.get_provider_id()
 
 
-def test_recorder_identity_is_source_independent(interface, tmp_tree):
+def test_recorder_identity_is_source_independent(interface, tmp_tree, created_tensor_ids):
     """The recorder id is an instance attribute, stable across both records,
     and is the deterministic uuid5 — never a function of the source."""
     from uuid import NAMESPACE_DNS, uuid5
 
-    rec, _, _, _, _, _, _, _, _ = _record_both(interface, tmp_tree)
+    rec, _, _, _, _, _, _, _, _ = _record_both(interface, tmp_tree, created_tensor_ids)
 
     expected = uuid5(NAMESPACE_DNS, "yanantin.recorder.filesystem")
     assert rec.get_recorder_id() == expected
 
 
-def test_data_strands_validate_back_to_model_for_both(interface, tmp_tree):
+def test_data_strands_validate_back_to_model_for_both(interface, tmp_tree, created_tensor_ids):
     """The lossless data path is collector-agnostic at the storage round-trip:
     the entries strand's JSON validates back to FileEntryData for BOTH the
     real and synthetic payloads."""
-    _, _, _, _, _, _, _, tr, ts = _record_both(interface, tmp_tree)
+    _, _, _, _, _, _, _, tr, ts = _record_both(interface, tmp_tree, created_tensor_ids)
 
     for tensor in (tr, ts):
         entries = json.loads(tensor.strands[1].content)
@@ -188,11 +202,11 @@ def test_data_strands_validate_back_to_model_for_both(interface, tmp_tree):
         FileEntryData.model_validate(entries[0])
 
 
-def test_content_hashes_differ(interface, tmp_tree):
+def test_content_hashes_differ(interface, tmp_tree, created_tensor_ids):
     """Anti-tautology guard: the two inputs are genuinely different data, so
     leg 2's 'identical structure' is a real interchangeability result rather
     than identical input trivially producing identical output."""
-    _, _, _, env_r, env_s, _, _, _, _ = _record_both(interface, tmp_tree)
+    _, _, _, env_r, env_s, _, _, _, _ = _record_both(interface, tmp_tree, created_tensor_ids)
 
     assert RecorderBase._content_hash(env_r.data) != RecorderBase._content_hash(
         env_s.data

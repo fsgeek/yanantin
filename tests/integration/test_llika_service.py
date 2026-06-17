@@ -356,9 +356,18 @@ def test_neighbors_are_depth_one_only(live_graph: LiveGraph) -> None:
     assert two_hops_away not in _far_ends(neighbors)
 
 
-def test_no_find_or_mutation_surface_and_results_are_frozen(
+def test_find_takes_data_not_code_and_no_mutation_surface_and_results_are_frozen(
     live_graph: LiveGraph,
 ) -> None:
+    # SUPERSESSION (2026-06-17): the old guard was `assert not hasattr(service,
+    # "find")`. That was a NAME-ban standing in for the real rule. The rule
+    # 34672ed6 actually meant was "no caller-supplied EXECUTABLE crosses into
+    # the service" — the retired find took a CALLABLE PREDICATE run during
+    # traversal (eval-shaped: send code as a query). 0032d1e0 added a safe,
+    # data-only `find(terms: str)` that runs server-side and never lets the
+    # caller specify HOW. The name-ban fired on the safe surface while a rename
+    # would have slipped the dangerous one through. Guard the PROPERTY, not the
+    # name: find exists, takes DATA, and rejects code rather than running it.
     service = live_graph.service
     edge = EdgeResult(
         edge_id="edge-id",
@@ -374,7 +383,21 @@ def test_no_find_or_mutation_surface_and_results_are_frozen(
     )
     path = PathResult(start_id="vertices/a", steps=(step,))
 
-    assert not hasattr(service, "find")
+    # find takes DATA: a callable in the terms position must NOT be executed.
+    # If it were ever run, this lambda would import os as a side effect; the
+    # data-only contract means it is treated as a value and rejected instead.
+    executed = False
+
+    def _tripwire():  # pragma: no cover - must never be called
+        nonlocal executed
+        executed = True
+        return "pwned"
+
+    with pytest.raises((AttributeError, TypeError)):
+        service.find(_tripwire)  # type: ignore[arg-type]
+    assert executed is False, "find executed a caller-supplied callable"
+
+    # The mutation surface stays absent (read-only service).
     assert not hasattr(service, "update")
     assert not hasattr(service, "delete")
     with pytest.raises(FrozenInstanceError):

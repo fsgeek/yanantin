@@ -19,9 +19,9 @@ from uuid import UUID
 
 from yanantin.activity.anchor import MemoryAnchorService
 from yanantin.activity.store import ActivityStreamStore
-from yanantin.collector.base import FactRecorderBase
-from yanantin.collector.models import WranglerEnvelope
-from yanantin.collector.wranglers import DirectWrangler
+from yanantin.recorder.base import FactRecorderBase
+from yanantin.transport.models import WranglerEnvelope
+from yanantin.transport.wranglers import DirectWrangler
 
 
 @dataclass(frozen=True)

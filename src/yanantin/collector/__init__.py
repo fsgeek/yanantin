@@ -16,41 +16,33 @@ Usage::
     from yanantin.collector import WranglerEnvelope, ProviderRegistration
 """
 
-from yanantin.collector.base import CollectorBase, FactRecorderBase, RecorderBase, WranglerBase
-from yanantin.collector.checksum import (
-    ChecksumCollector,
-    ChecksumData,
-    ChecksumFactRecorder,
-    ChecksumRecorder,
-    SyntheticChecksumCollector,
-    collect_and_record_checksum,
+from yanantin.collector._collector_base import CollectorBase
+from yanantin.collector._synthetic_base import SyntheticCollectorBase
+from yanantin.collector.activity.linux import (
+    FsChangeEvent,
+    FsEventBatch,
+    FsIncrementalCollector,
+    SyntheticFsEventCollector,
 )
-from yanantin.collector.dropbox import (
+from yanantin.collector.storage.cloud.dropbox import (
     DropboxCollector,
     DropboxEntryData,
     DropboxListing,
-    DropboxRecorder,
     SyntheticDropboxCollector,
-    collect_and_record_dropbox,
 )
-from yanantin.collector.filesystem import (
+from yanantin.collector.storage.local.checksum import (
+    ChecksumCollector,
+    ChecksumData,
+    SyntheticChecksumCollector,
+)
+from yanantin.collector.storage.local.linux import (
     FileEntryData,
-    FilesystemRecorder,
     FilesystemSnapshot,
     FileTimestamps,
     LinuxFilesystemCollector,
     SyntheticFilesystemCollector,
-    collect_and_record_filesystem,
 )
-from yanantin.collector.fs_events import (
-    FsChangeEvent,
-    FsEventBatch,
-    FsEventRecorder,
-    FsIncrementalCollector,
-    SyntheticFsEventCollector,
-    collect_and_record_fs_events,
-)
-from yanantin.collector.machine_config import (
+from yanantin.machine.linux import (
     MachineConfigCollector,
     MachineConfigData,
     MachineConfigRecorder,
@@ -58,9 +50,21 @@ from yanantin.collector.machine_config import (
     collect_machine_config,
     render_machine_config,
 )
-from yanantin.collector.models import ProviderRegistration, WranglerEnvelope
-from yanantin.collector.synthetic import SyntheticCollectorBase
-from yanantin.collector.wranglers import BatchWrangler, DirectWrangler, QueuedWrangler
+from yanantin.recorder.activity.linux import FsEventRecorder, collect_and_record_fs_events
+from yanantin.recorder.base import FactRecorderBase, RecorderBase
+from yanantin.recorder.storage.cloud.dropbox import DropboxRecorder, collect_and_record_dropbox
+from yanantin.recorder.storage.local.checksum import (
+    ChecksumFactRecorder,
+    ChecksumRecorder,
+    collect_and_record_checksum,
+)
+from yanantin.recorder.storage.local.linux import (
+    FilesystemRecorder,
+    collect_and_record_filesystem,
+)
+from yanantin.transport.base import WranglerBase
+from yanantin.transport.models import ProviderRegistration, WranglerEnvelope
+from yanantin.transport.wranglers import BatchWrangler, DirectWrangler, QueuedWrangler
 
 __all__ = [
     "BatchWrangler",

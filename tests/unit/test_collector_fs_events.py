@@ -8,9 +8,9 @@ from pathlib import Path
 
 import pytest
 
-from yanantin.collector.fs_events.collector import FsIncrementalCollector
-from yanantin.collector.fs_events.models import FsChangeEvent, FsEventBatch
-from yanantin.collector.fs_events.synthetic import SyntheticFsEventCollector
+from yanantin.collector.activity.linux.collector import FsIncrementalCollector
+from yanantin.collector.activity.linux.models import FsChangeEvent, FsEventBatch
+from yanantin.collector.activity.linux.synthetic import SyntheticFsEventCollector
 
 
 class TestFsIncrementalCollector:

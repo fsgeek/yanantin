@@ -1,6 +1,6 @@
 """SyntheticCollectorBase — deterministic synthetic data generators.
 
-Private module. Import from yanantin.collector.synthetic (the public shim).
+Private module. Import from yanantin.collector directly.
 """
 
 from __future__ import annotations

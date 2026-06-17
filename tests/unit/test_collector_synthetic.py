@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from yanantin.collector.synthetic import SyntheticCollectorBase
+from yanantin.collector._synthetic_base import SyntheticCollectorBase
 
 
 class TestSyntheticCollectorBase:

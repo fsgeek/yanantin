@@ -13,16 +13,17 @@ from uuid import uuid4
 import pytest
 
 from yanantin.activity.backends.memory import InMemoryActivityStreamStore
-from yanantin.collector.base import FactRecorderBase
-from yanantin.collector.checksum import ChecksumFactRecorder, SyntheticChecksumCollector
-from yanantin.collector.dropbox import SyntheticDropboxCollector
-from yanantin.collector.dropbox.fact_recorder import DropboxFactRecorder
-from yanantin.collector.filesystem import SyntheticFilesystemCollector
-from yanantin.collector.filesystem.fact_recorder import FilesystemFactRecorder
-from yanantin.collector.fs_events import SyntheticFsEventCollector
-from yanantin.collector.fs_events.fact_recorder import FsEventFactRecorder
-from yanantin.collector.models import WranglerEnvelope
-from yanantin.collector.wranglers import DirectWrangler
+from yanantin.recorder.base import FactRecorderBase
+from yanantin.collector.storage.local.checksum import SyntheticChecksumCollector
+from yanantin.recorder.storage.local.checksum import ChecksumFactRecorder
+from yanantin.collector.storage.cloud.dropbox import SyntheticDropboxCollector
+from yanantin.recorder.storage.cloud.dropbox.fact_recorder import DropboxFactRecorder
+from yanantin.collector.storage.local.linux import SyntheticFilesystemCollector
+from yanantin.recorder.storage.local.linux.fact_recorder import FilesystemFactRecorder
+from yanantin.collector.activity.linux import SyntheticFsEventCollector
+from yanantin.recorder.activity.linux.fact_recorder import FsEventFactRecorder
+from yanantin.transport.models import WranglerEnvelope
+from yanantin.transport.wranglers import DirectWrangler
 
 
 # -- Fixtures ----------------------------------------------------------

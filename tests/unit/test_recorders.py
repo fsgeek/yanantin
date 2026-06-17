@@ -21,34 +21,42 @@ from uuid import UUID, uuid4
 import pytest
 
 from yanantin.apacheta.backends.memory import InMemoryBackend
-from yanantin.collector.base import RecorderBase
-from yanantin.collector.checksum import (
+from yanantin.recorder.base import RecorderBase
+from yanantin.collector.storage.local.checksum import (
     ChecksumData,
-    ChecksumRecorder,
     SyntheticChecksumCollector,
+)
+from yanantin.recorder.storage.local.checksum import (
+    ChecksumRecorder,
     collect_and_record_checksum,
 )
-from yanantin.collector.dropbox import (
+from yanantin.collector.storage.cloud.dropbox import (
     DropboxListing,
-    DropboxRecorder,
     SyntheticDropboxCollector,
+)
+from yanantin.recorder.storage.cloud.dropbox import (
+    DropboxRecorder,
     collect_and_record_dropbox,
 )
-from yanantin.collector.filesystem import (
-    FilesystemRecorder,
+from yanantin.collector.storage.local.linux import (
     FilesystemSnapshot,
     SyntheticFilesystemCollector,
+)
+from yanantin.recorder.storage.local.linux import (
+    FilesystemRecorder,
     collect_and_record_filesystem,
 )
-from yanantin.collector.filesystem.models import FileEntryData
-from yanantin.collector.fs_events import (
+from yanantin.collector.storage.local.linux.models import FileEntryData
+from yanantin.collector.activity.linux import (
     FsEventBatch,
-    FsEventRecorder,
     SyntheticFsEventCollector,
+)
+from yanantin.recorder.activity.linux import (
+    FsEventRecorder,
     collect_and_record_fs_events,
 )
-from yanantin.collector.fs_events.models import FsChangeEvent
-from yanantin.collector.models import WranglerEnvelope
+from yanantin.collector.activity.linux.models import FsChangeEvent
+from yanantin.transport.models import WranglerEnvelope
 
 
 # ── Fixtures ─────────────────────────────────────────────────────
@@ -460,7 +468,7 @@ class TestSinceParameter:
         assert len(filtered.entries) <= len(full.entries)
 
     def test_machine_config_ignores_since(self) -> None:
-        from yanantin.collector.machine_config import MachineConfigCollector
+        from yanantin.machine.linux import MachineConfigCollector
 
         collector = MachineConfigCollector()
         data_without = collector.collect()
@@ -481,7 +489,7 @@ class TestSinceParameter:
         assert len(d1.entries) == len(d2.entries)
 
     def test_checksum_ignores_since(self) -> None:
-        from yanantin.collector.checksum import SyntheticChecksumCollector
+        from yanantin.collector.storage.local.checksum import SyntheticChecksumCollector
 
         collector = SyntheticChecksumCollector(seed=42)
         data = collector.collect(since=datetime(2020, 1, 1, tzinfo=timezone.utc))
@@ -493,7 +501,7 @@ class TestSinceParameter:
 
 class TestMachineConfigRecorderContentHash:
     def test_machine_config_recorder_has_content_tag(self) -> None:
-        from yanantin.collector.machine_config import (
+        from yanantin.machine.linux import (
             MachineConfigCollector,
             MachineConfigRecorder,
         )

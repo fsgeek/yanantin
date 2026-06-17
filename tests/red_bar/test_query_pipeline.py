@@ -69,7 +69,7 @@ class TestRecorderIsNotFactRecorderBase:
     """QueryFactRecorder must NOT subclass FactRecorderBase."""
 
     def test_not_a_fact_recorder_base(self):
-        from yanantin.collector.base import FactRecorderBase
+        from yanantin.recorder.base import FactRecorderBase
 
         assert not issubclass(QueryFactRecorder, FactRecorderBase)
 

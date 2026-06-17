@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from yanantin.collector.dropbox.models import DropboxEntryData, DropboxListing
-from yanantin.collector.dropbox.synthetic import SyntheticDropboxCollector
+from yanantin.collector.storage.cloud.dropbox.models import DropboxEntryData, DropboxListing
+from yanantin.collector.storage.cloud.dropbox.synthetic import SyntheticDropboxCollector
 
 
 class TestDropboxModels:

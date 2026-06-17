@@ -39,7 +39,7 @@ from yanantin.activity.store import ActivityStreamStore
 from yanantin.activity.anchor import MemoryAnchorService
 from yanantin.activity.backends.memory import InMemoryActivityStreamStore
 from yanantin.activity.backends.duckdb import DuckDBActivityStreamStore
-from yanantin.collector.base import FactRecorderBase, RecorderBase
+from yanantin.recorder.base import FactRecorderBase, RecorderBase
 
 
 # -- Schema agnosticism: facts accept unknown fields -------------------

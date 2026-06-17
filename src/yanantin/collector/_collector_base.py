@@ -1,7 +1,6 @@
 """CollectorBase — the data-gathering half of the pipeline.
 
-Private module. Import from yanantin.collector.base (the public shim)
-or yanantin.collector directly.
+Private module. Import from yanantin.collector directly.
 """
 
 from __future__ import annotations

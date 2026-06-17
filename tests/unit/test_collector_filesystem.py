@@ -7,17 +7,17 @@ from pathlib import Path
 
 import pytest
 
-from yanantin.collector.filesystem.collector import (
+from yanantin.collector.storage.local.linux.collector import (
     LinuxFilesystemCollector,
     _mode_to_attributes,
     _stat_to_timestamps,
 )
-from yanantin.collector.filesystem.models import (
+from yanantin.collector.storage.local.linux.models import (
     FileEntryData,
     FilesystemSnapshot,
     FileTimestamps,
 )
-from yanantin.collector.filesystem.synthetic import SyntheticFilesystemCollector
+from yanantin.collector.storage.local.linux.synthetic import SyntheticFilesystemCollector
 
 
 class TestFileTimestamps:

@@ -8,7 +8,7 @@ from uuid import UUID, uuid4
 import pytest
 from pydantic import BaseModel, TypeAdapter, ValidationError
 
-import yanantin.collector.wranglers as wranglers_module
+import yanantin.transport.wranglers as wranglers_module
 from yanantin.collector import (
     BatchWrangler,
     CollectorBase,

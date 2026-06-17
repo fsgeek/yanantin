@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pytest
 
-from yanantin.collector.checksum import (
+from yanantin.collector.storage.local.checksum import (
     ChecksumCollector,
     ChecksumData,
     SyntheticChecksumCollector,

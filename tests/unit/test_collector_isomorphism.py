@@ -12,24 +12,24 @@ from pathlib import Path
 
 import pytest
 
-from yanantin.collector.checksum import (
+from yanantin.collector.storage.local.checksum import (
     ChecksumCollector,
     ChecksumData,
     SyntheticChecksumCollector,
 )
-from yanantin.collector.filesystem import (
+from yanantin.collector.storage.local.linux import (
     FileEntryData,
     FilesystemSnapshot,
     LinuxFilesystemCollector,
     SyntheticFilesystemCollector,
 )
-from yanantin.collector.fs_events import (
+from yanantin.collector.activity.linux import (
     FsChangeEvent,
     FsEventBatch,
     FsIncrementalCollector,
     SyntheticFsEventCollector,
 )
-from yanantin.collector.dropbox import (
+from yanantin.collector.storage.cloud.dropbox import (
     DropboxEntryData,
     DropboxListing,
     SyntheticDropboxCollector,
@@ -416,7 +416,7 @@ class TestValidatorsCatchBadData:
 
 def _dummy_timestamps():
     from datetime import datetime, timezone
-    from yanantin.collector.filesystem.models import FileTimestamps
+    from yanantin.collector.storage.local.linux.models import FileTimestamps
 
     now = datetime.now(timezone.utc)
     return FileTimestamps(modified=now, accessed=now, changed=now)

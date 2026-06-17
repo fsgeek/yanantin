@@ -9,7 +9,7 @@ import pytest
 from pydantic import ValidationError
 
 from yanantin.apacheta.backends.memory import InMemoryBackend
-from yanantin.collector.machine_config import (
+from yanantin.machine.linux import (
     MachineConfigCollector,
     MachineConfigData,
     MachineConfigRecorder,
@@ -18,7 +18,7 @@ from yanantin.collector.machine_config import (
     render_machine_config,
     _get_machine_id,
 )
-from yanantin.collector.models import WranglerEnvelope
+from yanantin.transport.models import WranglerEnvelope
 
 
 @pytest.fixture
@@ -33,7 +33,7 @@ def sample_machine_config() -> MachineConfigData:
         cpu_count=8,
         python_version="3.11.5",
         platform_string="Linux-6.0.0-custom-x86_64",
-        machine_id="machine-1234",
+        machine_id="11112222333344445555666677778888",
         collected_at=datetime(2024, 1, 1, 12, 0, tzinfo=timezone.utc),
     )
 
@@ -101,6 +101,18 @@ class TestMachineConfigRecorder:
         assert stored.strands[1].title == "System Configuration"
         assert f"os: {sample_envelope.data.os_name}" in stored.strands[1].content
         assert len(backend.list_tensors()) == 1
+
+        # Canonical recorder also writes the machine entity and a has_snapshot
+        # edge (machine entity -> tensor). The old collector.machine_config
+        # recorder wrote neither; the migration adopts the edge-writing path.
+        machine_uuid = UUID(sample_envelope.data.machine_id)
+        entity = backend.get_entity(machine_uuid)
+        assert entity.id == machine_uuid
+        edges = backend.list_provenance_edges()
+        assert len(edges) == 1
+        assert edges[0].relation_type == "has_snapshot"
+        assert edges[0].from_ref == f"entities/{machine_uuid}"
+        assert edges[0].to_ref == f"tensors/{tensor_id}"
 
 
 class TestConvenienceFunctions:

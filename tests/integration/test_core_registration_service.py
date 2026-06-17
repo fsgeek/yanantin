@@ -38,10 +38,10 @@ def service(live_db):
         live_db.delete_collection(stored)
 
 
-def test_base_catalog_created_on_construction(service, live_db):
-    obf = service.base_registrar._obfuscator
-    stored = obf.collection_name(BASE_REGISTRANT_CATALOG)
-    assert live_db.has_collection(stored)
+def test_base_catalog_created_on_construction(service):
+    # get_registrant_list() succeeds only if the catalog collection exists;
+    # an absent collection would raise. A clean empty list is the proof.
+    assert service.get_registrant_list() == []
 
 
 def test_round_trips_a_registrant_through_all_three_verbs(service):

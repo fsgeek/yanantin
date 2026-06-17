@@ -71,7 +71,7 @@ def _report_pipeline(result, args: argparse.Namespace) -> None:
 
 def _store_facts(store_name, recorder_cls, data, provider_id, args):
     """Common path: open store, record facts, wire anchor, report."""
-    from yanantin.collector.models import WranglerEnvelope
+    from yanantin.transport.models import WranglerEnvelope
     from yanantin.collector.pipeline import open_store, record_and_anchor
 
     store = open_store(store_name)
@@ -86,7 +86,7 @@ def _store_facts(store_name, recorder_cls, data, provider_id, args):
 
 def _cmd_default(args: argparse.Namespace) -> None:
     """Default behavior — machine config (the exception that IS a tensor)."""
-    from yanantin.collector.machine_config import (
+    from yanantin.machine.linux import (
         collect_and_record,
         collect_machine_config,
         render_machine_config,
@@ -125,7 +125,7 @@ def _cmd_default(args: argparse.Namespace) -> None:
 
 def _cmd_filesystem(args: argparse.Namespace) -> None:
     """Filesystem snapshot collector."""
-    from yanantin.collector.filesystem import LinuxFilesystemCollector
+    from yanantin.collector.storage.local.linux import LinuxFilesystemCollector
 
     root = Path(args.path)
     if not root.exists():
@@ -159,13 +159,13 @@ def _cmd_filesystem(args: argparse.Namespace) -> None:
             print()
 
     if args.store:
-        from yanantin.collector.filesystem.fact_recorder import FilesystemFactRecorder
+        from yanantin.recorder.storage.local.linux import FilesystemFactRecorder
         _store_facts(args.store, FilesystemFactRecorder, snapshot, collector.get_provider_id(), args)
 
 
 def _cmd_checksum(args: argparse.Namespace) -> None:
     """Checksum collector."""
-    from yanantin.collector.checksum import ChecksumCollector
+    from yanantin.collector.storage.local.checksum import ChecksumCollector
 
     file_path = Path(args.path)
     if not file_path.exists():
@@ -189,13 +189,13 @@ def _cmd_checksum(args: argparse.Namespace) -> None:
             print()
 
     if args.store:
-        from yanantin.collector.checksum import ChecksumFactRecorder
+        from yanantin.recorder.storage.local.checksum import ChecksumFactRecorder
         _store_facts(args.store, ChecksumFactRecorder, data, collector.get_provider_id(), args)
 
 
 def _cmd_fs_events(args: argparse.Namespace) -> None:
     """Filesystem events collector."""
-    from yanantin.collector.fs_events import FsIncrementalCollector
+    from yanantin.collector.activity.linux import FsIncrementalCollector
 
     volumes = [args.path]
     state_file = Path(args.state_file) if args.state_file else Path(".fs_events_state.json")
@@ -224,13 +224,13 @@ def _cmd_fs_events(args: argparse.Namespace) -> None:
             print()
 
     if args.store:
-        from yanantin.collector.fs_events.fact_recorder import FsEventFactRecorder
+        from yanantin.recorder.activity.linux import FsEventFactRecorder
         _store_facts(args.store, FsEventFactRecorder, batch, collector.get_provider_id(), args)
 
 
 def _cmd_dropbox(args: argparse.Namespace) -> None:
     """Dropbox collector."""
-    from yanantin.collector.dropbox import DropboxCollector
+    from yanantin.collector.storage.cloud.dropbox import DropboxCollector
 
     config_dir = Path(args.config_dir) if args.config_dir else Path.home() / ".config" / "yanantin" / "dropbox"
     collector = DropboxCollector(config_dir)
@@ -255,7 +255,7 @@ def _cmd_dropbox(args: argparse.Namespace) -> None:
             print()
 
     if args.store:
-        from yanantin.collector.dropbox.fact_recorder import DropboxFactRecorder
+        from yanantin.recorder.storage.cloud.dropbox import DropboxFactRecorder
         _store_facts(args.store, DropboxFactRecorder, listing, collector.get_provider_id(), args)
 
 
@@ -266,7 +266,7 @@ def _cmd_synthetic(args: argparse.Namespace) -> None:
     seed = args.seed
 
     if collector_type == "fs":
-        from yanantin.collector.filesystem import SyntheticFilesystemCollector
+        from yanantin.collector.storage.local.linux import SyntheticFilesystemCollector
 
         collector = SyntheticFilesystemCollector(seed=seed)
         snapshot = collector.collect()
@@ -284,11 +284,11 @@ def _cmd_synthetic(args: argparse.Namespace) -> None:
                 print()
 
         if args.store:
-            from yanantin.collector.filesystem.fact_recorder import FilesystemFactRecorder
+            from yanantin.recorder.storage.local.linux import FilesystemFactRecorder
             _store_facts(args.store, FilesystemFactRecorder, snapshot, collector.get_provider_id(), args)
 
     elif collector_type == "checksum":
-        from yanantin.collector.checksum import SyntheticChecksumCollector
+        from yanantin.collector.storage.local.checksum import SyntheticChecksumCollector
 
         collector = SyntheticChecksumCollector(seed=seed)
         items = collector.collect_batch(count)
@@ -306,7 +306,7 @@ def _cmd_synthetic(args: argparse.Namespace) -> None:
             print()
 
     elif collector_type == "events":
-        from yanantin.collector.fs_events import SyntheticFsEventCollector
+        from yanantin.collector.activity.linux import SyntheticFsEventCollector
 
         collector = SyntheticFsEventCollector(seed=seed, events_per_batch=count)
         batch = collector.collect()
@@ -326,11 +326,11 @@ def _cmd_synthetic(args: argparse.Namespace) -> None:
                 print()
 
         if args.store:
-            from yanantin.collector.fs_events.fact_recorder import FsEventFactRecorder
+            from yanantin.recorder.activity.linux import FsEventFactRecorder
             _store_facts(args.store, FsEventFactRecorder, batch, collector.get_provider_id(), args)
 
     elif collector_type == "dropbox":
-        from yanantin.collector.dropbox import SyntheticDropboxCollector
+        from yanantin.collector.storage.cloud.dropbox import SyntheticDropboxCollector
 
         collector = SyntheticDropboxCollector(seed=seed, total_entries=count)
         listing = collector.collect()
@@ -347,7 +347,7 @@ def _cmd_synthetic(args: argparse.Namespace) -> None:
                 print()
 
         if args.store:
-            from yanantin.collector.dropbox.fact_recorder import DropboxFactRecorder
+            from yanantin.recorder.storage.cloud.dropbox import DropboxFactRecorder
             _store_facts(args.store, DropboxFactRecorder, listing, collector.get_provider_id(), args)
 
     else:

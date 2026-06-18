@@ -128,9 +128,9 @@ def test_storage_object_normalizes_into_factor_shape():
         )
     fs_like = {
         "name": "design.md",
-        "uri": "file:///home/u/design.md",
+        "uri": "file:///data/u/design.md",
         "modified": "2026-05-01T12:00:00+00:00",
-        "path": "/home/u",
+        "path": "/data/u",
         "size": 1024,
         "_raw": {"st_mode": 33188},
     }

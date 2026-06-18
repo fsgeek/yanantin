@@ -343,13 +343,23 @@ class RegistrationService:
         self,
         db: StandardDatabase,
         obfuscator: StorageObfuscator | None = None,
+        catalog_collection: str = BASE_REGISTRANT_CATALOG,
+        owned_collection: str | None = None,
+        owned_edge_collection: str | None = None,
     ) -> None:
+        # catalog/owned overrides exist for test isolation (a unique catalog per
+        # run, no shared-state pollution of the real base catalog) and so the
+        # inspector's contribution_count can read a registrar that owns the same
+        # Objects collection a recorder contributes into. Defaults reproduce the
+        # production seam exactly: the well-known base catalog, owned == catalog.
         self.base_registrar = Registrar(
             db=db,
-            catalog_collection=BASE_REGISTRANT_CATALOG,
+            catalog_collection=catalog_collection,
             name="core registration service",
             description="the base registrant catalog",
             obfuscator=obfuscator,
+            owned_collection=owned_collection,
+            owned_edge_collection=owned_edge_collection,
         )
 
     def get_registrant_list(self) -> list[RegistrantRecord]:

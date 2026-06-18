@@ -402,3 +402,63 @@ def test_well_known_fails_stop_without_owning_collection(live_db):
                 live_db.delete_collection(name)
         if live_db.has_collection(catalog):
             live_db.delete_collection(catalog)
+
+
+def test_end_to_end_visible_through_cli(live_db):
+    import json
+    from contextlib import redirect_stdout
+    from io import StringIO
+
+    from yanantin.collector.storage.local.linux.synthetic import (
+        SyntheticFilesystemCollector,
+    )
+    from yanantin.core.__main__ import main
+    from yanantin.core.registration import RegistrationService
+    from yanantin.recorder.storage.local.linux.registration import (
+        LinuxStorageRegistration,
+    )
+
+    suffix = uuid4().hex
+    catalog = f"CliCatalog_t{suffix}"
+    objects = f"Objects_t{suffix}"
+    relationships = f"Relationships_t{suffix}"
+
+    try:
+        svc = RegistrationService(
+            db=live_db,
+            catalog_collection=catalog,
+            owned_collection=objects,
+            owned_edge_collection=relationships,
+        )
+        collector = SyntheticFilesystemCollector(seed=7)
+        reg = LinuxStorageRegistration(svc.base_registrar, collector)
+        reg.register()
+
+        snapshot = SyntheticFilesystemCollector(seed=7).collect()
+        provider_id = collector.get_provider_id()
+        n = reg.contribute_snapshot(snapshot, provider_id)
+
+        out = StringIO()
+        with redirect_stdout(out):
+            main(["--json", "list"], service=svc)
+        rows = json.loads(out.getvalue())
+
+        recorder_row = next(
+            row
+            for row in rows
+            if row["registrant_name"] == "linux-local-storage recorder"
+        )
+        assert recorder_row["contributes_to"] == [
+            {"name": "Objects", "kind": "doc", "naming": "well_known"},
+            {"name": "Relationships", "kind": "edge", "naming": "well_known"},
+        ]
+
+        collector_row = next(
+            row for row in rows if row["registrant_id"] == str(provider_id)
+        )
+        assert n > 0
+        assert collector_row["contributions"] == n
+    finally:
+        for name in (catalog, objects, relationships):
+            if live_db.has_collection(name):
+                live_db.delete_collection(name)

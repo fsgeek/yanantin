@@ -18,12 +18,16 @@ from yanantin.infra.config import ApachetaDBConfig
 
 
 def _row(rec, contributions: int) -> dict:
+    # contributes_to lives in the open tail (extra="allow"); the registrar
+    # stores it opaquely, the CLI only reads it back. Absent ⇒ [].
+    extra = rec.model_extra or {}
     return {
         "registrant_id": str(rec.registrant_id),
         "registrant_name": rec.registrant_name,
         "registrant_kind": rec.registrant_kind,
         "parent_id": str(rec.parent_id) if rec.parent_id else None,
         "contributions": contributions,
+        "contributes_to": extra.get("contributes_to", []),
         "description": rec.description,
     }
 

@@ -23,12 +23,12 @@ class LinuxStorageRegistration:
     """Registers the linux-local-storage recorder + its collector, declaring a
     two-target well_known mapping (Objects doc + Relationships edge)."""
 
-    CONTRIBUTES_TO: list[ContributionTarget] = [
+    CONTRIBUTES_TO: tuple[ContributionTarget, ...] = (
         ContributionTarget(name=STORAGE_OBJECTS, kind="doc", naming="well_known"),
         ContributionTarget(
             name=STORAGE_RELATIONSHIPS, kind="edge", naming="well_known"
         ),
-    ]
+    )
 
     def __init__(self, registrar: Registrar, collector: CollectorBase) -> None:
         self._registrar = registrar

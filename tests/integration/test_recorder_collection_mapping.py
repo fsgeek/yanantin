@@ -86,3 +86,61 @@ def test_registrar_owns_doc_and_edge_collections(live_db):
         for name in (catalog, objects, relationships):
             if live_db.has_collection(name):
                 live_db.delete_collection(name)
+
+
+def test_recorder_declares_two_well_known_targets(live_db):
+    from yanantin.core.registration import Registrar
+    from yanantin.recorder.storage.local.linux.registration import (
+        LinuxStorageRegistration,
+    )
+    from yanantin.collector.storage.local.linux.synthetic import (
+        SyntheticFilesystemCollector,
+    )
+
+    suffix = uuid4().hex
+    catalog = f"RecorderCatalog_t{suffix}"
+    objects = f"Objects_t{suffix}"
+    relationships = f"Relationships_t{suffix}"
+
+    try:
+        registrar = Registrar(
+            db=live_db,
+            catalog_collection=catalog,
+            name="linux-storage-recorder-registrar",
+            description="owns linux storage recorder contribution collections",
+            owned_collection=objects,
+            owned_edge_collection=relationships,
+        )
+        collector = SyntheticFilesystemCollector(seed=7)
+        reg = LinuxStorageRegistration(registrar, collector)
+
+        reg.register()
+
+        registrants = registrar.list_registrants()
+        assert len(registrants) == 2
+
+        recorder_record = registrar.lookup_by_identifier(reg.recorder_id)
+        collector_record = registrar.lookup_by_identifier(collector.get_provider_id())
+        assert recorder_record is not None
+        assert collector_record is not None
+
+        try:
+            recorder_targets = recorder_record.contributes_to
+        except AttributeError:
+            recorder_targets = recorder_record.model_extra["contributes_to"]
+        assert isinstance(recorder_targets, list)
+        assert len(recorder_targets) == 2
+        targets_by_kind = {target["kind"]: target for target in recorder_targets}
+        assert set(targets_by_kind) == {"doc", "edge"}
+        assert targets_by_kind["doc"]["naming"] == "well_known"
+        assert targets_by_kind["edge"]["naming"] == "well_known"
+
+        try:
+            collector_targets = collector_record.contributes_to
+        except AttributeError:
+            collector_targets = collector_record.model_extra["contributes_to"]
+        assert collector_targets == []
+    finally:
+        for name in (catalog, objects, relationships):
+            if live_db.has_collection(name):
+                live_db.delete_collection(name)

@@ -142,6 +142,7 @@ Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
   - `Registrar.__init__(..., owned_edge_collection: str | None = None)` — when given, ensures an **edge** collection (`create_collection(edge=True)`) under the obfuscated name, stored as `self._owned_edge_name`.
   - `Registrar.contribute_edge(contributor_id: UUID, from_ref: str, to_ref: str, relation_type: str, **fields) -> dict` — inserts an edge doc (`_from`/`_to` canonical, `contributor_id` field) into the owned edge collection via the obfuscator. Raises if no edge collection is owned.
   - `Registrar.list_edge_contributions(contributor_id: UUID | None = None) -> list[dict]` — same filter-by-provider shape as `list_contributions`, over the edge collection.
+  - `Registrar.owned_collection_name` (property) → the obfuscated owned doc-collection name (`self._owned_name`), and `Registrar.owns_owned_collection` (property, bool) → True iff this registrar owns a doc collection DISTINCT from its catalog. Public accessors so a recorder building canonical edge endpoints does NOT reach into `_owned_name`/`_catalog_name` (spec line 197: "resolving that handle is an implementation-plan detail" — make it a public seam, not a private-attr reach).
 
 **Codex test-author prompt:**
 > In `tests/integration/test_recorder_collection_mapping.py`, write `test_registrar_owns_doc_and_edge_collections(live_db)` using the existing `ApachetaDBConfig().get_test_credentials()` fixture pattern (see `tests/integration/test_core_registration.py` for the live_db fixture and cleanup idiom — copy it). Create a `Registrar` with both `owned_collection="Objects_t<unique>"` and `owned_edge_collection="Relationships_t<unique>"`. Assert via the python-arango driver that the Objects collection exists and is a DOCUMENT collection (`collection.properties()["type"] == 2`) and the Relationships collection exists and is an EDGE collection (`type == 3`). Then `contribute_edge(provider, from_ref="entities/<uuid>", to_ref="records/<uuid>", relation_type="contains")` and assert `list_edge_contributions(provider)` returns exactly one edge whose `_from`/`_to` survived. Clean up all three collections in teardown. No mocks. `< /dev/null`.
@@ -183,6 +184,24 @@ Add the methods after `_ensure_collection`:
         if not self._db.has_collection(name):
             self._db.create_collection(name, edge=True)
         return self._db.collection(name)
+
+    @property
+    def owned_collection_name(self) -> str:
+        """The obfuscated owned doc-collection name. A recorder writing through
+        this registrar uses it to build canonical edge endpoints WITHOUT
+        reaching into private attrs (the spec's 'resolve the handle' seam)."""
+        return self._owned_name
+
+    @property
+    def owns_owned_collection(self) -> bool:
+        """True iff this registrar owns a doc collection distinct from its
+        catalog (i.e. it can host well_known contributions)."""
+        return self._owned_name != self._catalog_name
+
+    @property
+    def owns_edge_collection(self) -> bool:
+        """True iff this registrar owns an edge collection."""
+        return self._owned_edge_name is not None
 ```
 
 Add after `list_contributions`:
@@ -415,7 +434,7 @@ Expected: FAIL — `AttributeError: 'LinuxStorageRegistration' object has no att
         str(UUID) form so OUTBOUND traversal resolves (raw hex dangles)."""
         from uuid import uuid4
 
-        objects_name = self._registrar._owned_name  # the owned Objects handle
+        objects_name = self._registrar.owned_collection_name  # public seam
         count = 0
         for entry in snapshot.entries:
             obj_key = uuid4()
@@ -497,15 +516,13 @@ Expected: FAIL (wrong exception type or a stray collection created)
         # created" — never mint. If the handed registrar owns no Objects
         # collection, that is the caller's error, surfaced loudly (the mint
         # path is `dynamic` only, not chosen here).
-        if getattr(self._registrar, "_owned_name", None) is None or (
-            self._registrar._owned_name == self._registrar._catalog_name
-        ):
+        if not self._registrar.owns_owned_collection:
             raise ValueError(
                 "well_known Objects target has no owning collection on the "
                 "handed registrar; construct it with owned_collection=Objects "
                 "(well_known never mints — that is the dynamic path)"
             )
-        if getattr(self._registrar, "_owned_edge_name", None) is None:
+        if not self._registrar.owns_edge_collection:
             raise ValueError(
                 "well_known Relationships target has no owning edge collection; "
                 "construct the registrar with owned_edge_collection=Relationships"

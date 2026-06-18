@@ -351,3 +351,54 @@ def test_well_known_attaches_does_not_duplicate(live_db):
         for name in (catalog, objects, relationships):
             if live_db.has_collection(name):
                 live_db.delete_collection(name)
+
+
+def test_well_known_fails_stop_without_owning_collection(live_db):
+    from yanantin.collector.storage.local.linux.synthetic import (
+        SyntheticFilesystemCollector,
+    )
+    from yanantin.core.registration import Registrar
+    from yanantin.recorder.storage.local.linux.registration import (
+        LinuxStorageRegistration,
+    )
+
+    suffix = uuid4().hex
+    catalog = f"RecorderCatalog_t{suffix}"
+    minted = set()
+
+    try:
+        registrar = Registrar(
+            db=live_db,
+            catalog_collection=catalog,
+            name="linux-storage-catalog-only-recorder-registrar",
+            description="catalog-only registrar must not host well_known mappings",
+        )
+        assert registrar.owns_owned_collection is False
+        assert registrar.owns_edge_collection is False
+
+        collector = SyntheticFilesystemCollector(seed=7)
+        reg = LinuxStorageRegistration(registrar, collector)
+        reg.register()
+        snapshot = SyntheticFilesystemCollector(seed=7).collect()
+
+        catalog_count_before = live_db.collection(catalog).count()
+        before = {collection["name"] for collection in live_db.collections()}
+        with pytest.raises(ValueError) as exc_info:
+            reg.contribute_snapshot(snapshot, collector.get_provider_id())
+
+        assert live_db.collection(catalog).count() == catalog_count_before
+
+        message = str(exc_info.value).lower()
+        assert "well_known" in message or (
+            "own" in message and "collection" in message
+        )
+
+        after = {collection["name"] for collection in live_db.collections()}
+        minted = after - before
+        assert after == before
+    finally:
+        for name in minted:
+            if live_db.has_collection(name):
+                live_db.delete_collection(name)
+        if live_db.has_collection(catalog):
+            live_db.delete_collection(catalog)

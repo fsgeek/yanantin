@@ -80,6 +80,7 @@ class Registrar:
         description: str,
         obfuscator: StorageObfuscator | None = None,
         owned_collection: str | None = None,
+        owned_edge_collection: str | None = None,
     ) -> None:
         self._db = db
         self.name = name
@@ -103,6 +104,18 @@ class Registrar:
         if self._owned_name != self._catalog_name:
             self._ensure_collection(self._owned_name)
 
+        # Optional OWNED EDGE collection (Case 2: one recorder → Objects doc
+        # AND Relationships edge). Edge collections need create_collection(
+        # edge=True) so native OUTBOUND traversal works on _from/_to — the
+        # generic doc path cannot host edges (mirrors arango.py
+        # _provenance_edge_collection). None ⇒ this registrar owns no edges.
+        self._owned_edge_name = None
+        if owned_edge_collection is not None:
+            self._owned_edge_name = self._obfuscator.collection_name(
+                owned_edge_collection
+            )
+            self._ensure_edge_collection(self._owned_edge_name)
+
     def _ensure_collection(self, name: str):
         """Ensure a collection exists (has_collection guard, per arango.py:196),
         under its already-obfuscated name. Fail-stop is inherited from the
@@ -110,6 +123,32 @@ class Registrar:
         if not self._db.has_collection(name):
             self._db.create_collection(name)
         return self._db.collection(name)
+
+    def _ensure_edge_collection(self, name: str):
+        """Ensure an EDGE collection exists under its obfuscated name. Edge
+        type is load-bearing: native graph traversal requires create_collection
+        (edge=True). Fail-stop inherited from the driver."""
+        if not self._db.has_collection(name):
+            self._db.create_collection(name, edge=True)
+        return self._db.collection(name)
+
+    @property
+    def owned_collection_name(self) -> str:
+        """The obfuscated owned doc-collection name. A recorder writing through
+        this registrar uses it to build canonical edge endpoints WITHOUT
+        reaching into private attrs (the spec's 'resolve the handle' seam)."""
+        return self._owned_name
+
+    @property
+    def owns_owned_collection(self) -> bool:
+        """True iff this registrar owns a doc collection distinct from its
+        catalog (i.e. it can host well_known contributions)."""
+        return self._owned_name != self._catalog_name
+
+    @property
+    def owns_edge_collection(self) -> bool:
+        """True iff this registrar owns an edge collection."""
+        return self._owned_edge_name is not None
 
     def register(
         self,
@@ -222,6 +261,67 @@ class Registrar:
         _id, _rev) — contributions are data, not driver bookkeeping."""
         readable = self._obfuscator.deobfuscate_document(doc)
         return {k: v for k, v in readable.items() if not k.startswith("_")}
+
+    def contribute_edge(
+        self,
+        contributor_id: UUID,
+        from_ref: str,
+        to_ref: str,
+        relation_type: str,
+        **fields,
+    ) -> dict:
+        """Write an edge into the owned edge collection on behalf of a
+        registrant. _from/_to are reference VALUES (canonical collection/key
+        form) — they pass through the obfuscator unchanged; only labels map.
+        Raises if this registrar owns no edge collection (fail-stop, not a
+        silent doc-insert)."""
+        if self._owned_edge_name is None:
+            raise ValueError(
+                "this registrar owns no edge collection; "
+                "construct it with owned_edge_collection=..."
+            )
+        doc = {
+            "_from": from_ref,
+            "_to": to_ref,
+            "relation_type": relation_type,
+            "contributor_id": str(contributor_id),
+            **fields,
+        }
+        self._db.collection(self._owned_edge_name).insert(
+            self._obfuscator.obfuscate_document(doc)
+        )
+        return doc
+
+    def list_edge_contributions(
+        self, contributor_id: UUID | None = None
+    ) -> list[dict]:
+        """Edges in the owned edge collection, optionally filtered by provider.
+        _from/_to are restored verbatim (reference values, not labels)."""
+        if self._owned_edge_name is None:
+            raise ValueError("this registrar owns no edge collection")
+        if contributor_id is None:
+            cursor = self._db.aql.execute(
+                "FOR d IN @@coll RETURN d",
+                bind_vars={"@coll": self._owned_edge_name},
+            )
+        else:
+            id_field = self._obfuscator.field_name("contributor_id")
+            cursor = self._db.aql.execute(
+                "FOR d IN @@coll FILTER d[@field] == @cid RETURN d",
+                bind_vars={
+                    "@coll": self._owned_edge_name,
+                    "field": id_field,
+                    "cid": str(contributor_id),
+                },
+            )
+        out = []
+        for doc in cursor:
+            readable = self._obfuscator.deobfuscate_document(doc)
+            clean = {k: v for k, v in readable.items() if not k.startswith("_")}
+            clean["_from"] = readable["_from"]
+            clean["_to"] = readable["_to"]
+            out.append(clean)
+        return out
 
 
 BASE_REGISTRANT_CATALOG = "core_registrants"

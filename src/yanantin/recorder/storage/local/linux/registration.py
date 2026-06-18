@@ -61,6 +61,21 @@ class LinuxStorageRegistration:
         """Contribute each file entry as a thin provenance doc into Objects and
         a recorder→object edge into Relationships. Edge endpoints use canonical
         str(UUID) form so OUTBOUND traversal resolves (raw hex dangles)."""
+        # well_known means "write through a collection an owning registrar
+        # created" — never mint, and never half-write. If the handed registrar
+        # owns no Objects/Relationships collection, raise BEFORE touching the
+        # store (the mint path is `dynamic` only, not chosen here).
+        if not self._registrar.owns_owned_collection:
+            raise ValueError(
+                "well_known Objects target has no owning collection on the "
+                "handed registrar; construct it with owned_collection=Objects "
+                "(well_known never mints — that is the dynamic path)"
+            )
+        if not self._registrar.owns_edge_collection:
+            raise ValueError(
+                "well_known Relationships target has no owning edge collection; "
+                "construct the registrar with owned_edge_collection=Relationships"
+            )
         objects_name = self._registrar.owned_collection_name
         count = 0
         for entry in snapshot.entries:

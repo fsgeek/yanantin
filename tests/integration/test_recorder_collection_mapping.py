@@ -287,3 +287,67 @@ def test_real_and_synthetic_interchangeable(live_db, tmp_path):
         for name in created:
             if live_db.has_collection(name):
                 live_db.delete_collection(name)
+
+
+def test_well_known_attaches_does_not_duplicate(live_db):
+    import json
+
+    from yanantin.collector.storage.local.linux.synthetic import (
+        SyntheticFilesystemCollector,
+    )
+    from yanantin.core.registration import Registrar
+    from yanantin.recorder.storage.local.linux.registration import (
+        LinuxStorageRegistration,
+    )
+
+    suffix = uuid4().hex
+    catalog = f"RecorderCatalog_t{suffix}"
+    objects = f"Objects_t{suffix}"
+    relationships = f"Relationships_t{suffix}"
+    provider_a = uuid4()
+    provider_b = uuid4()
+
+    try:
+        registrar = Registrar(
+            db=live_db,
+            catalog_collection=catalog,
+            name="linux-storage-shared-objects-recorder-registrar",
+            description="owns one shared Objects collection for recorder mappings",
+            owned_collection=objects,
+            owned_edge_collection=relationships,
+        )
+        collector = SyntheticFilesystemCollector(seed=7)
+        reg = LinuxStorageRegistration(registrar, collector)
+        reg.register()
+
+        snapshot_a = SyntheticFilesystemCollector(seed=7).collect()
+        snapshot_b = SyntheticFilesystemCollector(seed=11).collect()
+        n_a = reg.contribute_snapshot(snapshot_a, provider_a)
+        n_b = reg.contribute_snapshot(snapshot_b, provider_b)
+
+        collection_names = {collection["name"] for collection in live_db.collections()}
+        assert objects in collection_names
+        assert {name for name in collection_names if name.startswith(objects)} == {
+            objects
+        }
+        assert live_db.collection(objects).count() == n_a + n_b
+
+        docs = registrar.list_contributions()
+        assert len(docs) == n_a + n_b
+        assert {doc["source"] for doc in docs} == {str(provider_a), str(provider_b)}
+
+        docs_a = registrar.list_contributions(provider_a)
+        assert len(docs_a) == n_a
+        assert all(doc["source"] == str(provider_a) for doc in docs_a)
+
+        docs_b = registrar.list_contributions(provider_b)
+        assert len(docs_b) == n_b
+        assert all(doc["source"] == str(provider_b) for doc in docs_b)
+
+        raw_a = {json.dumps(doc["raw"], sort_keys=True) for doc in docs_a}
+        raw_b = {json.dumps(doc["raw"], sort_keys=True) for doc in docs_b}
+        assert raw_a != raw_b
+    finally:
+        for name in (catalog, objects, relationships):
+            if live_db.has_collection(name):
+                live_db.delete_collection(name)

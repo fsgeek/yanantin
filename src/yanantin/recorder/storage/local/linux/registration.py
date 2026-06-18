@@ -7,10 +7,10 @@ way Indaleko's storage recorders carry normalize_*/find_* over a base."""
 
 from __future__ import annotations
 
-from uuid import NAMESPACE_DNS, UUID, uuid5
+from uuid import NAMESPACE_DNS, UUID, uuid4, uuid5
 
 from yanantin.collector._collector_base import CollectorBase
-from yanantin.core.contribution import ContributionTarget
+from yanantin.core.contribution import ContributedRecord, ContributionTarget
 from yanantin.core.registration import Registrar, RegistrantRecord
 
 STORAGE_OBJECTS = "Objects"
@@ -56,3 +56,27 @@ class LinuxStorageRegistration:
             contributes_to=[],
         )
         return recorder_rec, collector_rec
+
+    def contribute_snapshot(self, snapshot, provider_id: UUID) -> int:
+        """Contribute each file entry as a thin provenance doc into Objects and
+        a recorder→object edge into Relationships. Edge endpoints use canonical
+        str(UUID) form so OUTBOUND traversal resolves (raw hex dangles)."""
+        objects_name = self._registrar.owned_collection_name
+        count = 0
+        for entry in snapshot.entries:
+            obj_key = uuid4()
+            rec = ContributedRecord(
+                source=provider_id,
+                raw=entry.model_dump(mode="json"),
+            )
+            self._registrar.contribute(
+                provider_id, _key=str(obj_key), **rec.to_contribution_fields()
+            )
+            self._registrar.contribute_edge(
+                contributor_id=self.recorder_id,
+                from_ref=f"entities/{self.recorder_id}",
+                to_ref=f"{objects_name}/{obj_key}",
+                relation_type="records",
+            )
+            count += 1
+        return count

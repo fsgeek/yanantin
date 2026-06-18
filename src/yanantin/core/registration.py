@@ -142,7 +142,7 @@ class Registrar:
     @property
     def owns_owned_collection(self) -> bool:
         """True iff this registrar owns a doc collection distinct from its
-        catalog (i.e. it can host well_known contributions)."""
+        catalog (i.e. it can host shared-collection contributions)."""
         return self._owned_name != self._catalog_name
 
     @property

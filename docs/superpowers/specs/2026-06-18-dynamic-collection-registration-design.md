@@ -17,17 +17,35 @@ Two of three already centralize collection ownership (the leaf binds to nothing)
 
 **Ordering constraint (Tony, load-bearing):** *"I can layer a static system on top of a dynamic one, but not vice versa."* Dynamic is the floor; static (a names registry) is optional sugar on top. Build dynamic-first or the two-creators split returns.
 
+## Vocabulary (the frame — read first)
+
+Adversarial review (Codex, 2026-06-18) found this spec colliding with three prior decisions. The root cause was **one English word, "registration," flattening three distinct operations the code keeps separate** (Tony: *"any 'insert this entry into a table' is a registration, so the words entangle"*). The boundary erodes when the language doesn't mark it. So: three operations, three non-overlapping names.
+
+| # | Operation | Question it answers | Home | Contract |
+|---|---|---|---|---|
+| 1 | **Mapping** | *which collection does this provider-hierarchy feed?* | recorder base class (06-17 spec) | `Objects` mapped at the base storage class; everything below writes into the one shared collection. Overridable in theory; no use case now. **Unchanged by this spec.** |
+| 2 | **Provider registration** | *this collector/recorder exists; its identity* | `core/registration.py:Registrar.register` | provenance, IMMUTABLE — returns `RegistrantRecord`, **raises on duplicate id**. **Unchanged by this spec.** |
+| 3 | **Collection binding** | *bind a collection name to its (schema, indices, views); ensure it exists* | **`Khipu`** (NEW, this spec) | idempotent create-if-absent. The subject of this document. |
+
+Operation 3 is named in Quechua deliberately, to escape the "register" overload: the service is **`Khipu`** (the knotted-cord registry — a record made *of* bindings), the verb is **`watay`** ("to tie/bind"). `khipu.watay(name, definition) -> handle`. It **cannot** collide with `Registrar.register`.
+
+### Reconciliation with prior specs
+
+- **06-17 recorder-collection-mapping** (`docs/superpowers/specs/2026-06-17-recorder-collection-mapping-design.md`): NOT reversed. Its "no registrar change" was about *mapping* (op 1). Collection *binding* (op 3) is a different operation. Orthogonal; both stand.
+- **C0 obfuscation invariant** (`registration.py:89` "names through the obfuscator from the first pour", + test `test_owned_collection_is_created_under_obfuscated_name`): HONORED, not superseded. `watay` maps name→obfuscated before create (see Naming). An earlier draft of this spec proposed clear names — withdrawn as a reversal of a defended, tested invariant.
+- **Existing `Registrar`**: untouched. `Khipu` is an ADJACENT service. A recorder may both `Registrar.register` its identity (op 2) and `khipu.watay` its collection (op 3); they collaborate, they do not merge.
+
 ## The mechanism
 
-One creation verb is the **sole** creator of collections:
+`Khipu` is the **sole** creator of collections. One verb:
 
 ```
-register(name, definition) -> collection_handle
+khipu.watay(name, definition) -> collection_handle
 ```
 
-- `name`: a clear string (see Naming). For well-known collections it comes from the names registry; for per-provider collections it is generated (`prefix + identifier`).
+- `name`: the **semantic** collection name (see Naming — `watay` obfuscates it before create). For well-known collections it comes from the registry; for per-provider collections it is generated (`prefix + identifier`).
 - `definition`: schema + indices + views for this collection.
-- returns a **bound collection handle** — created, schema'd, knows its name, writes through itself. The caller never holds a raw collection name.
+- returns a **bound collection handle** — created, schema'd, knows its (obfuscated) physical name, writes through itself. The caller holds the handle, never a raw collection name.
 
 ### Init contract (per `[[project_collection_init_contract_schema_is_data_not_config.md]]`)
 
@@ -38,69 +56,71 @@ Idempotent, convergent-toward-the-definition, **never destructive**:
 - **Views:** same as indices.
 - **Schema:** applied **only at collection creation**. On an existing collection, the verb **NEVER touches schema.** A schema change is a DATA MIGRATION (new collection + copy + repoint), because schema is a property of the data: (1) an enforcement boundary — tightening it breaks the next update to an existing non-conforming record; (2) a published interface — read back to tell an LLM the shape so it can build AQL. **NEGATIVE REQUIREMENT, red-bar it:** the verb must never apply or alter schema on a collection that already exists.
 
-`register` is safe to call anytime; double-registration is harmless (create-if-absent). The call site MAY also check-first (the Indaleko `mime_extractor_example.py` pattern: `lookup_provider_by_identifier` → register only if absent) — belt and suspenders.
+`watay` is safe to call anytime; a double `watay` on the same name is harmless (create-if-absent). The call site MAY also check-first (the Indaleko `mime_extractor_example.py` pattern: `lookup_provider_by_identifier` → bind only if absent) — belt and suspenders. (Note: this idempotent-on-repeat contract is the OPPOSITE of `Registrar.register`, which raises on duplicate — op 3 ≠ op 2, hence the distinct verb.)
 
 ### Schema generation
 
 Schema is generated from the Pydantic model via Indaleko's envelope, ported verbatim (`indaleko/data_models/base.py:93`): `{"message": ..., "level": "strict", "type": "json", "rule": Model.model_json_schema()}`. `level: "strict"` = validate on every write; it does **NOT** mean "no extra fields" (that is `additionalProperties`, governed by the model's `extra=` config). Models that must keep an open lane (e.g. `ContributedRecord`, already `extra="allow"`) therefore do not emit `additionalProperties: false`. Required-and-conformant core + open extras.
 
-## Naming (unified, clear)
+## Naming
 
-**One naming scheme, clear names.** Obfuscated collection names buy nothing: the SchemaMap obfuscates *labels* not *values*, the breach adversary reads values regardless (`[[project_categorical_substitution_theater.md]]`, `[[project_pukara_rosetta_stone_map_is_the_asset.md]]`), and Pukara is the trust boundary. So the registration verb's naming path does not use the obfuscator. (Value-handling layers are unaffected; this is about collection *names* only — verify no naming-path consumer is load-bearing before removing the map call.)
+**Names route through the obfuscator** — the C0 invariant stands. `registration.py:89` defends this deliberately ("names through the obfuscator from the first pour; 'literal now, obfuscate later' is an illusion of choice"), with a passing test (`test_owned_collection_is_created_under_obfuscated_name`). `watay` maps `name → obfuscated` before create; the physical collection the DB sees is the obfuscated name, the semantic name stays in the registry. The default obfuscator is transparent (dev/test); the fortress supplies the keyed one. (An earlier draft proposed clear names on the reasoning that obfuscated *names* buy little against a breach adversary that reads *values* — true, but that is a reason obfuscating names is *cheap*, not a reason to *drop* a defended, tested invariant. Reversal withdrawn.)
 
 **Two SOURCES of a name, ONE verb** — the (a)/(b) "shared vs per-provider" seam dissolves:
-- **well-known / shared** (storage `Objects`): name is a constant from the registry; many registrants naming the same string get the **same** handle back (first creates, rest find-and-return — the community-write model, provider identity carried as a *field*). No coordination problem because the name lives in one file.
-- **per-provider / minted** (activity, semantic): name is generated `prefix + identifier`; collision-free by construction.
+- **well-known / shared** (storage `Objects`, **and** activity `activity_facts`/`activity_anchors`): the semantic name is a constant from the registry; many registrants naming the same string get the **same** handle back (first creates, rest find-and-return — the community-write model, provider identity carried as a *field*). No coordination problem because the name lives in one file.
+- **per-provider / minted** (semantic extractors): name generated `prefix + identifier`; collision-free by construction.
 
-The verb takes a name and a definition; it does not care which source produced the name.
+`watay` takes a (semantic) name and a definition; it does not care which source produced the name. Both sources feed the same obfuscation-then-create path.
 
 ## The three structures (Tony's `IndalekoDBCollections`/`IndalekoCollection`/`IndalekoCollections` split, jobs separated, names deliberately NOT one-letter-apart)
 
 | Job | Indaleko origin | Here |
 |---|---|---|
 | **Names + definitions registry** (pure data: name → schema/indices/views) | `IndalekoDBCollections` (`db_collections.py`) | `well_known_collections.py` — pure data structure, one place to look (collision-avoidance) and to add a view. **One registry, name→definition** (not names-only — matches Tony's actual practice: the constant sits beside its definition). |
-| **Bound collection handle** (created, schema'd, returned) | `IndalekoCollection` (`collection.py`) | the handle `register` returns |
-| **Creator** | `IndalekoCollections` (`i_collections.py`) — eagerly walks the table at startup | the `register` verb — **pulls** a well-known definition from the registry **on registration**, NOT an eager startup walk. This is the one thing changed from Indaleko: creation is on-demand, never a static walk. |
+| **Bound collection handle** (created, schema'd, returned) | `IndalekoCollection` (`collection.py`) | the handle `watay` returns |
+| **Creator** | `IndalekoCollections` (`i_collections.py`) — eagerly walks the table at startup | `Khipu` / the `watay` verb — **pulls** a well-known definition from the registry **on binding**, NOT an eager startup walk. This is the one thing changed from Indaleko: creation is on-demand, never a static walk. |
 
 `well_known_collections.py` keeps the `IndalekoDBCollections` *shape* (name→definition registry — the ergonomic Tony valued). What is deleted is the eager static *creator* (`IndalekoCollections.__init__`'s walk). Nothing statically walks-to-create.
 
 ### Base / subclass split (proven by `indaleko/semantic/examples/mime_extractor_example.py`)
 
-A generic registration base owns the verb + the registry/collection-minting + identity fields `(Identifier, Name, Description, Version, provenance Record)`. Per-type subclasses own:
+A generic base owns `watay` + the registry + collection-minting + identity fields `(Identifier, Name, Description, Version, provenance Record)`. Per-type subclasses own:
 - the **domain payload** validated in `_process_registration_data` (e.g. semantic's `SupportedMimeTypes`, `ResourceIntensity`, `ProcessingPriority`, `ExtractedAttributes`),
-- a **domain-named verb** (`register_semantic_extractor` / `register_activity_provider` / `register_storage_recorder`),
+- a **domain-named entry point** (`bind_semantic_extractor` / `bind_activity_collections` / `bind_storage_collections`) that assembles the definition and calls `watay`,
 - **domain queries** (`get_supported_mime_types`, `find_extractors_for_mime_type`, `get_activity_providers_by_type`, ...).
 
-The yanantin `core/registration.py:Registrar` is the existing dynamic-catalog layer this grows from — it gains schema-bearing collection creation and the handle return. It is NOT a new parallel system.
+`Khipu` is a NEW service, ADJACENT to the existing `core/registration.py:Registrar` — NOT a method grafted onto it (op 3 ≠ op 2; see Vocabulary). A recorder may call `Registrar.register` (its identity) AND `khipu.watay` (its collection); they collaborate, they do not merge. Open item: whether `Khipu` wraps the obfuscator+DB handle directly or reuses `Registrar`'s `_ensure_collection` plumbing — resolve against the real code without conflating the two services.
 
 ## Three pressure-test use-cases (DESIGNED here, BUILT later)
 
 The mechanism is designed against all three before any is built, so the interface is not over-fit to one. Each instantiates the same skeleton, differing only in name-source + domain payload + queries.
 
-1. **Storage** (the messiest — well-known, shared, community-write, retrofit-onto-live). `register_storage_recorder` registers well-known `Objects`/`Relationships` (names from the registry) with the storage-object definition. `StorageRecorderBase` owns the *definition* at the tier where the storage shape is constant; the leaf keeps its own recorder identity (provenance) and writes through the returned handle, naming no collection (`[[project_ownership_at_the_tier_where_the_fact_stops_varying.md]]`). The storage-object definition is where #31's `URI`/`ObjectIdentifier` unique indices, #3's timestamp persistent+inverted indices, and the Hamut'ay arangosearch view land (index *shape* per `indaleko/db/db_collections.py:140-330`; Pukara owns label-stability, do not port UUID index keys).
-2. **Activity** (the most dynamic — per-provider minted collections). `register_activity_provider`; name generated `prefix + identifier`. Replaces the static `_SEMANTIC_COLLECTIONS` tuple with registry entries + dynamic registration.
-3. **Semantic** (the muddle in the middle — Indaleko's never-fully-converted path). `register_semantic_extractor`, per the worked example: domain payload `SupportedMimeTypes`/`ResourceIntensity`/`ProcessingPriority`/`ExtractedAttributes`; returns `(record, collection)`; mime-type queries.
+1. **Storage** (the messiest — well-known/shared, community-write, retrofit-onto-live). `bind_storage_collections` `watay`-s well-known `Objects`/`Relationships` (names from the registry) with the storage-object definition. `StorageRecorderBase` owns the *definition* at the tier where the storage shape is constant; the leaf keeps its own recorder identity (provenance) and writes through the returned handle, naming no collection (`[[project_ownership_at_the_tier_where_the_fact_stops_varying.md]]`).
+   **BLOCKING DEPENDENCY:** the storage-object *definition* is **placeholder until #17's uniform storage object exists.** Today `core/contribution.py:ContributedRecord` is intentionally THIN (`source` + `raw` + open tail) and is NOT the uniform object; `tests/red_bar/test_uniform_storage_object.py` is honestly red. So #31's `URI`/`ObjectIdentifier` unique indices, #3's timestamp persistent+inverted indices, and the Hamut'ay arangosearch view (index *shape* per `indaleko/db/db_collections.py:140-330`; Pukara owns label-stability, do NOT port UUID index keys) are the storage definition's *eventual* contents — they cannot be finalized until the model with declared `URI`/`ObjectIdentifier`/timestamp fields lands. The storage use-case validates the `watay` INTERFACE against a well-known/shared customer; its concrete definition waits on #17. (`[[project_31_17_temporal_are_one_missing_object.md]]`)
+2. **Activity** (a SECOND well-known/shared case — NOT per-provider). CORRECTED from an earlier draft that wrongly imported Indaleko's per-provider minting: yanantin activity is **two shared collections**, `activity_facts` + `activity_anchors`, indexed by `(provider_id, timestamp)`, with facts as schema-agnostic shared observations (`activity/backends/arango.py:30,81`, `activity/models.py:36`). So activity is the SAME shared-collection shape as storage, not the minted shape — it `watay`-s two well-known names from the registry, provider identity carried as a field. This replaces the static `_SEMANTIC_COLLECTIONS` tuple with registry entries + `watay`. Anchors and the `(provider_id, timestamp)` index are part of the activity definition; nothing about temporal queries or `ActivityStreamStore` changes — the collections stay shared, they just get *bound* through `Khipu` instead of created by a static tuple. (Activity being shared, not minted, *strengthens* the design: TWO shared customers prove the well-known path; semantic alone proves the minted path.)
+3. **Semantic** (the muddle in the middle — Indaleko's never-fully-converted path; the per-provider/MINTED case). `bind_semantic_extractor`, per the worked example (`indaleko/semantic/examples/mime_extractor_example.py`): domain payload `SupportedMimeTypes`/`ResourceIntensity`/`ProcessingPriority`/`ExtractedAttributes`; name minted `prefix + identifier`; returns `(record, collection)`; mime-type queries.
 
-If one verb + the base/subclass split serves all three on paper (hypothesis: yes — the split falls exactly where the mime example shows), the interface is validated.
+If `watay` + the base/subclass split serves all three on paper — two shared (storage, activity) + one minted (semantic) — the interface is validated across both name-sources.
 
 ## Testing
 
-- **Red bar:** the verb must NOT apply/alter schema on a pre-existing collection (the negative requirement). Construct a schema-less collection, register a now-schema-bearing definition for that name, assert the existing collection's schema is untouched (change is a migration, not an init side-effect).
+- **Red bar:** `watay` must NOT apply/alter schema on a pre-existing collection (the negative requirement). Construct a schema-less collection, `watay` a now-schema-bearing definition for that name, assert the existing collection's schema is untouched (change is a migration, not an init side-effect).
 - **Red bar:** write a record missing a required field to a NEWLY-created schema-bearing collection, assert the DB refuses it (`[[feedback_stronger_tests_never_an_error.md]]`).
-- **Green:** create-if-absent collection/index/view; idempotent re-register is a no-op; dropped index is recreated on rerun.
+- **Green:** create-if-absent collection/index/view; a repeated `watay` on the same name is a no-op; dropped index is recreated on rerun.
 - **Green:** a record with extra undeclared fields IS accepted on an `extra="allow"`-derived schema (open lane intact).
-- **Green:** two registrants naming the same well-known string get the same handle (community write); two per-provider registrants get distinct collections.
+- **Green:** two callers `watay`-ing the same well-known name get the same handle (community write); two minted (`prefix+identifier`) callers get distinct collections.
+- **Green:** the name `watay` receives is obfuscated before create — the physical collection is the obfuscated name, the semantic name does not exist as a collection (honors the C0 invariant; mirrors `test_owned_collection_is_created_under_obfuscated_name`).
 - All against live `apacheta_test` (`[[feedback_no_mock_databases.md]]`).
 
 ## Explicitly deferred (named, not silently dropped)
 
 - **Build** of the three use-cases — one instance each (parallel or serial, decided at plan time). This spec DESIGNS; it does not build.
-- **Migration of the existing static creators** (activity `_SEMANTIC_COLLECTIONS`, tensor type-map) onto the verb — follow-on; closing this is what finishes #1.
+- **Migration of the existing static creators** (activity `_SEMANTIC_COLLECTIONS`, tensor type-map) onto `watay` — follow-on; closing this is what finishes #1.
 - **Schema-retrofit migration** of the live schema-less `Objects`/`activity_facts` collections — its OWN later pour (new schema-bearing collection + copy + repoint), with a data-surfacing step that discovers the non-conforming rows that were being silently accepted (ROOT: that discovery is product, not cleanup). NOT part of the mechanism pour.
 - **Names-registry as the only collision detector** (chosen over schema-compare: a shared *schema* is correct stacking, not a collision; the real collision is name-reuse, caught at declaration as a one-file merge conflict).
 
 ## Open items to resolve during implementation (flagged)
 
-- Exact relationship between the new `register` verb and the existing `Registrar` methods (`register`, `_ensure_collection`, `contribute`) — grow vs wrap. Driven by the real `Registrar` code.
-- Whether `ContributedRecord` needs promoted declared core fields (identity, canonical timestamps) for the storage definition's `required` set / unique indices to be meaningful — touches #17/#31. The schema is only as strong as the model's declared core.
-- Verifying no naming-path consumer depends on the obfuscated collection name before removing the map call from the naming path.
+- Whether `Khipu` wraps the obfuscator + DB handle directly or reuses `Registrar`'s `_ensure_collection` plumbing — without conflating the two services (op 3 ≠ op 2). Driven by the real `Registrar`/obfuscator code.
+- The storage use-case is BLOCKED on #17 (uniform storage object). Decide at plan time whether to design `Khipu` against a placeholder storage definition now, or sequence #17 first so storage validates against its real definition. Activity + semantic do not have this block.
+- (Resolved, was an open item: collection names route THROUGH the obfuscator — C0 invariant honored, not reversed. See Naming.)

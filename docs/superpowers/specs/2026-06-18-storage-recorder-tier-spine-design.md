@@ -1,8 +1,10 @@
 # Storage-Recorder Tier Spine with Base-Owned Collection Definitions
 
 **Date:** 2026-06-18
-**Status:** Designed, awaiting review
-**Issues subsumed:** #1 (dynamic registration of collection defs — partial), #17 (uniform storage object schema), #31 (URI/identity unique indices), #3 (temporal range index), Hamut'ay ArangoSearch view need.
+**Status:** SUPERSEDED by `2026-06-18-dynamic-collection-registration-design.md`.
+**Why superseded:** This spec centered the design on the *storage* recorder tier — wrong center. Walking the code with Tony revealed the storage `Objects` mess is one instance of a project-wide gap: the dynamic collection-registration primitive (gh #1) was never built, so three subsystems (storage, activity, semantic) each hand-rolled partial static creators. The correct center is the dynamic-registration mechanism, with storage/activity/semantic as three pressure-test customers. The ownership-rule reasoning and the index-shape census below remain valid INPUT to the successor spec; the "storage is the spine" framing is the false thing, cut here per declared-loss-is-debt.
+
+**Issues subsumed (by the successor):** #1 (dynamic registration — the CENTER, not partial), #17, #31, #3, Hamut'ay ArangoSearch view.
 
 ## Problem
 
@@ -14,7 +16,7 @@ The storage-recorder tier has no spine. Concretely, verified against live code 2
 - The `Objects`/`Relationships` collections are **created by the caller** (whoever constructs the `Registrar` with `owned_collection="Objects"`). The leaf only *checks* existence and raises (`contribute_snapshot`, the `well_known never mints` guard). **No component owns collection existence.**
 - Collections carry **no schema** (live: all `schema: none`), so the partition rule (shared-schema sources share a collection) is asserted in prose and enforced by nothing. See `[[project_no_arango_schema_validation_on_any_collection.md]]`.
 
-When a Mac local recorder arrives, the shared `Objects`/`Relationships` facts either duplicate, force an absurd Mac→Linux import, or finally get lifted to the tier base — the third being where they belonged from the first recorder.
+When a Windows or Mac local recorder arrives, the shared `Objects`/`Relationships` facts either duplicate, force an absurd Mac→Linux import, or finally get lifted to the tier base — the third being where they belonged from the first recorder.
 
 ## Design rule (load-bearing)
 
@@ -46,7 +48,14 @@ StorageRecorderBase                  (recorder/storage/base.py)
 
 Definition lives at the shape-tier (top); source behavior at the source-tier (local/cloud); normalizer + identity at the leaf.
 
-**Relationship to existing `recorder/base.py`:** `RecorderBase`/`FactRecorderBase` are generic data→storage abstractions. `StorageRecorderBase` is the storage-specific tier base that is currently absent. Resolve during implementation whether `StorageRecorderBase` sits *under* `RecorderBase` or beside it — driven by whether the storage write path matches `RecorderBase.record(envelope)`'s contract. Do not force the relationship; pick what the actual write path supports.
+**Relationship to existing `recorder/base.py` (corrected after walking the code 2026-06-18):** `recorder/base.py` holds **two** bases that are NOT alternatives — they are two write *targets* for the same source data, distinguished by the store binding:
+
+- `RecorderBase` → `ApachetaInterface` (`apacheta/interface/abstract.py:29`) → the **tensor/composition** database (`store_tensor`, `store_composition_edge`, `store_record`).
+- `FactRecorderBase` → `ActivityStreamStore` (`activity/store.py:19`) → the **temporal fact stream** (`store_fact`, append-only).
+
+The same source subclasses BOTH in parallel (e.g. `FilesystemRecorder` + `FilesystemFactRecorder`, `DropboxRecorder` + `DropboxFactRecorder`). Identical method *signatures*, different *sinks*. (The docstrings call both "generic data→storage," which flattens this real distinction — do not trust that phrasing.)
+
+**Crucially, the storage spine this spec builds is a THIRD path, not a subtype of either base.** The thing that writes `Objects`/`Relationships` today is neither `RecorderBase` nor `FactRecorderBase` — it is `LinuxStorageRegistration` → `Registrar.contribute()`, writing thin provenance docs into `Objects`. So `StorageRecorderBase` is **orthogonal** to `RecorderBase`/`FactRecorderBase`: it owns the collection-definition + registration/provenance-contribution path. A storage leaf may *also* drive a `RecorderBase` (tensors) and/or `FactRecorderBase` (facts) for the same source — those are separate concerns on separate sinks. Do NOT shoehorn `StorageRecorderBase` under `RecorderBase`; it governs a different write path (the registrar/Objects path), and forcing inheritance would conflate the tensor sink with the provenance-collection sink.
 
 ## Collection ownership
 

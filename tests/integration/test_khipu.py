@@ -94,3 +94,58 @@ def test_watay_is_idempotent(live_db):
     finally:
         if live_db.has_collection(semantic):
             live_db.delete_collection(semantic)
+
+
+def test_watay_creates_indices_additively(live_db):
+    semantic = f"test_khipu_{uuid4().hex}"
+    defn = CollectionDefinition(
+        indices=(
+            {"type": "persistent", "fields": ["uri"], "unique": True, "name": "uri_idx"},
+        ),
+    )
+    khipu = Khipu(db=live_db)
+
+    try:
+        khipu.watay(semantic, defn)
+        index_names = {index["name"] for index in live_db.collection(semantic).indexes()}
+        assert "uri_idx" in index_names
+
+        khipu.watay(semantic, defn)
+        index_names = {index["name"] for index in live_db.collection(semantic).indexes()}
+        assert "uri_idx" in index_names
+    finally:
+        if live_db.has_collection(semantic):
+            live_db.delete_collection(semantic)
+
+
+def test_watay_creates_arangosearch_view(live_db):
+    semantic = f"test_khipu_{uuid4().hex}"
+    view_name = f"test_khipu_view_{uuid4().hex}"
+    defn = CollectionDefinition(
+        views=(
+            {
+                "name": view_name,
+                "type": "arangosearch",
+                "links": {
+                    semantic: {
+                        "fields": {
+                            "label": {
+                                "analyzers": ["text_en"],
+                            },
+                        },
+                    },
+                },
+            },
+        ),
+    )
+    khipu = Khipu(db=live_db)
+
+    try:
+        khipu.watay(semantic, defn)
+        view_names = {view["name"] for view in live_db.views()}
+        assert view_name in view_names
+    finally:
+        if view_name in {view["name"] for view in live_db.views()}:
+            live_db.delete_view(view_name)
+        if live_db.has_collection(semantic):
+            live_db.delete_collection(semantic)

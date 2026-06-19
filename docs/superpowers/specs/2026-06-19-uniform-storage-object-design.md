@@ -40,11 +40,14 @@ class StorageObject(BaseModel):
                             #   NO file://-only validator (that was the silo mistake)
     source: UUID            # the PROVIDER/COLLECTOR id — who OBSERVED the object (§3.6).
                             #   NOT the recorder (that's on the provenance edge) and NOT a ported
-                            #   Indaleko `Record`. Yanantin carries provenance as `source` on
-                            #   core/contribution.py:ContributedRecord; whether StorageObject extends
-                            #   that vs re-declares is an open review item.
+                            #   Indaleko `Record`. StorageObject SUCCEEDS ContributedRecord
+                            #   (retired; see resolved open-items) — source/observed_at/raw are
+                            #   carried forward from it, not inherited.
+    observed_at: datetime   # contribution/observation time — "when we LEARNED this" (was
+                            #   ContributedRecord.timestamp). DISTINCT from the file timestamps
+                            #   below ("when the file changed"); both kept (ROOT).
 
-    # ── Flat timestamps (top-level, nullable — absence is legible) ──
+    # ── Flat FILE timestamps (top-level, nullable — absence is legible) ──
     created:  datetime | None = None
     modified: datetime | None = None
     accessed: datetime | None = None
@@ -247,11 +250,16 @@ gets its own per the deferral, but they share this shape):**
 | `object_identifier` | derived (see identity, below) | deterministic, NOT random |
 | `uri` | `entry.uri` | already `file://…`; cloud/accidental mint their own (deferred) |
 | `source` | the provider/collector id (who observed) | §3.6 — observer, not recorder/contributor |
+| `observed_at` | recorder-write time (default) | was `ContributedRecord.timestamp` — carried forward (succession) |
 | `created/modified/accessed/changed` | `entry.timestamps.{created,modified,accessed,changed}` | **flat top-level** — this is what kills `d.raw.timestamps.modified` |
 | `label` | `entry.name` | |
 | `size` | `entry.size` | |
 | open lane | `st_ino`→`device`/`inode`/`mode`/`file_attributes`/`link_target` | POSIX specifics; absent on cloud/accidental |
 | `raw` | `entry.model_dump()` | save-it-all; the original retained |
+
+The recorder switches from constructing `ContributedRecord` to constructing
+`StorageObject`, and `ContributedRecord` is **retired in the same change** (its sole
+consumer is this recorder; succession, not duplication — see resolved open-items).
 
 Normalization lives at the **recorder** boundary (the recorder owns the DB write),
 not the collector — matching Indaleko (collectors silo-specific, recorders normalize
@@ -418,12 +426,24 @@ Reviewer #2 verdict: directionally right; the gap was integration. All 7 finding
 folded (§3 binding, §3.5 normalization, §3.6 identities, §3.7 identity rule, §4
 `relation_type`, §2 timestamp-provenance, §1/§2 uri invariant). Remaining open:
 
-- **StorageObject ↔ ContributedRecord relationship.** `ContributedRecord` carries
-  `source` + `timestamp` + `raw` + an open tail — StorageObject re-declares all
-  four. Should StorageObject EXTEND/compose ContributedRecord rather than duplicate?
-  (The "re-deriving piecemeal what already exists" risk
-  [[project_indaleko_db_collections_declarative_root]] — caught once as Record→source;
-  this is the second instance.) Settle before building Pour B.
+- **StorageObject ↔ ContributedRecord — RESOLVED: succession, not extension.**
+  `ContributedRecord` (`contribution.py:29`) carries `source` + `timestamp` + `raw` +
+  `extra="allow"` — and its own docstring says it is the deliberately-thin placeholder
+  "without building the uniform StorageObject (#17)." Verified its SOLE consumer is the
+  linux storage registration (`registration.py:83`) — NOT the activity or semantic
+  recorders (they use `FactRecord`). So there is no population of thin contributors that
+  would justify keeping it as a base; its one consumer is exactly the path graduating to
+  StorageObject. **Decision: StorageObject SUCCEEDS ContributedRecord — neither extends
+  nor composes it. The scaffold is RETIRED (deleted) in the same change the storage
+  recorder switches to constructing StorageObject** ([[feedback_declared_loss_is_debt_not_payment]]:
+  cut the dead thing in the same commit). This is succession (scaffold down when building
+  stands), not the duplication smell (which is parallel live things meaning the same).
+  **Carry forward:** (1) the `to_contribution_fields()` render path
+  (`model_dump(mode="json")`) so StorageObject writes through the same
+  `Registrar.contribute()` boundary; (2) a DISTINCT contribution/observation `timestamp`
+  ALONGSIDE the four file timestamps — "when we learned this" ≠ "when the file changed";
+  both kept (ROOT). §1 gains an `observed_at: datetime` (the old `timestamp`'s real
+  meaning, taken today as the recorder-write default).
 - Is the object genuinely shaped to PERMIT the Discord inference, or gesturing? (§4.)
 - Named `semantic_attributes` bag vs `extra="allow"` — two open-lane shapes one too
   many? (§5 resolution — defensible, poke it.)

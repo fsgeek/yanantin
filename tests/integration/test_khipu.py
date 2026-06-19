@@ -1,6 +1,11 @@
+from uuid import uuid4
+
+import pytest
 from pydantic import BaseModel
 
 from yanantin.core.collection_definition import CollectionDefinition, arangodb_schema
+from yanantin.core.khipu import Khipu
+from yanantin.infra.config import ApachetaDBConfig, get_database
 
 
 class SampleModel(BaseModel):
@@ -24,3 +29,68 @@ def test_collection_definition_defaults_are_empty():
     assert definition.indices == ()
     assert definition.views == ()
     assert definition.edge is False
+
+
+@pytest.fixture
+def live_db():
+    cfg = ApachetaDBConfig()
+    creds = cfg.get_test_credentials()
+    return get_database(
+        host=cfg.host_url,
+        db_name="apacheta_test",
+        username=creds["username"],
+        password=creds["password"],
+    )
+
+
+def test_watay_creates_collection_under_obfuscated_name(live_db):
+    semantic = f"test_khipu_{uuid4().hex}"
+
+    try:
+        handle = Khipu(db=live_db, obfuscator=None).watay(
+            semantic,
+            CollectionDefinition(),
+        )
+
+        assert handle.name == semantic
+        assert live_db.has_collection(semantic)
+    finally:
+        if live_db.has_collection(semantic):
+            live_db.delete_collection(semantic)
+
+
+def test_watay_applies_schema_at_creation(live_db):
+    class _Doc(BaseModel):
+        name: str
+
+    semantic = f"test_khipu_{uuid4().hex}"
+
+    try:
+        Khipu(db=live_db, obfuscator=None).watay(
+            semantic,
+            CollectionDefinition(schema=arangodb_schema(_Doc)),
+        )
+
+        schema = live_db.collection(semantic).properties()["schema"]
+        assert schema is not None
+        assert schema["level"] == "strict"
+    finally:
+        if live_db.has_collection(semantic):
+            live_db.delete_collection(semantic)
+
+
+def test_watay_is_idempotent(live_db):
+    semantic = f"test_khipu_{uuid4().hex}"
+
+    try:
+        khipu = Khipu(db=live_db, obfuscator=None)
+
+        first = khipu.watay(semantic, CollectionDefinition())
+        second = khipu.watay(semantic, CollectionDefinition())
+
+        assert first.name == semantic
+        assert second.name == semantic
+        assert live_db.has_collection(semantic)
+    finally:
+        if live_db.has_collection(semantic):
+            live_db.delete_collection(semantic)

@@ -5,6 +5,7 @@ from pydantic import BaseModel
 
 from yanantin.core.collection_definition import CollectionDefinition, arangodb_schema
 from yanantin.core.khipu import Khipu
+from yanantin.core.well_known_collections import WELL_KNOWN, lookup
 from yanantin.infra.config import ApachetaDBConfig, get_database
 
 
@@ -149,3 +150,19 @@ def test_watay_creates_arangosearch_view(live_db):
             live_db.delete_view(view_name)
         if live_db.has_collection(semantic):
             live_db.delete_collection(semantic)
+
+
+def test_well_known_registry_is_pure_data():
+    assert all(
+        isinstance(definition, CollectionDefinition)
+        for definition in WELL_KNOWN.values()
+    )
+
+
+def test_lookup_returns_definition_for_known_name():
+    assert isinstance(lookup("khipu_self"), CollectionDefinition)
+
+
+def test_lookup_raises_for_unknown_name():
+    with pytest.raises(KeyError):
+        lookup("definitely_not_registered")

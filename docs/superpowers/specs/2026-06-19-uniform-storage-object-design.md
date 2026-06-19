@@ -134,6 +134,9 @@ locks in the mistake ([[feedback_stronger_tests_never_an_error]],
 lives in `well_known_collections.py`:
 
 ```python
+# well_known_collections.py — ALL THREE collections Registrar/recorders need
+# (Reviewer #2 round 2, #2: Relationships was routed through watay but never defined)
+
 "Objects" -> CollectionDefinition(
     schema=arangodb_schema(StorageObject),   # strict spine; open lane survives (extra=allow ⇒ no additionalProperties:false)
     indices=(
@@ -141,6 +144,20 @@ lives in `well_known_collections.py`:
         {"type":"persistent","fields":["uri"],"name":"uri_idx"},
         {"type":"persistent","fields":["modified"],"name":"modified_idx"},  # temporal axis, flat ⇒ indexable directly
     ),
+)
+
+"Relationships" -> CollectionDefinition(
+    edge=True,                               # EDGE collection (recorder declares kind="edge"); Khipu's CollectionDefinition.edge
+    schema=arangodb_schema(ProvenanceEdge),  # the LIVE edge model (provenance_edge.py): _from/_to + free-string relation_type.
+                                             #   ONE edge collection, relation_type distinguishes "records" (today) from
+                                             #   "derived_from" (§4). NOT a new edge model — see §4 note.
+    indices=(
+        {"type":"persistent","fields":["relation_type"],"name":"rel_type_idx"},
+    ),
+)
+
+"<catalog>" -> CollectionDefinition(         # the Registrar catalog — now Khipu-bound (no exception)
+    schema=arangodb_schema(RegistrantRecord),# the registrant shape — a real schema it lacks today
 )
 ```
 
@@ -174,12 +191,31 @@ indices. Registrar keeps op-2 (provider identity + contribution); Khipu owns op-
 still orchestrates creation) is rejected: it leaves the op-2/op-3 boundary blurred —
 the exact fusion the Khipu design fought.
 
+**The CATALOG also moves to Khipu — no exception (Reviewer #2 round 2, #1; verified).**
+Registrar today ALSO creates its catalog collection directly (`registration.py:95`,
+`_ensure_collection(self._catalog_name)`) — the catalog is its private registrant
+index (op-2 bookkeeping), distinct from the shared `Objects`/`Relationships` data
+collections. "Sole creator" with a catalog exception is a contradiction, and worse:
+an exception keeps `_ensure_collection` ALIVE in Registrar, so the schemaless-create
+path a future instance reaches for never dies — the exact erosion the separation
+exists to kill ([[feedback_security_erosion_mechanism]]). **Verified there is NO
+bootstrap obstacle:** Khipu imports nothing from Registrar, Registrar nothing from
+Khipu, and Khipu does not register itself — so Khipu can bind the catalog without
+Registrar existing first (no chicken-and-egg). Therefore the catalog gets its own
+`well_known` definition (the `RegistrantRecord` schema — it gains a real schema it
+lacks today) and is bound via `watay` too. **`_ensure_collection` is REMOVED from
+Registrar entirely.** The Pour-A red bar becomes structural and toothy: *Registrar
+has no collection-creation method / makes no `create_collection` call* — not "only
+self-creates the catalog," which would leave the method present and the guard hollow.
+
 **This makes #17 a TWO-pour arc, sequenced (declared, not hidden):**
-- **Pour A — complete the separation:** retire Registrar's owned-collection creation;
-  route `Objects`/`Relationships` through `watay`. Its own red-bar-guarded change
-  (touches live, tested `Registrar`), reviewed before B builds on it. A red bar:
-  *a contribute-write to an owned collection that was not Khipu-bound must fail/be
-  impossible* — so the schemaless-create path cannot return.
+- **Pour A — complete the separation:** REMOVE `_ensure_collection` from Registrar
+  entirely; route the catalog AND owned `Objects`/`Relationships` through `watay`
+  (all three now have well_known definitions above). Its own red-bar-guarded change
+  (touches live, tested `Registrar`), reviewed before B builds on it. **Structural
+  red bar:** *Registrar exposes no collection-creation method and makes no
+  `create_collection`/`_ensure_collection` call* — so the schemaless-create path
+  cannot return (stronger than "owned collections only," which left the method alive).
 - **Pour B — the StorageObject + normalization** (§1, §2, the normalization contract
   below), landing on the Khipu-bound `Objects` collection A produced.
 
@@ -269,7 +305,10 @@ poor object was, with high probability, derived from that rich one."
 ```python
 # written into the well-known "Relationships" edge collection
 # (the storage recorder ALREADY declares STORAGE_RELATIONSHIPS="Relationships")
-DerivedFromEdge:
+# NOT a new model — a ProvenanceEdge (provenance_edge.py) with relation_type="derived_from".
+# OPEN QUESTION (surfaced folding round 2): ProvenanceEdge is extra="forbid", so confidence/
+# evidence cannot just ride it. Where they live is an open item (see "still open" below).
+DerivedFromEdge (= ProvenanceEdge, relation_type="derived_from"):
     _from: <CDN StorageObject>      # poor/derived
     _to:   <local StorageObject>    # rich/source
     relation_type: "derived_from"   # use relation_type — the live edge vocabulary
@@ -390,3 +429,12 @@ folded (§3 binding, §3.5 normalization, §3.6 identities, §3.7 identity rule,
   many? (§5 resolution — defensible, poke it.)
 - The three-identity decision (§3.6: `source` = provider/observer) — confirm against
   how the activity stream and edges will consume it, not just storage.
+- **Where do the derived-edge `confidence`/`evidence` live?** The live `ProvenanceEdge`
+  (`provenance_edge.py:32`) is `extra="forbid"` with a typed `provenance: ProvenanceEnvelope`
+  — it cannot carry ad-hoc confidence/evidence. Options: (a) fold them into
+  `ProvenanceEnvelope` (smallest blast radius, if the envelope can hold them); (b) open
+  `ProvenanceEdge`'s tail or add explicit fields (changes a live model existing edges use);
+  (c) a distinct edge model — fights Khipu's one-schema-per-collection. This is the THIRD
+  `extra="forbid"` friction in this spec (FileEntryData, the edge) — the inference-engine
+  pour (which builds the edge) is the natural place to settle it, but the SHAPE decision
+  affects the `Relationships` definition. Flag, do not silently pick.

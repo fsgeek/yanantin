@@ -166,3 +166,15 @@ def test_lookup_returns_definition_for_known_name():
 def test_lookup_raises_for_unknown_name():
     with pytest.raises(KeyError):
         lookup("definitely_not_registered")
+
+
+def test_open_lane_survives_extra_allow_model():
+    from pydantic import BaseModel, ConfigDict
+
+    class _OpenDoc(BaseModel):
+        model_config = ConfigDict(extra="allow")
+        core: str
+
+    env = arangodb_schema(_OpenDoc)
+    # extra="allow" => model_json_schema does NOT set additionalProperties to False.
+    assert env["rule"].get("additionalProperties") is not False

@@ -48,4 +48,17 @@ class Khipu:
                 collection.configure(schema=definition.schema)
         else:
             collection = self._db.collection(physical)
+
+        existing_index_names = {i.get("name") for i in collection.indexes()}
+        for index in definition.indices:
+            if index.get("name") not in existing_index_names:
+                collection.add_index(index)
+
+        existing_view_names = {v["name"] for v in self._db.views()}
+        for view in definition.views:
+            if view["name"] not in existing_view_names:
+                self._db.create_arangosearch_view(
+                    name=view["name"], properties={"links": view.get("links", {})}
+                )
+
         return collection

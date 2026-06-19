@@ -38,11 +38,11 @@ class StorageObject(BaseModel):
     object_identifier: UUID
     uri: str                # UNIFORM locator: file:// | dropbox:// | https://cdn...
                             #   NO file://-only validator (that was the silo mistake)
-    source: UUID            # provenance: the registered provider/recorder id (resolves via Pukara).
-                            #   NOT a ported Indaleko `Record` object — yanantin already carries
-                            #   provenance as `source: UUID` on core/contribution.py:ContributedRecord
-                            #   (source + timestamp + raw). See open items: StorageObject's relationship
-                            #   to ContributedRecord is itself a review question.
+    source: UUID            # the PROVIDER/COLLECTOR id — who OBSERVED the object (§3.6).
+                            #   NOT the recorder (that's on the provenance edge) and NOT a ported
+                            #   Indaleko `Record`. Yanantin carries provenance as `source` on
+                            #   core/contribution.py:ContributedRecord; whether StorageObject extends
+                            #   that vs re-declares is an open review item.
 
     # ── Flat timestamps (top-level, nullable — absence is legible) ──
     created:  datetime | None = None
@@ -72,6 +72,14 @@ Three commitments, each traced to a decision:
    physical identity is a POSIX luxury that lives in the lane. **Absence is
    information:** a missing `st_ino` says "poor object, do not reason on physical
    identity," and the field is missing, not faked.
+   **Invariant (Reviewer #2, #5):** `uri` is REQUIRED and must be a stable,
+   resolvable locator; **minting it is each collector's normalization job.**
+   Filesystem already has `file://…`. Dropbox has `path_display`/`path_lower` and
+   no uri (`dropbox/models.py`); minting a canonical Dropbox uri (account scoping,
+   deleted/folder entries) is a DROPBOX-NORMALIZATION question and belongs in the
+   Dropbox pour, not this object spec — the spec states the invariant, each
+   collector satisfies it. (Keeping per-silo uri quirks OUT of the object spec is
+   the same discipline as not letting the first collector shape the object.)
 3. **`raw` retained beside normalized** (the ROOT,
    [[project_dont_throw_anything_away_root_principle]]). Normalize for
    queryability; never discard the original.
@@ -98,10 +106,15 @@ the systematic layer Indaleko lacked:
   Putting canonical UUIDs in the object re-implements Pukara inside the object.
   Cross-silo joining is Pukara's job; the object's timestamp roles are just the
   four plain names.
-- **Per-timestamp provenance — DELETED.** Indaleko's `IndalekoTimestampDataModel`
-  could record which silo attribute filled each timestamp. Yanantin captured the
-  *collector identity* (on `record`), so "where did this timestamp come from" is
-  answerable from the Record. Storing it per-timestamp duplicates what we have.
+- **Per-timestamp provenance — DELETED from the object** (not overclaimed — Reviewer
+  #2, #7). Indaleko's `IndalekoTimestampDataModel` could record which silo attribute
+  filled each timestamp. Captured collector identity answers *which collector* wrote
+  the object — it does NOT, by itself, answer *which provider field* populated
+  `modified` (especially after collector-local normalization, e.g. Dropbox
+  `server_modified` vs `client_modified`). That field-level mapping, when it matters,
+  belongs in the **normalizer definition / Pukara SchemaMap metadata** (one mapping per
+  collector type), NOT replicated per object. The object carries the value; the
+  normalizer definition carries the field→role mapping.
 - **Ordering validators — never added.** `created ≤ modified` is NOT enforced.
   Clock skew, `touch`, NFS break ordering; the data is reported as observed.
   A "wrong" ordering is data about the silo, not an error to reject (the ROOT).
@@ -137,6 +150,39 @@ DEFINITION `watay` consumes. The Task-6 open-lane red bar guards that
 `extra="allow"` does not emit `additionalProperties:false`, so the strict spine
 validates AND the lane stays open at the DB boundary.
 
+**Binding gap — Registrar currently bypasses Khipu (Reviewer #2, Blocking #1; verified).**
+Today `Registrar.__init__` creates its owned collection DIRECTLY and schemaless via
+`_ensure_collection(self._owned_name)` (`registration.py:104`). Khipu's red bar
+guarantees `watay` NEVER reconciles schema on an existing collection
+(`test_khipu_schema_never_reconciled.py`). So if Registrar creates `Objects`
+schemaless first, a later `watay` carrying the StorageObject schema is a **no-op —
+the schema never lands.** StorageObject cannot become a real schema-bearing
+collection while this stands.
+
+This is not a #17 wording fix; it is **the un-done half of the registration/
+collection-management separation** ([[project_common_core_missing_primitive_is_registration]]:
+the friction of a model change IS the missing-primitive symptom). The Khipu spec
+already declares Khipu "the sole creator of collections — after migration";
+Registrar still creating collections IS that un-done migration.
+
+**Decision (Tony, 2026-06-19): complete the separation.** Khipu becomes the sole
+creator. Registrar STOPS calling `_ensure_collection` for owned collections; when it
+needs the owned `Objects`/`Relationships` collection it obtains a Khipu-bound handle
+(`khipu.watay(name, well_known.lookup(name))`) carrying the StorageObject schema +
+indices. Registrar keeps op-2 (provider identity + contribution); Khipu owns op-3
+(creation + schema). The soft alternative (Registrar merely *receives* a handle but
+still orchestrates creation) is rejected: it leaves the op-2/op-3 boundary blurred —
+the exact fusion the Khipu design fought.
+
+**This makes #17 a TWO-pour arc, sequenced (declared, not hidden):**
+- **Pour A — complete the separation:** retire Registrar's owned-collection creation;
+  route `Objects`/`Relationships` through `watay`. Its own red-bar-guarded change
+  (touches live, tested `Registrar`), reviewed before B builds on it. A red bar:
+  *a contribute-write to an owned collection that was not Khipu-bound must fail/be
+  impossible* — so the schemaless-create path cannot return.
+- **Pour B — the StorageObject + normalization** (§1, §2, the normalization contract
+  below), landing on the Khipu-bound `Objects` collection A produced.
+
 **Pukara owns** what the object stays naive about: the obfuscator (names through
 it — C0, already in the `watay` path), the cross-silo joining (§2), the
 principal→DB map. The object cannot leak silo-identity logic into itself because
@@ -147,6 +193,70 @@ the boundary held.
 Schema is an enforcement FLOOR (spine must conform), not a closed contract
 (extras flow). Per Khipu's init contract, schema applies only at creation, never
 reconciled; a spine change is a MIGRATION (gh-tracked), not an init edit.
+
+## §3.5 — The normalization contract (Reviewer #2, Blocking #2; verified)
+
+The spec designed the object but not how data REACHES it. Today the linux recorder
+writes `ContributedRecord(source=provider_id, raw=entry.model_dump())` — **only
+`source` + `raw`, no spine** (`registration.py:81`). The temporal test reads
+`d.raw.timestamps.modified` (`test_temporal_query.py:107`) — digging into the raw
+blob precisely because the top-level spine does not exist. The object is inert
+without a normalizer.
+
+**Contract: `FileEntryData → StorageObject` (the linux normalizer; each collector
+gets its own per the deferral, but they share this shape):**
+
+| StorageObject field | from FileEntryData | rule |
+|---|---|---|
+| `object_identifier` | derived (see identity, below) | deterministic, NOT random |
+| `uri` | `entry.uri` | already `file://…`; cloud/accidental mint their own (deferred) |
+| `source` | the provider/collector id (who observed) | §3.6 — observer, not recorder/contributor |
+| `created/modified/accessed/changed` | `entry.timestamps.{created,modified,accessed,changed}` | **flat top-level** — this is what kills `d.raw.timestamps.modified` |
+| `label` | `entry.name` | |
+| `size` | `entry.size` | |
+| open lane | `st_ino`→`device`/`inode`/`mode`/`file_attributes`/`link_target` | POSIX specifics; absent on cloud/accidental |
+| `raw` | `entry.model_dump()` | save-it-all; the original retained |
+
+Normalization lives at the **recorder** boundary (the recorder owns the DB write),
+not the collector — matching Indaleko (collectors silo-specific, recorders normalize
+to the uniform object). The temporal test must migrate from `d.raw.timestamps.modified`
+to `d.modified` — that migration IS the proof the spine landed.
+
+## §3.6 — Three identities (Reviewer #2, High #3; verified)
+
+The spec said `source` is "the registered provider/recorder id" — ambiguous. Live
+code uses THREE distinct identities and the spec must pin each:
+
+- **provider / collector id** (`provider_id`) — who *observed* the data (the collector;
+  may have no DB access).
+- **recorder id** (`recorder_id`) — who *wrote* it (the recorder; used today as the
+  edge `_from`, `relation_type="records"`).
+- **stored-object contributor** — the principal credited for the contributed row
+  (today `provider_id` is passed as both contributor and `source` —
+  `registration.py:83` — conflating two of the three).
+
+**Decision:** `StorageObject.source` = the **provider/collector id** (who observed
+the object — its natural origin). The **recorder id** stays on the
+recorder→object provenance EDGE (`relation_type="records"`), not on the object.
+The contributor (who wrote the row) is the recorder, resolved via Registrar — NOT
+duplicated onto the object. One identity per role; `source` means observation-origin,
+nothing else.
+
+## §3.7 — object_identifier identity rule (Reviewer #2, High #4; verified)
+
+Today `obj_key = uuid4()` per snapshot entry (`registration.py:82`) — **random**. A
+unique index on `object_identifier` (proposed §3) then either rejects rescans or
+duplicates objects every scan. Identity must be **deterministic**.
+
+**Decision:** `object_identifier = uuid5(NAMESPACE, source + ":" + uri)` — *logical
+storage-object identity*. A rescan of the same file under the same provider yields
+the SAME id → idempotent re-observation (one row + updated fields, the save-it-all
+dedup posture: keep the information, not duplicate rows). This is **logical** identity,
+NOT observation identity (each scan is an observation) and NOT version identity (a
+changed file is the same logical object, new content) — those, if needed, are separate
+axes (an observations stream / a versions edge), explicitly deferred. For cloud/
+accidental silos with a provider-native stable id, that id replaces `uri` in the
+derivation; the rule is "stable natural key, hashed," `uri` being the filesystem case.
 
 ## §4 — The derived-object edge (the worked example that validates the shape)
 
@@ -162,7 +272,8 @@ poor object was, with high probability, derived from that rich one."
 DerivedFromEdge:
     _from: <CDN StorageObject>      # poor/derived
     _to:   <local StorageObject>    # rich/source
-    relation: "derived_from"
+    relation_type: "derived_from"   # use relation_type — the live edge vocabulary
+                                    #   (provenance_edge.py:37, registration.py:283); NOT a 2nd dialect
     confidence: float               # NOT boolean — bytes differ, identity is unprovable
     evidence: {
         activity_event_id: <UUID>,  # "Discord read file X at T"
@@ -217,40 +328,65 @@ The three `#17` red-bar guards:
    Both exist on purpose; the guard tests the named bag, the Task-6 red bar tests
    the `extra=allow` schema behavior.
 
+**Pour A red bar (the separation):** a `contribute` write to an owned collection
+that was not Khipu-bound must be impossible — assert Registrar no longer creates
+`Objects`/`Relationships` schemaless, and that after Pour A the live `Objects`
+collection carries the StorageObject schema (not `schema:none`). This guards the
+schemaless-create path cannot return.
+
 New tests (Codex-authored, builder/tester separation):
 - `StorageObject` round-trips through `watay` into live `Objects`: strict spine
   validated, undeclared field accepted (open lane survives at the DB boundary).
 - A poor object (uri + one timestamp, no st_ino) and a rich object (full POSIX in
   the lane) both validate — honest-absence (missing ≠ rejected).
-- A `derived_from` edge (confidence + evidence) writes into `Relationships` and
-  traverses (edge shape real; inference engine deferred).
+- **Normalization:** a `FileEntryData` through the linux normalizer yields a
+  StorageObject with top-level `modified` (not buried in `raw`); the temporal test
+  migrates from `d.raw.timestamps.modified` to `d.modified` — that migration is the
+  proof the spine landed (§3.5).
+- **Idempotent re-observation:** normalizing the same `FileEntryData` twice yields
+  the SAME `object_identifier` (deterministic `uuid5(source, uri)`, §3.7) — a rescan
+  updates, does not duplicate, under the unique index.
+- A `derived_from` edge (`relation_type`, confidence + evidence) writes into
+  `Relationships` and traverses (edge shape real; inference engine deferred).
 - `raw` blob round-trips beside the normalized view (save-it-all at storage).
 
 All against live `apacheta_test` ([[feedback_no_mock_databases]]).
 
+## The two pours (Reviewer #2 reshaped #17 from one object into an integration arc)
+
+- **Pour A — complete the registration/collection separation** (§3 binding-gap):
+  retire Registrar's owned-collection creation; route `Objects`/`Relationships`
+  through `khipu.watay`. Own red-bar-guarded change, reviewed before B. This is
+  the un-done Khipu migration the StorageObject surfaced — not new scope, owed work.
+- **Pour B — StorageObject + normalization** (§1, §2, §3.5–3.7): the object, the
+  `FileEntryData → StorageObject` normalizer, deterministic identity, three-identity
+  model. Lands on the Khipu-bound `Objects` collection A produced; flips the three
+  #17 guards green.
+
 ## Explicitly deferred (named, not dropped)
 
 - The temporal-correlation **inference engine** (own pour).
-- **Collector normalization** into StorageObject (per-collector pours; the
-  end-state is subsume-into-the-OPEN-object, replacing the closed silo models —
-  `extra="forbid"` is the mistake, Tony 2026-06-19).
+- **Cloud/accidental collector normalization** (per-collector pours; Pour B builds
+  the LINUX normalizer + the shared StorageObject; Dropbox uri-minting etc. follow).
+  End-state is subsume-into-the-OPEN-object, replacing the closed silo models —
+  `extra="forbid"` is the mistake (Tony, 2026-06-19).
 - The static `_SEMANTIC_COLLECTIONS` **migration** (gh #1's closer, not this).
 - gh #32 (view-link obfuscation gap).
 
-## Open items for adversarial review
+## Open items still for review (after Reviewer #2 round 1)
 
-- Is the object genuinely shaped to PERMIT the Discord inference, or merely
-  gesturing at it? (§4 — the claim a skeptic should test hardest.)
-- Named `semantic_attributes` bag vs `extra="allow"` — are two open-lane shapes
-  one too many? (§5 resolution — defensible, but a reviewer should poke it.)
-- **Provenance shape — RESOLVED against live code, but a design question remains.**
-  There is NO `Record` class in yanantin (Indaleko's `IndalekoRecordDataModel` did
-  not port). Provenance lives as `source: UUID` on `core/contribution.py:ContributedRecord`
-  (which carries `source` + `timestamp` + `raw` — the spine StorageObject was reaching
-  for). So the spec uses `source: UUID`, not a ported Record. **The open question for
-  review:** is StorageObject a *kind of* `ContributedRecord` (it already has source +
-  timestamp + raw + an open tail), and should it EXTEND/compose that rather than
-  re-declare those fields? This is the "re-deriving piecemeal what already exists"
-  risk ([[project_indaleko_db_collections_declarative_root]]) — caught once here
-  (Record→source); the ContributedRecord relationship is the second instance and
-  should be settled before building.
+Reviewer #2 verdict: directionally right; the gap was integration. All 7 findings
+folded (§3 binding, §3.5 normalization, §3.6 identities, §3.7 identity rule, §4
+`relation_type`, §2 timestamp-provenance, §1/§2 uri invariant). Remaining open:
+
+- **StorageObject ↔ ContributedRecord relationship.** `ContributedRecord` carries
+  `source` + `timestamp` + `raw` + an open tail — StorageObject re-declares all
+  four. Should StorageObject EXTEND/compose ContributedRecord rather than duplicate?
+  (The "re-deriving piecemeal what already exists" risk
+  [[project_indaleko_db_collections_declarative_root]] — caught once as Record→source;
+  this is the second instance.) Settle before building Pour B.
+- Is the object genuinely shaped to PERMIT the Discord inference, or gesturing? (§4.)
+- Named `semantic_attributes` bag vs `extra="allow"` — two open-lane shapes one too
+  many? (§5 resolution — defensible, poke it.)
+- The three-identity decision (§3.6: `source` = provider/observer) — confirm against
+  how the activity stream and edges will consume it, not just storage.

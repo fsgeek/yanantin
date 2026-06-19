@@ -37,7 +37,7 @@ Operation 3 is named in Quechua deliberately, to escape the "register" overload:
 
 ## The mechanism
 
-`Khipu` is the **sole** creator of collections. One verb:
+`Khipu` is the **sole creator of collections — after migration.** It is the only creator *by design*; until the legacy static creators (tensor type-map, activity `_SEMANTIC_COLLECTIONS`) are migrated onto it (deferred — see below), they coexist as the temporary exception. The end state is one creator; the migration path has two. One verb:
 
 ```
 khipu.watay(name, definition) -> collection_handle
@@ -84,21 +84,23 @@ Schema is generated from the Pydantic model via Indaleko's envelope, ported verb
 
 ### Base / subclass split (proven by `indaleko/semantic/examples/mime_extractor_example.py`)
 
-A generic base owns `watay` + the registry + collection-minting + identity fields `(Identifier, Name, Description, Version, provenance Record)`. Per-type subclasses own:
-- the **domain payload** validated in `_process_registration_data` (e.g. semantic's `SupportedMimeTypes`, `ResourceIntensity`, `ProcessingPriority`, `ExtractedAttributes`),
-- a **domain-named entry point** (`bind_semantic_extractor` / `bind_activity_collections` / `bind_storage_collections`) that assembles the definition and calls `watay`,
-- **domain queries** (`get_supported_mime_types`, `find_extractors_for_mime_type`, `get_activity_providers_by_type`, ...).
+`Khipu`'s generic base owns `watay` + the registry + collection-minting — **and nothing about provider identity.** (Indaleko's `register_provider` FUSES provider-identity and collection-minting into one call; yanantin already split these — provider identity is op 2, `Registrar`'s job. Do NOT re-fuse them. `watay` owns name→definition→handle only.)
+
+Per-type **binding** subclasses (the `Khipu` side) own only:
+- a **domain-named entry point** (`bind_semantic_extractor` / `bind_activity_collections` / `bind_storage_collections`) that assembles the collection *definition* (schema/indices/views) and calls `watay`.
+
+The op-2 fields Indaleko folded into `register_provider` — `(Identifier, Name, Description, Version, Record)` and the domain payload (`SupportedMimeTypes`, `ResourceIntensity`, `ProcessingPriority`, `ExtractedAttributes`, validated by `_process_registration_data`) and the **domain queries** (`get_supported_mime_types`, `find_extractors_for_mime_type`, ...) — are **provider-registration** concerns and stay on the `Registrar` (op 2) side, NOT on the `Khipu` binding subclass. A per-type recorder/coordinator drives BOTH: it `Registrar.register`s its identity+payload AND calls its `bind_*` entry point. The split mirrors the vocabulary table; it does not blur it.
 
 `Khipu` is a NEW service, ADJACENT to the existing `core/registration.py:Registrar` — NOT a method grafted onto it (op 3 ≠ op 2; see Vocabulary). A recorder may call `Registrar.register` (its identity) AND `khipu.watay` (its collection); they collaborate, they do not merge. Open item: whether `Khipu` wraps the obfuscator+DB handle directly or reuses `Registrar`'s `_ensure_collection` plumbing — resolve against the real code without conflating the two services.
 
 ## Three pressure-test use-cases (DESIGNED here, BUILT later)
 
-The mechanism is designed against all three before any is built, so the interface is not over-fit to one. Each instantiates the same skeleton, differing only in name-source + domain payload + queries.
+The mechanism is designed against all three before any is built, so the interface is not over-fit to one. Each `bind_*` entry point differs only in **name-source** (well-known vs minted) and the **definition** it assembles; the per-type provider identity/payload/queries live on the `Registrar` (op 2) side per the base/subclass split above.
 
 1. **Storage** (the messiest — well-known/shared, community-write, retrofit-onto-live). `bind_storage_collections` `watay`-s well-known `Objects`/`Relationships` (names from the registry) with the storage-object definition. `StorageRecorderBase` owns the *definition* at the tier where the storage shape is constant; the leaf keeps its own recorder identity (provenance) and writes through the returned handle, naming no collection (`[[project_ownership_at_the_tier_where_the_fact_stops_varying.md]]`).
    **BLOCKING DEPENDENCY:** the storage-object *definition* is **placeholder until #17's uniform storage object exists.** Today `core/contribution.py:ContributedRecord` is intentionally THIN (`source` + `raw` + open tail) and is NOT the uniform object; `tests/red_bar/test_uniform_storage_object.py` is honestly red. So #31's `URI`/`ObjectIdentifier` unique indices, #3's timestamp persistent+inverted indices, and the Hamut'ay arangosearch view (index *shape* per `indaleko/db/db_collections.py:140-330`; Pukara owns label-stability, do NOT port UUID index keys) are the storage definition's *eventual* contents — they cannot be finalized until the model with declared `URI`/`ObjectIdentifier`/timestamp fields lands. The storage use-case validates the `watay` INTERFACE against a well-known/shared customer; its concrete definition waits on #17. (`[[project_31_17_temporal_are_one_missing_object.md]]`)
 2. **Activity** (a SECOND well-known/shared case — NOT per-provider). CORRECTED from an earlier draft that wrongly imported Indaleko's per-provider minting: yanantin activity is **two shared collections**, `activity_facts` + `activity_anchors`, indexed by `(provider_id, timestamp)`, with facts as schema-agnostic shared observations (`activity/backends/arango.py:30,81`, `activity/models.py:36`). So activity is the SAME shared-collection shape as storage, not the minted shape — it `watay`-s two well-known names from the registry, provider identity carried as a field. This replaces the static `_SEMANTIC_COLLECTIONS` tuple with registry entries + `watay`. Anchors and the `(provider_id, timestamp)` index are part of the activity definition; nothing about temporal queries or `ActivityStreamStore` changes — the collections stay shared, they just get *bound* through `Khipu` instead of created by a static tuple. (Activity being shared, not minted, *strengthens* the design: TWO shared customers prove the well-known path; semantic alone proves the minted path.)
-3. **Semantic** (the muddle in the middle — Indaleko's never-fully-converted path; the per-provider/MINTED case). `bind_semantic_extractor`, per the worked example (`indaleko/semantic/examples/mime_extractor_example.py`): domain payload `SupportedMimeTypes`/`ResourceIntensity`/`ProcessingPriority`/`ExtractedAttributes`; name minted `prefix + identifier`; returns `(record, collection)`; mime-type queries.
+3. **Semantic** (the muddle in the middle — Indaleko's never-fully-converted path; the per-provider/MINTED case). `bind_semantic_extractor` mints a `prefix + identifier` name and assembles the extractor-collection definition (the op-3 binding part). The op-2 side — the extractor's provider-registration with payload `SupportedMimeTypes`/`ResourceIntensity`/`ProcessingPriority`/`ExtractedAttributes` and the mime-type queries (`get_supported_mime_types`, `find_extractors_for_mime_type`) — stays on `Registrar`. The worked example (`indaleko/semantic/examples/mime_extractor_example.py`) shows them FUSED in one `register_semantic_extractor(...) -> (record, collection)` call; yanantin keeps them split (Registrar + Khipu), the coordinator drives both. This is the use-case where the op-2/op-3 split is easiest to accidentally re-fuse — the example itself fuses it.
 
 If `watay` + the base/subclass split serves all three on paper — two shared (storage, activity) + one minted (semantic) — the interface is validated across both name-sources.
 

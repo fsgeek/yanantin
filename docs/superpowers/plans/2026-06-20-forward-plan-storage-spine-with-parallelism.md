@@ -45,9 +45,9 @@ The exact 13 (verified `pytest tests/red_bar/ -q`), in 4 groups:
 - `test_uniform_storage_object.py` ×3 → gap: #17 (Pour B)
 - `test_llika_wall.py` ×1 → gap: Pukara credential boundary (#10/#13, cross-repo)
 
-**Task P0 (⟫parallel-able: one agent per test-file group, no shared state):**
-1. Add `xfail_strict = true` to `[tool.pytest.ini_options]` in pyproject (so an xfail that PASSES becomes a failure — "you built it, now flip the guard").
-2. Mark each of the 13 with `@pytest.mark.xfail(strict=True, reason="<gap>: <issue#>")`.
+**Task P0 (Codex review #4 corrections folded):**
+1. **COORDINATOR (single agent, ONE commit):** add `xfail_strict = true` to `[tool.pytest.ini_options]` in `pyproject.toml` (line ~29). NOTE: this is **config-side, not src** — the "no src" rule holds, but the commit message is "test/config-side". Do NOT let the parallel agents below touch pyproject.toml (write-conflict).
+2. **⟫PARALLEL (after step 1 merges): one agent per test-FILE group, no shared state** — mark each of the 13 with `@pytest.mark.xfail(strict=True, reason="<gap>: <issue#>")` (so an xfail that PASSES becomes a failure — "you built it, now flip the guard"). The four file-groups (factor_shape×5, mechanism_invariance×4, uniform_storage_object×3, llika_wall×1) are distinct files ⇒ no merge conflict.
 3. **EXCEPTION — `test_canonical_timestamps_are_uuid_named`:** do NOT mark "build toward green." The #17 spec §2/§5 says this guard asserts a SUPERSEDED requirement (UUID-keyed timestamps, obsoleted by Pukara) and must be **rewritten** when Pour B lands, not satisfied. Mark it `xfail(strict=True, reason="#17 SUPERSEDED — rewrite to flat-nullable-timestamp assertion in Pour B, do not satisfy as-is")`. This prevents the ghola from "fixing" it the wrong way.
 **Gate:** `pytest tests/` → green with 13 xfailed. CI green. This is two commits (all test-side; no src). **Verify CI actually passes on the PR before proceeding.**
 
@@ -64,12 +64,72 @@ The exact 13 (verified `pytest tests/red_bar/ -q`), in 4 groups:
 - Blast radius: `tests/integration/test_core_registration.py` (9 tests; 3 encode the create-it-yourself contract: `test_owned_collection_is_created_under_obfuscated_name`, `test_stacking_reproduces_objects_as_one_shared_collection`, `test_field_names_are_obfuscated_in_stored_documents`). These must be re-pointed to receive a Khipu-bound handle, not deleted.
 - **Run the FULL registration suite + red_bar BEFORE. Record the baseline.** (`feedback_decided_decision_made` — certify against a known-green floor; P0 gave you one.)
 
-**The pour (serial):**
-1. Author the 3 well-known `CollectionDefinition`s the spec §3 names but that DON'T yet exist in `well_known_collections.py` (only `khipu_self` marker is there): `Objects` (StorageObject schema + indices), `Relationships` (edge=True, ProvenanceEdge schema), `<catalog>` (RegistrantRecord schema). **Wiring decision (settled this session, matches the grain):** bind LATE at the caller — Registrar receives a Khipu-bound handle, does NOT hold a Khipu reference (keeps Khipu/Registrar import-independent, as they are today). The recorder leaf already takes a handed `Registrar` and refuses to mint (`recorder/storage/local/linux/registration.py:33,68`) — same pattern.
-2. REMOVE `_ensure_collection` AND `_ensure_edge_collection` from Registrar **entirely** (not "catalog exception" — that leaves the schemaless-create path alive; `feedback_security_erosion_mechanism`).
-3. New structural red bar (Codex-authored, test-only commit): *Registrar exposes no collection-creation method and makes no `create_collection`/`_ensure_collection` call.* This is the guard that keeps the schemaless path from returning.
-**⟫PARALLEL (the place parallelism de-risks the serial step):** spawn 3 independent adversarial reviewers at the DIFF (not the spec — the spec is quiet, risk moved downstream). Each prompted to REFUTE "this preserves the registration contract / introduces no schemaless-create path / handles bootstrap (Khipu binds catalog without Registrar existing first — verified no chicken-and-egg)." Majority-refute ⇒ stop and fix.
-**Gate:** full registration suite + red_bar GREEN (== baseline, no regressions); new structural red bar green; live `Objects` collection carries StorageObject schema (NOT `schema:none`). Re-run the floor command from `project_core_complete_census` (`--json filesystem docs/superpowers/specs --store arango` against apacheta_test) — still lands facts.
+### ⚠️ SPLIT INTO A1 / A2 (Codex review #1 — resolves the schema circular-dependency)
+The original Pour A required `Objects` to carry the StorageObject schema — but StorageObject
+doesn't exist until Pour B. That's a circular dep at the most dangerous seam; a cold
+executor would have to invent a bridge. Resolved by splitting:
+
+**Pour A1 — Khipu becomes the sole creator (no StorageObject dependency).** Build this NOW.
+- Define the well-known `CollectionDefinition`s that DON'T need StorageObject:
+  `<catalog>` (RegistrantRecord schema — exists today), `Relationships` (edge=True,
+  ProvenanceEdge schema — exists today). For `Objects`: bind it via Khipu **schema-less for
+  now** (a CollectionDefinition with `schema=None`) — Khipu creates it, but the StorageObject
+  schema lands in A2. This is honest: the collection exists and Khipu owns it; the schema is
+  explicitly a Pour-B deliverable, not a silent gap.
+- REMOVE `_ensure_collection` AND `_ensure_edge_collection` from Registrar **entirely**
+  (not "catalog exception" — leaves the schemaless-create path alive,
+  `feedback_security_erosion_mechanism`).
+- **Gate A1:** full registration suite + red_bar GREEN (== baseline); structural red bar
+  green; `Objects`/`Relationships`/catalog all Khipu-created. Floor check (collector still
+  lands facts in apacheta_test). NOTE: `Objects` is intentionally `schema:none` after A1 —
+  that is NOT the final state; A2 closes it.
+
+**Pour A2 — bind the StorageObject schema (AFTER Pour B builds the model).** Sequenced
+*after* B's model exists. Updates the `Objects` CollectionDefinition to carry
+`arangodb_schema(StorageObject)` + indices. **BUT** Khipu's init contract NEVER reconciles
+schema on an existing collection (`test_khipu_schema_never_reconciled` — a GREEN guard).
+So A2 is a **migration**, not an init edit (`project_collection_init_contract_schema_is_data_not_config`):
+the executor must explicitly apply the schema to the live `Objects` collection (an Arango
+`db.collection('Objects').configure(schema=...)` migration step), with a snapshot first
+(see rollback below). Gate A2: live `Objects` carries StorageObject schema (NOT `schema:none`);
+existing rows still validate or the migration reports which don't.
+
+### Pour A1 Registrar API design (Codex review #2 — was under-specified)
+"Registrar receives a Khipu-bound handle" must be a concrete constructor change, or
+deleting `_ensure_collection` half-migrates. Today Registrar (`core/registration.py`)
+stores `_catalog_name`/`_owned_name`/`_owned_edge_name` (semantic→obfuscated strings) and
+calls `self._db.collection(name)` internally for insert/AQL. The migration:
+- **`__init__` still takes semantic names** (`catalog_collection`, `owned_collection`,
+  `owned_edge_collection`) AND a `khipu: Khipu` (or a pre-bound handle map). It KEEPS the
+  semantic names for AQL bind-vars + obfuscation (unchanged — those are needed for
+  `list_registrants`/`contribute`'s queries). What changes: instead of `_ensure_collection`,
+  it calls `khipu.watay(name, well_known.lookup(name))` to OBTAIN each collection, storing
+  the returned handle. Bind LATE at the caller — Registrar holds a Khipu ref passed in, does
+  NOT import Khipu's creation logic (keeps them import-independent as today).
+- **`contribute_edge`** (`_from`/`_to`): unchanged — endpoints are canonical `collection/key`
+  ref VALUES built from `owned_collection_name` (the obfuscated name property stays). Khipu
+  returning the handle doesn't change how edge endpoints are constructed.
+- **Partial ownership** (only catalog, or catalog+owned, or +edge): preserve today's
+  semantics — `owned_collection=None` ⇒ owned defaults to catalog (degenerate own-a-collection
+  case); `owned_edge_collection=None` ⇒ no edge collection. Each non-None name gets a
+  `watay` call; None stays None. The `owns_owned_collection`/`owns_edge_collection` properties
+  are unchanged.
+- A fresh executor MUST re-grep `core/registration.py` for the exact current attrs/methods
+  before editing — line numbers drift (half-life).
+
+**⟫PARALLEL (de-risks the serial step):** spawn 3 independent adversarial reviewers at the
+A1 DIFF. Each prompted to REFUTE "this preserves the registration contract / introduces no
+schemaless-create path / handles bootstrap (Khipu binds catalog without Registrar existing
+first — verified no chicken-and-egg) / the constructor change doesn't break the 9
+registration tests' contract." Majority-refute ⇒ stop and fix.
+
+### Rollback (Codex review #5 — live schema/ownership change needs a snapshot)
+Both A1 and A2 mutate live `apacheta_test` collection ownership/schema. Before each:
+record the current collection list + `Objects` schema state; A2 specifically snapshots the
+`Objects` collection (it's a schema migration on live data). If a gate fails, the rollback
+is "recreate the collections Registrar used to create, restore the prior schema state." The
+DB is ours and non-fatal to trash (`feedback_no_mock_databases`), but a recorded baseline
+makes "did this degrade?" answerable — the whole point of doing P0 first.
 
 ## P1.5 — Arango conn-error discrimination (bounded, opportunistic)
 2 strict xfails in `tests/unit/test_arango_conn_errors.py`; plan in `docs/plans/2026-06-01-arango-conn-error-discrimination-is-wrong.md`. Small, operator-trust value. Do between A and B if momentum allows; not blocking.
@@ -80,13 +140,15 @@ The exact 13 (verified `pytest tests/red_bar/ -q`), in 4 groups:
 Lands on the Khipu-bound `Objects` from Pour A. Spec is the authority.
 - Build `StorageObject` (extra="allow", NEVER forbid; uri spine; flat nullable timestamps; `semantic_attributes` open lane; `raw` retained).
 - `FileEntryData → StorageObject` normalizer (kills `d.raw.timestamps.modified` → `d.modified`). Deterministic `object_identifier = uuid5(source, uri)`.
-- RETIRE `ContributedRecord` in the SAME change (sole consumer is the linux recorder; succession not duplication; `feedback_declared_loss_is_debt_not_payment`).
+- RETIRE `ContributedRecord` (succession not duplication; `feedback_declared_loss_is_debt_not_payment`). **Codex review #6 — it is NOT only the linux recorder:** verified consumers are `recorder/storage/local/linux/registration.py:13,83` (src) AND `tests/integration/test_recorder_collection_mapping.py:6,21,28` (two constructions). Retirement therefore spans the builder/tester split: a **src commit** (recorder switches to StorageObject; delete the model) and a **separate test commit** (migrate `test_recorder_collection_mapping` to StorageObject or retire the cases that only existed to exercise ContributedRecord). Name both in the task; do NOT delete the model in one commit and strand the test import.
 - **REWRITE `test_canonical_timestamps_are_uuid_named`** (the P0-flagged exception) to assert flat-nullable timestamps + no CANONICAL_TIMESTAMP_UUIDS. Same change, reasoning in commit.
 **⟫PARALLEL (Codex test authoring):** the §5 new tests (round-trip through watay; poor-object/rich-object honest-absence; normalization; idempotent re-observation; derived_from edge; raw round-trip) are independent — author concurrently via `codex exec -s workspace-write` (default model, `< /dev/null`).
 **Gate:** the 3 `test_uniform_storage_object` xfails flip to xpass → convert to real green assertions (xfail_strict makes xpass fail, forcing this). All against live apacheta_test.
 
-## P2b — wire #29 (orphaned semantic transducer) — CHEAP, closes 2 bar items
-Built (`recorder/semantic/openrouter/fact_recorder.py`) but no `semantic` subcommand in `collector/__main__.py`. Add it (mirror `_cmd_filesystem`). Closes Tony's core-bar items "≥1 semantic transducer" AND "≥2 activity streams" (`project_core_complete_census`). Do anytime after P0; independent of the storage spine.
+## P2b — wire #29 (OpenRouter activity CLI) — CHEAP, but it is TELEMETRY not semantic extraction
+**Codex review #5 — corrected, I had conflated two things.** Verified: `recorder/semantic/openrouter/fact_recorder.py` records each OpenRouter API call as a `FactRecord` (model/cost/tokens/timestamps/finish-reasons). That is **activity telemetry**, NOT "what's IN the content," and it does NOT write semantic extraction into a StorageObject open lane or BM25 view. So split the claim:
+- **What P2b actually does:** wire the OpenRouter activity recorder to a CLI subcommand (mirror `_cmd_filesystem`). This is a cheap **second activity stream** ✓ — it closes Tony's "≥2 activity streams" bar item. Independent of the storage spine; do anytime after P0.
+- **What it does NOT do:** it does NOT close "≥1 semantic transducer" in the sense the program means (unstructured CONTENT extraction). That is a **separate provider** in the P3-BAR fan-out (the "semantic/unstructured extraction" row), which reads file content into the open lane + BM25 view (`project_semantic_transducer_is_skunkworks...`) and REQUIRES StorageObject (Pour B). Do not mark the semantic-transducer bar item closed by wiring the OpenRouter CSV recorder.
 
 ---
 
@@ -103,11 +165,32 @@ Order is load-bearing (Codex right): factors need StorageObject's normalized inp
 - **query/find telemetry** — gh #18; find ops AS an activity stream. Independent.
 - **program execution history (NEW)** — design FIRST (no spec exists; Placeless is the reference, not a codebase artifact — design-panel it like factors/resolver). Captures what-ran/on-what/produced-what; gives the graph action-edges; feeds the #17 inference engine. Highest design-novelty of the five.
 - **Claude Code conversation** — gh #33; tail ~/.claude/projects. Build LAST of the bar (it's the dogfood ACCEPTANCE TEST for the whole substrate — `project_claude_code_conversation_provider...` — don't spend the best use case before the others prove the pipeline).
-Each provider = its own worktree (`isolation: worktree`), its own Codex-authored tests, two-commit split. They merge independently; no ordering among the first four except "file-change tends to come first."
+Each provider = its own worktree (`isolation: worktree`), its own Codex-authored tests, two-commit split. They merge independently.
+
+**Dependency refinement (Codex review #7 — sharper than "file-change first"):**
+- **OpenRouter activity CLI wiring (P2b)** — does NOT depend on StorageObject; can start right after P0. (This is the telemetry stream, not the semantic provider — see P2b.)
+- **file-change** — needs StorageObject NORMALIZATION available (it emits change-facts about objects); starts after Pour B.
+- **semantic/unstructured extraction** — MUST wait for StorageObject (writes into the open lane); after Pour B.
+- **query/find telemetry** — depends on what "find" MEANS. If it records current query-CLI usage, it can start early (after P0). If it records the final factor/resolver-based find, it waits until after the resolver. Decide which "find" at build time; the early version is not wasted (it's the same activity-stream shape).
+- **program execution history** — DESIGN SPEC before implementation (no spec exists; Placeless is the reference, not a code artifact; design-panel it).
+- **Claude Code conversation** — LAST (dogfood acceptance test; don't spend the best use case before the pipeline is proven).
 **Per-provider gate:** collector lands facts/objects in apacheta_test (re-run the census floor check); for semantic/conversation, a content search returns a hit (the 0→1 proof, `project_federation_runs_today...`).
 
 ## P4+ (deferred, correctly — leave alone until upstream settles)
-Gateway routes (#10 cross-repo Pukara), query pushdown (wait for spine to settle — Codex right, "indexes chase a moving target"), harness completion, DuckDB decision (sharpen the deprecation or implement; don't invest in a discouraged backend). Llika wall fix sequences with #10 — it's a tracked HONEST red bar, NOT an emergency (Codex mis-framed it as "active bypass to fix now"; it's a gated, guarded gap).
+Gateway routes (#10 cross-repo Pukara), query pushdown (wait for spine to settle — Codex right, "indexes chase a moving target"), harness completion, DuckDB decision (sharpen the deprecation or implement; don't invest in a discouraged backend).
+
+### Llika wall — P0 xfail + a P1 CONTAINMENT item (Codex review #3, partially accepted)
+Codex: don't downgrade the Llika wall to P4-only; the test demonstrates a working bypass.
+**Accepted in part, grounded in the project's OWN threat model** (`project_ayllu_not_miraflores_multitenancy`,
+`project_threat_model_integrity_not_confidentiality`): the adversary is a DATASTORE BREACH,
+the tenants are KIN, and the agent-side process holding app credentials is the system's own
+component in a single-operator research install — NOT a hostile party. So the failing test
+is a real ARCHITECTURE-INTEGRITY gap (the boundary isn't enforced yet) but NOT a live
+exploit by an attacker (there is none in the current deployment). Codex, reading from
+outside the threat model, can't make that distinction (the same artifact-vs-intent gap).
+**Therefore:**
+- P0: mark `test_llika_wall` `xfail(strict, reason="#10 Pukara credential boundary — boundary not yet enforced")`. The xfail repairs CI; it does NOT reduce risk (Codex right on that).
+- **P1 CONTAINMENT (add this — Codex's milder option, the right one):** explicitly DOCUMENT which credentials an agent process may hold, and do not WIDEN graph-capable app credentials into ordinary local agent workflows. This is "say the boundary out loud and hold the line," not breach response. The full fix (Pukara holds graph creds, agent does not) sequences with #10, cross-repo.
 
 ---
 

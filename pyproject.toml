@@ -28,6 +28,7 @@ dropbox = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+xfail_strict = true
 markers = [
     "integration: test hits a live external API (OpenRouter); skip with -m 'not integration'",
 ]

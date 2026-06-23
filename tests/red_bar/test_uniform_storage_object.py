@@ -82,6 +82,7 @@ def _load_storage_object():
 # Honestly red today. The pipeline that moves storage objects ported; the
 # object did not. Cross-silo find cannot work without one shared shape.
 
+@pytest.mark.xfail(strict=True, reason="gh #17 StorageObject not built yet (Pour B): #17 Pour B")
 def test_uniform_storage_object_exists():
     """A silo-independent storage object must exist for cross-silo find.
     Without it, filesystem and Dropbox files are incomparable JSON blobs and
@@ -102,6 +103,7 @@ def test_uniform_storage_object_exists():
 # named `modified` on FileEntryData and `modified_time` on DropboxEntryData
 # cannot be joined without per-silo knowledge. Named-UUID timestamps fix this.
 
+@pytest.mark.xfail(strict=True, reason="#17 SUPERSEDED — rewrite to flat-nullable-timestamp assertion in Pour B, do not satisfy as-is")
 def test_canonical_timestamps_are_uuid_named():
     """The four timestamps must be addressable by a stable, silo-independent
     UUID identity (created/modified/accessed/changed), not by a per-silo Python
@@ -134,6 +136,7 @@ def test_canonical_timestamps_are_uuid_named():
 # This guard asserts the open lane exists AND accepts an undeclared
 # UUID-keyed attribute — so the contract cannot be satisfied by closing it.
 
+@pytest.mark.xfail(strict=True, reason="gh #17 StorageObject not built yet (Pour B): #17 Pour B")
 def test_semantic_attribute_lane_is_open():
     """The uniform object must carry an OPEN semantic-attribute lane: a
     collector can attach a UUID-keyed attribute the base schema never declared,

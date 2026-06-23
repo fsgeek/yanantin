@@ -73,6 +73,7 @@ def _auth_blocked(exc: BaseException) -> bool:
     )
 
 
+@pytest.mark.xfail(strict=True, reason="Pukara credential boundary not yet enforced (#10/#13, cross-repo): #10 Pukara credential boundary — boundary not yet enforced")
 def test_agent_side_process_cannot_obtain_working_llika_graph_handle() -> None:
     """[RED UNTIL CREDS WALL] Agent-side construction of the privileged graph
     backend must not produce a working Llika handle.

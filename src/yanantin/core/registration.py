@@ -30,6 +30,9 @@ from uuid import UUID
 from arango.database import StandardDatabase
 from pydantic import BaseModel, ConfigDict, Field
 
+from yanantin.apacheta.models.provenance_edge import ProvenanceEdge
+from yanantin.core.collection_definition import CollectionDefinition, arangodb_schema
+from yanantin.core.khipu import Khipu
 from yanantin.core.storage_obfuscator import StorageObfuscator, TransparentObfuscator
 
 
@@ -75,6 +78,7 @@ class Registrar:
     def __init__(
         self,
         db: StandardDatabase,
+        khipu: Khipu,
         catalog_collection: str,
         name: str,
         description: str,
@@ -89,10 +93,17 @@ class Registrar:
         # obfuscate later" is an illusion of choice. The default is transparent
         # (dev/test); the fortress supplies the keyed one. The physical
         # collection the DB sees is the obfuscated name; semantic stays here.
+        # Khipu is the SOLE collection creator: this registrar never calls
+        # create_collection itself — it hands SEMANTIC names to watay (which
+        # obfuscates internally) and reads the obfuscated physical name back off
+        # the returned handle's .name for its AQL/insert paths below.
         self._obfuscator = obfuscator or TransparentObfuscator()
         self._semantic_name = catalog_collection
-        self._catalog_name = self._obfuscator.collection_name(catalog_collection)
-        self._ensure_collection(self._catalog_name)
+        catalog_handle = khipu.watay(
+            catalog_collection,
+            CollectionDefinition(schema=arangodb_schema(RegistrantRecord)),
+        )
+        self._catalog_name = catalog_handle.name
 
         # The OWNED data collection registrants contribute INTO (the Objects
         # case). Distinct from the catalog (which records who-registered):
@@ -100,37 +111,30 @@ class Registrar:
         # identity carried as a FIELD, not as the collection name. Defaults to
         # the catalog itself for the degenerate own-a-collection case.
         owned = owned_collection if owned_collection is not None else catalog_collection
-        self._owned_name = self._obfuscator.collection_name(owned)
-        if self._owned_name != self._catalog_name:
-            self._ensure_collection(self._owned_name)
+        if self._obfuscator.collection_name(owned) != self._catalog_name:
+            # schema=None: schema-less for now. The StorageObject schema lands
+            # in A2 after Pour B; until then the owned collection is open.
+            owned_handle = khipu.watay(owned, CollectionDefinition(schema=None))
+            self._owned_name = owned_handle.name
+        else:
+            # Degenerate own-a-collection case: owned obfuscates to the same
+            # physical name as the catalog — reuse the catalog handle, do NOT
+            # double-create (matches today's "only ensure owned when distinct").
+            self._owned_name = self._catalog_name
 
         # Optional OWNED EDGE collection (Case 2: one recorder → Objects doc
-        # AND Relationships edge). Edge collections need create_collection(
-        # edge=True) so native OUTBOUND traversal works on _from/_to — the
-        # generic doc path cannot host edges (mirrors arango.py
-        # _provenance_edge_collection). None ⇒ this registrar owns no edges.
+        # AND Relationships edge). Edge collections need edge=True so native
+        # OUTBOUND traversal works on _from/_to — the generic doc path cannot
+        # host edges. None ⇒ this registrar owns no edges.
         self._owned_edge_name = None
         if owned_edge_collection is not None:
-            self._owned_edge_name = self._obfuscator.collection_name(
-                owned_edge_collection
+            edge_handle = khipu.watay(
+                owned_edge_collection,
+                CollectionDefinition(
+                    schema=arangodb_schema(ProvenanceEdge), edge=True
+                ),
             )
-            self._ensure_edge_collection(self._owned_edge_name)
-
-    def _ensure_collection(self, name: str):
-        """Ensure a collection exists (has_collection guard, per arango.py:196),
-        under its already-obfuscated name. Fail-stop is inherited from the
-        driver: an unreachable store raises here, it does not silently no-op."""
-        if not self._db.has_collection(name):
-            self._db.create_collection(name)
-        return self._db.collection(name)
-
-    def _ensure_edge_collection(self, name: str):
-        """Ensure an EDGE collection exists under its obfuscated name. Edge
-        type is load-bearing: native graph traversal requires create_collection
-        (edge=True). Fail-stop inherited from the driver."""
-        if not self._db.has_collection(name):
-            self._db.create_collection(name, edge=True)
-        return self._db.collection(name)
+            self._owned_edge_name = edge_handle.name
 
     @property
     def owned_collection_name(self) -> str:
@@ -352,8 +356,13 @@ class RegistrationService:
         # inspector's contribution_count can read a registrar that owns the same
         # Objects collection a recorder contributes into. Defaults reproduce the
         # production seam exactly: the well-known base catalog, owned == catalog.
+        # Khipu is the sole collection creator; it is import-independent and
+        # cheap to construct per-service. It shares this service's db and
+        # obfuscator so the physical names it mints match the ones the
+        # registrar's AQL/insert paths speak.
         self.base_registrar = Registrar(
             db=db,
+            khipu=Khipu(db=db, obfuscator=obfuscator),
             catalog_collection=catalog_collection,
             name="core registration service",
             description="the base registrant catalog",

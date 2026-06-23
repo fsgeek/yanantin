@@ -29,6 +29,7 @@ def test_temporal_range_query_returns_in_window_files(live_db):
     from yanantin.collector.storage.local.linux.synthetic import (
         SyntheticFilesystemCollector,
     )
+    from yanantin.core.khipu import Khipu
     from yanantin.core.registration import Registrar
     from yanantin.recorder.storage.local.linux.registration import (
         LinuxStorageRegistration,
@@ -90,6 +91,7 @@ def test_temporal_range_query_returns_in_window_files(live_db):
     try:
         registrar = Registrar(
             db=live_db,
+            khipu=Khipu(db=live_db),
             catalog_collection=catalog,
             name="temporal-query-registrar",
             description="owns temporal query regression collections",

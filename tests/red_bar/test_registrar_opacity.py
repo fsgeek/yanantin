@@ -20,6 +20,7 @@ def live_db():
 
 
 def test_registrar_round_trips_contributes_to_unchanged(live_db):
+    from yanantin.core.khipu import Khipu
     from yanantin.core.registration import Registrar
 
     suffix = uuid4().hex
@@ -33,6 +34,7 @@ def test_registrar_round_trips_contributes_to_unchanged(live_db):
     try:
         registrar = Registrar(
             db=live_db,
+            khipu=Khipu(db=live_db),
             catalog_collection=catalog,
             name="opacity-registrar",
             description="registrar opacity guard",

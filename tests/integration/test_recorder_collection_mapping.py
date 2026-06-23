@@ -46,6 +46,7 @@ def live_db():
 
 
 def test_registrar_owns_doc_and_edge_collections(live_db):
+    from yanantin.core.khipu import Khipu
     from yanantin.core.registration import Registrar
 
     suffix = uuid4().hex
@@ -59,6 +60,7 @@ def test_registrar_owns_doc_and_edge_collections(live_db):
     try:
         registrar = Registrar(
             db=live_db,
+            khipu=Khipu(db=live_db),
             catalog_collection=catalog,
             name="doc-edge-registrar",
             description="owns document and edge contribution collections",
@@ -89,6 +91,7 @@ def test_registrar_owns_doc_and_edge_collections(live_db):
 
 
 def test_recorder_declares_two_well_known_targets(live_db):
+    from yanantin.core.khipu import Khipu
     from yanantin.core.registration import Registrar
     from yanantin.recorder.storage.local.linux.registration import (
         LinuxStorageRegistration,
@@ -105,6 +108,7 @@ def test_recorder_declares_two_well_known_targets(live_db):
     try:
         registrar = Registrar(
             db=live_db,
+            khipu=Khipu(db=live_db),
             catalog_collection=catalog,
             name="linux-storage-recorder-registrar",
             description="owns linux storage recorder contribution collections",
@@ -150,6 +154,7 @@ def test_contributed_record_provenance_round_trips(live_db):
     from yanantin.collector.storage.local.linux.synthetic import (
         SyntheticFilesystemCollector,
     )
+    from yanantin.core.khipu import Khipu
     from yanantin.core.registration import Registrar
     from yanantin.recorder.storage.local.linux.registration import (
         LinuxStorageRegistration,
@@ -163,6 +168,7 @@ def test_contributed_record_provenance_round_trips(live_db):
     try:
         registrar = Registrar(
             db=live_db,
+            khipu=Khipu(db=live_db),
             catalog_collection=catalog,
             name="linux-storage-recorder-registrar",
             description="owns linux storage recorder contribution collections",
@@ -211,6 +217,7 @@ def test_real_and_synthetic_interchangeable(live_db, tmp_path):
     from yanantin.collector.storage.local.linux.synthetic import (
         SyntheticFilesystemCollector,
     )
+    from yanantin.core.khipu import Khipu
     from yanantin.core.registration import Registrar
     from yanantin.recorder.storage.local.linux.registration import (
         LinuxStorageRegistration,
@@ -241,6 +248,7 @@ def test_real_and_synthetic_interchangeable(live_db, tmp_path):
     try:
         real_registrar = Registrar(
             db=live_db,
+            khipu=Khipu(db=live_db),
             catalog_collection=real_catalog,
             name="linux-storage-real-recorder-registrar",
             description="owns real linux storage recorder contribution collections",
@@ -258,6 +266,7 @@ def test_real_and_synthetic_interchangeable(live_db, tmp_path):
 
         synth_registrar = Registrar(
             db=live_db,
+            khipu=Khipu(db=live_db),
             catalog_collection=synth_catalog,
             name="linux-storage-synthetic-recorder-registrar",
             description="owns synthetic linux storage recorder contribution collections",
@@ -295,6 +304,7 @@ def test_well_known_attaches_does_not_duplicate(live_db):
     from yanantin.collector.storage.local.linux.synthetic import (
         SyntheticFilesystemCollector,
     )
+    from yanantin.core.khipu import Khipu
     from yanantin.core.registration import Registrar
     from yanantin.recorder.storage.local.linux.registration import (
         LinuxStorageRegistration,
@@ -310,6 +320,7 @@ def test_well_known_attaches_does_not_duplicate(live_db):
     try:
         registrar = Registrar(
             db=live_db,
+            khipu=Khipu(db=live_db),
             catalog_collection=catalog,
             name="linux-storage-shared-objects-recorder-registrar",
             description="owns one shared Objects collection for recorder mappings",
@@ -357,6 +368,7 @@ def test_well_known_fails_stop_without_owning_collection(live_db):
     from yanantin.collector.storage.local.linux.synthetic import (
         SyntheticFilesystemCollector,
     )
+    from yanantin.core.khipu import Khipu
     from yanantin.core.registration import Registrar
     from yanantin.recorder.storage.local.linux.registration import (
         LinuxStorageRegistration,
@@ -369,6 +381,7 @@ def test_well_known_fails_stop_without_owning_collection(live_db):
     try:
         registrar = Registrar(
             db=live_db,
+            khipu=Khipu(db=live_db),
             catalog_collection=catalog,
             name="linux-storage-catalog-only-recorder-registrar",
             description="catalog-only registrar must not host well_known mappings",

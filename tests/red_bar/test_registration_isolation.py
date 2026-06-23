@@ -27,6 +27,7 @@ import uuid
 
 import pytest
 
+from yanantin.core.khipu import Khipu
 from yanantin.core.registration import Registrar
 from yanantin.infra.config import ApachetaDBConfig, get_database
 
@@ -80,6 +81,7 @@ def test_registrant_in_db_a_is_invisible_to_db_b(two_real_databases):
 
     reg_a = Registrar(
         db=db_a,
+        khipu=Khipu(db=db_a),
         catalog_collection=catalog,
         name="registrar-in-A",
         description="owns its catalog in DB-A only",
@@ -100,6 +102,7 @@ def test_registrant_in_db_a_is_invisible_to_db_b(two_real_databases):
         # in a different StandardDatabase — the registrant is invisible.
         reg_b = Registrar(
             db=db_b,
+            khipu=Khipu(db=db_b),
             catalog_collection=catalog,
             name="registrar-in-B",
             description="separate StandardDatabase, separate catalog",

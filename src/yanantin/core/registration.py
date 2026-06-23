@@ -30,8 +30,7 @@ from uuid import UUID
 from arango.database import StandardDatabase
 from pydantic import BaseModel, ConfigDict, Field
 
-from yanantin.apacheta.models.provenance_edge import ProvenanceEdge
-from yanantin.core.collection_definition import CollectionDefinition, arangodb_schema
+from yanantin.core.collection_definition import CollectionDefinition
 from yanantin.core.khipu import Khipu
 from yanantin.core.storage_obfuscator import StorageObfuscator, TransparentObfuscator
 
@@ -99,9 +98,19 @@ class Registrar:
         # the returned handle's .name for its AQL/insert paths below.
         self._obfuscator = obfuscator or TransparentObfuscator()
         self._semantic_name = catalog_collection
+        # schema=None across the board in A1. A1's contract is ONLY "Khipu is the
+        # sole collection creator" — behaviorally identical to the deleted
+        # _ensure_collection (which created schema-less). Binding the real schemas
+        # waits for A2/Pour B, because today's insert paths write documents the
+        # current models don't describe: contributions land in a catalog whose
+        # RegistrantRecord schema requires fields they lack, and contribute_edge
+        # writes contributor_id + extra fields into an edge whose ProvenanceEdge
+        # schema is extra="forbid". Enforcing those now breaks live inserts; the
+        # schemas become applicable only once Pour B lands the matching open-lane
+        # models. Same circular-dep that split A1/A2 — it applies to all three.
         catalog_handle = khipu.watay(
             catalog_collection,
-            CollectionDefinition(schema=arangodb_schema(RegistrantRecord)),
+            CollectionDefinition(schema=None),
         )
         self._catalog_name = catalog_handle.name
 
@@ -111,7 +120,11 @@ class Registrar:
         # identity carried as a FIELD, not as the collection name. Defaults to
         # the catalog itself for the degenerate own-a-collection case.
         owned = owned_collection if owned_collection is not None else catalog_collection
-        if self._obfuscator.collection_name(owned) != self._catalog_name:
+        # Compare SEMANTIC names: "is owned a different collection than catalog?"
+        # Semantic names are obfuscator-independent, so this avoids comparing a
+        # name from this registrar's obfuscator against self._catalog_name (which
+        # comes from khipu's obfuscator) — they need not be the same instance.
+        if owned != catalog_collection:
             # schema=None: schema-less for now. The StorageObject schema lands
             # in A2 after Pour B; until then the owned collection is open.
             owned_handle = khipu.watay(owned, CollectionDefinition(schema=None))
@@ -130,9 +143,7 @@ class Registrar:
         if owned_edge_collection is not None:
             edge_handle = khipu.watay(
                 owned_edge_collection,
-                CollectionDefinition(
-                    schema=arangodb_schema(ProvenanceEdge), edge=True
-                ),
+                CollectionDefinition(schema=None, edge=True),
             )
             self._owned_edge_name = edge_handle.name
 

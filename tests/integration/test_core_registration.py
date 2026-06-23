@@ -23,6 +23,7 @@ from arango import ArangoClient
 from arango.http import DefaultHTTPClient
 from requests.adapters import HTTPAdapter
 
+from yanantin.core.khipu import Khipu
 from yanantin.core.registration import Registrar
 from yanantin.infra.config import ApachetaDBConfig, get_database
 
@@ -107,6 +108,7 @@ def registrar(live_db):
     catalog = f"core_reg_catalog_{uuid.uuid4().hex}"
     reg = Registrar(
         db=live_db,
+        khipu=Khipu(db=live_db),
         catalog_collection=catalog,
         name="test-registrar",
         description="ephemeral registrar for C0 tests",
@@ -194,6 +196,7 @@ def test_unreachable_store_raises_not_empty():
     with pytest.raises(Exception):  # noqa: B017 — any failure beats a false empty
         reg = Registrar(
             db=dead,
+            khipu=Khipu(db=dead),
             catalog_collection=f"core_reg_dead_{uuid.uuid4().hex}",
             name="doomed",
             description="registrar over an unreachable store",
@@ -212,12 +215,14 @@ def test_owned_collection_is_created_under_obfuscated_name(live_db):
     prefix = "zz_opaque_"
     obfuscated = f"{prefix}{semantic}"
     try:
+        opaque_obf = _OpaqueStandIn(prefix)
         Registrar(
             db=live_db,
+            khipu=Khipu(db=live_db, obfuscator=opaque_obf),
             catalog_collection=semantic,
             name="opaque-registrar",
             description="registrar behind an opaque obfuscator",
-            obfuscator=_OpaqueStandIn(prefix),
+            obfuscator=opaque_obf,
         )
 
         assert live_db.has_collection(obfuscated)
@@ -238,16 +243,19 @@ def test_transparent_and_opaque_obfuscators_yield_different_collections(live_db)
     try:
         Registrar(
             db=live_db,
+            khipu=Khipu(db=live_db),
             catalog_collection=semantic,
             name="transparent",
             description="default transparent path",
         )
+        seam_obf = _OpaqueStandIn(prefix)
         Registrar(
             db=live_db,
+            khipu=Khipu(db=live_db, obfuscator=seam_obf),
             catalog_collection=semantic,
             name="opaque",
             description="opaque path",
-            obfuscator=_OpaqueStandIn(prefix),
+            obfuscator=seam_obf,
         )
 
         assert live_db.has_collection(semantic)  # transparent → semantic name
@@ -276,6 +284,7 @@ def test_stacking_reproduces_objects_as_one_shared_collection(live_db):
         # The storage-object registrar owns the shared Objects collection.
         store_reg = Registrar(
             db=live_db,
+            khipu=Khipu(db=live_db),
             catalog_collection=catalog,
             name="storage-object-registrar",
             description="owns the shared Objects space",
@@ -344,6 +353,7 @@ def test_field_names_are_obfuscated_in_stored_documents(live_db):
     try:
         reg = Registrar(
             db=live_db,
+            khipu=Khipu(db=live_db, obfuscator=obf),
             catalog_collection=semantic_catalog,
             name="field-obf-registrar",
             description="proves field-name obfuscation",

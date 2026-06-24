@@ -109,9 +109,9 @@ def test_temporal_range_query_returns_in_window_files(live_db):
         names = list(
             live_db.aql.execute(
                 f"FOR d IN `{objects}` "
-                "FILTER d.raw.timestamps.modified >= @t0 "
-                "FILTER d.raw.timestamps.modified < @t1 "
-                "RETURN d.raw.name",
+                "FILTER d.modified >= @t0 "
+                "FILTER d.modified < @t1 "
+                "RETURN d.label",
                 bind_vars={"t0": t0.isoformat(), "t1": t1.isoformat()},
             )
         )

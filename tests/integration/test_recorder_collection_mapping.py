@@ -1,9 +1,11 @@
+from datetime import datetime, timezone
 from uuid import uuid4
 
 import pytest
 from pydantic import ValidationError
 
-from yanantin.core.contribution import ContributionTarget, ContributedRecord
+from yanantin.collector.storage_object import StorageObject
+from yanantin.core.contribution import ContributionTarget
 
 
 def test_collector_mapping_is_empty():
@@ -18,14 +20,26 @@ def test_collector_mapping_is_empty():
         ContributionTarget(name="X", kind="banana", naming="well_known")
 
     source = uuid4()
-    record = ContributedRecord(source=source, raw={"a": 1})
-    assert record.timestamp is not None
+    record = StorageObject(
+        object_identifier=uuid4(),
+        uri="file:///data/x",
+        source=source,
+        observed_at=datetime.now(timezone.utc),
+        raw={"a": 1},
+    )
 
     fields = record.to_contribution_fields()
     assert fields["source"] == str(source)
     assert fields["raw"] == {"a": 1}
 
-    extra_record = ContributedRecord(source=uuid4(), raw={"a": 1}, path="/data/x")
+    extra_record = StorageObject(
+        object_identifier=uuid4(),
+        uri="file:///data/x",
+        source=uuid4(),
+        observed_at=datetime.now(timezone.utc),
+        raw={"a": 1},
+        path="/data/x",
+    )
     assert extra_record.path == "/data/x"
     assert extra_record.to_contribution_fields()["path"] == "/data/x"
 

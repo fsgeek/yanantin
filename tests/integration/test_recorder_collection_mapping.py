@@ -224,6 +224,51 @@ def test_contributed_record_provenance_round_trips(live_db):
                 live_db.delete_collection(name)
 
 
+def test_re_observation_is_idempotent(live_db):
+    from yanantin.collector.storage.local.linux.synthetic import (
+        SyntheticFilesystemCollector,
+    )
+    from yanantin.core.khipu import Khipu
+    from yanantin.core.registration import Registrar
+    from yanantin.recorder.storage.local.linux.registration import (
+        LinuxStorageRegistration,
+    )
+
+    suffix = uuid4().hex
+    catalog = f"RecorderCatalog_t{suffix}"
+    objects = f"Objects_t{suffix}"
+    relationships = f"Relationships_t{suffix}"
+
+    try:
+        registrar = Registrar(
+            db=live_db,
+            khipu=Khipu(db=live_db),
+            catalog_collection=catalog,
+            name="linux-storage-recorder-registrar",
+            description="owns linux storage recorder contribution collections",
+            owned_collection=objects,
+            owned_edge_collection=relationships,
+        )
+        collector = SyntheticFilesystemCollector(seed=17)
+        reg = LinuxStorageRegistration(registrar, collector)
+        reg.register()
+
+        snapshot = SyntheticFilesystemCollector(seed=17).collect()
+        provider_id = collector.get_provider_id()
+        n1 = reg.contribute_snapshot(snapshot, provider_id)
+
+        object_count_after_first_scan = live_db.collection(objects).count()
+
+        n2 = reg.contribute_snapshot(snapshot, provider_id)
+
+        assert live_db.collection(objects).count() == object_count_after_first_scan
+        assert n2 == n1
+    finally:
+        for name in (catalog, objects, relationships):
+            if live_db.has_collection(name):
+                live_db.delete_collection(name)
+
+
 def test_real_and_synthetic_interchangeable(live_db, tmp_path):
     from yanantin.collector.storage.local.linux.collector import (
         LinuxFilesystemCollector,

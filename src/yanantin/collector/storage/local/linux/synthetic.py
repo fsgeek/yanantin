@@ -120,11 +120,22 @@ class SyntheticFilesystemCollector(SyntheticCollectorBase[FilesystemSnapshot]):
             collected_at=collected_at,
         )
 
-    def _make_file_entry(self, dir_path: str, collected_at: datetime) -> FileEntryData:
-        """Create a file entry within the given directory."""
+    def _make_file_entry(
+        self, dir_path: str, collected_at: datetime, used_names: set[str]
+    ) -> FileEntryData:
+        """Create a file entry within the given directory. Names are made unique
+        within the directory: a real filesystem cannot hold two entries at the
+        same path, and deterministic object identity (uuid5 over the uri) relies
+        on that natural-key uniqueness."""
         stem = self._rng.choice(_FILE_STEMS)
         ext = self._rng.choice(_COMMON_EXTENSIONS)
         name = f"{stem}{ext}"
+        if name in used_names:
+            suffix = 1
+            while f"{stem}_{suffix}{ext}" in used_names:
+                suffix += 1
+            name = f"{stem}_{suffix}{ext}"
+        used_names.add(name)
         path = f"{dir_path}/{name}"
         is_symlink = self._rng.random() < self._symlink_prob
 
@@ -167,17 +178,27 @@ class SyntheticFilesystemCollector(SyntheticCollectorBase[FilesystemSnapshot]):
         entries.append(self._make_dir_entry(current_path, collected_at))
         stats["dirs"] += 1
 
-        # Add files
+        # Add files (names unique within this directory)
+        used_names: set[str] = set()
         n_files = self._rng.randint(1, self._files_per_dir)
         for _ in range(n_files):
-            entries.append(self._make_file_entry(current_path, collected_at))
+            entries.append(
+                self._make_file_entry(current_path, collected_at, used_names)
+            )
             stats["files"] += 1
 
-        # Recurse into subdirectories
+        # Recurse into subdirectories (subdir names unique within this directory,
+        # and distinct from file names — one namespace per directory)
         if current_depth < self._depth:
             n_subdirs = self._rng.randint(1, 3)
             for _ in range(n_subdirs):
                 subdir_name = self._rng.choice(_DIR_NAMES)
+                if subdir_name in used_names:
+                    suffix = 1
+                    while f"{subdir_name}_{suffix}" in used_names:
+                        suffix += 1
+                    subdir_name = f"{subdir_name}_{suffix}"
+                used_names.add(subdir_name)
                 subdir_path = f"{current_path}/{subdir_name}"
                 self._walk_synthetic(
                     subdir_path, current_depth + 1, entries, stats,

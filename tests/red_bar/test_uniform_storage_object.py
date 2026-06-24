@@ -44,19 +44,18 @@ below asserts the lane is open precisely so it cannot be "fixed" by closing it.
 from __future__ import annotations
 
 import importlib
+from datetime import datetime, timezone
+from uuid import uuid4
 
 import pytest
 
-# The four canonical timestamp roles every storage object must expose under a
-# stable, silo-independent identity. Values are the UUIDs Indaleko assigned in
-# storage/i_object.py — reused so the two systems' timestamps are joinable and
-# a future bridge does not have to invent a fresh, divergent set.
-CANONICAL_TIMESTAMP_UUIDS = {
-    "created": "6b3f16ec-52d2-4e9b-afd0-e02a875ec6e6",
-    "modified": "434f7ac1-f71a-4cea-a830-e2ea9a47db5a",
-    "accessed": "581b5332-4d37-49c7-892a-854824f5d66f",
-    "changed": "3bdc4130-774f-4e99-914e-0bec9ee47aab",
-}
+# Pour B (spec §2): the canonical timestamp UUIDs are DELETED. Indaleko assigned
+# stable UUIDs to timestamp roles so silos could join on "when" — a silo-
+# independent naming layer built INSIDE the object because Indaleko had no Pukara.
+# Yanantin's Pukara (SchemaMap/obfuscator) IS that layer, lifted out and made
+# systematic. Cross-silo joining is the boundary's job; the object's timestamps
+# are the four plain, flat, nullable names. Guard 2 below asserts the UUID-keyed
+# shape did NOT survive (positive proof cross-silo naming did not creep back).
 
 
 def _load_storage_object():
@@ -82,7 +81,6 @@ def _load_storage_object():
 # Honestly red today. The pipeline that moves storage objects ported; the
 # object did not. Cross-silo find cannot work without one shared shape.
 
-@pytest.mark.xfail(strict=True, reason="gh #17 StorageObject not built yet (Pour B): #17 Pour B")
 def test_uniform_storage_object_exists():
     """A silo-independent storage object must exist for cross-silo find.
     Without it, filesystem and Dropbox files are incomparable JSON blobs and
@@ -97,35 +95,44 @@ def test_uniform_storage_object_exists():
     )
 
 
-# ── Guard 2: timestamps must be UUID-named so silos JOIN ──────────────
+# ── Guard 2: timestamps are FLAT, NULLABLE, and NOT UUID-named (spec §2) ──
 #
-# The whole value of the temporal axis is as a cross-silo join key. A timestamp
-# named `modified` on FileEntryData and `modified_time` on DropboxEntryData
-# cannot be joined without per-silo knowledge. Named-UUID timestamps fix this.
+# Pour B reversed this guard's original requirement. Indaleko UUID-keyed the
+# timestamps to join silos on "when"; yanantin's Pukara does that systematically
+# at the boundary, so the object carries the four PLAIN names — flat, top-level
+# (the hottest query axis must not be taxed with an unwind), nullable (absence is
+# legible). The cross-silo join is tested at the Pukara boundary, NOT here.
 
-@pytest.mark.xfail(strict=True, reason="#17 SUPERSEDED — rewrite to flat-nullable-timestamp assertion in Pour B, do not satisfy as-is")
-def test_canonical_timestamps_are_uuid_named():
-    """The four timestamps must be addressable by a stable, silo-independent
-    UUID identity (created/modified/accessed/changed), not by a per-silo Python
-    attribute name. This is what lets a filesystem mtime and a Dropbox
-    modified_time be the SAME join key — the cross-silo temporal axis
-    (yanantin#3). Honestly red until the uniform object carries them."""
+def test_canonical_timestamps_are_flat_and_nullable():
+    """The four file timestamps are flat top-level, nullable, plain-named
+    (created/modified/accessed/changed) — NOT UUID-keyed. Cross-silo joining is
+    Pukara's job (spec §2 deletes the canonical UUIDs); a guard enforcing the
+    superseded UUID-keying would lock in the mistake. Positive proof the
+    cross-silo naming layer did NOT creep back into the object."""
     obj = _load_storage_object()
-    if obj is None:
-        pytest.fail(
-            "uniform storage object absent; cannot carry canonical "
-            "UUID-named timestamps. Port i_object.py."
+    assert obj is not None, "uniform storage object absent; build it (spec §1)."
+
+    fields = obj.model_fields
+    for ts in ("created", "modified", "accessed", "changed"):
+        assert ts in fields, (
+            f"timestamp {ts!r} must be a flat top-level field on the object, "
+            "not nested and not UUID-keyed (spec §2)."
         )
-    declared = getattr(obj, "CANONICAL_TIMESTAMP_UUIDS", None)
-    assert declared is not None, (
-        "uniform storage object does not declare CANONICAL_TIMESTAMP_UUIDS. "
-        "The four timestamps must carry stable cross-silo UUID identity so "
-        "silos join on 'when'. See i_object.py lines 58-61."
-    )
-    assert dict(declared) == CANONICAL_TIMESTAMP_UUIDS, (
-        "canonical timestamp UUIDs diverge from Indaleko's. Reuse the "
-        "i_object.py UUIDs so the two systems' temporal data is joinable; "
-        f"expected {CANONICAL_TIMESTAMP_UUIDS}, got {dict(declared)}."
+        # Nullable + defaulted None: absence is legible, not faked.
+        instance = obj(
+            object_identifier=uuid4(),
+            uri="file:///probe",
+            source=uuid4(),
+            observed_at=datetime.now(timezone.utc),
+        )
+        assert getattr(instance, ts) is None, (
+            f"timestamp {ts!r} must default to None (absence is information)."
+        )
+
+    assert getattr(obj, "CANONICAL_TIMESTAMP_UUIDS", None) is None, (
+        "the object declares CANONICAL_TIMESTAMP_UUIDS — the cross-silo naming "
+        "layer crept back INTO the object. Pukara owns cross-silo joining "
+        "(spec §2); the object's timestamps are the four plain flat names."
     )
 
 
@@ -136,7 +143,6 @@ def test_canonical_timestamps_are_uuid_named():
 # This guard asserts the open lane exists AND accepts an undeclared
 # UUID-keyed attribute — so the contract cannot be satisfied by closing it.
 
-@pytest.mark.xfail(strict=True, reason="gh #17 StorageObject not built yet (Pour B): #17 Pour B")
 def test_semantic_attribute_lane_is_open():
     """The uniform object must carry an OPEN semantic-attribute lane: a
     collector can attach a UUID-keyed attribute the base schema never declared,
@@ -152,7 +158,13 @@ def test_semantic_attribute_lane_is_open():
     # An arbitrary UUID-keyed attribute no base schema declares.
     probe_uuid = "3fa47f24-b198-434d-b440-119ec5af4f7d"  # i_object's st_dev
     try:
-        instance = obj(semantic_attributes={probe_uuid: 2756347094955649599})
+        instance = obj(
+            object_identifier=uuid4(),
+            uri="file:///probe",
+            source=uuid4(),
+            observed_at=datetime.now(timezone.utc),
+            semantic_attributes={probe_uuid: 2756347094955649599},
+        )
     except Exception as exc:  # noqa: BLE001 — any rejection is a closed lane
         pytest.fail(
             "uniform storage object rejected an undeclared UUID-keyed "

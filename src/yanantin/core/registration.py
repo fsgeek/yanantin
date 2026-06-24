@@ -248,12 +248,20 @@ class Registrar:
     def contribute(self, contributor_id: UUID, **fields) -> dict:
         """Write a data record into the owned collection on behalf of a
         registrant. The contributor's identity is stored as a field so the one
-        shared collection stays sliceable by provider."""
+        shared collection stays sliceable by provider.
+
+        Identity-driven idempotence: a caller that supplies a deterministic
+        ``_key`` (e.g. a StorageObject's ``uuid5(source, uri)`` logical id) is
+        asserting a re-observable logical object, so re-observation REPLACES the
+        row in place — one row, current fields, no duplicate-key crash and no
+        stale-field accretion (spec §3.7). A caller WITHOUT a ``_key`` is
+        appending a fresh auto-keyed row (the existing semantics)."""
         doc = {"contributor_id": str(contributor_id), **fields}
         # Obfuscate field names at rest, same as register/the backend. The
         # identity field is just another label; it too lands opaque.
         self._db.collection(self._owned_name).insert(
-            self._obfuscator.obfuscate_document(doc)
+            self._obfuscator.obfuscate_document(doc),
+            overwrite_mode="replace" if "_key" in fields else "conflict",
         )
         return doc
 

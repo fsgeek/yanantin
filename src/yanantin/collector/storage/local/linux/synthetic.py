@@ -9,7 +9,6 @@ from __future__ import annotations
 
 from datetime import datetime, timedelta, timezone
 from pathlib import PurePosixPath
-from uuid import NAMESPACE_DNS, UUID, uuid5
 
 from yanantin.collector._synthetic_base import SyntheticCollectorBase
 from yanantin.collector.storage.local.linux.models import (

@@ -12,10 +12,40 @@ added by their OWN later plans — do not add them here speculatively.
 
 from __future__ import annotations
 
-from yanantin.core.collection_definition import CollectionDefinition
+from yanantin.collector.storage_object import StorageObject
+from yanantin.core.collection_definition import CollectionDefinition, arangodb_schema
 
 WELL_KNOWN: dict[str, CollectionDefinition] = {
     "khipu_self": CollectionDefinition(),
+    # The uniform storage object's home (#17, Pour B / folded A2). Bound
+    # schema=None in Pour A1 (the StorageObject model did not yet exist); now it
+    # does, so the real schema lands. Strict spine validated at the DB boundary;
+    # the open lane survives because StorageObject is extra="allow" — its JSON
+    # schema carries no additionalProperties:false, so undeclared top-level
+    # fields (e.g. the contribute path's contributor_id) flow (the Task-6
+    # invariant). Spec §3.
+    #
+    # Relationships / the registrant catalog are LEFT schema=None for now. §3
+    # shows defs for all three, but binding ProvenanceEdge (extra="forbid") to
+    # Relationships and RegistrantRecord to the catalog BROKE live inserts in A1
+    # (the contribute_edge path writes contributor_id + extra fields the
+    # extra="forbid" edge rejects; the catalog write carries a shape
+    # RegistrantRecord's required spine lacks). Objects is the Pour B
+    # deliverable; the other two settle in their own pours (be conservative).
+    "Objects": CollectionDefinition(
+        schema=arangodb_schema(StorageObject),
+        indices=(
+            {
+                "type": "persistent",
+                "fields": ["object_identifier"],
+                "unique": True,
+                "name": "obj_id_idx",
+            },
+            {"type": "persistent", "fields": ["uri"], "name": "uri_idx"},
+            # temporal axis, flat ⇒ indexable directly (the search-space reducer)
+            {"type": "persistent", "fields": ["modified"], "name": "modified_idx"},
+        ),
+    ),
 }
 
 

@@ -84,6 +84,7 @@ class Registrar:
         obfuscator: StorageObfuscator | None = None,
         owned_collection: str | None = None,
         owned_edge_collection: str | None = None,
+        owned_definition: CollectionDefinition | None = None,
     ) -> None:
         self._db = db
         self.name = name
@@ -125,9 +126,20 @@ class Registrar:
         # name from this registrar's obfuscator against self._catalog_name (which
         # comes from khipu's obfuscator) — they need not be the same instance.
         if owned != catalog_collection:
-            # schema=None: schema-less for now. The StorageObject schema lands
-            # in A2 after Pour B; until then the owned collection is open.
-            owned_handle = khipu.watay(owned, CollectionDefinition(schema=None))
+            # A2 (folded): the owned collection now carries the definition its
+            # CALLER hands down. The production seam (which owns the well-known
+            # "Objects" name) passes the StorageObject schema + indices (spec
+            # §3) → the LIVE Objects collection becomes schema-bearing. The
+            # mechanism stays opaque to leaf vocabulary: it does NOT look the
+            # name up in a well-known registry (the opacity guard forbids leaf
+            # strings here); it just binds whatever definition it is given.
+            # Default None ⇒ schema=None — the A1 posture, so callers (the
+            # isolation tests' per-run-suffixed collections) that pass nothing
+            # keep an open collection and their inserts are unaffected. Khipu is
+            # still the sole creator; we only choose WHICH definition it ties.
+            owned_handle = khipu.watay(
+                owned, owned_definition or CollectionDefinition(schema=None)
+            )
             self._owned_name = owned_handle.name
         else:
             # Degenerate own-a-collection case: owned obfuscates to the same

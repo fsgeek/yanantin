@@ -6,6 +6,7 @@ import hashlib
 from pathlib import Path
 
 import pytest
+from pydantic import ValidationError
 
 from yanantin.collector.storage.local.checksum import (
     ChecksumCollector,
@@ -222,3 +223,33 @@ class TestDropboxContentHash:
         test_file.write_bytes(bytes(i % 256 for i in range(content_size)))
 
         _assert_dropbox_content_hash_matches_reference(test_file)
+
+
+class TestChecksumDataIsOpen:
+    def test_accepts_extra_field(self) -> None:
+        data = ChecksumData(
+            file_path="/x",
+            file_size=1,
+            checksums={"sha256": "ab"},
+            algorithms=("sha256",),
+            provenance_note="from dropbox api",
+        )
+
+        assert data.model_dump()["provenance_note"] == "from dropbox api"
+
+    def test_checksums_may_carry_a_digest_not_in_requested_algorithms(self) -> None:
+        ChecksumData(
+            file_path="/x",
+            file_size=1,
+            checksums={"sha256": "ab", "dropbox": "cd"},
+            algorithms=("sha256",),
+        )
+
+    def test_invalid_hex_still_rejected(self) -> None:
+        with pytest.raises(ValidationError):
+            ChecksumData(
+                file_path="/x",
+                file_size=1,
+                checksums={"sha256": "nothex!!"},
+                algorithms=("sha256",),
+            )

@@ -56,12 +56,14 @@ def dropbox_content_hash(file_path: Path) -> str:
 class ChecksumData(BaseModel):
     """Cryptographic checksums for a single file.
 
-    Validators enforce: file_size is non-negative, checksums keys match
-    the declared algorithms, algorithms is non-empty, and all digests
-    are valid hex strings.
+    Validators enforce: file_size is non-negative, every requested algorithm
+    is present in checksums, algorithms is non-empty, and all digests are valid
+    hex strings. The checksums map is OPEN — it may carry dialects beyond the
+    requested set (e.g. a service-reported digest joining locally-computed ones);
+    the dialect set is open-ended, so closing it would discard join keys.
     """
 
-    model_config = ConfigDict(frozen=True, extra="forbid")
+    model_config = ConfigDict(frozen=True, extra="allow")
 
     file_path: str
     file_size: int
@@ -79,10 +81,11 @@ class ChecksumData(BaseModel):
             raise ValueError(f"file_size must be >= 0, got {self.file_size}")
         if len(self.algorithms) == 0:
             raise ValueError("algorithms must be non-empty")
-        if set(self.checksums.keys()) != set(self.algorithms):
+        missing = set(self.algorithms) - set(self.checksums.keys())
+        if missing:
             raise ValueError(
-                f"checksums keys {set(self.checksums.keys())} "
-                f"!= algorithms {set(self.algorithms)}"
+                f"requested algorithms {missing} absent from checksums "
+                f"{set(self.checksums.keys())}"
             )
         for alg, digest in self.checksums.items():
             try:

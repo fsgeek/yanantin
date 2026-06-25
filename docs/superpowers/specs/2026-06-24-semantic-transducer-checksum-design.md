@@ -124,6 +124,72 @@ touches nothing dangerous → **delegable to an agent in isolation**.
 
 NOTE (scan-corrected): the block size is **4 MB**, not 2 MB.
 
+**STATUS (2026-06-24): §2 is BUILT.** `dropbox_content_hash(file_path) -> str`
+in `collector/storage/local/checksum.py` (commit 260749f5), Codex-authored test
+with an in-test reference oracle + boundary cases (c9f51292). 20/20 green. The
+rest of this spec (§1 model-open, §3 recorder re-home) is NOT yet built.
+
+## §2.5 — Edge DIRECTION decision (SETTLED 2026-06-24, Tony confirmed)
+
+The checksum edge points **FROM the checksum object TO its specific StorageObject**
+(`relation_type="extracted_from"`), targeting `Objects/<uuid5(NAMESPACE,
+f"{storage_source}:{uri}")>` — the exact key the linux normalizer computes
+(`recorder/storage/local/linux/normalize.py:34`, `NAMESPACE =
+6f8c9e2a-1d4b-5a3c-8e7f-0b1c2d3e4f50`). This is reading **(1)**: the transducer
+records what it OBSERVED — "I checksummed *this* storage observation, here's the
+proof-edge to that exact object." The `object_identifier` is keyed on
+`source:uri`, so it is observation-specific BY DESIGN (§3.6): a Dropbox-observed
+and a linux-observed copy of the same bytes are DIFFERENT objects with DIFFERENT
+keys. The transducer must therefore know the storage `source` it points at.
+
+**Rejected: reading (3) — checksum-object-as-cross-silo-HUB.** Tempting (the
+digest IS the silo-independent identity, so storage objects across silos could
+converge on one checksum object → the Rosetta-stone join drawn as topology). But
+that is a **read-time JOIN, not a write-time FACT** (Tony: "you figure that out
+later, not at the time you compute checksums"). At checksum-time you do not yet
+know the other silos' digests — they may be unobserved. Recording a hub edge then
+asserts a relationship from one end = premature binding, the fusion error one
+level up (transducer doing the inference engine's job). (1) is what is TRUE at
+write-time; (3) is what is DISCOVERABLE at read-time. Build (1) now; (3) is the
+inference engine's later **derived** edge (joins on shared digest across whatever
+silos turned out to exist) — building (1) does NOT foreclose (3).
+
+## §2.6 — The mechanism already exists (the density-rise)
+
+No new graph machinery. `Registrar.contribute(contributor_id, **fields)`
+(`core/registration.py:248`) writes a doc with a deterministic `_key` →
+**idempotent re-observation for free** (re-checksumming REPLACES, no duplicate);
+`Registrar.contribute_edge(contributor_id, from_ref, to_ref, relation_type)`
+(:300) writes the ProvenanceEdge. The transducer is the **second caller** of the
+mechanism the storage spine already proved. Mirror `LinuxStorageRegistration`
+(`recorder/storage/local/linux/registration.py`): its own Registrar owning a
+`SemanticChecksums` collection (doc) + SHARING the `Relationships` edge collection.
+
+## §2.7 — Blast radius (mapped 2026-06-24, re-grep before trusting — half-life)
+
+Opening `ChecksumData` + re-homing the recorder spans the builder/tester split.
+Test commits are **Codex-authored**; src commits are mine. The pour order:
+**open-model(src) ← test-adjust(Codex)**, then **re-home-recorder(src) ←
+test-migrate(Codex)**, then **integration-traversal-test(Codex) → wire-up(src)**.
+
+- `ChecksumData` consumers: `recorder/storage/local/checksum.py` (both recorders),
+  `collector/.../checksum.py` (model + synthetic), and tests:
+  `test_collector_checksum.py`, `test_checksum_canonical.py`, `test_recorders.py`,
+  `test_fact_recorders.py`, `test_collector_isomorphism.py`.
+- **SUBTLE — preserve this, do NOT delete it:**
+  `test_collector_isomorphism.py:83` asserts `set(data.checksums.keys()) ==
+  set(data.algorithms)`. That is the **synthetic-fidelity** invariant (real↔synthetic
+  shape-match), NOT the closure reflex. Opening the model (`extra="allow"`, drop
+  the in-model `keys==algorithms` validator at `collector/.../checksum.py:59`) must
+  KEEP this test's assertion — it tests the COLLECTOR's output, not a constraint on
+  the OBJECT. The spec's own rule: openness = don't enumerate which facts may
+  exist, NOT don't validate the facts that do ([[feedback_stronger_tests_never_an_error]]).
+- Re-home DELETES `ChecksumRecorder` (tensor) + `ChecksumFactRecorder` (activity
+  fact) + `collect_and_record_checksum`. `test_checksum_canonical.py`,
+  `test_recorders.py`, `test_fact_recorders.py` import these → Codex migrates
+  them to the new contribute/contribute_edge path or retires the cases that only
+  existed to exercise the deleted paths.
+
 ## §3 — The recorder re-home (the fusion correction — the proof-of-pattern)
 
 Delete the tensor path and the activity-fact path. The transducer writes:

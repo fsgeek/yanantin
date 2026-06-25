@@ -29,6 +29,29 @@ _READ_CHUNK = 64 * 1024
 
 _DEFAULT_ALGORITHMS = ("sha256", "sha1", "md5")
 
+# Dropbox's published content-hash block size (4 MiB). The content hash is
+# SHA-256 over the concatenation of the per-block SHA-256 digests, so a local
+# file can be matched against a Dropbox object without recalling either.
+_DROPBOX_BLOCK_SIZE = 4 * 1024 * 1024
+
+
+def dropbox_content_hash(file_path: Path) -> str:
+    """Compute Dropbox's content hash for a file.
+
+    The construction (github.com/dropbox/dropbox-api-content-hasher): split the
+    file into successive 4 MiB blocks, take the SHA-256 of each block, then the
+    content hash is the hex SHA-256 of the concatenated raw block digests. An
+    empty file hashes the empty concatenation.
+    """
+    overall = hashlib.sha256()
+    with open(file_path, "rb") as f:
+        while True:
+            block = f.read(_DROPBOX_BLOCK_SIZE)
+            if not block:
+                break
+            overall.update(hashlib.sha256(block).digest())
+    return overall.hexdigest()
+
 
 class ChecksumData(BaseModel):
     """Cryptographic checksums for a single file.

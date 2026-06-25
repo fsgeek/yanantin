@@ -337,7 +337,7 @@ class TestValidatorsCatchBadData:
             )
 
     def test_checksum_key_mismatch_rejected(self) -> None:
-        with pytest.raises(Exception, match="checksums keys"):
+        with pytest.raises(Exception, match="absent from checksums"):
             ChecksumData(
                 file_path="/test",
                 file_size=100,

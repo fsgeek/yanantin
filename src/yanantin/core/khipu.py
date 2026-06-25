@@ -63,16 +63,28 @@ class Khipu:
         existing_view_names = {v["name"] for v in self._db.views()}
         for view in definition.views:
             if view["name"] not in existing_view_names:
-                # KNOWN GAP (gh #32): view `links` keys are passed verbatim,
-                # NOT routed through self._obfuscator.collection_name(). Under the
-                # transparent obfuscator (dev/test) physical == semantic so this is
-                # invisible; under the keyed obfuscator the view would link a
-                # collection name the DB never created AND leak a semantic name into
-                # a DB-visible view definition (a C0 break). No real view definition
-                # exists yet (views are deferred to the use-case pours); when one
-                # lands, obfuscate the link keys here before creating the view.
+                # gh #32: view `links` name the SEMANTIC collection/fields; route
+                # both levels through the obfuscator so the DB-visible view def
+                # links the PHYSICAL collection (the one we created) and never
+                # leaks a semantic name into queryable metadata (a C0 break).
                 self._db.create_arangosearch_view(
-                    name=view["name"], properties={"links": view.get("links", {})}
+                    name=view["name"],
+                    properties={"links": self._obfuscate_links(view.get("links", {}))},
                 )
 
         return collection
+
+    def _obfuscate_links(self, links: dict) -> dict:
+        """Route an ArangoSearch `links` dict through the obfuscator: outer keys
+        are collection names, the nested `fields` keys are field names; all other
+        properties (analyzers, etc.) pass through unchanged."""
+        obfuscated: dict = {}
+        for coll, link in links.items():
+            new_link = dict(link)
+            if "fields" in link:
+                new_link["fields"] = {
+                    self._obfuscator.field_name(field): props
+                    for field, props in link["fields"].items()
+                }
+            obfuscated[self._obfuscator.collection_name(coll)] = new_link
+        return obfuscated

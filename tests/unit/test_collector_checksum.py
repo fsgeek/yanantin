@@ -161,3 +161,64 @@ class TestSyntheticChecksumCollector:
         data = collector.collect()
         assert data.algorithms == ("sha512",)
         assert "sha512" in data.checksums
+
+
+from yanantin.collector.storage.local import checksum as checksum_module
+
+
+dropbox_content_hash = checksum_module.dropbox_content_hash
+DROPBOX_BLOCK_SIZE = 4 * 1024 * 1024
+
+
+def _reference_dropbox_content_hash(file_path: Path) -> str:
+    block_hashes = []
+    with file_path.open("rb") as file:
+        while True:
+            block = file.read(DROPBOX_BLOCK_SIZE)
+            if not block:
+                break
+            block_hashes.append(hashlib.sha256(block).digest())
+
+    return hashlib.sha256(b"".join(block_hashes)).hexdigest()
+
+
+def _assert_dropbox_content_hash_matches_reference(file_path: Path) -> None:
+    actual = dropbox_content_hash(file_path)
+
+    assert actual == _reference_dropbox_content_hash(file_path)
+    assert len(actual) == 64
+    assert actual == actual.lower()
+    assert all(char in "0123456789abcdef" for char in actual)
+
+
+class TestDropboxContentHash:
+    def test_empty_file(self, tmp_path: Path) -> None:
+        test_file = tmp_path / "empty.bin"
+        test_file.write_bytes(b"")
+
+        _assert_dropbox_content_hash_matches_reference(test_file)
+
+    def test_smaller_than_one_block(self, tmp_path: Path) -> None:
+        test_file = tmp_path / "small.bin"
+        test_file.write_bytes(b"known content" * 8 + b"test")
+
+        _assert_dropbox_content_hash_matches_reference(test_file)
+
+    def test_exactly_one_block(self, tmp_path: Path) -> None:
+        test_file = tmp_path / "one-block.bin"
+        test_file.write_bytes(b"A" * DROPBOX_BLOCK_SIZE)
+
+        _assert_dropbox_content_hash_matches_reference(test_file)
+
+    def test_just_over_one_block(self, tmp_path: Path) -> None:
+        test_file = tmp_path / "two-blocks.bin"
+        test_file.write_bytes(b"B" * DROPBOX_BLOCK_SIZE + b"split")
+
+        _assert_dropbox_content_hash_matches_reference(test_file)
+
+    def test_deterministic_multi_mib_file(self, tmp_path: Path) -> None:
+        test_file = tmp_path / "deterministic.bin"
+        content_size = 6 * 1024 * 1024 + 123
+        test_file.write_bytes(bytes(i % 256 for i in range(content_size)))
+
+        _assert_dropbox_content_hash_matches_reference(test_file)

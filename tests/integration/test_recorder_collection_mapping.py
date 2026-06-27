@@ -206,7 +206,8 @@ def test_contributed_record_provenance_round_trips(live_db):
         assert all(doc.get("raw") for doc in docs)
 
         edges = registrar.list_edge_contributions(reg.recorder_id)
-        assert len(edges) == n
+        records_edges = [e for e in edges if e["relation_type"] == "records"]
+        assert len(records_edges) == n
 
         reached = list(
             live_db.aql.execute(

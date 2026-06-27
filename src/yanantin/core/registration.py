@@ -25,7 +25,7 @@ scopes "who can see it."
 from __future__ import annotations
 
 from datetime import datetime, timezone
-from uuid import UUID
+from uuid import NAMESPACE_DNS, UUID, uuid5
 
 from arango.database import StandardDatabase
 from pydantic import BaseModel, ConfigDict, Field
@@ -322,8 +322,19 @@ class Registrar:
             "contributor_id": str(contributor_id),
             **fields,
         }
+        # Identity-driven idempotence, mirroring contribute(): an edge is
+        # logically identified by its (from, to, relation_type) triple. A
+        # re-observation (e.g. a second filesystem walk re-seeing the same
+        # parent→child containment) must REPLACE the one edge in place, not
+        # append a duplicate — duplicate edges corrupt traversal (a child would
+        # be reached twice). A caller may override by passing an explicit _key.
+        if "_key" not in fields:
+            doc["_key"] = uuid5(
+                NAMESPACE_DNS, f"{from_ref}|{relation_type}|{to_ref}"
+            ).hex
         self._db.collection(self._owned_edge_name).insert(
-            self._obfuscator.obfuscate_document(doc)
+            self._obfuscator.obfuscate_document(doc),
+            overwrite_mode="replace",
         )
         return doc
 

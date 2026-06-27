@@ -24,6 +24,15 @@ from yanantin.machine.base import _get_machine_id
 
 logger = logging.getLogger(__name__)
 
+# Paths never descended into during a local-storage walk. /mnt holds WSL DrvFs
+# bridges to the Windows host (a foreign silo); /proc, /sys, /dev are kernel
+# pseudo-filesystems (synthetic, not durable storage). The st_dev boundary
+# (same_device_only) is the principled guard; this list is belt-and-suspenders
+# for bridges that may share a device id with the root.
+_DEFAULT_EXCLUDE_PATHS: frozenset[str] = frozenset(
+    {"/mnt", "/proc", "/sys", "/dev", "/run"}
+)
+
 # POSIX mode bit names — derived from Indaleko's IndalekoPosix mapping.
 _MODE_FLAGS: tuple[tuple[int, str], ...] = (
     (stat.S_ISUID, "S_ISUID"),
@@ -115,7 +124,14 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
     counted, never fatal to the walk.
     """
 
-    def __init__(self, root_path: Path, machine_id: str | None = None) -> None:
+    def __init__(
+        self,
+        root_path: Path,
+        machine_id: str | None = None,
+        *,
+        same_device_only: bool = True,
+        exclude_paths: frozenset[str] = _DEFAULT_EXCLUDE_PATHS,
+    ) -> None:
         self._root_path = root_path.resolve()
         resolved_machine_id = machine_id if machine_id is not None else _get_machine_id()
         self._machine_id = resolved_machine_id
@@ -123,6 +139,33 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
             NAMESPACE_DNS,
             f"yanantin.collector.filesystem.{resolved_machine_id}",
         )
+        # Walk guard: stay on the originating device (don't cross filesystem
+        # boundaries) and never descend into the excluded pseudo/bridge mounts.
+        # In WSL, /mnt/c etc. are DrvFs bridges to the Windows HOST — following
+        # them would silently ingest a foreign silo into "linux local storage",
+        # conflating two tenants (the opposite of the federation goal).
+        self._same_device_only = same_device_only
+        self._exclude_paths = frozenset(
+            str(Path(p)) for p in exclude_paths
+        )
+
+    def _is_pruned(self, child_path: str, root_dev: int | None) -> bool:
+        """True if the walk must NOT descend into child_path.
+
+        Pruned when the path is in the exclude set, or (same_device_only) when
+        it lives on a different device than the root — the host-bridge guard.
+        Errors stat'ing the child are treated as 'prune' (fail-closed: never
+        descend into something we cannot verify is on-device and local).
+        """
+        if child_path in self._exclude_paths:
+            return True
+        if root_dev is not None:
+            try:
+                if os.lstat(child_path).st_dev != root_dev:
+                    return True
+            except OSError:
+                return True
+        return False
 
     def collect(self, since: datetime | None = None) -> FilesystemSnapshot:
         """Walk the directory tree and return a snapshot.
@@ -135,7 +178,30 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
         total_dirs = 0
         error_count = 0
 
+        # Root device id anchors the same-device guard. If the root itself can't
+        # be stat'd we cannot enforce the boundary, so disable that check (the
+        # path-exclude list still applies).
+        root_dev: int | None = None
+        if self._same_device_only:
+            try:
+                root_dev = os.lstat(str(self._root_path)).st_dev
+            except OSError as exc:
+                logger.warning(
+                    "Cannot stat root %s for device guard: %s",
+                    self._root_path,
+                    exc,
+                )
+
         for dirpath, dirnames, filenames in os.walk(str(self._root_path)):
+            # Walk guard: prune dirnames IN PLACE so os.walk never descends into
+            # excluded paths or across a device boundary. Mutating the list is
+            # the documented os.walk pruning idiom.
+            dirnames[:] = [
+                d
+                for d in dirnames
+                if not self._is_pruned(os.path.join(dirpath, d), root_dev)
+            ]
+
             # Stat the directory itself
             try:
                 dir_stat = os.lstat(dirpath)

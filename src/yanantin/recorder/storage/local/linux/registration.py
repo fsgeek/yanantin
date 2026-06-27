@@ -12,10 +12,14 @@ from uuid import NAMESPACE_DNS, UUID, uuid5
 from yanantin.collector._collector_base import CollectorBase
 from yanantin.core.contribution import ContributionTarget
 from yanantin.core.registration import Registrar, RegistrantRecord
-from yanantin.recorder.storage.local.linux.normalize import normalize_file_entry
+from yanantin.recorder.storage.local.linux.normalize import (
+    NAMESPACE,
+    normalize_file_entry,
+)
 
 STORAGE_OBJECTS = "Objects"
 STORAGE_RELATIONSHIPS = "Relationships"
+CONTAINS_RELATION = "contains"  # directory -> child; DISTINCT from "records" provenance
 
 RECORDER_ID = uuid5(NAMESPACE_DNS, "yanantin.recorder.filesystem")
 
@@ -78,6 +82,7 @@ class LinuxStorageRegistration:
                 "construct the registrar with owned_edge_collection=Relationships"
             )
         objects_name = self._registrar.owned_collection_name
+        known_uris = {e.uri for e in snapshot.entries}
         count = 0
         for entry in snapshot.entries:
             obj = normalize_file_entry(entry, source=provider_id)
@@ -91,5 +96,21 @@ class LinuxStorageRegistration:
                 to_ref=f"{objects_name}/{obj_key}",
                 relation_type="records",
             )
+            # Directory -> child CONTAINMENT edge (the associative axis), DISTINCT
+            # from the provenance "records" edge above. Only emitted when the
+            # parent is itself an observed entry in this snapshot (known_uris
+            # guard) so both endpoints are materialized Objects — no dangle. The
+            # parent key derives from the SAME identity rule as the object
+            # (uuid5(NAMESPACE, f"{source}:{uri}") in normalize.py) so endpoints
+            # equal real object_identifiers and OUTBOUND traversal resolves.
+            parent_uri = entry.uri.rsplit("/", 1)[0]
+            if parent_uri != entry.uri and parent_uri in known_uris:
+                parent_key = str(uuid5(NAMESPACE, f"{provider_id}:{parent_uri}"))
+                self._registrar.contribute_edge(
+                    contributor_id=self.recorder_id,
+                    from_ref=f"{objects_name}/{parent_key}",
+                    to_ref=f"{objects_name}/{obj_key}",
+                    relation_type=CONTAINS_RELATION,
+                )
             count += 1
         return count

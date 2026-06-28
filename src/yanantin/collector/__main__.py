@@ -356,6 +356,101 @@ def _cmd_synthetic(args: argparse.Namespace) -> None:
         sys.exit(1)
 
 
+def _cmd_cloud_synthetic(args: argparse.Namespace) -> None:
+    """Run the synthetic cloud storage TOPOLOGY end-to-end: census → fan-out
+    (storage + activity legs) → depth-1 feedback edge, against a live ArangoDB
+    Objects collection. This is the executable proof of the ayllu data-flow
+    topology — a future instance runs this and SEES the feedback edge and fan-out
+    turn. Spec: docs/superpowers/specs/2026-06-28-ayllu-cloud-topology-design.md.
+    """
+    from uuid import uuid4
+
+    from yanantin.activity.backends.memory import InMemoryActivityStreamStore
+    from yanantin.collector.storage.cloud.synthetic import SyntheticCloudCollector
+    from yanantin.core.khipu import Khipu
+    from yanantin.core.registration import Registrar
+    from yanantin.infra.config import ApachetaDBConfig, get_database
+    from yanantin.recorder.storage.cloud.synthetic import (
+        CloudFactRecorder,
+        CloudStorageRecorder,
+    )
+    from yanantin.recorder.storage.cloud.synthetic.monitor import (
+        StorageActivityMonitor,
+    )
+    from yanantin.recorder.storage.objects_definition import OBJECTS_DEFINITION
+
+    cfg = ApachetaDBConfig()
+    creds = cfg.get_test_credentials() if args.tier == "test" else cfg.get_app_credentials()
+    db_name = "apacheta_test" if args.tier == "test" else cfg.db["database"]
+    db = get_database(
+        host=cfg.host_url, db_name=db_name,
+        username=creds["username"], password=creds["password"],
+    )
+
+    # Ephemeral per-run collections unless --persist: this is a demonstration of
+    # the topology, restartable by design. --persist writes into the well-known
+    # Objects so the run is queryable afterward.
+    if args.persist:
+        catalog, objects, rels = "StorageRegistrants", "Objects", "Relationships"
+    else:
+        sfx = uuid4().hex[:8]
+        catalog, objects, rels = f"Cat_{sfx}", f"Obj_{sfx}", f"Rel_{sfx}"
+
+    registrar = Registrar(
+        db=db, khipu=Khipu(db=db), catalog_collection=catalog,
+        name="synthetic-cloud-topology",
+        description="runs the cloud fan-out + feedback topology",
+        owned_collection=objects, owned_edge_collection=rels,
+        owned_definition=OBJECTS_DEFINITION,
+    )
+    store = InMemoryActivityStreamStore()
+    collector = SyntheticCloudCollector(
+        seed=args.seed, total_entries=args.entries, change_count=args.changes,
+    )
+    monitor = StorageActivityMonitor(
+        collector, CloudStorageRecorder(registrar), CloudFactRecorder(store),
+    )
+
+    try:
+        n_census = monitor.census()
+        cycles = monitor.poll_until_quiet()
+        delta_cycle = cycles[0]
+        objects_now = db.collection(objects).count()
+        facts_now = store.count_facts()
+
+        report = {
+            "census_objects": n_census,
+            "poll_cycles_to_quiet": len(cycles),
+            "changes_seen": delta_cycle.changes_seen,
+            "fan_out_storage_updates": delta_cycle.objects_updated,
+            "fan_out_activity_facts": delta_cycle.facts_recorded,
+            "feedback_recollects": delta_cycle.recollects,
+            "objects_total": objects_now,
+            "activity_facts_total": facts_now,
+            "persisted": args.persist,
+        }
+        if args.json:
+            print(json.dumps(report, indent=2))
+        else:
+            print()
+            print("  Synthetic Cloud Topology — executable")
+            print("  " + "─" * 44)
+            print(f"  Census:            {n_census} objects -> Objects")
+            print(f"  Fan-out (1 delta): {delta_cycle.objects_updated} storage updates "
+                  f"+ {delta_cycle.facts_recorded} activity facts")
+            print(f"  Feedback edge:     {delta_cycle.recollects} re-collects (depth-1)")
+            print(f"  Termination:       {len(cycles)} bounded poll cycles to quiet")
+            print(f"  Objects total:     {objects_now} (idempotent — many changes, one doc)")
+            print()
+            print("  The feedback edge and fan-out turned. Topology made flesh.")
+            print()
+    finally:
+        if not args.persist:
+            for n in (catalog, objects, rels):
+                if db.has_collection(n):
+                    db.delete_collection(n)
+
+
 def _cmd_status(args: argparse.Namespace) -> None:
     """Show what the activity stream knows."""
     from yanantin.collector.pipeline import open_store
@@ -514,6 +609,24 @@ def main() -> None:
     syn_parser.add_argument("--seed", type=int, default=42, help="Random seed")
     _add_store_flag(syn_parser)
 
+    # cloud-synthetic — run the cloud fan-out + feedback topology end-to-end
+    cloud_parser = subparsers.add_parser(
+        "cloud-synthetic",
+        help="Run the synthetic cloud topology (census + fan-out + feedback edge)",
+    )
+    cloud_parser.add_argument("--seed", type=int, default=0, help="Ground-truth seed")
+    cloud_parser.add_argument("--entries", type=int, default=12, help="Initial census size")
+    cloud_parser.add_argument("--changes", type=int, default=3, help="Delta change count")
+    cloud_parser.add_argument(
+        "--tier", choices=["test", "app"], default="test",
+        help="DB tier (default: test → apacheta_test)",
+    )
+    cloud_parser.add_argument(
+        "--persist", action="store_true",
+        help="Write into the well-known Objects (default: ephemeral per-run collections)",
+    )
+    cloud_parser.add_argument("--json", action="store_true", help="Output as JSON")
+
     # status — what the activity stream knows
     status_parser = subparsers.add_parser("status", help="Activity stream status")
     status_parser.add_argument("--json", action="store_true", help="Output as JSON")
@@ -548,6 +661,8 @@ def main() -> None:
         _cmd_dropbox(args)
     elif args.command == "synthetic":
         _cmd_synthetic(args)
+    elif args.command == "cloud-synthetic":
+        _cmd_cloud_synthetic(args)
     elif args.command == "status":
         _cmd_status(args)
     elif args.command == "materialize":

@@ -36,15 +36,18 @@ class FileTimestamps(BaseModel):
 class FileEntryData(BaseModel):
     """Single file or directory stat record.
 
-    Carries all stat fields faithfully. The file_attributes tuple maps
-    POSIX mode bits to named constants for human readability, but the
-    raw mode integer is preserved for programmatic use.
+    The typed fields are a curated VIEW; raw_stat holds the COMPLETE generic
+    capture of every st_* field the OS exposes (save-it-all at collection —
+    Indaleko's opaque-Record pattern). extra="allow" so the model itself never
+    refuses an unanticipated field: enumerating a known list and forbidding the
+    rest is extra="forbid" over the OS, and a dropped field at collection time
+    is lost forever before it can reach the open lane.
 
     Validators enforce: symlinks carry targets, type flags match booleans,
     sizes are non-negative, and required strings are non-empty.
     """
 
-    model_config = ConfigDict(frozen=True, extra="forbid")
+    model_config = ConfigDict(frozen=True, extra="allow")
 
     path: str
     name: str
@@ -58,6 +61,7 @@ class FileEntryData(BaseModel):
     inode: int | None = None
     device: int | None = None
     link_target: str | None = None
+    raw_stat: dict = Field(default_factory=dict)
     collected_at: datetime = Field(
         default_factory=lambda: datetime.now(timezone.utc),
     )

@@ -33,6 +33,16 @@ _DEFAULT_EXCLUDE_PATHS: frozenset[str] = frozenset(
     {"/mnt", "/proc", "/sys", "/dev", "/run"}
 )
 
+# Directory NAMES (not absolute paths) skipped anywhere in the tree: build/VCS
+# noise that bloats the corpus without being query-worthy. Overridable — open,
+# not frozen: a caller that WANTS .git contents passes a smaller set. Defaulting
+# to the common noise keeps the ayllu self-index queryable rather than drowned
+# in __pycache__ (the demo: 227 of 479 objects were .pyc).
+_DEFAULT_EXCLUDE_NAMES: frozenset[str] = frozenset(
+    {"__pycache__", ".git", ".venv", "node_modules", ".mypy_cache",
+     ".pytest_cache", ".ruff_cache", ".cache"}
+)
+
 # POSIX mode bit names — derived from Indaleko's IndalekoPosix mapping.
 _MODE_FLAGS: tuple[tuple[int, str], ...] = (
     (stat.S_ISUID, "S_ISUID"),
@@ -77,11 +87,16 @@ def _mode_to_attributes(mode: int) -> tuple[str, ...]:
 
 
 def _stat_to_timestamps(st: os.stat_result) -> FileTimestamps:
-    """Extract timestamps from a stat result."""
-    created = None
-    # st_birthtime is available on Linux 4.11+ via statx
-    if hasattr(st, "st_birthtime") and st.st_birthtime > 0:
-        created = datetime.fromtimestamp(st.st_birthtime, tz=timezone.utc)
+    """Extract timestamps from a stat result. `created` is normalized from
+    st_birthtime when present (Linux 4.11+ via statx); when absent it is None
+    (honest absence). The raw value is also kept generically in raw_stat — this
+    is only the curated typed view."""
+    birthtime = getattr(st, "st_birthtime", 0)
+    created = (
+        datetime.fromtimestamp(birthtime, tz=timezone.utc)
+        if birthtime and birthtime > 0
+        else None
+    )
     return FileTimestamps(
         created=created,
         modified=datetime.fromtimestamp(st.st_mtime, tz=timezone.utc),
@@ -90,8 +105,26 @@ def _stat_to_timestamps(st: os.stat_result) -> FileTimestamps:
     )
 
 
+def _full_stat_dump(st: os.stat_result) -> dict:
+    """Capture EVERY st_* field the OS exposes, generically — save-it-all at the
+    point of collection. We do NOT enumerate a known list (that is extra="forbid"
+    over the OS: a field we never named — st_uid, st_gid, st_nlink, the *_ns
+    nanosecond timestamps, st_blocks, st_rdev, or anything a future kernel/FS
+    adds — would be silently lost forever before reaching the open lane). The
+    normalized view below is a CONVENIENCE projection on top of this complete
+    capture, not a replacement for it."""
+    # Indaleko's pattern (storage/collectors/base.py:376) — capture every
+    # st_* field, do not filter by type. Filtering by "types I expect" would be
+    # a small extra="forbid" of its own.
+    return {key: getattr(st, key) for key in dir(st) if key.startswith("st_")}
+
+
 def _stat_to_entry(full_path: str, st: os.stat_result, is_symlink: bool) -> FileEntryData:
-    """Convert an os.stat_result into a FileEntryData model."""
+    """Convert an os.stat_result into a FileEntryData model.
+
+    The typed fields are a curated VIEW; raw_stat is the COMPLETE capture so
+    nothing the OS exposes is enumerated away (Indaleko's opaque-Record pattern:
+    save the whole source datum, normalize a view on top)."""
     name = os.path.basename(full_path)
     link_target = None
     if is_symlink:
@@ -113,6 +146,7 @@ def _stat_to_entry(full_path: str, st: os.stat_result, is_symlink: bool) -> File
         inode=st.st_ino,
         device=st.st_dev,
         link_target=link_target,
+        raw_stat=_full_stat_dump(st),
     )
 
 
@@ -131,6 +165,7 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
         *,
         same_device_only: bool = True,
         exclude_paths: frozenset[str] = _DEFAULT_EXCLUDE_PATHS,
+        exclude_names: frozenset[str] = _DEFAULT_EXCLUDE_NAMES,
     ) -> None:
         self._root_path = root_path.resolve()
         resolved_machine_id = machine_id if machine_id is not None else _get_machine_id()
@@ -148,6 +183,7 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
         self._exclude_paths = frozenset(
             str(Path(p)) for p in exclude_paths
         )
+        self._exclude_names = frozenset(exclude_names)
 
     def _is_pruned(self, child_path: str, root_dev: int | None) -> bool:
         """True if the walk must NOT descend into child_path.
@@ -158,6 +194,8 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
         descend into something we cannot verify is on-device and local).
         """
         if child_path in self._exclude_paths:
+            return True
+        if os.path.basename(child_path) in self._exclude_names:
             return True
         if root_dev is not None:
             try:

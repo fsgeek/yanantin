@@ -392,6 +392,7 @@ class RegistrationService:
         catalog_collection: str = BASE_REGISTRANT_CATALOG,
         owned_collection: str | None = None,
         owned_edge_collection: str | None = None,
+        owned_definition: CollectionDefinition | None = None,
     ) -> None:
         # catalog/owned overrides exist for test isolation (a unique catalog per
         # run, no shared-state pollution of the real base catalog) and so the
@@ -411,6 +412,7 @@ class RegistrationService:
             obfuscator=obfuscator,
             owned_collection=owned_collection,
             owned_edge_collection=owned_edge_collection,
+            owned_definition=owned_definition,
         )
 
     def get_registrant_list(self) -> list[RegistrantRecord]:

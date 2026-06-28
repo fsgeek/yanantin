@@ -58,7 +58,11 @@ class Khipu:
         existing_index_names = {i.get("name") for i in collection.indexes()}
         for index in definition.indices:
             if index.get("name") not in existing_index_names:
-                collection.add_index(index)
+                # gh #32 (one layer over): index `fields` name SEMANTIC fields;
+                # route them through the obfuscator so the index is built on the
+                # PHYSICAL field the stored docs actually use, and no semantic
+                # field name leaks into queryable index metadata (a C0 break).
+                collection.add_index(self._obfuscate_index(index))
 
         existing_view_names = {v["name"] for v in self._db.views()}
         for view in definition.views:
@@ -73,6 +77,19 @@ class Khipu:
                 )
 
         return collection
+
+    def _obfuscate_index(self, index: dict) -> dict:
+        """Route an index definition's `fields` through the obfuscator so the
+        index is built on the PHYSICAL field names the stored docs use. All other
+        properties (type, name, sparse, unique, ...) pass through unchanged. The
+        index `name` is our own opaque handle, not a semantic field — left as-is."""
+        if "fields" not in index:
+            return index
+        obfuscated = dict(index)
+        obfuscated["fields"] = [
+            self._obfuscator.field_name(field) for field in index["fields"]
+        ]
+        return obfuscated
 
     def _obfuscate_links(self, links: dict) -> dict:
         """Route an ArangoSearch `links` dict through the obfuscator: outer keys

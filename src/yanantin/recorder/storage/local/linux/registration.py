@@ -10,6 +10,7 @@ from __future__ import annotations
 from uuid import NAMESPACE_DNS, UUID, uuid5
 
 from yanantin.collector._collector_base import CollectorBase
+from yanantin.core.collection_definition import CollectionDefinition
 from yanantin.core.contribution import ContributionTarget
 from yanantin.core.registration import Registrar, RegistrantRecord
 from yanantin.recorder.storage.local.linux.normalize import (
@@ -22,6 +23,27 @@ STORAGE_RELATIONSHIPS = "Relationships"
 CONTAINS_RELATION = "contains"  # directory -> child; DISTINCT from "records" provenance
 
 RECORDER_ID = uuid5(NAMESPACE_DNS, "yanantin.recorder.filesystem")
+
+# The shape of the Objects collection this leaf contributes into. The temporal
+# window is the search-space reducer (the episodic pivot): a persistent sorted
+# index on `modified` turns the temporal-window query from an O(n) full
+# collection scan into an O(log n) IndexNode. Measured on the live 35,805-doc
+# Objects slice: 38ms full scan -> 3ms index, and the gap widens with n (the
+# full census is ~4.1M files). schema stays None — the open-lane posture A1/A2
+# settled; this binds only the index, the invisible tuning the find model needs.
+# The field name is SEMANTIC ("modified"); watay obfuscates it to the physical
+# name when the index is created, same as the view-link path (gh #32).
+OBJECTS_DEFINITION = CollectionDefinition(
+    schema=None,
+    indices=(
+        {
+            "type": "persistent",
+            "fields": ["modified"],
+            "name": "idx_objects_modified",
+            "sparse": False,
+        },
+    ),
+)
 
 
 class LinuxStorageRegistration:

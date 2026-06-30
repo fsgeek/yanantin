@@ -85,16 +85,10 @@ jobs:
           - 8529:8529
         env:
           ARANGO_ROOT_PASSWORD: ci-root-pw
-        # Single-line health-cmd with no embedded double-quotes: a folded (>-)
-        # multi-line value with nested quotes corrupts docker-create arg parsing
-        # (the interval token was misread as an image name). curl against the
-        # HTTP version endpoint is the clean readiness signal; --fail makes a
-        # non-200 (auth not ready) count as unhealthy.
-        options: >-
-          --health-cmd "curl --fail --silent --user root:ci-root-pw http://localhost:8529/_api/version"
-          --health-interval 5s
-          --health-timeout 5s
-          --health-retries 30
+        # No container --health-cmd: that command runs inside the arangodb image,
+        # which is minimal and has no curl (and a folded multi-line arangosh cmd
+        # corrupts docker-create arg parsing). Readiness is checked runner-side
+        # below instead, where curl is guaranteed and the port is published.
 
     steps:
       - uses: actions/checkout@v4
@@ -112,11 +106,26 @@ jobs:
         env:
           ARANGO_ROOT_PASSWORD: ci-root-pw
         run: |
-          # Create the test database and the apacheta_test user (the test tier),
-          # granting it on apacheta_test. Use the HTTP API via curl so we don't
-          # depend on arangosh being on the runner.
           ROOT_AUTH="root:${ARANGO_ROOT_PASSWORD}"
           TEST_PW="ci-test-pw"
+
+          # Wait for ArangoDB to accept authenticated requests (runner-side curl
+          # against the published port; the container has no curl of its own).
+          for i in $(seq 1 60); do
+            if curl --fail --silent --user "$ROOT_AUTH" \
+                 http://localhost:8529/_api/version >/dev/null; then
+              echo "ArangoDB ready after ${i}s"
+              break
+            fi
+            if [ "$i" = "60" ]; then
+              echo "ArangoDB did not become ready in 60s" >&2
+              exit 1
+            fi
+            sleep 1
+          done
+
+          # Create the test database and the apacheta_test user (the test tier),
+          # granting it on apacheta_test. HTTP API via curl — no arangosh needed.
 
           # database
           curl -fsS -u "$ROOT_AUTH" -X POST http://localhost:8529/_api/database \

@@ -24,19 +24,21 @@ jobs:
         run: |
           FAILED=0
 
-          # For PRs, check commits in the PR. For pushes, check the pushed commits.
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            BASE="${{ github.event.pull_request.base.sha }}"
-            HEAD="${{ github.event.pull_request.head.sha }}"
-          else
-            # For push events, check commits in the push
-            BASE="${{ github.event.before }}"
-            HEAD="${{ github.event.after }}"
+          # Separation lives in a PR's INDIVIDUAL commits (builder commit + tester
+          # commit, distinct authors). It is enforced ONLY on pull_request, where
+          # those commits are visible. A squash-merge collapses them into one commit
+          # that touches both src/ and tests/ — so re-checking the squashed result
+          # on a main push can ONLY false-fail work whose PR already passed. Skip it.
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            echo "Not a pull_request event — separation is enforced at PR time; skipping."
+            exit 0
           fi
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.event.pull_request.head.sha }}"
 
-          # Skip if this is the initial push (no before SHA)
+          # Skip if base is unknown (no before SHA)
           if [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
-            echo "Initial push — skipping separation check."
+            echo "No base SHA — skipping separation check."
             exit 0
           fi
 

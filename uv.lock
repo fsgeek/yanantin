@@ -621,17 +621,14 @@ wheels = [
 [[package]]
 name = "tiksi"
 version = "0.1.0"
-source = { editable = "../tiksi" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pydantic" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "pydantic", specifier = ">=2.0" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
+sdist = { url = "https://files.pythonhosted.org/packages/87/74/ee95651bd51d0a9aabec6a9a838079936c4ff8e1898f134a8db59dc09c3c/tiksi-0.1.0.tar.gz", hash = "sha256:c41eb862f27ee4c5eb1cd36b763a0eda6e677644c95495b7966251fdbd92c91b", size = 5199, upload-time = "2026-05-16T19:43:24.157Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/5c/c0/7ec0337caa0d065e6f6a7d52220b2b4cd8023909c94ffb211ab0cc88e75e/tiksi-0.1.0-py3-none-any.whl", hash = "sha256:e2ab0330bf71873ee42b3d40561edc9adacd6cd558d03be1cdd992c97688c09f", size = 6966, upload-time = "2026-05-16T19:43:25.182Z" },
 ]
-provides-extras = ["dev"]
 
 [[package]]
 name = "typing-extensions"
@@ -715,6 +712,6 @@ requires-dist = [
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
     { name = "python-arango", specifier = ">=8.2.6" },
     { name = "pyyaml", specifier = ">=6.0" },
-    { name = "tiksi", editable = "../tiksi" },
+    { name = "tiksi", specifier = ">=0.1.0" },
 ]
 provides-extras = ["dev", "dropbox"]

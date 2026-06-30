@@ -159,8 +159,22 @@ jobs:
             > "$HOME/.yanantin/config/db.ini"
           chmod 600 "$HOME/.yanantin/config/db.ini"
 
-      - name: Run tests
-        run: uv run pytest tests/ -v
+      # The BLOCKING gate: everything except tests/red_bar must pass. red_bar is
+      # excluded here because those are deliberate red bars guarding standing
+      # decisions (e.g. yanantin#13's authorship_verified field) — correctly RED
+      # until their tracked feature lands. Skipping/xfailing them to force green
+      # would be the prose-erosion the red bars exist to prevent; instead they
+      # run as a separate informational job below that is EXPECTED red, so the
+      # line stays visible while this gate stays meaningful.
+      - name: Run tests (blocking — excludes red_bar)
+        run: uv run pytest tests/ --ignore=tests/red_bar -v
+
+      # Informational: the red bars, run but not gating. Expected red until their
+      # tracked issues close. continue-on-error keeps a known-red bar from failing
+      # the workflow while keeping it visibly red in the run — never green-by-skip.
+      - name: Red bars (informational — expected red until tracked issues land)
+        continue-on-error: true
+        run: uv run pytest tests/red_bar -v
 
   # Tinkuy governance job retired with the yanantin -> library pivot.
   # The succession protocol + orphan-tensor check was load-bearing when

@@ -100,7 +100,21 @@ def _live_episodes_rows_for(term: str):
       RETURN { session: e.session_id, model: e.model,
                day: SUBSTRING(e.ts, 0, 10) }
     """
-    return list(h.aql.execute(aql, bind_vars={"t": term}))
+    # This is a LOCAL-CORPUS reproduction: the `llm_memory` silo (the `ghola`
+    # data) lives on the dev box, not in CI (which only provisions apacheta_test).
+    # Skip cleanly when that corpus is absent — never hard-fail on a missing DB.
+    # The skip is narrow: it catches "this environment lacks llm_memory/episodes",
+    # NOT a broken query or wrong result (those still fail loudly). The synthetic
+    # ground-truth tests above carry the portable verification; this one anchors
+    # the mechanism to real numbers where the real data exists.
+    from arango.exceptions import AQLQueryExecuteError, ArangoServerError
+
+    try:
+        return list(h.aql.execute(aql, bind_vars={"t": term}))
+    except (AQLQueryExecuteError, ArangoServerError) as exc:
+        if "not found" in str(exc).lower() or getattr(exc, "error_code", None) in (1203, 1228):
+            pytest.skip(f"llm_memory/episodes corpus not in this environment: {exc}")
+        raise
 
 
 def test_ghola_query_reproduces_issue_numbers():

@@ -5,6 +5,7 @@
     uv run python -m yanantin.collector checksum /file --store duckdb     # store facts
     uv run python -m yanantin.collector fs-events /path --store arango    # store facts
     uv run python -m yanantin.collector dropbox --store arango            # store facts
+    uv run python -m yanantin.collector openrouter /export.csv --store arango  # store facts
     uv run python -m yanantin.collector synthetic fs 100 --store memory   # synthetic facts
     uv run python -m yanantin.collector status --store arango             # what the system knows
     uv run python -m yanantin.collector materialize <handle> --store arango  # temporal view
@@ -226,6 +227,45 @@ def _cmd_fs_events(args: argparse.Namespace) -> None:
     if args.store:
         from yanantin.recorder.activity.linux import FsEventFactRecorder
         _store_facts(args.store, FsEventFactRecorder, batch, collector.get_provider_id(), args)
+
+
+def _cmd_openrouter(args: argparse.Namespace) -> None:
+    """OpenRouter activity collector — reads a CSV export."""
+    from yanantin.collector.semantic.openrouter.collector import (
+        OpenRouterActivityCollector,
+    )
+
+    csv_path = Path(args.path)
+    if not csv_path.exists():
+        print(f"  Error: {csv_path} does not exist", file=sys.stderr)
+        sys.exit(1)
+
+    since = _parse_since(getattr(args, "since", None))
+    collector = OpenRouterActivityCollector(csv_path)
+    activity = collector.collect(since=since)
+
+    if not args.json or not args.store:
+        if args.json:
+            print(activity.model_dump_json(indent=2))
+        else:
+            print()
+            print(f"  OpenRouter Activity: {activity.source_file}")
+            print("  " + "─" * 40)
+            print(f"  Rows: {len(activity.rows)}")
+            if since:
+                print(f"  Since: {since.isoformat()}")
+            print()
+            for row in activity.rows[:20]:
+                print(f"  [{row.created_at.isoformat()}] {row.model_permaslug}")
+            if len(activity.rows) > 20:
+                print(f"  ... and {len(activity.rows) - 20} more")
+            print()
+
+    if args.store:
+        from yanantin.recorder.semantic.openrouter.fact_recorder import (
+            OpenRouterFactRecorder,
+        )
+        _store_facts(args.store, OpenRouterFactRecorder, activity, collector.get_provider_id(), args)
 
 
 def _cmd_dropbox(args: argparse.Namespace) -> None:
@@ -602,6 +642,12 @@ def main() -> None:
     )
     _add_store_flag(dbx_parser)
 
+    # openrouter
+    or_parser = subparsers.add_parser("openrouter", help="OpenRouter activity CSV export")
+    or_parser.add_argument("path", help="OpenRouter activity CSV file to read")
+    or_parser.add_argument("--since", default=None, help="ISO datetime filter (created_at > since)")
+    _add_store_flag(or_parser)
+
     # synthetic
     syn_parser = subparsers.add_parser("synthetic", help="Synthetic data generators")
     syn_parser.add_argument("type", help="Generator type: fs, checksum, events, dropbox")
@@ -659,6 +705,8 @@ def main() -> None:
         _cmd_fs_events(args)
     elif args.command == "dropbox":
         _cmd_dropbox(args)
+    elif args.command == "openrouter":
+        _cmd_openrouter(args)
     elif args.command == "synthetic":
         _cmd_synthetic(args)
     elif args.command == "cloud-synthetic":

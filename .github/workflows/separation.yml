@@ -71,6 +71,25 @@ jobs:
   tests:
     name: Run tests
     runs-on: ubuntu-latest
+
+    # The suite is no-mock-databases by design (feedback-no-mock-databases): the
+    # integration tests hit a live ArangoDB at localhost:8529 with test-tier
+    # creds from ~/.yanantin/config/db.ini. CI must therefore provide a real DB,
+    # not skip the DB path — a green that skipped integration would be a lie
+    # about what's verified. So: an ArangoDB service container + a provisioning
+    # step that creates the apacheta_test database/user and writes db.ini.
+    services:
+      arangodb:
+        image: arangodb:3.12
+        ports:
+          - 8529:8529
+        env:
+          ARANGO_ROOT_PASSWORD: ci-root-pw
+        # No container --health-cmd: that command runs inside the arangodb image,
+        # which is minimal and has no curl (and a folded multi-line arangosh cmd
+        # corrupts docker-create arg parsing). Readiness is checked runner-side
+        # below instead, where curl is guaranteed and the port is published.
+
     steps:
       - uses: actions/checkout@v4
 
@@ -83,8 +102,79 @@ jobs:
       - name: Install dependencies
         run: uv sync --extra dev
 
-      - name: Run tests
-        run: uv run pytest tests/ -v
+      - name: Provision apacheta_test DB/user + write db.ini
+        env:
+          ARANGO_ROOT_PASSWORD: ci-root-pw
+        run: |
+          ROOT_AUTH="root:${ARANGO_ROOT_PASSWORD}"
+          TEST_PW="ci-test-pw"
+
+          # Wait for ArangoDB to accept authenticated requests (runner-side curl
+          # against the published port; the container has no curl of its own).
+          for i in $(seq 1 60); do
+            if curl --fail --silent --user "$ROOT_AUTH" \
+                 http://localhost:8529/_api/version >/dev/null; then
+              echo "ArangoDB ready after ${i}s"
+              break
+            fi
+            if [ "$i" = "60" ]; then
+              echo "ArangoDB did not become ready in 60s" >&2
+              exit 1
+            fi
+            sleep 1
+          done
+
+          # Create the test database and the apacheta_test user (the test tier),
+          # granting it on apacheta_test. HTTP API via curl — no arangosh needed.
+
+          # database
+          curl -fsS -u "$ROOT_AUTH" -X POST http://localhost:8529/_api/database \
+            -d '{"name":"apacheta_test"}'
+          # user
+          curl -fsS -u "$ROOT_AUTH" -X POST http://localhost:8529/_api/user \
+            -d "{\"user\":\"apacheta_test\",\"passwd\":\"${TEST_PW}\"}"
+          # grant the user rw on the test database
+          curl -fsS -u "$ROOT_AUTH" -X PUT \
+            http://localhost:8529/_api/user/apacheta_test/database/apacheta_test \
+            -d '{"grant":"rw"}'
+
+          # db.ini the three-tier config reads (host localhost; admin=root,
+          # test=apacheta_test). app tier points at apacheta — unused in CI but
+          # the config expects the keys present. printf, not a heredoc: an
+          # indented heredoc body inside a YAML run: block carries leading spaces
+          # into the file and the indented delimiter is not recognized.
+          mkdir -p "$HOME/.yanantin/config"
+          printf '%s\n' \
+            '[database]' \
+            'database = apacheta' \
+            'host = localhost' \
+            'port = 8529' \
+            'ssl = false' \
+            'admin_user = root' \
+            "admin_passwd = ${ARANGO_ROOT_PASSWORD}" \
+            'app_user = apacheta_app' \
+            "app_password = ${TEST_PW}" \
+            'test_user = apacheta_test' \
+            "test_password = ${TEST_PW}" \
+            > "$HOME/.yanantin/config/db.ini"
+          chmod 600 "$HOME/.yanantin/config/db.ini"
+
+      # The BLOCKING gate: everything except tests/red_bar must pass. red_bar is
+      # excluded here because those are deliberate red bars guarding standing
+      # decisions (e.g. yanantin#13's authorship_verified field) — correctly RED
+      # until their tracked feature lands. Skipping/xfailing them to force green
+      # would be the prose-erosion the red bars exist to prevent; instead they
+      # run as a separate informational job below that is EXPECTED red, so the
+      # line stays visible while this gate stays meaningful.
+      - name: Run tests (blocking — excludes red_bar)
+        run: uv run pytest tests/ --ignore=tests/red_bar -v
+
+      # Informational: the red bars, run but not gating. Expected red until their
+      # tracked issues close. continue-on-error keeps a known-red bar from failing
+      # the workflow while keeping it visibly red in the run — never green-by-skip.
+      - name: Red bars (informational — expected red until tracked issues land)
+        continue-on-error: true
+        run: uv run pytest tests/red_bar -v
 
   # Tinkuy governance job retired with the yanantin -> library pivot.
   # The succession protocol + orphan-tensor check was load-bearing when

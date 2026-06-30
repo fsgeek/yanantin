@@ -85,12 +85,16 @@ jobs:
           - 8529:8529
         env:
           ARANGO_ROOT_PASSWORD: ci-root-pw
+        # Single-line health-cmd with no embedded double-quotes: a folded (>-)
+        # multi-line value with nested quotes corrupts docker-create arg parsing
+        # (the interval token was misread as an image name). curl against the
+        # HTTP version endpoint is the clean readiness signal; --fail makes a
+        # non-200 (auth not ready) count as unhealthy.
         options: >-
-          --health-cmd "arangosh --server.authentication true
-            --server.password ci-root-pw --javascript.execute-string 'true'"
+          --health-cmd "curl --fail --silent --user root:ci-root-pw http://localhost:8529/_api/version"
           --health-interval 5s
           --health-timeout 5s
-          --health-retries 20
+          --health-retries 30
 
     steps:
       - uses: actions/checkout@v4

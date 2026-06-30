@@ -27,8 +27,28 @@ class StorageObfuscator(Protocol):
     """
 
     def collection_name(self, semantic: str) -> str: ...
-    def field_name(self, semantic: str) -> str: ...
-    def field_path(self, parts: tuple[str, ...]) -> str: ...
+
+    def field_name(self, semantic: str) -> str:
+        """Map ONE semantic name to its physical/obfuscated form.
+
+        Use for document-key obfuscation on the write path
+        (``mapped_doc[field_name(k)] = v``). Do NOT use to name a field in a
+        query string — there, ``field_path`` is the sanctioned primitive
+        (it is what the no-literal-AQL-field red bar enforces). See
+        docs/design-aql-field-mapping-guardrail.md §3.
+        """
+        ...
+
+    def field_path(self, parts: tuple[str, ...]) -> str:
+        """Map a (possibly nested) field path to its physical AQL form.
+
+        THE sanctioned way to name a field inside an AQL query. Each part is
+        mapped through the obfuscator, so the storage name is never written by
+        hand and a query that bypasses the boundary becomes inexpressible-by-
+        convention (and, via the red bar, build-failing). See
+        docs/design-aql-field-mapping-guardrail.md §3.
+        """
+        ...
     def reverse_field(self, opaque: str) -> str: ...
     def obfuscate_document(self, doc: dict) -> dict: ...
     def deobfuscate_document(self, doc: dict) -> dict: ...

@@ -43,9 +43,6 @@ allow-direct-references = true
 [tool.hatch.build.targets.wheel]
 packages = ["src/yanantin"]
 
-[tool.uv.sources]
-tiksi = { path = "../tiksi", editable = true }
-
 [tool.hatch.build.targets.sdist]
 include = [
     "src/yanantin",

@@ -14,6 +14,7 @@ import sys
 from uuid import UUID
 
 from yanantin.core.registration import RegistrationService
+from yanantin.core.storage_obfuscator import TransparentObfuscator
 from yanantin.infra.config import ApachetaDBConfig
 
 
@@ -82,7 +83,10 @@ def main(argv: list[str] | None = None, service: RegistrationService | None = No
     args = parser.parse_args(argv)
 
     if service is None:
-        service = RegistrationService(db=ApachetaDBConfig().connect(tier=args.tier))
+        service = RegistrationService(
+            db=ApachetaDBConfig().connect(tier=args.tier),
+            obfuscator=TransparentObfuscator(),
+        )
 
     if args.command == "show":
         _cmd_show(service, args)

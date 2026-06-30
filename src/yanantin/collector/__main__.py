@@ -409,6 +409,7 @@ def _cmd_cloud_synthetic(args: argparse.Namespace) -> None:
     from yanantin.collector.storage.cloud.synthetic import SyntheticCloudCollector
     from yanantin.core.khipu import Khipu
     from yanantin.core.registration import Registrar
+    from yanantin.core.storage_obfuscator import TransparentObfuscator
     from yanantin.infra.config import ApachetaDBConfig, get_database
     from yanantin.recorder.storage.cloud.synthetic import (
         CloudFactRecorder,
@@ -437,7 +438,8 @@ def _cmd_cloud_synthetic(args: argparse.Namespace) -> None:
         catalog, objects, rels = f"Cat_{sfx}", f"Obj_{sfx}", f"Rel_{sfx}"
 
     registrar = Registrar(
-        db=db, khipu=Khipu(db=db), catalog_collection=catalog,
+        db=db, khipu=Khipu(db=db, obfuscator=TransparentObfuscator()),
+        catalog_collection=catalog,
         name="synthetic-cloud-topology",
         description="runs the cloud fan-out + feedback topology",
         owned_collection=objects, owned_edge_collection=rels,

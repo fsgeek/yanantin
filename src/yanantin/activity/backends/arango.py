@@ -46,7 +46,11 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
         obfuscator: StorageObfuscator | None = None,
     ) -> None:
         self._lock = threading.RLock()
-        self._map = obfuscator or TransparentObfuscator()
+        # Transparent only as an explicit, greppable fallback — never via a
+        # silent `or` default (see tests/red_bar/test_obfuscator_default_is_explicit).
+        if obfuscator is None:
+            obfuscator = TransparentObfuscator()
+        self._map = obfuscator
         self._host = host
         self._db_name = db_name
         self._db = self._connect_database(username, password)

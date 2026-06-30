@@ -97,7 +97,11 @@ class Registrar:
         # create_collection itself — it hands SEMANTIC names to watay (which
         # obfuscates internally) and reads the obfuscated physical name back off
         # the returned handle's .name for its AQL/insert paths below.
-        self._obfuscator = obfuscator or TransparentObfuscator()
+        # Transparent only as an explicit, greppable fallback — never via a
+        # silent `or` default (see tests/red_bar/test_obfuscator_default_is_explicit).
+        if obfuscator is None:
+            obfuscator = TransparentObfuscator()
+        self._obfuscator = obfuscator
         self._semantic_name = catalog_collection
         # schema=None across the board in A1. A1's contract is ONLY "Khipu is the
         # sole collection creator" — behaviorally identical to the deleted

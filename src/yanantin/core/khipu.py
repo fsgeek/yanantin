@@ -31,7 +31,11 @@ class Khipu:
         obfuscator: StorageObfuscator | None = None,
     ) -> None:
         self._db = db
-        self._obfuscator = obfuscator or TransparentObfuscator()
+        # Transparent only as an explicit, greppable fallback — never via a
+        # silent `or` default (see tests/red_bar/test_obfuscator_default_is_explicit).
+        if obfuscator is None:
+            obfuscator = TransparentObfuscator()
+        self._obfuscator = obfuscator
 
     def watay(
         self, name: str, definition: CollectionDefinition

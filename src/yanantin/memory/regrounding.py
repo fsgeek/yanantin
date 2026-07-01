@@ -16,7 +16,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from yanantin.infra.config import ApachetaDBConfig
+from yanantin.infra.config import ApachetaDBConfig, get_database
 
 
 class UnsupportedClaimKind(ValueError):
@@ -88,10 +88,12 @@ def _live_collection_count(db_name: str, collection: str) -> int:
     """
     cfg = ApachetaDBConfig()
     creds = cfg.get_admin_credentials()
-    from arango import ArangoClient
-
-    client = ArangoClient(hosts=cfg.host_url)
-    db = client.db(db_name, username=creds["username"], password=creds["password"])
+    db = get_database(
+        host=cfg.host_url,
+        db_name=db_name,
+        username=creds["username"],
+        password=creds["password"],
+    )
     return db.collection(collection).count()
 
 

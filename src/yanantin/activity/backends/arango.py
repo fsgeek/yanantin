@@ -162,30 +162,34 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
         before: datetime | None = None,
     ) -> FactRecord | None:
         with self._lock:
+            # Regime-1 form (§6): @@col bind; fields via field_path as literal
+            # dotted paths (provider_id, timestamp are both in the persistent
+            # index — dynamic doc[@f] would defeat it; §6.1 decision).
             col = self._map.collection_name("activity_facts")
-            f_pid = self._map.field_name("provider_id")
-            f_ts = self._map.field_name("timestamp")
+            pid = self._map.field_path(("provider_id",))
+            ts = self._map.field_path(("timestamp",))
             if before is not None:
                 cursor = self._db.aql.execute(
-                    f"FOR doc IN {col} "
-                    f"  FILTER doc.{f_pid} == @provider_id "
-                    f"  FILTER doc.{f_ts} <= @before "
-                    f"  SORT doc.{f_ts} DESC "
-                    f"  LIMIT 1 "
-                    f"  RETURN doc",
+                    "FOR doc IN @@col "
+                    f"  FILTER doc.{pid} == @provider_id "
+                    f"  FILTER doc.{ts} <= @before "
+                    f"  SORT doc.{ts} DESC "
+                    "  LIMIT 1 "
+                    "  RETURN doc",
                     bind_vars={
+                        "@col": col,
                         "provider_id": str(provider_id),
                         "before": before.isoformat(),
                     },
                 )
             else:
                 cursor = self._db.aql.execute(
-                    f"FOR doc IN {col} "
-                    f"  FILTER doc.{f_pid} == @provider_id "
-                    f"  SORT doc.{f_ts} DESC "
-                    f"  LIMIT 1 "
-                    f"  RETURN doc",
-                    bind_vars={"provider_id": str(provider_id)},
+                    "FOR doc IN @@col "
+                    f"  FILTER doc.{pid} == @provider_id "
+                    f"  SORT doc.{ts} DESC "
+                    "  LIMIT 1 "
+                    "  RETURN doc",
+                    bind_vars={"@col": col, "provider_id": str(provider_id)},
                 )
             docs = list(cursor)
             if not docs:
@@ -199,26 +203,30 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
         end: datetime | None = None,
     ) -> list[FactRecord]:
         with self._lock:
+            # Regime-1 form (§6): @@col bind; fields via field_path (literal
+            # paths — both indexed, §6.1). Composition (the AND of FILTERs) stays
+            # in raw AQL per design §4 — each fragment names its field through the
+            # primitive; the list-join is NOT a query builder.
             col = self._map.collection_name("activity_facts")
-            f_pid = self._map.field_name("provider_id")
-            f_ts = self._map.field_name("timestamp")
+            pid = self._map.field_path(("provider_id",))
+            ts = self._map.field_path(("timestamp",))
 
-            filters = [f"doc.{f_pid} == @provider_id"]
-            bind_vars: dict = {"provider_id": str(provider_id)}
+            filters = [f"doc.{pid} == @provider_id"]
+            bind_vars: dict = {"@col": col, "provider_id": str(provider_id)}
 
             if start is not None:
-                filters.append(f"doc.{f_ts} >= @start")
+                filters.append(f"doc.{ts} >= @start")
                 bind_vars["start"] = start.isoformat()
             if end is not None:
-                filters.append(f"doc.{f_ts} <= @end")
+                filters.append(f"doc.{ts} <= @end")
                 bind_vars["end"] = end.isoformat()
 
             filter_clause = " FILTER ".join([""] + filters)
             cursor = self._db.aql.execute(
-                f"FOR doc IN {col}"
+                "FOR doc IN @@col"
                 f"  {filter_clause}"
-                f"  SORT doc.{f_ts} ASC"
-                f"  RETURN doc",
+                f"  SORT doc.{ts} ASC"
+                "  RETURN doc",
                 bind_vars=bind_vars,
             )
             return [self._doc_to_fact(doc) for doc in cursor]
@@ -262,13 +270,16 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
 
     def get_latest_anchor(self) -> MemoryAnchor | None:
         with self._lock:
+            # Regime-1 form (§6): @@col bind; timestamp via field_path (literal —
+            # activity_anchors has a persistent index on timestamp, §6.1).
             col = self._map.collection_name("activity_anchors")
-            f_ts = self._map.field_name("timestamp")
+            ts = self._map.field_path(("timestamp",))
             cursor = self._db.aql.execute(
-                f"FOR doc IN {col} "
-                f"  SORT doc.{f_ts} DESC "
-                f"  LIMIT 1 "
-                f"  RETURN doc"
+                "FOR doc IN @@col "
+                f"  SORT doc.{ts} DESC "
+                "  LIMIT 1 "
+                "  RETURN doc",
+                bind_vars={"@col": col},
             )
             docs = list(cursor)
             if not docs:
@@ -279,12 +290,15 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
 
     def list_providers(self) -> list[UUID]:
         with self._lock:
+            # Regime-1 form (§6): @@col bind; provider_id via field_path (literal —
+            # indexed, §6.1). COLLECT names the field, so it takes the same form.
             col = self._map.collection_name("activity_facts")
-            f_pid = self._map.field_name("provider_id")
+            pid = self._map.field_path(("provider_id",))
             cursor = self._db.aql.execute(
-                f"FOR doc IN {col} "
-                f"  COLLECT provider = doc.{f_pid} "
-                f"  RETURN provider"
+                "FOR doc IN @@col "
+                f"  COLLECT provider = doc.{pid} "
+                "  RETURN provider",
+                bind_vars={"@col": col},
             )
             return [UUID(p) for p in cursor]
 

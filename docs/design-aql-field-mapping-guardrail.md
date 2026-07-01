@@ -128,15 +128,16 @@ A pure text scan cannot see provenance of the interpolated variable. Options, in
 
 ### 6.2 Phase 2 step checklist (fill in during implementation)
 
-- [ ] activity/backends/arango.py:169-175 (`get_last_before`: provider_id + before)
-- [ ] activity/backends/arango.py:182-187 (`get_last`: provider_id)
-- [ ] activity/backends/arango.py:206-221 (`query_range`: the `" FILTER ".join` list builder — the most builder-like site)
-- [ ] activity/backends/arango.py:267-271 (latest)
-- [ ] activity/backends/arango.py:284-287 (`COLLECT provider` — distinct providers)
+- [x] activity/backends/arango.py `query_latest` (provider_id + timestamp, both branches) — **DONE 2026-07-01** (Yanantin AI). `@@col` bind; `provider_id`/`timestamp` via `field_path` as literal paths (both in the persistent index, §6.1).
+- [x] activity/backends/arango.py `query_range` (the `" FILTER ".join` list builder — the most builder-like site) — **DONE 2026-07-01** (Yanantin AI). Each filter fragment names its field via `field_path`; the list-join and `AND` composition stay in raw AQL (design §4 — NOT a query builder). `@@col` bound. Both fields literal (indexed, §6.1).
+- [x] activity/backends/arango.py `get_latest_anchor` (timestamp sort) — **DONE 2026-07-01** (Yanantin AI). `@@col` bind; `timestamp` via `field_path` literal — `activity_anchors` has a persistent index on `timestamp` (§6.1, verified live).
+- [x] activity/backends/arango.py `list_providers` (`COLLECT provider = doc.<pid>`) — **DONE 2026-07-01** (Yanantin AI). `@@col` bind; `provider_id` via `field_path` literal (indexed). COLLECT names a field, so it takes the same sanctioned form.
 - [x] activity/backends/arango.py:296-301 (`RETURN LENGTH(FOR ... FILTER ...)` — count) — **DONE 2026-07-01** (Yanantin AI). Migrated to Regime-1: `@@col` bind for the collection in BOTH branches (the `LENGTH({col})` sibling at :306 also moved to `@@col` — it was a text-interpolated collection name, cheap to bind, so not left as a template); `provider_id` filter names its field via `field_path(("provider_id",))`. **§6.1 index decision (verified against the live index, not guessed):** `activity_facts` has a persistent index on `(provider_id, timestamp)` — so the field is a **literal dotted path produced by `field_path`** (`f"doc.{pid_path}"`, the §6.1-*allowed* form), NOT dynamic `doc[@f]` access, which would defeat that index. Verified live under a non-transparent `PrefixObfuscator` (`tests/integration/test_aql_count_facts_obfuscated.py`) AND under the transparent default. **Precedent for the next site:** any FILTER on an indexed field takes the literal-`field_path` form; only un-indexed fields may use `doc[@f]`.
 - [ ] apacheta/backends/arango.py:916 (`SORT doc.{ts_path}` — verify already-mapped, may be Regime-1-adjacent)
 - [ ] registration.py:287, :358 (`field_name("contributor_id")` → confirm query-field; these feed `d[@field]` which is ALREADY the safe dynamic form — may need only the `field_name`→`field_path` swap, no interpolation fix)
 - [ ] Regime-3 templates (traversal :425, `LENGTH({col})` :306): leave as vetted templates; add a comment marking them as deliberate template-tier, not migration debt.
+
+**STATUS 2026-07-01 (Yanantin AI):** `activity/backends/arango.py` is FULLY migrated — all five query methods (`count_facts`, `query_latest`, `query_range`, `get_latest_anchor`, `list_providers`) are Regime-1; the red-bar reports **zero** offenders in this file. The interpolation red-bar `test_no_literal_aql_field_refs` is GREEN and **promoted to the blocking lane** (`.github/workflows/separation.yml` — its own gating step, separate from the still-informational red bars). REMAINING for full Phase-2 close: `apacheta/backends/arango.py:916` and `registration.py:287,:358` (see below) — the red-bar is green because those sites use the *already-safe* forms, but they should still be converted to `field_path` for uniformity before the guardrail is considered complete program-wide.
 
 **Phase 2 exit criteria:** interpolation red-bar is GREEN and MOVED to the blocking lane; every query-field names through `field_path`; Regime-3 templates are explicitly marked; full suite green on live DB under a non-transparent obfuscator.
 

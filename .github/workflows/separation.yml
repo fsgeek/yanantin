@@ -171,12 +171,20 @@ jobs:
       - name: Run tests (blocking — excludes red_bar)
         run: uv run pytest tests/ --ignore=tests/red_bar -v
 
-      # Informational: the red bars, run but not gating. Expected red until their
-      # tracked issues close. continue-on-error keeps a known-red bar from failing
-      # the workflow while keeping it visibly red in the run — never green-by-skip.
+      # BLOCKING (promoted from informational): the AQL field-mapping red bar.
+      # Its Phase-2 migration is COMPLETE for the activity backend (design
+      # §6.2), so it is now GREEN and gating — a future instance interpolating an
+      # unmapped field name into AQL fails CI here, not silently in prod. This is
+      # the moment the guardrail stops being a work-list and becomes a wall.
+      - name: AQL field-mapping guardrail (blocking — Phase 2 complete)
+        run: uv run pytest tests/red_bar/test_no_literal_aql_field_refs.py -v
+
+      # Informational: the OTHER red bars, run but not gating. Expected red until
+      # their tracked issues close. continue-on-error keeps a known-red bar from
+      # failing the workflow while keeping it visibly red — never green-by-skip.
       - name: Red bars (informational — expected red until tracked issues land)
         continue-on-error: true
-        run: uv run pytest tests/red_bar -v
+        run: uv run pytest tests/red_bar --ignore=tests/red_bar/test_no_literal_aql_field_refs.py -v
 
   # Tinkuy governance job retired with the yanantin -> library pivot.
   # The succession protocol + orphan-tensor check was load-bearing when

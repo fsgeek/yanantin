@@ -48,6 +48,11 @@ class Collection:
         """Count documents. Name-only obfuscation (already applied at open)."""
         return self._raw.count()
 
+    def has(self, key: str) -> bool:
+        """Whether a document with this _key exists. The _key is an ArangoDB
+        internal, not obfuscated — the immutability guard's primitive."""
+        return self._raw.has(key)
+
 
 class Database:
     """Wraps a StandardDatabase handle + a StorageObfuscator.

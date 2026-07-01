@@ -64,6 +64,9 @@ class FakeCollection:
     def count(self) -> int:
         return len(self._rows)
 
+    def has(self, key: str) -> bool:
+        return any(r.get("_key") == key for r in self._rows)
+
 
 class FakeDatabase:
     """A stand-in StandardDatabase: hands out FakeCollections by physical name."""
@@ -127,3 +130,16 @@ def test_count_maps_collection_name_only():
 
     assert db.collection("Objects").count() == 3
     assert raw.requested == ["c_Objects"]
+
+
+def test_has_checks_key_presence_by_document_key():
+    """has(key) tests _key membership — the immutability guard's primitive.
+    The _key is not obfuscated (ArangoDB internal), so has passes through."""
+    raw = FakeDatabase()
+    col = FakeCollection("c_Objects")
+    col._rows = [{"_key": "abc"}]
+    raw.collections_by_name["c_Objects"] = col
+    db = Database(raw, PrefixObfuscator())
+
+    assert db.collection("Objects").has("abc") is True
+    assert db.collection("Objects").has("missing") is False

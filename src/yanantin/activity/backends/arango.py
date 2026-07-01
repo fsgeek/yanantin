@@ -25,6 +25,7 @@ from yanantin.activity.models import FactRecord, MemoryAnchor
 from yanantin.activity.store import ActivityStreamStore
 from yanantin.apacheta.interface.errors import ImmutabilityError, NotFoundError
 from yanantin.apacheta.storage_obfuscator import StorageObfuscator, TransparentObfuscator
+from yanantin.core.arango_facade import Database
 
 
 _SEMANTIC_COLLECTIONS = ("activity_facts", "activity_anchors")
@@ -54,6 +55,11 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
         self._host = host
         self._db_name = db_name
         self._db = self._connect_database(username, password)
+        # The obfuscating façade over the document read/write paths. The backend
+        # keeps _db for the AQL query paths (Regime-1 field_path form); document
+        # ops (store/get fact/anchor) route through the façade so key-obfuscation
+        # and collection naming live in one place, not hand-rolled per method.
+        self._facade = Database(self._db, self._map)
         self._ensure_collections()
 
     def _connect_database(self, username: str, password: str) -> StandardDatabase:
@@ -127,31 +133,32 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
 
     def store_fact(self, fact: FactRecord) -> None:
         with self._lock:
-            col = self._db.collection(self._map.collection_name("activity_facts"))
+            col = self._facade.collection("activity_facts")
             key = str(fact.id)
             if col.has(key):
                 raise ImmutabilityError(
                     f"Fact {fact.id} already exists. "
                     "Facts are immutable — append, don't overwrite."
                 )
+            # Value-coercion stays here (the façade obfuscates KEYS, not values):
+            # id→_key, provider_id→str, timestamp→isoformat. Then the façade maps
+            # the field names on the way to the wire.
             doc = fact.model_dump(mode="json")
-            # Build mapped document: _key + mapped field names
-            mapped_doc = {"_key": key}
+            semantic_doc = {"_key": key}
             for k, v in doc.items():
                 if k == "id":
                     continue  # moved to _key
                 elif k == "provider_id":
-                    mapped_doc[self._map.field_name(k)] = str(v)
+                    semantic_doc[k] = str(v)
                 elif k == "timestamp":
-                    mapped_doc[self._map.field_name(k)] = fact.timestamp.isoformat()
+                    semantic_doc[k] = fact.timestamp.isoformat()
                 else:
-                    mapped_doc[self._map.field_name(k)] = v
-            col.insert(mapped_doc)
+                    semantic_doc[k] = v
+            col.insert(semantic_doc)
 
     def get_fact(self, fact_id: UUID) -> FactRecord:
         with self._lock:
-            col = self._db.collection(self._map.collection_name("activity_facts"))
-            doc = col.get(str(fact_id))
+            doc = self._facade.collection("activity_facts").get(str(fact_id))
             if doc is None:
                 raise NotFoundError(f"Fact {fact_id} not found.")
             return self._doc_to_fact(doc)
@@ -194,7 +201,8 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
             docs = list(cursor)
             if not docs:
                 return None
-            return self._doc_to_fact(docs[0])
+            # AQL path returns raw (obfuscated) docs — deobfuscate before shaping.
+            return self._doc_to_fact(self._map.deobfuscate_document(docs[0]))
 
     def query_range(
         self,
@@ -229,41 +237,42 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
                 "  RETURN doc",
                 bind_vars=bind_vars,
             )
-            return [self._doc_to_fact(doc) for doc in cursor]
+            return [
+                self._doc_to_fact(self._map.deobfuscate_document(doc))
+                for doc in cursor
+            ]
 
     # -- Anchor operations ---------------------------------------------
 
     def store_anchor(self, anchor: MemoryAnchor) -> None:
         with self._lock:
-            col = self._db.collection(self._map.collection_name("activity_anchors"))
+            col = self._facade.collection("activity_anchors")
             key = str(anchor.handle)
             if col.has(key):
                 raise ImmutabilityError(
                     f"Anchor {anchor.handle} already exists. "
                     "Anchors are immutable — advance, don't overwrite."
                 )
+            # Value-coercion here; the façade obfuscates the TOP-LEVEL keys.
+            # Cursors ride as a nested value under the (obfuscated) `cursors`
+            # key — their inner fields are NOT separately obfuscated. Previously
+            # store_anchor obfuscated each cursor dict's keys but get_anchor never
+            # reversed them: broken round-trip under any non-transparent
+            # obfuscator (12 validation errors). Symmetric-by-construction now.
             doc = anchor.model_dump(mode="json")
-            # Build mapped document
-            mapped_doc = {"_key": key}
+            semantic_doc = {"_key": key}
             for k, v in doc.items():
                 if k == "handle":
                     continue  # moved to _key
                 elif k == "timestamp":
-                    mapped_doc[self._map.field_name(k)] = anchor.timestamp.isoformat()
-                elif k == "cursors":
-                    # Cursors contain model fields --- obfuscate nested dicts
-                    mapped_doc[self._map.field_name(k)] = [
-                        self._map.obfuscate_document(c) if isinstance(c, dict) else c
-                        for c in v
-                    ]
+                    semantic_doc[k] = anchor.timestamp.isoformat()
                 else:
-                    mapped_doc[self._map.field_name(k)] = v
-            col.insert(mapped_doc)
+                    semantic_doc[k] = v
+            col.insert(semantic_doc)
 
     def get_anchor(self, handle: UUID) -> MemoryAnchor:
         with self._lock:
-            col = self._db.collection(self._map.collection_name("activity_anchors"))
-            doc = col.get(str(handle))
+            doc = self._facade.collection("activity_anchors").get(str(handle))
             if doc is None:
                 raise NotFoundError(f"Anchor {handle} not found.")
             return self._doc_to_anchor(doc)
@@ -284,7 +293,8 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
             docs = list(cursor)
             if not docs:
                 return None
-            return self._doc_to_anchor(docs[0])
+            # AQL path returns raw (obfuscated) docs — deobfuscate before shaping.
+            return self._doc_to_anchor(self._map.deobfuscate_document(docs[0]))
 
     # -- Discovery -----------------------------------------------------
 
@@ -331,16 +341,18 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
     # -- Internal helpers ──────────────────────────────────────────────
 
     def _doc_to_fact(self, doc: dict) -> FactRecord:
-        """Convert an ArangoDB document to a FactRecord."""
-        # Reverse-map field names, then strip ArangoDB metadata
-        deobfuscated = self._map.deobfuscate_document(doc)
-        data = {k: v for k, v in deobfuscated.items() if not k.startswith("_")}
+        """Shape a SEMANTIC (already-deobfuscated) document into a FactRecord.
+
+        Deobfuscation is the façade's job now (get_fact) or the AQL caller's
+        (query_* deobfuscate before calling this). This helper only strips
+        ArangoDB metadata and lifts _key → id.
+        """
+        data = {k: v for k, v in doc.items() if not k.startswith("_")}
         data["id"] = doc["_key"]
         return FactRecord.model_validate(data)
 
     def _doc_to_anchor(self, doc: dict) -> MemoryAnchor:
-        """Convert an ArangoDB document to a MemoryAnchor."""
-        deobfuscated = self._map.deobfuscate_document(doc)
-        data = {k: v for k, v in deobfuscated.items() if not k.startswith("_")}
+        """Shape a SEMANTIC (already-deobfuscated) document into a MemoryAnchor."""
+        data = {k: v for k, v in doc.items() if not k.startswith("_")}
         data["handle"] = doc["_key"]
         return MemoryAnchor.model_validate(data)

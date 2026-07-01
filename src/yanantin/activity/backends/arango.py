@@ -290,20 +290,26 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
 
     def count_facts(self, provider_id: UUID | None = None) -> int:
         with self._lock:
+            # Regime-1 form (AQL field-mapping guardrail §6): collection via @@col
+            # bind; field via field_path (the sanctioned primitive) as a LITERAL
+            # dotted path — NOT doc[@f] dynamic access, because activity_facts has
+            # a persistent index on (provider_id, timestamp) that dynamic access
+            # would defeat (§6.1 decision, verified against the live index).
             col = self._map.collection_name("activity_facts")
-            f_pid = self._map.field_name("provider_id")
             if provider_id is not None:
+                pid_path = self._map.field_path(("provider_id",))
                 cursor = self._db.aql.execute(
-                    f"RETURN LENGTH("
-                    f"  FOR doc IN {col} "
-                    f"    FILTER doc.{f_pid} == @provider_id "
-                    f"    RETURN 1"
-                    f")",
-                    bind_vars={"provider_id": str(provider_id)},
+                    "RETURN LENGTH("
+                    "  FOR doc IN @@col "
+                    f"    FILTER doc.{pid_path} == @provider_id "
+                    "    RETURN 1"
+                    ")",
+                    bind_vars={"@col": col, "provider_id": str(provider_id)},
                 )
             else:
                 cursor = self._db.aql.execute(
-                    f"RETURN LENGTH({col})"
+                    "RETURN LENGTH(@@col)",
+                    bind_vars={"@col": col},
                 )
             results = list(cursor)
             return results[0] if results else 0

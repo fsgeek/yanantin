@@ -620,14 +620,13 @@ wheels = [
 
 [[package]]
 name = "tiksi"
-version = "0.1.0"
+version = "0.1.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/87/74/ee95651bd51d0a9aabec6a9a838079936c4ff8e1898f134a8db59dc09c3c/tiksi-0.1.0.tar.gz", hash = "sha256:c41eb862f27ee4c5eb1cd36b763a0eda6e677644c95495b7966251fdbd92c91b", size = 5199, upload-time = "2026-05-16T19:43:24.157Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/5c/c0/7ec0337caa0d065e6f6a7d52220b2b4cd8023909c94ffb211ab0cc88e75e/tiksi-0.1.0-py3-none-any.whl", hash = "sha256:e2ab0330bf71873ee42b3d40561edc9adacd6cd558d03be1cdd992c97688c09f", size = 6966, upload-time = "2026-05-16T19:43:25.182Z" },
+    { url = "https://files.pythonhosted.org/packages/d0/43/1a5c46db4636d49a2d0e8ee822c3c6012a75b0e54d49e868f5f628fd9bd4/tiksi-0.1.1-py3-none-any.whl", hash = "sha256:c31e24f80455b8de9b3a9bb0df2d1fcc870ddb6cd2d0d560034addd60e252173", size = 7299, upload-time = "2026-07-01T23:32:30.871Z" },
 ]
 
 [[package]]

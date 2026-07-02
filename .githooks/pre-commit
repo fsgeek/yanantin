@@ -1,29 +1,61 @@
 #!/bin/bash
-# Pre-commit hook: verify author email matches the GPG signing key.
+# Pre-commit hook: enforce the signing INTENT before the commit object exists.
 #
-# Prevents commits where the author email doesn't belong to the
-# signing key — e.g. global config leaking fsgeek@cs.ubc.ca into
-# commits signed with the yanantin key.
+# GitHub's main ruleset requires every commit to carry a verified signature
+# whose key is registered for the COMMITTER's email. This hook enforces the
+# local half of that invariant at commit-creation time, so a bad commit is
+# never written (and never has to be rewritten — which is what breaks the OTS
+# attestation chain, since OTS proofs bind to the commit hash). The outcome
+# half (commit actually signed, committer==author) is enforced by pre-push,
+# because the commit object does not exist yet here.
+#
+# Invariant enforced here:
+#   1. signing is enabled (commit.gpgsign not disabled)
+#   2. a signing key is configured
+#   3. author email == committer email  (the dimension GitHub checks)
+#   4. that email is a UID on the signing key
+#
+# History: five memory notes tried to teach this in prose; every few days a
+# fresh instance re-hit the wall. Prose is not a structural impediment; this
+# hook is. Bypass with --no-verify only if you know exactly why.
 
 set -euo pipefail
 
-# Get the signing key that will be used for this commit.
-SIGNING_KEY=$(git config user.signingkey 2>/dev/null || true)
-
-if [ -z "$SIGNING_KEY" ]; then
-    # No signing key configured — nothing to check.
-    exit 0
+# --- 1. signing must be enabled ---
+GPGSIGN=$(git config --get commit.gpgsign 2>/dev/null || echo "false")
+if [ "$GPGSIGN" != "true" ]; then
+    echo "ERROR: commit.gpgsign is not true — this repo requires signed commits."
+    echo "  Do not pass -c commit.gpgsign=false. Sign, don't suppress."
+    exit 1
 fi
 
-# Get the author email (GIT_AUTHOR_EMAIL overrides git config).
+# --- 2. a signing key must be configured ---
+SIGNING_KEY=$(git config user.signingkey 2>/dev/null || true)
+if [ -z "$SIGNING_KEY" ]; then
+    echo "ERROR: no user.signingkey configured; cannot produce a signed commit."
+    exit 1
+fi
+
+# --- resolve author and committer emails (env overrides config) ---
 AUTHOR_EMAIL="${GIT_AUTHOR_EMAIL:-$(git config user.email 2>/dev/null || true)}"
+# git derives the committer from committer.email, then user.email, then env.
+COMMITTER_EMAIL="${GIT_COMMITTER_EMAIL:-$(git config committer.email 2>/dev/null || git config user.email 2>/dev/null || true)}"
 
 if [ -z "$AUTHOR_EMAIL" ]; then
     echo "ERROR: No author email set. Set GIT_AUTHOR_EMAIL or git config user.email."
     exit 1
 fi
 
-# Extract all emails from the signing key's UIDs.
+# --- 3. author == committer (GitHub verifies the COMMITTER against the key) ---
+if [ "$AUTHOR_EMAIL" != "$COMMITTER_EMAIL" ]; then
+    echo "ERROR: author email ('$AUTHOR_EMAIL') != committer email ('$COMMITTER_EMAIL')."
+    echo "  GitHub's ruleset verifies the COMMITTER's email against the signing key."
+    echo "  For AI commits, override all three together:"
+    echo "    GIT_COMMITTER_NAME/EMAIL + user.name/email + user.signingkey → Yanantin identity."
+    exit 1
+fi
+
+# --- 4. that email is a UID on the signing key ---
 KEY_EMAILS=$(gpg --list-keys --with-colons "$SIGNING_KEY" 2>/dev/null \
     | grep '^uid:' \
     | sed -n 's/.*<\([^>]*\)>.*/\1/p')
@@ -33,16 +65,16 @@ if [ -z "$KEY_EMAILS" ]; then
     exit 1
 fi
 
-# Check if the author email matches any UID on the key.
-if echo "$KEY_EMAILS" | grep -qxF "$AUTHOR_EMAIL"; then
+if echo "$KEY_EMAILS" | grep -qxF "$COMMITTER_EMAIL"; then
     exit 0
 fi
 
-echo "ERROR: Author email '$AUTHOR_EMAIL' does not match signing key $SIGNING_KEY."
+echo "ERROR: Committer/author email '$COMMITTER_EMAIL' does not match signing key $SIGNING_KEY."
 echo "Valid emails for this key:"
 echo "$KEY_EMAILS" | sed 's/^/  - /'
 echo ""
-echo "Set the correct email with:"
-echo "  git config user.email <email>"
-echo "  or: GIT_AUTHOR_EMAIL=<email> git commit ..."
+echo "Set the correct identity, e.g. for AI commits:"
+echo "  git -c user.name='Yanantin AI (Claude Opus)' \\"
+echo "      -c user.email=yanantin@wamason.com \\"
+echo "      -c user.signingkey=D0CAB9659C950893 commit ..."
 exit 1

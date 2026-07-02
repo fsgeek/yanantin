@@ -1,0 +1,87 @@
+#!/bin/bash
+# Pre-push hook: enforce the signing OUTCOME on every outgoing commit before it
+# reaches GitHub's "verified signatures" ruleset.
+#
+# pre-commit enforces the signing INTENT at creation time, but it runs per
+# commit and does NOT re-run for every `rebase --exec ... --amend` step. That
+# gap is exactly how a committer-mismatch got introduced during a re-sign on
+# 2026-07-02 and was only discovered when GitHub rejected the push — after the
+# history rewrite had already orphaned 7 OTS proofs.
+#
+# This hook validates the WHOLE outgoing range locally, against the same rule
+# GitHub enforces, so the violation surfaces here (cheap, no rewrite) instead of
+# at the server (after history exists).
+#
+# For each commit being pushed:
+#   1. it carries a good GPG signature (git verify-commit)
+#   2. committer email == author email
+#   3. that email is a UID on the key that made the signature
+#
+# Bypass with `git push --no-verify` only if you know exactly why.
+
+set -euo pipefail
+
+# git feeds pre-push a line per ref on stdin: <local ref> <local sha> <remote ref> <remote sha>
+Z40=0000000000000000000000000000000000000000
+fail=0
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+    # Deleting a remote ref — nothing to validate.
+    [ "$local_sha" = "$Z40" ] && continue
+
+    if [ "$remote_sha" = "$Z40" ]; then
+        # New branch on the remote: validate everything not already on any remote.
+        range_spec=$(git rev-list "$local_sha" --not --remotes)
+    else
+        # Existing branch: validate only the newly-pushed commits.
+        range_spec=$(git rev-list "$remote_sha..$local_sha")
+    fi
+
+    for sha in $range_spec; do
+        # 1. good signature?
+        if ! git verify-commit "$sha" >/dev/null 2>&1; then
+            echo "REJECT $sha : not signed / bad signature."
+            fail=1
+            continue
+        fi
+
+        author_email=$(git log -1 --format='%ae' "$sha")
+        committer_email=$(git log -1 --format='%ce' "$sha")
+
+        # 2. committer == author (the dimension GitHub verifies)
+        if [ "$author_email" != "$committer_email" ]; then
+            echo "REJECT ${sha:0:9} : committer ('$committer_email') != author ('$author_email')."
+            echo "        GitHub verifies the COMMITTER against the key; this will be rejected."
+            fail=1
+            continue
+        fi
+
+        # 3. the signing key's UIDs include that email
+        signing_key=$(git verify-commit --raw "$sha" 2>&1 \
+            | sed -n 's/.*VALIDSIG [A-F0-9]* [0-9-]* [0-9]* [0-9]* [0-9]* [0-9]* [0-9]* [0-9]* [0-9]* \([A-F0-9]*\).*/\1/p' | head -1)
+        # Fallback: parse the human-readable "using RSA key" line.
+        [ -z "$signing_key" ] && signing_key=$(git log -1 --show-signature --format='' "$sha" 2>&1 \
+            | grep -oE 'using [A-Z]+ key [A-F0-9]+' | grep -oE '[A-F0-9]{16,}$' | head -1)
+
+        if [ -n "$signing_key" ]; then
+            key_emails=$(gpg --list-keys --with-colons "$signing_key" 2>/dev/null \
+                | grep '^uid:' | sed -n 's/.*<\([^>]*\)>.*/\1/p')
+            if ! echo "$key_emails" | grep -qxF "$committer_email"; then
+                echo "REJECT ${sha:0:9} : committer '$committer_email' is not a UID on signing key $signing_key."
+                fail=1
+                continue
+            fi
+        fi
+    done
+done
+
+if [ "$fail" -ne 0 ]; then
+    echo ""
+    echo "Push blocked: one or more commits would be rejected by GitHub's signature ruleset."
+    echo "Fix the commits locally (re-sign with the correct identity) before pushing."
+    echo "This check exists so you never discover a signing violation at the server,"
+    echo "after a history rewrite has already orphaned the OTS proofs."
+    exit 1
+fi
+
+exit 0

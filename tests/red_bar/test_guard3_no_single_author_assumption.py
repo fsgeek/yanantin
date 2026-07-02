@@ -25,6 +25,14 @@ This is that guard, made real:
      single-author collapse) would return B's records too and fail here.
 
 Live DB, config-file creds (env path silently skips in a worktree).
+
+SCOPE (read before trusting the guard's name): this bar reaches the ArangoDB
+backend ONLY — the persistent substrate, where accretion across successive
+gholas actually happens. It does NOT prove the property for the memory backend
+(which partitions correctly but is unguarded — a per-process store that dies
+before a second author can accrete, so the threat can't run there) or the
+duckdb backend (query_open_by_author_instance raises NotImplementedError).
+"Guard 3 holds" means "holds where accretion is possible," not substrate-wide.
 """
 
 from __future__ import annotations

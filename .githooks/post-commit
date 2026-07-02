@@ -1,28 +1,65 @@
 #!/bin/bash
-# Post-commit hook: timestamp the commit via OpenTimestamps.
+# Post-commit hook: timestamp the commit via OpenTimestamps, then sweep any
+# previously-pending proofs that have since matured to Bitcoin anchors.
 #
-# This hook runs after every git commit. It calls the OTS stamping
-# script which submits the commit hash to calendar servers and stores
-# the pending proof in docs/ots/.
+# This hook runs after every git commit. It:
+#   1. stamps THIS commit's hash (stores a pending proof in docs/ots/), then
+#   2. sweeps OLDER pending proofs that anchoring (hours-to-days later) has made
+#      upgradeable, committing them as "ots: upgrade N timestamp(s)".
+#
+# Step 2 replaces running scripts/ots-upgrade.sh by hand. It lives here (not in a
+# per-machine cron/systemd timer) so it travels with the repo — a fresh clone
+# gets it via `git config core.hooksPath .githooks` (scripts/install-hooks.sh).
+#
+# The whole thing runs in the background so it never blocks git, and the upgrade
+# is guarded to NEVER commit a dirty tree — it commits only when docs/ots/ is the
+# sole change, so it can't fold an ots: commit into unrelated working state.
 #
 # Install:
-#   git config core.hooksPath .githooks
+#   git config core.hooksPath .githooks   (or: scripts/install-hooks.sh)
 #
-# The hook runs in the background so it never blocks git.
 # All output goes to logs/ots.log.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-# Run the stamper in the background. If uv isn't available, fail silently.
+# Resolve uv once; degrade silently if absent (matches prior behaviour).
 if command -v uv &>/dev/null; then
-    (cd "$SCRIPT_DIR" && uv run python .claude/hooks/ots_stamp.py) &
+    UV=uv
 elif [ -x "$HOME/.local/bin/uv" ]; then
-    (cd "$SCRIPT_DIR" && "$HOME/.local/bin/uv" run python .claude/hooks/ots_stamp.py) &
+    UV="$HOME/.local/bin/uv"
 else
-    # No uv available. Log and exit silently.
     mkdir -p "$SCRIPT_DIR/logs"
     echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) ERROR uv not found, cannot run OTS hook" >> "$SCRIPT_DIR/logs/ots.log"
+    exit 0
 fi
+
+(
+    cd "$SCRIPT_DIR" || exit 0
+    LOG="$SCRIPT_DIR/logs/ots.log"
+    mkdir -p "$SCRIPT_DIR/logs"
+
+    # 1. Stamp this commit (pending proof for docs/ots/).
+    "$UV" run python .claude/hooks/ots_stamp.py >> "$LOG" 2>&1
+
+    # 2. Sweep matured proofs: upgrade pending .ots files IN PLACE (a safe,
+    #    idempotent disk operation). We deliberately do NOT auto-commit here.
+    #    An unattended, backgrounded `git commit` on main races the HEAD ref
+    #    lock against your next commit, and its first real firing (hours later,
+    #    when a proof actually anchors to Bitcoin) can't be exercised in advance.
+    #    Instead the upgraded proofs are left in the working tree: they ride into
+    #    your next ordinary commit, or scripts/ots-upgrade.sh commits them
+    #    explicitly. This removes the manual upgrade STEP without an autonomous
+    #    commit on main. (No recursion guard needed — nothing here commits.)
+    UPGRADED=$("$UV" run python -c "
+from pathlib import Path
+from yanantin.provenance.timestamp import upgrade_pending_proofs
+print(len(upgrade_pending_proofs(Path('docs/ots'))))
+" 2>>"$LOG") || exit 0
+
+    if [ "${UPGRADED:-0}" -gt 0 ] 2>/dev/null; then
+        echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) INFO upgraded $UPGRADED proof(s) in place; will ride into next commit (or run scripts/ots-upgrade.sh)" >> "$LOG"
+    fi
+) &
 
 # Always exit 0 — never block the commit.
 exit 0

@@ -29,6 +29,8 @@ from yanantin.collector.semantic.unstructured.transducer import (
     _elements_to_content_fact,
     docker_available,
     transduce,
+    transduce_in_process,
+    unstructured_available,
 )
 from yanantin.infra.config import ApachetaDBConfig
 
@@ -59,13 +61,59 @@ def _backend():
     )
 
 
+def _prove_chain(fact, be):
+    """Given a transduced ContentFact, store it and prove the BM25 view finds it."""
+    assert isinstance(fact, ContentFact)
+    assert "ayllu" in fact.content.lower()
+    db = be._db
+    obf = be._map
+    recs = db.collection(obf.collection_name("records"))
+    recs.truncate()
+    if CONTENT_VIEW_NAME in {v["name"] for v in db.views()}:
+        db.delete_view(CONTENT_VIEW_NAME)
+    key = str(uuid4())
+    recs.insert({"_key": key, obf.field_name(CONTENT_FIELD): fact.content})
+    ensure_content_view(db, obf)
+    hits = []
+    for _ in range(20):
+        hits = search_content_bm25(db, "ayllu", obf, limit=5)
+        if hits:
+            break
+        list(db.aql.execute("RETURN 1"))
+    try:
+        assert any(k == key for k, _ in hits), (
+            "transduced content did not surface through the BM25 view — chain broken"
+        )
+    finally:
+        recs.truncate()
+        if CONTENT_VIEW_NAME in {v["name"] for v in db.views()}:
+            db.delete_view(CONTENT_VIEW_NAME)
+        be.close()
+
+
+@pytest.mark.skipif(
+    not unstructured_available(),
+    reason="`unstructured` package not installed (pip install unstructured)",
+)
+def test_transduce_in_process_real_file_lands_and_is_bm25_findable(tmp_path):
+    """Full chain, IN-PROCESS (no docker): Unstructured partitions a real file,
+    the content lands in records, the BM25 view finds it. This is the sixth
+    criterion SHOWN — transducer runs on a real file, structured content emitted,
+    surfaced through native BM25 — with no daemon dependency."""
+    doc = tmp_path / "note.txt"
+    doc.write_text("Quechua naming convention for the ayllu substrate.\n")
+    fact = transduce_in_process(doc)
+    _prove_chain(fact, _backend())
+
+
 @pytest.mark.skipif(
     not docker_available(),
-    reason="docker daemon unreachable — Unstructured live-run gated NARROWLY "
-    "(DOCKER_HOST / Docker Desktop WSL integration). Not a silent pass.",
+    reason="docker daemon unreachable — the docker TRANSPORT is gated NARROWLY "
+    "(DOCKER_HOST / Docker Desktop WSL integration). The in-process path above "
+    "already shows the chain; this proves the container transport too.",
 )
-def test_transduce_real_file_lands_in_records_and_is_bm25_findable(tmp_path):
-    """Full chain on a real file: transduce -> store -> BM25 view finds it."""
+def test_transduce_docker_real_file_lands_in_records_and_is_bm25_findable(tmp_path):
+    """Same chain via the docker transport (dependency-isolation path)."""
     doc = tmp_path / "note.txt"
     doc.write_text("Quechua naming convention for the ayllu substrate.\n")
 

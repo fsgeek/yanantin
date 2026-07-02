@@ -72,11 +72,37 @@ def _elements_to_content_fact(uri: str, elements: list[dict]) -> ContentFact:
     return ContentFact(uri=uri, content=text, elements=tuple(elements))
 
 
+def unstructured_available() -> bool:
+    """True iff the `unstructured` package can partition in-process (no daemon)."""
+    try:
+        from unstructured.partition.auto import partition  # noqa: F401
+
+        return True
+    except Exception:
+        return False
+
+
+def transduce_in_process(file_path: Path) -> ContentFact:
+    """Run Unstructured over one file IN-PROCESS — the pip package directly, no
+    docker. The same partition() contract Indaleko ran in a container; the
+    container was dependency-isolation transport, not the transducer. This is the
+    simpler default (CLAUDE.md §2). Raises ImportError if `unstructured` (or the
+    per-format extra, e.g. unstructured[md]) is not installed.
+    """
+    from unstructured.partition.auto import partition
+    from unstructured.staging.base import elements_to_dicts
+
+    resolved = file_path.resolve()
+    elements = elements_to_dicts(partition(str(resolved)))
+    return _elements_to_content_fact(resolved.as_uri(), elements)
+
+
 def transduce(file_path: Path, image: str = _UNSTRUCTURED_IMAGE) -> ContentFact:
     """Run Unstructured over one file in the stock container; return a ContentFact.
 
-    Raises RuntimeError if docker is unreachable — callers gate on
-    docker_available() to skip narrowly rather than swallow the failure.
+    The docker TRANSPORT — dependency isolation, per Indaleko. For the simpler
+    in-process path (no daemon), use transduce_in_process(). Raises RuntimeError
+    if docker is unreachable — callers gate on docker_available().
     """
     import docker
 

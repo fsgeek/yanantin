@@ -25,6 +25,11 @@ dev = [
 dropbox = [
     "dropbox>=12.0",
 ]
+semantic = [
+    # File-content transducer (in-process partition; docker path is optional).
+    # Per-format extras (unstructured[md], [pdf], ...) install on demand.
+    "unstructured>=0.23",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

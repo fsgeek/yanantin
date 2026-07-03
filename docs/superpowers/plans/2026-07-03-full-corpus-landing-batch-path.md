@@ -102,6 +102,25 @@ tests that need the live DB guard on it existing (skip-narrow when absent, CI-po
 - First taste of the when-axis live: `modified >= 2026-06-01` cuts 1.2M → 225,761 (5.3x)
   with one coarse filter, before any banding.
 
+## RESULTS ADDENDUM — the save-it-all re-walk (run 2026-07-03T15:51Z, --all-names)
+
+Tony's correction: the exclude-names filter was a Claude instance's decision, not his —
+"for a research tool that detritus IS part of the research"; exclusion, if any, belongs
+in the RECORDER (observation is total at the collector). Re-walked with names lifted:
+
+- **Walk:** 4,380,505 entries in 566s. JSONL: walk-20260703T155103Z.jsonl.gz (251MB gz).
+- **Landing:** 13,141,502 docs in 1,042s = **12,616 docs/s — gate PASS**. Re-land
+  idempotent at 4.4M scale (1,405s, counts identical). Shape fact round-trips.
+- **Final corpus: Objects 4,416,431; Relationships 8,832,848.** Criterion 5's written
+  ≥2M is now exceeded outright — resolved by Tony's correction, not by loosening.
+- Verified outside the run: zero objects beyond the walk guard; canonical lineage =
+  4,380,626 = this walk's 4,380,505 + 121 objects observed in the morning run whose
+  paths vanished from disk before the afternoon run — the first measured churn delta,
+  i.e. the corpus already holds history the filesystem forgot (the refresh-set/change
+  recorder's signal, arriving before the recorder exists).
+- Detritus composition (top of the shape fact): .py 844,903; .pyi 481,714; no-ext
+  384,280; .pyc 250,468; .js 231,131; .h 209,127; .md 187,211. Max depth 25.
+
 ## Out of scope (named, not built)
 - The change/refresh recorder (needs this t₀ first — same as the census goal said).
 - Pointing query/engine.py at the ArangoSearch view; any query definitions over the corpus.

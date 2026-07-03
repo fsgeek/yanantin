@@ -137,7 +137,10 @@ def _stat_to_entry(full_path: str, st: os.stat_result, is_symlink: bool) -> File
     The typed fields are a curated VIEW; raw_stat is the COMPLETE capture so
     nothing the OS exposes is enumerated away (Indaleko's opaque-Record pattern:
     save the whole source datum, normalize a view on top)."""
-    name = os.path.basename(full_path)
+    # basename("/") is "" — the filesystem root is its own name. Found by the
+    # first full-system walk (2026-07-03); every rooted-subtree walk before it
+    # had a non-empty basename.
+    name = os.path.basename(full_path) or full_path
     link_target = None
     if is_symlink:
         try:

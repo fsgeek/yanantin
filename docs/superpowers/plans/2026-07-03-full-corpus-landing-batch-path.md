@@ -79,6 +79,29 @@ tests that need the live DB guard on it existing (skip-narrow when absent, CI-po
 - Yanantin-signed commits (all three overrides); sweep the OTS tail after.
 - Verify against git log + real runs before claiming done. file-exists ≠ feature-works.
 
+## RESULTS (run 2026-07-03T13:50Z — measured, verified from outside the run)
+
+- **Walk:** 1,204,874 entries in 129s (root `/`, canonical excludes). JSONL retained:
+  `~/.yanantin/corpus/walk-20260703T135014Z.jsonl.gz` (68.5MB gzipped).
+- **Landing:** 3,614,609 docs (objects + records-edges + contains-edges) in 214s =
+  **16,886 docs/s — gate PASS** (normalization included; raw insert probe was 56k/s).
+- **Production growth:** Objects 35,805 → 1,240,679; Relationships 71,609 → 2,481,344.
+  New-lineage objects exactly equal walked entries. Legacy 35,805 (orphaned provider
+  derivation 9cb28995…) coexist, filterable by `source`, flagged for later retirement.
+- **Criteria 1–4, 6, 7:** met (red-bars flipped green; re-land left counts identical at
+  1.2M scale, 317s; shape fact round-trips; suite 1747 passed / 1 skipped / 4 xfailed;
+  walk-guard check from outside: zero objects under /mnt //proc //sys //dev //run).
+- **Criterion 5 divergence, recorded not gamed:** the goal wrote "Objects ≥ 2,000,000",
+  calibrated against raw inode count (3.15M). The canonical exclude-names filter
+  (__pycache__/.git/.venv/node_modules/caches — the query-worthy-corpus decision already
+  in the collector) drops ~1.9M noise inodes; the honest query-worthy corpus is 1.24M.
+  Re-walking with excludes off to hit the written number would pollute the corpus to
+  satisfy a miscalibrated criterion — refused, same posture as the census tolerances.
+- **Found by the run:** basename("/") is "" — the root is its own name (fix 5038b36c,
+  pinned 0d609583). Only a genuinely-full walk could hit it.
+- First taste of the when-axis live: `modified >= 2026-06-01` cuts 1.2M → 225,761 (5.3x)
+  with one coarse filter, before any banding.
+
 ## Out of scope (named, not built)
 - The change/refresh recorder (needs this t₀ first — same as the census goal said).
 - Pointing query/engine.py at the ArangoSearch view; any query definitions over the corpus.

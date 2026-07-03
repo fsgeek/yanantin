@@ -93,7 +93,6 @@ def _shape_type(api):
 
 # ── Guard 1: a shared factor shape must EXIST and address all six factors ──
 
-@pytest.mark.xfail(strict=True, reason="yanantin.factors does not exist yet (P2 factors pour): factors gap")
 def test_factor_shape_exists_and_covers_six():
     """One shape, addressable by all six factor identities. Without it, storage
     and LLM-memory cannot be 'regions of the same space' — they're just two
@@ -116,7 +115,6 @@ def test_factor_shape_exists_and_covers_six():
 # is not that storage has all six; it is that storage's MISSING factors are
 # represented honestly within the SAME shape an activity object uses.
 
-@pytest.mark.xfail(strict=True, reason="yanantin.factors does not exist yet (P2 factors pour): factors gap")
 def test_storage_object_normalizes_into_factor_shape():
     """A filesystem-shaped object emits factor values into the shared shape:
     what/when/where present, why explicitly ABSENT (not omitted), raw retained.
@@ -154,7 +152,6 @@ def test_storage_object_normalizes_into_factor_shape():
 # when/who (model id, timestamp), thin where, expensive/absent why. The
 # convergence claim requires this lands in the SAME shape as storage.
 
-@pytest.mark.xfail(strict=True, reason="yanantin.factors does not exist yet (P2 factors pour): factors gap")
 def test_llm_memory_normalizes_into_same_factor_shape():
     """An LLM-memory object (a turn/conclusion) emits into the SAME factor shape
     as the storage object — differently degenerate, same shape. Honestly red
@@ -185,7 +182,6 @@ def test_llm_memory_normalizes_into_same_factor_shape():
 # absence; an un-run `why` transducer is unknown. If the shape collapses them,
 # the degeneracy is a lie and a resolver cannot reason about coverage.
 
-@pytest.mark.xfail(strict=True, reason="yanantin.factors does not exist yet (P2 factors pour): factors gap")
 def test_raw_retention_is_an_invariant_not_an_option():
     """Raw source retention is a property of the SHAPE, for every object,
     unconditionally — you cannot extract what you did not save (Indaleko). A
@@ -206,7 +202,6 @@ def test_raw_retention_is_an_invariant_not_an_option():
         shape(what="thing")  # no raw → must reject
 
 
-@pytest.mark.xfail(strict=True, reason="yanantin.factors does not exist yet (P2 factors pour): factors gap")
 def test_absent_is_distinguishable_from_unknown():
     """`absent` (known to have no value) must differ from `unknown` (not yet
     computed). Collapsing them makes the degeneracy dishonest. Honestly red

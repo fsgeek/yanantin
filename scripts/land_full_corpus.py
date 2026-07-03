@@ -106,6 +106,13 @@ def main() -> int:
         help="smoke run: /usr/lib -> apacheta_test ephemeral collections",
     )
     ap.add_argument("--out", default=None, help="JSONL(.gz) output path")
+    ap.add_argument(
+        "--all-names",
+        action="store_true",
+        help="observe EVERYTHING: lift the exclude-names filter (__pycache__/"
+        ".git/.venv/...) — save-it-all at the collector; the path excludes "
+        "(/mnt,/proc,...) stay, they are the tenant/pseudo-fs boundary",
+    )
     args = ap.parse_args()
 
     cfg = ApachetaDBConfig()
@@ -146,7 +153,11 @@ def main() -> int:
     }
 
     # ── Phase 1: walk → JSONL, shape accumulated on the way past ──
-    collector = LinuxFilesystemCollector(Path(args.root))
+    collector = (
+        LinuxFilesystemCollector(Path(args.root), exclude_names=frozenset())
+        if args.all_names
+        else LinuxFilesystemCollector(Path(args.root))
+    )
     provider_id = collector.get_provider_id()
     summary["provider_id"] = str(provider_id)
     shape = _ShapeAccumulator(str(Path(args.root).resolve()))

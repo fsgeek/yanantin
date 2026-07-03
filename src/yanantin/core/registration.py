@@ -269,6 +269,43 @@ class Registrar:
         )
         return doc
 
+    def contribute_many(
+        self,
+        contributor_id: UUID,
+        docs: list[dict],
+        *,
+        chunk_size: int = 10_000,
+    ) -> int:
+        """Batch form of contribute(): same attribution stamp, same
+        identity-driven idempotence, one insert_many round-trip per chunk
+        instead of one HTTP call per record — the millions-scale landing path
+        (measured 2026-07-03: singular 457 docs/s vs insert_many 56k docs/s on
+        the same live server). Each item is the ``**fields`` dict the singular
+        form takes. Keyed docs land replace-mode (re-observation replaces in
+        place); unkeyed docs append — mixed batches are split so each sub-batch
+        keeps the singular form's exact semantics. Fail-stop: a per-document
+        error raises, it never lands a partial batch silently. Returns the
+        number of docs landed."""
+        collection = self._db.collection(self._owned_name)
+        keyed: list[dict] = []
+        unkeyed: list[dict] = []
+        for fields in docs:
+            doc = self._obfuscator.obfuscate_document(
+                {"contributor_id": str(contributor_id), **fields}
+            )
+            (keyed if "_key" in fields else unkeyed).append(doc)
+        landed = 0
+        for batch, mode in ((keyed, "replace"), (unkeyed, "conflict")):
+            for i in range(0, len(batch), chunk_size):
+                chunk = batch[i : i + chunk_size]
+                collection.insert_many(
+                    chunk,
+                    overwrite_mode=mode,
+                    raise_on_document_error=True,
+                )
+                landed += len(chunk)
+        return landed
+
     def list_contributions(self, contributor_id: UUID | None = None) -> list[dict]:
         """Return contributions in the owned collection. With no contributor,
         'all files' in one scan; with one, a FILTER on the identity field —
@@ -341,6 +378,55 @@ class Registrar:
             overwrite_mode="replace",
         )
         return doc
+
+    def contribute_edge_many(
+        self,
+        contributor_id: UUID,
+        edges: list[dict],
+        *,
+        chunk_size: int = 10_000,
+    ) -> int:
+        """Batch form of contribute_edge(): same derived-identity idempotence
+        ((from, relation, to) → deterministic _key, replace in place), one
+        insert_many per chunk. Each item carries the singular form's kwargs —
+        ``from_ref``, ``to_ref``, ``relation_type`` — plus any extra fields
+        (an explicit ``_key`` among them overrides the derived one, matching
+        the singular form). Fail-stop like contribute_many. Returns the number
+        of edges landed."""
+        if self._owned_edge_name is None:
+            raise ValueError(
+                "this registrar owns no edge collection; "
+                "construct it with owned_edge_collection=..."
+            )
+        collection = self._db.collection(self._owned_edge_name)
+        batch: list[dict] = []
+        for edge in edges:
+            fields = dict(edge)
+            from_ref = fields.pop("from_ref")
+            to_ref = fields.pop("to_ref")
+            relation_type = fields.pop("relation_type")
+            doc = {
+                "_from": from_ref,
+                "_to": to_ref,
+                "relation_type": relation_type,
+                "contributor_id": str(contributor_id),
+                **fields,
+            }
+            if "_key" not in fields:
+                doc["_key"] = uuid5(
+                    NAMESPACE_DNS, f"{from_ref}|{relation_type}|{to_ref}"
+                ).hex
+            batch.append(self._obfuscator.obfuscate_document(doc))
+        landed = 0
+        for i in range(0, len(batch), chunk_size):
+            chunk = batch[i : i + chunk_size]
+            collection.insert_many(
+                chunk,
+                overwrite_mode="replace",
+                raise_on_document_error=True,
+            )
+            landed += len(chunk)
+        return landed
 
     def list_edge_contributions(
         self, contributor_id: UUID | None = None

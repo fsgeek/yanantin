@@ -10,6 +10,8 @@ from __future__ import annotations
 import logging
 import os
 import stat
+from collections.abc import Iterator
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from uuid import NAMESPACE_DNS, UUID, uuid5
@@ -23,6 +25,16 @@ from yanantin.collector.storage.local.linux.models import (
 from yanantin.machine.base import _get_machine_id
 
 logger = logging.getLogger(__name__)
+
+
+@dataclass
+class _WalkCounters:
+    """Walk tallies that ride OUTSIDE the entry stream — a generator can't
+    also return totals to a consumer that may stop early."""
+
+    total_files: int = 0
+    total_dirs: int = 0
+    error_count: int = 0
 
 # Paths never descended into during a local-storage walk. /mnt holds WSL DrvFs
 # bridges to the Windows host (a foreign silo); /proc, /sys, /dev are kernel
@@ -205,17 +217,13 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
                 return True
         return False
 
-    def collect(self, since: datetime | None = None) -> FilesystemSnapshot:
-        """Walk the directory tree and return a snapshot.
-
-        If ``since`` is provided, only entries whose mtime is at or after
-        ``since`` are included. Totals reflect the filtered set.
-        """
-        entries: list[FileEntryData] = []
-        total_files = 0
-        total_dirs = 0
-        error_count = 0
-
+    def _walk_entries(
+        self, since: datetime | None, counters: _WalkCounters
+    ) -> Iterator[FileEntryData]:
+        """The ONE traversal both collect() and stream_entries() ride — walk
+        guard included. Yields entries as they are stat'd; tallies land on the
+        passed counters (a generator cannot also return totals to a consumer
+        that stops early, so the counts live outside the yield channel)."""
         # Root device id anchors the same-device guard. If the root itself can't
         # be stat'd we cannot enforce the boundary, so disable that check (the
         # path-exclude list still applies).
@@ -246,11 +254,11 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
                 is_link = stat.S_ISLNK(dir_stat.st_mode)
                 entry = _stat_to_entry(dirpath, dir_stat, is_link)
                 if since is None or entry.timestamps.modified >= since:
-                    entries.append(entry)
-                    total_dirs += 1
+                    counters.total_dirs += 1
+                    yield entry
             except OSError as exc:
                 logger.warning("Failed to stat directory %s: %s", dirpath, exc)
-                error_count += 1
+                counters.error_count += 1
 
             # Stat each file
             for filename in filenames:
@@ -261,21 +269,39 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
                     entry = _stat_to_entry(full_path, file_stat, is_link)
                     if since is not None and entry.timestamps.modified < since:
                         continue
-                    entries.append(entry)
                     if stat.S_ISDIR(file_stat.st_mode):
-                        total_dirs += 1
+                        counters.total_dirs += 1
                     else:
-                        total_files += 1
+                        counters.total_files += 1
+                    yield entry
                 except OSError as exc:
                     logger.warning("Failed to stat file %s: %s", full_path, exc)
-                    error_count += 1
+                    counters.error_count += 1
 
+    def stream_entries(
+        self, since: datetime | None = None
+    ) -> Iterator[FileEntryData]:
+        """Walk the tree yielding entries incrementally — the millions-scale
+        path. Same traversal, same walk guard, same filtering as collect();
+        the only difference is that no full-tree list is ever materialized
+        (2.2M pydantic entries would be GBs of RAM; the batch landing path
+        streams them straight to JSONL instead)."""
+        yield from self._walk_entries(since, _WalkCounters())
+
+    def collect(self, since: datetime | None = None) -> FilesystemSnapshot:
+        """Walk the directory tree and return a snapshot.
+
+        If ``since`` is provided, only entries whose mtime is at or after
+        ``since`` are included. Totals reflect the filtered set.
+        """
+        counters = _WalkCounters()
+        entries = tuple(self._walk_entries(since, counters))
         return FilesystemSnapshot(
             root_path=str(self._root_path),
-            entries=tuple(entries),
-            total_files=total_files,
-            total_dirs=total_dirs,
-            error_count=error_count,
+            entries=entries,
+            total_files=counters.total_files,
+            total_dirs=counters.total_dirs,
+            error_count=counters.error_count,
         )
 
     def get_provider_id(self) -> UUID:

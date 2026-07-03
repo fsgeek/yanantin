@@ -89,13 +89,6 @@ def _clean_doc(db, collection: str, key: str) -> dict:
     return {k: v for k, v in doc.items() if not k.startswith("_")}
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason=(
-        "full-corpus batch path not built: LinuxFilesystemCollector.stream_entries "
-        "must stream entries without returning the full snapshot list"
-    ),
-)
 def test_stream_entries_matches_collect_without_exposing_full_tree_list(
     tmp_path: Path,
 ) -> None:
@@ -112,13 +105,6 @@ def test_stream_entries_matches_collect_without_exposing_full_tree_list(
 
 
 @pytest.mark.integration
-@pytest.mark.xfail(
-    strict=True,
-    reason=(
-        "full-corpus batch path not built: Registrar.contribute_many must stamp "
-        "the same attribution and field shape as contribute"
-    ),
-)
 def test_contribute_many_lands_same_attributed_object_shape_as_singular(
     live_db,
 ) -> None:
@@ -183,13 +169,6 @@ def test_contribute_many_lands_same_attributed_object_shape_as_singular(
 
 
 @pytest.mark.integration
-@pytest.mark.xfail(
-    strict=True,
-    reason=(
-        "full-corpus batch path not built: Registrar.contribute_edge_many must "
-        "stamp the same edge shape as contribute_edge"
-    ),
-)
 def test_contribute_edge_many_lands_same_attributed_edge_shape_as_singular(
     live_db,
 ) -> None:
@@ -298,13 +277,6 @@ def _batch_land_jsonl(
 
 
 @pytest.mark.integration
-@pytest.mark.xfail(
-    strict=True,
-    reason=(
-        "full-corpus batch path not built: Registrar batch APIs must be "
-        "replace-mode idempotent for object and edge JSONL relanding"
-    ),
-)
 def test_batch_jsonl_relanding_does_not_duplicate_objects_or_edges(
     live_db,
     tmp_path: Path,
@@ -354,13 +326,6 @@ def test_batch_jsonl_relanding_does_not_duplicate_objects_or_edges(
                 live_db.delete_collection(name)
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason=(
-        "full-corpus batch path not built: landing harness must assert the "
-        "10k docs/s over >=100k docs throughput gate from measured run fields"
-    ),
-)
 def test_landing_throughput_gate_uses_measured_count_and_elapsed_time() -> None:
     from yanantin.recorder.storage.local.linux.batch_landing import (
         BatchLandingRunReport,

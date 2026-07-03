@@ -125,7 +125,6 @@ def _schema_of(compiled):
 
 # ── Guard 1: a single resolver compiles BOTH query types ──────────────
 
-@pytest.mark.xfail(strict=True, reason="yanantin.resolver / CompiledQuery does not exist yet (P2 resolver pour): resolver gap")
 def test_one_resolver_compiles_both_query_types():
     """One resolver entry point accepts both a human-anchored and an
     LLM-anchored intent and returns a CompiledQuery for each. Honestly red until
@@ -140,7 +139,6 @@ def test_one_resolver_compiles_both_query_types():
 
 # ── Guard 2: both compile to the SAME intermediate SCHEMA (trace-level) ─
 
-@pytest.mark.xfail(strict=True, reason="yanantin.resolver / CompiledQuery does not exist yet (P2 resolver pour): resolver gap")
 def test_both_queries_compile_to_same_intermediate_schema():
     """The convergence crux, made executable (reviewers' 'trace-level not
     interface-level sameness'). Both compiled queries must have the SAME
@@ -159,7 +157,6 @@ def test_both_queries_compile_to_same_intermediate_schema():
 
 # ── Guard 3: the intermediate representation IS factor-constraints ─────
 
-@pytest.mark.xfail(strict=True, reason="yanantin.resolver / CompiledQuery does not exist yet (P2 resolver pour): resolver gap")
 def test_intermediate_representation_is_factor_constraints():
     """Both queries must compile to factor-constraints over the six factors —
     neither may bypass the factor-constraint representation (a bypass is a
@@ -184,7 +181,6 @@ def test_intermediate_representation_is_factor_constraints():
 
 # ── Guard 4: the resolver does NOT branch on consumer type to build the IR ─
 
-@pytest.mark.xfail(strict=True, reason="yanantin.resolver / CompiledQuery does not exist yet (P2 resolver pour): resolver gap")
 def test_resolver_does_not_branch_on_consumer_below_head():
     """No `if consumer == 'llm'` / `if consumer == 'human'` in the resolver
     source: consumer-type branching below the head boundary to BUILD the

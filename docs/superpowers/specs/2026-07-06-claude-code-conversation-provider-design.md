@@ -25,6 +25,22 @@ substrate**, not designs of it. The design goal is fidelity: land the stream
 richly enough that projections neither of us has thought of yet remain
 possible.
 
+### Episodic recall, not an index
+
+The target capability is **episodic recall**, distinct from an index (qhaway
+is an index — curated pointers, decided at write time). Pure semantic search
+inverts the wrong way for memory: RAG maximizes recall, but for an agent
+recalling its own past, **precision is scarce** — an overwhelming result set
+is a failure mode, not a feature. The precision mechanisms are metadata:
+Indaleko's measured result was a one-month temporal window cutting search
+space 99.9%, and per-query facet discrimination
+(`yanantin.llika.facets.FacetDiscrimination`, #34) iteratively identifies
+which selector best splits *this* result set. Both mechanisms are only as
+good as the metadata axes available to them. This substrate's spine —
+time band, project, session, git branch, model, sidechain, tool mix — is
+precisely that supply of discriminating axes, which conversation *text*
+alone cannot provide. Semantic match proposes; facets and time dispose.
+
 ### The clock (discovered during brainstorming)
 
 Claude Code retains transcripts for ~30 days by default; the oldest file in
@@ -137,13 +153,38 @@ through the same obfuscation boundary all stored content crosses. Curation
 
 ### 4.4 What is stored vs. what is derived
 
-Stored: the event facts and their spine. Nothing else.
-Derived at query time (never at collection time):
-- **Attribution join:** storage band ⋈ `tool_use` events on (path, time window).
-- **Cross-episode edges:** e.g. the session that *read* issue #33 joined to
-  the session that *filed* it — a query over landed facts, not an inference
-  engine.
-- **DAG traversal:** `parent_uuid` chains, sidechain subtrees.
+The transcripts are already graph-structured (`parentUuid` DAG); what's
+missing is that graph *inside the graph database*, traversable across
+projects and entities. The dividing line is observability, not storage form:
+
+**Stored — event facts** (the spine, §4.2).
+
+**Materialized — observed edges.** The recorder writes edge documents for
+relations that are directly present in the data, so native Arango graph
+traversal works across the whole corpus:
+- `parent_of`: event → event (`parentUuid` — the conversation DAG,
+  sidechain subtrees included)
+- `in_session`: event → session; `in_project`: session → project slug
+- `touched`: `tool_use` event → file URI (weak path: URIs, same as the
+  band adapter)
+
+Materializing these is still "store what's observable" — each edge is a
+field already on the line, made traversable, not an inference.
+
+Honest cost: this is the one piece of **new store capability** in the pour.
+`ActivityStreamStore` today has only `activity_facts` and `activity_anchors`
+(document collections); observed-edge materialization adds an
+`activity_edges` collection (Arango edge collection; memory/duckdb backends
+get the minimal equivalent) with the same least-privilege posture. Edges are
+idempotent the same way facts are: deterministic key from
+(relation, from_id, to_id).
+
+**Derived at query time** (never at collection time):
+- **Attribution join:** storage band ⋈ `touched` edges on (path, time window).
+- **Cross-episode / entity edges:** e.g. the session that *read* issue #33
+  joined to the session that *filed* it; two sessions converging on the same
+  file from different projects. Queries over landed facts and edges — not an
+  inference engine, and not entity resolution (downstream, semantic-lane work).
 
 ### 4.5 Trigger
 
@@ -179,9 +220,15 @@ One per projection named in brainstorming; each is a test, live-DB, no mocks.
 3. **Text reach:** conversation text findable by content, scoped by a time
    band (AQL filter is sufficient for v1; ArangoSearch view tuning is not
    this pour).
-4. **Graph:** traverse a `parent_uuid` chain including a sidechain subtree;
-   plus one cross-session join (two sessions touching the same `cwd` within
-   a window).
+4. **Graph:** native traversal of a `parent_of` chain including a sidechain
+   subtree; plus one cross-session join (two sessions touching the same
+   `cwd` within a window).
+5. **Faceted episodic recall:** start from a text match over conversation
+   content, run `FacetDiscrimination` over the result set's spine fields
+   (project, time band, model, sidechain, tool mix), and show the chosen
+   facet cutting the result set — the iterative narrow-by-selector loop,
+   demonstrated on this substrate. This is the query that makes the
+   recall-vs-index distinction concrete.
 
 ## 6. Non-goals (v1)
 

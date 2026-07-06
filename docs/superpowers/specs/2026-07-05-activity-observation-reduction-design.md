@@ -1,4 +1,4 @@
-# Design: Activity Observation Reduction — the collector as a banding witness
+# Design: Activity Observation Reduction — the provider boundary as a banding witness
 
 **Status:** design proposal, not yet implemented
 **Author:** Yanantin AI, 2026-07-05, with Tony
@@ -16,9 +16,10 @@ The 07-04 doc is coherent. Going through it against the code and against Tony's
 prior experience (Indaleko, ~28.5M-file personal corpus, Vogels' NT4 file-access
 patterns, decades of cross-platform identity work) showed it was **over-built in
 the observation model and under-decided about where compaction happens**, not
-wrong. This doc reduces the observation to a faithful witness, moves the
-firehose-taming compaction into the collector's live state, and names — without
-building — the two curation axes that will be needed later.
+wrong. This doc reduces the persisted observation to a faithful band witness,
+moves the firehose-taming reduction into the activity provider boundary
+(collector + in-memory queue + recorder, whichever layer owns the live state),
+and names — without building — the curation axes that will be needed later.
 
 The reductions were each driven by a concrete correction, recorded here so a
 successor reads the *reasons*, not just the shapes, and does not re-inflate the
@@ -42,11 +43,27 @@ The witness is illiterate on purpose. The moment a field's *type* encodes a
 semantic (`uid: int` ⇒ POSIX), interpretation has leaked into the witness and the
 projection→container collapse begins.
 
-**Aggregation is not interpretation.** The collector *may* hold live state and
-collapse repeated activity on the same file into one band record (see §4). That
-is lossless with respect to the question an episode asks ("what happened to this
-file in this band"); it discards only sub-band churn no consumer recalls. The
-witness stays illiterate about *meaning* while becoming a stateful *aggregator*.
+**Aggregation is not interpretation.** The provider boundary *may* hold live
+state and collapse repeated activity on the same file into one band record (see
+§4). That is intentionally lossy at sub-band resolution, but lossless with
+respect to the question an episodic-memory-shaped record asks ("what happened to
+this file in this band"). The witness stays illiterate about *meaning* while
+becoming a stateful *aggregator*.
+
+This is the edge where the simple rule "observe everything" needs precision, so
+state it as two rules that never conflict:
+
+- **Observation is total.** The source-facing collector observes the full stream
+  available to it. This is never reduced, and it is what §6.1's learned sampling
+  depends on (the probe is drawn from the full stream).
+- **Persistence is band-resolution.** What crosses the durable `FactRecord`
+  boundary is one band per (handle, principal), not sub-second/sub-minute churn.
+  This is resolution reduction, not relevance filtering.
+
+The *one* place persistence drops something observation saw is the bounded
+intra-band create/delete elision (§4) — an exception to **persistence**, not to
+**observation**. Relevance policy still lives downstream (§6); it is neither of
+these two rules.
 
 ## 2. The reduced observation (banded)
 
@@ -55,6 +72,14 @@ following kinds of things done to it during this time band." This is the unit a
 memory owner can actually recall.
 
 ```python
+class StorageAccessKind(IntFlag):
+    CREATE = 1 << 0
+    READ = 1 << 1
+    WRITE = 1 << 2
+    RENAME = 1 << 3
+    DELETE = 1 << 4
+
+
 class StorageActivityBand(BaseModel):
     model_config = ConfigDict(frozen=True, extra="allow", validate_default=True)
 
@@ -62,10 +87,12 @@ class StorageActivityBand(BaseModel):
     location: str                 # collector-minted URI. scheme = namespace,
                                   # authority = frame-of-reference. OPAQUE to the
                                   # base framework; the base NEVER parses it.
-    access_kinds: int             # bitmask over {create,read,write,rename,delete},
+    access_kinds: int             # serialized StorageAccessKind bitmask,
                                   # OR'd across the band. COUNTS DISCARDED.
     band_start: datetime          # first access in the band
     band_end: datetime            # last access (quiescence measured from here)
+    granularity: str = "band"     # seam for future temporal coarsening
+    compaction_level: int = 0      # 0 = provider-emitted band
 
     # --- optional: opaque evidence, never required for correctness ---
     source_sequence: str | None = None   # source's own ordering token, opaque
@@ -78,7 +105,29 @@ class StorageActivityBand(BaseModel):
 **Serialized into `FactRecord.data`** (unchanged from 07-04 §3.1: the store row is
 open, the store does not understand the payload).
 
-### 2.1 What was removed from the 07-04 observation model, and why
+`access_kinds` is stored as an integer for backend portability, but code should
+treat it as a `StorageAccessKind` mask and reject bits outside the declared
+mask. That keeps the persisted shape simple without making tests reason about
+magic integers.
+
+### 2.1 Query markers are secondary, not invisible
+
+`FactRecord.provider_id` and `FactRecord.timestamp` remain the primary temporal
+query surface, but storage activity cannot become time-only. The first provider
+descriptor must declare a query-marker projection for the fields expected to
+drive recall, curation, or reindexing:
+
+- required marker: `location`
+- common secondary markers: `access_kinds`, `os_principal`, `process_name`
+- temporal markers: `band_start`, `band_end`, `granularity`, `compaction_level`
+
+The base framework still does not parse `location`, but the value must be
+queryable as a whole string. Implementations may satisfy this with backend
+JSON-path indexes over `FactRecord.data` or with a separate projection table /
+collection. The design requirement is visibility of the markers, not a specific
+storage mechanism.
+
+### 2.2 What was removed from the 07-04 observation model, and why
 
 | Removed / changed | Reason |
 |---|---|
@@ -116,33 +165,64 @@ wrong**: a collector can change how it mints URIs without touching the observati
 model or the store. When you know you will be wrong, buy revisability, not
 correctness.
 
-## 4. The collector is a live banding aggregator (firehose defense)
+## 4. The provider boundary is a live banding aggregator (firehose defense)
 
 A modest local filesystem does hundreds of file operations per second and almost
 none of them matter. Hundreds of ops/sec must **not** become hundreds of
-facts/sec in the stream. The firehose is tamed **at birth, in the collector**, not
-downstream.
+facts/sec in the stream. The firehose is tamed **at birth, inside the activity
+data stream provider boundary**, not after raw facts have already been persisted.
+For an implementation this may live in the collector, in an in-memory queue
+consumer, or in the fact recorder; those are equivalent if the raw source stream
+does not cross the durable `FactRecord` boundary first.
 
-Live state, keyed by a **stable handle**, one accumulator entry per active file:
+**This aggregator is a new stateful stage — it does not exist yet.** Verified
+against the code (2026-07-06): `FactRecorderBase.record_facts(envelope) -> int`
+is stateless, one-shot, batch — it holds no cross-call state, and the existing
+`FsEventFactRecorder` docstring is literally "stores one fact per change event,"
+i.e. the firehose this spec supersedes. So the pour introduces a component none
+of the three named layers currently provides: a live accumulator keyed by
+`(handle, principal)` that persists band records on quiescence/close. Do not plan
+this as "edit the recorder"; plan it as a new banding stage the recorder (or a
+queue consumer) hosts.
+
+**On mtime-scan, the aggregator is batch-fed, not event-fed.** The one real,
+ground-truth source (`FsIncrementalCollector`) emits `FsEventBatch` per scan run,
+not a live event stream. So "live state across events" here means **state across
+scan runs**: the aggregator accumulates across successive batches and closes a
+band on quiescence measured in *scan cadence*. There is no `close` causal
+boundary on mtime-scan (`boundary_capability = quiescence_only`, §5). The
+real-time causal path (fanotify/fs_usage) is the case the `(proc, fd)`-keyed
+accumulator model was built for; the mtime-scan adapter exercises the same
+aggregator through a batch feed, which is enough to falsify the design (§8)
+without any live OS API.
+
+Live state, keyed by **(stable handle, principal)**, one accumulator entry per
+active file *per actor*:
 
 ```
-entry:
+entry (key = (stable_handle, os_principal)):
     location       # collector-minted URI
     access_kinds   # bitmask, OR'd as events arrive; counts discarded
     band_start     # first access
     band_end       # advanced on each touch
-    os_principal   # first-seen mention, if the source offers one
+    os_principal   # part of the key — each band is single-actor by construction
 
 emit-and-evict when:
     causal boundary (e.g. close) if the source provides one   [exact]
     OR quiescence timeout (band-length, ~5–60 min)            [fallback]
 
-elide UNEMITTED when:
+elide before durable emission when:
     access_kinds == {create, delete} within one band
     # a temp file's whole life fit in one band — ~55% of files are deleted
     # within 30s of creation (Vogels, NT4). That churn is the firehose's bulk
     # and is noise at the episodic level.
 ```
+
+This elision is the explicit edge-case exception to the "observe everything"
+rule: the provider observed the lifecycle, but does not persist a band for an
+object whose whole life was intra-band create/delete churn. That exception is
+allowed only because the product is an episodic band stream. It is not permission
+to add collector-side relevance policy such as "ignore `/tmp`."
 
 **Key on the stable handle, not the mutable coordinate.** Indaleko's `fileaudit`
 `LogCompactor` keys by `(procname-pid, fd)` — an fd survives a rename where a path
@@ -151,6 +231,20 @@ path would fracture it. mtime-scan has no fd; its handle is the path, and its
 bands are correspondingly weak (see §5). Prior art:
 `../indaleko/fileaudit/logcompator.py` (misspelled by its author; the technique is
 sound).
+
+**Principal is part of the key — bands are single-actor by construction.** When
+two principals touch the same file in one window, they produce two bands, not one
+band with a set of actors. This is not fussiness: the band already collapses the
+verb sequence into an OR'd `access_kinds` mask, and that collapse is truthful
+*only while the band is single-actor*. Put two principals on one shared mask and
+you lose which one held the `write` bit — the mask says "someone wrote, someone
+read" and cannot say who did which. That is the smeared-actor failure the whole
+reduction fights, reappearing one level up. Multi-writer is rare, so
+principal-in-the-key costs an extra band only in the rare case and buys back
+writer attribution in every case. (Where the source cannot attribute a principal
+at all — mtime-scan — `os_principal` is `None`, the key's principal slot is null,
+and the band is honestly single-"unknown-actor"; the anchor layer resolves who
+later, per §5.)
 
 **Counts are discarded on purpose.** The goal is not to reconstruct the flow. It
 is to find *temporal bands relative to episodic memory*. `{read: 400}` and
@@ -188,20 +282,23 @@ curator reads bands and emits coarser bands. Not built.
 
 **Axis 2 — relevance filtering.** Whole regions of the namespace may prove
 uninteresting for episodic memory — nobody may care about `/tmp` or `C:\Windows`.
-*Seam:* `location` is a first-class queryable field, so a future curator can
-filter by URI prefix with no schema change.
+*Seam:* `location` is a first-class query marker, so a future curator can filter
+by URI prefix with no schema change once the implementation provides the marker
+projection/index named in §2.1.
 
-> **The collector never filters by relevance.** Relevance is a learned,
-> retrospective, **recorder-side** decision. Filtering at the collector is
-> forbidden because it destroys the evidence that would later justify the filter.
+> **The provider never filters by relevance.** Relevance is a learned,
+> retrospective, **recorder-side** decision. Filtering by relevance at the source
+> collector is forbidden because it destroys the evidence that would later justify
+> the filter.
 > The `/tmp`-is-noise intuition is probably *correct* — and it still must not live
 > at the collector, because being right is not the test; being revisable-with-
-> evidence is. Observation is total at the collector; policy lives at the recorder.
+> evidence is. Source observation is total at the collector; relevance policy
+> lives at the recorder/curator.
 
-Both `granularity`/`compaction_level` (temporal) and queryable `location`
-(spatial) are the seams. Both curators are deferred with named owners so a
-successor points the future work at the **recorder**, not the collector, and does
-not build a parallel tree.
+Both `granularity`/`compaction_level` (temporal) and queryable markers such as
+`location` (spatial) are the seams. Both curators are deferred with named owners
+so a successor points the future work at the **recorder/curator**, not the source
+collector, and does not build a parallel tree.
 
 ### 6.1 What curation actually is: learned sampling with a probe
 
@@ -222,11 +319,12 @@ Sampling always keeps a probe: a trickle of full-detail retention held
 specifically to catch when a "known-boring" pattern starts mattering. Sampling
 without a probe is amnesia; sampling with a probe is curation.
 
-This is why **collector-side observation stays total even in the mature system**.
-The sampling lives at the recorder; the probe *requires* the collector to keep
-observing everything, because the probe is drawn from the full stream. The
-collector's `ever`-never-filter rule is therefore not a temporary scaffold that
-learned curation eventually removes — learned curation *depends* on it.
+This is why **source-side observation stays total even in the mature system**.
+The sampling lives at the recorder/curator; the probe *requires* the collector to
+keep observing everything, because the probe is drawn from the full stream before
+learned relevance policy is applied. The collector's never-filter-by-relevance
+rule is therefore not a temporary scaffold that learned curation eventually
+removes — learned curation *depends* on it.
 
 This is the same shape as the effective-action-space result elsewhere in the
 project: save-everything is high recall / low precision (the 973,421-results law
@@ -240,12 +338,13 @@ sampling are three instances of the one policy on three streams.
 **Builds:**
 
 1. `StorageActivityBand` model (§2), serialized into `FactRecord.data`.
-2. The live banding aggregator (§4): stable-handle keying, bitmask kinds,
+2. The live banding aggregator (§4): stable-handle keying, `StorageAccessKind`
+   bitmask kinds,
    causal-or-quiescence emit, create-delete-in-band elision.
 3. An adapter driving the aggregator from the existing real `FsIncrementalCollector`
    / `FsChangeEvent` mtime-scan output (weak `path:` URIs).
 4. A descriptor carrying source-kind / identity-strength / ordering-strength /
-   boundary-capability (§5).
+   boundary-capability (§5) and query-marker projection fields (§2.1).
 
 **Does NOT build:** any curator — temporal or relevance (§6). Only the seams.
 
@@ -260,9 +359,15 @@ collector on this actual repo (ground truth, no synthetics grading my own
 imagination):
 
 1. **Firehose tamed at birth.** facts-out ≪ events-in; the band-emitter produces
-   file-bands, not per-event facts. Count and show the reduction is real.
-2. **Temp-file elision.** A file created and deleted within one band produces **no**
-   emitted fact.
+   file-bands, not per-event facts. Count and show the reduction is real. This is
+   where real-time activity providers have the largest advantage over scan-diff
+   sources: they can see high-frequency churn and reduce it before durable
+   emission.
+2. **Temp-file elision for observable lifecycles.** A file whose create and
+   delete are both observed within one band produces **no** emitted fact.
+   Mtime-scan cannot observe files that are created and deleted entirely between
+   scans; real-time providers can. The mtime-scan adapter can still test the
+   aggregator behavior with observable create/delete pairs.
 3. **Weak-anchor honesty.** mtime-scan bands are marked weak-identity and are **not**
    coalesced across `path:` URIs; rename is not inferred.
 
@@ -276,10 +381,16 @@ find it in a red test today — not in a parallel tree in three weeks.
 - No source is required to provide stable object identity (weak `path:` is valid).
 - No live OS-specific event APIs in this slice.
 - **No curator (temporal or relevance) in this slice — seams only.**
-- **No collector-side filtering or sampling, ever** — the collector observes
-  totally so the recorder's future sampling can keep an honest probe (§6.1).
+- **No collector-side relevance filtering or sampling, ever** — the collector
+  observes totally so the recorder's future sampling can keep an honest probe
+  (§6.1). Provider-side banding and intra-band create/delete elision are the
+  named firehose-resolution exception, not a learned relevance policy.
 - **Recorder-side learned sampling is deferred, not forbidden** — its mature form
   is per-pattern sampling with a mandatory probe channel; "save everything" is the
   instrumental training phase, not a permanent state (§6.1).
-- **No per-file intensity/operation counts — band-granularity is the target.**
+- **No per-file operation counts** (`{read: 400}` ≡ `{read: 1}`) — band-granularity
+  is the target, and per-file intensity is below the resolution that does the work
+  (§4). *Band-coarseness* signals that aid band-finding — e.g. count of distinct
+  files touched in a window — are not forbidden; they are a future signal, not
+  built in this pour.
 ```

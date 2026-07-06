@@ -38,6 +38,13 @@ class StorageActivityBand(BaseModel):
     process_name: str | None = None
 
     def band_id(self) -> UUID:
+        # access_kinds is deliberately NOT in the key: one aggregator entry
+        # OR-s kinds in place and emits ONCE per (location, principal, window),
+        # so no two DISTINCT bands share these six fields in the current design.
+        # HAZARD if that invariant is ever broken (e.g. a second producer emits
+        # a richer band for an already-flushed window): two bands differing only
+        # in access_kinds collide here, and BandFactRecorder's ImmutabilityError
+        # catch would SILENTLY DROP the second. Falsification-confirmed 2026-07-06.
         key = "|".join(
             str(x)
             for x in (

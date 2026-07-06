@@ -44,6 +44,15 @@ root" was stale — reasoning from old fanotify. The probe corrected it.
   `CAP_SYS_ADMIN` for the FID/NAME path.
 - **Kernel / WSL2.** 6.18 supports `FAN_REPORT_DFID_NAME`; it initializes. WSL2 is
   not the wall.
+- **Event delivery — VERIFIED, not assumed (2026-07-06).** The earlier draft of
+  this note hypothesized WSL2's 9p mount might init+mark fine but deliver an empty
+  stream (the classic false-green). **Probed and disproven for this box.** The
+  repo is on **ext4** (`/dev/sdd`, per `df -T`; `stat -f` mislabels it ext2/3 —
+  trust `df`), not 9p. A second probe (`fanotify_mark` a temp dir under the repo,
+  then create/modify/delete a file) **delivered 156 bytes of real event data**.
+  init+mark+delivery all work here. NOTE the caveat still holds for `/mnt/c`-style
+  9p mounts — those were not tested and 9p historically does not propagate events.
+  The repo's own ext4 filesystem is not affected.
 - **Rename coherence.** `FAN_MOVED_FROM`/`FAN_MOVED_TO` + `FAN_REPORT_FID` give a
   stable file handle across a move — exactly the "key on the stable handle,
   survives rename" property §4 of the reduction spec wants and mtime-scan cannot
@@ -85,9 +94,11 @@ This confirms the reduction spec's ordering as more than "easy source first":
   struct-parser (Tier 2) *and* the daemon-collector stage (Tier 3). Sequence it
   **after** the aggregator is green on batch, not tangled into it.
 
-The fanotify *API* is not the blocker (proven working, unprivileged, here). The
-long-running-collector abstraction is. That is an architecture gap to design
-deliberately, not discover mid-pour.
+The fanotify *API and event delivery* are not the blocker (both proven working,
+unprivileged, on this box's ext4 repo — 2026-07-06). **No VM move is needed;** the
+environmental worry was disproven by probe. The **one** remaining blocker is the
+long-running-collector abstraction. That is an architecture gap to design
+deliberately, not discover mid-pour — and no change of machine fixes it.
 
 ## Probe reproduction
 

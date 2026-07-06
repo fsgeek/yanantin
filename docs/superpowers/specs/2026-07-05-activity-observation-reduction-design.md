@@ -345,6 +345,14 @@ sampling are three instances of the one policy on three streams.
    / `FsChangeEvent` mtime-scan output (weak `path:` URIs).
 4. A descriptor carrying source-kind / identity-strength / ordering-strength /
    boundary-capability (§5) and query-marker projection fields (§2.1).
+   **DEFERRED (conscious decision, 2026-07-06):** the descriptor's fields are all
+   metadata a *consumer* reads to decide how much to trust a provider, and no
+   such consumer exists yet. Building it now is a struct with no reader — the
+   speculative-flexibility anti-pattern §5 itself warns against ("a dedicated
+   registry should be added only if core registration proves too coarse"). The
+   descriptor lands with its first consumer (the query/curation layer), not
+   before. The first mtime-scan pour ships items 1–3 only; identity/ordering
+   strength are documented per-source here (§5) until a reader needs them typed.
 
 **Does NOT build:** any curator — temporal or relevance (§6). Only the seams.
 

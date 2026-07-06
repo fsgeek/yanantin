@@ -203,6 +203,38 @@ Both `granularity`/`compaction_level` (temporal) and queryable `location`
 successor points the future work at the **recorder**, not the collector, and does
 not build a parallel tree.
 
+### 6.1 What curation actually is: learned sampling with a probe
+
+The two axes above are not two mechanisms. They are one — **learned per-pattern
+sampling with a mandatory probe channel** — applied to different keys (time,
+location; and on other streams, query shape).
+
+The initial rule is *save everything*. This is **instrumental, not permanent**:
+you save everything so you can learn what does not matter. It is the training-data
+phase, and it has a per-pattern exit condition. Once a pattern is characterized —
+"we've seen this before, it never participates in a recalled band" — retention
+stops keeping full detail *for that pattern* and drops to sampling: keep 1-in-N,
+not all.
+
+The **probe** is load-bearing and non-negotiable. A blind filter cannot discover
+it is wrong — it stops looking, so it never sees the day the pattern changed.
+Sampling always keeps a probe: a trickle of full-detail retention held
+specifically to catch when a "known-boring" pattern starts mattering. Sampling
+without a probe is amnesia; sampling with a probe is curation.
+
+This is why **collector-side observation stays total even in the mature system**.
+The sampling lives at the recorder; the probe *requires* the collector to keep
+observing everything, because the probe is drawn from the full stream. The
+collector's `ever`-never-filter rule is therefore not a temporary scaffold that
+learned curation eventually removes — learned curation *depends* on it.
+
+This is the same shape as the effective-action-space result elsewhere in the
+project: save-everything is high recall / low precision (the 973,421-results law
+at the storage layer); sampling-with-probe is the precision mechanism, spending a
+bounded retention budget on what is informative while holding a cheap probe
+against being wrong. File-activity banding, relevance filtering, and query
+sampling are three instances of the one policy on three streams.
+
 ## 7. Scope of this pour
 
 **Builds:**
@@ -244,6 +276,10 @@ find it in a red test today — not in a parallel tree in three weeks.
 - No source is required to provide stable object identity (weak `path:` is valid).
 - No live OS-specific event APIs in this slice.
 - **No curator (temporal or relevance) in this slice — seams only.**
-- **No collector-side relevance filtering, ever.**
+- **No collector-side filtering or sampling, ever** — the collector observes
+  totally so the recorder's future sampling can keep an honest probe (§6.1).
+- **Recorder-side learned sampling is deferred, not forbidden** — its mature form
+  is per-pattern sampling with a mandatory probe channel; "save everything" is the
+  instrumental training phase, not a permanent state (§6.1).
 - **No per-file intensity/operation counts — band-granularity is the target.**
 ```

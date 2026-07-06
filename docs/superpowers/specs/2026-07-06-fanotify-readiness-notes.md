@@ -65,13 +65,18 @@ root" was stale — reasoning from old fanotify. The probe corrected it.
   `fanotify_event_metadata` + `fanotify_event_info_fid` byte structs** off the fd:
   nested TLV-ish records, opaque `file_handle` blobs. Fiddly but contained — this
   is the bulk of the collector body.
-- **`open_by_handle_at` privilege split.** You get the FID unprivileged, but
-  *resolving* it to a path needs `CAP_DAC_READ_SEARCH`. **For the witness this may
-  not matter:** the spec says `location` is an opaque collector-minted token the
-  witness never resolves. So the fanotify collector can mint
-  `fanotify-fid:<handle>` URIs and never resolve them — staying unprivileged — and
-  hand resolution to the anchor layer. The spec's opacity principle pays off: the
-  privileged step is the one already deferred.
+- **`open_by_handle_at` privilege split — and privilege IS available here.** You
+  get the FID unprivileged, but *resolving* it to a path needs
+  `CAP_DAC_READ_SEARCH`, and classic `FAN_CLASS_NOTIF` needs `CAP_SYS_ADMIN`.
+  **Both are reachable on this box: `sudo` is passwordless (verified 2026-07-06),
+  and privileged `fanotify_init(FAN_CLASS_NOTIF)` inits OK under it.** So staying
+  unprivileged is a **design choice** (the witness keeps `location` opaque and
+  mints `fanotify-fid:<handle>` URIs it never resolves, handing resolution to the
+  anchor layer) — **not a constraint forced by lack of privilege.** The privileged
+  path is available if the design ever wants it; the design prefers not to need
+  it. A real non-WSL kernel (`ubuntu26-test`, reachable via ssh with passwordless
+  sudo) is recorded as a deployment-fidelity target for the fanotify pour's final
+  validation, but no capability here requires it.
 
 ### Tier 3 — The REAL blocker, and it is this repo, not fanotify
 

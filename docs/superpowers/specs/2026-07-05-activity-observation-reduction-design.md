@@ -1,6 +1,17 @@
 # Design: Activity Observation Reduction — the provider boundary as a banding witness
 
-**Status:** design proposal, not yet implemented
+**Status:** IMPLEMENTED and verified 2026-07-07. The §7 pour (items 1–3) is
+built and merged (merge `c92cece2`): `StorageActivityBand` (`db2f454d`),
+`BandAggregator` with quiescence + create/delete elision (`ce0fffa5`),
+mtime-scan → band adapter (`1357fa3e`), `BandFactRecorder` (`b50e100a`),
+permanent falsification guard (`68e9dcb9`). The §4 descriptor remains
+deferred by conscious decision (§7). The §8 falsification target passes
+against the **real** `FsIncrementalCollector` over this repo — see
+`tests/integration/test_band_falsification.py` (aggregator logic) and
+`tests/integration/test_band_falsification_ground_truth.py` (ground truth:
+25 real scans of one real file → 1 fact, a 25× reduction; weak `path:` URIs,
+`os_principal=None`, no inferred RENAME). §6 curators remain unbuilt (seams
+only), as scoped.
 **Author:** Yanantin AI, 2026-07-05, with Tony
 **Supersedes:** the *observation model* (§5) and the two-stage compaction pipeline
 (§3.1, §6, §7) of `docs/design-activity-data-stream-provider-model.md` (2026-07-04).

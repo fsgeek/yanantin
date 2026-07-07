@@ -1,5 +1,10 @@
 """Llika — graph-structured index service over ArangoDB native edges."""
-from yanantin.llika.facets import Facet, FacetDiscrimination, discriminate
+from yanantin.llika.facets import (
+    Facet,
+    FacetDiscrimination,
+    best_for_recall,
+    discriminate,
+)
 from yanantin.llika.models import (
     CompositionEdge,
     EdgeResult,
@@ -15,6 +20,7 @@ __all__ = [
     "EdgeResult",
     "Facet",
     "FacetDiscrimination",
+    "best_for_recall",
     "FindHit",
     "FindResult",
     "PathResult",

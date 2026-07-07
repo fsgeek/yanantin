@@ -15,7 +15,7 @@ from yanantin.activity.band import StorageAccessKind, StorageActivityBand
 
 def _band(**kw):
     base = dict(
-        location="path:/home/tony/foo",
+        location="path:/data/foo",
         access_kinds=int(StorageAccessKind.CREATE | StorageAccessKind.WRITE),
         band_start=datetime(2026, 7, 6, 9, 0, tzinfo=timezone.utc),
         band_end=datetime(2026, 7, 6, 9, 5, tzinfo=timezone.utc),

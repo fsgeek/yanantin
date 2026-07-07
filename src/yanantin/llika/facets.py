@@ -133,3 +133,41 @@ def discriminate(
 
     facets.sort(key=lambda f: (f.entropy, f.distinct), reverse=True)
     return FacetDiscrimination(result_size=len(records), facets=tuple(facets))
+
+
+def _recall_score(facet: Facet) -> float:
+    """Raw information content of a facet: normalized entropy times the
+    normalizer that produced it. Since `_normalized_entropy` divides raw
+    Shannon entropy by log2(distinct), multiplying back recovers the RAW
+    entropy — the un-normalized bits this facet carries.
+
+    This is deliberately the quantity `discriminate` normalizes AWAY. For
+    general discrimination, normalization is correct: a clean 2-way split and
+    a clean 20-way split are equally *pure* cuts. For episodic RECALL the
+    question is different — "which cut leaves the smallest, most coherent
+    set to recall from" — and there a 20-way even split beats a 2-way one,
+    because it narrows an order of magnitude harder. Raw entropy ranks by
+    exactly that: bits removed from the result set, not purity of the split."""
+    return facet.entropy * math.log2(facet.distinct) if facet.distinct > 1 else 0.0
+
+
+def best_for_recall(disc: FacetDiscrimination) -> Facet | None:
+    """The facet best for episodic RECALL: among discriminating facets, the
+    one that narrows the result set HARDEST (highest raw information content),
+    or None if none discriminate.
+
+    This is the recall-side POLICY that `discriminate` (a cardinality-neutral
+    primitive) deliberately does not impose. `disc.best` picks the highest
+    *normalized* entropy — which systematically under-ranks a high-cardinality
+    axis (e.g. session, 100 values) beneath an evenly-split boolean (2 values)
+    that scores the same normalized entropy but only halves the set. For
+    recall, cardinality is the point: `best_for_recall` ranks by raw entropy
+    (`_recall_score`), restoring the bits normalization removed.
+
+    Generic by construction — it reads only a `FacetDiscrimination`, knows
+    nothing about any stream, so any recall surface (conversation bands,
+    Hamut'ay tensors, storage activity) gets the same policy for free."""
+    candidates = [f for f in disc.facets if f.discriminating]
+    if not candidates:
+        return None
+    return max(candidates, key=_recall_score)

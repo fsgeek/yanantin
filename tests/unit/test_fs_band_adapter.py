@@ -33,25 +33,25 @@ def test_event_type_maps_to_kind():
 
 
 def test_location_is_weak_path_uri():
-    assert mint_location("/home/tony/foo") == "path:/home/tony/foo"
+    assert mint_location("/data/foo") == "path:/data/foo"
 
 
 def test_feed_batch_bands_with_no_principal():
     agg = BandAggregator(quiescence=timedelta(minutes=5))
-    ev = FsChangeEvent(file_path="/home/tony/foo", event_type="created",
+    ev = FsChangeEvent(file_path="/data/foo", event_type="created",
                        modified_time=T0, size_bytes=10)
     feed_batch(agg, _batch([ev], cur=T0))
     bands = agg.flush_all()
     assert len(bands) == 1
-    assert bands[0].location == "path:/home/tony/foo"
+    assert bands[0].location == "path:/data/foo"
     assert bands[0].os_principal is None
 
 
 def test_accumulation_across_two_scan_runs():
     agg = BandAggregator(quiescence=timedelta(minutes=5))
-    ev1 = FsChangeEvent(file_path="/home/tony/foo", event_type="created",
+    ev1 = FsChangeEvent(file_path="/data/foo", event_type="created",
                         modified_time=T0, size_bytes=10)
-    ev2 = FsChangeEvent(file_path="/home/tony/foo", event_type="modified",
+    ev2 = FsChangeEvent(file_path="/data/foo", event_type="modified",
                         modified_time=T0 + timedelta(seconds=30), size_bytes=20)
     feed_batch(agg, _batch([ev1], cur=T0))
     feed_batch(agg, _batch([ev2], cur=T0 + timedelta(seconds=30)))

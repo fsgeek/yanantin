@@ -26,9 +26,17 @@ from yanantin.activity.store import ActivityStreamStore
 from yanantin.apacheta.interface.errors import ImmutabilityError, NotFoundError
 from yanantin.apacheta.storage_obfuscator import StorageObfuscator, TransparentObfuscator
 from yanantin.core.arango_facade import Database
+from yanantin.core.collection_definition import CollectionDefinition
+from yanantin.core.khipu import Khipu
 
 
-_SEMANTIC_COLLECTIONS = ("activity_facts", "activity_anchors")
+# Default semantic names. A provider may register its OWN collection names via
+# the constructor; hardcoding a fixed literal was the registration bypass Tony
+# flagged 2026-07-07 ("hardcoding collection names is the antithesis of
+# registration"). Collections are minted through Khipu (the sole creator),
+# never via a direct create_collection here.
+_DEFAULT_FACTS_COLLECTION = "activity_facts"
+_DEFAULT_ANCHORS_COLLECTION = "activity_anchors"
 
 
 class ArangoDBActivityStreamStore(ActivityStreamStore):
@@ -45,6 +53,8 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
         username: str = "",
         password: str = "",
         obfuscator: StorageObfuscator | None = None,
+        facts_collection: str = _DEFAULT_FACTS_COLLECTION,
+        anchors_collection: str = _DEFAULT_ANCHORS_COLLECTION,
     ) -> None:
         self._lock = threading.RLock()
         # Transparent only as an explicit, greppable fallback — never via a
@@ -52,6 +62,11 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
         if obfuscator is None:
             obfuscator = TransparentObfuscator()
         self._map = obfuscator
+        # Semantic collection names — a registrant may name its own (per-stream
+        # separation). Physical names come from the obfuscator; creation from
+        # Khipu. No hardcoded literal reaches the DB.
+        self._facts_col = facts_collection
+        self._anchors_col = anchors_collection
         self._host = host
         self._db_name = db_name
         self._db = self._connect_database(username, password)
@@ -89,14 +104,16 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
             ) from e
 
     def _ensure_collections(self) -> None:
-        """Create collections and indexes if they don't exist."""
-        for name in _SEMANTIC_COLLECTIONS:
-            mapped = self._map.collection_name(name)
-            if not self._db.has_collection(mapped):
-                self._db.create_collection(mapped)
+        """Ensure collections and indexes exist — through Khipu, the sole
+        collection creator (never a direct create_collection here; that bypassed
+        registration). Khipu obfuscates the semantic name internally and returns
+        the physical handle."""
+        khipu = Khipu(self._db, self._map)
+        for name in (self._facts_col, self._anchors_col):
+            khipu.watay(name, CollectionDefinition(schema=None))
 
         # Persistent sorted index for temporal queries on facts
-        facts_col = self._db.collection(self._map.collection_name("activity_facts"))
+        facts_col = self._db.collection(self._map.collection_name(self._facts_col))
         facts_col.add_index(
             {
                 "type": "persistent",
@@ -109,7 +126,7 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
         )
 
         # Persistent sorted index for temporal anchor queries
-        anchors_col = self._db.collection(self._map.collection_name("activity_anchors"))
+        anchors_col = self._db.collection(self._map.collection_name(self._anchors_col))
         anchors_col.add_index(
             {
                 "type": "persistent",
@@ -133,7 +150,7 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
 
     def store_fact(self, fact: FactRecord) -> None:
         with self._lock:
-            col = self._facade.collection("activity_facts")
+            col = self._facade.collection(self._facts_col)
             key = str(fact.id)
             if col.has(key):
                 raise ImmutabilityError(
@@ -158,7 +175,7 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
 
     def get_fact(self, fact_id: UUID) -> FactRecord:
         with self._lock:
-            doc = self._facade.collection("activity_facts").get(str(fact_id))
+            doc = self._facade.collection(self._facts_col).get(str(fact_id))
             if doc is None:
                 raise NotFoundError(f"Fact {fact_id} not found.")
             return self._doc_to_fact(doc)
@@ -172,7 +189,7 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
             # Regime-1 form (§6): @@col bind; fields via field_path as literal
             # dotted paths (provider_id, timestamp are both in the persistent
             # index — dynamic doc[@f] would defeat it; §6.1 decision).
-            col = self._map.collection_name("activity_facts")
+            col = self._map.collection_name(self._facts_col)
             pid = self._map.field_path(("provider_id",))
             ts = self._map.field_path(("timestamp",))
             if before is not None:
@@ -215,7 +232,7 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
             # paths — both indexed, §6.1). Composition (the AND of FILTERs) stays
             # in raw AQL per design §4 — each fragment names its field through the
             # primitive; the list-join is NOT a query builder.
-            col = self._map.collection_name("activity_facts")
+            col = self._map.collection_name(self._facts_col)
             pid = self._map.field_path(("provider_id",))
             ts = self._map.field_path(("timestamp",))
 
@@ -246,7 +263,7 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
 
     def store_anchor(self, anchor: MemoryAnchor) -> None:
         with self._lock:
-            col = self._facade.collection("activity_anchors")
+            col = self._facade.collection(self._anchors_col)
             key = str(anchor.handle)
             if col.has(key):
                 raise ImmutabilityError(
@@ -272,7 +289,7 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
 
     def get_anchor(self, handle: UUID) -> MemoryAnchor:
         with self._lock:
-            doc = self._facade.collection("activity_anchors").get(str(handle))
+            doc = self._facade.collection(self._anchors_col).get(str(handle))
             if doc is None:
                 raise NotFoundError(f"Anchor {handle} not found.")
             return self._doc_to_anchor(doc)
@@ -281,7 +298,7 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
         with self._lock:
             # Regime-1 form (§6): @@col bind; timestamp via field_path (literal —
             # activity_anchors has a persistent index on timestamp, §6.1).
-            col = self._map.collection_name("activity_anchors")
+            col = self._map.collection_name(self._anchors_col)
             ts = self._map.field_path(("timestamp",))
             cursor = self._db.aql.execute(
                 "FOR doc IN @@col "
@@ -302,7 +319,7 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
         with self._lock:
             # Regime-1 form (§6): @@col bind; provider_id via field_path (literal —
             # indexed, §6.1). COLLECT names the field, so it takes the same form.
-            col = self._map.collection_name("activity_facts")
+            col = self._map.collection_name(self._facts_col)
             pid = self._map.field_path(("provider_id",))
             cursor = self._db.aql.execute(
                 "FOR doc IN @@col "
@@ -319,7 +336,7 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
             # dotted path — NOT doc[@f] dynamic access, because activity_facts has
             # a persistent index on (provider_id, timestamp) that dynamic access
             # would defeat (§6.1 decision, verified against the live index).
-            col = self._map.collection_name("activity_facts")
+            col = self._map.collection_name(self._facts_col)
             if provider_id is not None:
                 pid_path = self._map.field_path(("provider_id",))
                 cursor = self._db.aql.execute(

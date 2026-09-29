@@ -22,6 +22,13 @@
 
 SCRIPT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
+# 0. Stamp THIS commit the sibling-project way (scripts/hooks/post-commit):
+#    timestamps/<hash>.ots, committed as "ots: stamp <hash>", failing LOUDLY if
+#    it cannot stamp. core.hooksPath points here, so .git/hooks/post-commit is
+#    never consulted -- this line is what makes that hook run at all. It runs in
+#    the foreground: a pre-registration needs the committed stamp, not a hope.
+"$SCRIPT_DIR/scripts/hooks/post-commit" || exit 1
+
 # Resolve uv once; degrade silently if absent (matches prior behaviour).
 if command -v uv &>/dev/null; then
     UV=uv
@@ -38,10 +45,11 @@ fi
     LOG="$SCRIPT_DIR/logs/ots.log"
     mkdir -p "$SCRIPT_DIR/logs"
 
-    # 1. Stamp this commit (pending proof for docs/ots/).
-    "$UV" run python .claude/hooks/ots_stamp.py >> "$LOG" 2>&1
+    # 1. (Legacy) docs/ots/ no longer receives new stamps -- step 0 above
+    #    writes timestamps/. Its ~5.9k older proofs still mature, so keep
+    #    sweeping them.
 
-    # 2. Sweep matured proofs: upgrade pending .ots files IN PLACE (a safe,
+    # 2. Sweep matured docs/ots/ proofs: upgrade pending .ots files IN PLACE (a safe,
     #    idempotent disk operation). We deliberately do NOT auto-commit here.
     #    An unattended, backgrounded `git commit` on main races the HEAD ref
     #    lock against your next commit, and its first real firing (hours later,

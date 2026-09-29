@@ -117,23 +117,20 @@ def _live_episodes_rows_for(term: str):
         raise
 
 
-def test_ghola_query_reproduces_issue_numbers():
+def test_ghola_query_session_and_day_lead_on_live_silo():
     """gh #34's worked example, against the live episodes silo: session and day
-    discriminate (~0.9), model does not (~0.12, ~all opus). The numbers are the
-    issue's; reproducing them proves the mechanism on real data, not a fixture."""
+    discriminate and lead the ranking.
+
+    The issue's exact numbers (121 rows; model entropy ~0.12, ~all opus) were a
+    snapshot and cannot be reproduced: the silo grows in BOTH directions —
+    backfill from other machines adds old-dated episodes (196 rows dated before
+    the issue by 2026-09-29), so even a time window does not pin it. And model
+    now legitimately discriminates (0.55) because more model families were used
+    since. Assert only what is a property of the mechanism, not of the corpus."""
     rows = _live_episodes_rows_for("ghola")
     fd = discriminate(rows, facet_fields=["session", "day", "model"])
     by = {f.name: f for f in fd.facets}
 
-    # the result set the issue measured
-    assert fd.result_size == 121
-
-    # session and day shatter the set; model does not
-    assert by["session"].entropy == pytest.approx(0.89, abs=0.03)
-    assert by["day"].entropy == pytest.approx(0.90, abs=0.03)
-    assert by["model"].entropy == pytest.approx(0.12, abs=0.05)
-
-    # the Archivist asks about session-or-day, never model
+    assert fd.result_size == len(rows)
     assert by["session"].discriminating and by["day"].discriminating
-    assert not by["model"].discriminating
     assert fd.best.name in {"session", "day"}

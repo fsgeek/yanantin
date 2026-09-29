@@ -1,33 +1,32 @@
 #!/bin/bash
-# Install yanantin git hooks. Idempotent.
+# Install the projects git hooks (the WHEN layer wiring).
 #
-# Activation is a single portable action: point git at the tracked .githooks/
-# directory via core.hooksPath. That directory is the single source of truth for
-# ALL hooks (post-commit OTS stamping, pre-commit + pre-push signing guards), so
-# a fresh clone is fully protected after one run of this script.
-#
-# Why hooksPath instead of copying files into .git/hooks/:
-#   - .git/hooks/ is untracked and per-clone — copies drift from the repo.
-#   - core.hooksPath makes the tracked .githooks/ files authoritative directly.
-#   - It was previously set only as local config on one machine, so the signing
-#     guard silently did NOT run on any other clone. This makes it replicable.
+# Idempotent: safe to re-run. Ensures the opentimestamps-client dependency is
+# present in the project venv, then installs a thin .git/hooks/post-commit
+# shim that execs the tracked hook in scripts/hooks/. Keeping the real hook
+# under version control (and the shim trivial) means the governance logic is
+# itself reviewable and signed, not hidden in .git/.
 set -e
 
 GIT_ROOT=$(git rev-parse --show-toplevel)
 cd "$GIT_ROOT"
 
-git config core.hooksPath .githooks
+echo "Syncing project environment (ensures opentimestamps-client is installed)..."
+uv sync
 
-# Ensure the tracked hooks are executable (a fresh clone preserves the mode bit,
-# but be defensive in case they were touched).
-chmod +x .githooks/post-commit .githooks/pre-commit .githooks/pre-push
+echo "Verifying ots client is callable..."
+if ! "$GIT_ROOT/.venv/bin/ots" --version >/dev/null 2>&1; then
+    echo "FATAL: ots not callable after 'uv sync'. Check pyproject.toml deps." >&2
+    exit 1
+fi
 
-echo "Installed: core.hooksPath -> .githooks (post-commit, pre-commit, pre-push)"
-echo
-echo "Active hooks:"
-echo "  post-commit  OpenTimestamps stamp of each commit (docs/ots/<short>.ots)"
-echo "  pre-commit   signing INTENT guard (signed + author==committer + key UID)"
-echo "  pre-push     signing OUTCOME guard over the outgoing range"
-echo
-echo "Each new commit is stamped via OpenTimestamps. Run scripts/ots-upgrade.sh"
-echo "periodically (e.g., daily) to anchor pending proofs to Bitcoin."
+echo "Installing post-commit hook shim..."
+HOOK="$GIT_ROOT/.git/hooks/post-commit"
+cat > "$HOOK" << 'EOF'
+#!/bin/bash
+exec "$(git rev-parse --show-toplevel)/scripts/hooks/post-commit" "$@"
+EOF
+chmod +x "$HOOK"
+
+echo "Done. The post-commit hook now stamps each commit with OpenTimestamps."
+echo "Run 'scripts/ots-upgrade.sh' a few hours after committing to anchor to Bitcoin."

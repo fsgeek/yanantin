@@ -1,57 +1,56 @@
 #!/bin/bash
-# OpenTimestamps post-commit hook.
+# Post-commit OpenTimestamps hook (the WHEN layer).
 #
-# After each real commit, submits the commit hash to OpenTimestamps
-# calendar servers and stores the proof in docs/ots/<short>.ots, then
-# creates a follow-up "ots: stamp <short>" commit recording the proof.
+# After every non-ots commit, write the commit hash to timestamps/<hash>,
+# stamp it with OpenTimestamps (anchors to Bitcoin via calendar servers),
+# then commit the .ots proof. This makes the commit's existence-time
+# non-backdatable — the core of the pre-registration credibility claim.
 #
-# The hook uses yanantin's own provenance.timestamp Python module
-# (no external `ots` CLI required).
-#
-# Recursion guard: skips commits whose message starts with "ots:" so
-# our own follow-up commits don't retrigger stamping.
-#
-# Failure is non-fatal: if the calendar is unreachable, the original
-# commit still stands; only the follow-up stamp commit is skipped.
-# A backfill script can recover later.
+# Design note vs. the original governance-project hook: that version did a
+# SILENT skip (exit 0) when the ots client was missing, which is governance
+# theater — you'd believe commits were anchored when they weren't. This
+# version resolves ots robustly (uv run, then local .venv) and FAILS LOUDLY
+# if it genuinely cannot stamp. A missing stamp must be visible, not silent.
 set -e
 
 GIT_ROOT=$(git rev-parse --show-toplevel)
 cd "$GIT_ROOT"
 
+# Guard: never stamp the ots-bookkeeping commits themselves (they are created
+# below with --no-verify, which skips pre-commit but NOT post-commit).
 COMMIT_MSG=$(git log -1 --format="%s")
 if [[ "$COMMIT_MSG" == ots:* ]]; then
     exit 0
 fi
 
+# Resolve the ots client. Prefer the project venv directly (fast, no uv
+# resolution overhead); fall back to `uv run ots` (location-independent).
+if [ -x "$GIT_ROOT/.venv/bin/ots" ]; then
+    OTS=("$GIT_ROOT/.venv/bin/ots")
+elif command -v uv >/dev/null 2>&1 && uv run --quiet ots --version >/dev/null 2>&1; then
+    OTS=(uv run --quiet ots)
+else
+    echo "FATAL: ots client not found (.venv/bin/ots absent and 'uv run ots' failed)." >&2
+    echo "       Commit $(git rev-parse --short HEAD) is NOT timestamped." >&2
+    echo "       Run: uv sync   then   scripts/install-hooks.sh" >&2
+    exit 1
+fi
+
 HASH=$(git rev-parse HEAD)
-SHORT=${HASH:0:10}
-OTS_FILE="docs/ots/${SHORT}.ots"
+TIMESTAMP_DIR="$GIT_ROOT/timestamps"
+mkdir -p "$TIMESTAMP_DIR"
 
-if [ -f "$OTS_FILE" ]; then
-    exit 0
+HASH_FILE="$TIMESTAMP_DIR/$HASH"
+echo "$HASH" > "$HASH_FILE"
+
+if ! "${OTS[@]}" stamp "$HASH_FILE"; then
+    echo "FATAL: 'ots stamp' failed for $HASH — commit is NOT timestamped." >&2
+    rm -f "$HASH_FILE"
+    exit 1
 fi
 
-UV="${UV:-$HOME/.local/bin/uv}"
-if [ ! -x "$UV" ]; then
-    echo "ots: uv not found at $UV; skipping stamp for $SHORT" >&2
-    exit 0
-fi
-
-if ! HASH="$HASH" "$UV" run python -c "
-import os, sys
-from pathlib import Path
-from yanantin.provenance.timestamp import stamp_commit
-sys.exit(0 if stamp_commit(os.environ['HASH'], Path('docs/ots')) else 1)
-"; then
-    echo "ots: stamp failed for $SHORT (calendar unreachable?); skipping follow-up" >&2
-    exit 0
-fi
-
-if [ ! -f "$OTS_FILE" ]; then
-    echo "ots: proof file not created at $OTS_FILE; skipping follow-up" >&2
-    exit 0
-fi
-
-git add "$OTS_FILE"
-git commit --no-verify -m "ots: stamp $SHORT"
+# Add only the two files this hook created — never the whole directory,
+# which would silently sweep unrelated timestamps/ state (e.g. in-flight
+# anchored/ moves) into a stamp commit.
+git add "$HASH_FILE" "$HASH_FILE.ots"
+git commit --no-verify -m "ots: stamp $HASH"

@@ -1,0 +1,20 @@
+{
+  "model": "gpt-6-astra",
+  "template": "src/yanantin/eval/find_judge_prompt.md",
+  "template_sha256": "4fb311323d5ec4b4ce794a3d1c9d34f85412c5e6172f52ef24fd0e5b534b081c",
+  "judged_queries": 97,
+  "judged_labels": 1662,
+  "rejudge_seed": "2026-09-29a",
+  "rejudged_queries": [
+    "01019fce2a39bf75",
+    "12dd63648a8ae2b2",
+    "3b7abad4b4207840",
+    "3c6bd24c8aedfa66",
+    "4e5fb68c2a33b55a",
+    "5ef8b8e216d38544",
+    "7e0820d1432c883c",
+    "9cfafbe43a57f3ac",
+    "b1e987df0a417dfe",
+    "f4d55f507a12214a"
+  ]
+}

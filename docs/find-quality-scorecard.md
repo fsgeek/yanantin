@@ -79,3 +79,13 @@ nothing that anyone uses. It has no callers.
 - **Record text is not published.** The repo is public, and the records lane has never been
   published. The manifest pins the withheld passages and queries by sha256. The judgments
   and retrieval published here hold only ids, labels and scores.
+
+## Deployed (2026-09-29)
+
+- **Deployment.** `find()` runs on the passage index as of `38fd3f25`. The production sync
+  added 8,567 passages, the same number the instrument derived, and a second sync added 0.
+- **Replay** of the 101 frozen queries through production `find()` (obs-0005, a replay, not
+  a prediction):
+  - 5 queries return nothing, the same as A2.
+  - Record-level success@10 is 0.812. It isn't comparable one-to-one with A2's passage-level
+    0.762, because one record hit carries all of that record's matched passages.

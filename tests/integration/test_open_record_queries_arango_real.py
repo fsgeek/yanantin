@@ -68,8 +68,10 @@ def backend(arango_session):
         "evolutions",
         "entities",
         "records",
+        "passages",  # derived from records; truncating records orphans them
     ):
-        db._db.collection(collection_name).truncate()
+        if db._db.has_collection(collection_name):
+            db._db.collection(collection_name).truncate()
 
     yield db
     db.close()

@@ -120,6 +120,11 @@ def live_graph(live_arango_available: None) -> LiveGraph:
                 """,
                 bind_vars={"tag": tag},
             )
+        if db.has_collection("passages"):
+            db.aql.execute(
+                "FOR p IN passages FILTER p.record_key IN @keys REMOVE p IN passages",
+                bind_vars={"keys": [str(r) for r in record_ids]},
+            )
         if db.has_collection("records"):
             records = db.collection("records")
             for record_id in record_ids:

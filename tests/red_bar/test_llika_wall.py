@@ -141,6 +141,11 @@ def test_agent_side_process_cannot_obtain_working_llika_graph_handle() -> None:
                 """,
                 bind_vars={"tag": tag},
             )
+        if db.has_collection("passages"):
+            db.aql.execute(
+                "FOR p IN passages FILTER p.record_key IN @keys REMOVE p IN passages",
+                bind_vars={"keys": [str(left_id), str(right_id)]},
+            )
         if db.has_collection("records"):
             records = db.collection("records")
             records.delete(str(left_id), ignore_missing=True)

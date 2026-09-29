@@ -90,7 +90,8 @@ class FindResult:
         field (wall-clock for humans, labeled-Lamport (instance_id, cycle) =
         a vector clock for instances), range-queryable. Model admits it; v1
         doesn't build it.
-      - relevance/BM25 ranking: NOT here (substring match; order is scan order).
+      - relevance/BM25 ranking: hits are in BM25 order over passages (the
+        ArangoDB backend), but no rank/score envelope is exposed yet.
       - value-obfuscation (gh #9): values stored/searched PLAINTEXT under the
         transparent obfuscator; a real value-map breaks substring — #9's slice.
       - Pukara placement (gh #8): in-process here; agent-facing is downstream."""

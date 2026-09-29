@@ -19,3 +19,7 @@ ruvector.db
 .mcp.json
 .swarm
 CLAUDE.md
+# Record text stays local (public repo); manifests pin these by sha256.
+results/find-quality/*/passages.jsonl
+results/find-quality/*/queries.jsonl
+results/find-quality/*/judge-cache/

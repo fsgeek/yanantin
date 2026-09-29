@@ -1,0 +1,33 @@
+{
+  "run_id": "2026-09-29a",
+  "observed_at": "2026-09-29T15:29:56.826306+00:00",
+  "corpus": "apacheta.records",
+  "corpus_sha256": "d1829ae2fd5e0db21b8d0dcc75677f56f375413024ed1ef1b06c7e7a6b19417d",
+  "git_head": "bf8c66775c7d064d6f916e95fe51363754b4c7c1",
+  "k": 10,
+  "counts": {
+    "records": 442,
+    "sessions": 37,
+    "search_memory_calls": 113,
+    "queries": 101,
+    "queries_empty_reason": 28,
+    "passages": 8567,
+    "zero_result": {
+      "A0": 58,
+      "A1": 48,
+      "A2": 5,
+      "A3": 11
+    }
+  },
+  "arms": {
+    "A0": "find() rule: case-insensitive substring over top-level string field values; hits mapped to passages; recency order (cycle desc, pid asc)",
+    "A1": "same substring rule over all passages (nested values); recency order",
+    "A2": "ArangoSearch BM25, text_en, over humanized path + ': ' + value, underscores -> spaces in text and query",
+    "A3": "A2 without the underscore rule: raw path + ': ' + raw value, raw query"
+  },
+  "withheld": {
+    "passages.jsonl": "97121a0197fdc674e7a093b3c67a11a0c16fea9c1bdac66f92470bee3dbedf1d",
+    "queries.jsonl": "c8a9dbfee9e0a899a9f2541d0ec1e562f12a1cadedf9a7a317434df0e31f7b04"
+  },
+  "withheld_note": "Record text is not published (public repo; the records lane has never been published). Files are kept locally; these hashes pin them."
+}

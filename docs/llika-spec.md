@@ -4,6 +4,13 @@
 
 *Design date: 2026-03-31. Status: approved, not yet implemented.*
 
+*Status 2026-09-29: implemented and since revised. The code is authoritative where this
+spec disagrees. The Constructor and Traversal sections below are the ORIGINAL design:
+`LlikaService` now takes a `GraphBackend` rather than a db handle (yanantin#10);
+`find(predicate)` and `path()` were cut, and `find(terms)` is content recall (substring
+today; the BM25 view in `apacheta/content_view.py` is built but not yet wired). See
+`docs/requests/2026-09-29-reply-to-levadura-salvaje.md`.*
+
 ## What It Is
 
 A graph-structured index service for yanantin. Sits alongside Apacheta

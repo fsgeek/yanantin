@@ -6,8 +6,11 @@ docs/requests/2026-10-14-reply-to-yanantin.md, dated correction). Tony's own
 qhaway MCP entry runs it. If any of the three changes here, his qhaway breaks or
 diverges silently, so changing one means telling qhaway in the same change.
 
-Known debt: qhaway counts with admin_user/admin_passwd (root). A read-only tier
-would be least privilege; until qhaway moves to one, those keys stay pinned.
+Known debt: qhaway counts with admin_user/admin_passwd (root). The read-only
+account now exists (`python -m yanantin.infra reader --grant llm_memory` writes
+~/.yanantin/config/reader.ini; its keys are pinned in
+tests/integration/test_reader_account.py). When qhaway switches, drop the admin
+keys from the pin below.
 """
 
 from pathlib import Path

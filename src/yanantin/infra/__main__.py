@@ -100,6 +100,12 @@ def cmd_connect(args: argparse.Namespace) -> None:
         sys.exit(1)
 
 
+def cmd_reader(args: argparse.Namespace) -> None:
+    setup = ApachetaDBSetup(ApachetaDBConfig())
+    path = setup.ensure_reader(args.grant)
+    print(f"Reader ready: read-only on {', '.join(args.grant)}; credentials in {path}")
+
+
 def cmd_default(args: argparse.Namespace) -> None:
     if ApachetaDBConfig.default_config_file.exists():
         cmd_check(args)
@@ -137,6 +143,12 @@ def main() -> None:
     connect_p.add_argument("--ssl", action="store_true")
     connect_p.add_argument("--admin-password", default=None)
     connect_p.set_defaults(func=cmd_connect)
+
+    reader_p = sub.add_parser(
+        "reader", help="Read-only account (reader.ini) for consumers that only read or count")
+    reader_p.add_argument("--grant", action="append", required=True, metavar="DATABASE",
+                          help="database to grant read-only access on (repeatable)")
+    reader_p.set_defaults(func=cmd_reader)
 
     args = parser.parse_args()
     logging.basicConfig(level=getattr(logging, args.log_level))

@@ -8,7 +8,9 @@ Reference: ~/projects/indaleko-test/db/db_setup.py
 
 from __future__ import annotations
 
+import configparser
 import logging
+import os
 from pathlib import Path
 
 from yanantin.infra.config import ApachetaDBConfig
@@ -103,6 +105,52 @@ class ApachetaDBSetup:
 
         logger.info("Setup complete.")
         return True
+
+    def ensure_reader(
+        self,
+        databases: list[str],
+        reader_file: Path | None = None,
+        username: str = "yanantin_reader",
+    ) -> Path:
+        """A read-only account for consumers that only count or read (qhaway's reground).
+
+        Grants "ro" on exactly ``databases`` and nothing else, and writes its
+        credentials to ``reader_file`` (default: reader.ini beside db.ini, 0600),
+        which holds no admin key, so a consumer never has to read db.ini.
+        Idempotent: an existing reader.ini keeps its password.
+        """
+        cfg = self._config
+        reader_file = reader_file or cfg._config_file.parent / "reader.ini"
+        stored = configparser.ConfigParser()
+        stored.read(reader_file)
+        known = stored.has_section("database") and stored["database"].get("user") == username
+        password = stored["database"]["password"] if known else ApachetaDBConfig._random_password(24)
+
+        sys_db = cfg.connect("admin")
+        if any(u["username"] == username for u in sys_db.users()):
+            if not known:
+                sys_db.update_user(username=username, password=password, active=True)
+        else:
+            sys_db.create_user(username=username, password=password, active=True)
+        for db_name in databases:
+            sys_db.update_permission(username, "ro", db_name)
+
+        out = configparser.ConfigParser()
+        out["database"] = {
+            "host": cfg.db["host"],
+            "port": cfg.db["port"],
+            "ssl": cfg.db.get("ssl", "false"),
+            "user": username,
+            "password": password,
+            "databases": ",".join(databases),
+        }
+        reader_file.parent.mkdir(parents=True, exist_ok=True)
+        fd = os.open(reader_file, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+        with os.fdopen(fd, "w") as f:
+            out.write(f)
+        os.chmod(reader_file, 0o600)
+        logger.info("Reader %s: ro on %s; credentials in %s", username, databases, reader_file)
+        return reader_file
 
     def check(self) -> bool:
         """Verify container, database, and credentials."""

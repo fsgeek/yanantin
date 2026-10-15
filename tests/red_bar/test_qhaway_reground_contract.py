@@ -1,38 +1,32 @@
 """RED BAR: what qhaway's `[reground]` extra reads from yanantin, pinned.
 
-qhaway never imports yanantin. Its reground.py reads ~/.yanantin/config/db.ini
-directly and copies Regrounding.render()'s wording (qhaway
-docs/requests/2026-10-14-reply-to-yanantin.md, dated correction). Tony's own
-qhaway MCP entry runs it. If any of the three changes here, his qhaway breaks or
-diverges silently, so changing one means telling qhaway in the same change.
+qhaway never imports yanantin. Since qhaway 0.7.5 (99e133b) its reground.py
+activates when ~/.yanantin/config is a directory, reads only
+~/.yanantin/config/reader.ini ([database] host, port, ssl, user, password,
+written by `python -m yanantin.infra reader`), and copies
+Regrounding.render()'s wording. It never opens db.ini. Tony's qhaway MCP runs
+it. If any of these changes here, his qhaway goes quiet or diverges silently,
+so changing one means telling qhaway in the same change.
 
-Known debt: qhaway counts with admin_user/admin_passwd (root). The read-only
-account now exists (`python -m yanantin.infra reader --grant llm_memory` writes
-~/.yanantin/config/reader.ini; its keys are pinned in
-tests/integration/test_reader_account.py). When qhaway switches, drop the admin
-keys from the pin below.
+The reader.ini key set and its read-only grants are pinned live in
+tests/integration/test_reader_account.py.
 """
 
+import inspect
 from pathlib import Path
-from unittest.mock import patch
 
 from yanantin.infra import config
+from yanantin.infra.orchestrator import ApachetaDBSetup
 from yanantin.memory.regrounding import Regrounding
 
 
-def test_config_path_is_where_qhaway_reads_it():
-    assert config._DEFAULT_CONFIG_FILE == Path.home() / ".yanantin" / "config" / "db.ini"
+def test_config_directory_is_where_qhaway_looks():
+    assert config._DEFAULT_CONFIG_FILE.parent == Path.home() / ".yanantin" / "config"
 
 
-def test_config_keys_qhaway_reads(tmp_path):
-    config_file = tmp_path / "db.ini"
-    config.ApachetaDBConfig._instance = None
-    try:
-        with patch.object(config.ApachetaDBConfig, "default_config_file", config_file):
-            cfg = config.ApachetaDBConfig(config_file=config_file)
-        assert {"host", "port", "ssl", "admin_user", "admin_passwd"} <= set(cfg.db.keys())
-    finally:
-        config.ApachetaDBConfig._instance = None
+def test_reader_file_defaults_beside_db_ini():
+    source = inspect.getsource(ApachetaDBSetup.ensure_reader)
+    assert 'cfg._config_file.parent / "reader.ini"' in source
 
 
 def test_render_wording_qhaway_copies():

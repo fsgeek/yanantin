@@ -140,3 +140,14 @@ def test_remote_config_has_no_container_fields(tmp_path):
     assert "ssl = true" in content
 
     ApachetaDBConfig._instance = None
+
+
+def test_fully_specified_target_needs_no_yanantin_config():
+    """Reading another project's database (khipumaq, via yanantin.evidence) must not
+    load-or-create yanantin's own config as a side effect."""
+    from yanantin.infra import config
+
+    with patch.object(config, "ApachetaDBConfig", side_effect=AssertionError("config touched")):
+        assert config._resolve_db_params("http://h:1", "db", "u", "p") == ("http://h:1", "db", "u", "p")
+        with pytest.raises(AssertionError, match="config touched"):
+            config._resolve_db_params("http://h:1", "db", "u", None)

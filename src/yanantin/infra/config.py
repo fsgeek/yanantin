@@ -244,6 +244,10 @@ def _resolve_db_params(
     resolve to the same (host, db_name, username) key and do NOT split into two
     connections. The cache in get_database() sits BEHIND this function.
     """
+    if host and db_name and username and password:
+        # A fully specified target (e.g. another project's database) needs no
+        # yanantin config, and must not load-or-create one as a side effect.
+        return host, db_name, username, password
     cfg = ApachetaDBConfig()  # the credential singleton (load-or-create)
     app_creds = cfg.get_app_credentials()
 

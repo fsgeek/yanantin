@@ -34,6 +34,7 @@ context or external infrastructure:
 | `yanantin.activity.backends.duckdb` | Active | File-backed activity stream backend. |
 | `yanantin.infra` | Active | Local infrastructure setup and status tooling. |
 | `yanantin.collector` | Active | Data collection pipeline and concrete collectors. |
+| `yanantin.evidence` | Active | Evidence references in memory frontmatter and their verifier (`python -m yanantin.evidence`). |
 
 Use these when you are ready to manage their dependencies and failure modes.
 

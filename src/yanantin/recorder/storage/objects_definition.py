@@ -32,5 +32,15 @@ OBJECTS_DEFINITION = CollectionDefinition(
             "name": "idx_objects_modified",
             "sparse": False,
         },
+        # Find by name ("config", ".bashrc") without scanning every object.
+        # Measured 2026-10-15 on 4.4M objects: label lookup by full scan 2,375 ms.
+        # inBackground: building it must not lock a populated collection.
+        {
+            "type": "persistent",
+            "fields": ["label"],
+            "name": "idx_objects_label",
+            "sparse": False,
+            "inBackground": True,
+        },
     ),
 )

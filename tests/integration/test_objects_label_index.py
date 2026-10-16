@@ -22,8 +22,8 @@ def objects():
     name = f"Obj_label_{uuid4().hex[:8]}"
     collection = Khipu(db=db, obfuscator=TransparentObfuscator()).watay(name, OBJECTS_DEFINITION)
     collection.insert_many([
-        {"label": "config", "uri": "file:///home/t/.ssh/config"},
-        {"label": "settings.json", "uri": "file:///home/t/.claude/settings.json"},
+        {"label": "config", "uri": "file:///fixture/.ssh/config"},
+        {"label": "settings.json", "uri": "file:///fixture/.claude/settings.json"},
     ])
     yield db, name
     db.delete_collection(name, ignore_missing=True)
@@ -35,4 +35,4 @@ def test_label_lookup_uses_the_index(objects):
     nodes = db.aql.explain(query)["nodes"]
     used = [i["name"] for n in nodes if n["type"] == "IndexNode" for i in n["indexes"]]
     assert "idx_objects_label" in used
-    assert list(db.aql.execute(query)) == ["file:///home/t/.ssh/config"]
+    assert list(db.aql.execute(query)) == ["file:///fixture/.ssh/config"]

@@ -44,8 +44,10 @@ credentials are **enforcement**.
    key sets). The AWS root account has MFA and is never used for operations.
 4. **Every access to a secret is logged** (CloudTrail). "Entry is logged" holds at the edge too,
    and there the log is also evidence for the attestation service's own trustworthiness.
-5. **Exceptions are the Tessera author's to make**, per Tessera's credibility line, and are
-   recorded with their reason.
+5. **Exceptions are recorded with their reason.** (An earlier version of this line said
+   exceptions were "the Tessera author's to make, per Tessera's credibility line". Tony has
+   never agreed to that line and has objected to it repeatedly, so it was removed on
+   2026-10-16.)
 
 ## Register (2026-10-16; names and holders only)
 

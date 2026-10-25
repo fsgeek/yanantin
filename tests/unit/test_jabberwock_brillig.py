@@ -766,3 +766,28 @@ class TestFrabjousProofEnvelope:
         view = bootstrapped.uffish(entity.id)
         assert len(view.evidence_ids) == 1
         assert view.evidence_ids[0] == entity.id
+
+
+class TestWorldTimeAndImport:
+    """gh #41 (Vorpal world time through the public API) and gh #42 (backfill)."""
+
+    def test_outgrabe_carries_world_time_into_the_view(self, bootstrapped):
+        entity = bootstrapped.beamish()
+        may8 = datetime(2026, 5, 8, tzinfo=timezone.utc)
+        v = bootstrapped.outgrabe(entity.id, "state_tokens", 55389, gyre_from=may8, gyre_to=may8)
+        assert v.brillig > may8  # recorded now, true then
+        [seen] = bootstrapped.uffish(entity.id).vorpals
+        assert (seen.gyre_from, seen.gyre_to) == (may8, may8)
+
+    def test_import_record_keeps_its_own_id_and_event_time(self, bootstrapped):
+        entity = bootstrapped.beamish()
+        then = datetime(2025, 1, 2, 3, 4, tzinfo=timezone.utc)
+        record = Vorpal(id=uuid4(), jabberwock_id=entity.id, tulgey="edition",
+                        snicker_snack="1997", bandersnatch=entity.id, brillig=then)
+        bootstrapped.import_record(record)
+        [seen] = bootstrapped.uffish(entity.id).vorpals
+        assert (seen.id, seen.brillig) == (record.id, then)
+
+    def test_import_record_refuses_non_jabberwock_records(self, bootstrapped):
+        with pytest.raises(TypeError):
+            bootstrapped.import_record(object())

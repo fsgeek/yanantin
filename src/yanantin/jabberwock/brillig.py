@@ -151,11 +151,15 @@ class Brillig:
         tulgey: str,
         snicker_snack: Any,
         bandersnatch: UUID | None = None,
+        gyre_from: datetime | None = None,
+        gyre_to: datetime | None = None,
     ) -> Vorpal:
         """Observe: push a fact about an entity. Fire and forget.
 
         jabberwock_id=None creates a mome vorpal (still walking).
         bandersnatch defaults to ROOT_BANDERSNATCH_ID if not specified.
+        gyre_from/gyre_to say when the observed value held (world time),
+        separately from brillig, when it was observed.
         """
         now = datetime.now(timezone.utc)
         vorpal = Vorpal(
@@ -164,6 +168,8 @@ class Brillig:
             snicker_snack=snicker_snack,
             bandersnatch=_provider_or_root(bandersnatch),
             brillig=now,
+            gyre_from=gyre_from,
+            gyre_to=gyre_to,
         )
         self._store_record(vorpal)
         return vorpal
@@ -395,6 +401,20 @@ class Brillig:
         return rath
 
     # -- Internal helpers --------------------------------------------------
+
+    def import_record(self, record: Jabberwock | Tove | Vorpal | Rath) -> None:
+        """Backfill: store a record built elsewhere, keeping its own id and brillig.
+
+        For event-sourced imports, where the true event time is in the past and
+        ids must be deterministic. The record is already validated (naive
+        datetimes rejected); this appends it like any other write.
+        """
+        if type(record) not in _PROVIDER_FOR:
+            raise TypeError(
+                f"import_record takes a Jabberwock, Tove, Vorpal or Rath, "
+                f"not {type(record).__name__}"
+            )
+        self._store_record(record)
 
     def _store_record(self, record: BaseModel) -> None:
         """Store any Jabberwock record as a FactRecord.

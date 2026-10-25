@@ -191,10 +191,26 @@ class Vorpal(BaseModel):
     snicker_snack: Any  # the value -- JSON-serializable
     bandersnatch: UUID  # jabberwock_id of the observing provider
     brillig: datetime  # when this observation was made (event time)
+    gyre_from: datetime | None = None  # when the observed value began to hold (world time)
+    gyre_to: datetime | None = None  # when it stopped holding (None = open / unknown)
 
     @model_validator(mode="after")
     def _normalize_timestamps(self) -> Self:
         object.__setattr__(self, "brillig", _ensure_utc(self.brillig))
+        if self.gyre_from is not None:
+            object.__setattr__(self, "gyre_from", _ensure_utc(self.gyre_from))
+        if self.gyre_to is not None:
+            object.__setattr__(self, "gyre_to", _ensure_utc(self.gyre_to))
+        return self
+
+    @model_validator(mode="after")
+    def _validate_gyre_order(self) -> Self:
+        if (self.gyre_from is not None and self.gyre_to is not None
+                and self.gyre_to < self.gyre_from):
+            raise ValueError(
+                f"gyre_to ({self.gyre_to}) cannot precede "
+                f"gyre_from ({self.gyre_from})"
+            )
         return self
 
     @model_validator(mode="after")

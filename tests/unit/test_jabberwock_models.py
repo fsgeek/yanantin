@@ -594,3 +594,29 @@ class TestProviderConstants:
         """ROOT_BANDERSNATCH_ID is not a provider UUID -- it's an entity."""
         providers = {JABBERWOCK_PROVIDER, TOVE_PROVIDER, VORPAL_PROVIDER, RATH_PROVIDER}
         assert ROOT_BANDERSNATCH_ID not in providers
+
+
+class TestVorpalWorldTime:
+    """gh #41: a Vorpal can say when its observation was true, apart from when it was made."""
+
+    def _v(self, **kw):
+        return Vorpal(jabberwock_id=uuid4(), tulgey="state_tokens", snicker_snack=55389,
+                      bandersnatch=PROVIDER, brillig=NOW, **kw)
+
+    def test_world_time_is_optional(self):
+        v = self._v()
+        assert v.gyre_from is None and v.gyre_to is None
+
+    def test_world_time_normalized_to_utc(self):
+        pdt = timezone(timedelta(hours=-7))
+        v = self._v(gyre_from=datetime(2026, 5, 8, 5, 0, tzinfo=pdt))
+        assert v.gyre_from == datetime(2026, 5, 8, 12, 0, tzinfo=timezone.utc)
+        assert v.gyre_from.tzinfo == timezone.utc
+
+    def test_naive_world_time_rejected(self):
+        with pytest.raises(ValidationError):
+            self._v(gyre_from=datetime(2026, 5, 8))
+
+    def test_world_time_order_checked(self):
+        with pytest.raises(ValidationError):
+            self._v(gyre_from=NOW, gyre_to=NOW - timedelta(days=1))

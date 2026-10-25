@@ -41,6 +41,7 @@ from yanantin.jabberwock.models import (
     Rath,
     Tove,
     Vorpal,
+    _ensure_utc,
 )
 from yanantin.jabberwock.normalize import normalize_gimble
 
@@ -57,6 +58,18 @@ _PROVIDER_FOR: dict[type[BaseModel], UUID] = {
 def _provider_or_root(bandersnatch: UUID | None) -> UUID:
     """Default to ROOT_BANDERSNATCH_ID when no provider is given."""
     return bandersnatch if bandersnatch is not None else ROOT_BANDERSNATCH_ID
+
+
+def _valid_at(record: BaseModel, at: datetime | None) -> bool:
+    """World-time validity: gyre_from <= at < gyre_to, a missing side unbounded.
+
+    at=None means no filtering. A record without gyre fields is valid at every time.
+    """
+    if at is None:
+        return True
+    start = getattr(record, "gyre_from", None)
+    end = getattr(record, "gyre_to", None)
+    return (start is None or start <= at) and (end is None or at < end)
 
 
 class Brillig:
@@ -207,7 +220,9 @@ class Brillig:
 
     # -- Resolution --------------------------------------------------------
 
-    def galumph(self, wabe: str, gimble: str) -> Frabjous | MomeResult:
+    def galumph(
+        self, wabe: str, gimble: str, at: datetime | None = None,
+    ) -> Frabjous | MomeResult:
         """Resolve: (namespace, identifier) -> entity + all projections.
 
         Returns Frabjous if fully resolved to a single entity.
@@ -215,12 +230,18 @@ class Brillig:
         - The alias exists but is unresolved (mome tove)
         - Multiple candidates exist
         - No alias exists at all (empty MomeResult)
+
+        at: resolve what the name meant at that world time (gyre_from <= at <
+        gyre_to). None (the default) filters nothing, so the answer never
+        depends on when the call is made.
         """
+        if at is not None:
+            at = _ensure_utc(at)
         canonical = normalize_gimble(wabe, gimble)
 
         matching = [
             t for t in self._load_all(Tove)
-            if t.wabe == wabe and t.gimble == canonical
+            if t.wabe == wabe and t.gimble == canonical and _valid_at(t, at)
         ]
 
         if not matching:
@@ -236,7 +257,7 @@ class Brillig:
             )
 
         if len(resolved_ids) == 1:
-            return self.uffish(next(iter(resolved_ids)))
+            return self.uffish(next(iter(resolved_ids)), at=at)
 
         # Multiple candidates
         candidates = []
@@ -251,7 +272,7 @@ class Brillig:
             candidates=tuple(candidates),
         )
 
-    def uffish(self, jabberwock_id: UUID) -> Frabjous:
+    def uffish(self, jabberwock_id: UUID, at: datetime | None = None) -> Frabjous:
         """Materialize: entity UUID -> full view from all observations.
 
         Queries all Toves, Vorpals, and Raths for the given entity,
@@ -268,11 +289,20 @@ class Brillig:
         so consumers can take the first observation of a given tulgey
         as the most recent without inspecting timestamps.
         """
+        if at is not None:
+            at = _ensure_utc(at)
         jabberwock = self._load_jabberwock(jabberwock_id)
 
         entity_toves = [t for t in self._load_all(Tove) if t.jabberwock_id == jabberwock_id]
         all_entity_vorpals = [v for v in self._load_all(Vorpal) if v.jabberwock_id == jabberwock_id]
         entity_raths = [r for r in self._load_all(Rath) if r.jabberwock_id == jabberwock_id]
+
+        # World-time view: keep what held at `at`; count what was left out.
+        before = len(entity_toves) + len(all_entity_vorpals) + len(entity_raths)
+        entity_toves = [t for t in entity_toves if _valid_at(t, at)]
+        all_entity_vorpals = [v for v in all_entity_vorpals if _valid_at(v, at)]
+        entity_raths = [r for r in entity_raths if _valid_at(r, at)]
+        time_excluded = before - (len(entity_toves) + len(all_entity_vorpals) + len(entity_raths))
 
         # Separate claim events from observation vorpals
         claim_vorpals = [v for v in all_entity_vorpals if v.tulgey == "claim"]
@@ -295,7 +325,7 @@ class Brillig:
             vorpals=tuple(observation_vorpals),
             raths=tuple(entity_raths),
             evidence_ids=tuple(evidence),
-            excluded_count=len(claim_vorpals),
+            excluded_count=len(claim_vorpals) + time_excluded,
             callooh=datetime.now(timezone.utc),
         )
 

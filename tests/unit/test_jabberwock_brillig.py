@@ -791,3 +791,65 @@ class TestWorldTimeAndImport:
     def test_import_record_refuses_non_jabberwock_records(self, bootstrapped):
         with pytest.raises(TypeError):
             bootstrapped.import_record(object())
+
+
+class TestAtWorldTime:
+    """gh #41 follow-up, specified by levadura: views at a world time, never by default.
+
+    Valid at t means gyre_from <= t < gyre_to; a missing side is unbounded; a record
+    with no gyre is valid at every t. at=None filters nothing.
+    """
+
+    Y1997 = datetime(1997, 1, 1, tzinfo=timezone.utc)
+    Y2010 = datetime(2010, 1, 1, tzinfo=timezone.utc)
+    Y2025 = datetime(2025, 1, 1, tzinfo=timezone.utc)
+
+    def test_galumph_resolves_what_the_name_meant_then(self, bootstrapped):
+        old, new = bootstrapped.beamish(), bootstrapped.beamish()
+        bootstrapped.slithy(old.id, "cfr.12.202", "the act", gyre_from=self.Y1997, gyre_to=self.Y2010)
+        bootstrapped.slithy(new.id, "cfr.12.202", "the act", gyre_from=self.Y2010)
+        assert bootstrapped.galumph("cfr.12.202", "the act", at=self.Y1997).jabberwock.id == old.id
+        assert bootstrapped.galumph("cfr.12.202", "the act", at=self.Y2010).jabberwock.id == new.id  # half-open
+        assert bootstrapped.galumph("cfr.12.202", "the act", at=self.Y2025).jabberwock.id == new.id
+        assert len(bootstrapped.galumph("cfr.12.202", "the act").candidates) == 2  # at=None: no filtering
+
+    def test_two_valid_at_t_is_ambiguous_not_a_pick(self, bootstrapped):
+        a, b = bootstrapped.beamish(), bootstrapped.beamish()
+        bootstrapped.slithy(a.id, "w", "x", gyre_from=self.Y1997)
+        bootstrapped.slithy(b.id, "w", "x", gyre_from=self.Y2010)
+        assert len(bootstrapped.galumph("w", "x", at=self.Y2025).candidates) == 2
+
+    def test_uffish_at_filters_and_counts_what_it_left_out(self, bootstrapped):
+        e = bootstrapped.beamish()
+        bootstrapped.outgrabe(e.id, "tokens", 1, gyre_from=self.Y1997, gyre_to=self.Y2010)
+        bootstrapped.outgrabe(e.id, "tokens", 2, gyre_from=self.Y2010)
+        bootstrapped.outgrabe(e.id, "species", "act")  # no gyre: valid at every t
+        then = bootstrapped.uffish(e.id, at=self.Y1997)
+        assert sorted(str(v.snicker_snack) for v in then.vorpals) == ["1", "act"]
+        assert then.excluded_count == 1
+        assert len(bootstrapped.uffish(e.id).vorpals) == 3
+
+    def test_unbounded_sides(self, bootstrapped):
+        e = bootstrapped.beamish()
+        bootstrapped.outgrabe(e.id, "until", "x", gyre_to=self.Y2010)
+        assert len(bootstrapped.uffish(e.id, at=self.Y1997).vorpals) == 1
+        assert len(bootstrapped.uffish(e.id, at=self.Y2025).vorpals) == 0
+
+    def test_naive_at_rejected(self, bootstrapped):
+        e = bootstrapped.beamish()
+        with pytest.raises(ValueError):
+            bootstrapped.uffish(e.id, at=datetime(2025, 1, 1))
+
+    def test_uffish_at_filters_raths_too(self, bootstrapped):
+        e, ed1997 = bootstrapped.beamish(), bootstrapped.beamish()
+        bootstrapped.add_rath(e.id, ed1997.id, "volume", gyre_from=self.Y1997, gyre_to=self.Y2010)
+        assert len(bootstrapped.uffish(e.id, at=self.Y1997).raths) == 1
+        assert len(bootstrapped.uffish(e.id, at=self.Y2025).raths) == 0
+
+    def test_galumph_at_also_filters_the_view_it_returns(self, bootstrapped):
+        e = bootstrapped.beamish()
+        bootstrapped.slithy(e.id, "w", "x", gyre_from=self.Y1997)
+        bootstrapped.outgrabe(e.id, "meaning", "old", gyre_from=self.Y1997, gyre_to=self.Y2010)
+        bootstrapped.outgrabe(e.id, "meaning", "new", gyre_from=self.Y2010)
+        view = bootstrapped.galumph("w", "x", at=self.Y1997)
+        assert [v.snicker_snack for v in view.vorpals] == ["old"]

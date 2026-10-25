@@ -54,8 +54,8 @@ credentials are **enforcement**.
 | Credential | Scope | Held / used by | Last rotated | Status |
 |---|---|---|---|---|
 | ArangoDB root, arango-apacheta (`db.ini` `admin_*`) | everything on the production server | `~/.yanantin/config/db.ini`; yanantin `infra/config.py`, `infra/docker.py`; hamutay `deploy/backup-arango.sh` (reads `db.ini` at runtime) | **2026-10-25** | rotated; the container env `ARANGO_ROOT_PASSWORD` still holds the old, exposed value (it only seeds a fresh volume and nothing reads it for this server) |
-| ArangoDB root, arango-vector-sandbox | everything on the sandbox server | tampu `~/.config/tampu/test-admin.json`; levadura `scripts/check_distill_arango.py` and hamutay-style tools read it from the container env via `docker inspect` | never | **no longer shared with production** (since 10-25), but still the exposed value. Rotating it needs its readers to move off `docker inspect` to a file; handed to levadura and tampu |
-| ArangoDB root, arango-ayllu | everything on the ayllu server | levadura and hamutay tooling (not inventoried) | unknown | inventory |
+| ArangoDB root, arango-vector-sandbox | everything on the sandbox server | levadura `~/.levadura/config/sandbox.ini` `[root] password` (0600, read by `tenant.sandbox_root()`, levadura #120); tampu `~/.config/tampu/test-admin.json` (0600) | **2026-10-25** | rotated, written to both holders without passing through an agent; verified it opens only the sandbox. The container env `ARANGO_ROOT_PASSWORD` holds the old value and nothing reads it now |
+| ArangoDB root, arango-ayllu | everything on the ayllu server | levadura `scripts/tenant_setup.py` (reads the container env via `docker inspect`); hamutay `deploy/backup-restore-test.sh` (same) | never | not exposed; before rotating, both readers move to 0600 files (levadura offered) |
 | yanantin app user (`db.ini` `app_*`) | rw on `apacheta` | yanantin `connect()`; hamutay doors | never | — |
 | yanantin test user (`db.ini` `test_*`) | rw on `apacheta_test` | yanantin tests | never | — |
 | `yanantin_reader` (`reader.ini`) | ro on `llm_memory` | qhaway 0.7.5 reground | created 2026-10-15 | — |

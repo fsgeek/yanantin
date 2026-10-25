@@ -853,3 +853,17 @@ class TestAtWorldTime:
         bootstrapped.outgrabe(e.id, "meaning", "new", gyre_from=self.Y2010)
         view = bootstrapped.galumph("w", "x", at=self.Y1997)
         assert [v.snicker_snack for v in view.vorpals] == ["old"]
+
+    def test_gyreless_alias_is_valid_at_every_time(self, bootstrapped):
+        """gh #47: no gyre given means unbounded, not 'from when it was recorded'."""
+        e = bootstrapped.beamish()
+        tove = bootstrapped.slithy(e.id, "act", "federal deposit insurance act")
+        assert tove.gyre_from is None
+        far_past = datetime(1990, 1, 1, tzinfo=timezone.utc)
+        assert bootstrapped.galumph("act", "federal deposit insurance act", at=far_past).jabberwock.id == e.id
+
+    def test_gyreless_rath_is_valid_at_every_time(self, bootstrapped):
+        e, group = bootstrapped.beamish(), bootstrapped.beamish()
+        rath = bootstrapped.add_rath(e.id, group.id, "volume")
+        assert rath.gyre_from is None
+        assert len(bootstrapped.uffish(e.id, at=datetime(1990, 1, 1, tzinfo=timezone.utc)).raths) == 1

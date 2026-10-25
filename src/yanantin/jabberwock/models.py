@@ -98,7 +98,7 @@ class Tove(BaseModel):
     jabberwock_id: UUID | None = None  # None = mome (still walking)
     wabe: str  # namespace
     gimble: str  # canonical identifier within the wabe
-    gyre_from: datetime  # asserted validity start (world time)
+    gyre_from: datetime | None = None  # asserted validity start (world time); None = unbounded
     gyre_to: datetime | None = None  # asserted validity end (None = current)
     bandersnatch: UUID  # jabberwock_id of the observing provider
     brillig: datetime  # when this alias was observed (event time)
@@ -106,14 +106,16 @@ class Tove(BaseModel):
     @model_validator(mode="after")
     def _normalize_timestamps(self) -> Self:
         object.__setattr__(self, "brillig", _ensure_utc(self.brillig))
-        object.__setattr__(self, "gyre_from", _ensure_utc(self.gyre_from))
+        if self.gyre_from is not None:
+            object.__setattr__(self, "gyre_from", _ensure_utc(self.gyre_from))
         if self.gyre_to is not None:
             object.__setattr__(self, "gyre_to", _ensure_utc(self.gyre_to))
         return self
 
     @model_validator(mode="after")
     def _validate_gyre_order(self) -> Self:
-        if self.gyre_to is not None and self.gyre_to < self.gyre_from:
+        if (self.gyre_from is not None and self.gyre_to is not None
+                and self.gyre_to < self.gyre_from):
             raise ValueError(
                 f"gyre_to ({self.gyre_to}) cannot precede "
                 f"gyre_from ({self.gyre_from})"
@@ -145,7 +147,7 @@ class Rath(BaseModel):
     jabberwock_id: UUID  # the member
     borogove_id: UUID  # the group (a Jabberwock with species Vorpal)
     mimsy: str  # role within group
-    gyre_from: datetime  # asserted membership start (world time)
+    gyre_from: datetime | None = None  # asserted membership start (world time); None = unbounded
     gyre_to: datetime | None = None  # asserted membership end
     bandersnatch: UUID  # jabberwock_id of the observing provider
     brillig: datetime  # when this membership was observed (event time)
@@ -153,14 +155,16 @@ class Rath(BaseModel):
     @model_validator(mode="after")
     def _normalize_timestamps(self) -> Self:
         object.__setattr__(self, "brillig", _ensure_utc(self.brillig))
-        object.__setattr__(self, "gyre_from", _ensure_utc(self.gyre_from))
+        if self.gyre_from is not None:
+            object.__setattr__(self, "gyre_from", _ensure_utc(self.gyre_from))
         if self.gyre_to is not None:
             object.__setattr__(self, "gyre_to", _ensure_utc(self.gyre_to))
         return self
 
     @model_validator(mode="after")
     def _validate_gyre_order(self) -> Self:
-        if self.gyre_to is not None and self.gyre_to < self.gyre_from:
+        if (self.gyre_from is not None and self.gyre_to is not None
+                and self.gyre_to < self.gyre_from):
             raise ValueError(
                 f"gyre_to ({self.gyre_to}) cannot precede "
                 f"gyre_from ({self.gyre_from})"

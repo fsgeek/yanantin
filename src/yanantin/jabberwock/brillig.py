@@ -202,7 +202,8 @@ class Brillig:
 
         gimble is normalized per wabe rules before storage.
         jabberwock_id=None creates a mome tove (unresolved).
-        gyre_from defaults to now if not specified.
+        gyre_from=None means unbounded (valid at every world time);
+        brillig records when it was observed.
         bandersnatch defaults to ROOT_BANDERSNATCH_ID if not specified.
         """
         now = datetime.now(timezone.utc)
@@ -210,7 +211,7 @@ class Brillig:
             jabberwock_id=jabberwock_id,
             wabe=wabe,
             gimble=normalize_gimble(wabe, gimble),
-            gyre_from=gyre_from if gyre_from is not None else now,
+            gyre_from=gyre_from,
             gyre_to=gyre_to,
             bandersnatch=_provider_or_root(bandersnatch),
             brillig=now,
@@ -414,7 +415,8 @@ class Brillig:
     ) -> Rath:
         """Add a membership edge: entity belongs to group with role.
 
-        gyre_from defaults to now if not specified.
+        gyre_from=None means unbounded (valid at every world time);
+        brillig records when it was observed.
         bandersnatch defaults to ROOT_BANDERSNATCH_ID if not specified.
         """
         now = datetime.now(timezone.utc)
@@ -422,7 +424,7 @@ class Brillig:
             jabberwock_id=jabberwock_id,
             borogove_id=borogove_id,
             mimsy=mimsy,
-            gyre_from=gyre_from if gyre_from is not None else now,
+            gyre_from=gyre_from,
             gyre_to=gyre_to,
             bandersnatch=_provider_or_root(bandersnatch),
             brillig=now,

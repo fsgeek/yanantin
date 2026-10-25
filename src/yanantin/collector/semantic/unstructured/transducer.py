@@ -117,14 +117,23 @@ def transduce(file_path: Path, image: str = _UNSTRUCTURED_IMAGE) -> ContentFact:
     # Bind-mount the file's directory read-only; run the container against it.
     mount_dir = str(resolved.parent)
     container_path = f"/data/{resolved.name}"
-    raw = client.containers.run(
+    # Detach, wait, then read logs: docker-py's blocking run() returns None
+    # unless the daemon's log driver is json-file or journald (Docker Desktop
+    # defaulted to "local" by 2026-10-25), so it can't be relied on for output.
+    container = client.containers.run(
         image=image,
         command=["python3", "-c", _IN_CONTAINER_SCRIPT, container_path],
         volumes={mount_dir: {"bind": "/data", "mode": "ro"}},
         mem_limit=_MEM_LIMIT,
-        remove=True,
-        stdout=True,
-        stderr=False,
+        detach=True,
     )
-    elements = json.loads(raw.decode("utf-8") if isinstance(raw, bytes) else raw)
+    try:
+        status = container.wait()["StatusCode"]
+        if status != 0:
+            err = container.logs(stdout=False, stderr=True).decode("utf-8", "replace")
+            raise RuntimeError(f"Unstructured container exited {status}: {err[-500:]}")
+        raw = container.logs(stdout=True, stderr=False)
+    finally:
+        container.remove(force=True)
+    elements = json.loads(raw.decode("utf-8"))
     return _elements_to_content_fact(resolved.as_uri(), elements)

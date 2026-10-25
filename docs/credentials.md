@@ -53,8 +53,8 @@ credentials are **enforcement**.
 
 | Credential | Scope | Held / used by | Last rotated | Status |
 |---|---|---|---|---|
-| ArangoDB root, arango-apacheta (`db.ini` `admin_*`) | everything on the production server | `~/.yanantin/config/db.ini`; yanantin `infra/config.py`, `infra/docker.py`; hamutay `deploy/backup-arango.sh`, `deploy/backup-restore-test.sh`; container env `ARANGO_ROOT_PASSWORD` | never | **exposed 2026-10-16; rotate 10-18** |
-| ArangoDB root, arango-vector-sandbox | everything on the sandbox server | **same value as the apacheta root**; tampu `~/.config/tampu/test-admin.json`; levadura `scripts/check_distill_arango.py` | never | split from apacheta on 10-18 |
+| ArangoDB root, arango-apacheta (`db.ini` `admin_*`) | everything on the production server | `~/.yanantin/config/db.ini`; yanantin `infra/config.py`, `infra/docker.py`; hamutay `deploy/backup-arango.sh` (reads `db.ini` at runtime) | **2026-10-25** | rotated; the container env `ARANGO_ROOT_PASSWORD` still holds the old, exposed value (it only seeds a fresh volume and nothing reads it for this server) |
+| ArangoDB root, arango-vector-sandbox | everything on the sandbox server | tampu `~/.config/tampu/test-admin.json`; levadura `scripts/check_distill_arango.py` and hamutay-style tools read it from the container env via `docker inspect` | never | **no longer shared with production** (since 10-25), but still the exposed value. Rotating it needs its readers to move off `docker inspect` to a file; handed to levadura and tampu |
 | ArangoDB root, arango-ayllu | everything on the ayllu server | levadura and hamutay tooling (not inventoried) | unknown | inventory |
 | yanantin app user (`db.ini` `app_*`) | rw on `apacheta` | yanantin `connect()`; hamutay doors | never | — |
 | yanantin test user (`db.ini` `test_*`) | rw on `apacheta_test` | yanantin tests | never | — |

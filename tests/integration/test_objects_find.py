@@ -55,7 +55,7 @@ def objects(request, db):
     ensure_objects_find_view(db, obf, collection=name, view=view)
     coll.insert_many([obf.obfuscate_document({"uri": u, "label": label, "modified": m})
                       for u, label, m in DOCS])
-    yield db, obf, view
+    yield db, obf, view, name
     db.delete_view(view, ignore_missing=True)  # view names are not obfuscated
     db.delete_collection(obf.collection_name(name), ignore_missing=True)
 
@@ -63,8 +63,8 @@ def objects(request, db):
 def _find(objects, **kw):
     from yanantin.recorder.storage.objects_find import find_objects
 
-    db, obf, view = objects
-    return sorted(find_objects(db, obf, view=view, wait_for_sync=True, **kw))
+    db, obf, view, name = objects
+    return sorted(find_objects(db, obf, view=view, collection=name, wait_for_sync=True, **kw))
 
 
 def test_segment_anywhere_in_the_path_is_exact(objects):
@@ -83,6 +83,17 @@ def test_name_alone(objects):
 def test_modified_window(objects):
     assert _find(objects, label="config", modified_from="2026-09-15T00:00:00Z") == [
         "file:///srv/a/.ssh/config", "file:///srv/c/openssh/config", "file:///srv/d/ssh/config"]
+
+
+def test_time_alone_uses_the_collection(objects):
+    """No segment or name: the modified index answers, not the view's string range."""
+    assert _find(objects, modified_from="2026-09-15T00:00:00Z", modified_to="2026-10-15T00:00:00Z") == [
+        "file:///srv/a/.ssh/config", "file:///srv/c/openssh/config", "file:///srv/d/ssh/config"]
+
+
+def test_segment_and_time(objects):
+    assert _find(objects, segments=(".ssh",), modified_to="2026-09-15T00:00:00Z") == [
+        "file:///srv/b/projects/x/.ssh/known_hosts"]
 
 
 def test_two_segments_must_both_appear(objects):

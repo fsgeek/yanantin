@@ -53,8 +53,11 @@ def objects(request, db):
     name, view = f"objects_t_{tag}", f"objects_find_t_{tag}"
     coll = Khipu(db, obf).watay(name, OBJECTS_DEFINITION)
     ensure_objects_find_view(db, obf, collection=name, view=view)
-    coll.insert_many([obf.obfuscate_document({"uri": u, "label": label, "modified": m})
+    coll.insert_many([obf.obfuscate_document({"uri": u, "label": label, "modified": m, "source": "m1"})
                       for u, label, m in DOCS])
+    # The same path on a second machine: a hit must say which machine it is on.
+    coll.insert(obf.obfuscate_document(
+        {"uri": DOCS[0][0], "label": "config", "modified": DOCS[0][2], "source": "m2"}))
     yield db, obf, view, name
     db.delete_view(view, ignore_missing=True)  # view names are not obfuscated
     db.delete_collection(obf.collection_name(name), ignore_missing=True)
@@ -64,31 +67,42 @@ def _find(objects, **kw):
     from yanantin.recorder.storage.objects_find import find_objects
 
     db, obf, view, name = objects
-    return sorted(find_objects(db, obf, view=view, collection=name, wait_for_sync=True, **kw))
+    return sorted(h["uri"] for h in find_objects(db, obf, view=view, collection=name, wait_for_sync=True, **kw))
 
 
 def test_segment_anywhere_in_the_path_is_exact(objects):
     assert _find(objects, segments=(".ssh",)) == [
-        "file:///srv/a/.ssh/config", "file:///srv/b/projects/x/.ssh/known_hosts"]
+        "file:///srv/a/.ssh/config", "file:///srv/a/.ssh/config", "file:///srv/b/projects/x/.ssh/known_hosts"]
 
 
 def test_segment_and_name(objects):
-    assert _find(objects, segments=(".ssh",), label="config") == ["file:///srv/a/.ssh/config"]
+    assert _find(objects, segments=(".ssh",), label="config") == ["file:///srv/a/.ssh/config"] * 2
+
+
+def test_each_hit_names_its_machine(objects):
+    from yanantin.recorder.storage.objects_find import find_objects
+
+    db, obf, view, name = objects
+    hits = find_objects(db, obf, view=view, collection=name, wait_for_sync=True,
+                        segments=(".ssh",), label="config")
+    assert sorted(h["source"] for h in hits) == ["m1", "m2"]
 
 
 def test_name_alone(objects):
-    assert len(_find(objects, label="config")) == 4
+    assert len(_find(objects, label="config")) == 5
 
 
 def test_modified_window(objects):
     assert _find(objects, label="config", modified_from="2026-09-15T00:00:00Z") == [
-        "file:///srv/a/.ssh/config", "file:///srv/c/openssh/config", "file:///srv/d/ssh/config"]
+        "file:///srv/a/.ssh/config", "file:///srv/a/.ssh/config", "file:///srv/c/openssh/config",
+        "file:///srv/d/ssh/config"]
 
 
 def test_time_alone_uses_the_collection(objects):
     """No segment or name: the modified index answers, not the view's string range."""
     assert _find(objects, modified_from="2026-09-15T00:00:00Z", modified_to="2026-10-15T00:00:00Z") == [
-        "file:///srv/a/.ssh/config", "file:///srv/c/openssh/config", "file:///srv/d/ssh/config"]
+        "file:///srv/a/.ssh/config", "file:///srv/a/.ssh/config", "file:///srv/c/openssh/config",
+        "file:///srv/d/ssh/config"]
 
 
 def test_segment_and_time(objects):

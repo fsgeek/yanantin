@@ -33,8 +33,10 @@ def find_objects(
     collection: str = STORAGE_OBJECTS,
     limit: int = 1000,
     wait_for_sync: bool = False,
-) -> list[str]:
-    """URIs of objects matching every condition given. At least one is required.
+) -> list[dict]:
+    """Objects matching every condition given, as {uri, source}. At least one
+    condition is required. source is the collector that saw the object, so the
+    same path on two machines comes back as two hits.
 
     modified_from/to are ISO strings, inclusive/exclusive. wait_for_sync makes the
     view include writes not yet indexed (read-your-writes; slower).
@@ -42,6 +44,7 @@ def find_objects(
     uri = obfuscator.field_path(("uri",))
     lab = obfuscator.field_path(("label",))
     mod = obfuscator.field_path(("modified",))
+    src = obfuscator.field_path(("source",))
     bind: dict = {"limit": limit}
 
     search = []
@@ -72,4 +75,5 @@ def find_objects(
     else:
         raise ValueError("find_objects needs a segment, a label or a time bound")
     filters = f" FILTER {' AND '.join(time)}" if time else ""
-    return list(run_aql(db, f"{head}{filters} LIMIT @limit RETURN d.{uri}", bind_vars=bind))
+    query = f"{head}{filters} LIMIT @limit RETURN {{uri: d.{uri}, source: d.{src}}}"
+    return list(run_aql(db, query, bind_vars=bind))

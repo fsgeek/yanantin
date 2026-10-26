@@ -219,3 +219,44 @@ def test_dedupe_keeps_one_chain_per_first_call_id():
 def test_search_input_without_query_still_counts(bad):
     [c] = chains_from_claude([human(0), call(1, "s1", SEARCH, bad), result(2, "s1", hits())])
     assert len(c.queries) == 1
+
+
+# -- context for adjudication (M3) -------------------------------------------
+
+
+def say(s, text):
+    return json.dumps({"type": "assistant", "timestamp": T.format(s), "message": {
+        "role": "assistant", "content": [{"type": "text", "text": text}]}})
+
+
+def test_span_context_claude():
+    from yanantin.eval.finding_chains import span_context
+
+    ctx = span_context([
+        human(0, "earlier"), human(1, "where did we decide X?"),
+        say(2, "Let me look."),
+        call(3, "s1", SEARCH, {"query": "decide X"}), result(4, "s1", hits("k1")),
+        call(5, "b1", "Bash", {"command": "ls"}), result(6, "b1", "noise"),
+        say(7, "It isn't in the history."),
+        human(8, "next"), say(9, "later answer"),
+    ], "s1")
+    assert ctx["request"] == "where did we decide X?"
+    assert ctx["results"] == [hits("k1")]
+    assert ctx["response"] == "It isn't in the history."
+
+
+def test_span_context_unknown_id_is_none():
+    from yanantin.eval.finding_chains import span_context
+
+    assert span_context([human(0)], "nope") is None
+
+
+def test_span_context_codex():
+    from yanantin.eval.finding_chains import span_context
+
+    ctx = span_context([
+        json.dumps({"type": "event_msg", "payload": {"type": "user_message", "message": "find Y"}}),
+        codex_mcp(1, "c1", "search", {"query": "Y"}, hits("k")),
+        json.dumps({"type": "event_msg", "payload": {"type": "agent_message", "message": "No Y."}}),
+    ], "c1")
+    assert ctx == {"request": "find Y", "results": [hits("k")], "response": "No Y."}

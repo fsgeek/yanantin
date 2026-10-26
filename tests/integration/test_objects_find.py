@@ -21,11 +21,11 @@ ARANGO_USER = os.environ.get("YANANTIN_ARANGO_USER", "apacheta_test")
 ARANGO_PASSWORD = os.environ.get("YANANTIN_ARANGO_PASSWORD", "")
 
 DOCS = [
-    ("file:///home/a/.ssh/config", "config", "2026-10-01T00:00:00Z"),
-    ("file:///home/b/projects/x/.ssh/known_hosts", "known_hosts", "2026-09-01T00:00:00Z"),
-    ("file:///home/c/openssh/config", "config", "2026-10-01T00:00:00Z"),
-    ("file:///home/d/ssh/config", "config", "2026-10-01T00:00:00Z"),
-    ("file:///home/e/.config/app/config", "config", "2026-08-01T00:00:00Z"),
+    ("file:///srv/a/.ssh/config", "config", "2026-10-01T00:00:00Z"),
+    ("file:///srv/b/projects/x/.ssh/known_hosts", "known_hosts", "2026-09-01T00:00:00Z"),
+    ("file:///srv/c/openssh/config", "config", "2026-10-01T00:00:00Z"),
+    ("file:///srv/d/ssh/config", "config", "2026-10-01T00:00:00Z"),
+    ("file:///srv/e/.config/app/config", "config", "2026-08-01T00:00:00Z"),
 ]
 
 
@@ -46,12 +46,13 @@ def db():
 def objects(request, db):
     from yanantin.core.khipu import Khipu
     from yanantin.core.storage_obfuscator import TransparentObfuscator
-    from yanantin.recorder.storage.objects_definition import objects_definition
+    from yanantin.recorder.storage.objects_definition import OBJECTS_DEFINITION, ensure_objects_find_view
 
     tag = uuid4().hex[:8]
     obf = PrefixObfuscator(f"o{tag}_") if request.param == "obfuscated" else TransparentObfuscator()
     name, view = f"objects_t_{tag}", f"objects_find_t_{tag}"
-    coll = Khipu(db, obf).watay(name, objects_definition(collection=name, view=view))
+    coll = Khipu(db, obf).watay(name, OBJECTS_DEFINITION)
+    ensure_objects_find_view(db, obf, collection=name, view=view)
     coll.insert_many([obf.obfuscate_document({"uri": u, "label": label, "modified": m})
                       for u, label, m in DOCS])
     yield db, obf, view
@@ -68,11 +69,11 @@ def _find(objects, **kw):
 
 def test_segment_anywhere_in_the_path_is_exact(objects):
     assert _find(objects, segments=(".ssh",)) == [
-        "file:///home/a/.ssh/config", "file:///home/b/projects/x/.ssh/known_hosts"]
+        "file:///srv/a/.ssh/config", "file:///srv/b/projects/x/.ssh/known_hosts"]
 
 
 def test_segment_and_name(objects):
-    assert _find(objects, segments=(".ssh",), label="config") == ["file:///home/a/.ssh/config"]
+    assert _find(objects, segments=(".ssh",), label="config") == ["file:///srv/a/.ssh/config"]
 
 
 def test_name_alone(objects):
@@ -81,11 +82,11 @@ def test_name_alone(objects):
 
 def test_modified_window(objects):
     assert _find(objects, label="config", modified_from="2026-09-15T00:00:00Z") == [
-        "file:///home/a/.ssh/config", "file:///home/c/openssh/config", "file:///home/d/ssh/config"]
+        "file:///srv/a/.ssh/config", "file:///srv/c/openssh/config", "file:///srv/d/ssh/config"]
 
 
 def test_two_segments_must_both_appear(objects):
-    assert _find(objects, segments=("home", ".config")) == ["file:///home/e/.config/app/config"]
+    assert _find(objects, segments=("srv", ".config")) == ["file:///srv/e/.config/app/config"]
 
 
 def test_nothing_asked_is_refused(objects):
@@ -95,13 +96,15 @@ def test_nothing_asked_is_refused(objects):
 
 def test_watay_is_idempotent_with_analyzer_and_view(db):
     from yanantin.core.khipu import Khipu
-    from yanantin.recorder.storage.objects_definition import PATH_SEGMENTS_ANALYZER, objects_definition
+    from yanantin.recorder.storage.objects_definition import (
+        OBJECTS_DEFINITION, PATH_SEGMENTS_ANALYZER, ensure_objects_find_view)
 
     tag = uuid4().hex[:8]
     name, view = f"objects_t_{tag}", f"objects_find_t_{tag}"
     try:
+        Khipu(db).watay(name, OBJECTS_DEFINITION)
         for _ in range(2):
-            Khipu(db).watay(name, objects_definition(collection=name, view=view))
+            ensure_objects_find_view(db, collection=name, view=view)
         assert any(a["name"].split("::")[-1] == PATH_SEGMENTS_ANALYZER for a in db.analyzers())
         assert view in {v["name"] for v in db.views()}
     finally:

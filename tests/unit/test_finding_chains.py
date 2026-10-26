@@ -137,7 +137,7 @@ def test_unparseable_lines_are_skipped():
 
 
 def test_transcript_grep_then_read_of_a_matched_file_is_found():
-    path = "/home/t/.claude/projects/-x/abc.jsonl"
+    path = "/srv/t/.claude/projects/-x/abc.jsonl"
     [c] = chains_from_claude([
         human(0),
         call(1, "g1", "Bash", {"command": "grep -l thunder ~/.claude/projects/*/*.jsonl"}),
@@ -150,9 +150,9 @@ def test_transcript_grep_then_read_of_a_matched_file_is_found():
 def test_grep_tool_on_transcripts_counts_and_unmatched_read_does_not():
     [c] = chains_from_claude([
         human(0),
-        call(1, "g1", "Grep", {"pattern": "x", "path": "/home/t/.claude/projects"}),
-        result(2, "g1", "/home/t/.claude/projects/-x/one.jsonl\n"),
-        call(3, "rd", "Bash", {"command": "sed -n 1,5p /home/t/.claude/projects/-x/other.jsonl"}),
+        call(1, "g1", "Grep", {"pattern": "x", "path": "/srv/t/.claude/projects"}),
+        result(2, "g1", "/srv/t/.claude/projects/-x/one.jsonl\n"),
+        call(3, "rd", "Bash", {"command": "sed -n 1,5p /srv/t/.claude/projects/-x/other.jsonl"}),
         result(4, "rd", "..."),
     ])
     assert c.arm == "grep" and not c.found

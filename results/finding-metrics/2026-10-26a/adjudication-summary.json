@@ -1,0 +1,34 @@
+{
+  "abandoned_tool_chains": 145,
+  "by_window": {
+    "V1": {
+      "snippet-found": 1
+    },
+    "V2": {
+      "existed-not-found": 20,
+      "snippet-found": 6
+    },
+    "V3": {
+      "absent": 7,
+      "existed-not-found": 13,
+      "snippet-found": 10,
+      "unclear": 3
+    }
+  },
+  "exploratory_existed_evidence_in_results": {
+    "False": 17,
+    "True": 16
+  },
+  "judge_labels_before_audit": {
+    "absent": 7,
+    "existed-not-found": 36,
+    "snippet-found": 17
+  },
+  "judged": 60,
+  "labels": {
+    "absent": 7,
+    "existed-not-found": 33,
+    "snippet-found": 17,
+    "unclear": 3
+  }
+}

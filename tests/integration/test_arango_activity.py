@@ -559,3 +559,29 @@ class TestBehavioralEquivalence:
 
         retrieved = store.get_fact(fact.id)
         assert retrieved.custom_field == "extra-data"
+
+
+class TestQueryMatchingLive:
+    """gh #46: ArangoDB uses the ABC's query_matching default; check it on a live store."""
+
+    def test_matches_string_fields_only(self, store, provider_a, provider_b, base_time):
+        for pid, data in ((provider_a, {"wabe": "w", "gimble": "x"}),
+                          (provider_a, {"wabe": "w", "gimble": "y"}),
+                          (provider_a, {"wabe": "w", "gimble": 7}),
+                          (provider_b, {"wabe": "w", "gimble": "x"})):
+            store.store_fact(FactRecord(provider_id=pid, timestamp=base_time, data=data))
+        got = store.query_matching(provider_a, {"wabe": "w", "gimble": "x"})
+        assert [(f.provider_id, f.data) for f in got] == [(provider_a, {"wabe": "w", "gimble": "x"})]
+        assert store.query_matching(provider_a, {"gimble": "7"}) == []
+
+    def test_brillig_resolves_on_arango(self, store):
+        from yanantin.jabberwock import Brillig
+
+        b = Brillig(store)
+        b.bootstrap()
+        e, other = b.beamish(), b.beamish()
+        b.slithy(e.id, "act.short", "BHC Act")
+        b.slithy(other.id, "act.short", "the Act")
+        b.slithy(e.id, "act.short", "the Act")
+        assert b.galumph("act.short", "BHC Act").jabberwock.id == e.id
+        assert {c.id for c in b.galumph("act.short", "the Act").candidates} == {e.id, other.id}

@@ -145,14 +145,15 @@ def test_unsubscribed_observer_hears_nothing(db, coll):
 def test_recorder_writes_observations_as_facts(db, coll):
     from yanantin.activity.backends.memory import InMemoryActivityStreamStore
     from yanantin.core import aql
+    from yanantin.query.recorder import AQL_PROVIDER_ID, AqlObservationRecorder
 
     store = InMemoryActivityStreamStore()
-    stop = aql.observe(aql.ActivityStreamRecorder(store))
+    stop = aql.observe(AqlObservationRecorder(store))
     try:
         list(aql.run(db, "FOR d IN @@c RETURN 1", bind_vars={"@c": coll}))
     finally:
         stop()
-    [fact] = store.query_range(aql.AQL_PROVIDER_ID)
+    [fact] = store.query_range(AQL_PROVIDER_ID)
     assert fact.data["returned"] == N
     assert fact.data["collections"] == [coll]
     assert fact.timestamp.tzinfo is not None

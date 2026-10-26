@@ -14,10 +14,12 @@ from uuid import UUID, uuid4, uuid5, NAMESPACE_DNS
 
 from yanantin.activity.models import FactRecord
 from yanantin.activity.store import ActivityStreamStore
+from yanantin.core.aql import QueryObservation
 from yanantin.query.models import QueryResult
 
 
 QUERY_PROVIDER_ID: UUID = uuid5(NAMESPACE_DNS, "yanantin.query.service")
+AQL_PROVIDER_ID: UUID = uuid5(NAMESPACE_DNS, "yanantin.core.aql")
 
 
 class QueryFactRecorder:
@@ -52,3 +54,21 @@ class QueryFactRecorder:
 
         self._store.store_fact(fact)
         return fact_id
+
+
+class AqlObservationRecorder:
+    """AQL gateway observer: keeps each QueryObservation as a fact.
+
+    Register with yanantin.core.aql.observe(AqlObservationRecorder(store)).
+    Slow and repeated queries can then be found by querying the stream.
+    """
+
+    def __init__(self, store: ActivityStreamStore) -> None:
+        self._store = store
+
+    def __call__(self, obs: QueryObservation) -> None:
+        self._store.store_fact(FactRecord(
+            provider_id=AQL_PROVIDER_ID,
+            timestamp=obs.started_at,
+            data=obs.model_dump(mode="json", exclude={"started_at"}),
+        ))

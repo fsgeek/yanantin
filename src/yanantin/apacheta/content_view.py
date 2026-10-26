@@ -27,6 +27,7 @@ from arango.database import StandardDatabase
 from yanantin.core.collection_definition import CollectionDefinition
 from yanantin.core.khipu import Khipu
 from yanantin.core.storage_obfuscator import StorageObfuscator
+from yanantin.core.aql import run as run_aql
 
 # The semantic field on a record that holds indexable text content. Named
 # semantically; Khipu routes it through the obfuscator when building the view.
@@ -88,7 +89,8 @@ def search_content_bm25(
         "LIMIT @limit "
         "RETURN {key: doc._key, score: BM25(doc)}"
     )
-    cursor = db.aql.execute(
+    cursor = run_aql(
+        db,
         aql,
         bind_vars={"terms": terms, "analyzer": _ANALYZER, "limit": limit},
     )

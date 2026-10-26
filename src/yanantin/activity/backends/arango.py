@@ -28,6 +28,7 @@ from yanantin.apacheta.storage_obfuscator import StorageObfuscator, TransparentO
 from yanantin.core.arango_facade import Database
 from yanantin.core.collection_definition import CollectionDefinition
 from yanantin.core.khipu import Khipu
+from yanantin.core.aql import run as run_aql
 
 
 # Default semantic names. A provider may register its OWN collection names via
@@ -193,7 +194,8 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
             pid = self._map.field_path(("provider_id",))
             ts = self._map.field_path(("timestamp",))
             if before is not None:
-                cursor = self._db.aql.execute(
+                cursor = run_aql(
+                    self._db,
                     "FOR doc IN @@col "
                     f"  FILTER doc.{pid} == @provider_id "
                     f"  FILTER doc.{ts} <= @before "
@@ -207,7 +209,8 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
                     },
                 )
             else:
-                cursor = self._db.aql.execute(
+                cursor = run_aql(
+                    self._db,
                     "FOR doc IN @@col "
                     f"  FILTER doc.{pid} == @provider_id "
                     f"  SORT doc.{ts} DESC "
@@ -247,7 +250,8 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
                 bind_vars["end"] = end.isoformat()
 
             filter_clause = " FILTER ".join([""] + filters)
-            cursor = self._db.aql.execute(
+            cursor = run_aql(
+                self._db,
                 "FOR doc IN @@col"
                 f"  {filter_clause}"
                 f"  SORT doc.{ts} ASC"
@@ -300,7 +304,8 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
             # activity_anchors has a persistent index on timestamp, §6.1).
             col = self._map.collection_name(self._anchors_col)
             ts = self._map.field_path(("timestamp",))
-            cursor = self._db.aql.execute(
+            cursor = run_aql(
+                self._db,
                 "FOR doc IN @@col "
                 f"  SORT doc.{ts} DESC "
                 "  LIMIT 1 "
@@ -321,7 +326,8 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
             # indexed, §6.1). COLLECT names the field, so it takes the same form.
             col = self._map.collection_name(self._facts_col)
             pid = self._map.field_path(("provider_id",))
-            cursor = self._db.aql.execute(
+            cursor = run_aql(
+                self._db,
                 "FOR doc IN @@col "
                 f"  COLLECT provider = doc.{pid} "
                 "  RETURN provider",
@@ -339,7 +345,8 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
             col = self._map.collection_name(self._facts_col)
             if provider_id is not None:
                 pid_path = self._map.field_path(("provider_id",))
-                cursor = self._db.aql.execute(
+                cursor = run_aql(
+                    self._db,
                     "RETURN LENGTH("
                     "  FOR doc IN @@col "
                     f"    FILTER doc.{pid_path} == @provider_id "
@@ -348,7 +355,8 @@ class ArangoDBActivityStreamStore(ActivityStreamStore):
                     bind_vars={"@col": col, "provider_id": str(provider_id)},
                 )
             else:
-                cursor = self._db.aql.execute(
+                cursor = run_aql(
+                    self._db,
                     "RETURN LENGTH(@@col)",
                     bind_vars={"@col": col},
                 )

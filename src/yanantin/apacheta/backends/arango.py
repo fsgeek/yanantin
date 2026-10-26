@@ -62,6 +62,7 @@ from yanantin.apacheta.models.tensor import TensorRecord
 from yanantin.apacheta.storage_obfuscator import StorageObfuscator, TransparentObfuscator
 from yanantin.llika.models import CompositionEdge as LlikaCompositionEdge
 from yanantin.llika.models import EdgeResult, FindHit, FindResult, PathResult, PathStep
+from yanantin.core.aql import run as run_aql
 
 
 # ── Collection names ──────────────────────────────────────────────────
@@ -461,7 +462,7 @@ class ArangoDBBackend(ApachetaInterface):
                 LIMIT @max_results
                 RETURN p
             """
-            cursor = self._db.aql.execute(aql, bind_vars=bind_vars)
+            cursor = run_aql(self._db, aql, bind_vars=bind_vars)
             results: list[PathResult] = []
             for p in cursor:
                 steps = tuple(
@@ -523,7 +524,8 @@ class ArangoDBBackend(ApachetaInterface):
               RETURN {{record: record, paths: ranked[*].path, snippet: ranked[0].value}}
         """
         with self._lock:
-            cursor = self._db.aql.execute(
+            cursor = run_aql(
+                self._db,
                 aql,
                 bind_vars={
                     "@view": self._map.collection_name("passages_bm25"),
@@ -950,7 +952,7 @@ class ArangoDBBackend(ApachetaInterface):
                 f"{limit_clause} "
                 "RETURN doc"
             )
-            cursor = self._db.aql.execute(aql, bind_vars=bind_vars)
+            cursor = run_aql(self._db, aql, bind_vars=bind_vars)
             return [self._hydrate_open(doc) for doc in cursor]
 
     def query_open_by_author_instance(
@@ -981,7 +983,7 @@ class ArangoDBBackend(ApachetaInterface):
                 f"{limit_clause} "
                 "RETURN doc"
             )
-            cursor = self._db.aql.execute(aql, bind_vars=bind_vars)
+            cursor = run_aql(self._db, aql, bind_vars=bind_vars)
             return [self._hydrate_open(doc) for doc in cursor]
 
     def query_open_by_lineage_tag(
@@ -1008,7 +1010,7 @@ class ArangoDBBackend(ApachetaInterface):
                 f"{limit_clause} "
                 "RETURN doc"
             )
-            cursor = self._db.aql.execute(aql, bind_vars=bind_vars)
+            cursor = run_aql(self._db, aql, bind_vars=bind_vars)
             return [self._hydrate_open(doc) for doc in cursor]
 
     def query_open_has_field(
@@ -1037,7 +1039,7 @@ class ArangoDBBackend(ApachetaInterface):
                 f"{limit_clause} "
                 "RETURN doc"
             )
-            cursor = self._db.aql.execute(aql, bind_vars=bind_vars)
+            cursor = run_aql(self._db, aql, bind_vars=bind_vars)
             return [self._hydrate_open(doc) for doc in cursor]
 
     def list_author_instances(self) -> list[str]:
@@ -1050,7 +1052,7 @@ class ArangoDBBackend(ApachetaInterface):
                 f"RETURN DISTINCT doc.{author_path}"
             )
             bind_vars = {"@col": self._open_records_collection_name()}
-            cursor = self._db.aql.execute(aql, bind_vars=bind_vars)
+            cursor = run_aql(self._db, aql, bind_vars=bind_vars)
             return [aid for aid in cursor if aid]
 
     # ── Record Counts ────────────────────────────────────────────

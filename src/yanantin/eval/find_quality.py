@@ -82,6 +82,8 @@ import uuid
 from datetime import datetime
 from pathlib import Path
 
+from yanantin.core.aql import run as run_aql
+
 K = 10
 EXCLUDED_TOP = ("provenance", "lineage_tags")
 TEXT_CAP = 2000
@@ -330,7 +332,8 @@ def run_bm25(db, passages: dict[str, dict], queries: list[dict], k: int = K) -> 
         for arm, (view, field, norm) in views.items():
             out[arm] = {}
             for q in queries:
-                cur = db.aql.execute(
+                cur = run_aql(
+                    db,
                     _BM25_AQL,
                     bind_vars={"@view": view, "field": field, "q": norm(q["query"]), "k": k},
                     full_count=True,

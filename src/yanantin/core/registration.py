@@ -33,6 +33,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from yanantin.core.collection_definition import CollectionDefinition
 from yanantin.core.khipu import Khipu
 from yanantin.core.storage_obfuscator import StorageObfuscator, TransparentObfuscator
+from yanantin.core.aql import run as run_aql
 
 
 class RegistrantRecord(BaseModel):
@@ -225,7 +226,8 @@ class Registrar:
         """Return every registrant in this catalog. Fail-stop: an unreachable
         store raises (the driver propagates), it never returns [] — an empty
         list must mean 'genuinely none', never 'could not reach the store'."""
-        cursor = self._db.aql.execute(
+        cursor = run_aql(
+            self._db,
             "FOR r IN @@coll RETURN r",
             bind_vars={"@coll": self._catalog_name},
         )
@@ -316,13 +318,15 @@ class Registrar:
         identity label is mapped, so the query must speak storage's labels, not
         the caller's. Results are deobfuscated back to semantic names."""
         if contributor_id is None:
-            cursor = self._db.aql.execute(
+            cursor = run_aql(
+                self._db,
                 "FOR d IN @@coll RETURN d",
                 bind_vars={"@coll": self._owned_name},
             )
         else:
             id_field = self._obfuscator.field_name("contributor_id")
-            cursor = self._db.aql.execute(
+            cursor = run_aql(
+                self._db,
                 "FOR d IN @@coll FILTER d[@field] == @cid RETURN d",
                 bind_vars={
                     "@coll": self._owned_name,
@@ -436,13 +440,15 @@ class Registrar:
         if self._owned_edge_name is None:
             raise ValueError("this registrar owns no edge collection")
         if contributor_id is None:
-            cursor = self._db.aql.execute(
+            cursor = run_aql(
+                self._db,
                 "FOR d IN @@coll RETURN d",
                 bind_vars={"@coll": self._owned_edge_name},
             )
         else:
             id_field = self._obfuscator.field_name("contributor_id")
-            cursor = self._db.aql.execute(
+            cursor = run_aql(
+                self._db,
                 "FOR d IN @@coll FILTER d[@field] == @cid RETURN d",
                 bind_vars={
                     "@coll": self._owned_edge_name,

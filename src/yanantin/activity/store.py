@@ -60,6 +60,24 @@ class ActivityStreamStore(ABC):
         """
         ...
 
+    def query_matching(
+        self,
+        provider_id: UUID,
+        match: dict[str, str],
+    ) -> list[FactRecord]:
+        """Facts from provider whose data[key] == value for every item in match.
+
+        Values are strings and compare only against string fields (no
+        coercion). Sorted by timestamp ascending, like query_range.
+
+        This default filters query_range in Python; backends override it to
+        push the match into the store.
+        """
+        return [
+            f for f in self.query_range(provider_id)
+            if all(isinstance(f.data.get(k), str) and f.data[k] == v for k, v in match.items())
+        ]
+
     # -- Anchor operations ---------------------------------------------
 
     @abstractmethod

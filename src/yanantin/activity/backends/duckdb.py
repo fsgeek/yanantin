@@ -162,6 +162,27 @@ class DuckDBActivityStreamStore(ActivityStreamStore):
             ).fetchall()
             return [self._row_to_fact(row) for row in rows]
 
+    def query_matching(
+        self,
+        provider_id: UUID,
+        match: dict[str, str],
+    ) -> list[FactRecord]:
+        with self._lock:
+            conditions = ["provider_id = ?"]
+            params: list = [str(provider_id)]
+            for key, value in match.items():
+                path = "$." + json.dumps(key)  # quoted member name: key is data
+                conditions.append("json_type(data, ?) = 'VARCHAR' AND json_extract_string(data, ?) = ?")
+                params.extend([path, path, value])
+
+            where = " AND ".join(conditions)
+            rows = self._conn.execute(
+                "SELECT id, provider_id, timestamp, data, content_hash "  # noqa: S608
+                f"FROM facts WHERE {where} ORDER BY timestamp ASC",
+                params,
+            ).fetchall()
+            return [self._row_to_fact(row) for row in rows]
+
     # -- Anchor operations ---------------------------------------------
 
     def store_anchor(self, anchor: MemoryAnchor) -> None:

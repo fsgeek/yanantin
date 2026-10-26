@@ -7,12 +7,13 @@ an ActivityStreamStore, storing all Jabberwock records as FactRecords
 with type-specific provider UUIDs.
 
 Resolution is late-bound: Frabjous is never cached, never stored,
-constructed fresh on every call. Python-side joins. Falls over at
-Indaleko scale. Acceptable for the classroom problem, the project
-identity problem, and the AI colleague problem.
+constructed fresh on every call. Lookups by name or entity go through
+the store's query_matching, which DuckDB pushes into SQL (gh #46);
+joins and world-time filtering are Python-side.
 
-Declared loss: no AQL pushdown, no view-based resolution, no
-Tumtum layers. All of those are future path (see spec).
+Declared loss: the ArangoDB store uses query_matching's Python default
+(no AQL pushdown yet); mome_vorpals still loads every Vorpal; no
+view-based resolution, no Tumtum layers. Those are future path (see spec).
 """
 
 from __future__ import annotations
@@ -241,8 +242,8 @@ class Brillig:
         canonical = normalize_gimble(wabe, gimble)
 
         matching = [
-            t for t in self._load_all(Tove)
-            if t.wabe == wabe and t.gimble == canonical and _valid_at(t, at)
+            t for t in self._load_matching(Tove, wabe=wabe, gimble=canonical)
+            if _valid_at(t, at)
         ]
 
         if not matching:
@@ -294,9 +295,10 @@ class Brillig:
             at = _ensure_utc(at)
         jabberwock = self._load_jabberwock(jabberwock_id)
 
-        entity_toves = [t for t in self._load_all(Tove) if t.jabberwock_id == jabberwock_id]
-        all_entity_vorpals = [v for v in self._load_all(Vorpal) if v.jabberwock_id == jabberwock_id]
-        entity_raths = [r for r in self._load_all(Rath) if r.jabberwock_id == jabberwock_id]
+        jid = str(jabberwock_id)
+        entity_toves = self._load_matching(Tove, jabberwock_id=jid)
+        all_entity_vorpals = self._load_matching(Vorpal, jabberwock_id=jid)
+        entity_raths = self._load_matching(Rath, jabberwock_id=jid)
 
         # World-time view: keep what held at `at`; count what was left out.
         before = len(entity_toves) + len(all_entity_vorpals) + len(entity_raths)
@@ -388,8 +390,8 @@ class Brillig:
         """
         seen: set[UUID] = set()
         member_ids: list[UUID] = []
-        for rath in self._load_all(Rath):
-            if rath.borogove_id == borogove_id and rath.jabberwock_id not in seen:
+        for rath in self._load_matching(Rath, borogove_id=str(borogove_id)):
+            if rath.jabberwock_id not in seen:
                 member_ids.append(rath.jabberwock_id)
                 seen.add(rath.jabberwock_id)
 
@@ -470,9 +472,15 @@ class Brillig:
         skipped with a warning. Event-sourced stores accumulate records
         over time; new validators must not break old data.
         """
-        provider = _PROVIDER_FOR[cls]
+        return self._validate_all(cls, self._store.query_range(provider_id=_PROVIDER_FOR[cls]))
+
+    def _load_matching[T: BaseModel](self, cls: type[T], **match: str) -> list[T]:
+        """Load the records of a type whose stored fields equal match (gh #46)."""
+        return self._validate_all(cls, self._store.query_matching(_PROVIDER_FOR[cls], match))
+
+    def _validate_all[T: BaseModel](self, cls: type[T], facts: list[FactRecord]) -> list[T]:
         results: list[T] = []
-        for f in self._store.query_range(provider_id=provider):
+        for f in facts:
             try:
                 results.append(cls.model_validate(f.data))
             except ValidationError as e:
@@ -485,21 +493,20 @@ class Brillig:
     def _load_jabberwock(self, jabberwock_id: UUID) -> Jabberwock:
         """Load a Jabberwock entity by its ID.
 
-        Scans all Jabberwock facts. Raises NotFoundError if not found
-        or if the record exists but fails current validation.
+        Raises NotFoundError if not found or if the record exists but
+        fails current validation.
         """
-        for fact in self._store.query_range(provider_id=JABBERWOCK_PROVIDER):
-            if str(fact.data.get("id")) == str(jabberwock_id):
-                try:
-                    return Jabberwock.model_validate(fact.data)
-                except ValidationError as e:
-                    logger.warning(
-                        "Jabberwock %s exists but fails validation: %s (raw: %s)",
-                        jabberwock_id, e, fact.data,
-                    )
-                    raise NotFoundError(
-                        f"Jabberwock {jabberwock_id} exists in store but "
-                        f"fails current validation: {e}"
-                    ) from e
+        for fact in self._store.query_matching(JABBERWOCK_PROVIDER, {"id": str(jabberwock_id)}):
+            try:
+                return Jabberwock.model_validate(fact.data)
+            except ValidationError as e:
+                logger.warning(
+                    "Jabberwock %s exists but fails validation: %s (raw: %s)",
+                    jabberwock_id, e, fact.data,
+                )
+                raise NotFoundError(
+                    f"Jabberwock {jabberwock_id} exists in store but "
+                    f"fails current validation: {e}"
+                ) from e
 
         raise NotFoundError(f"Jabberwock {jabberwock_id} not found.")

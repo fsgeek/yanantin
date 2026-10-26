@@ -115,6 +115,23 @@ class InMemoryActivityStreamStore(ActivityStreamStore):
                 for _, fact_id in index_list[lo:hi]
             ]
 
+    def query_matching(
+        self,
+        provider_id: UUID,
+        match: dict[str, str],
+    ) -> list[FactRecord]:
+        with self._lock:
+            # Filter before copying: the deep copy is the cost.
+            return [
+                self._deep_copy(self._facts[fact_id])
+                for _, fact_id in self._facts_by_provider.get(provider_id, [])
+                if all(
+                    isinstance(self._facts[fact_id].data.get(k), str)
+                    and self._facts[fact_id].data[k] == v
+                    for k, v in match.items()
+                )
+            ]
+
     # -- Anchor operations ---------------------------------------------
 
     def store_anchor(self, anchor: MemoryAnchor) -> None:

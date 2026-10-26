@@ -260,3 +260,26 @@ def test_span_context_codex():
         json.dumps({"type": "event_msg", "payload": {"type": "agent_message", "message": "No Y."}}),
     ], "c1")
     assert ctx == {"request": "find Y", "results": [hits("k")], "response": "No Y."}
+
+
+# -- a transcript is a session file, not any .jsonl (pre-registration: "a session .jsonl file")
+
+
+@pytest.mark.parametrize("cmd", [
+    "grep -c obs ledger/observations.jsonl",
+    "rg foo results/finding-metrics/2026-10-26a/chains.jsonl",
+    "grep -n x data/*.jsonl",
+])
+def test_grep_over_non_session_jsonl_is_not_a_search(cmd):
+    assert chains_from_claude([human(0), call(1, "g1", "Bash", {"command": cmd}), result(2, "g1", "")]) == []
+
+
+@pytest.mark.parametrize("cmd", [
+    "grep -l foo ~/.claude/projects/-home-x/*.jsonl",
+    "rg foo /tmp/5d6afdc5-a86a-4e81-8d88-930a35ec93ca.jsonl",
+    "grep foo ~/.codex/sessions/2026/09/01/rollout-2026-09-01T10-00-00-abc.jsonl",
+    "grep foo subagents/agent-a427e4eddc5f003fb.jsonl",
+])
+def test_grep_over_session_files_is_a_search(cmd):
+    [c] = chains_from_claude([human(0), call(1, "g1", "Bash", {"command": cmd}), result(2, "g1", "")])
+    assert c.arm == "grep"

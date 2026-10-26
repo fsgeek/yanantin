@@ -24,7 +24,7 @@ from pathlib import Path
 
 from khipumaq.db import get_database
 
-from yanantin.eval.finding_chains import span_context
+from yanantin.eval.finding_chains import _hit_keys, span_context
 from yanantin.eval.ledger import append
 
 VERSION = "2026-10-26a"
@@ -168,6 +168,11 @@ def main() -> None:
             queries=json.dumps(r["queries"]), results=clip("\n---\n".join(ctx["results"]), 6000),
             response=clip(ctx["response"], 2500))
         verdict = audit(judge(prompt), until, db)
+        # Exploratory, not pre-registered: was the cited episode among the hits the
+        # assistant already had (returned but not opened) or never surfaced?
+        returned = set().union(*(_hit_keys(t) for t in ctx["results"])) if ctx["results"] else set()
+        verdict["evidence_in_results"] = (verdict.get("evidence_key") in returned
+                                          if verdict["label"] == "existed-not-found" else None)
         out.append({"first_call_id": r["first_call_id"], "window": r["window"], "session": r["session"],
                     "first_ts": r["first_ts"], **verdict})
         print(f"{i + 1}/{len(chosen)} {r['window']} {verdict['label']} ({verdict['audit']})", flush=True)
@@ -177,7 +182,9 @@ def main() -> None:
               "labels": dict(Counter(o["label"] for o in out)),
               "judge_labels_before_audit": dict(Counter(o.get("judge_label", o["label"]) for o in out)),
               "by_window": {w: dict(Counter(o["label"] for o in out if o["window"] == w))
-                            for w in sorted({o["window"] for o in out})}}
+                            for w in sorted({o["window"] for o in out})},
+              "exploratory_existed_evidence_in_results": dict(Counter(
+                  str(o.get("evidence_in_results")) for o in out if o["label"] == "existed-not-found"))}
     (DIR / "adjudication-summary.json").write_text(json.dumps(counts, indent=2, sort_keys=True))
     print(json.dumps(counts, indent=1))
     if "--no-ledger" not in sys.argv and not limit:

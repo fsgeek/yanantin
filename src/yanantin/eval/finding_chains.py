@@ -223,3 +223,68 @@ def dedupe(chains: Iterable[Chain]) -> list[Chain]:
     for c in chains:
         seen.setdefault((c.arm, c.first_call_id), c)
     return list(seen.values())
+
+
+def _human_text(content) -> str | None:
+    """The person's words in a Claude user line, or None if it is only tool results."""
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list) and any(
+            isinstance(b, dict) and b.get("type") != "tool_result" for b in content):
+        return "\n".join(b.get("text", "") for b in content if isinstance(b, dict) and b.get("type") == "text")
+    return None
+
+
+def span_context(lines: Iterable[str], first_call_id: str) -> dict | None:
+    """What an adjudicator sees for the chain starting at first_call_id: the human
+    turn before it, the results of the span's searches, and the span's last
+    assistant text. Claude Code or Codex lines. None if the id is not found."""
+    request, ctx, search_ids = "", None, set()
+    for line in lines:
+        try:
+            d = json.loads(line)
+        except (ValueError, TypeError):
+            continue
+        if not isinstance(d, dict):
+            continue
+        p = d.get("payload") if isinstance(d.get("payload"), dict) else None
+        msg = d.get("message") if isinstance(d.get("message"), dict) else {}
+        content = msg.get("content")
+        if p is not None:  # Codex
+            kind = p.get("type")
+            if kind == "user_message":
+                if ctx is not None:
+                    return ctx
+                request = str(p.get("message", ""))
+            elif kind == "agent_message" and ctx is not None:
+                ctx["response"] = str(p.get("message", ""))
+            elif kind == "mcp_tool_call_end":
+                inv = p.get("invocation") or {}
+                if inv.get("server") in _CODEX_SERVERS and inv.get("tool") in _CODEX_SEARCH:
+                    if ctx is None and p.get("call_id") == first_call_id:
+                        ctx = {"request": request, "results": [], "response": ""}
+                    if ctx is not None:
+                        res = (p.get("result") or {}).get("Ok") or {}
+                        ctx["results"].append(_result_text(res.get("content")))
+        elif d.get("type") == "user":
+            text = _human_text(content)
+            if text is not None:
+                if ctx is not None:
+                    return ctx
+                request = text
+            elif ctx is not None:
+                for b in content:
+                    if isinstance(b, dict) and b.get("tool_use_id") in search_ids:
+                        ctx["results"].append(_result_text(b.get("content")))
+        elif d.get("type") == "assistant" and isinstance(content, list):
+            for b in content:
+                if not isinstance(b, dict):
+                    continue
+                if b.get("type") == "tool_use" and _TOOL_SEARCH.match(b.get("name", "")):
+                    if ctx is None and b.get("id") == first_call_id:
+                        ctx = {"request": request, "results": [], "response": ""}
+                    if ctx is not None:
+                        search_ids.add(b.get("id"))
+                elif b.get("type") == "text" and ctx is not None:
+                    ctx["response"] = b.get("text", "")
+    return ctx

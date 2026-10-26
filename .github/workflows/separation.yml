@@ -169,6 +169,12 @@ jobs:
       # run as a separate informational job below that is EXPECTED red, so the
       # line stays visible while this gate stays meaningful.
       - name: Run tests (blocking — excludes red_bar)
+        # The live-store tests (test_arango_activity, test_aql_gateway, ...) read
+        # the test tier from the environment, not db.ini; without these they skip
+        # and the gate is green over code it never ran (found 2026-10-25: 131 skips).
+        env:
+          YANANTIN_ARANGO_USER: apacheta_test
+          YANANTIN_ARANGO_PASSWORD: ci-test-pw
         run: uv run pytest tests/ --ignore=tests/red_bar -v
 
       # BLOCKING (promoted from informational): the AQL field-mapping red bar.

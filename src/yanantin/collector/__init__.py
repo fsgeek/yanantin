@@ -42,14 +42,6 @@ from yanantin.collector.storage.local.linux import (
     LinuxFilesystemCollector,
     SyntheticFilesystemCollector,
 )
-from yanantin.machine.linux import (
-    MachineConfigCollector,
-    MachineConfigData,
-    MachineConfigRecorder,
-    collect_and_record,
-    collect_machine_config,
-    render_machine_config,
-)
 # RecorderBase/FactRecorderBase live in recorder.base, which does NOT import
 # collector models — it is cycle-free and safe to re-export eagerly (a test
 # imports it from this package).
@@ -119,6 +111,14 @@ _LAZY_RECORDER_EXPORTS = {
     "collect_and_record_checksum": "yanantin.recorder.storage.local.checksum",
     "FilesystemRecorder": "yanantin.recorder.storage.local.linux",
     "collect_and_record_filesystem": "yanantin.recorder.storage.local.linux",
+    # machine.linux imports CollectorBase from this package, so an eager
+    # re-export made `import yanantin.machine` circular when it came first.
+    "MachineConfigCollector": "yanantin.machine.linux",
+    "MachineConfigData": "yanantin.machine.linux",
+    "MachineConfigRecorder": "yanantin.machine.linux",
+    "collect_and_record": "yanantin.machine.linux",
+    "collect_machine_config": "yanantin.machine.linux",
+    "render_machine_config": "yanantin.machine.linux",
 }
 
 
@@ -133,3 +133,4 @@ def __getattr__(name: str):  # noqa: D401 — PEP 562 module-level hook
 
 def __dir__() -> list[str]:
     return sorted(__all__)
+

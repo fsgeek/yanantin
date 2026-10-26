@@ -29,5 +29,7 @@ class CollectionDefinition(BaseModel):
 
     schema: dict | None = None
     indices: tuple[dict, ...] = ()
+    # ArangoSearch analyzers the views use: {name, type, properties, features}.
+    analyzers: tuple[dict, ...] = ()
     views: tuple[dict, ...] = ()
     edge: bool = False

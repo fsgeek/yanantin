@@ -418,7 +418,10 @@ def _cmd_cloud_synthetic(args: argparse.Namespace) -> None:
     from yanantin.recorder.storage.cloud.synthetic.monitor import (
         StorageActivityMonitor,
     )
-    from yanantin.recorder.storage.objects_definition import OBJECTS_DEFINITION
+    from yanantin.recorder.storage.objects_definition import (
+        OBJECTS_DEFINITION,
+        ensure_objects_find_view,
+    )
 
     cfg = ApachetaDBConfig()
     creds = cfg.get_test_credentials() if args.tier == "test" else cfg.get_app_credentials()
@@ -445,6 +448,8 @@ def _cmd_cloud_synthetic(args: argparse.Namespace) -> None:
         owned_collection=objects, owned_edge_collection=rels,
         owned_definition=OBJECTS_DEFINITION,
     )
+    if args.persist:
+        ensure_objects_find_view(db, TransparentObfuscator())
     store = InMemoryActivityStreamStore()
     collector = SyntheticCloudCollector(
         seed=args.seed, total_entries=args.entries, change_count=args.changes,

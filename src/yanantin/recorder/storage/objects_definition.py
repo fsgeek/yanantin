@@ -18,6 +18,8 @@ physical name when the index is created, same as the view-link path (gh #32).
 from __future__ import annotations
 
 from yanantin.core.collection_definition import CollectionDefinition
+from yanantin.core.khipu import Khipu
+from yanantin.core.storage_obfuscator import StorageObfuscator
 
 STORAGE_OBJECTS = "Objects"
 STORAGE_RELATIONSHIPS = "Relationships"
@@ -44,3 +46,47 @@ OBJECTS_DEFINITION = CollectionDefinition(
         },
     ),
 )
+
+# Find by a path segment anywhere ("/.ssh/"), by name and by time, in one SEARCH.
+# The segment analyzer splits the URI on "/" and keeps each segment exact, so
+# ".ssh" never matches "ssh" or "openssh" (text_en, Indaleko's choice for URI,
+# would: it drops the dot). text_en stays on uri and label for word search.
+# A view links one named collection, so it is not part of OBJECTS_DEFINITION,
+# which registrars bind to collections of other names.
+PATH_SEGMENTS_ANALYZER = "objects_path_segments"
+OBJECTS_FIND_VIEW = "objects_find"
+
+
+def objects_find_definition(
+    collection: str = STORAGE_OBJECTS, view: str = OBJECTS_FIND_VIEW
+) -> CollectionDefinition:
+    """The path-segment analyzer and the find view over `collection`."""
+    return CollectionDefinition(
+        analyzers=(
+            {"name": PATH_SEGMENTS_ANALYZER, "type": "delimiter",
+             "properties": {"delimiter": "/"}, "features": ["frequency", "norm"]},
+        ),
+        views=(
+            {
+                "name": view,
+                "links": {
+                    collection: {
+                        "fields": {
+                            "uri": {"analyzers": [PATH_SEGMENTS_ANALYZER, "text_en"]},
+                            "label": {"analyzers": ["identity", "text_en"]},
+                            "modified": {"analyzers": ["identity"]},
+                            "source": {"analyzers": ["identity"]},
+                        },
+                    },
+                },
+            },
+        ),
+    )
+
+
+def ensure_objects_find_view(
+    db, obfuscator: StorageObfuscator | None = None,
+    collection: str = STORAGE_OBJECTS, view: str = OBJECTS_FIND_VIEW,
+) -> None:
+    """Create the analyzer and find view over an existing Objects collection (idempotent)."""
+    Khipu(db, obfuscator).watay(collection, objects_find_definition(collection, view))

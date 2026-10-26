@@ -10,7 +10,7 @@ Init contract (NEVER destructive):
   - schema: applied ONLY at creation; never touched on an existing collection
     (schema is data — an enforcement boundary + published interface; a change
     is a migration, not an init side-effect)
-  - indices/views: create-if-absent, additive (Task 3)
+  - indices/analyzers/views: create-if-absent, additive (Task 3)
 """
 
 from __future__ import annotations
@@ -67,6 +67,17 @@ class Khipu:
                 # PHYSICAL field the stored docs actually use, and no semantic
                 # field name leaks into queryable index metadata (a C0 break).
                 collection.add_index(self._obfuscate_index(index))
+
+        # Analyzers before views: a view link naming a missing analyzer fails.
+        # Names are database-scoped ("db::name"); compare the bare name.
+        existing_analyzers = {a["name"].split("::")[-1] for a in self._db.analyzers()}
+        for analyzer in definition.analyzers:
+            if analyzer["name"] not in existing_analyzers:
+                self._db.create_analyzer(
+                    analyzer["name"], analyzer["type"],
+                    properties=analyzer.get("properties", {}),
+                    features=analyzer.get("features", []),
+                )
 
         existing_view_names = {v["name"] for v in self._db.views()}
         for view in definition.views:

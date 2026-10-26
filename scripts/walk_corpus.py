@@ -34,7 +34,10 @@ stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
 out = Path(args.out_dir) / f"walk-{host}-{stamp}.jsonl.gz"
 out.parent.mkdir(parents=True, exist_ok=True)
 
-collector = LinuxFilesystemCollector(Path(args.root))
+# Save-it-all at the collector, as the July landing decided (land_full_corpus.py
+# --all-names): .git, .venv, __pycache__, node_modules are observed too. The path
+# excludes (/proc, /sys, /mnt, ...) stay; they are pseudo-filesystems and other silos.
+collector = LinuxFilesystemCollector(Path(args.root), exclude_names=frozenset())
 started = datetime.now(timezone.utc).isoformat()
 t0 = time.monotonic()
 entries = write_entries_jsonl(collector.stream_entries(), out)
@@ -43,6 +46,7 @@ manifest = {
     "machine_id": collector._machine_id,
     "provider_id": str(collector.get_provider_id()),
     "root": str(Path(args.root).resolve()),
+    "all_names": True,
     "entries": entries,
     "jsonl": str(out),
     "jsonl_bytes": out.stat().st_size,

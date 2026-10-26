@@ -23,3 +23,6 @@ CLAUDE.md
 results/find-quality/*/passages.jsonl
 results/find-quality/*/queries.jsonl
 results/find-quality/*/judge-cache/
+results/finding-metrics/*/chains.jsonl
+results/finding-metrics/*/adjudication.jsonl
+results/finding-metrics/*/judge-cache/

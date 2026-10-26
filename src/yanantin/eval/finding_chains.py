@@ -26,7 +26,12 @@ _CODEX_SERVERS = {"khipumaq", "llm-memory"}
 _CODEX_SEARCH = {"search", "search_history"}
 _CODEX_RECALL = {"recall", "open_episode"}
 
-_TRANSCRIPT = re.compile(r"\.claude/projects|\.jsonl\b")
+# A session transcript: under Claude Code's or Codex's session directories, or a
+# file named like one (session UUID, Codex rollout, subagent).
+_TRANSCRIPT = re.compile(
+    r"\.claude/projects|\.codex/sessions|"
+    r"(?:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|rollout-[\w-]+|agent-[0-9a-f]+)\.jsonl\b"
+)
 _GREP_CMD = re.compile(r"(?:^|[\s|;&(])(?:grep|rg|egrep|zgrep)\s")
 _READ_CMD = re.compile(r"(?:^|[\s|;&(])(?:sed|cat|head|tail|jq|less|python3?)\s")
 _JSONL_PATH = re.compile(r"[\w~./-]+\.jsonl")
@@ -136,7 +141,7 @@ def chains_from_claude(lines: Iterable[str]) -> list[Chain]:
             continue
         if not isinstance(d, dict):
             continue
-        msg = d.get("message") if isinstance(d.get("message"), dict) else {}
+        msg: dict = d.get("message") if isinstance(d.get("message"), dict) else {}  # type: ignore[assignment]
         content = msg.get("content")
         ts = _ts(d.get("timestamp"))
         if d.get("type") == "user":
@@ -248,7 +253,7 @@ def span_context(lines: Iterable[str], first_call_id: str) -> dict | None:
         if not isinstance(d, dict):
             continue
         p = d.get("payload") if isinstance(d.get("payload"), dict) else None
-        msg = d.get("message") if isinstance(d.get("message"), dict) else {}
+        msg: dict = d.get("message") if isinstance(d.get("message"), dict) else {}  # type: ignore[assignment]
         content = msg.get("content")
         if p is not None:  # Codex
             kind = p.get("type")
@@ -272,7 +277,7 @@ def span_context(lines: Iterable[str], first_call_id: str) -> dict | None:
                 if ctx is not None:
                     return ctx
                 request = text
-            elif ctx is not None:
+            elif ctx is not None and isinstance(content, list):
                 for b in content:
                     if isinstance(b, dict) and b.get("tool_use_id") in search_ids:
                         ctx["results"].append(_result_text(b.get("content")))

@@ -8,6 +8,8 @@ report as an activity fact → throughput gate → re-land idempotence check.
 
     uv run python scripts/land_full_corpus.py --smoke     # /usr/lib -> apacheta_test, ephemeral
     uv run python scripts/land_full_corpus.py             # / -> production apacheta
+    uv run python scripts/land_full_corpus.py --from-jsonl WALK.jsonl.gz --no-reland
+        # land another machine's walk (scripts/walk_corpus.py), read with its manifest
 
 The report prints as JSON; every claim in it is measured, none asserted.
 """
@@ -36,6 +38,7 @@ from yanantin.core.registration import Registrar
 from yanantin.core.storage_obfuscator import TransparentObfuscator
 from yanantin.infra.config import ApachetaDBConfig, get_database
 from yanantin.recorder.storage.local.linux.batch_landing import (
+    _read_entries_jsonl,
     assert_landing_throughput,
     land_jsonl,
     write_entries_jsonl,
@@ -113,7 +116,19 @@ def main() -> int:
         ".git/.venv/...) — save-it-all at the collector; the path excludes "
         "(/mnt,/proc,...) stay, they are the tenant/pseudo-fs boundary",
     )
+    ap.add_argument(
+        "--from-jsonl",
+        default=None,
+        help="land a walk made elsewhere (scripts/walk_corpus.py) instead of walking; "
+        "its .manifest.json beside it names the machine",
+    )
+    ap.add_argument("--no-reland", action="store_true", help="skip the idempotence re-land")
     args = ap.parse_args()
+    manifest = None
+    if args.from_jsonl:
+        mpath = Path(args.from_jsonl).with_suffix("").with_suffix(".manifest.json")
+        manifest = json.loads(mpath.read_text())
+        args.root = manifest["root"]
 
     cfg = ApachetaDBConfig()
     if args.smoke:
@@ -137,7 +152,10 @@ def main() -> int:
     corpus_dir = Path.home() / ".yanantin" / "corpus"
     corpus_dir.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    jsonl_path = Path(args.out) if args.out else corpus_dir / f"walk-{stamp}.jsonl.gz"
+    if args.from_jsonl:
+        jsonl_path = Path(args.from_jsonl)
+    else:
+        jsonl_path = Path(args.out) if args.out else corpus_dir / f"walk-{stamp}.jsonl.gz"
 
     summary: dict = {
         "root": args.root,
@@ -153,11 +171,19 @@ def main() -> int:
     }
 
     # ── Phase 1: walk → JSONL, shape accumulated on the way past ──
-    collector = (
-        LinuxFilesystemCollector(Path(args.root), exclude_names=frozenset())
-        if args.all_names
-        else LinuxFilesystemCollector(Path(args.root))
-    )
+    if manifest is not None:
+        # The walking machine's identity, rebuilt from its machine-id; the
+        # provider id must come out the same, or the objects would land as
+        # another machine's.
+        collector = LinuxFilesystemCollector(Path(args.root), machine_id=manifest["machine_id"])
+        if str(collector.get_provider_id()) != manifest["provider_id"]:
+            raise SystemExit(f"provider id mismatch: manifest {manifest['provider_id']}, "
+                             f"recomputed {collector.get_provider_id()}")
+        summary["host"] = manifest["host"]
+    elif args.all_names:
+        collector = LinuxFilesystemCollector(Path(args.root), exclude_names=frozenset())
+    else:
+        collector = LinuxFilesystemCollector(Path(args.root))
     provider_id = collector.get_provider_id()
     summary["provider_id"] = str(provider_id)
     shape = _ShapeAccumulator(str(Path(args.root).resolve()))
@@ -168,7 +194,13 @@ def main() -> int:
             yield entry
 
     t0 = time.monotonic()
-    walked = write_entries_jsonl(_observed(), jsonl_path)
+    if manifest is not None:
+        walked = 0
+        for entry in _read_entries_jsonl(jsonl_path):
+            shape.add(entry)
+            walked += 1
+    else:
+        walked = write_entries_jsonl(_observed(), jsonl_path)
     walk_elapsed = time.monotonic() - t0
     summary["walked_entries"] = walked
     summary["walk_seconds"] = round(walk_elapsed, 1)
@@ -203,7 +235,8 @@ def main() -> int:
     if registrar.lookup_by_identifier(provider_id) is None:
         registrar.register(
             registrant_id=provider_id,
-            registrant_name="linux-local-storage collector",
+            registrant_name="linux-local-storage collector"
+            + (f" ({manifest['host']})" if manifest else ""),
             registrant_kind="provider",
             description=collector.get_description(),
             contributes_to=[],
@@ -248,15 +281,18 @@ def main() -> int:
     )
 
     # ── Phase 5: re-land — idempotence at scale ──
-    reland = land_jsonl(registrar, jsonl_path, provider_id)
-    summary["reland_seconds"] = round(reland.landing_elapsed_seconds, 1)
-    summary["objects_after_reland"] = db.collection(objects).count()
-    summary["relationships_after_reland"] = db.collection(rels).count()
-    summary["idempotent"] = (
-        summary["objects_after_reland"] == summary["objects_after_landing"]
-        and summary["relationships_after_reland"]
-        == summary["relationships_after_landing"]
-    )
+    if args.no_reland:
+        summary["idempotent"] = None  # not checked
+    else:
+        reland = land_jsonl(registrar, jsonl_path, provider_id)
+        summary["reland_seconds"] = round(reland.landing_elapsed_seconds, 1)
+        summary["objects_after_reland"] = db.collection(objects).count()
+        summary["relationships_after_reland"] = db.collection(rels).count()
+        summary["idempotent"] = (
+            summary["objects_after_reland"] == summary["objects_after_landing"]
+            and summary["relationships_after_reland"]
+            == summary["relationships_after_landing"]
+        )
 
     if args.smoke:
         for name in (catalog, objects, rels):
@@ -265,7 +301,7 @@ def main() -> int:
         summary["ephemeral_collections_dropped"] = True
 
     print(json.dumps({"phase": "done", **summary}, indent=1), flush=True)
-    ok = summary["idempotent"] and summary["shape_fact_roundtrip"] and (
+    ok = summary["idempotent"] is not False and summary["shape_fact_roundtrip"] and (
         gate_error is None or args.smoke  # smoke corpus is below the gate size
     )
     return 0 if ok else 1

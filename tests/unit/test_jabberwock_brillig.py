@@ -867,3 +867,114 @@ class TestAtWorldTime:
         rath = bootstrapped.add_rath(e.id, group.id, "volume")
         assert rath.gyre_from is None
         assert len(bootstrapped.uffish(e.id, at=datetime(1990, 1, 1, tzinfo=timezone.utc)).raths) == 1
+
+
+# -- gh #46: resolution pushes its match down to the store ----------------
+
+
+class _CountingStore(InMemoryActivityStreamStore):
+    """A real in-memory store that records which providers were scanned whole."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.full_scans: list = []
+
+    def query_range(self, provider_id, start=None, end=None):
+        self.full_scans.append(provider_id)
+        return super().query_range(provider_id, start, end)
+
+
+class TestResolutionDoesNotScan:
+    """galumph/uffish/whiffling must not load every record of a type (gh #46)."""
+
+    @pytest.fixture
+    def counted(self):
+        store = _CountingStore()
+        b = Brillig(store)
+        b.bootstrap()
+        e, group = b.beamish(), b.beamish()
+        b.slithy(e.id, "w", "x")
+        b.outgrabe(e.id, "species", "act")
+        b.add_rath(e.id, group.id, "member")
+        store.full_scans.clear()
+        return b, store, e, group
+
+    def test_galumph_resolved(self, counted):
+        b, store, e, _ = counted
+        assert b.galumph("w", "x").jabberwock.id == e.id
+        assert store.full_scans == []
+
+    def test_galumph_no_alias(self, counted):
+        b, store, _, _ = counted
+        assert isinstance(b.galumph("w", "nothing"), MomeResult)
+        assert store.full_scans == []
+
+    def test_uffish(self, counted):
+        b, store, e, _ = counted
+        assert len(b.uffish(e.id).raths) == 1
+        assert store.full_scans == []
+
+    def test_whiffling(self, counted):
+        b, store, e, group = counted
+        assert [f.jabberwock.id for f in b.whiffling(group.id)] == [e.id]
+        assert store.full_scans == []
+
+
+class TestGalumphOnDuckDB:
+    """levadura's backend: the same answers through DuckDB's pushed-down match."""
+
+    @pytest.fixture
+    def duck(self):
+        from yanantin.activity.backends.duckdb import DuckDBActivityStreamStore
+
+        store = DuckDBActivityStreamStore(":memory:")
+        b = Brillig(store)
+        b.bootstrap()
+        yield b
+        store.close()
+
+    def test_resolved_with_projections(self, duck):
+        e = duck.beamish()
+        duck.slithy(e.id, "act.name", "Bank Holding Company Act")
+        duck.slithy(e.id, "act.short", "BHC Act")
+        duck.outgrabe(e.id, "species", "act")
+        view = duck.galumph("act.short", "BHC Act")
+        assert view.jabberwock.id == e.id
+        assert {t.wabe for t in view.toves} == {"act.name", "act.short"}
+        assert [v.snicker_snack for v in view.vorpals] == ["act"]
+
+    def test_two_meanings_are_candidates(self, duck):
+        a, b = duck.beamish(), duck.beamish()
+        duck.slithy(a.id, "act.short", "the Act")
+        duck.slithy(b.id, "act.short", "the Act")
+        found = duck.galumph("act.short", "the Act")
+        assert isinstance(found, MomeResult)
+        assert {c.id for c in found.candidates} == {a.id, b.id}
+
+    def test_wabe_scopes_the_name(self, duck):
+        a, b = duck.beamish(), duck.beamish()
+        duck.slithy(a.id, "cfr.12.225", "Act")
+        duck.slithy(b.id, "cfr.12.226", "Act")
+        assert duck.galumph("cfr.12.225", "Act").jabberwock.id == a.id
+        assert duck.galumph("cfr.12.226", "Act").jabberwock.id == b.id
+
+    def test_mome_tove(self, duck):
+        duck.slithy(None, "w", "unknown")
+        found = duck.galumph("w", "unknown")
+        assert isinstance(found, MomeResult)
+        assert len(found.toves) == 1 and found.candidates == ()
+
+    def test_at_world_time(self, duck):
+        y1997 = datetime(1997, 6, 1, tzinfo=timezone.utc)
+        y2010 = datetime(2010, 6, 1, tzinfo=timezone.utc)
+        old, new = duck.beamish(), duck.beamish()
+        duck.slithy(old.id, "w", "x", gyre_to=y2010)
+        duck.slithy(new.id, "w", "x", gyre_from=y2010)
+        assert duck.galumph("w", "x", at=y1997).jabberwock.id == old.id
+        assert duck.galumph("w", "x", at=y2010).jabberwock.id == new.id
+
+    def test_gyreless_alias_valid_in_the_past(self, duck):
+        e = duck.beamish()
+        duck.slithy(e.id, "act", "federal deposit insurance act")
+        far_past = datetime(1990, 1, 1, tzinfo=timezone.utc)
+        assert duck.galumph("act", "federal deposit insurance act", at=far_past).jabberwock.id == e.id

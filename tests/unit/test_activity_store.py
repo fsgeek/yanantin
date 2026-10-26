@@ -176,6 +176,72 @@ class TestQueryRange:
         assert results[0].data["value"] == 2
 
 
+def _tagged(provider_id: UUID, timestamp: datetime, **data) -> FactRecord:
+    return FactRecord(provider_id=provider_id, timestamp=timestamp, data=data)
+
+
+class TestQueryMatching:
+    """gh #46: facts whose data fields equal the given values, pushed to the store."""
+
+    @pytest.fixture(params=["backend", "abc-default"])
+    def query(self, request, store):
+        """Each backend's own query_matching, and the ABC's default on the same data."""
+        if request.param == "backend":
+            return store.query_matching
+        return lambda pid, match: ActivityStreamStore.query_matching(store, pid, match)
+
+    def test_matches_every_given_field(self, store, query, provider_a, base_time):
+        store.store_fact(_tagged(provider_a, base_time, wabe="w", gimble="x"))
+        store.store_fact(_tagged(provider_a, base_time, wabe="w", gimble="y"))
+        store.store_fact(_tagged(provider_a, base_time, wabe="v", gimble="x"))
+        results = query(provider_a, {"wabe": "w", "gimble": "x"})
+        assert [(r.data["wabe"], r.data["gimble"]) for r in results] == [("w", "x")]
+
+    def test_sorted_ascending_like_query_range(self, store, query, provider_a, base_time):
+        for h in (3, 1, 2):
+            store.store_fact(_tagged(provider_a, base_time + timedelta(hours=h), k="a", n=h))
+        assert [r.data["n"] for r in query(provider_a, {"k": "a"})] == [1, 2, 3]
+
+    def test_other_providers_excluded(self, store, query, provider_a, provider_b, base_time):
+        store.store_fact(_tagged(provider_a, base_time, k="a"))
+        store.store_fact(_tagged(provider_b, base_time, k="a"))
+        assert [r.provider_id for r in query(provider_a, {"k": "a"})] == [provider_a]
+
+    def test_missing_field_and_null_do_not_match(self, store, query, provider_a, base_time):
+        store.store_fact(_tagged(provider_a, base_time, other="a"))
+        store.store_fact(_tagged(provider_a, base_time, k=None))
+        assert query(provider_a, {"k": "a"}) == []
+
+    def test_no_fact_returns_empty(self, store, query, provider_a):
+        assert query(provider_a, {"k": "a"}) == []
+
+    def test_values_are_compared_literally(self, store, query, provider_a, base_time):
+        """Quotes and SQL/JSON-path metacharacters are data, not syntax."""
+        odd = "it's \"the\" Act; % _ $.x"
+        store.store_fact(_tagged(provider_a, base_time, k=odd))
+        store.store_fact(_tagged(provider_a, base_time, k="it's"))
+        assert [r.data["k"] for r in query(provider_a, {"k": odd})] == [odd]
+
+    def test_case_sensitive(self, store, query, provider_a, base_time):
+        store.store_fact(_tagged(provider_a, base_time, k="BHC"))
+        assert query(provider_a, {"k": "bhc"}) == []
+
+    def test_returns_whole_fact(self, store, query, provider_a, base_time):
+        fact = FactRecord(provider_id=provider_a, timestamp=base_time,
+                          data={"k": "a", "n": 1, "nested": {"x": [1, 2]}}, content_hash="h")
+        store.store_fact(fact)
+        assert query(provider_a, {"k": "a"}) == [store.get_fact(fact.id)]
+
+    def test_string_value_does_not_match_a_number(self, store, query, provider_a, base_time):
+        store.store_fact(_tagged(provider_a, base_time, k=7))
+        assert query(provider_a, {"k": "7"}) == []
+
+    def test_empty_match_is_query_range(self, store, query, provider_a, base_time):
+        for h in (2, 1):
+            store.store_fact(_make_fact(provider_a, base_time + timedelta(hours=h), value=h))
+        assert query(provider_a, {}) == store.query_range(provider_a)
+
+
 # -- Anchor operations -------------------------------------------------
 
 class TestStoreAnchor:

@@ -21,7 +21,7 @@ import json
 import sys
 import time
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from uuid import uuid4
 
@@ -123,6 +123,13 @@ def main() -> int:
         "its .manifest.json beside it names the machine",
     )
     ap.add_argument("--no-reland", action="store_true", help="skip the idempotence re-land")
+    ap.add_argument(
+        "--since",
+        default=None,
+        help="local incremental walk: keep entries modified or changed after this ISO "
+        "time minus --overlap minutes (the previous walk's start)",
+    )
+    ap.add_argument("--overlap", type=float, default=60.0)
     args = ap.parse_args()
     manifest = None
     if args.from_jsonl:
@@ -188,8 +195,13 @@ def main() -> int:
     summary["provider_id"] = str(provider_id)
     shape = _ShapeAccumulator(str(Path(args.root).resolve()))
 
+    walk_started = datetime.now(timezone.utc)
+    cutoff = None
+    if args.since and manifest is None:
+        cutoff = datetime.fromisoformat(args.since) - timedelta(minutes=args.overlap)
+
     def _observed():
-        for entry in collector.stream_entries():
+        for entry in collector.stream_entries(since=cutoff):
             shape.add(entry)
             yield entry
 
@@ -272,6 +284,18 @@ def main() -> int:
                 **shape_report.to_fact_data(),
                 "landing": report.model_dump(mode="json"),
                 "jsonl": str(jsonl_path),
+                # What this walk covered, so the next one knows its cutoff
+                # (the previous walk's start) and nobody reads an incremental
+                # walk's shape as the whole machine's.
+                "walk": manifest if manifest is not None else {
+                    "host": None,
+                    "root": str(Path(args.root).resolve()),
+                    "all_names": bool(args.all_names),
+                    "incremental": cutoff is not None,
+                    "since": args.since,
+                    "cutoff": cutoff.isoformat() if cutoff else None,
+                    "started": walk_started.isoformat(),
+                },
             },
         )
     )

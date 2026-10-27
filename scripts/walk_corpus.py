@@ -3,7 +3,7 @@
 Runs on the machine being walked, from the published package, so nothing but
 this file needs to reach it:
 
-    ssh HOST 'uv run --python 3.14 --no-project --with yanantin==0.2.0 python - --root /' < scripts/walk_corpus.py
+    ssh HOST 'uv run --python 3.14 --no-project --with yanantin==0.3.0 python - --root /' < scripts/walk_corpus.py
 
 Incremental: --since ISO (the previous walk's start) keeps only entries modified OR
 changed after since - overlap; the rest of the tree is still statted, but not sent.
@@ -23,7 +23,7 @@ from datetime import datetime, timedelta, timezone
 from importlib.metadata import version
 from pathlib import Path
 
-# Import order matters in yanantin 0.2.0: yanantin.machine alone is circular.
+# yanantin 0.2.0's yanantin.machine was circular if imported first; fixed in 0.3.0.
 from yanantin.collector.storage.local.linux.collector import LinuxFilesystemCollector
 from yanantin.recorder.storage.local.linux.batch_landing import write_entries_jsonl
 
@@ -48,11 +48,9 @@ t0 = time.monotonic()
 cutoff = None
 if args.since:
     cutoff = datetime.fromisoformat(args.since) - timedelta(minutes=args.overlap)
-# The rule is the collector's (_since_keeps, mtime OR ctime). yanantin 0.2.0 on PyPI
-# still filters on mtime alone, so it is applied here rather than via since=.
-stream = (e for e in collector.stream_entries()
-          if cutoff is None or max(e.timestamps.modified, e.timestamps.changed) >= cutoff)
-entries = write_entries_jsonl(stream, out)
+# since keeps entries modified OR changed after the cutoff (yanantin >= 0.3.0;
+# 0.2.0 filtered on mtime alone). 0.3.0 also fills `created` through statx.
+entries = write_entries_jsonl(collector.stream_entries(since=cutoff), out)
 manifest = {
     "host": host,
     "machine_id": collector._machine_id,

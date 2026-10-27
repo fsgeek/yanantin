@@ -17,6 +17,7 @@ from pathlib import Path
 from uuid import NAMESPACE_DNS, UUID, uuid5
 
 from yanantin.collector._collector_base import CollectorBase
+from yanantin.collector.storage.local.linux.statx import lstat_with_btime
 from yanantin.collector.storage.local.linux.models import (
     FileEntryData,
     FilesystemSnapshot,
@@ -262,7 +263,7 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
 
             # Stat the directory itself
             try:
-                dir_stat = os.lstat(dirpath)
+                dir_stat = lstat_with_btime(dirpath)
                 is_link = stat.S_ISLNK(dir_stat.st_mode)
                 entry = _stat_to_entry(dirpath, dir_stat, is_link)
                 if _since_keeps(entry, since):
@@ -276,7 +277,7 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
             for filename in filenames:
                 full_path = os.path.join(dirpath, filename)
                 try:
-                    file_stat = os.lstat(full_path)
+                    file_stat = lstat_with_btime(full_path)
                     is_link = stat.S_ISLNK(file_stat.st_mode)
                     entry = _stat_to_entry(full_path, file_stat, is_link)
                     if not _since_keeps(entry, since):

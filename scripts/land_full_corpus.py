@@ -130,6 +130,14 @@ def main() -> int:
         "time minus --overlap minutes (the previous walk's start)",
     )
     ap.add_argument("--overlap", type=float, default=60.0)
+    ap.add_argument(
+        "--mem-guard-gib",
+        type=float,
+        default=15.0,
+        help="pause before each write while the database container uses more than this "
+        "(arango-apacheta runs under a 20 GiB cap since 2026-10-27); 0 disables",
+    )
+    ap.add_argument("--container", default="arango-apacheta")
     args = ap.parse_args()
     manifest = None
     if args.from_jsonl:
@@ -256,7 +264,35 @@ def main() -> int:
     summary["registered"] = True
 
     # ── Phase 3: batch landing + gate ──
-    report = land_jsonl(registrar, jsonl_path, provider_id)
+    paused = {"seconds": 0.0, "times": 0, "checked": 0.0}
+
+    def _mem_guard() -> None:
+        """Hold while the database container is near its memory cap: a landing that
+        pushes it into the cap restarts it and drops every client's connection."""
+        import docker
+
+        # A stats call takes ~2 s (it samples twice); checking before every flush
+        # halved throughput. Every 30 s is enough to catch growth toward the cap.
+        if time.monotonic() - paused["checked"] < 30:
+            return
+        paused["checked"] = time.monotonic()
+        container = docker.from_env().containers.get(args.container)
+        limit = args.mem_guard_gib * 2**30
+        def used() -> int:
+            # As `docker stats` reports it: usage minus reclaimable inactive file cache.
+            m = container.stats(stream=False)["memory_stats"]
+            return m.get("usage", 0) - m.get("stats", {}).get("inactive_file", 0)
+
+        while used() > limit:
+            if paused["times"] == 0 or paused["seconds"] % 300 < 30:
+                print(json.dumps({"phase": "paused", "container_mem_gib": round(used() / 2**30, 1)}), flush=True)
+            paused["times"] += 1
+            time.sleep(30)
+            paused["seconds"] += 30
+
+    report = land_jsonl(registrar, jsonl_path, provider_id,
+                        before_flush=_mem_guard if args.mem_guard_gib > 0 else None)
+    summary["mem_guard_paused_seconds"] = paused["seconds"]
     summary["landing"] = report.model_dump(mode="json")
     gate_error = None
     try:

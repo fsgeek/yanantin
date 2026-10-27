@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import gzip
 import time
-from collections.abc import Iterable, Iterator
+from collections.abc import Callable, Iterable, Iterator
 from pathlib import Path
 from typing import IO
 from uuid import UUID, uuid5
@@ -116,6 +116,7 @@ def land_jsonl(
     *,
     recorder_id: UUID = RECORDER_ID,
     chunk_size: int = 10_000,
+    before_flush: Callable[[], None] | None = None,
 ) -> BatchLandingRunReport:
     """Land a collected JSONL corpus: objects + records-edges + containment
     edges, through the Registrar batch APIs, chunk by chunk.
@@ -151,6 +152,10 @@ def land_jsonl(
 
     def _flush() -> None:
         nonlocal landed
+        # A caller's chance to hold the landing (e.g. while the database is
+        # near its memory cap) before each write.
+        if before_flush is not None and (object_docs or edge_docs):
+            before_flush()
         if object_docs:
             landed += registrar.contribute_many(
                 provider_id, object_docs, chunk_size=chunk_size

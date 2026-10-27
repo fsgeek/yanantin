@@ -1,63 +1,63 @@
-# Objects: a current projection plus a change stream (proposal, 2026-10-26)
+# Objects: an index of what existed, kept fresh incrementally (2026-10-26)
 
-*From yanantin's steward. It resolves the tension between #31 (append-only versioning with
-`supersedes` edges, chosen with Tony in June) and the July batch landing (one object per
-machine and path, replaced in place). Nothing below is built yet.*
+*From yanantin's steward, revised the same day with Tony's guidance. It resolves the tension
+between #31 (append-only versioning with `supersedes` edges, chosen in June) and the July
+batch landing (one object per machine and path, replaced in place).*
 
-## The problem, as it showed up
+## The contract
 
-- Re-walking a machine replaces each object by `uuid5(source:uri)` and refreshes its
-  `observed_at`. It never notices a file that's gone: a deleted file stays findable forever.
-- Replacing in place also overwrites the previous size, mtime and inode. The history #31
-  chose to keep is lost on every walk.
-- The substrate position (`docs/yanantin-substrate-position.md`) says what both must
-  satisfy. History stays legible as "an append-only chain of transitions", and the reader of
-  `find` chooses between "post-supersession only, or superseded records with status exposed".
+**Objects is an index, not storage** (Tony: "One advantage Yanantin and Indaleko had is
+they're indices, not storage"). The service promises **"this thing existed at some point"**,
+not "this thing exists now".
 
-## The proposal: keep both, as event sourcing
+- A **stale pointer** (an object whose file has since gone or changed) is not a lie. It is
+  detected when someone follows it: stat the path on the named machine when resolving. It is
+  handled there, by marking it or refreshing it.
+- So **deletions are not on the critical path of a re-walk.** Nothing has to notice a missing
+  file at walk time for find to be correct under this contract.
 
-1. **`Objects` is the current projection**: one document per (machine, path), as now. It is
-   what makes "what's there" a 3 ms lookup, and it should stay that.
-2. **Each complete walk is diffed against the projection, and the diff is a stream of
-   immutable change facts** in the activity stream (provider = that machine's collector):
-   - **created:** a path the projection doesn't have;
-   - **changed:** size, mtime or (device, inode) differ. The fact carries the old and new
-     values. A new (device, inode) at the same path is #31's atomic-rename case: a new
-     physical object under the same logical file;
-   - **gone:** in the projection, not seen in this walk;
-   - **unchanged:** nothing is written. This is #31's write-suppression, and it also makes a
-     re-walk land only what changed instead of rewriting millions of documents.
-3. **"Gone" objects are marked, not deleted.** The projection records `gone_at` (the walk that
-   failed to see the path). `find` defaults to present objects; a scope option includes gone
-   ones ("what was there"), which the substrate position asks for.
-4. **History is the change stream.** Any earlier state of a path is its creation fact plus its
-   changes. `supersedes` is then a relation between successive change facts for the same
-   (machine, path), rather than between object documents.
+## Keeping it fresh: incremental walks, then periodic full scans
 
-## Why this shape
+1. **Incremental walk** (built in `scripts/walk_corpus.py`): given the previous walk's start,
+   keep only entries **modified or changed** (mtime or ctime) after `since − overlap`.
+   - mtime alone misses files that arrive with old mtimes: `cp -p`, `tar x`, `rsync -t` and
+     moves keep their mtime but get a new ctime.
+   - The whole tree is still statted, but only the changes are landed. On wam-nuc, an hour's
+     cutoff kept 41,744 of 1,846,329 entries.
+   - Parents of new entries are always in the stream (adding, removing or renaming an entry
+     changes its directory), so containment edges still resolve.
+2. **Each walk is recorded** in its landing fact: root, policy, incremental or full, cutoff,
+   start. The next walk takes its cutoff from there. An incremental walk's shape is never
+   read as the whole machine's.
+3. **Periodic full-scan validation:** a full walk under the same policy is compared with the
+   index for that machine, so stale pointers can be found in bulk. Only a complete walk under
+   the same policy may judge absence. The 2026-10-26 policy mix (July `--all-names`, then a
+   default walk) is the case that rule is for.
 
-- This **is** the storage activity data stream Tony described: "scan everything, look for
-  changes". A walk is the sensor, and the diff is the activity. eBPF, the NTFS USN journal or
-  FSEvents can later feed the same change facts faster, without changing what is stored.
-- It fixes #31's "identical-copy hoarding" (unchanged means no write) without giving up the
-  fast current view.
-- Deletions are facts with a time. "When did that file disappear?" becomes a query.
+## History (what #31 wanted)
 
-## Costs and limits, declared
+Replacing in place overwrites the previous size, mtime and inode. Under "existed at some
+point", that history is worth keeping but not urgent. The plan is to write a **change fact**
+to the activity stream when a landing changes an object: the old values, the new values, and
+the (device, inode) turnover of #31's atomic-rename case. `supersedes` then relates successive
+change facts for the same (machine, path). This also makes the walk-and-diff the storage
+activity stream Tony described ("scan everything, look for changes"). eBPF, the USN journal or
+FSEvents can later feed the same facts faster.
 
-- **The diff must read the projection for one machine.** That is up to 5M (uri → size, mtime,
-  inode) entries, streamed by source, or looked up per chunk by key. It needs measuring before
-  choosing between the two.
-- **"Gone" means not seen by a complete walk under the same policy.** A partial walk, a
-  permission change or a policy change (name excludes) must not mark things gone. Each walk
-  records its root and policy, and only a complete walk with the same policy may emit "gone".
-  The 2026-10-26 policy mix (July `--all-names` against today's default) is exactly the case
-  this rule exists for.
-- **Size and mtime miss a content change that preserves both.** That was declared in June
-  (handoff-collector-recorder-architecture.md); content hashing is a separate transducer.
+## Eventually: "were there any other copies of it?"
 
-## Migration
+Hand back an object and ask where else it exists, on this machine or another, in any cloud.
+That needs a **content identity** (a hash), which a stat walk doesn't have. Size plus name is a
+cheap candidate filter. A hash transducer, run on demand over the candidates, confirms a match.
+This is the query-driven enrichment pattern (`docs/hypotheses/query-driven-enrichment-small-group-find.md`):
+compute the expensive attribute only where a query needs it.
 
-The July objects of this WSL carry the old policy's `observed_at` values. After every machine
-has had one all-names walk, the first diffed walk per machine sets the baseline. "Gone" is
-emitted only from the second diffed walk onward.
+## Declared limits
+
+- Size and mtime miss a content change that preserves both (declared in June).
+- **Linux birth time:** ext4, xfs and btrfs keep one (`statx`, `stx_btime`), but Python 3.14's
+  `os.stat` doesn't expose it on Linux. That's why `created` is null for every Linux object.
+  A `ctypes` call to glibc's `statx` would fill it; its cost per entry is to be measured.
+- **atime** is relatime on these mounts: updated at most daily, or when older than mtime/ctime.
+  It means "read since the last change, or within a day", not "last read". NTFS behaviour is
+  to be checked on the Windows machines before the Windows collector relies on it.

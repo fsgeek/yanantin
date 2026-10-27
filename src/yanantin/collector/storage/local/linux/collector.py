@@ -165,6 +165,15 @@ def _stat_to_entry(full_path: str, st: os.stat_result, is_symlink: bool) -> File
     )
 
 
+def _since_keeps(entry: FileEntryData, since: datetime | None) -> bool:
+    """Keep an entry modified OR changed at or after `since`. mtime alone misses
+    files that arrive with old mtimes (cp -p, tar x, rsync -t, moves): those keep
+    their mtime but get a new ctime."""
+    if since is None:
+        return True
+    return max(entry.timestamps.modified, entry.timestamps.changed) >= since
+
+
 class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
     """Walks a directory tree and collects stat metadata for every entry.
 
@@ -256,7 +265,7 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
                 dir_stat = os.lstat(dirpath)
                 is_link = stat.S_ISLNK(dir_stat.st_mode)
                 entry = _stat_to_entry(dirpath, dir_stat, is_link)
-                if since is None or entry.timestamps.modified >= since:
+                if _since_keeps(entry, since):
                     counters.total_dirs += 1
                     yield entry
             except OSError as exc:
@@ -270,7 +279,7 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
                     file_stat = os.lstat(full_path)
                     is_link = stat.S_ISLNK(file_stat.st_mode)
                     entry = _stat_to_entry(full_path, file_stat, is_link)
-                    if since is not None and entry.timestamps.modified < since:
+                    if not _since_keeps(entry, since):
                         continue
                     if stat.S_ISDIR(file_stat.st_mode):
                         counters.total_dirs += 1
@@ -294,8 +303,8 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
     def collect(self, since: datetime | None = None) -> FilesystemSnapshot:
         """Walk the directory tree and return a snapshot.
 
-        If ``since`` is provided, only entries whose mtime is at or after
-        ``since`` are included. Totals reflect the filtered set.
+        If ``since`` is provided, only entries modified or changed (mtime or
+        ctime) at or after ``since`` are included. Totals reflect the filtered set.
         """
         counters = _WalkCounters()
         entries = tuple(self._walk_entries(since, counters))

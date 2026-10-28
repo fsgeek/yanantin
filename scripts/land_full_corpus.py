@@ -133,11 +133,12 @@ def main() -> int:
     ap.add_argument(
         "--mem-guard-gib",
         type=float,
-        default=15.0,
+        default=9.0,
         help="pause before each write while the database container uses more than this "
-        "(arango-apacheta runs under a 20 GiB cap since 2026-10-27); 0 disables",
+        "(arango-objects runs under a 12 GiB cap since 2026-10-28); 0 disables",
     )
-    ap.add_argument("--container", default="arango-apacheta")
+    ap.add_argument("--container", default="arango-objects",
+                    help="the container the landing writes to (the guard watches it)")
     args = ap.parse_args()
     manifest = None
     if args.from_jsonl:

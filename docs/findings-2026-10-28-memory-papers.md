@@ -60,3 +60,13 @@ test proposed in Tony's sixth question (2026-10-25). The papers suggest a specif
 conformity to a stored stance that is wrong. That means seeding one plausible but false feedback
 memory and measuring how often it is followed against how often an instance without it makes the
 same choice. It needs sealed tasks written by someone else and pre-registration before it is run.
+
+## The metrics these give the ayllu (Tony, 2026-10-28: "metrics *and* insight into how we can do better")
+
+| Metric | From | Applied to | Data | Status |
+|---|---|---|---|---|
+| **Coverage vs utilization**: was the evidence returned; once returned, was it used | RAW-RAG | khipumaq search | the M3 adjudication (`evidence_in_results`) plus recall-after-search | computable now |
+| **Benefit vs tax**: needs the system meets that raw search misses, and the reverse | Memory Tax | khipumaq search and yanantin find vs BM25 over `raw` | needs paired runs of the same need | cheap; to pre-register |
+| **Faithfulness vs accessibility**: lost when the tensor was written, or kept but unfound | Memory Tax | Hamut'ay tensors (Apacheta's premise) | questions answerable from raw episodes, checked against tensors | needs design and pre-registration |
+| **Corrective vs corruptive rate** | MIST | qhaway feedback memories | sealed tasks, plus one planted false memory against a no-memory baseline | needs sealed tasks written by someone else |
+| **Scope errors**: applied out of scope, or after being superseded | HABIT | qhaway feedback memories | applications audited from khipumaq history | needs design |

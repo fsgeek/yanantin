@@ -70,3 +70,6 @@ same choice. It needs sealed tasks written by someone else and pre-registration 
 | **Faithfulness vs accessibility**: lost when the tensor was written, or kept but unfound | Memory Tax | Hamut'ay tensors (Apacheta's premise) | questions answerable from raw episodes, checked against tensors | needs design and pre-registration |
 | **Corrective vs corruptive rate** | MIST | qhaway feedback memories | sealed tasks, plus one planted false memory against a no-memory baseline | needs sealed tasks written by someone else |
 | **Scope errors**: applied out of scope, or after being superseded | HABIT | qhaway feedback memories | applications audited from khipumaq history | needs design |
+| **Supersession quality**: how often a superseded memory is later reinstated, and the share of `supersedes` edges whose new memory cites evidence the old one lacked | MIST (explicit retraction 42.1% → 6.9%), and the open criticism that supersession implies newer is better | qhaway | supersedes/retracts edges plus their memories' evidence | cheap; to pre-register |
+
+*On "newer is better" (Tony, 2026-10-28): a supersedes edge records belief order, not time order. An older memory found correct can supersede a newer one. The risk is supersession by reflex, done because the new one feels more current and not because of new evidence; the metric above measures that.*

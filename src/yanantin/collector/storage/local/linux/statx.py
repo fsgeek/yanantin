@@ -12,6 +12,7 @@ from __future__ import annotations
 import ctypes
 import errno
 import os
+import sys
 
 _AT_FDCWD = -100
 _AT_SYMLINK_NOFOLLOW = 0x100
@@ -40,6 +41,10 @@ class _Statx(ctypes.Structure):
 
 
 def _load_statx():
+    # statx is Linux's; elsewhere os.lstat serves (Windows has st_birthtime natively,
+    # and ctypes.CDLL(None) raises TypeError there).
+    if sys.platform != "linux":
+        return None
     try:
         fn = ctypes.CDLL(None, use_errno=True).statx
     except (OSError, AttributeError):

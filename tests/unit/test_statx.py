@@ -72,3 +72,15 @@ def test_collector_fills_created(tmp_path):
     entry = next(e for e in c.stream_entries() if e.name == "a.txt")
     assert entry.timestamps.created is not None
     assert "st_birthtime" in entry.raw_stat
+
+
+def test_statx_is_linux_only(monkeypatch):
+    """On Windows or macOS the loader must yield to os.lstat, not fail at import:
+    ctypes.CDLL(None) raises TypeError on Windows. (Windows has st_birthtime natively.)"""
+    import sys
+
+    from yanantin.collector.storage.local.linux import statx as mod
+
+    for platform in ("win32", "darwin"):
+        monkeypatch.setattr(sys, "platform", platform)
+        assert mod._load_statx() is None

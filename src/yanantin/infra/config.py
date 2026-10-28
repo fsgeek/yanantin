@@ -303,3 +303,23 @@ def get_database(
 
 # expose cache_clear on the public name for test isolation
 get_database.cache_clear = _HANDLE_CACHE.clear
+
+
+def objects_database() -> StandardDatabase:
+    """The file index's own server (arango-objects since 2026-10-28), from
+    ~/.yanantin/config/objects.ini. Objects outgrew arango-apacheta's 20 GiB cap;
+    on its own server its load no longer slows the other tenants. The file must
+    be owner-only (docs/credentials.md: secrets in 0600 files)."""
+    ini = Path.home() / ".yanantin" / "config" / "objects.ini"
+    if not ini.exists():
+        raise FileNotFoundError(
+            f"{ini} not found: provision arango-objects (docs/credentials.md) to create objects.ini")
+    if ini.stat().st_mode & 0o077:
+        raise PermissionError(f"{ini} must be 0600 (owner-only); it holds a password")
+    cfg = configparser.ConfigParser()
+    cfg.read(ini)
+    d = cfg["database"]
+    return get_database(
+        host=f"http://{d['host']}:{d['port']}", db_name=d["database"],
+        username=d["user"], password=d["password"],
+    )

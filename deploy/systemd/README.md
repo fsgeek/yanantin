@@ -5,7 +5,7 @@ Installed on the WSL that hosts arango-apacheta (WAM-THREADRIPPER), in
 
 - `yanantin-refresh.timer` → `yanantin-refresh.service`: nightly at 04:30 local, after
   hamutay's ~03:15 arango backup. It runs `scripts/refresh_machines.py`, an incremental walk
-  of ubuntu24, wam-nuc, wam-mac (skipped when unreachable) and this machine, landed into
+  of ubuntu24, wam-nuc, gazelle, wam-mac (skipped when unreachable) and this machine, landed into
   `apacheta.Objects` with the memory guard.
 
 Install or update:

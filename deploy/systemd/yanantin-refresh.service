@@ -4,7 +4,7 @@ Description=yanantin: incremental walk of each machine into apacheta.Objects (sc
 [Service]
 Type=oneshot
 WorkingDirectory=/home/tony/projects/yanantin
-ExecStart=/home/tony/.local/bin/uv run python scripts/refresh_machines.py --hosts ubuntu24 wam-nuc wam-mac --local
+ExecStart=/home/tony/.local/bin/uv run python scripts/refresh_machines.py --hosts ubuntu24 wam-nuc gazelle wam-mac --local
 Nice=10
 IOSchedulingClass=idle
 TimeoutStartSec=8h

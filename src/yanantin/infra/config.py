@@ -305,11 +305,9 @@ def get_database(
 get_database.cache_clear = _HANDLE_CACHE.clear
 
 
-def objects_database() -> StandardDatabase:
-    """The file index's own server (arango-objects since 2026-10-28), from
-    ~/.yanantin/config/objects.ini. Objects outgrew arango-apacheta's 20 GiB cap;
-    on its own server its load no longer slows the other tenants. The file must
-    be owner-only (docs/credentials.md: secrets in 0600 files)."""
+def objects_params() -> dict:
+    """host, db_name, username, password for the file index's own server (arango-objects
+    since 2026-10-28), from ~/.yanantin/config/objects.ini, which must be 0600."""
     ini = Path.home() / ".yanantin" / "config" / "objects.ini"
     if not ini.exists():
         raise FileNotFoundError(
@@ -319,7 +317,11 @@ def objects_database() -> StandardDatabase:
     cfg = configparser.ConfigParser()
     cfg.read(ini)
     d = cfg["database"]
-    return get_database(
-        host=f"http://{d['host']}:{d['port']}", db_name=d["database"],
-        username=d["user"], password=d["password"],
-    )
+    return {"host": f"http://{d['host']}:{d['port']}", "db_name": d["database"],
+            "username": d["user"], "password": d["password"]}
+
+
+def objects_database() -> StandardDatabase:
+    """The file index's own server. Objects outgrew arango-apacheta's 20 GiB cap; on
+    its own server its load no longer slows the other tenants."""
+    return get_database(**objects_params())

@@ -24,7 +24,7 @@ from uuid import NAMESPACE_DNS, uuid5
 
 from yanantin.activity.backends.arango import ArangoDBActivityStreamStore
 from yanantin.collector.storage.local.linux.collector import LinuxFilesystemCollector
-from yanantin.infra.config import ApachetaDBConfig
+from yanantin.infra.config import objects_params
 from yanantin.recorder.storage.local.linux.walks import latest_walk_start
 
 REPO = Path(__file__).resolve().parents[1]
@@ -100,10 +100,8 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true", help="report each machine's cutoff; walk nothing")
     args = ap.parse_args()
 
-    cfg = ApachetaDBConfig()
-    creds = cfg.get_app_credentials()
-    store = ArangoDBActivityStreamStore(host=cfg.host_url, db_name=cfg.db["database"],
-                                        username=creds["username"], password=creds["password"])
+    # Walk facts live with the file index, on its own server (arango-objects).
+    store = ArangoDBActivityStreamStore(**objects_params())
     started = datetime.now(timezone.utc).isoformat()
     results = [refresh_remote(h, store, args.overlap, args.dry_run) for h in args.hosts]
     if args.local:

@@ -36,7 +36,7 @@ from yanantin.collector.storage.local.linux.shape_report import (
 from yanantin.core.khipu import Khipu
 from yanantin.core.registration import Registrar
 from yanantin.core.storage_obfuscator import TransparentObfuscator
-from yanantin.infra.config import ApachetaDBConfig, get_database
+from yanantin.infra.config import ApachetaDBConfig, get_database, objects_params
 from yanantin.recorder.storage.local.linux.batch_landing import (
     _read_entries_jsonl,
     assert_landing_throughput,
@@ -153,16 +153,16 @@ def main() -> int:
         sfx = uuid4().hex[:8]
         catalog, objects, rels = f"LandCat_{sfx}", f"LandObj_{sfx}", f"LandRel_{sfx}"
     else:
-        creds = cfg.get_app_credentials()
-        db_name = cfg.db["database"]
         catalog, objects, rels = "StorageRegistrants", "Objects", "Relationships"
 
-    db = get_database(
-        host=cfg.host_url,
-        db_name=db_name,
-        username=creds["username"],
-        password=creds["password"],
-    )
+    if args.smoke:
+        target = {"host": cfg.host_url, "db_name": db_name,
+                  "username": creds["username"], "password": creds["password"]}
+    else:
+        # The file index has its own server since 2026-10-28 (arango-objects).
+        target = objects_params()
+        db_name = target["db_name"]
+    db = get_database(**target)
 
     corpus_dir = Path.home() / ".yanantin" / "corpus"
     corpus_dir.mkdir(parents=True, exist_ok=True)
@@ -305,12 +305,7 @@ def main() -> int:
     print(json.dumps({"phase": "landing", **{k: summary[k] for k in ('landing', 'throughput_gate', 'objects_after_landing', 'relationships_after_landing')}}), flush=True)
 
     # ── Phase 4: shape report as an activity fact, then read it back ──
-    store = ArangoDBActivityStreamStore(
-        host=cfg.host_url,
-        db_name=db_name,
-        username=creds["username"],
-        password=creds["password"],
-    )
+    store = ArangoDBActivityStreamStore(**target)
     shape_report = shape.report()
     store.store_fact(
         FactRecord(

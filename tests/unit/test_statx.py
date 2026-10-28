@@ -84,3 +84,29 @@ def test_statx_is_linux_only(monkeypatch):
     for platform in ("win32", "darwin"):
         monkeypatch.setattr(sys, "platform", platform)
         assert mod._load_statx() is None
+
+
+def test_nothing_lstat_exposes_is_missing(entries):
+    """Introspective, not a list (Indaleko's pattern): whatever st_* fields this
+    Python's os.lstat has, the statx result has them too, with the same values."""
+    for p in entries:
+        ref = os.lstat(p)
+        ours = lstat_with_btime(p)
+        ref_keys = {k for k in dir(ref) if k.startswith("st_")}
+        assert ref_keys <= {k for k in dir(ours) if k.startswith("st_")}, p.name
+        for k in ref_keys:
+            if k.endswith(("time",)) and not k.endswith("_ns"):
+                assert getattr(ours, k) == pytest.approx(getattr(ref, k), abs=1e-6), (p.name, k)
+            else:
+                assert getattr(ours, k) == getattr(ref, k), (p.name, k)
+
+
+def test_everything_statx_returns_is_kept(entries):
+    """Save-it-all: every field of the statx structure reaches raw_stat as st_statx_*,
+    including what lstat cannot give (attributes, mask, mount id)."""
+    from yanantin.collector.storage.local.linux.statx import _Statx
+
+    st = lstat_with_btime(entries[0])
+    names = [n for n, _ in _Statx._fields_ if not n.startswith("_")]
+    for n in names:
+        assert hasattr(st, "st_statx_" + n.removeprefix("stx_")), n

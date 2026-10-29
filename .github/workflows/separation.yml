@@ -161,6 +161,12 @@ jobs:
             > "$HOME/.yanantin/config/db.ini"
           chmod 600 "$HOME/.yanantin/config/db.ini"
 
+      # BLOCKING: bug-shaped lint rules (the set lives in pyproject.toml).
+      - name: Lint (bug-shaped rules only)
+        run: |
+          uvx ruff@0.17.3 check src scripts tests
+          uvx pylint@4.1.3 --disable=all --enable=pointless-statement,expression-not-assigned --score=n src scripts tests
+
       # The BLOCKING gate: everything except tests/red_bar must pass. red_bar is
       # excluded here because those are deliberate red bars guarding standing
       # decisions (e.g. yanantin#13's authorship_verified field) — correctly RED

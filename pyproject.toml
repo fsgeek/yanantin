@@ -39,6 +39,13 @@ markers = [
     "integration: test hits a live external API (OpenRouter); skip with -m 'not integration'",
 ]
 
+# Bug-shaped rules only, chosen because the tree is silent on them: ruff speaks
+# only when a new bug appears. Style rules flooded instances' context windows in
+# Indaleko. Ruff skips a no-op subscript (`results[:10]`, Indaleko's uncapped
+# history), so CI also runs pylint's pointless-statement check for that.
+[tool.ruff.lint]
+select = ["B018", "B015", "B006", "F821", "F632", "E9", "PLE"]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"

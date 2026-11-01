@@ -50,6 +50,24 @@ from yanantin.recorder.storage.local.linux.registration import (
 from yanantin.recorder.storage.objects_definition import OBJECTS_DEFINITION
 
 
+def hold_while_above(used, *, limit: float, max_seconds: float, sleep=time.sleep,
+                     step: float = 30) -> float:
+    """Wait while used() > limit; return the seconds waited. ArangoDB does not give
+    memory back while idle, so the wait can be endless (2026-10-31: 8.5 h, then
+    systemd killed the refresh); past max_seconds it raises instead."""
+    waited = 0.0
+    while (now := used()) > limit:
+        if waited >= max_seconds:
+            raise TimeoutError(f"database memory stayed above {limit / 2**30:.1f} GiB "
+                               f"for {waited / 60:.0f} min ({now / 2**30:.1f} GiB now)")
+        if waited % 300 < step:
+            print(json.dumps({"phase": "paused", "container_mem_gib": round(now / 2**30, 1)}),
+                  file=sys.stderr, flush=True)
+        sleep(step)
+        waited += step
+    return waited
+
+
 class _ShapeAccumulator:
     """CollectorShapeReport computed incrementally — same math as
     from_snapshot(), without materializing 2.2M entries."""
@@ -137,6 +155,8 @@ def main() -> int:
         help="pause before each write while the database container uses more than this "
         "(arango-objects runs under a 12 GiB cap since 2026-10-28); 0 disables",
     )
+    ap.add_argument("--mem-guard-max-minutes", type=float, default=60.0,
+                    help="give up (exit non-zero) after the guard has held this long")
     ap.add_argument("--container", default="arango-objects",
                     help="the container the landing writes to (the guard watches it)")
     args = ap.parse_args()
@@ -284,12 +304,11 @@ def main() -> int:
             m = container.stats(stream=False)["memory_stats"]
             return m.get("usage", 0) - m.get("stats", {}).get("inactive_file", 0)
 
-        while used() > limit:
-            if paused["times"] == 0 or paused["seconds"] % 300 < 30:
-                print(json.dumps({"phase": "paused", "container_mem_gib": round(used() / 2**30, 1)}), flush=True)
-            paused["times"] += 1
-            time.sleep(30)
-            paused["seconds"] += 30
+        waited = hold_while_above(
+            used, limit=limit,
+            max_seconds=args.mem_guard_max_minutes * 60 - paused["seconds"])
+        paused["times"] += int(waited > 0)
+        paused["seconds"] += waited
 
     report = land_jsonl(registrar, jsonl_path, provider_id,
                         before_flush=_mem_guard if args.mem_guard_gib > 0 else None)

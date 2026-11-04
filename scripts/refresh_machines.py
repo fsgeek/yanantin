@@ -50,6 +50,24 @@ def land(args_extra: list[str]) -> dict:
             "stderr_tail": proc.stderr[-600:] if proc.returncode else ""}
 
 
+def identity_mismatch(provider, manifest: dict) -> str | None:
+    """Why a walk's manifest must not land under provider, or None if it may. The
+    cutoff came from provider; a walk reporting another identity is not its walk."""
+    walked = manifest.get("provider_id")
+    if walked == str(provider):
+        return None
+    return (f"walk reported provider {walked} (machine-id {manifest.get('machine_id')}), "
+            f"but the cutoff was taken for provider {provider}")
+
+
+def per_host(refresh, host: str) -> dict:
+    """Run one host's refresh; a timeout fails that host, not the whole run."""
+    try:
+        return refresh(host)
+    except subprocess.TimeoutExpired as e:
+        return {"host": host, "failed": "timeout", "detail": f"{e.cmd} timed out after {e.timeout} s"}
+
+
 def refresh_remote(host: str, store, overlap: float, dry: bool) -> dict:
     mid = subprocess.run([*SSH, host, "cat /etc/machine-id"], capture_output=True, text=True, timeout=60)
     if mid.returncode != 0:
@@ -67,6 +85,8 @@ def refresh_remote(host: str, store, overlap: float, dry: bool) -> dict:
     if walk.returncode != 0 or not manifests:
         return {**out, "failed": "walk", "detail": walk.stderr[-400:]}
     manifest = json.loads(manifests[-1])
+    if reason := identity_mismatch(provider, manifest):
+        return {**out, "failed": "identity", "detail": reason}
     remote = Path(manifest["jsonl"])
     CORPUS.mkdir(parents=True, exist_ok=True)
     stem = remote.name.removesuffix(".jsonl.gz")
@@ -103,7 +123,8 @@ def main() -> int:
     # Walk facts live with the file index, on its own server (arango-objects).
     store = ArangoDBActivityStreamStore(**objects_params())
     started = datetime.now(timezone.utc).isoformat()
-    results = [refresh_remote(h, store, args.overlap, args.dry_run) for h in args.hosts]
+    results = [per_host(lambda h: refresh_remote(h, store, args.overlap, args.dry_run), h)
+               for h in args.hosts]
     if args.local:
         results.append(refresh_local(store, args.overlap, args.dry_run))
     print(json.dumps({"refresh_started": started, "machines": results}, indent=1, default=str))

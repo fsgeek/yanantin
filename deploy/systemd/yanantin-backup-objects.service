@@ -1,0 +1,9 @@
+[Unit]
+Description=yanantin: dump arango-objects (the file index) and copy it to wam-nuc (deploy/backup-objects.sh)
+
+[Service]
+Type=oneshot
+ExecStart=/home/tony/projects/yanantin/deploy/backup-objects.sh
+Nice=10
+IOSchedulingClass=idle
+TimeoutStartSec=3h

@@ -1,0 +1,9 @@
+[Unit]
+Description=yanantin: nightly backup of arango-objects, after the 04:30 refresh
+
+[Timer]
+OnCalendar=*-*-* 06:15:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

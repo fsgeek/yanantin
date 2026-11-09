@@ -70,3 +70,93 @@ def linux_identity_evidence(*, root: Path = Path("/"), hostname: str | None = No
     out.append(_observation("hostname", "socket.gethostname()", "ok" if name else "absent", name or None))
     out.append(_read(root, "/etc/os-release", "os_release", bool))
     return out
+
+
+# ---- macOS ---------------------------------------------------------------
+# The primary is IOPlatformUUID (hardware) plus the APFS Data volume's UUID (the
+# namespace /Users lives on), so a second installation on the same Mac is a
+# different provider (Codex finding 2). The "darwin:" scope keeps it from ever
+# equalling a Linux machine-id (finding 4).
+
+_UUID = r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+_DARWIN_PRIMARY = re.compile(rf"^darwin:({_UUID}):({_UUID})$")
+
+
+def valid_primary(text: str) -> bool:
+    """A Linux machine-id, or a macOS darwin:<platform>:<data volume> primary
+    with neither half a placeholder."""
+    if valid_machine_id(text):
+        return True
+    match = _DARWIN_PRIMARY.match(text)
+    return bool(match) and all(_valid_uuid(part) for part in match.groups())
+
+
+def _run(cmd: list[str]) -> tuple[int, str]:
+    import subprocess
+
+    try:
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+    except (OSError, subprocess.TimeoutExpired) as e:
+        return 127, str(e)
+    return proc.returncode, proc.stdout
+
+
+def _ioreg(run) -> tuple[dict, str | None]:
+    code, out = run(["ioreg", "-rd1", "-c", "IOPlatformExpertDevice"])
+    if code != 0:
+        return {}, f"ioreg exited {code}"
+    return dict(re.findall(r'"(IOPlatform\w+)" = "([^"]*)"', out)), None
+
+
+def _data_volume_uuid(run) -> tuple[str | None, str | None]:
+    import plistlib
+
+    code, out = run(["diskutil", "info", "-plist", "/System/Volumes/Data"])
+    if code != 0:
+        return None, f"diskutil exited {code}"
+    try:
+        return plistlib.loads(out.encode()).get("VolumeUUID"), None
+    except Exception as e:  # noqa: BLE001 - a malformed plist is recorded, not raised
+        return None, f"unparseable plist: {e}"
+
+
+def darwin_primary(*, run=_run) -> str:
+    """darwin:<IOPlatformUUID>:<Data volume UUID>, lowercased, or refuse."""
+    platform, detail = _ioreg(run)
+    volume, vdetail = _data_volume_uuid(run)
+    uuid = platform.get("IOPlatformUUID")
+    if not uuid or not volume:
+        raise RuntimeError(
+            f"no macOS primary (IOPlatformUUID: {uuid or detail}, Data volume UUID: {volume or vdetail}); "
+            "yanantin will not guess an identity")
+    primary = f"darwin:{uuid.lower()}:{volume.lower()}"
+    if not valid_primary(primary):
+        raise RuntimeError(f"invalid macOS primary {primary!r}")
+    return primary
+
+
+def darwin_identity_evidence(*, run=_run, hostname: str | None = None) -> list[dict]:
+    """Every macOS identifier yanantin reads, as observations."""
+    import socket
+
+    platform, detail = _ioreg(run)
+    out = []
+    for key, name in (("IOPlatformUUID", "io_platform_uuid"), ("IOPlatformSerialNumber", "platform_serial")):
+        value = platform.get(key)
+        status = "unreadable" if detail else ("ok" if value else "absent")
+        if value and key == "IOPlatformUUID" and not _valid_uuid(value.lower()):
+            status = "invalid"
+        out.append(_observation(name, "ioreg -rd1 -c IOPlatformExpertDevice", status, value, detail))
+    volume, vdetail = _data_volume_uuid(run)
+    out.append(_observation("data_volume_uuid", "diskutil info -plist /System/Volumes/Data",
+                            "unreadable" if vdetail else ("ok" if volume else "absent"), volume, vdetail))
+    code, ifconfig = run(["ifconfig"])
+    macs = sorted(set(re.findall(r"^\s+ether ([0-9a-f:]{17})", ifconfig, re.M))) if code == 0 else []
+    out.append(_observation("mac_addresses", "ifconfig", "ok" if macs else ("absent" if code == 0 else "unreadable"),
+                            ",".join(macs) or None, None if code == 0 else f"ifconfig exited {code}"))
+    name = hostname if hostname is not None else socket.gethostname()
+    out.append(_observation("hostname", "socket.gethostname()", "ok" if name else "absent", name or None))
+    code, sw = run(["sw_vers"])
+    out.append(_observation("sw_vers", "sw_vers", "ok" if code == 0 and sw.strip() else "unreadable",
+                            sw.strip() or None, None if code == 0 else f"sw_vers exited {code}"))
+    return out

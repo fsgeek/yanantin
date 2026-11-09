@@ -45,6 +45,20 @@ class _WalkCounters:
 _DEFAULT_EXCLUDE_PATHS: frozenset[str] = frozenset(
     {"/mnt", "/proc", "/sys", "/dev", "/run"}
 )
+# macOS: /System/Volumes/Data repeats /Users, /Applications, /Library, /private and
+# /usr/local, which firmlinks already show at their user-visible paths (all on one
+# st_dev, so the device guard can't tell); the rest of /System/Volumes is VM swap,
+# Preboot and Update. /Volumes is where other drives mount: macOS's /mnt.
+_DARWIN_EXCLUDE_PATHS: frozenset[str] = frozenset({"/System/Volumes", "/Volumes", "/Network"})
+
+
+def default_exclude_paths(platform: str | None = None) -> frozenset[str]:
+    """The paths a walk of / must not descend into, on this or the named platform."""
+    import sys
+
+    if (platform or sys.platform) == "darwin":
+        return _DEFAULT_EXCLUDE_PATHS | _DARWIN_EXCLUDE_PATHS
+    return _DEFAULT_EXCLUDE_PATHS
 
 # Directory NAMES (not absolute paths) skipped anywhere in the tree: build/VCS
 # noise that bloats the corpus without being query-worthy. Overridable — open,
@@ -189,7 +203,7 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
         machine_id: str | None = None,
         *,
         same_device_only: bool = True,
-        exclude_paths: frozenset[str] = _DEFAULT_EXCLUDE_PATHS,
+        exclude_paths: frozenset[str] | None = None,
         exclude_names: frozenset[str] = _DEFAULT_EXCLUDE_NAMES,
     ) -> None:
         self._root_path = root_path.resolve()
@@ -206,7 +220,7 @@ class LinuxFilesystemCollector(CollectorBase[FilesystemSnapshot]):
         # conflating two tenants (the opposite of the federation goal).
         self._same_device_only = same_device_only
         self._exclude_paths = frozenset(
-            str(Path(p)) for p in exclude_paths
+            str(Path(p)) for p in (default_exclude_paths() if exclude_paths is None else exclude_paths)
         )
         self._exclude_names = frozenset(exclude_names)
 

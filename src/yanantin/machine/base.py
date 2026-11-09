@@ -13,8 +13,12 @@ def _get_machine_id(path: Path = Path("/etc/machine-id")) -> str:
     objects written under it are attributed to a machine that doesn't exist
     (docs/design-machine-identity-evidence.md, decision 2; Codex finding 9).
     """
-    from yanantin.machine.evidence import valid_machine_id
+    import sys
 
+    from yanantin.machine.evidence import darwin_primary, valid_machine_id
+
+    if sys.platform == "darwin" and path == Path("/etc/machine-id"):
+        return darwin_primary()
     try:
         text = path.read_text().strip()
     except OSError as e:

@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 import socket
 import time
 from datetime import datetime, timedelta, timezone
@@ -42,6 +43,14 @@ out.parent.mkdir(parents=True, exist_ok=True)
 # Save-it-all at the collector, as the July landing decided (land_full_corpus.py
 # --all-names): .git, .venv, __pycache__, node_modules are observed too. The path
 # excludes (/proc, /sys, /mnt, ...) stay; they are pseudo-filesystems and other silos.
+if sys.platform == "darwin":
+    # Listing or stat'ing a dataless (iCloud-evicted) file must not download it:
+    # turn materialization off for this process (sys/resource.h:
+    # IOPOL_TYPE_VFS_MATERIALIZE_DATALESS_FILES=3, IOPOL_SCOPE_PROCESS=0,
+    # IOPOL_MATERIALIZE_DATALESS_FILES_OFF=1). Refuse to walk if it can't be set.
+    import ctypes
+    if ctypes.CDLL(None).setiopolicy_np(3, 0, 1) != 0:
+        raise SystemExit("could not turn off dataless-file materialization; refusing to walk")
 collector = LinuxFilesystemCollector(Path(args.root), exclude_names=frozenset())
 started = datetime.now(timezone.utc).isoformat()
 t0 = time.monotonic()

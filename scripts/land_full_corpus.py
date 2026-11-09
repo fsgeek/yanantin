@@ -37,7 +37,7 @@ from yanantin.collector.storage.local.linux.shape_report import (
 from yanantin.core.khipu import Khipu
 from yanantin.core.registration import Registrar
 from yanantin.core.storage_obfuscator import TransparentObfuscator
-from yanantin.machine.evidence import linux_identity_evidence, valid_machine_id
+from yanantin.machine.evidence import linux_identity_evidence, valid_primary
 from yanantin.infra.config import ApachetaDBConfig, get_database, objects_params
 from yanantin.recorder.storage.local.linux.batch_landing import (
     _read_entries_jsonl,
@@ -213,7 +213,7 @@ def main() -> int:
         # The walking machine's identity, rebuilt from its machine-id; the
         # provider id must come out the same, or the objects would land as
         # another machine's.
-        if not valid_machine_id(manifest["machine_id"]):
+        if not valid_primary(manifest["machine_id"]):
             raise SystemExit(f"manifest machine-id {manifest['machine_id']!r} is not valid; refusing to land")
         collector = LinuxFilesystemCollector(Path(args.root), machine_id=manifest["machine_id"])
         if str(collector.get_provider_id()) != manifest["provider_id"]:

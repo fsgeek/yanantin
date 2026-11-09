@@ -31,6 +31,13 @@ REPO = Path(__file__).resolve().parents[1]
 CORPUS = Path.home() / ".yanantin" / "corpus"
 SSH = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=10", "-o", "ServerAliveInterval=60"]
 REMOTE_UV = "export PATH=$HOME/.local/bin:$PATH; uv run --quiet --python 3.14 --no-project --with yanantin==0.3.0 python -"
+# A machine's primary: /etc/machine-id where it exists, otherwise asked of the same
+# yanantin the walker runs, so preflight and walk derive it with identical code
+# (macOS: darwin:<IOPlatformUUID>:<Data volume UUID>).
+# Braces matter: REMOTE_UV starts with "export ...;", and without grouping the
+# shell runs uv even after cat succeeded (caught by the 2026-11-09 dry run).
+REMOTE_PRIMARY = ("cat /etc/machine-id 2>/dev/null || { " + REMOTE_UV.removesuffix(" -")
+                  + " -c 'from yanantin.machine.base import _get_machine_id; print(_get_machine_id())'; }")
 
 
 def provider_for(machine_id: str):
@@ -71,15 +78,15 @@ def per_host(refresh, host: str) -> dict:
 def provider_from_machine_id(machine_id: str):
     """The provider for a valid machine-id, else None: never a provider for an
     empty or placeholder id (Codex finding 9)."""
-    from yanantin.machine.evidence import valid_machine_id
+    from yanantin.machine.evidence import valid_primary
 
-    return provider_for(machine_id) if valid_machine_id(machine_id) else None
+    return provider_for(machine_id) if valid_primary(machine_id) else None
 
 
 def preflight(host: str) -> tuple[str | None, str]:
     """The provider a host would land under (None if unreadable) and its ssh endpoint."""
     try:
-        mid = subprocess.run([*SSH, host, "cat /etc/machine-id"], capture_output=True, text=True, timeout=60)
+        mid = subprocess.run([*SSH, host, REMOTE_PRIMARY], capture_output=True, text=True, timeout=60)
         found = provider_from_machine_id(mid.stdout.strip()) if mid.returncode == 0 else None
         provider = str(found) if found else None
     except subprocess.TimeoutExpired:
@@ -117,7 +124,7 @@ def plan_walks(hosts: list[tuple[str, str | None, str]]) -> tuple[list[str], lis
 
 
 def refresh_remote(host: str, store, overlap: float, dry: bool) -> dict:
-    mid = subprocess.run([*SSH, host, "cat /etc/machine-id"], capture_output=True, text=True, timeout=60)
+    mid = subprocess.run([*SSH, host, REMOTE_PRIMARY], capture_output=True, text=True, timeout=60)
     if mid.returncode != 0:
         return {"host": host, "skipped": "no machine-id", "detail": mid.stderr.strip()[-200:]}
     provider = provider_from_machine_id(mid.stdout.strip())

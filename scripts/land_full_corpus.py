@@ -37,6 +37,7 @@ from yanantin.collector.storage.local.linux.shape_report import (
 from yanantin.core.khipu import Khipu
 from yanantin.core.registration import Registrar
 from yanantin.core.storage_obfuscator import TransparentObfuscator
+from yanantin.machine.evidence import linux_identity_evidence
 from yanantin.infra.config import ApachetaDBConfig, get_database, objects_params
 from yanantin.recorder.storage.local.linux.batch_landing import (
     _read_entries_jsonl,
@@ -349,6 +350,9 @@ def main() -> int:
                     "since": args.since,
                     "cutoff": cutoff.isoformat() if cutoff else None,
                     "started": walk_started.isoformat(),
+                    # Every identifier this machine offers, with how it was read
+                    # (docs/design-machine-identity-evidence.md).
+                    "identity_evidence": linux_identity_evidence(),
                 },
             },
         )

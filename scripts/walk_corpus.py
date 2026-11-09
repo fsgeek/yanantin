@@ -67,5 +67,14 @@ manifest = {
     "walk_seconds": round(time.monotonic() - t0, 1),
     "yanantin": version("yanantin"),
 }
+# Identity evidence ships in yanantin 0.3.1; an older installed package says so
+# rather than leaving the field silently absent.
+try:
+    from yanantin.machine.evidence import linux_identity_evidence
+    manifest["identity_evidence"] = linux_identity_evidence()
+except ImportError:
+    manifest["identity_evidence"] = [{"name": "*", "read_from": "yanantin.machine.evidence",
+                                      "status": "unsupported", "value": None,
+                                      "detail": f"yanantin {version('yanantin')} predates identity evidence"}]
 out.with_suffix("").with_suffix(".manifest.json").write_text(json.dumps(manifest, indent=1))
 print(json.dumps(manifest))

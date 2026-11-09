@@ -53,8 +53,14 @@ OBJECTS_DEFINITION = CollectionDefinition(
 # would: it drops the dot). text_en stays on uri and label for word search.
 # A view links one named collection, so it is not part of OBJECTS_DEFINITION,
 # which registrars bind to collections of other names.
-PATH_SEGMENTS_ANALYZER = "objects_path_segments"
-OBJECTS_FIND_VIEW = "objects_find"
+#
+# multi_delimiter, not delimiter: delimiter treats '"' as a CSV quote, so a path
+# containing one became a single token across later "/" and never matched
+# (found by the find tool's blind tests, 2026-11-09). Khipu creates analyzers and
+# views only if absent, so the fix needs new names; changing the old definition
+# would leave every existing database on the broken analyzer.
+PATH_SEGMENTS_ANALYZER = "objects_path_segments_md"
+OBJECTS_FIND_VIEW = "objects_find_md"
 
 
 def objects_find_definition(
@@ -63,8 +69,8 @@ def objects_find_definition(
     """The path-segment analyzer and the find view over `collection`."""
     return CollectionDefinition(
         analyzers=(
-            {"name": PATH_SEGMENTS_ANALYZER, "type": "delimiter",
-             "properties": {"delimiter": "/"}, "features": ["frequency", "norm"]},
+            {"name": PATH_SEGMENTS_ANALYZER, "type": "multi_delimiter",
+             "properties": {"delimiters": ["/"]}, "features": ["frequency", "norm"]},
         ),
         views=(
             {

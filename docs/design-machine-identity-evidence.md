@@ -112,7 +112,13 @@ It does not overwrite.
 **Still to specify before building** (findings 7, 8, 10, 11, 12):
 - where walk-time evidence travels and is stored losslessly, with statuses for absent, unsupported,
   unreadable and invalid observations;
-- what happens to any existing hostname-derived identities (inventory first);
+- ~~what happens to any existing hostname-derived identities (inventory first)~~ — **inventoried
+  2026-11-09:** the index holds one legacy identity, `9cb28995` (35,805 objects, walked 2026-06-28).
+  It is this WSL under an earlier provider derivation (none of the current formulas reproduce it),
+  flagged "for later retirement" in July (commit a67485a1). Its URIs largely duplicate
+  `192c0842`'s. The Mac has never landed, so no hostname-fallback identities exist. Lineage to
+  record: a fact linking `9cb28995` to `192c0842` as the same machine under an earlier derivation.
+  Retirement waits until that link exists, so nothing reads as two machines;
 - the temporal evidence the clone and reinstall facts need;
 - qualifying the platform lifecycle claims above. Systemd can seed machine-id from VM or firmware
   UUIDs, and a sysprepped Windows clone gets a new MachineGuid.

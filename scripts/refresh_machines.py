@@ -68,6 +68,45 @@ def per_host(refresh, host: str) -> dict:
         return {"host": host, "failed": "timeout", "detail": f"{e.cmd} timed out after {e.timeout} s"}
 
 
+def preflight(host: str) -> tuple[str | None, str]:
+    """The provider a host would land under (None if unreadable) and its ssh endpoint."""
+    try:
+        mid = subprocess.run([*SSH, host, "cat /etc/machine-id"], capture_output=True, text=True, timeout=60)
+        provider = str(provider_for(mid.stdout.strip())) if mid.returncode == 0 and mid.stdout.strip() else None
+    except subprocess.TimeoutExpired:
+        provider = None
+    cfg = subprocess.run(["ssh", "-G", host], capture_output=True, text=True).stdout.split("\n")
+    opts = dict(line.split(" ", 1) for line in cfg if " " in line)
+    return provider, f"{opts.get('hostname', host)}:{opts.get('port', '22')}"
+
+
+def plan_walks(hosts: list[tuple[str, str | None, str]]) -> tuple[list[str], list[dict]]:
+    """Detector 1 (docs/design-machine-identity-evidence.md): of the aliases that
+    yield one provider, walk the first; a later one at the same ssh endpoint is
+    the same machine, and one at another endpoint is a collision, refused,
+    because keyed landing would overwrite one filesystem's records with the
+    other's. Hosts whose provider can't be read pass through to be reported."""
+    walk: list[str] = []
+    skipped: list[dict] = []
+    first: dict[str, tuple[str, str]] = {}
+    for alias, provider, endpoint in hosts:
+        if provider is None or provider not in first:
+            if provider is not None:
+                first[provider] = (alias, endpoint)
+            walk.append(alias)
+            continue
+        first_alias, first_endpoint = first[provider]
+        if endpoint == first_endpoint:
+            skipped.append({"host": alias, "skipped": f"same machine as {first_alias}",
+                            "detail": f"same provider {provider} and same ssh endpoint {endpoint}"})
+        else:
+            skipped.append({"host": alias, "failed": "identity_collision",
+                            "detail": f"provider {provider} also came from {first_alias} at {first_endpoint}; "
+                                      f"refusing to land {alias} at {endpoint}: keyed landing would "
+                                      "overwrite one filesystem's records with the other's"})
+    return walk, skipped
+
+
 def refresh_remote(host: str, store, overlap: float, dry: bool) -> dict:
     mid = subprocess.run([*SSH, host, "cat /etc/machine-id"], capture_output=True, text=True, timeout=60)
     if mid.returncode != 0:
@@ -128,8 +167,9 @@ def main() -> int:
     # Walk facts live with the file index, on its own server (arango-objects).
     store = ArangoDBActivityStreamStore(**objects_params())
     started = datetime.now(timezone.utc).isoformat()
+    to_walk, refused = plan_walks([(h, *preflight(h)) for h in args.hosts])
     results = [per_host(lambda h: refresh_remote(h, store, args.overlap, args.dry_run), h)
-               for h in args.hosts]
+               for h in to_walk] + refused
     if args.local:
         results.append(refresh_local(store, args.overlap, args.dry_run))
     print(json.dumps({"refresh_started": started, "machines": results}, indent=1, default=str))

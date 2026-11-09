@@ -523,3 +523,21 @@ def test_the_recorder_is_not_a_machine(objects):
     assert str(RECORDER_ID)[:8] not in {row["machine"] for row in result.coverage}
     with pytest.raises(ValueError, match="unknown machine"):
         _find(objects, machines=(str(RECORDER_ID)[:8],))
+
+
+# Added by the steward (2026-11-09): people name machines by their ssh alias, and
+# the index knows them by hostname (Tony's gazelle is pop-os). The nightly refresh
+# writes the alias it connected with into each walk's manifest; find accepts it.
+def test_a_machine_can_be_asked_for_by_the_alias_its_walk_recorded(objects):
+    from yanantin.activity.models import FactRecord
+
+    objects.activity.store_fact(FactRecord(
+        provider_id=objects.sources["desktop"], timestamp=datetime(2026, 11, 9, tzinfo=UTC),
+        data={"walk": {"all_names": True, "started": "2026-11-09T04:30:00+00:00", "alias": "ubuntu24"}},
+    ))
+    by_alias = _find(objects, name="config", machines=("ubuntu24",))
+    by_host = _find(objects, name="config", machines=("wam-desktop",))
+    assert by_alias.total_matched == by_host.total_matched > 0
+    assert set(by_alias.by_machine) == {"wam-desktop"}
+    with pytest.raises(ValueError, match=r"wam-desktop \(ubuntu24\)"):
+        _find(objects, machines=("nonesuch",))

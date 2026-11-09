@@ -38,8 +38,9 @@ Arguments. Every one is optional, but at least one condition is required.
 The response always leads with the summary:
 - `total_matched`, from the engine;
 - `by_machine`: counts per hostname;
-- `top_directories`: up to 10 parent directories with counts. This is the brainstorm's diversity
-  block, and the cue for narrowing ("410 of 592 are under `.cache/uv`");
+- `top_directories`: up to 10 directories with counts, at the deepest level that still summarizes
+  (see the interface). This is the brainstorm's diversity block, and the cue for narrowing ("626 of
+  1,409 are under `.cache/uv`");
 - `coverage`: each indexed machine with the time of its last landed walk, and the plain statement
   that nothing else is searched (Windows drives, the Mac and cloud accounts, until they are walked).
 
@@ -129,8 +130,14 @@ result = find_objects(db, query, *, activity, obfuscator,
 - `FindResult` (frozen):
   - `total_matched: int`
   - `by_machine: dict[str, int]`
-  - `top_directories: list[tuple[str, int]]`: at most 10, by count descending; a directory is the
-    hit's URI up to its last `/`
+  - `top_directories: list[tuple[str, int]]`: at most 10, by count descending (ties by name). A
+    directory is `file://` plus the first *k* components of the hit's directory path, where *k* is
+    the **deepest depth, at most 6, at which the top 10 directories hold at least 75% of all
+    matches**. *k* = 1 always qualifies. A hit whose directory has fewer than *k* components counts
+    under its whole directory. Revised 2026-11-09 from "up to its last /", which on real data
+    spread 1,409 `pyproject.toml` files over about 1,400 directories with a top bucket of 4. The new
+    rule gives depth 4 (`/home/tony/.cache/uv`) for those, depth 5 for a month's window, and depth 6
+    for `.ssh`.
   - `coverage: list[dict]`: each `{"machine": str, "last_walk": datetime | None}`
   - `hits: list[dict]`: each `{"uri", "machine", "modified", "size"}`, newest `modified` first,
     at most `limit`

@@ -16,6 +16,7 @@ import json
 import shlex
 import sys
 from collections.abc import Callable, Iterable
+from pathlib import Path
 from typing import TextIO
 
 from yanantin.find import CompiledQuery
@@ -63,8 +64,10 @@ def parse_line(line: str) -> CompiledQuery | None:
 
 def human(response: dict) -> str:
     """The MCP tool's response, as lines a person reads."""
+    home_dir = str(Path.home())
+
     def home(path: str) -> str:
-        return path.replace("/home/tony", "~", 1)
+        return "~" + path[len(home_dir):] if path.startswith(home_dir + "/") else path
     total = response["total_matched"]
     lines = [f"{total:,} {'match' if total == 1 else 'matches'}: "
              + (", ".join(f"{n:,} {m}" for m, n in sorted(response["by_machine"].items(), key=lambda kv: -kv[1]))

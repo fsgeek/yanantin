@@ -46,6 +46,6 @@ class ProvenanceEdge(BaseModel):
             if "/" not in value:
                 raise ValueError(
                     f"{field_name}={value!r} must be collection/key format, "
-                    "e.g. 'entities/8ae0edf526f3453ab1abaf04e1c75a4a'"
+                    "e.g. 'entities/0a1b2c3d4e5f60718293a4b5c6d7e8f9'"
                 )
         return self

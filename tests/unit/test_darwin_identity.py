@@ -21,7 +21,7 @@ IFCONFIG = ("lo0: flags=8049<UP,LOOPBACK,RUNNING,MULTICAST> mtu 16384\n"
             "anpi0: flags=8863<UP,BROADCAST> mtu 1500\n\tether f6:16:c0:bd:12:8b\n"
             "en0: flags=8863<UP,BROADCAST> mtu 1500\n\tether 3c:a6:f6:01:02:03\n")
 SW_VERS = "ProductName:\t\tmacOS\nProductVersion:\t\t26.4\nBuildVersion:\t\t25E246\n"
-PRIMARY = "darwin:99e7341c-e143-533c-9c7e-455bcccbce27d:60f21a5e-a1d3-4378-9068-f731c7a63013"
+PRIMARY = "darwin:99e7341c-e143-533c-9c7e-455bccbce27d:60f21a5e-a1d3-4378-9068-f731c7a63013"
 
 
 def runner(outputs):
@@ -43,7 +43,7 @@ def test_the_primary_joins_platform_and_data_volume():
 def test_the_primary_is_valid_and_cannot_be_mistaken_for_a_linux_machine_id():
     assert valid_primary(PRIMARY)
     assert valid_primary("8ae0edf526f3453ab1abaf04e1c75a4a")
-    assert not valid_primary("darwin:99e7341c-e143-533c-9c7e-455bcccbce27d:")
+    assert not valid_primary("darwin:99e7341c-e143-533c-9c7e-455bccbce27d:")
     assert not valid_primary("darwin:00000000-0000-0000-0000-000000000000:60f21a5e-a1d3-4378-9068-f731c7a63013")
 
 

@@ -6,7 +6,9 @@ the machine-id through uuid.UUID(), would orphan all of them. The volume-identit
 work (docs/design-machine-identity-evidence.md) has to keep these exact values;
 the Codex review (finding 3) showed three spellings of one UUID giving three IDs.
 
-Values are the real machine-ids and the provider IDs their walks landed under.
+The machine-ids here are synthetic: real ones are confidential (systemd, machine-id(5)).
+The guard pins the derivation formula, which is what continuity depends on; on
+2026-11-09 the same formula reproduced all four real machines' landed provider IDs.
 """
 
 import importlib.util
@@ -21,11 +23,11 @@ _spec = importlib.util.spec_from_file_location(
 rm = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(rm)
 
-MACHINES = [
-    ("WAM-THREADRIPPER WSL", "8ae0edf526f3453ab1abaf04e1c75a4a", "192c0842-b05a-5dd7-b975-28581b8372fb"),
-    ("wam-nuc", "e8c598ae711b42b5b963eb35fc946d2b", "2e78dff1-62b1-59f4-982e-3fcd232ca2e7"),
-    ("wam-desktop", "e328729faaa04bc1ba3ea69cbdb21870", "a33a049b-66cd-5ce1-b783-8f2c4ae97ae8"),
-    ("gazelle", "503227dc8dd2970b17a61e456a5d1a3b", "8a63fa49-639b-5d37-af33-9482e3ff7134"),
+MACHINES = [  # labels name the real machines whose derivation this mirrors
+    ("WAM-THREADRIPPER WSL", "0a1b2c3d4e5f60718293a4b5c6d7e8f9", "54d0b414-e2da-504b-ae99-d2455a0fd5fd"),
+    ("wam-nuc", "1b2c3d4e5f60718293a4b5c6d7e8f90a", "43e17b99-254c-571f-bdb2-85a6afa4ff0c"),
+    ("wam-desktop", "2c3d4e5f60718293a4b5c6d7e8f90a1b", "15b1069f-55a5-5ec3-995b-efda9c2769bb"),
+    ("gazelle", "3d4e5f60718293a4b5c6d7e8f90a1b2c", "99416a06-d231-57d4-a94f-e62993e6cb90"),
 ]
 
 

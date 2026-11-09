@@ -36,7 +36,7 @@ from yanantin.transport.wranglers import DirectWrangler
 
 pytestmark = pytest.mark.integration
 
-FAKE_MACHINE_ID = "8ae0edf526f3453ab1abaf04e1c75a4a"
+FAKE_MACHINE_ID = "0a1b2c3d4e5f60718293a4b5c6d7e8f9"
 # Canonical entity _key form — how store_entity keys the document.
 ENTITY_KEY = str(UUID(FAKE_MACHINE_ID))
 

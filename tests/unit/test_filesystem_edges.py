@@ -10,7 +10,7 @@ from yanantin.recorder.storage.local.linux.fact_recorder import FilesystemFactRe
 from yanantin.transport.models import WranglerEnvelope
 from yanantin.transport.wranglers import DirectWrangler
 
-FAKE_MACHINE_ID = "8ae0edf526f3453ab1abaf04e1c75a4a"
+FAKE_MACHINE_ID = "0a1b2c3d4e5f60718293a4b5c6d7e8f9"
 
 # NOTE (deviation from plan): Task 4 (LinuxFilesystemCollector accepting an
 # explicit machine_id kwarg) has NOT landed yet. Task 5 must not touch the

@@ -20,10 +20,10 @@ UTC = timezone.utc
 def _result(**overrides):
     base = dict(
         total_matched=3, by_machine={"wam-desktop": 3},
-        top_directories=[("file:///home/tony/projects/x", 3)],
+        top_directories=[("file:///srv/work/projects/x", 3)],
         coverage=[{"machine": "wam-desktop", "last_walk": datetime(2026, 11, 9, 11, 37, 12, 5, tzinfo=UTC)},
                   {"machine": "9cb28995", "last_walk": None}],
-        hits=[{"uri": "file:///home/tony/projects/x/a.jsonl", "machine": "wam-desktop",
+        hits=[{"uri": "file:///srv/work/projects/x/a.jsonl", "machine": "wam-desktop",
                "modified": "2025-11-25T12:06:38.164824Z", "size": 4459458}],
         fact_id=uuid4(), duplicate_of=None,
     )
@@ -33,8 +33,8 @@ def _result(**overrides):
 def test_summary_comes_before_hits_and_paths_lose_the_scheme():
     out = render(_result())
     assert list(out)[:4] == ["total_matched", "by_machine", "top_directories", "coverage"]
-    assert out["top_directories"] == [["/home/tony/projects/x", 3]]
-    assert out["hits"] == [["wam-desktop", "2025-11-25T12:06Z", 4459458, "/home/tony/projects/x/a.jsonl"]]
+    assert out["top_directories"] == [["/srv/work/projects/x", 3]]
+    assert out["hits"] == [["wam-desktop", "2025-11-25T12:06Z", 4459458, "/srv/work/projects/x/a.jsonl"]]
 
 
 def test_coverage_is_minute_precision_and_names_what_is_not_indexed():

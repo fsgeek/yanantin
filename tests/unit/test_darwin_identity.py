@@ -9,19 +9,19 @@ from yanantin.collector.storage.local.linux.collector import default_exclude_pat
 from yanantin.machine.evidence import darwin_identity_evidence, darwin_primary, valid_primary
 
 IOREG = ('      "IOPlatformSerialNumber" = "SERIAL123"\n'
-         '      "IOPlatformUUID" = "99E7341C-E143-533C-9C7E-455BCCBCE27D"\n')
+         '      "IOPlatformUUID" = "11111111-2222-4333-8444-555555555555"\n')
 DISKUTIL = """<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0"><dict>
 	<key>FilesystemType</key><string>apfs</string>
 	<key>MountPoint</key><string>/System/Volumes/Data</string>
-	<key>VolumeUUID</key><string>60F21A5E-A1D3-4378-9068-F731C7A63013</string>
+	<key>VolumeUUID</key><string>66666666-7777-4888-9999-aaaaaaaaaaaa</string>
 </dict></plist>"""
 IFCONFIG = ("lo0: flags=8049<UP,LOOPBACK,RUNNING,MULTICAST> mtu 16384\n"
-            "anpi0: flags=8863<UP,BROADCAST> mtu 1500\n\tether f6:16:c0:bd:12:8b\n"
+            "anpi0: flags=8863<UP,BROADCAST> mtu 1500\n\tether 02:00:5e:00:00:02\n"
             "en0: flags=8863<UP,BROADCAST> mtu 1500\n\tether 3c:a6:f6:01:02:03\n")
 SW_VERS = "ProductName:\t\tmacOS\nProductVersion:\t\t26.4\nBuildVersion:\t\t25E246\n"
-PRIMARY = "darwin:99e7341c-e143-533c-9c7e-455bccbce27d:60f21a5e-a1d3-4378-9068-f731c7a63013"
+PRIMARY = "darwin:11111111-2222-4333-8444-555555555555:66666666-7777-4888-9999-aaaaaaaaaaaa"
 
 
 def runner(outputs):
@@ -42,9 +42,9 @@ def test_the_primary_joins_platform_and_data_volume():
 
 def test_the_primary_is_valid_and_cannot_be_mistaken_for_a_linux_machine_id():
     assert valid_primary(PRIMARY)
-    assert valid_primary("8ae0edf526f3453ab1abaf04e1c75a4a")
-    assert not valid_primary("darwin:99e7341c-e143-533c-9c7e-455bccbce27d:")
-    assert not valid_primary("darwin:00000000-0000-0000-0000-000000000000:60f21a5e-a1d3-4378-9068-f731c7a63013")
+    assert valid_primary("0a1b2c3d4e5f60718293a4b5c6d7e8f9")
+    assert not valid_primary("darwin:11111111-2222-4333-8444-555555555555:")
+    assert not valid_primary("darwin:00000000-0000-0000-0000-000000000000:66666666-7777-4888-9999-aaaaaaaaaaaa")
 
 
 def test_without_either_half_there_is_no_primary():
@@ -56,10 +56,10 @@ def test_without_either_half_there_is_no_primary():
 
 def test_evidence_keeps_every_identifier_with_how_it_was_read():
     ev = {o["name"]: o for o in darwin_identity_evidence(run=REAL, hostname="Tonys-Mac-mini.local")}
-    assert ev["io_platform_uuid"]["value"] == "99E7341C-E143-533C-9C7E-455BCCBCE27D"
-    assert ev["data_volume_uuid"]["value"] == "60F21A5E-A1D3-4378-9068-F731C7A63013"
+    assert ev["io_platform_uuid"]["value"] == "11111111-2222-4333-8444-555555555555"
+    assert ev["data_volume_uuid"]["value"] == "66666666-7777-4888-9999-aaaaaaaaaaaa"
     assert ev["platform_serial"]["value"] == "SERIAL123"
-    assert ev["mac_addresses"]["value"] == "3c:a6:f6:01:02:03,f6:16:c0:bd:12:8b"
+    assert ev["mac_addresses"]["value"] == "02:00:5e:00:00:02,3c:a6:f6:01:02:03"
     assert "26.4" in ev["sw_vers"]["value"]
     assert all(o["status"] == "ok" for o in ev.values())
     missing = {o["name"]: o for o in darwin_identity_evidence(run=runner({}), hostname="h")}

@@ -235,7 +235,7 @@ class TestSyntheticFilesystemCollector:
 
 from unittest.mock import patch
 
-FAKE_MACHINE_ID = "8ae0edf526f3453ab1abaf04e1c75a4a"
+FAKE_MACHINE_ID = "0a1b2c3d4e5f60718293a4b5c6d7e8f9"
 
 
 def test_explicit_machine_id_used_for_provider_id(tmp_path):

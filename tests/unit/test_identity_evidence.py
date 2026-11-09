@@ -23,14 +23,14 @@ def _root(tmp_path, files):
 
 def test_a_normal_machine(tmp_path):
     root = _root(tmp_path, {
-        "etc/machine-id": "8ae0edf526f3453ab1abaf04e1c75a4a\n",
+        "etc/machine-id": "0a1b2c3d4e5f60718293a4b5c6d7e8f9\n",
         "sys/class/dmi/id/product_uuid": "4c4c4544-0042-3510-8051-b4c04f4e4a32\n",
         "sys/class/net/eth0/address": "00:15:5d:aa:bb:cc\n",
         "sys/class/net/lo/address": "00:00:00:00:00:00\n",
         "etc/os-release": 'PRETTY_NAME="Ubuntu 24.04.5 LTS"\n',
     })
     ev = _by_name(linux_identity_evidence(root=root, hostname="wam-desktop"))
-    assert ev["machine_id"]["status"] == "ok" and ev["machine_id"]["value"] == "8ae0edf526f3453ab1abaf04e1c75a4a"
+    assert ev["machine_id"]["status"] == "ok" and ev["machine_id"]["value"] == "0a1b2c3d4e5f60718293a4b5c6d7e8f9"
     assert ev["machine_id"]["read_from"] == "/etc/machine-id"
     assert ev["product_uuid"]["status"] == "ok"
     assert ev["mac_addresses"]["value"] == "00:15:5d:aa:bb:cc"  # loopback's zeros are not a MAC

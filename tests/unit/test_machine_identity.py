@@ -9,7 +9,7 @@ from yanantin.apacheta.models.entities import EntityResolution
 from yanantin.machine.linux import MachineConfigCollector, MachineConfigRecorder
 from yanantin.transport.models import WranglerEnvelope
 
-FAKE_MACHINE_ID = "8ae0edf526f3453ab1abaf04e1c75a4a"
+FAKE_MACHINE_ID = "0a1b2c3d4e5f60718293a4b5c6d7e8f9"
 
 
 def _make_envelope():

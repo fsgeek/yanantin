@@ -31,21 +31,21 @@ def test_file_location_calls(cmd, expected):
 
 
 @pytest.mark.parametrize("cmd,cwd,expected", [
-    ("find / -name x", "/home/tony/projects/a", True),
-    ("find ~ -name x", "/home/tony/projects/a", True),
-    ("find $HOME/projects -name x", "/home/tony/projects/a", True),
-    ("find /home/tony/projects/b -name x", "/home/tony/projects/a", True),
-    ("find /home/tony/projects/a/src -name x", "/home/tony/projects/a", False),
-    ("find . -name x", "/home/tony/projects/a", False),
-    ("find src -name x", "/home/tony/projects/a", False),
-    ("ssh wam-nuc 'find ~ -name x'", "/home/tony/projects/a", True),
-    ("locate x", "/home/tony/projects/a", True),  # locate searches the whole machine
+    ("find / -name x", "/srv/work/projects/a", True),
+    ("find ~ -name x", "/srv/work/projects/a", True),
+    ("find $HOME/projects -name x", "/srv/work/projects/a", True),
+    ("find /srv/work/projects/b -name x", "/srv/work/projects/a", True),
+    ("find /srv/work/projects/a/src -name x", "/srv/work/projects/a", False),
+    ("find . -name x", "/srv/work/projects/a", False),
+    ("find src -name x", "/srv/work/projects/a", False),
+    ("ssh wam-nuc 'find ~ -name x'", "/srv/work/projects/a", True),
+    ("locate x", "/srv/work/projects/a", True),  # locate searches the whole machine
 ])
 def test_outside_scope(cmd, cwd, expected):
     assert m.outside_scope(cmd, cwd) is expected
 
 
-def _session(tmp_path, sid, ts, events, cwd="/home/tony/projects/a"):
+def _session(tmp_path, sid, ts, events, cwd="/srv/work/projects/a"):
     lines = []
     for i, (name, inp, result) in enumerate(events):
         tid = f"t{i}"
@@ -62,12 +62,12 @@ def _session(tmp_path, sid, ts, events, cwd="/home/tony/projects/a"):
 
 
 def test_measures_on_a_synthetic_after_window(tmp_path):
-    hit = json.dumps({"total_matched": 1, "hits": [["m", "2025-11-25T12:06Z", 1, "/home/tony/x/sweep.jsonl"]]})
+    hit = json.dumps({"total_matched": 1, "hits": [["m", "2025-11-25T12:06Z", 1, "/srv/work/x/sweep.jsonl"]]})
     # s1: find, then uses the returned path; later a habitual outside-scope find.
     _session(tmp_path, "s1", "2026-11-10T10:00:00Z", [
         ("mcp__yanantin__find_objects", {"name": "sweep.jsonl"}, hit),
-        ("Read", {"file_path": "/home/tony/x/sweep.jsonl"}, "..."),
-        *[("Edit", {"file_path": "/home/tony/projects/a/f.py"}, "") for _ in range(4)],
+        ("Read", {"file_path": "/srv/work/x/sweep.jsonl"}, "..."),
+        *[("Edit", {"file_path": "/srv/work/projects/a/f.py"}, "") for _ in range(4)],
         # Six calls after the find: outside the 5-call window, so habit, not fallback.
         ("Bash", {"command": "find / -name other.txt"}, ""),
     ])

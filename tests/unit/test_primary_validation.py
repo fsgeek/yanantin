@@ -19,7 +19,7 @@ _spec = importlib.util.spec_from_file_location(
 rm = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(rm)
 
-GOOD = "8ae0edf526f3453ab1abaf04e1c75a4a"
+GOOD = "0a1b2c3d4e5f60718293a4b5c6d7e8f9"
 BAD = ["", "   ", "0" * 32, "not-a-machine-id", GOOD[:-1], GOOD.upper() + "x"]
 
 

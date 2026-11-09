@@ -95,6 +95,11 @@ def refresh_remote(host: str, store, overlap: float, dry: bool) -> dict:
                              str(CORPUS / f"{stem}{suffix}")], capture_output=True, text=True)
         if cp.returncode != 0:
             return {**out, "failed": "copy", "detail": cp.stderr[-300:]}
+    # The alias we connected with is the name people use for the machine
+    # (gazelle reports itself as pop-os); the landing fact keeps it, and find
+    # accepts it.
+    mpath = CORPUS / f"{stem}.manifest.json"
+    mpath.write_text(json.dumps({**json.loads(mpath.read_text()), "alias": host}, indent=1))
     landed = land(["--from-jsonl", str(CORPUS / f"{stem}.jsonl.gz")])
     if landed["exit"] == 0 or landed["landing"]:
         # The walk is landed and kept here; the machine's copy is no longer needed.

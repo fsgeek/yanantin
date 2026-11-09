@@ -145,9 +145,21 @@ def find_objects(
 
     f = {k: obfuscator.field_path((k,)) for k in ("uri", "label", "modified", "source", "size")}
     names = _machine_names(db, obfuscator, registrants)
+    # Each source's walks give its last walk and the ssh aliases people use for
+    # it (the refresh records the alias it connected with: gazelle is pop-os).
+    walks: dict[str, tuple[datetime | None, set[str]]] = {}
+    for source in names:
+        try:
+            data = [fact.data for fact in activity.query_range(UUID(source))]
+        except ValueError:  # a registrant key that is not a provider UUID
+            data = []
+        aliases = {d["walk"]["alias"] for d in data
+                   if isinstance(d.get("walk"), dict) and d["walk"].get("alias")}
+        walks[source] = (latest_walk_start(data), aliases)
     by_name: dict[str, list[str]] = {}
     for source, machine in names.items():
-        by_name.setdefault(machine, []).append(source)
+        for label in {machine, *walks[source][1]}:
+            by_name.setdefault(label, []).append(source)
 
     search: list[str] = []
     bind: dict = {"@view": view}
@@ -171,7 +183,9 @@ def find_objects(
     if query.machines:
         unknown = [m for m in query.machines if m not in by_name]
         if unknown:
-            raise ValueError(f"unknown machine(s) {unknown}; indexed machines are {sorted(by_name)}")
+            known = sorted({(f"{names[s]} ({', '.join(sorted(walks[s][1]))})" if walks[s][1] else names[s])
+                            for s in names})
+            raise ValueError(f"unknown machine(s) {unknown}; indexed machines are {known}")
         search.append(f"d.{f['source']} IN @sources")
         bind["sources"] = [s for m in query.machines for s in by_name[m]]
     head = f"FOR d IN @@view SEARCH {' AND '.join(search)}"
@@ -208,15 +222,8 @@ def find_objects(
 
     # Every registered source, walked or not: "registered, never walked" is
     # exactly what someone deciding whether to believe "no matches" needs.
-    coverage = []
-    for source, machine in sorted(names.items(), key=lambda kv: kv[1]):
-        if source == str(FIND_PROVIDER_ID):
-            continue
-        try:
-            last = latest_walk_start(fact.data for fact in activity.query_range(UUID(source)))
-        except ValueError:  # a registrant key that is not a provider UUID
-            last = None
-        coverage.append({"machine": machine, "last_walk": last})
+    coverage = [{"machine": machine, "last_walk": walks[source][0]}
+                for source, machine in sorted(names.items(), key=lambda kv: kv[1])]
 
     shape = query.shape()
     previous = [fact for fact in activity.query_range(FIND_PROVIDER_ID)

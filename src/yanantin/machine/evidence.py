@@ -37,7 +37,8 @@ def _read(root: Path, path: str, name: str, valid) -> dict:
     return _observation(name, path, "ok" if valid(text) else "invalid", text)
 
 
-def _valid_machine_id(text: str) -> bool:
+def valid_machine_id(text: str) -> bool:
+    """32 lowercase hex digits, not all zeros: what systemd writes."""
     return bool(_MACHINE_ID.match(text)) and set(text) != {"0"}
 
 
@@ -51,7 +52,7 @@ def linux_identity_evidence(*, root: Path = Path("/"), hostname: str | None = No
     import socket
 
     out = [
-        _read(root, "/etc/machine-id", "machine_id", _valid_machine_id),
+        _read(root, "/etc/machine-id", "machine_id", valid_machine_id),
         _read(root, "/sys/class/dmi/id/product_uuid", "product_uuid", _valid_uuid),
     ]
     net = root / "sys/class/net"

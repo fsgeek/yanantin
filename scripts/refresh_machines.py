@@ -68,11 +68,20 @@ def per_host(refresh, host: str) -> dict:
         return {"host": host, "failed": "timeout", "detail": f"{e.cmd} timed out after {e.timeout} s"}
 
 
+def provider_from_machine_id(machine_id: str):
+    """The provider for a valid machine-id, else None: never a provider for an
+    empty or placeholder id (Codex finding 9)."""
+    from yanantin.machine.evidence import valid_machine_id
+
+    return provider_for(machine_id) if valid_machine_id(machine_id) else None
+
+
 def preflight(host: str) -> tuple[str | None, str]:
     """The provider a host would land under (None if unreadable) and its ssh endpoint."""
     try:
         mid = subprocess.run([*SSH, host, "cat /etc/machine-id"], capture_output=True, text=True, timeout=60)
-        provider = str(provider_for(mid.stdout.strip())) if mid.returncode == 0 and mid.stdout.strip() else None
+        found = provider_from_machine_id(mid.stdout.strip()) if mid.returncode == 0 else None
+        provider = str(found) if found else None
     except subprocess.TimeoutExpired:
         provider = None
     cfg = subprocess.run(["ssh", "-G", host], capture_output=True, text=True).stdout.split("\n")
@@ -110,8 +119,10 @@ def plan_walks(hosts: list[tuple[str, str | None, str]]) -> tuple[list[str], lis
 def refresh_remote(host: str, store, overlap: float, dry: bool) -> dict:
     mid = subprocess.run([*SSH, host, "cat /etc/machine-id"], capture_output=True, text=True, timeout=60)
     if mid.returncode != 0:
-        return {"host": host, "skipped": "unreachable", "detail": mid.stderr.strip()[-200:]}
-    provider = provider_for(mid.stdout.strip())
+        return {"host": host, "skipped": "no machine-id", "detail": mid.stderr.strip()[-200:]}
+    provider = provider_from_machine_id(mid.stdout.strip())
+    if provider is None:
+        return {"host": host, "skipped": "invalid machine-id", "detail": repr(mid.stdout.strip())[:80]}
     since = cutoff_for(store, provider)
     out = {"host": host, "provider_id": str(provider), "since": since.isoformat() if since else None}
     if dry:

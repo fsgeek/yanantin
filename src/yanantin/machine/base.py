@@ -2,24 +2,25 @@
 
 from __future__ import annotations
 
+from pathlib import Path
 
-def _get_machine_id() -> str:
-    """Read /etc/machine-id or generate a deterministic fallback.
 
-    Linux systems provide /etc/machine-id as a stable per-installation
-    identifier. When that file is absent (macOS, Windows, containers
-    without it), we generate a deterministic UUID5 from hostname + OS +
-    architecture so the same machine produces the same ID across runs.
+def _get_machine_id(path: Path = Path("/etc/machine-id")) -> str:
+    """Read the machine-id, or refuse.
+
+    There is no fallback. A hostname-derived guess (the old behaviour) changes
+    when the machine is renamed, and a wrong identity is worse than none:
+    objects written under it are attributed to a machine that doesn't exist
+    (docs/design-machine-identity-evidence.md, decision 2; Codex finding 9).
     """
-    import platform
-    import socket
-    from pathlib import Path
-    from uuid import NAMESPACE_DNS, uuid5
+    from yanantin.machine.evidence import valid_machine_id
 
     try:
-        return Path("/etc/machine-id").read_text().strip()
-    except (OSError, PermissionError):
-        hostname = socket.gethostname()
-        os_name = platform.system()
-        architecture = platform.machine()
-        return str(uuid5(NAMESPACE_DNS, f"{hostname}.{os_name}.{architecture}"))
+        text = path.read_text().strip()
+    except OSError as e:
+        raise RuntimeError(
+            f"no readable machine-id at {path} ({type(e).__name__}); yanantin will not guess an "
+            "identity, because a guessed one changes when the machine is renamed") from e
+    if not valid_machine_id(text):
+        raise RuntimeError(f"invalid machine-id {text!r} at {path}: expected 32 hex digits, not all zeros")
+    return text

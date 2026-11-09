@@ -68,6 +68,28 @@ and find's own history can be found by time like anything else.
 5. **Two front ends, one core:** an MCP server for instances, and a CLI for Tony that reads one
    query per line from a file or interactively, through the same loop.
 
+6. **An unknown machine name raises `ValueError`, naming the indexed machines.** An empty result would
+   read as "no such file there". The real case: Tony says "gazelle", the index knows it as
+   `pop-os`. (The spec was silent until the blind tests forced the choice. Codex's tests expected
+   zero results; its two assertions were changed to match this decision.)
+7. **Coverage lists every registered source, walked or not.** "Registered, never walked" is part of
+   what makes "no matches" believable.
+8. **`path_segments` are directory names:** a segment that matches only the file name does not count
+   (caught by the blind tests).
+
+## Judging the tool when its customers are AI
+
+Tony, 2026-11-09: AI customers "will tend to accept what [is] offered and not provide useful
+(actionable) information on what would improve the tool." So the tool is judged by behavior, not by
+asking:
+- **fallback**: a `find_objects` call followed by `find`/`rg`/`ls` for the same thing (from khipumaq's
+  session records) is a reported failure;
+- **refinement**: a query followed by a narrower one means the summary didn't do its job;
+- **repetition**: `duplicate_of`;
+- **use**: whether a returned path is read or edited within the next few turns.
+
+Actionable criticism comes from adversarial roles (break it), not satisfaction questions (rate it).
+
 ## Tests (live `apacheta_test`, plain and obfuscated, no mocks)
 
 - The summary is correct with `limit=0`: totals, per-machine counts, directories.

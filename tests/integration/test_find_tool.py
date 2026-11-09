@@ -310,7 +310,10 @@ def test_machine_filter_uses_registrant_hostnames_and_short_id_fallback(objects)
     assert result.total_matched == 1
     assert result.by_machine == {objects.machines["wsl"]: 1}
     assert result.hits[0]["machine"] == objects.machines["wsl"]
-    assert _find(objects, machines=("unknown-host",)).total_matched == 0
+    # An unknown machine raises, naming the known ones (design: Decisions 6); an
+    # empty result would read as "no such file there" (e.g. "gazelle" is pop-os).
+    with pytest.raises(ValueError, match="unknown-host"):
+        _find(objects, machines=("unknown-host",))
 
 
 def test_all_conditions_intersect(objects):
@@ -384,6 +387,10 @@ def test_query_values_are_literal_even_with_quotes_and_wildcards(objects, condit
          "modified": "2026-10-01T00:00:00Z"},
     ])
     argument = (value,) if condition in ("path_segments", "machines") else value
+    if condition == "machines":  # unknown machines raise (design: Decisions 6)
+        with pytest.raises(ValueError, match="unknown machine"):
+            _find(objects, **{condition: argument})
+        return
     result = _find(objects, **{condition: argument})
     assert result.total_matched == (0 if condition == "machines" else 1)
     assert [hit["uri"] for hit in result.hits] == ([] if condition == "machines" else [uri])

@@ -34,6 +34,8 @@ context or external infrastructure:
 | `yanantin.activity.backends.duckdb` | Active | File-backed activity stream backend. |
 | `yanantin.infra` | Active | Local infrastructure setup and status tooling. |
 | `yanantin.collector` | Active | Data collection pipeline and concrete collectors. |
+| `yanantin.machine` | Active | Machine identity: the primary each platform derives, and every other identifier as evidence (`docs/design-machine-identity-evidence.md`). |
+| `yanantin.find` | Active | Find files across machines, summary first; the MCP server (`find-mcp` extra) and the `yanantin-find` CLI (`docs/design-find-tool.md`). |
 | `yanantin.evidence` | Active | Evidence references in memory frontmatter and their verifier (`python -m yanantin.evidence`). |
 
 Use these when you are ready to manage their dependencies and failure modes.

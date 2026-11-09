@@ -1,5 +1,41 @@
 # Changelog
 
+## 0.3.1 — 2026-11-09
+
+Additive in the supported core (nothing changed there); one behaviour change outside it.
+Stability tiers are in [`docs/stability.md`](docs/stability.md), which now lists
+`yanantin.machine` and `yanantin.find`.
+
+### Behaviour change (Active tier)
+
+- **`yanantin.machine.base._get_machine_id()` no longer guesses.** Without a valid
+  `/etc/machine-id` it raised nothing and returned a hostname-derived UUID, which changes
+  when the machine is renamed. It now raises `RuntimeError` ("will not guess an
+  identity"). On macOS it returns `darwin:<IOPlatformUUID>:<Data volume UUID>`. Linux
+  machine-ids, and so every existing provider ID, are unchanged (pinned by
+  `tests/unit/test_provider_id_continuity.py`).
+
+### Added
+
+- **`yanantin.find`**: `find_objects(db, CompiledQuery, …)` over the objects index. It
+  returns a summary first (total, per machine, top directories at the deepest depth
+  where the top ten hold 75% of matches, coverage), then the newest hits, and records
+  every call as an activity fact with `duplicate_of`. Also an MCP server
+  (`yanantin-find-mcp`, extra `find-mcp`) and the `yanantin-find` CLI, which runs one
+  loop over a file or interactive input. Design: `docs/design-find-tool.md`.
+- **`yanantin.machine.evidence`**: every identifier a machine offers on Linux and macOS,
+  each with how it was read and a status (ok/absent/unsupported/unreadable/invalid).
+  Walk manifests now carry it.
+- **`LinuxFilesystemCollector`** on macOS skips `/System/Volumes` (firmlinks already
+  show `/Users` and the rest), `/Volumes` and `/Network`
+  (`collector.default_exclude_paths`).
+
+### Fixed
+
+- The objects path-segment analyzer is `multi_delimiter`, under new names
+  (`objects_path_segments_md`, `objects_find_md`). The old `delimiter` analyzer treated
+  `"` as a CSV quote, so a path containing one never matched.
+
 ## 0.3.0 — 2026-10-26
 
 Additive in the supported core; two behaviour changes outside it. Stability tiers are

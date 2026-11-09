@@ -18,6 +18,18 @@ one human drowning in scattered storage). The golden path has two strands:
    into the RAG nightmare. Temporal anchor dominates. (Cf. the "temporal-anchor-dominates"
    model-correction.)
 
+**Why the data model is shaped this way: read the thesis before "simplifying" it.** Tony,
+2026-11-09: yanantin's data model "was shaped by what I learned … lessons that aren't
+clearly taught in the prior work." The reasons are in his dissertation
+(github.com/fsgeek/thesis-arxiv, `draftchapters/`), not in this repo:
+- `status-quo.tex`, *Case Study: Cross-Platform Retrieval Inconsistencies*. The same dataset and
+  the same queries ("Anth 394") on iCloud, Google Drive, OneDrive and Dropbox, run in 2023 and
+  again in 2024, gave divergent and drifting results. Federated search can't be made consistent,
+  so yanantin keeps its own normalized index and the raw source record beside it.
+- `background.tex`, *Human Memory Models for System Design*: why who/what/when/where/why/how,
+  and why time.
+- `upi.tex` and `implementation.tex`: the Unified Personal Index that yanantin succeeds.
+
 ## The customers are nested tenants, not parallel products
 
 The breakthrough of 2026-06-15: there are not "two customers with a similar problem."

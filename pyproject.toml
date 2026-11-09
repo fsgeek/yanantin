@@ -38,6 +38,7 @@ find-mcp = [
 ]
 
 [project.scripts]
+yanantin-find = "yanantin.find.cli:main"
 yanantin-find-mcp = "yanantin.find.mcp_server:main"
 
 [tool.pytest.ini_options]

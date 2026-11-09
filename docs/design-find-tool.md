@@ -82,3 +82,40 @@ and find's own history can be found by time like anything else.
 Ranking (results are ordered by `modified`, newest first), content search, the khipumaq join (the
 first case crossed stores, and that join is the north star's cross-tenant seam, its own design),
 and cloud and Windows sources (they wait for the identity design).
+
+## Interface (Python)
+
+```python
+from yanantin.find import CompiledQuery, FindResult, find_objects, FIND_PROVIDER_ID
+
+query = CompiledQuery(name=None, name_contains=None, path_segments=(), modified_after=None,
+                      modified_before=None, machines=(), limit=20)
+result = find_objects(db, query, *, activity, obfuscator,
+                      collection="Objects", view="objects_find", registrants="StorageRegistrants")
+```
+
+- `CompiledQuery` is frozen. It raises `ValueError` when no condition is given, or when
+  `limit < 0`. `modified_after` and `modified_before` are timezone-aware datetimes. `after` is
+  inclusive and `before` is exclusive. `machines` are hostnames.
+- `activity` is an `ActivityStreamStore`. Coverage reads each source's landing facts through it:
+  the latest `data["walk"]["started"]` among facts with `data["walk"]["all_names"]`, as
+  `recorder/storage/local/linux/walks.py:latest_walk_start` computes it. The call appends its own
+  fact through it under `FIND_PROVIDER_ID = uuid5(NAMESPACE_DNS, "yanantin.find")`.
+- A source's machine name is the parenthesized suffix of its registrant's `registrant_name`, as in
+  `"linux-local-storage collector (wam-desktop)"`. Without a suffix it is the first 8 characters of
+  the source ID. Sources are provider UUIDs as strings.
+- `FindResult` (frozen):
+  - `total_matched: int`
+  - `by_machine: dict[str, int]`
+  - `top_directories: list[tuple[str, int]]`: at most 10, by count descending; a directory is the
+    hit's URI up to its last `/`
+  - `coverage: list[dict]`: each `{"machine": str, "last_walk": datetime | None}`
+  - `hits: list[dict]`: each `{"uri", "machine", "modified", "size"}`, newest `modified` first,
+    at most `limit`
+  - `fact_id: UUID`: the fact recorded for this call
+  - `duplicate_of: UUID | None`
+- The recorded fact's `data` holds `query` (the arguments), `query_shape`, `total_matched`,
+  `by_machine`, `returned` (the hit URIs), `elapsed_ms`, and `duplicate_of`. The `query_shape` of
+  two queries is equal when every condition is equal. `limit` is not a condition, and the order of
+  `path_segments` and `machines` does not matter.
+- A missing view raises; find never falls back to a scan.

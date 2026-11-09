@@ -504,3 +504,22 @@ def test_missing_view_raises_even_when_an_index_could_answer(objects, conditions
     with pytest.raises(Exception):
         _find(objects, **conditions)
     assert objects.view not in {view["name"] for view in objects.db.views()}
+
+
+# Added by the steward after the blind tests, from the live index (2026-11-09):
+# the landing's recorder registers itself in the same catalog, but it holds no
+# files, so it must not be offered as a machine.
+def test_the_recorder_is_not_a_machine(objects):
+    from yanantin.core.registration import RegistrantRecord
+    from yanantin.recorder.storage.local.linux.registration import RECORDER_ID
+
+    record = RegistrantRecord(
+        registrant_id=RECORDER_ID, registrant_name="linux-local-storage recorder",
+        registrant_kind="provider", description="records snapshots",
+    ).model_dump(mode="json")
+    objects.db.collection(objects.obf.collection_name(objects.registrants)).insert(
+        objects.obf.obfuscate_document({"_key": str(RECORDER_ID), **record}))
+    result = _find(objects, name="config")
+    assert str(RECORDER_ID)[:8] not in {row["machine"] for row in result.coverage}
+    with pytest.raises(ValueError, match="unknown machine"):
+        _find(objects, machines=(str(RECORDER_ID)[:8],))

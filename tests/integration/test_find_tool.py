@@ -373,6 +373,149 @@ def test_top_ten_directories_count_the_full_match_set(objects):
         (f"file:///srv/diversity/d{i}", i) for i in range(12, 2, -1)]
 
 
+@pytest.mark.parametrize("dominant_count, expected", [
+    (20, [("file:///threshold/shared", 40)]),
+    (21, [("file:///threshold/shared/d00", 21)] + [
+        (f"file:///threshold/shared/d{i:02d}", 1) for i in range(1, 10)]),
+    (22, [("file:///threshold/shared/d00", 22)] + [
+        (f"file:///threshold/shared/d{i:02d}", 1) for i in range(1, 10)]),
+], ids=["below-75-percent", "exactly-75-percent", "above-75-percent"])
+def test_top_directories_threshold_is_inclusive_and_uses_all_matches(
+        objects, dominant_count, expected):
+    # At depth 3 the top ten hold 29, 30 or 31 of 40 matches. Only the
+    # below-threshold case must roll up to depth 2; no single bucket has 75%.
+    directories = [0] * dominant_count + list(range(1, 41 - dominant_count))
+    _insert(objects, [
+        {"uri": f"file:///threshold/shared/d{directory:02d}/threshold-probe-{item}",
+         "label": f"threshold-probe-{item}", "source": str(objects.sources["desktop"]),
+         "size": 1, "modified": "2026-10-01T00:00:00Z"}
+        for item, directory in enumerate(directories)
+    ])
+    result = _find(objects, name_contains="threshold-probe", limit=1)
+    assert result.total_matched == 40
+    assert len(result.hits) == 1
+    assert result.top_directories == expected
+
+
+def test_top_directories_choose_the_deepest_qualifying_depth(objects):
+    # Depth 5 has twelve buckets of two (top ten: 20/24); depth 6 splits
+    # every match into its own bucket (top ten: 10/24). Shallower depths
+    # also qualify, but depth 5 is the deepest that does.
+    _insert(objects, [
+        {"uri": f"file:///deepest/shared/project/cache/g{group:02d}/l{leaf}/deepest-probe",
+         "label": "deepest-probe", "source": str(objects.sources["desktop"]),
+         "size": 1, "modified": "2026-10-01T00:00:00Z"}
+        for group in reversed(range(12)) for leaf in range(2)
+    ])
+    result = _find(objects, name="deepest-probe", limit=0)
+    assert result.total_matched == 24
+    assert result.top_directories == [
+        (f"file:///deepest/shared/project/cache/g{group:02d}", 2)
+        for group in range(10)
+    ]
+
+
+def test_top_directories_never_go_beyond_six_components(objects):
+    # Depths 7 and 8 still qualify (10/12), so the cap alone must stop
+    # descent at component 6, "five". The filename is not a component.
+    _insert(objects, [
+        {"uri": f"file:///cap/one/two/three/four/five/b{branch:02d}/leaf/cap-probe",
+         "label": "cap-probe", "source": str(objects.sources["desktop"]),
+         "size": 1, "modified": "2026-10-01T00:00:00Z"}
+        for branch in range(12)
+    ])
+    result = _find(objects, name="cap-probe", limit=0)
+    assert result.total_matched == 12
+    assert result.top_directories == [("file:///cap/one/two/three/four/five", 12)]
+
+
+def test_top_directories_keep_whole_directories_for_shallow_hits(objects):
+    _insert(objects, [
+        {"uri": uri, "label": "shallow-probe",
+         "source": str(objects.sources["desktop"]), "size": 1,
+         "modified": "2026-10-01T00:00:00Z"}
+        for uri in (
+            "file:///shallow-probe",
+            "file:///shallow/shallow-probe",
+            "file:///shallow/middle/short/shallow-probe",
+            "file:///shallow/two/three/four/five/six/a/shallow-probe",
+            "file:///shallow/two/three/four/five/six/b/shallow-probe",
+        )
+    ])
+    result = _find(objects, name="shallow-probe", limit=0)
+    assert result.total_matched == 5
+    assert result.top_directories == [
+        ("file:///shallow/two/three/four/five/six", 2),
+        ("file:///", 1),
+        ("file:///shallow", 1),
+        ("file:///shallow/middle/short", 1),
+    ]
+
+
+def test_top_directories_shallow_hits_contribute_to_the_threshold(objects):
+    # At depth 6, the shallow bucket's 21 matches plus nine deep singletons
+    # reach exactly 30/40. Ignoring shallow hits when choosing the depth
+    # would incorrectly reject depth 6 and roll up the deep directories.
+    directories = ["file:///short"] * 21 + [
+        f"file:///mixed/shared/three/four/five/d{item:02d}" for item in range(19)
+    ]
+    _insert(objects, [
+        {"uri": f"{directory}/shallow-threshold-{item}",
+         "label": f"shallow-threshold-{item}",
+         "source": str(objects.sources["desktop"]), "size": 1,
+         "modified": "2026-10-01T00:00:00Z"}
+        for item, directory in enumerate(directories)
+    ])
+    result = _find(objects, name_contains="shallow-threshold-", limit=0)
+    assert result.total_matched == 40
+    assert result.top_directories == [("file:///short", 21)] + [
+        (f"file:///mixed/shared/three/four/five/d{item:02d}", 1) for item in range(9)
+    ]
+
+
+def test_top_directories_depth_one_always_qualifies(objects):
+    # Even at depth 1 the top ten cover only 10/16 matches. The fallback
+    # must return those ten first-component buckets, with ties by name.
+    _insert(objects, [
+        {"uri": f"file:///fallback{directory:02d}/child/leaf/fallback-probe",
+         "label": "fallback-probe", "source": str(objects.sources["desktop"]),
+         "size": 1, "modified": "2026-10-01T00:00:00Z"}
+        for directory in reversed(range(16))
+    ])
+    result = _find(objects, name="fallback-probe", limit=0)
+    assert result.total_matched == 16
+    assert result.top_directories == [
+        (f"file:///fallback{directory:02d}", 1) for directory in range(10)
+    ]
+
+
+def test_top_directories_order_by_count_then_name_before_ten_bucket_cutoff(objects):
+    # Twelve buckets qualify (top ten: 22/26). Eleven tie for the nine
+    # remaining slots after zeta, whose larger count outranks its name.
+    names = ("theta", "mu", "lambda", "kappa", "iota", "gamma", "eta",
+             "epsilon", "delta", "beta", "alpha", "zeta")
+    _insert(objects, [
+        {"uri": f"file:///ties/shared/{name}/ties-probe{item}",
+         "label": f"ties-probe{item}", "source": str(objects.sources["desktop"]),
+         "size": 1, "modified": "2026-10-01T00:00:00Z"}
+        for name in names for item in range(4 if name == "zeta" else 2)
+    ])
+    result = _find(objects, name_contains="ties-probe", limit=0)
+    assert result.total_matched == 26
+    assert result.top_directories == [
+        ("file:///ties/shared/zeta", 4),
+        ("file:///ties/shared/alpha", 2),
+        ("file:///ties/shared/beta", 2),
+        ("file:///ties/shared/delta", 2),
+        ("file:///ties/shared/epsilon", 2),
+        ("file:///ties/shared/eta", 2),
+        ("file:///ties/shared/gamma", 2),
+        ("file:///ties/shared/iota", 2),
+        ("file:///ties/shared/kappa", 2),
+        ("file:///ties/shared/lambda", 2),
+    ]
+
+
 @pytest.mark.parametrize("condition", ["name", "name_contains", "path_segments", "machines"])
 def test_query_values_are_literal_even_with_quotes_and_wildcards(objects, condition):
     value = "odd'\"\\%_ OR true"

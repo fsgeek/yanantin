@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, model_validator
 from yanantin.activity.models import FactRecord
 from yanantin.core.aql import run as run_aql
 from yanantin.core.storage_obfuscator import StorageObfuscator
+from yanantin.recorder.storage.local.linux.registration import RECORDER_ID
 from yanantin.recorder.storage.local.linux.walks import latest_walk_start
 from yanantin.recorder.storage.objects_definition import (
     OBJECTS_FIND_VIEW,
@@ -111,7 +112,11 @@ def _machine_names(db, obfuscator: StorageObfuscator, registrants: str) -> dict[
     rows = run_aql(db, f"FOR r IN @@reg RETURN [r._key, r.{name}]",
                    bind_vars={"@reg": obfuscator.collection_name(registrants)})
     names = {}
+    # The recorder and find itself register in the same catalog but hold no files.
+    not_storage = {str(RECORDER_ID), str(FIND_PROVIDER_ID)}
     for key, registrant_name in rows:
+        if key in not_storage:
+            continue
         match = _HOST_SUFFIX.search(registrant_name or "")
         names[key] = match.group(1) if match else key[:8]
     return names

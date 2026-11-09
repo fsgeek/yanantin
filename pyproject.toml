@@ -31,6 +31,14 @@ semantic = [
     # Per-format extras (unstructured[md], [pdf], ...) install on demand.
     "unstructured>=0.23",
 ]
+# The find tool's MCP server (docs/design-find-tool.md). FastMCP was renamed in
+# mcp 2, so the bound matches khipumaq's.
+find-mcp = [
+    "mcp[cli]>=1.28,<2",
+]
+
+[project.scripts]
+yanantin-find-mcp = "yanantin.find.mcp_server:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

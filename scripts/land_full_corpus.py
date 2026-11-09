@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import socket
 import sys
 import time
 from collections import Counter
@@ -276,8 +277,10 @@ def main() -> int:
     if registrar.lookup_by_identifier(provider_id) is None:
         registrar.register(
             registrant_id=provider_id,
+            # The host in parentheses is how find names the machine; a local
+            # landing has no manifest, so it names its own host.
             registrant_name="linux-local-storage collector"
-            + (f" ({manifest['host']})" if manifest else ""),
+            + f" ({manifest['host'] if manifest else socket.gethostname()})",
             registrant_kind="provider",
             description=collector.get_description(),
             contributes_to=[],

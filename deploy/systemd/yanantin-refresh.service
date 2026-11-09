@@ -4,7 +4,7 @@ Description=yanantin: incremental walk of each machine into arango-objects (Obje
 [Service]
 Type=oneshot
 WorkingDirectory=/home/tony/projects/yanantin
-ExecStart=/home/tony/.local/bin/uv run python scripts/refresh_machines.py --hosts ubuntu24 wam-nuc gazelle ubuntu26-test wam-mac --local
+ExecStart=/home/tony/.local/bin/uv run python scripts/refresh_machines.py --hosts ubuntu24 wam-nuc gazelle ubuntu26-test pundit wam-mac --local
 Nice=10
 IOSchedulingClass=idle
 TimeoutStartSec=8h

@@ -1,14 +1,17 @@
 """0.3.1 step 3 (Codex review, finding 9): an empty, malformed or all-zero
 machine-id must never become a provider. Before this, an empty file produced a
 provider, and a machine without /etc/machine-id silently got a hostname-derived
-identity that a rename would change."""
+identity that a rename would change.
+
+Validation sits where an identity enters from a real machine: the machine-id
+file, the refresh's ssh read, and a landed manifest. An explicit machine_id
+passed by code to the collector is the caller's (tests use labels on purpose)."""
 
 import importlib.util
 from pathlib import Path
 
 import pytest
 
-from yanantin.collector.storage.local.linux.collector import LinuxFilesystemCollector
 from yanantin.machine.base import _get_machine_id
 
 _spec = importlib.util.spec_from_file_location(
@@ -37,12 +40,6 @@ def test_the_reader_refuses_invalid_ids(tmp_path, content):
 def test_the_reader_refuses_a_missing_file_instead_of_guessing(tmp_path):
     with pytest.raises(RuntimeError, match="will not guess"):
         _get_machine_id(tmp_path / "absent")
-
-
-@pytest.mark.parametrize("machine_id", BAD)
-def test_the_collector_refuses_invalid_explicit_ids(tmp_path, machine_id):
-    with pytest.raises(ValueError, match="machine-id"):
-        LinuxFilesystemCollector(tmp_path, machine_id=machine_id)
 
 
 @pytest.mark.parametrize("machine_id", BAD)

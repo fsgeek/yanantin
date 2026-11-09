@@ -32,6 +32,10 @@ from yanantin.recorder.storage.objects_definition import (
 FIND_PROVIDER_ID = uuid5(NAMESPACE_DNS, "yanantin.find")
 REGISTRANTS = "StorageRegistrants"
 _TOP_DIRECTORIES = 10
+# Directories are summarized at the deepest depth (<= 6) where the top 10 hold
+# 75% of matches; measured 2026-11-09 to give .cache/uv for pyproject.toml.
+_MAX_DEPTH = 6
+_SUMMARY_SHARE = 0.75
 _HOST_SUFFIX = re.compile(r"\(([^()]+)\)\s*$")
 
 
@@ -122,6 +126,20 @@ def _machine_names(db, obfuscator: StorageObfuscator, registrants: str) -> dict[
     return names
 
 
+def _summarize_directories(rows: list, total: int) -> list[tuple[str, int]]:
+    """The top 10 directories at the deepest depth (<= _MAX_DEPTH) where they
+    hold _SUMMARY_SHARE of all matches; depth 1 always qualifies."""
+    for depth in range(_MAX_DEPTH, 0, -1):
+        counts: dict[tuple, int] = {}
+        for components, n in rows:
+            key = tuple(components[:depth])
+            counts[key] = counts.get(key, 0) + n
+        top = sorted(counts.items(), key=lambda kv: (-kv[1], "/".join(kv[0])))[:_TOP_DIRECTORIES]
+        if depth == 1 or sum(n for _, n in top) >= _SUMMARY_SHARE * total:
+            return [("file:///" + "/".join(components), n) for components, n in top]
+    return []
+
+
 def find_objects(
     db,
     query: CompiledQuery,
@@ -203,11 +221,15 @@ def find_objects(
         by_machine[machine] = by_machine.get(machine, 0) + n
     total = sum(by_machine.values())
 
-    top_directories = [tuple(row) for row in run_aql(
+    # One pass collects each hit's directory cut to _MAX_DEPTH components; the
+    # shallower depths are rolled up here rather than re-queried (a month's window
+    # cost up to 7 s per depth as separate passes).
+    top_directories = _summarize_directories(list(run_aql(
         db,
-        f"{head} COLLECT dir = REGEX_REPLACE(d.{f['uri']}, '/[^/]*$', '') WITH COUNT INTO n "
-        f"SORT n DESC, dir LIMIT {_TOP_DIRECTORIES} RETURN [dir, n]",
-        bind_vars=bind)] if total else []
+        f"{head} LET parts = SPLIT(REGEX_REPLACE(d.{f['uri']}, '^file://', ''), '/')[* FILTER CURRENT != ''] "
+        f"COLLECT dir = SLICE(parts, 0, MIN([{_MAX_DEPTH}, LENGTH(parts) - 1])) WITH COUNT INTO n "
+        f"RETURN [dir, n]",
+        bind_vars=bind)), total) if total else []
 
     hits = []
     if query.limit and total:

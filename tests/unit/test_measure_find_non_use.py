@@ -67,6 +67,8 @@ def test_measures_on_a_synthetic_after_window(tmp_path):
     _session(tmp_path, "s1", "2026-11-10T10:00:00Z", [
         ("mcp__yanantin__find_objects", {"name": "sweep.jsonl"}, hit),
         ("Read", {"file_path": "/home/tony/x/sweep.jsonl"}, "..."),
+        *[("Edit", {"file_path": "/home/tony/projects/a/f.py"}, "") for _ in range(4)],
+        # Six calls after the find: outside the 5-call window, so habit, not fallback.
         ("Bash", {"command": "find / -name other.txt"}, ""),
     ])
     # s2: find, then falls back to the shell for the same thing.

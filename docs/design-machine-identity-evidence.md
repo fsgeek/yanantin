@@ -30,7 +30,7 @@ decisions taken in response are in the last section; they override the draft whe
    - Linux: `/etc/machine-id`. It stays the primary, because 18.1M objects on four machines are
      keyed through it. Changing it would orphan them.
    - macOS: `IOPlatformUUID` (`ioreg -rd1 -c IOPlatformExpertDevice`). wam-mac's is
-     `99E7341C-E143-533C-9C7E-455BCCBCE27D`.
+     `11111111-2222-4333-8444-555555555555`.
    - Windows: `HKLM\SOFTWARE\Microsoft\Cryptography\MachineGuid` (when a Windows collector exists).
    - `identity_type` names the source: `machine.linux`, `machine.darwin`, `machine.windows`.
 2. **No silent fallback.** If the primary cannot be read, the collector refuses to run and says why.

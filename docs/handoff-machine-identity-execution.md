@@ -93,7 +93,7 @@ stop and read the plan; it's decided.)
   has 281 (pre-existing tensor-composition data — leave alone). No storage data exists yet; this
   slice is the first thing that writes machine/file records.
 - **`_get_machine_id()` lives in `yanantin.machine.base`** and reads `/etc/machine-id`
-  (this machine: `8ae0edf526f3453ab1abaf04e1c75a4a`). The plan patches it via
+  (this machine: `0a1b2c3d4e5f60718293a4b5c6d7e8f9`). The plan patches it via
   `unittest.mock.patch` at BOTH `yanantin.machine.linux._get_machine_id` and
   `yanantin.machine.base._get_machine_id` in places — keep both patches.
 

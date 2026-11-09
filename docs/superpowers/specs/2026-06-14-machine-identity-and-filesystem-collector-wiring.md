@@ -95,7 +95,7 @@ model is defined locally in `yanantin.apacheta.models.provenance_edge` with nati
 edge fields so the collection is traversable via AQL graph queries:
 
 - `id: UUID` — document key
-- `_from: str` — ArangoDB `collection/key` format, e.g. `"entities/8ae0edf526f3453ab1abaf04e1c75a4a"`
+- `_from: str` — ArangoDB `collection/key` format, e.g. `"entities/0a1b2c3d4e5f60718293a4b5c6d7e8f9"`
 - `_to: str` — ArangoDB `collection/key` format, e.g. `"records/<fact_uuid>"`
 - `relation_type: str` — free string (not enum) to avoid locking the vocabulary early
 - `provenance: ProvenanceEnvelope`
@@ -108,7 +108,7 @@ Arango backend sets `_from` and `_to` directly rather than mapping through `id` 
 ```json
 {
   "_key": "<edge_uuid>",
-  "_from": "entities/8ae0edf526f3453ab1abaf04e1c75a4a",
+  "_from": "entities/0a1b2c3d4e5f60718293a4b5c6d7e8f9",
   "_to": "records/<fact_uuid>",
   "relation_type": "contains",
   "provenance": { "source": { "identifier": "<recorder_id>" }, "timestamp": "..." }

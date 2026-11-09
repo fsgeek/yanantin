@@ -144,7 +144,7 @@ class ProvenanceEdge(BaseModel):
             if "/" not in value:
                 raise ValueError(
                     f"{field_name}={value!r} must be collection/key format, "
-                    "e.g. 'entities/8ae0edf526f3453ab1abaf04e1c75a4a'"
+                    "e.g. 'entities/0a1b2c3d4e5f60718293a4b5c6d7e8f9'"
                 )
         return self
 ```
@@ -378,7 +378,7 @@ from yanantin.apacheta.models.entities import EntityResolution
 from yanantin.machine.linux import MachineConfigCollector, MachineConfigRecorder
 from yanantin.transport.models import WranglerEnvelope
 
-FAKE_MACHINE_ID = "8ae0edf526f3453ab1abaf04e1c75a4a"
+FAKE_MACHINE_ID = "0a1b2c3d4e5f60718293a4b5c6d7e8f9"
 
 
 def _make_envelope():
@@ -569,7 +569,7 @@ Add to `tests/unit/test_collector_filesystem.py` (the existing test file):
 ```python
 from unittest.mock import patch
 
-FAKE_MACHINE_ID = "8ae0edf526f3453ab1abaf04e1c75a4a"
+FAKE_MACHINE_ID = "0a1b2c3d4e5f60718293a4b5c6d7e8f9"
 
 
 def test_explicit_machine_id_used_for_provider_id(tmp_path):
@@ -665,7 +665,7 @@ from yanantin.recorder.storage.local.linux.fact_recorder import FilesystemFactRe
 from yanantin.transport.models import WranglerEnvelope
 from yanantin.transport.wranglers import DirectWrangler
 
-FAKE_MACHINE_ID = "8ae0edf526f3453ab1abaf04e1c75a4a"
+FAKE_MACHINE_ID = "0a1b2c3d4e5f60718293a4b5c6d7e8f9"
 
 
 def _run_pipeline(tmp_path):
@@ -940,7 +940,7 @@ from yanantin.recorder.storage.local.linux.fact_recorder import FilesystemFactRe
 from yanantin.transport.models import WranglerEnvelope
 from yanantin.transport.wranglers import DirectWrangler
 
-FAKE_MACHINE_ID = "8ae0edf526f3453ab1abaf04e1c75a4a"
+FAKE_MACHINE_ID = "0a1b2c3d4e5f60718293a4b5c6d7e8f9"
 
 pytestmark = pytest.mark.integration
 

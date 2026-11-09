@@ -30,7 +30,7 @@ from yanantin.recorder.storage.local.linux.walks import latest_walk_start
 REPO = Path(__file__).resolve().parents[1]
 CORPUS = Path.home() / ".yanantin" / "corpus"
 SSH = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=10", "-o", "ServerAliveInterval=60"]
-REMOTE_UV = "export PATH=$HOME/.local/bin:$PATH; uv run --quiet --python 3.14 --no-project --with yanantin==0.3.0 python -"
+REMOTE_UV = "export PATH=$HOME/.local/bin:$PATH; uv run --quiet --python 3.14 --no-project --with yanantin==0.3.1 python -"
 # A machine's primary: /etc/machine-id where it exists, otherwise asked of the same
 # yanantin the walker runs, so preflight and walk derive it with identical code
 # (macOS: darwin:<IOPlatformUUID>:<Data volume UUID>).

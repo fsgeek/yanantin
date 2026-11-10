@@ -37,6 +37,7 @@ from yanantin.collector.storage.local.linux.shape_report import (
 from yanantin.core.khipu import Khipu
 from yanantin.core.registration import Registrar
 from yanantin.core.storage_obfuscator import TransparentObfuscator
+from yanantin.machine.detectors import IDENTITY_PROVIDER_ID, identity_findings
 from yanantin.machine.evidence import linux_identity_evidence, valid_primary
 from yanantin.infra.config import ApachetaDBConfig, get_database, objects_params
 from yanantin.recorder.storage.local.linux.batch_landing import (
@@ -333,6 +334,27 @@ def main() -> int:
     # ── Phase 4: shape report as an activity fact, then read it back ──
     store = ArangoDBActivityStreamStore(**target)
     shape_report = shape.report()
+    walk = manifest if manifest is not None else {
+        "host": None,
+        "root": str(Path(args.root).resolve()),
+        "all_names": bool(args.all_names),
+        "incremental": cutoff is not None,
+        "since": args.since,
+        "cutoff": cutoff.isoformat() if cutoff else None,
+        "started": walk_started.isoformat(),
+        # Every identifier this machine offers, with how it was read
+        # (docs/design-machine-identity-evidence.md).
+        "identity_evidence": linux_identity_evidence(),
+    }
+    # Cross-run detectors (design detectors 2 and 3): compare with each
+    # provider's latest walk that carried evidence, before this walk is stored.
+    previous = {}
+    for p in store.list_providers():
+        walks = [f for f in store.query_range(p)
+                 if isinstance(f.data.get("walk"), dict) and f.data["walk"].get("identity_evidence")]
+        if walks:
+            previous[str(p)] = max(walks, key=lambda f: f.timestamp).data["walk"]["identity_evidence"]
+    findings = identity_findings(str(provider_id), walk.get("identity_evidence") or [], previous)
     store.store_fact(
         FactRecord(
             provider_id=provider_id,
@@ -344,21 +366,14 @@ def main() -> int:
                 # What this walk covered, so the next one knows its cutoff
                 # (the previous walk's start) and nobody reads an incremental
                 # walk's shape as the whole machine's.
-                "walk": manifest if manifest is not None else {
-                    "host": None,
-                    "root": str(Path(args.root).resolve()),
-                    "all_names": bool(args.all_names),
-                    "incremental": cutoff is not None,
-                    "since": args.since,
-                    "cutoff": cutoff.isoformat() if cutoff else None,
-                    "started": walk_started.isoformat(),
-                    # Every identifier this machine offers, with how it was read
-                    # (docs/design-machine-identity-evidence.md).
-                    "identity_evidence": linux_identity_evidence(),
-                },
+                "walk": walk,
             },
         )
     )
+    for finding in findings:  # reported for a person to judge; nothing is rewritten
+        store.store_fact(FactRecord(provider_id=IDENTITY_PROVIDER_ID, timestamp=datetime.now(timezone.utc),
+                                    data={"identity_finding": finding, "walk_started": walk.get("started")}))
+    summary["identity_findings"] = findings
     back = store.query_latest(provider_id)
     summary["shape_fact_roundtrip"] = bool(
         back is not None and back.data.get("object_count") == shape_report.object_count

@@ -14,8 +14,8 @@ from yanantin.find import FindResult
 
 # Update when a source is walked. Silence about a silo would read as "searched".
 NOT_INDEXED = (
-    "Not indexed yet: Windows drives (wam-vector; WAM-THREADRIPPER's C: to G:), the Mac (wam-mac, "
-    "including iCloud Drive), and cloud accounts (OneDrive, Dropbox, Sync.com, Google Drive). "
+    "Not indexed yet: Windows drives (wam-vector; WAM-THREADRIPPER's C: to G:) and cloud accounts "
+    "(OneDrive, Dropbox, Sync.com, Google Drive; iCloud Drive only as the Mac's walk sees it). "
     "No match here says nothing about those.")
 
 _ZERO_HINT = (

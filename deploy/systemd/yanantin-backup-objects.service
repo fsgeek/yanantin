@@ -3,6 +3,7 @@ Description=yanantin: dump arango-objects (the file index) and copy it to wam-nu
 
 [Service]
 Type=oneshot
+ExecStartPre=/home/tony/projects/yanantin/deploy/ensure-arango-objects.sh
 ExecStart=/home/tony/projects/yanantin/deploy/backup-objects.sh
 Nice=10
 IOSchedulingClass=idle

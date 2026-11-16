@@ -77,3 +77,28 @@ def describe_store(objects: int, last_walks: dict[str, datetime | None]) -> str:
         "changed rather than where it is, call find_objects before find, rg or ls: it searches every "
         "machine at once and answers summary first (counts per machine and directory) in "
         f"milliseconds to a few seconds. {NOT_INDEXED}")
+
+
+# Nightly backups land ~13:28Z, so a healthy one is at most ~24h old.
+_BACKUP_STALE_HOURS = 30
+_TELL_TONY_HOURS = 72
+
+
+def health_notice(*, now: datetime, db_error: str | None, refresh_failed_at: datetime | None,
+                  last_ok_backup: datetime | None) -> str:
+    """What is wrong with yanantin right now, for the server's instructions; "" when nothing is."""
+    problems, age = [], 0.0
+    if db_error:
+        problems.append(f"arango-objects (port 8532) is not answering ({db_error}); find_objects will fail")
+    if refresh_failed_at:
+        problems.append(f"the nightly refresh failed {_minute(refresh_failed_at)}")
+    if last_ok_backup and (age := (now - last_ok_backup).total_seconds() / 3600) > _BACKUP_STALE_HOURS:
+        problems.append(f"the newest good backup is {age:.0f}h old")
+    if not problems:
+        return ""
+    # Tony's attention is the scarce thing: he is named only when the index's only
+    # second copy is at risk (no good backup for 3 nights). Everything else waits
+    # for the steward.
+    tell = "Tell Tony now, and leave" if age > _TELL_TONY_HOURS else "Leave"
+    return ("YANANTIN IS UNWELL: " + "; ".join(problems) + f". {tell} a note in "
+            "/home/tony/projects/yanantin/docs/requests/ for yanantin's steward.")

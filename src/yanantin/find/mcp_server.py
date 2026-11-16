@@ -13,6 +13,9 @@ Run:  yanantin-find-mcp   (stdio; needs the find-mcp extra)
 from __future__ import annotations
 
 import json
+import subprocess
+from datetime import datetime, timezone
+from pathlib import Path
 from uuid import UUID
 
 from mcp.server.fastmcp import FastMCP
@@ -22,17 +25,69 @@ from yanantin.activity.backends.arango import ArangoDBActivityStreamStore
 from yanantin.core.storage_obfuscator import TransparentObfuscator
 from yanantin.find import FIND_PROVIDER_ID, REGISTRANTS, CompiledQuery, _machine_names
 from yanantin.find import find_objects as _find
-from yanantin.find.render import describe_store, parse_when, render
+from yanantin.find.render import describe_store, health_notice, parse_when, render
 from yanantin.infra.config import objects_database, objects_params
 from yanantin.recorder.storage.local.linux.walks import latest_walk_start
 from yanantin.recorder.storage.objects_definition import STORAGE_OBJECTS
 
-_db = objects_database()
-_activity = ArangoDBActivityStreamStore(**objects_params())
 _obfuscator = TransparentObfuscator()  # arango-objects stores semantic names (2026-11-09)
+_db = _activity = None
+_db_error: str | None = None
+_BACKUP_LOG = Path.home() / "backups/arango-objects/backup-log.jsonl"
+
+
+def _connect() -> None:
+    """Connect if not yet connected. A down server must not stop this one from
+    starting: on 2026-11-15 it did, and sessions saw a timeout instead of a reason."""
+    global _db, _activity, _db_error
+    if _db is not None:
+        return
+    try:
+        _db = objects_database()
+        _activity = ArangoDBActivityStreamStore(**objects_params())
+        _db_error = None
+    except Exception as e:  # any failure here means the same thing to the caller
+        _db = _activity = None
+        _db_error = str(e).splitlines()[0][:200]
+
+
+def _refresh_failed_at() -> datetime | None:
+    """When yanantin-refresh last failed, if its latest run failed (only where the unit exists)."""
+    try:
+        out = subprocess.run(
+            ["systemctl", "--user", "show", "yanantin-refresh.service", "--timestamp=utc",
+             "-p", "LoadState", "-p", "Result", "-p", "InactiveEnterTimestamp"],
+            capture_output=True, text=True, timeout=5).stdout.splitlines()
+        props = dict(line.split("=", 1) for line in out if "=" in line)  # systemd picks the order
+        if props.get("LoadState") != "loaded" or props.get("Result", "success") == "success":
+            return None
+        return datetime.strptime(props["InactiveEnterTimestamp"],
+                                 "%a %Y-%m-%d %H:%M:%S UTC").replace(tzinfo=timezone.utc)
+    except (OSError, subprocess.SubprocessError, ValueError):
+        return None
+
+
+def _last_ok_backup() -> datetime | None:
+    try:
+        lines = _BACKUP_LOG.read_text().splitlines()
+    except OSError:
+        return None
+    for line in reversed(lines):
+        rec = json.loads(line)
+        if rec.get("status") == "ok":
+            return datetime.fromisoformat(rec["finished"].replace("Z", "+00:00"))
+    return None
+
+
+def _health() -> str:
+    return health_notice(now=datetime.now(timezone.utc), db_error=_db_error,
+                         refresh_failed_at=_refresh_failed_at(), last_ok_backup=_last_ok_backup())
 
 
 def _self_description() -> str:
+    _connect()
+    if _db is None:
+        return _health()
     names = _machine_names(_db, _obfuscator, REGISTRANTS)
     last = {}
     for source, machine in names.items():
@@ -43,7 +98,8 @@ def _self_description() -> str:
         except ValueError:
             continue
     objects = _db.collection(STORAGE_OBJECTS).count()
-    return describe_store(objects, last)
+    health = _health()
+    return (health + " " if health else "") + describe_store(objects, last)
 
 
 mcp = FastMCP("yanantin", instructions=_self_description())
@@ -85,6 +141,9 @@ def find_objects(
     path], newest first. no-match responses keep coverage and not_indexed, so
     "not found" is never "doesn't exist": check not_indexed before concluding.
     """
+    _connect()
+    if _db is None:
+        return json.dumps({"error": _health()}, ensure_ascii=False)
     query = CompiledQuery(
         name=name, name_contains=name_contains, path_segments=tuple(path_segments or ()),
         modified_after=parse_when(modified_after), modified_before=parse_when(modified_before),

@@ -68,3 +68,43 @@ def test_describe_store_names_the_scale_the_machines_and_when_to_reach_for_it():
                                        "pop-os": None})
     assert "19,136,843" in text and "wam-desktop" in text and "pop-os" in text
     assert "find" in text and "rg" in text  # it says when to prefer it over the shell
+
+
+# Health notice (2026-11-15). arango-objects sat down for 18 hours after a reboot
+# and the refresh and backup failed; the only instance to notice was another
+# project's, by accident. Every session loads this server's instructions, so they
+# say when yanantin is unwell — and say nothing when it is well.
+from yanantin.find.render import health_notice  # noqa: E402
+
+NOW = datetime(2026, 11, 15, 23, 0, tzinfo=UTC)
+
+
+def test_healthy_says_nothing():
+    assert health_notice(now=NOW, db_error=None, refresh_failed_at=None,
+                         last_ok_backup=datetime(2026, 11, 15, 13, 28, tzinfo=UTC)) == ""
+
+
+def test_each_problem_is_named_with_its_time_and_where_to_report():
+    out = health_notice(now=NOW, db_error="Connection refused",
+                        refresh_failed_at=datetime(2026, 11, 15, 11, 30, tzinfo=UTC),
+                        last_ok_backup=datetime(2026, 11, 14, 13, 28, tzinfo=UTC))
+    assert "not answering" in out and "Connection refused" in out
+    assert "refresh failed 2026-11-15T11:30Z" in out
+    assert "backup is 34h old" in out  # 33h32m
+    assert "docs/requests" in out and "Tony" not in out
+
+
+def test_tony_is_named_only_when_backups_have_failed_three_nights():
+    out = health_notice(now=NOW, db_error=None, refresh_failed_at=None,
+                        last_ok_backup=datetime(2026, 11, 12, 13, 28, tzinfo=UTC))
+    assert out.startswith("YANANTIN IS UNWELL") and "Tell Tony now" in out
+
+
+def test_a_backup_one_night_old_is_not_a_problem():
+    assert health_notice(now=NOW, db_error=None, refresh_failed_at=None,
+                         last_ok_backup=datetime(2026, 11, 14, 13, 28, tzinfo=UTC).replace(hour=23)) == ""
+
+
+def test_unknown_backup_state_is_silent_not_alarming():
+    # Machines other than WAM-THREADRIPPER have no backup log; absence isn't failure.
+    assert health_notice(now=NOW, db_error=None, refresh_failed_at=None, last_ok_backup=None) == ""

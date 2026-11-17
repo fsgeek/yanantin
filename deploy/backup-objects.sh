@@ -84,6 +84,16 @@ rsync -a "$OUT" "$REMOTE:$REMOTE_ROOT/"
 STAGE="verify-remote"
 ssh -o BatchMode=yes "$REMOTE" "cd $REMOTE_ROOT/$TS && sha256sum --quiet -c MANIFEST.sha256"
 
+# Tessera pilot (2026-11-16): a receipt that tonight's manifest existed by time T. Never
+# fails the backup: receipts take hours, so each run fetches the earlier runs' receipts
+# and submits its own. Each run's tessera/ directory follows it to wam-nuc.
+TESSERA="$(dirname "$0")/tessera_receipt.py"
+python3 "$TESSERA" fetch "$LOCAL_ROOT" || echo "tessera: fetch failed (non-fatal)"
+python3 "$TESSERA" submit "$OUT" || echo "tessera: submit failed (non-fatal)"
+for d in "$LOCAL_ROOT"/20*Z/tessera; do
+  [ -d "$d" ] && { rsync -a "$d" "$REMOTE:$REMOTE_ROOT/$(basename "$(dirname "$d")")/" || echo "tessera: copy of $d failed (non-fatal)"; }
+done
+
 STAGE="prune"
 ls -1d "$LOCAL_ROOT"/20*Z 2>/dev/null | sort | head -n -"$KEEP_LOCAL" | xargs -r rm -rf
 ssh -o BatchMode=yes "$REMOTE" "ls -1d $REMOTE_ROOT/20*Z 2>/dev/null | sort | head -n -$KEEP_REMOTE | xargs -r rm -rf"

@@ -1,0 +1,9 @@
+[Unit]
+Description=yanantin: weekly restore check (Sunday 15:00 UTC, after the 13:15Z backup has landed)
+
+[Timer]
+OnCalendar=Sun *-*-* 15:00:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

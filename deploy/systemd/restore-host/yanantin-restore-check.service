@@ -1,0 +1,9 @@
+[Unit]
+Description=yanantin: full restore check of the newest arango-objects backup from wam-nuc (runs on the restore host)
+
+[Service]
+Type=oneshot
+ExecStart=/srv/restore/bin/restore-check-objects.sh
+Nice=10
+IOSchedulingClass=idle
+TimeoutStartSec=8h

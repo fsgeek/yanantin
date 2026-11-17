@@ -40,7 +40,10 @@ stop_server() {  # SIGTERM, then wait for exit: a 31M-document server takes minu
 trap 'stop_server; mark restore-failed "$STAGE" "${RESULT:+\"result\":$RESULT}"; exit 1' ERR
 
 STAGE=clean
-pkill -u "$USER" -f "$BIN/arangod" 2>/dev/null || true   # a crashed earlier check
+# A server left by an earlier check: stop it and wait, before deleting its files.
+pkill -u "$USER" -f "$BIN/arangod" 2>/dev/null || true
+for _ in $(seq 1 180); do pgrep -u "$USER" -f "$BIN/arangod" >/dev/null || break; sleep 5; done
+pkill -9 -u "$USER" -f "$BIN/arangod" 2>/dev/null || true
 rm -rf "$WORK"; mkdir -p "$WORK"
 
 STAGE=select

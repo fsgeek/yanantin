@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Restore check for arango-objects backups. Runs on the RESTORE HOST (ubuntu26-test),
+# Restore check for arango-objects backups. Runs on the RESTORE HOST (pundit since
+# 2026-11-19; ubuntu26-test before, a VM on WAM-THREADRIPPER, so never independent),
 # never on WAM-THREADRIPPER: the point is to prove that a snapshot comes back from
 # wam-nuc alone (tupay's verified-backup contract, T10/T11; yanantin's binding is in
 # progress).

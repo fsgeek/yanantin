@@ -108,3 +108,30 @@ def test_a_backup_one_night_old_is_not_a_problem():
 def test_unknown_backup_state_is_silent_not_alarming():
     # Machines other than WAM-THREADRIPPER have no backup log; absence isn't failure.
     assert health_notice(now=NOW, db_error=None, refresh_failed_at=None, last_ok_backup=None) == ""
+
+
+# Question capture (2026-11-20). Tony: "The real discipline is capturing these
+# questions regularly." A discipline that depends on remembering fails, so every
+# instance that loads this server can file a question the moment it comes up.
+from yanantin.find.questions import question_doc  # noqa: E402
+
+
+def test_a_captured_question_keeps_the_words_and_says_who_and_when():
+    d = question_doc("Where are our wedding photos?", asked_by="human", verbatim=True,
+                     context="mentioned while working on backups", outcome=None,
+                     project="yanantin", now=NOW)
+    assert d["text"] == "Where are our wedding photos?" and d["verbatim_tony"] is True
+    assert d["tenant"] == "human" and d["source"]["project"] == "yanantin"
+    assert d["recorded"] == "2026-11-15T23:00:00Z" and d["coverage"]["answerable_today"] == "unjudged"
+    assert d["_key"].startswith("q-20261115-")
+
+
+def test_two_captures_of_the_same_words_get_different_keys():
+    a = question_doc("Where is it?", asked_by="human", verbatim=True, context=None, outcome=None, project="p", now=NOW)
+    b = question_doc("Where is it?", asked_by="human", verbatim=True, context=None, outcome=None, project="p", now=NOW)
+    assert a["_key"] != b["_key"]
+
+
+def test_tenant_must_be_one_of_the_three():
+    with pytest.raises(ValueError):
+        question_doc("x", asked_by="robot", verbatim=False, context=None, outcome=None, project="p", now=NOW)

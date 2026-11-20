@@ -25,6 +25,7 @@ from yanantin.activity.backends.arango import ArangoDBActivityStreamStore
 from yanantin.core.storage_obfuscator import TransparentObfuscator
 from yanantin.find import FIND_PROVIDER_ID, REGISTRANTS, CompiledQuery, _machine_names
 from yanantin.find import find_objects as _find
+from yanantin.find.questions import COLLECTION as QUESTIONS, question_doc
 from yanantin.find.render import describe_store, health_notice, parse_when, render
 from yanantin.infra.config import objects_database, objects_params
 from yanantin.recorder.storage.local.linux.walks import latest_walk_start
@@ -152,6 +153,46 @@ def find_objects(
     # cost ~40% of a summary's tokens.
     return json.dumps(render(_find(_db, query, activity=_activity, obfuscator=_obfuscator)),
                       separators=(",", ":"), ensure_ascii=False)
+
+
+@mcp.tool(annotations=ToolAnnotations(title="Record a question for yanantin's register", openWorldHint=False))
+def record_question(
+    text: str,
+    asked_by: str = "human",
+    verbatim: bool = True,
+    context: str | None = None,
+    outcome: str | None = None,
+) -> str:
+    """File a real question in yanantin's question register, the moment it comes up.
+
+    Call it whenever the person mentions looking for something, in any project:
+    a file, photo, document, email, message, or a past decision. Cues: "I was
+    looking for...", "I couldn't find...", "where did I put...", "which copy...",
+    "do you remember when...". Also call it for your own questions as an
+    instance ("where did this belief come from?"), with asked_by="instance".
+    Tony, 2026-11-20: "The real discipline is capturing these questions
+    regularly." The register is yanantin's requirements and evaluation set, so a
+    real question is worth more than any invented one.
+
+    - text: the question, in their words when you have them (verbatim=True);
+      otherwise your faithful paraphrase (verbatim=False). Never quote a
+      paraphrase as their words.
+    - asked_by: "human", "instance", or "commons".
+    - context: why they were looking, if known (e.g. "for an RTB filing").
+    - outcome: how the search went, if known ("found in Google Photos after
+      10 min", "gave up"). The route and the outcome are the useful data.
+
+    It records only what you pass. Returns the new entry's key.
+    """
+    _connect()
+    if _db is None:
+        return json.dumps({"error": _health()}, ensure_ascii=False)
+    doc = question_doc(text, asked_by=asked_by, verbatim=verbatim, context=context,
+                       outcome=outcome, project=Path.cwd().name)
+    if not _db.has_collection(QUESTIONS):
+        _db.create_collection(QUESTIONS)
+    _db.collection(QUESTIONS).insert(doc)
+    return json.dumps({"recorded": doc["_key"]})
 
 
 def main() -> None:

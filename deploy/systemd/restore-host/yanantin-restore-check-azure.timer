@@ -1,0 +1,9 @@
+[Unit]
+Description=yanantin: monthly off-site restore check (first Sunday, 19:00 UTC, after the weekly check)
+
+[Timer]
+OnCalendar=Sun *-*-01..07 19:00:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

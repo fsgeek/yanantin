@@ -1,0 +1,10 @@
+[Unit]
+Description=yanantin: full restore check of the newest OFF-SITE (Azure) arango-objects copy, decrypted with the backup key
+After=yanantin-restore-check.service
+
+[Service]
+Type=oneshot
+ExecStart=/srv/restore/bin/restore-check-objects.sh --azure
+Nice=10
+IOSchedulingClass=idle
+TimeoutStartSec=10h

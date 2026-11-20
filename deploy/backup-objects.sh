@@ -84,6 +84,21 @@ rsync -a "$OUT" "$REMOTE:$REMOTE_ROOT/"
 STAGE="verify-remote"
 ssh -o BatchMode=yes "$REMOTE" "cd $REMOTE_ROOT/$TS && sha256sum --quiet -c MANIFEST.sha256"
 
+# Off-site copy (2026-11-20): the snapshot, age-encrypted in the pipe, to Azure blob
+# (canadacentral, cool, 30-day unlocked retention, expiry at 35 days). The SAS is
+# write-only; only the restore host (pundit) can read, and only it holds the key.
+# Never fails the backup (wam-nuc holds tonight's copy); the result is in the status line.
+OFFSITE="\"offsite\":\"failed\""
+if R="$(tar -C "$OUT" -cf - MANIFEST.sha256 live-counts.json dump \
+        | age -r "$(cat "$HOME/.yanantin/config/backup-age.pub")" \
+        | python3 "$(dirname "$0")/azure_put_blob.py" "yanantin/$TS.tar.age")"; then
+  echo "$R" > "$OUT/offsite.json"
+  OFFSITE="\"offsite\":$R"
+  rsync -a "$OUT/offsite.json" "$REMOTE:$REMOTE_ROOT/$TS/" || true
+else
+  echo "offsite: upload failed (non-fatal)"
+fi
+
 # Tessera pilot (2026-11-16): a receipt that tonight's manifest existed by time T. Never
 # fails the backup: receipts take hours, so each run fetches the earlier runs' receipts
 # and submits its own. Each run's tessera/ directory follows it to wam-nuc.
@@ -99,5 +114,5 @@ ls -1d "$LOCAL_ROOT"/20*Z 2>/dev/null | sort | head -n -"$KEEP_LOCAL" | xargs -r
 ssh -o BatchMode=yes "$REMOTE" "ls -1d $REMOTE_ROOT/20*Z 2>/dev/null | sort | head -n -$KEEP_REMOTE | xargs -r rm -rf"
 
 STAGE="done"
-status ok done "\"bytes\":$SIZE,\"files\":$FILES,\"remote\":\"$REMOTE:$REMOTE_ROOT/$TS\""
+status ok done "\"bytes\":$SIZE,\"files\":$FILES,\"remote\":\"$REMOTE:$REMOTE_ROOT/$TS\",$OFFSITE"
 scp -q "$LOG" "$REMOTE:$REMOTE_ROOT/backup-log.jsonl"

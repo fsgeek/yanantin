@@ -45,8 +45,8 @@ fi
 echo "== restore check and weekly timer"
 scp -q "$HERE/restore-check-objects.sh" "$HOST:/srv/restore/bin/"
 ssh "$HOST" 'chmod +x /srv/restore/bin/restore-check-objects.sh; mkdir -p ~/.config/systemd/user'
-scp -q "$HERE"/systemd/restore-host/yanantin-restore-check.{service,timer} "$HOST:.config/systemd/user/"
-ssh "$HOST" 'sudo -n loginctl enable-linger "$USER"; systemctl --user daemon-reload; systemctl --user enable --now yanantin-restore-check.timer'
+scp -q "$HERE"/systemd/restore-host/yanantin-restore-check{,-azure}.{service,timer} "$HOST:.config/systemd/user/"
+ssh "$HOST" 'sudo -n loginctl enable-linger "$USER"; systemctl --user daemon-reload; systemctl --user enable --now yanantin-restore-check.timer yanantin-restore-check-azure.timer'
 
 echo "== checks"
 ssh "$HOST" "set -e; /srv/restore/bin/arangodb-$VER/arangod --version | head -1

@@ -14,7 +14,10 @@
 # /srv/restore/bin) -> compare every collection's count with the counts taken at
 # backup time -> one JSON line in /srv/restore/restore-log.jsonl.
 #
-# Usage: restore-check-objects.sh [SNAPSHOT]   (default: newest ok in wam-nuc's log)
+# Usage: restore-check-objects.sh [SNAPSHOT]          from wam-nuc (default: newest ok)
+#        restore-check-objects.sh --azure [SNAPSHOT]  from the off-site copy: download
+#          with the read-only SAS, decrypt with the backup key, then the same checks.
+#          This proves a recovery from Azure and the key alone (2026-11-20).
 set -euo pipefail
 
 ROOT=/srv/restore
@@ -25,11 +28,13 @@ R="192.168.111.160"   # wam-nuc
 RSYNC_SSH="ssh -i $HOME/.ssh/restore-wam-nuc -o IdentitiesOnly=yes -o BatchMode=yes"
 PORT=18529
 STAGE=start
+SOURCE=wam-nuc; [ "${1:-}" = --azure ] && { SOURCE=azure; shift; }
 SNAP="${1:-}"
+AZ_CONF="$HOME/.config/yanantin"
 STARTED="$(date -u +%FT%TZ)"
 
 mark() {  # mark <restore-checked|restore-failed> <stage> [extra-json]
-  local line="{\"snapshot\":\"$SNAP\",\"mark\":\"$1\",\"stage\":\"$2\",\"started\":\"$STARTED\",\"finished\":\"$(date -u +%FT%TZ)\",\"host\":\"$(hostname)\"${3:+,$3}}"
+  local line="{\"snapshot\":\"$SNAP\",\"mark\":\"$1\",\"stage\":\"$2\",\"started\":\"$STARTED\",\"finished\":\"$(date -u +%FT%TZ)\",\"host\":\"$(hostname)\",\"source\":\"$SOURCE\"${3:+,$3}}"
   echo "$line" >> "$LOG"; echo "$line"
 }
 stop_server() {  # SIGTERM, then wait for exit: a 31M-document server takes minutes to flush
@@ -47,15 +52,40 @@ for _ in $(seq 1 180); do pgrep -u "$USER" -f "$BIN/arangod" >/dev/null || break
 pkill -9 -u "$USER" -f "$BIN/arangod" 2>/dev/null || true
 rm -rf "$WORK"; mkdir -p "$WORK"
 
+azure() {  # azure list | azure get NAME  (read-only SAS from its 0600 file)
+  python3 - "$@" <<'EOF'
+import re, shutil, sys, urllib.request
+from pathlib import Path
+c = Path.home() / ".config/yanantin"
+sas = (c / "azure-backup-read-sas").read_text().strip()
+base = f"https://{(c / 'azure-backup-account').read_text().strip()}.blob.core.windows.net/yanantin"
+if sys.argv[1] == "list":
+    xml = urllib.request.urlopen(f"{base}?restype=container&comp=list&{sas}", timeout=120).read().decode()
+    print("\n".join(sorted(n for n in re.findall(r"<Name>([^<]+)</Name>", xml) if n.endswith(".tar.age"))))
+else:
+    with urllib.request.urlopen(f"{base}/{sys.argv[2]}?{sas}", timeout=600) as r:
+        shutil.copyfileobj(r, sys.stdout.buffer, 16 * 1024 * 1024)
+EOF
+}
+
 STAGE=select
-rsync -e "$RSYNC_SSH" -q "$R:backup-log.jsonl" "$WORK/r-backup-log.jsonl"
-[ -n "$SNAP" ] || SNAP="$(python3 -c '
+if [ "$SOURCE" = azure ]; then
+  [ -n "$SNAP" ] || SNAP="$(azure list | tail -1 | sed 's/\.tar\.age$//')"
+else
+  rsync -e "$RSYNC_SSH" -q "$R:backup-log.jsonl" "$WORK/r-backup-log.jsonl"
+  [ -n "$SNAP" ] || SNAP="$(python3 -c '
 import json,sys
 ok=[json.loads(l)["run"] for l in open(sys.argv[1]) if json.loads(l).get("status")=="ok"]
 print(ok[-1])' "$WORK/r-backup-log.jsonl")"
+fi
 
 STAGE=fetch
-rsync -e "$RSYNC_SSH" -a "$R:$SNAP/" "$WORK/snap/"
+if [ "$SOURCE" = azure ]; then
+  mkdir -p "$WORK/snap"
+  azure get "$SNAP.tar.age" | age -d -i "$AZ_CONF/backup-age.key" | tar -C "$WORK/snap" -xf -
+else
+  rsync -e "$RSYNC_SSH" -a "$R:$SNAP/" "$WORK/snap/"
+fi
 
 STAGE=manifest
 ( cd "$WORK/snap" && sha256sum --quiet -c MANIFEST.sha256 )
